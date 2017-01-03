@@ -21,5 +21,5 @@ estimates.mcmcarray <- function(object, ...) {
 #' @export
 estimates.mcmcr <- function(object, ...) {
   check_unused(...)
-  lapply(estimates)
+  lapply(object, estimates)
 }
