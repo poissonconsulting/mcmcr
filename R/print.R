@@ -17,44 +17,28 @@ summary.mcmcarray <- function(object, ...) {
   check_unused(...)
 
   n <- ndims(object)
-
-  nchains <- nchains(object)
-  niters <- niters(object)
-
-  array <- apply(object, 3:n, stats::median)
-
-  object <- list(array = array)
-  object %<>% c(nchains = nchains, niters = niters)
-
-  class(object) <- "summary.mcmcarray"
-  object
+  apply(object, 3:n, stats::median)
 }
 
 #' @export
 summary.mcmcr <- function(object, ...) {
   check_unused(...)
 
-  nchains <- nchains(object)
-  niters <- niters(object)
-  object %<>% lapply(summary)
+  arrays <- lapply(object, summary)
 
-  class(object) <- "summary.mcmcr"
-  object
-}
+  summary <- list(arrays = list(arrays))
+  summary %<>% c(nchains = nchains(object), niters = niters(object))
 
-#' @export
-print.summary.mcmcarray <- function(x, ...) {
-  check_unused(...)
-  cat(x$array)
-  cat("nchains: ", x$nchains)
-  invisible(x)
+  class(summary) <- "summary.mcmcr"
+  summary
 }
 
 #' @export
 print.summary.mcmcr <- function(x, ...) {
   check_unused(...)
 
-  cat("mcmcr:\n")
-  lapply(x, print)
+  lapply(x$arrays, print)
+  cat("nchains: ", x$nchains, "\n")
+  cat("niters: ", x$niters, "\n")
   invisible(x)
 }
