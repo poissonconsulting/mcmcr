@@ -29,11 +29,11 @@ combine_chains.mcmcarray <- function(x, x2, ...) {
 #' @export
 combine_chains.mcmcr <- function(x, x2, ...) {
   check_unused(...)
-  if (!is.mcmcarray(x)) error("x2 must be an mcmcr")
+  if (!is.mcmcr(x)) error("x2 must be an mcmcr")
 
   if (!identical(names(x), names(x2))) error("x and x2 must have the same names")
 
-  x %<>% purrr::map2(x2)
+  x %<>% purrr::map2(x2, combine_chains)
   class(x) <- "mcmcr"
   x
 }
