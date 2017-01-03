@@ -15,9 +15,7 @@ print.mcmcr <- function(x, ...) {
 #' @export
 summary.mcmcarray <- function(object, ...) {
   check_unused(...)
-
-  n <- ndims(object)
-  apply(object, 3:n, stats::median)
+  estimates(object)
 }
 
 #' @export
