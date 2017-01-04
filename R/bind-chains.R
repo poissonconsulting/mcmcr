@@ -6,12 +6,12 @@
 #' @param x2 a second mcmc object.
 #' @param ... Unused.
 #' @export
-combine_chains <- function(x, x2, ...) {
-  UseMethod("combine_chains", x)
+bind_chains <- function(x, x2, ...) {
+  UseMethod("bind_chains", x)
 }
 
 #' @export
-combine_chains.mcmcarray <- function(x, x2, ...) {
+bind_chains.mcmcarray <- function(x, x2, ...) {
   check_unused(...)
   if (!is.mcmcarray(x)) error("x2 must be an mcmcarray")
 
@@ -27,13 +27,13 @@ combine_chains.mcmcarray <- function(x, x2, ...) {
 }
 
 #' @export
-combine_chains.mcmcr <- function(x, x2, ...) {
+bind_chains.mcmcr <- function(x, x2, ...) {
   check_unused(...)
   if (!is.mcmcr(x)) error("x2 must be an mcmcr")
 
   if (!identical(names(x), names(x2))) error("x and x2 must have the same names")
 
-  x %<>% purrr::map2(x2, combine_chains)
+  x %<>% purrr::map2(x2, bind_chains)
   class(x) <- "mcmcr"
   x
 }
