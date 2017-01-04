@@ -57,23 +57,16 @@ coef.mcmcarray <- function(object, conf_level = 0.95, ...) {
 #' Coefficients for an mcmcr object.
 #'
 #' @param object The mcmcr object.
-#' @param scalar_only A flag indicating whether to only return scalar terms.
-#' @param constant_included A flag indicating whether to include constant terms.
 #' @param conf_level A number specifying the confidence level. By default 0.95.
 #' @param ... Not used.
 #' @return A tidy tibble of the coeffcient terms.
-coef.mcmcr <- function(object, scalar_only = FALSE, constant_included = TRUE, conf_level = 0.95, ...) {
-  check_flag(scalar_only)
-  check_flag(constant_included)
+coef.mcmcr <- function(object, conf_level = 0.95, ...) {
   check_number(conf_level, c(0.5, 0.99))
   check_unused(...)
 
   object %<>% lapply(coef, conf_level = conf_level)
 
   object %<>% dplyr::bind_rows(.id = "id")
-
-  if (scalar_only) object %<>% dplyr::filter_(~term == "")
-  if (!constant_included) object %<>% dplyr::filter_(~std.error > 0)
 
   object %<>% tidyr::unite_("term", from = c("id", "term"), sep = "")
 

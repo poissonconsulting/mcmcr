@@ -4,15 +4,10 @@
 \alias{coef.mcmcr}
 \title{Coef mcmcr}
 \usage{
-\method{coef}{mcmcr}(object, scalar_only = FALSE, constant_included = TRUE,
-  conf_level = 0.95, ...)
+\method{coef}{mcmcr}(object, conf_level = 0.95, ...)
 }
 \arguments{
 \item{object}{The mcmcr object.}
-
-\item{scalar_only}{A flag indicating whether to only return scalar terms.}
-
-\item{constant_included}{A flag indicating whether to include constant terms.}
 
 \item{conf_level}{A number specifying the confidence level. By default 0.95.}
 
