@@ -47,6 +47,7 @@ coef.mcmcarray <- function(object, conf_level = 0.95, ...) {
     dplyr::mutate_(term = ~str_c("[", term, "]"))
   coef %<>% dplyr::bind_cols(values)
   coef %<>% tidyr::spread_("Var1", "value")
+  if (nrow(coef) == 1) coef %<>% dplyr::mutate_(term = ~"")
   coef %<>% dplyr::as.tbl()
   coef
 }
@@ -67,8 +68,14 @@ coef.mcmcr <- function(object, scalar_only = FALSE, constant_included = TRUE, co
   check_number(conf_level, c(0.5, 0.99))
   check_unused(...)
 
-  object %<>% lapply(coef)
-  object %<>% dplyr::bind_rows()
+  object %<>% lapply(coef, conf_level = conf_level)
+
+  object %<>% dplyr::bind_rows(.id = "id")
+
+  if (scalar_only) object %<>% dplyr::filter_(~term == "")
+  if (!constant_included) object %<>% dplyr::filter_(~std.error > 0)
+
+  object %<>% tidyr::unite_("term", from = c("id", "term"), sep = "")
 
   object
 }
