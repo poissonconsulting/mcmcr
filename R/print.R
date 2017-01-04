@@ -17,8 +17,8 @@ print.summary.mcmcarray <- function(x, ...) {
   check_unused(...)
 
   print(x$estimates)
-  cat("  nchains: ", x$nchains, "\n")
-  cat("  niters: ", x$niters, "\n")
+  cat("nchains: ", x$nchains, "\n")
+  cat("niters: ", x$niters, "\n")
   invisible(x)
 }
 
