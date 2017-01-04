@@ -32,7 +32,7 @@ mcmcr <- mcmcr:::mcmcr
 coef(mcmcr)
 convergence(mcmcr)
 
-plot(mcmcr)
+plot(mcmcr[[3]])
 ```
 
 ## Installation
@@ -48,3 +48,7 @@ devtools::install_github("poissonconsulting/mcmcr")
 Please report any [issues](https://github.com/poissonconsulting/mcmcr/issues).
 
 [Pull requests](https://github.com/poissonconsulting/mcmcr/pulls) are always welcome.
+
+## Inspiration
+
+- coda and rjags

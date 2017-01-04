@@ -15,7 +15,18 @@ Utilisation
 
 ``` r
 library(mcmcr)
+
+mcmcr <- mcmcr:::mcmcr
+
+coef(mcmcr)
+#> NULL
+convergence(mcmcr)
+#> [1] 1.734326
+
+plot(mcmcr[[3]])
 ```
+
+![](README-unnamed-chunk-2-1.png)
 
 Installation
 ------------
@@ -31,3 +42,8 @@ Contribution
 Please report any [issues](https://github.com/poissonconsulting/mcmcr/issues).
 
 [Pull requests](https://github.com/poissonconsulting/mcmcr/pulls) are always welcome.
+
+Inspiration
+-----------
+
+-   coda and rjags
