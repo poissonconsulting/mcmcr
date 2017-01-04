@@ -13,25 +13,6 @@ print.mcmcr <- function(x, ...) {
 }
 
 #' @export
-summary.mcmcarray <- function(object, ...) {
-  check_unused(...)
-  estimates(object)
-}
-
-#' @export
-summary.mcmcr <- function(object, ...) {
-  check_unused(...)
-
-  arrays <- lapply(object, summary)
-
-  summary <- list(arrays = list(arrays))
-  summary %<>% c(nchains = nchains(object), niters = niters(object))
-
-  class(summary) <- "summary.mcmcr"
-  summary
-}
-
-#' @export
 print.summary.mcmcr <- function(x, ...) {
   check_unused(...)
 

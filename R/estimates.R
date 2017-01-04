@@ -13,9 +13,7 @@ estimates <- function(object, ...) {
 #' @export
 estimates.mcmcarray <- function(object, ...) {
   check_unused(...)
-
-  n <- ndims(object)
-  apply(object, 3:n, stats::median)
+  summary(object)
 }
 
 #' @export

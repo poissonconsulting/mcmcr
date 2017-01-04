@@ -10,9 +10,14 @@ Depends:
 Imports:
     abind,
     coda,
+    datacheckr,
+    dplyr,
     magrittr,
     pryr,
-    purrr
+    purrr,
+    reshape2,
+    stringr,
+    tidyr
 Suggests:
     testthat,
     covr
