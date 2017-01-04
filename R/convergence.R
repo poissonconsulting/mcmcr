@@ -54,5 +54,6 @@ convergence.mcmcarray <- function(x, ...) {
 #' @export
 convergence.mcmcr <- function(x, ...) {
   check_unused(...)
-  convergence(as.mcmc.list(x))
+  x %<>% vapply(function(x) max(convergence(x)), 1)
+  max(x)
 }
