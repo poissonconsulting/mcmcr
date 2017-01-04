@@ -43,7 +43,7 @@ coef.mcmcarray <- function(object, conf_level = 0.95, ...) {
   values <- dplyr::select_(coef, ~Var1, ~value)
   coef %<>% dplyr::select_(~-Var1, ~-value)
   coef %<>% tidyr::unite_("term", from = colnames(.), sep = ",") %>%
-    dplyr::mutate_(term = ~str_c("[", term, "]"))
+    dplyr::mutate_(term = ~paste0("[", term, "]"))
   coef %<>% dplyr::bind_cols(values)
   coef %<>% tidyr::spread_("Var1", "value")
   if (nrow(coef) == 1) coef %<>% dplyr::mutate_(term = ~"")

@@ -73,18 +73,35 @@ as_mcmc <- function(x, ...) {
   values <- dplyr::select_(x, ~Var1, ~value)
   x %<>% dplyr::select_(~-Var1, ~-value)
   x %<>% tidyr::unite_("term", from = colnames(.), sep = ",") %>%
-    dplyr::mutate_(term = ~str_c("[", term, "]"))
+    dplyr::mutate_(term = ~paste0("[", term, "]"))
   x %<>% dplyr::bind_cols(values)
   x %<>% tidyr::spread_("term", "value")
   x %<>% dplyr::select_(~-Var1)
   x
 }
 
+add_colname_matrix <- function(x, name) {
+  if (length(colnames(x)) == 1) {
+    colnames(x) <- name
+  } else {
+    colnames(x) <- paste0(name, colnames(x))
+  }
+  x
+}
+
 #' @export
-as.mcmc.list.mcmcarray <- function(x, ...) {
+as.mcmc.list.mcmcarray <- function(x, name = "", ...) {
   check_unused(...)
   x %<>% apply(1, as_mcmc)
   x %<>% lapply(as.matrix)
+  x %<>% purrr::map(add_colname_matrix, name)
   x %<>% lapply(coda::as.mcmc)
   coda::mcmc.list(x)
+}
+
+#' @export
+as.mcmc.list.mcmcr <- function(x, ...) {
+  check_unused(...)
+  x %<>% purrr::map2(names(x), as.mcmc.list)
+  x
 }
