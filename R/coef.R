@@ -35,8 +35,8 @@ coef.mcmcarray <- function(object, conf_level = 0.95, ...) {
   check_number(conf_level, c(0.5, 0.99))
   check_unused(...)
 
-
-  coef <- summary(object, coefs, conf_level = conf_level)
+  ndims <- ndims(object)
+  coef <- apply(object, 3:ndims, coefs, conf_level = conf_level)
 
   coef %<>% reshape2::melt()
 

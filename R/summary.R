@@ -1,7 +1,13 @@
 #' @export
-summary.mcmcarray <- function(object, fun = stats::median, ...) {
-  ndims <- ndims(object)
-  apply(object, 3:ndims, fun, ...)
+summary.mcmcarray <- function(object, ...) {
+  check_unused(...)
+  estimates <- estimates(object)
+
+  summary <- list(estimates = estimates)
+  summary %<>% c(nchains = nchains(object), niters = niters(object))
+
+  class(summary) <- "summary.mcmcarray"
+  summary
 }
 
 #' @export
@@ -11,7 +17,6 @@ summary.mcmcr <- function(object, ...) {
   arrays <- lapply(object, summary)
 
   summary <- list(arrays = list(arrays))
-  summary %<>% c(nchains = nchains(object), niters = niters(object))
 
   class(summary) <- "summary.mcmcr"
   summary
