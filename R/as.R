@@ -29,6 +29,15 @@ as.mcarray <- function(x, ...) {
   UseMethod("as.mcarray", x)
 }
 
+#' Coerce to an mcmc.list object
+#'
+#' @param x object to coerce.
+#' @param ... Unused.
+#' @export
+as.mcmc.list <- function(x, ...) {
+  UseMethod("as.mcmc.list", x)
+}
+
 #' @export
 as.mcmcr.list <- function(x, ...) {
   check_unused(...)
@@ -56,4 +65,26 @@ as.mcarray.mcmcarray <- function(x, ...) {
   x %<>% aperm(c(3:n, 2, 1))
   class(x) <- "mcarray"
   x
+}
+
+as_mcmc <- function(x, ...) {
+  x %<>% reshape2::melt()
+
+  values <- dplyr::select_(x, ~Var1, ~value)
+  x %<>% dplyr::select_(~-Var1, ~-value)
+  x %<>% tidyr::unite_("term", from = colnames(.), sep = ",") %>%
+    dplyr::mutate_(term = ~str_c("[", term, "]"))
+  x %<>% dplyr::bind_cols(values)
+  x %<>% tidyr::spread_("term", "value")
+  x %<>% dplyr::select_(~-Var1)
+  x
+}
+
+#' @export
+as.mcmc.list.mcmcarray <- function(x, ...) {
+  check_unused(...)
+  x %<>% apply(1, as_mcmc)
+  x %<>% lapply(as.matrix)
+  x %<>% lapply(coda::as.mcmc)
+  coda::mcmc.list(x)
 }
