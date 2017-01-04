@@ -18,23 +18,31 @@ convergence.mcmcarray <- function(x, ...) {
 
   x %<>% normalize()
 
-  M <- nchains(x)
-  N <- niters(x)
+  m <- nchains(x)
+  n <- niters(x)
 
-  mu_w <- apply(x, c(1, 3:ndims(x)), mean)
+  W <- apply(x, 3:ndims(x), w)
+  B <- apply(x, 3:ndims(x), bdn) * n
+
+  V <- ((n - 1) / n * W) + (B / n) + (B / (m * n))
+
   var_w <- apply(x, c(1, 3:ndims(x)), stats::var)
+  mu_w <- apply(x, c(1, 3:ndims(x)), mean)
 
+  var_mu_w <- abind::abind(var_w, mu_w, along = 0)
+  var_mu2_w <- abind::abind(var_w, (mu_w)^2, along = 0)
+
+  var <- apply(var_w, 2:ndims(var_w), stats::var)
   mu <- apply(mu_w, 2:ndims(mu_w), mean)
 
-  B <- (mu_w - mu)^2
-  B <- apply(B, 2:ndims(B), mean)
-  B <- B * N / (M - 1)
+  cov <- apply(var_mu_w, 3:ndims(var_mu_w), covar)
+  cov2 <- apply(var_mu2_w, 3:ndims(var_mu2_w), covar)
 
-  W <- apply(var_w, 2:ndims(var_w), mean)
+  var_V <- (((n - 1) / n)^2 / m * var) +
+    (((m + 1) / m * n)^2 * 2 / (m - 1) * B^2) +
+    (2 * (m + 1) * (n - 1) / (m * n^2) * n / m * (cov2 - 2 * mu * cov))
 
-  V <- ((N - 1) / N * W) + ((M + 1) / (M * N) * B)
-
-  d <- (2 * V) / stats::var(V)
+  d <- (2 * V) / var_V
 
   cf <- (d + 3) / (d + 1)
 
