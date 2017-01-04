@@ -22,8 +22,5 @@ test_that("as.mcmc.list", {
   expect_identical(coda::nvar(mcmc_list2), 4L)
   expect_equal(coda::gelman.diag(mcmc_list3, transform = TRUE, autoburnin = FALSE, multivariate = FALSE)$psrf[1], 1.006437, tolerance = 1e-06)
 
-  as.mcmc.list(mcmcr)
-
+  expect_identical(coda::nvar(as.mcmc.list(mcmcr)), 7L)
 })
-
-

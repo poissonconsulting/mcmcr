@@ -26,6 +26,13 @@ knitr::opts_chunk$set(
 
 ```{r}
 library(mcmcr)
+
+mcmcr <- mcmcr:::mcmcr
+
+coef(mcmcr)
+convergence(mcmcr)
+
+plot(mcmcr)
 ```
 
 ## Installation
