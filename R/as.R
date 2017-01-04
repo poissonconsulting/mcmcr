@@ -100,15 +100,11 @@ as.mcmc.list.mcmcarray <- function(x, name = "", ...) {
   coda::mcmc.list(x)
 }
 
-as_mcmc_list_mcmcarray <- function(x, name) {
- as.mcmc.list(x, name)
-}
-
 #' @method as.mcmc.list mcmcr
 #' @export
 as.mcmc.list.mcmcr <- function(x, ...) {
   check_unused(...)
-  x %<>% purrr::map2(names(x), as_mcmc_list_mcmcarray)
+  x %<>% purrr::map2(names(x), as.mcmc.list)
   x %<>% purrr::reduce(bind_terms)
   x
 }
