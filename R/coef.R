@@ -10,15 +10,14 @@ coefs <- function(x, conf_level) {
   lower <- (1 - conf_level) / 2
   upper <- conf_level + lower
 
-  quantiles <- stats::quantile(x, c(lower, upper), names = FALSE)
+  quantiles <- stats::quantile(x, c(lower, 0.5, upper), names = FALSE)
 
-  estimate <- stats::median(x)
   std.error <- stats::sd(x)
-  statistic = estimate / std.error
+  statistic = mean(x) / std.error
 
-  c(estimate = estimate, std.error = std.error, statistic = statistic,
+  c(estimate = quantiles[2], std.error = std.error, statistic = statistic,
     p.value = significance(x),
-    lower = quantiles[1], upper = quantiles[2])
+    lower = quantiles[1], upper = quantiles[3])
 }
 
 #' Coef TMB Analyses
