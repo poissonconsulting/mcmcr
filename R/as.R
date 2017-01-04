@@ -20,6 +20,15 @@ as.mcmcarray <- function(x, ...) {
   UseMethod("as.mcmcarray", x)
 }
 
+#' Coerce to an mcarray object
+#'
+#' @param x object to coerce.
+#' @param ... Unused.
+#' @export
+as.mcarray <- function(x, ...) {
+  UseMethod("as.mcarray", x)
+}
+
 #' @export
 as.mcmcr.list <- function(x, ...) {
   check_unused(...)
@@ -37,4 +46,26 @@ as.mcmcarray.mcarray <- function(x, ...) {
   x %<>% aperm(c(n, n - 1, 1:(n - 2)))
   class(x) <- "mcmcarray"
   x
+}
+
+#' @export
+as.mcarray.mcmcarray <- function(x, ...) {
+  check_unused(...)
+  n <- ndims(x)
+  names(dim(x)) <- c("chain", "iteration", rep("", n - 2))
+  x %<>% aperm(c(3:n, 2, 1))
+  class(x) <- "mcarray"
+  x
+}
+
+#' @export
+as.mcmc.list.mcmcarray <- function(x, ...) {
+  check_unused(...)
+  stop()
+}
+
+#' @export
+as.mcmc.list.mcmcr <- function(x, ...) {
+  check_unused(...)
+  stop()
 }

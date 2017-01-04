@@ -12,6 +12,7 @@ Imports:
     coda,
     datacheckr,
     dplyr,
+    graphics,
     magrittr,
     pryr,
     purrr,
