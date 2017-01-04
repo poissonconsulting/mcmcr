@@ -8,6 +8,15 @@ error <- function(...) {
   stop(..., call. = FALSE)
 }
 
+normalize <- function(x) {
+  if (min(x) > 0) x <- ifelse(max(x) < 1, logit(x), log(x))
+  x
+}
+
+logit <- function(x) {
+  stats::qlogis(x)
+}
+
 ndims <- function(x) length(dim(x))
 
 #' Number of MCMC Samples

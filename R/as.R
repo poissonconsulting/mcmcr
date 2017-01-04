@@ -57,15 +57,3 @@ as.mcarray.mcmcarray <- function(x, ...) {
   class(x) <- "mcarray"
   x
 }
-
-#' @export
-as.mcmc.list.mcmcarray <- function(x, ...) {
-  check_unused(...)
-  stop()
-}
-
-#' @export
-as.mcmc.list.mcmcr <- function(x, ...) {
-  check_unused(...)
-  stop()
-}

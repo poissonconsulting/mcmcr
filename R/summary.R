@@ -1,7 +1,7 @@
 #' @export
 summary.mcmcarray <- function(object, fun = stats::median, ...) {
-  n <- ndims(object)
-  apply(object, 3:n, fun, ...)
+  ndims <- ndims(object)
+  apply(object, 3:ndims, fun, ...)
 }
 
 #' @export
