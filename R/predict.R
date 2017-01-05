@@ -3,6 +3,8 @@ predict_sample <- function(object, expr, values, monitor) {
 
   object %<>% c(values)
 
+  object[monitor] <- NA
+
   object %<>% within(eval(expr))
 
   object <- object[monitor]

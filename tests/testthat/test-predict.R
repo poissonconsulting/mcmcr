@@ -8,6 +8,7 @@ test_that("predict", {
   expect_identical(parameters(prediction), "gamma")
   expect_identical(nchains(prediction), 2L)
   expect_identical(niters(prediction), 10L)
+  expect_identical(nterms(prediction), 4L)
 })
 
 test_that("predict", {
@@ -19,7 +20,7 @@ test_that("predict", {
   alpha2 <- alpha * 2
   znot <- alpha * 2
   for(i in seq_along(x)) {
-    alpha3 <- alpha[1] * x[i]
+    alpha3[i] <- alpha[1] * x[i]
   }
   "
 
@@ -30,4 +31,5 @@ test_that("predict", {
   expect_identical(parameters(prediction), c("alpha2", "alpha3", "gamma"))
   expect_identical(nchains(prediction), 2L)
   expect_identical(niters(prediction), 10L)
+  expect_identical(nterms(prediction), 15L)
 })
