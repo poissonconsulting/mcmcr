@@ -4,16 +4,16 @@
 \alias{predict.mcmcr}
 \title{Predict}
 \usage{
-\method{predict}{mcmcr}(object, values, expr, parameters = ".*", ...)
+\method{predict}{mcmcr}(object, expr, values = list(), monitor = ".*", ...)
 }
 \arguments{
 \item{object}{The mcmcr object.}
 
+\item{expr}{A string of the R expression to evaluate.}
+
 \item{values}{A lists of the values to use.}
 
-\item{expr}{A string of the R expression}
-
-\item{parameters}{A regular expression indication the parameter to monitor.}
+\item{monitor}{A regular expression specifying the new variables to monitor.}
 
 \item{...}{Unused.}
 }
