@@ -1,3 +1,8 @@
+#' Check Unused
+#'
+#' @param ... The dots to check whether the are unused.
+#' @return An invisible NULL if unused or else throws an error.
+#' @export
 check_unused <- function(...) {
   dots <- pryr::named_dots(...)
   if (length(dots)) error("dots are not unused")
@@ -9,11 +14,39 @@ dprint <- function(x) {
   print(x)
 }
 
+#' Error
+#'
+#' Throws an error without the call as part of the error message.
+#'
+#' @inheritParams base::stop
+#' @seealso base::stop
+#' @export
 error <- function(...) {
   stop(..., call. = FALSE)
 }
 
-ndims <- function(x) length(dim(x))
+#' Dims
+#'
+#' @param x A vector, matrix or array.
+#' @return An integer vector of the dimensions.
+#' @examples
+#' dims(character())
+#' dims(2:3)
+#' dims(matrix(1:6, nrow = 2))
+#' @export
+dims <- function(x) {
+  if (is.vector(x) || is.factor(x)) length(x) else dim(x)
+}
+
+#' Number of dimensions
+#'
+#' @param x The object to get the number of dimensions of.
+#'
+#' @return A count of the number of dimensions
+#' @export
+ndims <- function(x) {
+  length(dims(x))
+}
 
 #' Number of MCMC Samples
 #'
