@@ -1,7 +1,7 @@
-predict_sample <- function(object, values, expr, monitor) {
+predict_sample <- function(object, expr, values, monitor) {
   object %<>% estimates()
 
-  object %<>% c(list(values))
+  object %<>% c(values)
 
   object %<>% within(eval(expr))
 
@@ -61,11 +61,13 @@ predict.mcmcr <- function(object, expr, values = list(), monitor = ".*", ...) {
 
   if (!length(monitor)) error("monitor must match at least one new variable in expr")
 
+  monitor %<>% sort()
+
   list <- list()
   for (i in 1:nchains(object)) {
     list[[i]] <- list()
     for (j in 1:niters(object)) {
-      list[[i]][[j]] <- predict_sample(subset(object, i, j), values, expr, monitor)
+      list[[i]][[j]] <- predict_sample(subset(object, i, j), expr, values, monitor)
     }
   }
 
