@@ -21,7 +21,10 @@ combine_values.mcmcarray <- function(x, x2, fun = mean, ...) {
 
   if (!identical(dim, dim2)) error("x and x2 must have the same dimensions")
 
-  x %<>% fun(x2)
+  x %<>% abind::abind(x2, along = 0)
+
+  x %<>% apply(2:ndims(x), fun)
+
   class(x) <- "mcmcarray"
   x
 }
