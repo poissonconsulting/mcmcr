@@ -30,7 +30,8 @@ subset.mcmcr <- function(x, chains = NULL, iterations = NULL, parameters = NULL,
 
   if (!is.null(parameters)) {
     if (!all(parameters %in% parameters(x))) error("parameters must all be in x")
-    x <- x[sort(unique(parameters))]
+    if (anyDuplicated(parameters)) error("parameters must be unique")
+    x <- x[sort(parameters)]
   }
 
   x %<>% lapply(subset, chains = chains, iterations = iterations)
