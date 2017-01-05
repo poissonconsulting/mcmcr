@@ -1,10 +1,10 @@
 #' @export
 summary.mcmcarray <- function(object, ...) {
   check_unused(...)
-  estimates <- estimates(object)
 
-  summary <- list(estimates = estimates)
-  summary %<>% c(nchains = nchains(object), niters = niters(object))
+  summary <- list(estimates = estimates(object),
+                  nchains = nchains(object),
+                  niters = niters(object))
 
   class(summary) <- "summary.mcmcarray"
   summary

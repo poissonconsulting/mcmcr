@@ -11,8 +11,8 @@ nchains <- function(x, ...) {
 #' @export
 nchains.mcarray <- function(x, ...) {
   check_unused(...)
-  names(dim(x)) <- NULL
   nchains <- dim(x)[ndims(x)]
+  names(nchains) <- NULL
   nchains
 }
 
