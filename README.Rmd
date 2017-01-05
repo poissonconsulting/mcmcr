@@ -29,10 +29,17 @@ library(mcmcr)
 
 mcmcr <- mcmcr:::mcmcr
 
+nchains(mcmcr)
+niters(mcmcr)
+parameters(mcmcr)
+nterms(mcmcr)
+
 coef(mcmcr)
 convergence(mcmcr)
 
-plot(mcmcr[[3]])
+estimates(mcmcr)
+
+plot(mcmcr[[1]])
 ```
 
 ## Installation

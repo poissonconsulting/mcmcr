@@ -18,12 +18,42 @@ library(mcmcr)
 
 mcmcr <- mcmcr:::mcmcr
 
-coef(mcmcr)
-#> NULL
-convergence(mcmcr)
-#> [1] 1.734326
+nchains(mcmcr)
+#> [1] 2
+niters(mcmcr)
+#> [1] 1000
+parameters(mcmcr)
+#> [1] "alpha" "beta"  "sigma"
+nterms(mcmcr)
+#> [1] 7
 
-plot(mcmcr[[3]])
+coef(mcmcr)
+#> # A tibble: 7 × 7
+#>        term  estimate std.error statistic p.value     lower    upper
+#> *     <chr>     <dbl>     <dbl>     <dbl>   <dbl>     <dbl>    <dbl>
+#> 1  alpha[1] 2.9982470 0.5200369  5.780869  0.0010 2.0083900 4.000345
+#> 2  alpha[2] 3.9982470 0.5200369  7.703810  0.0005 3.0083900 5.000345
+#> 3 beta[1,1] 1.2659291 0.6219194  2.050184  0.0230 0.1597749 2.325026
+#> 4 beta[1,2] 1.3323697 0.6191552  2.123673  0.0150 0.2768236 2.399943
+#> 5 beta[2,1] 2.2659291 0.6219194  3.658109  0.0010 1.1597749 3.325026
+#> 6 beta[2,2] 2.3323697 0.6191552  3.738777  0.0020 1.2768236 3.399943
+#> 7     sigma 0.8265352 0.6637312  1.516797  0.0005 0.4239920 2.726438
+convergence(mcmcr)
+#> [1] 1.01
+
+estimates(mcmcr)
+#> $alpha
+#> [1] 2.998247 3.998247
+#> 
+#> $beta
+#>          [,1]    [,2]
+#> [1,] 1.265929 1.33237
+#> [2,] 2.265929 2.33237
+#> 
+#> $sigma
+#> [1] 0.8265352
+
+plot(mcmcr[[1]])
 ```
 
 ![](README-unnamed-chunk-2-1.png)

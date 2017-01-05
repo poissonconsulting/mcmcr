@@ -58,7 +58,8 @@ coef.mcmcarray <- function(object, conf_level = 0.95, ...) {
 #' @param object The mcmcr object.
 #' @param conf_level A number specifying the confidence level. By default 0.95.
 #' @param ... Not used.
-#' @return A tidy tibble of the coeffcient terms.
+#' @return A tidy tibble of the coefficient terms.
+#' @export
 coef.mcmcr <- function(object, conf_level = 0.95, ...) {
   check_number(conf_level, c(0.5, 0.99))
   check_unused(...)
