@@ -12,7 +12,7 @@ bind_chains <- function(x, x2, ...) {
 
 #' @export
 bind_chains.mcmcarray <- function(x, x2, ...) {
-  check_unused(...)
+  
   if (!is.mcmcarray(x)) error("x2 must be an mcmcarray")
 
   dim <- dim(x)
@@ -28,7 +28,7 @@ bind_chains.mcmcarray <- function(x, x2, ...) {
 
 #' @export
 bind_chains.mcmcr <- function(x, x2, ...) {
-  check_unused(...)
+  
   if (!is.mcmcr(x)) error("x2 must be an mcmcr")
 
   if (!identical(names(x), names(x2))) error("x and x2 must have the same names")

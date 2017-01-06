@@ -10,6 +10,6 @@ parameters <- function(x, ...) {UseMethod("parameters")}
 
 #' @export
 parameters.mcmcr <- function(x, ...) {
-  check_unused(...)
+  
   names(x)
 }

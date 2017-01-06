@@ -28,7 +28,7 @@ predict_sample <- function(object, expr, values, monitor) {
 #' @return An mcmcr object of the monitored parameters.
 #' @export
 predict.mcmcr <- function(object, expr, values = list(), monitor = ".*", ...) {
-  check_unused(...)
+  
   check_string(expr)
   if (!is.list(values)) error("values must be a list")
   check_string(monitor)

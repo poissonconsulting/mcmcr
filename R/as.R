@@ -40,7 +40,7 @@ as.mcmc.list <- function(x, ...) {
 
 #' @export
 as.mcmcr.list <- function(x, ...) {
-  check_unused(...)
+  
   x %<>% lapply(as.mcmcarray)
   class(x) <- "mcmcr"
   x
@@ -48,7 +48,7 @@ as.mcmcr.list <- function(x, ...) {
 
 #' @export
 as.mcmcarray.mcarray <- function(x, ...) {
-  check_unused(...)
+  
 
   names(dim(x)) <- NULL
   n <- ndims(x)
@@ -59,7 +59,7 @@ as.mcmcarray.mcarray <- function(x, ...) {
 
 #' @export
 as.mcarray.mcmcarray <- function(x, ...) {
-  check_unused(...)
+  
   n <- ndims(x)
   names(dim(x)) <- c("chain", "iteration", rep("", n - 2))
   x %<>% aperm(c(3:n, 2, 1))
@@ -92,7 +92,7 @@ add_colname_matrix <- function(x, name) {
 #' @method as.mcmc.list mcmcarray
 #' @export
 as.mcmc.list.mcmcarray <- function(x, name = "", ...) {
-  check_unused(...)
+  
   x %<>% apply(1, as_mcmc)
   x %<>% lapply(as.matrix)
   x %<>% purrr::map(add_colname_matrix, name)
@@ -103,7 +103,7 @@ as.mcmc.list.mcmcarray <- function(x, name = "", ...) {
 #' @method as.mcmc.list mcmcr
 #' @export
 as.mcmc.list.mcmcr <- function(x, ...) {
-  check_unused(...)
+  
   x %<>% purrr::map2(names(x), as.mcmc.list)
   x %<>% purrr::reduce(bind_terms)
   x

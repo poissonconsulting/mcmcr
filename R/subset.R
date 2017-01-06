@@ -6,7 +6,7 @@
 #' @param ... Unused.
 #' @export
 subset.mcmcarray <- function(x, chains = NULL, iterations = NULL, ...) {
-  check_unused(...)
+  
 
   if (!is.null(chains)) check_vector(chains, 1:nchains(x))
   if (!is.null(iterations)) check_vector(iterations, 1:niters(x))

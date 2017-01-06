@@ -12,7 +12,7 @@ convergence <- function(x, ...) {
 
 #' @export
 convergence.mcmcarray <- function(x, ...) {
-  check_unused(...)
+  
 
   if (nchains(x) < 2) error("x must have at least two chains")
 
@@ -35,7 +35,7 @@ convergence.mcmcarray <- function(x, ...) {
 
 #' @export
 convergence.mcmcr <- function(x, ...) {
-  check_unused(...)
+  
   x %<>% vapply(function(x) max(convergence(x)), 1)
   max(x)
 }

@@ -10,12 +10,12 @@ nterms <- function(x, ...) {
 
 #' @export
 nterms.mcmcarray <- function(x, ...) {
-  check_unused(...)
+  
   as.integer(prod(dim(x)[-(1:2)]))
 }
 
 #' @export
 nterms.mcmcr <- function(x, ...) {
-  check_unused(...)
+  
   sum(vapply(x, nterms, 1L))
 }

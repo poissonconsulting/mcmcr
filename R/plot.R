@@ -10,7 +10,7 @@ mfrow <- function(nterms = 1) {
 
 #' @export
 plot.mcmcarray <- function(x, ...) {
-  check_unused(...)
+  
 
   nterms <- nterms(x)
 
@@ -30,7 +30,7 @@ plot.mcmcarray <- function(x, ...) {
 
 #' @export
 plot.mcmcr <- function(x, ...) {
-  check_unused(...)
+  
 
   nterms <- nterms(x)
 

@@ -12,13 +12,13 @@ estimates <- function(object, ...) {
 
 #' @export
 estimates.mcmcarray <- function(object, ...) {
-  check_unused(...)
+  
   ndims <- ndims(object)
   apply(object, 3:ndims, stats::median, ...)
 }
 
 #' @export
 estimates.mcmcr <- function(object, ...) {
-  check_unused(...)
+  
   lapply(object, estimates)
 }

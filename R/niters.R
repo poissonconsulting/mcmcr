@@ -10,7 +10,7 @@ niters <- function(x, ...) {
 
 #' @export
 niters.mcarray <- function(x, ...) {
-  check_unused(...)
+  
   niters <- dim(x)[ndims(x) - 1]
   names(niters) <- NULL
   niters
@@ -18,12 +18,12 @@ niters.mcarray <- function(x, ...) {
 
 #' @export
 niters.mcmcarray <- function(x, ...) {
-  check_unused(...)
+  
   dim(x)[2]
 }
 
 #' @export
 niters.mcmcr <- function(x, ...) {
-  check_unused(...)
+  
   niters(x[[1]])
 }

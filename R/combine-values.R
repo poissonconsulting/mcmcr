@@ -13,7 +13,7 @@ combine_values <- function(x, x2, fun = mean, ...) {
 
 #' @export
 combine_values.mcmcarray <- function(x, x2, fun = mean, ...) {
-  check_unused(...)
+  
   if (!is.mcmcarray(x)) error("x2 must be an mcmcarray")
 
   dim <- dim(x)

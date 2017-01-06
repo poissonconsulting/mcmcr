@@ -15,7 +15,7 @@ terms.mcmcarray <- function(x, ...) {
 
 #' @export
 terms.mcmcr <- function(x, ...) {
-  check_unused(...)
+  
 
   parameters <- parameters(x)
   x %<>% lapply(terms)
