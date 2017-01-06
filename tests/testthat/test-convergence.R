@@ -8,4 +8,12 @@ test_that("convergence.mcmcmarray", {
 
 test_that("convergence.mcmcr", {
   expect_identical(convergence(mcmcr), 1.01)
+
+  mcmcr[[1]] <- zero(mcmcr[[1]])
+  mcmcr[[3]] <- zero(mcmcr[[3]])
+
+  expect_identical(convergence(mcmcr[[1]]), c(1.00, 1.00))
+  expect_identical(convergence(mcmcr[[3]]), 1.00)
+
+  expect_identical(convergence(mcmcr), 1.00)
 })

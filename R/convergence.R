@@ -12,7 +12,7 @@ convergence <- function(x, ...) {
 
 #' @export
 convergence.mcmcarray <- function(x, ...) {
-  
+
 
   if (nchains(x) < 2) error("x must have at least two chains")
 
@@ -25,6 +25,8 @@ convergence.mcmcarray <- function(x, ...) {
   x %<>% round(2)
   names(x) <- NULL
 
+  x[is.nan(x)] <- 1.00
+
   if (length(dim) == 1)
     return(x)
   if (length(dim) == 2)
@@ -35,7 +37,7 @@ convergence.mcmcarray <- function(x, ...) {
 
 #' @export
 convergence.mcmcr <- function(x, ...) {
-  
+
   x %<>% vapply(function(x) max(convergence(x)), 1)
   max(x)
 }
