@@ -11,8 +11,6 @@ zero <- function(x, ...) {
 
 #' @export
 zero.mcmcarray <- function(x, ...) {
-  
-
   x <- array(0, dims(x))
   class(x) <- "mcmcarray"
   x
@@ -20,7 +18,7 @@ zero.mcmcarray <- function(x, ...) {
 
 #' @export
 zero.mcmcr <- function(x, parameters = NULL, ...) {
-  
+
 
   if (!is.null(parameters)) {
     if (!all(parameters %in% parameters(x))) error("parameters must all be in x")
