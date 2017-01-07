@@ -12,12 +12,11 @@ coefs <- function(x, conf_level) {
 
   quantiles <- stats::quantile(x, c(lower, 0.5, upper), names = FALSE)
 
-  std.error <- stats::sd(x)
-  statistic = mean(x) / std.error
+  sd <- stats::sd(x)
+  zscore = mean(x) / sd
 
-  c(estimate = quantiles[2], std.error = std.error, statistic = statistic,
-    p.value = significance(x),
-    lower = quantiles[1], upper = quantiles[3])
+  c(estimate = quantiles[2], sd = sd, zscore = zscore,
+    lower = quantiles[1], upper = quantiles[3], significance = significance(x))
 }
 
 #' Coef TMB Analyses
@@ -33,7 +32,7 @@ coefs <- function(x, conf_level) {
 coef.mcmcarray <- function(object, conf_level = 0.95, ...) {
 
   check_number(conf_level, c(0.5, 0.99))
-  
+
 
   ndims <- ndims(object)
   coef <- apply(object, 3:ndims, coefs, conf_level = conf_level)
@@ -62,7 +61,7 @@ coef.mcmcarray <- function(object, conf_level = 0.95, ...) {
 #' @export
 coef.mcmcr <- function(object, conf_level = 0.95, ...) {
   check_number(conf_level, c(0.5, 0.99))
-  
+
 
   object %<>% lapply(coef, conf_level = conf_level)
 
