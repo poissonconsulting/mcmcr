@@ -5,12 +5,12 @@
 #' @return A count indicating the number of MCMC chains in object.
 #' @export
 nchains <- function(x, ...) {
-  UseMethod("nchains", x)
+  UseMethod("nchains")
 }
 
 #' @export
 nchains.mcarray <- function(x, ...) {
-  
+
   nchains <- dim(x)[ndims(x)]
   names(nchains) <- NULL
   nchains
@@ -18,12 +18,12 @@ nchains.mcarray <- function(x, ...) {
 
 #' @export
 nchains.mcmcarray <- function(x, ...) {
-  
+
   dim(x)[1]
 }
 
 #' @export
 nchains.mcmcr <- function(x, ...) {
-  
+
   nchains(x[[1]])
 }

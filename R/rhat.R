@@ -7,7 +7,7 @@
 #' @return A number of the rhat value.
 #' @export
 rhat <- function(x, ...) {
-  UseMethod("rhat", x)
+  UseMethod("rhat")
 }
 
 #' @export
@@ -48,7 +48,7 @@ rhat.mcmcr <- function(x, ...) {
 #' @return A flag indicating whether the test was positive.
 #' @export
 converged <- function(x, ...) {
-  UseMethod("converged", x)
+  UseMethod("converged")
 }
 
 #' Is Converged

@@ -8,12 +8,12 @@
 #' @param ... Unused.
 #' @export
 combine_values <- function(x, x2, fun = mean, ...) {
-  UseMethod("combine_values", x)
+  UseMethod("combine_values")
 }
 
 #' @export
 combine_values.mcmcarray <- function(x, x2, fun = mean, ...) {
-  
+
   if (!is.mcmcarray(x)) error("x2 must be an mcmcarray")
 
   dim <- dim(x)

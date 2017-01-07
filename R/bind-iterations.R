@@ -7,12 +7,12 @@
 #' @param ... Unused.
 #' @export
 bind_iterations <- function(x, x2, ...) {
-  UseMethod("bind_iterations", x)
+  UseMethod("bind_iterations")
 }
 
 #' @export
 bind_iterations.mcmcarray <- function(x, x2, ...) {
-  
+
   if (!is.mcmcarray(x)) error("x2 must be an mcmcarray")
 
   dim <- dim(x)
@@ -28,7 +28,7 @@ bind_iterations.mcmcarray <- function(x, x2, ...) {
 
 #' @export
 bind_iterations.mcmcr <- function(x, x2, ...) {
-  
+
   if (!is.mcmcr(x)) error("x2 must be an mcmcr")
 
   if (!identical(names(x), names(x2))) error("x and x2 must have the same names")

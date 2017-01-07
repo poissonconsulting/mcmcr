@@ -5,12 +5,12 @@
 #' @return A count indicating the number of MCMC samples in a chain.
 #' @export
 niters <- function(x, ...) {
-  UseMethod("niters", x)
+  UseMethod("niters")
 }
 
 #' @export
 niters.mcarray <- function(x, ...) {
-  
+
   niters <- dim(x)[ndims(x) - 1]
   names(niters) <- NULL
   niters
@@ -18,12 +18,12 @@ niters.mcarray <- function(x, ...) {
 
 #' @export
 niters.mcmcarray <- function(x, ...) {
-  
+
   dim(x)[2]
 }
 
 #' @export
 niters.mcmcr <- function(x, ...) {
-  
+
   niters(x[[1]])
 }
