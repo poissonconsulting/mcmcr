@@ -7,7 +7,7 @@
 derive(object, ...)
 }
 \arguments{
-\item{object}{The object to calculate the number of derived parameters for.}
+\item{object}{The object to calculate the derived parameters for.}
 
 \item{...}{Not used.}
 }
