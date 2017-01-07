@@ -44,7 +44,9 @@ coef.mcmcarray <- function(object, conf_level = 0.95, ...) {
   coef %<>% tidyr::unite_("term", from = colnames(.), sep = ",") %>%
     dplyr::mutate_(term = ~paste0("[", term, "]"))
   coef %<>% dplyr::bind_cols(values)
+  coef %<>% dplyr::mutate_(term = ~factor(term, levels = unique(term)))
   coef %<>% tidyr::spread_("Var1", "value")
+  coef %<>% dplyr::mutate_(term = ~as.character(term))
   if (nrow(coef) == 1) coef %<>% dplyr::mutate_(term = ~"")
   coef %<>% dplyr::as.tbl()
   coef
