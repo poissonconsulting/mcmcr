@@ -1,4 +1,4 @@
-predict_sample <- function(object, expr, values, monitor) {
+derive_sample <- function(object, expr, values, monitor) {
   object %<>% estimates()
 
   object %<>% c(values)
@@ -16,9 +16,18 @@ predict_sample <- function(object, expr, values, monitor) {
   object
 }
 
-#' Predict
+#' Derived parameters
 #'
-#' Calculate predictions.
+#' @param object The object to calculate the derived parameters for.
+#' @param ... Not used.
+#' @export
+derive <- function(object, ...) {
+  UseMethod("derive")
+}
+
+#' derive
+#'
+#' Calculate dervived parameters.
 #'
 #' @param object The mcmcr object.
 #' @param expr A string of the R expression to evaluate.
@@ -27,8 +36,8 @@ predict_sample <- function(object, expr, values, monitor) {
 #' @param ... Unused.
 #' @return An mcmcr object of the monitored parameters.
 #' @export
-predict.mcmcr <- function(object, expr, values = list(), monitor = ".*", ...) {
-  
+derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", ...) {
+
   check_string(expr)
   if (!is.list(values)) error("values must be a list")
   check_string(monitor)
@@ -69,7 +78,7 @@ predict.mcmcr <- function(object, expr, values = list(), monitor = ".*", ...) {
   for (i in 1:nchains(object)) {
     list[[i]] <- list()
     for (j in 1:niters(object)) {
-      list[[i]][[j]] <- predict_sample(subset(object, i, j), expr, values, monitor)
+      list[[i]][[j]] <- derive_sample(subset(object, i, j), expr, values, monitor)
     }
   }
 
