@@ -12,8 +12,6 @@ convergence <- function(x, ...) {
 
 #' @export
 convergence.mcmcarray <- function(x, ...) {
-
-
   if (nchains(x) < 2) error("x must have at least two chains")
 
   dim <- dim(x)[-c(1,2)]
@@ -37,7 +35,28 @@ convergence.mcmcarray <- function(x, ...) {
 
 #' @export
 convergence.mcmcr <- function(x, ...) {
-
   x %<>% vapply(function(x) max(convergence(x)), 1)
   max(x)
+}
+
+#' Is Converged
+#'
+#' Tests whether x has converged.
+#'
+#' @param x The object to test.
+#' @param ... Unused
+#' @return A flag indicating whether the test was positive.
+#' @export
+is_converged <- function(x, ...) {
+  inherits(x, "is_converged")
+}
+
+#' Is Converged
+#'
+#' @inheritParams is_converged
+#' @param rhat A number specifying the rhat threshold.
+#' @export
+is_converged.default <- function(x, rhat = 1.1, ...) {
+  check_number(rhat)
+  max(convergence(x)) <= rhat
 }
