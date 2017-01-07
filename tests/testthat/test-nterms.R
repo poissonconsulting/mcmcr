@@ -6,6 +6,6 @@ test_that("nterms.mcmcmarray", {
   expect_identical(nterms(mcmcr[[3]]), 1L)
 })
 
-test_that("convergence.mcmcr", {
+test_that("rhat.mcmcr", {
   expect_identical(nterms(mcmcr), 7L)
 })

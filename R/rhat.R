@@ -4,14 +4,14 @@
 #'
 #' @param x An mcmc object.
 #' @param ... Unused.
-#' @return A number of the convergence value.
+#' @return A number of the rhat value.
 #' @export
-convergence <- function(x, ...) {
-  UseMethod("convergence", x)
+rhat <- function(x, ...) {
+  UseMethod("rhat", x)
 }
 
 #' @export
-convergence.mcmcarray <- function(x, ...) {
+rhat.mcmcarray <- function(x, ...) {
   if (nchains(x) < 2) error("x must have at least two chains")
 
   dim <- dim(x)[-c(1,2)]
@@ -34,8 +34,8 @@ convergence.mcmcarray <- function(x, ...) {
 }
 
 #' @export
-convergence.mcmcr <- function(x, ...) {
-  x %<>% vapply(function(x) max(convergence(x)), 1)
+rhat.mcmcr <- function(x, ...) {
+  x %<>% vapply(function(x) max(rhat(x)), 1)
   max(x)
 }
 
@@ -58,5 +58,5 @@ is_converged <- function(x, ...) {
 #' @export
 is_converged.default <- function(x, rhat = 1.1, ...) {
   check_number(rhat)
-  max(convergence(x)) <= rhat
+  max(rhat(x)) <= rhat
 }
