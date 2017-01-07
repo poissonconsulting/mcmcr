@@ -48,7 +48,7 @@ rhat.mcmcr <- function(x, ...) {
 #' @return A flag indicating whether the test was positive.
 #' @export
 converged <- function(x, ...) {
-  inherits(x, "converged")
+  UseMethod("converged", x)
 }
 
 #' Is Converged
@@ -56,7 +56,17 @@ converged <- function(x, ...) {
 #' @inheritParams converged
 #' @param rhat A number specifying the rhat threshold.
 #' @export
-converged.default <- function(x, rhat = 1.1, ...) {
+converged.mcmcarray <- function(x, rhat = 1.1, ...) {
   check_number(rhat)
-  max(rhat(x)) <= rhat
+  rhat(x) <= rhat
+}
+
+#' Is Converged
+#'
+#' @inheritParams converged
+#' @param rhat A number specifying the rhat threshold.
+#' @export
+converged.mcmcr <- function(x, rhat = 1.1, ...) {
+  check_number(rhat)
+  rhat(x) <= rhat
 }
