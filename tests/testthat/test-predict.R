@@ -32,4 +32,11 @@ test_that("predict", {
   expect_identical(nchains(prediction), 2L)
   expect_identical(niters(prediction), 10L)
   expect_identical(nterms(prediction), 15L)
+
+  quick <- predict(mcmcr, expr, values = values, monitor = "^g|^a", quick = TRUE)
+
+  expect_identical(nchains(quick), 1L)
+  expect_identical(niters(quick), 1L)
+
+  expect_equal(estimates(quick), estimates(prediction), tolerance = 0.01, check.attributes = FALSE)
 })

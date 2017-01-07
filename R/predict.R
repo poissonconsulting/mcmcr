@@ -24,14 +24,16 @@ predict_sample <- function(object, expr, values, monitor) {
 #' @param expr A string of the R expression to evaluate.
 #' @param values A lists of the values to use.
 #' @param monitor A regular expression specifying the new variables to monitor.
+#' @param quick A flag indicating whether to quickly calculate predictions.
 #' @param ... Unused.
 #' @return An mcmcr object of the monitored parameters.
 #' @export
-predict.mcmcr <- function(object, expr, values = list(), monitor = ".*", ...) {
+predict.mcmcr <- function(object, expr, values = list(), monitor = ".*", quick = FALSE, ...) {
 
   check_string(expr)
   if (!is.list(values)) error("values must be a list")
   check_string(monitor)
+  check_flag(quick)
 
   values %<>% lapply(as.numeric)
   expr %<>% parse(text = .)
@@ -64,6 +66,12 @@ predict.mcmcr <- function(object, expr, values = list(), monitor = ".*", ...) {
   if (!length(monitor)) error("monitor must match at least one new variable in expr")
 
   monitor %<>% sort()
+
+  if (quick) {
+    object %<>% estimates()
+    object %<>% lapply(function(x) {dim(x) <- c(1L, 1L, dims(x)); class(x) <- "mcmcarray"; x})
+    class(object) <- "mcmcr"
+  }
 
   list <- list()
   for (i in 1:nchains(object)) {

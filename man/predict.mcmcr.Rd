@@ -4,7 +4,8 @@
 \alias{predict.mcmcr}
 \title{predict}
 \usage{
-\method{predict}{mcmcr}(object, expr, values = list(), monitor = ".*", ...)
+\method{predict}{mcmcr}(object, expr, values = list(), monitor = ".*",
+  quick = FALSE, ...)
 }
 \arguments{
 \item{object}{The mcmcr object.}
@@ -14,6 +15,8 @@
 \item{values}{A lists of the values to use.}
 
 \item{monitor}{A regular expression specifying the new variables to monitor.}
+
+\item{quick}{A flag indicating whether to quickly calculate predictions.}
 
 \item{...}{Unused.}
 }
