@@ -3,8 +3,6 @@ predict_sample <- function(object, expr, values, monitor) {
 
   object %<>% c(values)
 
-  object[monitor] <- NA
-
   object %<>% within(eval(expr))
 
   object <- object[monitor]
@@ -60,6 +58,8 @@ predict.mcmcr <- function(object, expr, values = list(), monitor = ".*", quick =
   variables_expr %<>% setdiff(parameters) %>% setdiff(names(values))
 
   if (!length(variables_expr)) error("expr must include at least one new variable")
+
+  values[variables_expr] <- NA
 
   monitor <- variables_expr[grepl(monitor, variables_expr)]
 
