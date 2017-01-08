@@ -12,6 +12,8 @@ coefs <- function(x, conf_level) {
 
   quantiles <- stats::quantile(x, c(lower, 0.5, upper), names = FALSE)
 
+  if (identical(length(x), 1L)) quantiles[c(1,3)] <- NA
+
   sd <- stats::sd(x)
   zscore = mean(x) / sd
 

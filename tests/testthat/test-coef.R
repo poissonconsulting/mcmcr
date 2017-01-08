@@ -15,3 +15,12 @@ test_that("coef.mcmcr", {
   expect_identical(colnames(coef), c("term", "estimate", "sd", "zscore", "lower", "upper", "significance"))
   expect_identical(coef$term, c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma"))
 })
+
+test_that("missing limits", {
+  mcmcr <- subset(mcmcr, chains = 1L)
+  coef <- coef(mcmcr)
+  expect_true(all(coef$lower < coef$estimate))
+  mcmcr <- subset(mcmcr, iterations = 1L)
+  coef <- coef(mcmcr)
+  expect_true(all(is.na(coef$lower)))
+})
