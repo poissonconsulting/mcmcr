@@ -16,11 +16,32 @@ test_that("coef.mcmcr", {
   expect_identical(coef$term, c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma"))
 })
 
-test_that("missing limits", {
-  mcmcr <- subset(mcmcr, chains = 1L)
+test_that("missing limits iters", {
+  mcmc <- mcmcr
+  mcmc <- subset(mcmc, chains = 1L)
+  coef <- coef(mcmc)
+  expect_true(all(coef$lower < coef$estimate))
+
+  mcmc <- subset(mcmc, iterations = 1:2)
+  coef <- coef(mcmc)
+  expect_true(all(coef$lower < coef$estimate))
+
+  mcmc <- subset(mcmc, iterations = 1L)
+  coef <- coef(mcmc)
+  expect_true(all(is.na(coef$lower)))
+})
+
+test_that("missing limits chains", {
+  mcmcr <- subset(mcmcr, iterations = 1L)
   coef <- coef(mcmcr)
   expect_true(all(coef$lower < coef$estimate))
-  mcmcr <- subset(mcmcr, iterations = 1L)
+
+  mcmcr <- subset(mcmcr, chains = 1:2)
+  coef <- coef(mcmcr)
+  expect_true(all(coef$lower < coef$estimate))
+
+  mcmcr <- subset(mcmcr, chains = 1L)
   coef <- coef(mcmcr)
   expect_true(all(is.na(coef$lower)))
 })
+
