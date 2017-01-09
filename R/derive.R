@@ -1,4 +1,16 @@
-predict_sample <- function(object, expr, values, monitor) {
+#' derive
+#'
+#' Calculate dervived parameters.
+#'
+#' @param object The mcmc object.
+#' @param ... Unused.
+#' @return An mcmc object of the derived parameters.
+#' @export
+derive <- function(object, ...) {
+  UseMethod("derive")
+}
+
+derive_sample <- function(object, expr, values, monitor) {
   object %<>% estimates()
 
   object %<>% c(values)
@@ -14,7 +26,7 @@ predict_sample <- function(object, expr, values, monitor) {
   object
 }
 
-#' predict
+#' derive
 #'
 #' Calculate dervived parameters.
 #'
@@ -22,11 +34,11 @@ predict_sample <- function(object, expr, values, monitor) {
 #' @param expr A string of the R expression to evaluate.
 #' @param values A lists of the values to use.
 #' @param monitor A regular expression specifying the new variables to monitor.
-#' @param quick A flag indicating whether to quickly calculate predictions.
+#' @param quick A flag indicating whether to quickly calculate deriveions.
 #' @param ... Unused.
 #' @return An mcmcr object of the monitored parameters.
 #' @export
-predict.mcmcr <- function(object, expr, values = list(), monitor = ".*", quick = FALSE, ...) {
+derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", quick = FALSE, ...) {
 
   check_string(expr)
   if (!is.list(values)) error("values must be a list")
@@ -77,7 +89,7 @@ predict.mcmcr <- function(object, expr, values = list(), monitor = ".*", quick =
   for (i in 1:nchains(object)) {
     list[[i]] <- list()
     for (j in 1:niters(object)) {
-      list[[i]][[j]] <- predict_sample(subset(object, i, j), expr, values, monitor)
+      list[[i]][[j]] <- derive_sample(subset(object, i, j), expr, values, monitor)
     }
   }
 
