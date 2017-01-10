@@ -1,4 +1,4 @@
-# inspired by coda set.mfrow
+# modified from coda set.mfrow
 mfrow <- function(nterms = 1) {
   mfrow <- switch(min(nterms, 13),
                   c(1, 2), c(2, 2),
@@ -10,7 +10,7 @@ mfrow <- function(nterms = 1) {
 
 #' @export
 plot.mcmcarray <- function(x, ...) {
-  
+
 
   nterms <- nterms(x)
 
@@ -30,7 +30,6 @@ plot.mcmcarray <- function(x, ...) {
 
 #' @export
 plot.mcmcr <- function(x, ...) {
-  
 
   nterms <- nterms(x)
 

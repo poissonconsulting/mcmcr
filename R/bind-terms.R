@@ -13,7 +13,6 @@ bind_terms <- function(x, x2, ...) {
 #' @export
 bind_terms.mcmc <- function(x, x2, ...) {
 
-
   if (!identical(coda::niter(x), coda::niter(x2)))
     error("x and x2 must have the same number of iterations")
 

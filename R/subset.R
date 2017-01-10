@@ -6,7 +6,7 @@
 #' @param ... Unused.
 #' @export
 subset.mcmcarray <- function(x, chains = NULL, iterations = NULL, ...) {
-  
+
 
   if (!is.null(chains)) check_vector(chains, 1:nchains(x))
   if (!is.null(iterations)) check_vector(iterations, 1:niters(x))
@@ -31,7 +31,7 @@ subset.mcmcr <- function(x, chains = NULL, iterations = NULL, parameters = NULL,
   if (!is.null(parameters)) {
     if (!all(parameters %in% parameters(x))) error("parameters must all be in x")
     if (anyDuplicated(parameters)) error("parameters must be unique")
-    x <- x[sort(parameters)]
+    x <- x[parameters]
   }
 
   x %<>% lapply(subset, chains = chains, iterations = iterations)
