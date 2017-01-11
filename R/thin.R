@@ -1,7 +1,7 @@
 #' @export
 thin.mcmcarray <- function(x, nthin = 1L, ...) {
   check_count(nthin)
-  if (!nthin) error("nthin cannot be 0")
+  nthin %<>% max(1L)
 
   if (nthin == 1) return(x)
 
@@ -12,11 +12,6 @@ thin.mcmcarray <- function(x, nthin = 1L, ...) {
 
 #' @export
 thin.mcmcr <- function(x, nthin = 1L, ...) {
-  check_count(nthin)
-  if (!nthin) error("nthin cannot be 0")
-
-  if (nthin == 1) return(x)
-
   x %<>% lapply(thin, nthin = nthin)
   class(x) <- "mcmcr"
   x

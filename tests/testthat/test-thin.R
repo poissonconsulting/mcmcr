@@ -9,7 +9,7 @@ test_that("thin.mcmcarray", {
 
 test_that("thin.mcmcr", {
   expect_identical(thin(mcmcr), mcmcr)
-  expect_error(thin(mcmcr, 0L))
+  expect_identical(thin(mcmcr, 0L), mcmcr)
   mcmcr2t <- thin(mcmcr, 2L)
   expect_identical(nchains(mcmcr2t), nchains(mcmcr))
   expect_equal(niters(mcmcr2t), niters(mcmcr) / 2)
