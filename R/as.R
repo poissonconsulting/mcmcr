@@ -29,15 +29,6 @@ as.mcarray <- function(x, ...) {
   UseMethod("as.mcarray")
 }
 
-#' Coerce to an mcmc.list object
-#'
-#' @param x object to coerce.
-#' @param ... Unused.
-#' @export
-as.mcmc.list <- function(x, ...) {
-  UseMethod("as.mcmc.list")
-}
-
 #' @export
 as.mcmcr.list <- function(x, ...) {
 

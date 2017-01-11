@@ -6,10 +6,10 @@ Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c
 Description: Manipulates MCMC samples.
 License: MIT + file LICENSE
 Depends:
-    R (>= 3.3.1)
+    R (>= 3.3.1),
+    coda
 Imports:
     abind,
-    coda,
     datacheckr,
     dplyr,
     graphics,
