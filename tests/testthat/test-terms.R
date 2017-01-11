@@ -1,16 +1,11 @@
 context("terms")
 
-test_that("thin.mcmcarray", {
-  expect_identical(thin(mcmcr[[1]]), mcmcr[[1]])
-  mcmcr2t <- thin(mcmcr[[2]], 2L)
-  expect_identical(nchains(mcmcr2t), nchains(mcmcr[[2]]))
-  expect_equal(niters(mcmcr2t), niters(mcmcr[[2]]) / 2)
+test_that("terms.mcmcarray", {
+  expect_identical(terms(mcmcr[[1]]), c("[1]", "[2]"))
+  expect_identical(terms(mcmcr[[2]]), c("[1,1]", "[2,1]", "[1,2]", "[2,2]"))
+  expect_identical(terms(mcmcr[[3]]), "")
 })
 
-test_that("thin.mcmcr", {
-  expect_identical(thin(mcmcr), mcmcr)
-  mcmcr2t <- thin(mcmcr, 2L)
-  expect_identical(nchains(mcmcr2t), nchains(mcmcr))
-  expect_equal(niters(mcmcr2t), niters(mcmcr) / 2)
-  expect_equal(terms(mcmcr2t), terms(mcmcr))
+test_that("terms.mcmcr", {
+  expect_identical(terms(mcmcr), c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma" ))
 })
