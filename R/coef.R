@@ -50,6 +50,7 @@ coef.mcmcarray <- function(object, conf_level = 0.95, ...) {
   coef %<>% tidyr::spread_("Var1", "value")
   coef %<>% dplyr::mutate_(term = ~as.character(term))
   if (nrow(coef) == 1) coef %<>% dplyr::mutate_(term = ~"")
+  coef$term %<>% as.term()
   coef %<>% dplyr::as.tbl()
   coef
 }
@@ -72,6 +73,7 @@ coef.mcmcr <- function(object, conf_level = 0.95, ...) {
   object %<>% dplyr::bind_rows(.id = "id")
 
   object %<>% tidyr::unite_("term", from = c("id", "term"), sep = "")
+  object$term %<>% as.term()
 
   object
 }
