@@ -1,4 +1,4 @@
-significance <- function(x) {
+pvalue <- function(x) {
   n <- length(x)
   d <- sum(x >= 0)
   p <- min(d, n - d) * 2
@@ -18,7 +18,7 @@ coefs <- function(x, conf_level) {
   zscore = mean(x) / sd
 
   c(estimate = quantiles[2], sd = sd, zscore = zscore,
-    lower = quantiles[1], upper = quantiles[3], significance = significance(x))
+    lower = quantiles[1], upper = quantiles[3], pvalue = pvalue(x))
 }
 
 #' Coef TMB Analyses
