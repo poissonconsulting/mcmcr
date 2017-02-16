@@ -36,7 +36,7 @@ test_that("derive", {
   quick <- derive(mcmcr, expr, values = values, monitor = "^g|^a", quick = TRUE)
 
   expect_identical(nchains(quick), 1L)
-  expect_identical(niters(quick), 1L)
+  expect_identical(niters(quick), 3L)
 
   expect_equal(estimates(quick), estimates(derived), tolerance = 0.01, check.attributes = FALSE)
 })

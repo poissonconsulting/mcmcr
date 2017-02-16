@@ -79,11 +79,7 @@ derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", quick = 
 
   monitor %<>% sort()
 
-  if (quick) {
-    object %<>% estimates()
-    object %<>% lapply(function(x) {dim(x) <- c(1L, 1L, dims(x)); class(x) <- "mcmcarray"; x})
-    class(object) <- "mcmcr"
-  }
+  if (quick) object %<>% quick_mcmcr()
 
   list <- list()
   for (i in 1:nchains(object)) {

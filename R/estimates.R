@@ -11,14 +11,11 @@ estimates <- function(object, ...) {
 }
 
 #' @export
-estimates.mcmcarray <- function(object, ...) {
-  
-  ndims <- ndims(object)
-  apply(object, 3:ndims, stats::median, ...)
+estimates.mcmcarray <- function(object, fun = stats::median, ...) {
+    apply(object, 3:ndims(object), FUN = fun, ...)
 }
 
 #' @export
-estimates.mcmcr <- function(object, ...) {
-  
-  lapply(object, estimates)
+estimates.mcmcr <- function(object, fun = stats::median, ...) {
+  lapply(object, estimates, fun, ...)
 }
