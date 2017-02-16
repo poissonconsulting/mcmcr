@@ -14,4 +14,3 @@ as.mcarray(x, ...)
 \description{
 Coerce to an mcarray object
 }
-

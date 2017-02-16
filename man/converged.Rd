@@ -17,4 +17,3 @@ A flag indicating whether the test was positive.
 \description{
 Tests whether x has converged.
 }
-

@@ -16,4 +16,3 @@ bind_chains(x, x2, ...)
 \description{
 Combines two or more mcmc objects by chains.
 }
-

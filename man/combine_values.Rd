@@ -18,4 +18,3 @@ combine_values(x, x2, fun = mean, ...)
 \description{
 Combines two or more mcmc objects by values using fun.
 }
-

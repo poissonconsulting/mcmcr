@@ -12,4 +12,3 @@ list_mcarrays
 A list of objects of class mcarray.
 }
 \keyword{datasets}
-

@@ -28,3 +28,15 @@ combine_values.mcmcarray <- function(x, x2, fun = mean, ...) {
   class(x) <- "mcmcarray"
   x
 }
+
+#' @export
+combine_values.mcmcr <- function(x, x2, fun = mean, ...) {
+
+  if (!is.mcmcr(x)) error("x2 must be an mcmcr")
+
+  if (!identical(names(x), names(x2))) error("x and x2 must have the same names")
+
+  x %<>% purrr::map2(x2, combine_values, fun = fun, ...)
+  class(x) <- "mcmcr"
+  x
+}

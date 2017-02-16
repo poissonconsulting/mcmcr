@@ -17,4 +17,3 @@ A number of the rhat value.
 \description{
 Get R-hat value(s) for JAGS objects
 }
-

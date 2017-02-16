@@ -17,4 +17,3 @@ A list of the dims.
 \description{
 Get dims for term object
 }
-

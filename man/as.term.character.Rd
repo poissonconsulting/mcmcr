@@ -14,4 +14,3 @@
 \description{
 Coerce character vector to term vector
 }
-

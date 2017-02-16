@@ -26,4 +26,3 @@ An mcmcr object of the monitored parameters.
 \description{
 Calculate dervived parameters.
 }
-

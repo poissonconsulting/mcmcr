@@ -20,4 +20,3 @@ Akaike's weight and the proportion of models including the term.
 \description{
 Coefficients for an mcmcarray object.
 }
-

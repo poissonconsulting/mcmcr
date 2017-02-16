@@ -14,4 +14,3 @@ zero(x, ...)
 \description{
 Zeros object
 }
-

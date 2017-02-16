@@ -18,4 +18,3 @@
 \description{
 Subset mcmc object
 }
-

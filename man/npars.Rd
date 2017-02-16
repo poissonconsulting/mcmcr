@@ -17,4 +17,3 @@ A count of the number of parameters.
 \description{
 Gets the number of parameter names for an object.
 }
-

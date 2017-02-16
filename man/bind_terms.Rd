@@ -16,4 +16,3 @@ bind_terms(x, x2, ...)
 \description{
 Combines two or more mcmc objects by terms.
 }
-

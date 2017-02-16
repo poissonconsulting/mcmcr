@@ -14,4 +14,3 @@ as.term(x, ...)
 \description{
 Coerce object vector to term vector.
 }
-

@@ -15,4 +15,3 @@ A count of the number of dimensions
 \description{
 Number of dimensions
 }
-

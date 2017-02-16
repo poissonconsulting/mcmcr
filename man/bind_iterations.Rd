@@ -16,4 +16,3 @@ bind_iterations(x, x2, ...)
 \description{
 Combines two or more mcmc objects by iterations
 }
-

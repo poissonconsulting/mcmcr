@@ -17,4 +17,3 @@ Coerce to an mcmcarray object
 \examples{
 as.mcmcarray(list_mcarrays[[1]])
 }
-

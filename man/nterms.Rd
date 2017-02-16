@@ -17,4 +17,3 @@ A count of the number of terms.
 \description{
 Number of terms.
 }
-

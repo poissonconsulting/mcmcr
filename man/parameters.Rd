@@ -17,4 +17,3 @@ A character vector of the parameter names.
 \description{
 Gets the parameter names for an object.
 }
-

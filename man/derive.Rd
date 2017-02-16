@@ -17,4 +17,3 @@ An mcmc object of the derived parameters.
 \description{
 Calculate dervived parameters.
 }
-
