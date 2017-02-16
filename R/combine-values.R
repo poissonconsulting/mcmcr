@@ -16,14 +16,13 @@ combine_values.mcmcarray <- function(x, x2, fun = mean, ...) {
 
   if (!is.mcmcarray(x)) error("x2 must be an mcmcarray")
 
-  dim <- dim(x)
-  dim2 <- dim(x2)
-
-  if (!identical(dim, dim2)) error("x and x2 must have the same dimensions")
+  if (!identical(dim(x), dim(x2))) error("x and x2 must have the same dimensions")
 
   x %<>% abind::abind(x2, along = 0)
 
   x %<>% apply(2:ndims(x), fun)
+
+  if (!identical(dim(x), dim(x2))) error("x and x2 must have the same combined dimensions")
 
   class(x) <- "mcmcarray"
   x
@@ -37,6 +36,7 @@ combine_values.mcmcr <- function(x, x2, fun = mean, ...) {
   if (!identical(names(x), names(x2))) error("x and x2 must have the same names")
 
   x %<>% purrr::map2(x2, combine_values, fun = fun, ...)
+
   class(x) <- "mcmcr"
   x
 }
