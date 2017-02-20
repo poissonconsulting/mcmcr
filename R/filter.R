@@ -1,4 +1,4 @@
-filter_mcmcarray_vector <- function(x, idx) {
+filter_mcmcarray <- function(x, idx) {
   stopifnot(is.mcmcarray(x))
   stopifnot(ndims(x) == 3)
 
@@ -9,25 +9,16 @@ filter_mcmcarray_vector <- function(x, idx) {
 
 #' Filter mcmcr data
 #'
-#' @param .x The mcmcr_object to filter
-#' @param ... Logical predicates. Multiple conditions are combined with &.
+#' @inheritParams dplyr::filter_
+#' @param .x An mcmcr_data object
 #' @export
-filter_mcmcr_data <- function(.x, ...) {
-  filter_mcmcr_data_(.x, .dots = lazyeval::lazy_dots(...))
-}
-
-#' Filter mcmcr data
-#'
-#' @inheritParams filter_mcmcr_data
-#' @param .dots Used to work around non-standard evaluation. See vignette("nse") for details.
-#' @export
-filter_mcmcr_data_ <- function(.x, ..., .dots){
+filter_.mcmcr_data <- function(.x, ..., .dots){
   data <- .x$data
 
   stopifnot(!tibble::has_name(data, "IDX"))
   data$IDX <- 1:nrow(data)
   data %<>% dplyr::filter_(..., .dots = .dots)
-  .x$mcmcr[[1]] %<>% filter_mcmcarray_vector(data$IDX)
+  .x$mcmcr[[1]] %<>% filter_mcmcarray(data$IDX)
   .x$data <- data
   .x
 }

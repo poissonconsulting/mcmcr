@@ -12,6 +12,7 @@ test_that("mcmcr_data", {
 
 test_that("mcmcr_data", {
 
+  require(dplyr)
   data <- dplyr::data_frame(col1 = 1:2, col2 = 3)
 
   mcmcr <- subset(mcmcr, parameters = "alpha")
@@ -26,23 +27,23 @@ test_that("mcmcr_data", {
   expect_identical(as.data.frame(mcmcr_data), data)
   expect_identical(as.mcmcr(mcmcr_data), mcmcr)
 
-  mcmcr_data2 <- filter_mcmcr_data(mcmcr_data, col1 == 1)
+  mcmcr_data2 <- filter(mcmcr_data, col1 == 1)
   coef2 <- coef(mcmcr_data2)
   expect_identical(as.character(coef2$term), c("alpha"))
   expect_identical(coef2$col1, 1L)
 
-  mcmcr_data2 <- group_by_mcmcr_data(mcmcr_data, col2)
-  expect_identical(ungroup_mcmcr_data(mcmcr_data2), mcmcr_data)
+  mcmcr_data2 <- group_by(mcmcr_data, col2)
+  expect_identical(ungroup(mcmcr_data2), mcmcr_data)
   expect_identical(as.character(coef(mcmcr_data2)$term), c("alpha[1]", "alpha[2]"))
 
-  expect_error(summarise_mcmcr_data(mcmcr_data), "mcmcr_data must be grouped to summarize")
+  expect_error(summarise(mcmcr_data), "mcmcr_data must be grouped to summarize")
 
-  coef2 <- coef(summarise_mcmcr_data(mcmcr_data2))
+  coef2 <- coef(summarise(mcmcr_data2))
   expect_identical(colnames(coef2), c("col2", "term", "estimate", "sd", "zscore", "lower", "upper", "pvalue"))
   expect_identical(as.character(coef2$term), c("alpha"))
 
-  mcmcr_data2 <- group_by_mcmcr_data(mcmcr_data, col1)
-  coef2 <- coef(summarise_mcmcr_data(mcmcr_data2))
+  mcmcr_data2 <- group_by(mcmcr_data, col1)
+  coef2 <- coef(summarise(mcmcr_data2))
   expect_identical(colnames(coef2), c("col1", "term", "estimate", "sd", "zscore", "lower", "upper", "pvalue"))
   expect_identical(as.character(coef2$term), c("alpha[1]", "alpha[2]"))
 })

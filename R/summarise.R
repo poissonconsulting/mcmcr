@@ -8,7 +8,7 @@ summarise_vector <- function(x, idx, fun) {
   idxs
 }
 
-summarise_mcmcarray_vector <- function(x, idx, fun) {
+summarise_mcmcarray <- function(x, idx, fun) {
   stopifnot(is.mcmcarray(x))
   stopifnot(ndims(x) == 3)
 
@@ -17,43 +17,16 @@ summarise_mcmcarray_vector <- function(x, idx, fun) {
   x
 }
 
-
 #' Summarise mcmcr data
 #'
-#' @param .x The mcmcr_object to filter
-#' @param ... Name-value pairs of summary functions like min(), mean(), max() etc.
-#' @param .fun The function to summarise the samples by.
+#' @inheritParams dplyr::summarise_
+#' @param .x An mcmcr_data object
+#' @param .fun A function to summarise mcmc samples by
 #' @export
-summarise_mcmcr_data <- function(.x, ..., .fun = mean) {
-  summarise_mcmcr_data_(.x, .dots = lazyeval::lazy_dots(...), .fun = .fun)
-}
-
-#' Summarise mcmcr data
-#'
-#' @inheritParams summarise_mcmcr_data
-#' @param .dots Used to work around non-standard evaluation. See vignette("nse") for details.
-#' @export
-summarise_mcmcr_data_ <- function(.x, ..., .dots, .fun = mean){
+summarise_.mcmcr_data <- function(.x, ..., .dots, .fun = mean){
   if (is.null(dplyr::groups(.x$data))) error("mcmcr_data must be grouped to summarize")
   IDX <- dplyr::group_indices(.x$data)
-  .x$mcmcr[[1]] %<>% summarise_mcmcarray_vector(IDX, fun = .fun)
+  .x$mcmcr[[1]] %<>% summarise_mcmcarray(IDX, fun = .fun)
   .x$data %<>% dplyr::summarise_(..., .dots = .dots)
   .x
-}
-
-#' Summarise mcmcr data
-#'
-#' @inheritParams summarise_mcmcr_data
-#' @export
-summarize_mcmcr_data <- function(.x, ..., .fun = mean) {
-  summarise_mcmcr_data(.x, ..., .fun = .fun)
-}
-
-#' Summarise mcmcr data
-#'
-#' @inheritParams summarise_mcmcr_data
-#' @param .dots Used to work around non-standard evaluation. See vignette("nse") for details.
-#' @export
-summarize_mcmcr_data_ <- function(.x, ..., .dots, .fun = mean){
-  summarise_mcmcr_data_(.x, ..., .dots = .dots, .fun = .fun)
 }
