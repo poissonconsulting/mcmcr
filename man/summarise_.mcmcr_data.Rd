@@ -4,7 +4,7 @@
 \alias{summarise_.mcmcr_data}
 \title{Summarise mcmcr data}
 \usage{
-summarise_.mcmcr_data(.x, ..., .dots, .fun = mean)
+summarise_.mcmcr_data(.x, ..., .dots)
 }
 \arguments{
 \item{.x}{An mcmcr_data object}
@@ -14,8 +14,6 @@ summarise_.mcmcr_data(.x, ..., .dots, .fun = mean)
 
 \item{.dots}{Used to work around non-standard evaluation. See
 \code{vignette("nse")} for details.}
-
-\item{.fun}{A function to summarise mcmc samples by}
 }
 \description{
 Summarise mcmcr data
