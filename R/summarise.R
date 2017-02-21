@@ -3,7 +3,7 @@ summarise_vector_index <- function(i, vector, idx) {
 }
 
 summarise_vector <- function(x, idx) {
-  idxs <- unique(idx)
+  idxs <- sort(unique(idx))
   idxs %<>% vapply(FUN = summarise_vector_index, FUN.VALUE = 1, vector = x, idx = idx, USE.NAMES = FALSE)
   idxs
 }
