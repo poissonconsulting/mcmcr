@@ -26,4 +26,5 @@ test_that("combine_values.mcmr", {
 
   x <- combine_values(x, x2, sum)
   expect_equal(x$alpha[1,1,1], x2$alpha[1,1,1] * 2)
+  expect_equal(combine_values(x, x2), combine_values(list(x, x2)))
 })

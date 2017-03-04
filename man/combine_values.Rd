@@ -7,14 +7,14 @@
 combine_values(x, x2, fun = mean, ...)
 }
 \arguments{
-\item{x}{an mcmc object.}
+\item{x}{An mcmc object.}
 
-\item{x2}{a second mcmc object.}
+\item{x2}{A second mcmc object.}
 
 \item{fun}{A function.}
 
 \item{...}{Unused.}
 }
 \description{
-Combines two or more mcmc objects by values using fun.
+Combines mcmc objects by values using fun.
 }
