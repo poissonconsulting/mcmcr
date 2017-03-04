@@ -15,7 +15,9 @@ combine_values_mcmcarray_list <- function(x, fun) {
   if (!all(vapply(x, is.mcmcarray, TRUE))) error("objects in x must be of class mcmcarray")
 
   dim <- lapply(x, dim)
+  names(dim) <- NULL
 
+  print(dim)
   if (!identical(dim, rep(dim[1], length(x))))
     error("objects in x must have the same dimensions")
 
@@ -67,7 +69,7 @@ combine_values.list <- function(x, x2, fun = mean, ...) {
   if (!all(vapply(x, is.mcmcr, TRUE))) error("objects in x must be of class mcmcr")
 
   names <- lapply(x, names)
-  if (!identical(names, rep(names[1], length(x)))) error("objects in x must have the same names")
+  if (!all.equal(names, rep(names[1], length(x)), check.names = FALSE)) error("objects in x must have the same names")
 
   x %<>% purrr::transpose()
 
