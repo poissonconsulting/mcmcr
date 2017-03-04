@@ -12,7 +12,6 @@ test_that("mcmcr_data", {
 
 test_that("mcmcr_data", {
 
-  require(dplyr)
   data <- dplyr::data_frame(col1 = 1:2, col2 = 3)
 
   mcmcr <- subset(mcmcr, parameters = "alpha")

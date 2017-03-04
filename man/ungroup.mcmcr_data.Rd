@@ -4,10 +4,10 @@
 \alias{ungroup.mcmcr_data}
 \title{Ungroup mcmcr data}
 \usage{
-ungroup.mcmcr_data(.x, ...)
+\method{ungroup}{mcmcr_data}(x, ...)
 }
 \arguments{
-\item{.x}{An mcmcr_data object}
+\item{x}{An mcmcr_data object}
 
 \item{...}{variables to group by. All tbls accept variable names,
 some will also accept functions of variables. Duplicated groups

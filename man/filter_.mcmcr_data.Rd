@@ -4,10 +4,10 @@
 \alias{filter_.mcmcr_data}
 \title{Filter mcmcr data}
 \usage{
-filter_.mcmcr_data(.x, ..., .dots)
+\method{filter_}{mcmcr_data}(.data, ..., .dots)
 }
 \arguments{
-\item{.x}{An mcmcr_data object}
+\item{.data}{An mcmcr_data object}
 
 \item{...}{Logical predicates. Multiple conditions are combined with \code{&}.}
 

@@ -4,10 +4,10 @@
 \alias{summarise_.mcmcr_data}
 \title{Summarise mcmcr data}
 \usage{
-summarise_.mcmcr_data(.x, ..., .dots)
+\method{summarise_}{mcmcr_data}(.data, ..., .dots)
 }
 \arguments{
-\item{.x}{An mcmcr_data object}
+\item{.data}{An mcmcr_data object}
 
 \item{...}{Name-value pairs of summary functions like \code{\link{min}()},
 \code{\link{mean}()}, \code{\link{max}()} etc.}

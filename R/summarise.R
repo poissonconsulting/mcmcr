@@ -20,12 +20,12 @@ summarise_mcmcarray <- function(x, idx) {
 #' Summarise mcmcr data
 #'
 #' @inheritParams dplyr::summarise_
-#' @param .x An mcmcr_data object
+#' @param .data An mcmcr_data object
 #' @export
-summarise_.mcmcr_data <- function(.x, ..., .dots){
-  if (is.null(dplyr::groups(.x$data))) error("mcmcr_data must be grouped to summarize")
-  IDX <- dplyr::group_indices(.x$data)
-  .x$mcmcr[[1]] %<>% summarise_mcmcarray(IDX)
-  .x$data %<>% dplyr::summarise_(..., .dots = .dots)
-  .x
+summarise_.mcmcr_data <- function(.data, ..., .dots){
+  if (is.null(dplyr::groups(.data$data))) error("mcmcr_data must be grouped to summarize")
+  IDX <- dplyr::group_indices(.data$data)
+  .data$mcmcr[[1]] %<>% summarise_mcmcarray(IDX)
+  .data$data %<>% dplyr::summarise_(..., .dots = .dots)
+  .data
 }

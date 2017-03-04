@@ -4,10 +4,10 @@
 \alias{group_by_.mcmcr_data}
 \title{Group mcmcr data}
 \usage{
-group_by_.mcmcr_data(.x, ..., .dots, add = FALSE)
+\method{group_by_}{mcmcr_data}(.data, ..., .dots, add = FALSE)
 }
 \arguments{
-\item{.x}{An mcmcr_data object}
+\item{.data}{An mcmcr_data object}
 
 \item{...}{variables to group by. All tbls accept variable names,
 some will also accept functions of variables. Duplicated groups
