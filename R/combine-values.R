@@ -11,84 +11,6 @@ combine_values <- function(x, x2, fun = mean, ...) {
   UseMethod("combine_values")
 }
 
-#' @export
-combine_values.mcmcarray <- function(x, x2, fun = mean, ...) {
-
-  if (!is.mcmcarray(x2)) error("x2 must be an mcmcarray")
-
-  if (!identical(dim(x), dim(x2))) error("x and x2 must have the same dimensions")
-
-  x %<>% abind::abind(x2, along = 0)
-
-  x %<>% apply(2:ndims(x), fun)
-
-  if (!identical(dim(x), dim(x2))) error("function fun must return a scalar")
-
-  class(x) <- "mcmcarray"
-  x
-}
-
-#' @export
-combine_values.mcmcr <- function(x, x2, fun = mean, ...) {
-
-  if (!is.mcmcr(x2)) error("x2 must be an mcmcr")
-
-  if (!identical(names(x), names(x2))) error("x and x2 must have the same names")
-
-  x %<>% purrr::map2(x2, combine_values, fun = fun, ...)
-
-  class(x) <- "mcmcr"
-  x
-}
-
-#' Combine pair of mcmcr_data
-#'
-#' @inheritParams combine_values
-#' @param by A character vector of variables to join by
-#' @param suffix If there are non-joined duplicate variables in x and y, these suffixes will be added to the output to diambiguate them.
-#' @export
-combine_values.mcmcr_data <- function(x, x2, fun = mean, by = NULL, suffix = c(".x", ".y"), ...) {
-  if (!is.mcmcr_data(x2)) error("x2 must be an mcmcr_data")
-
-  check_mcmcr_data(x)
-  check_mcmcr_data(x2)
-
-  data <- as.data.frame(x)
-  data2 <- as.data.frame(x2)
-
-  data$..ID1 <- 1:nrow(data)
-  data2$..ID2 <- 1:nrow(data2)
-
-  data %<>% dplyr::inner_join(data2, by = by, suffix = suffix)
-
-  mcmcr <- as.mcmcr(x)
-  mcmcr2 <- as.mcmcr(x2)
-
-  if (names(mcmcr) != names(mcmcr2))
-    error("mcmcr components of x and x2 must have the same names")
-
-  mcmcarray <- mcmcr[[1]][,,data$..ID1, drop = FALSE]
-  mcmcarray2 <- mcmcr2[[1]][,,data$..ID2, drop = FALSE]
-
-  class(mcmcarray) <- "mcmcarray"
-  class(mcmcarray2) <- "mcmcarray"
-
-  mcmcarray %<>% combine_values(mcmcarray2, fun = fun)
-
-  data$..ID1 <- NULL
-  data$..ID2 <- NULL
-
-  mcmcr <- list(mcmcarray)
-  names(mcmcr) <- names(mcmcr2)
-
-  class(mcmcr) <- "mcmcr"
-
-  x <- mcmcr_data(mcmcr, data)
-
-  check_mcmcr_data(x)
-  x
-}
-
 combine_values_mcmcarray <- function(x, fun) {
   if (!all(vapply(x, is.mcmcarray, TRUE))) error("objects in x must be of class mcmcarray")
 
@@ -181,3 +103,37 @@ combine_values.list <- function(x, x2, fun = mean, by = NULL, suffix = c(".x", "
   x
 }
 
+#' @export
+combine_values.mcmcarray <- function(x, x2, fun = mean, ...) {
+
+  if (!is.mcmcarray(x2)) error("x2 must be an mcmcarray")
+
+  if (!identical(dim(x), dim(x2))) error("x and x2 must have the same dimensions")
+
+  combine_values(list(x, x2), fun = fun)
+}
+
+#' @export
+combine_values.mcmcr <- function(x, x2, fun = mean, ...) {
+
+  if (!is.mcmcr(x2)) error("x2 must be an mcmcr")
+
+  if (!identical(names(x), names(x2))) error("x and x2 must have the same names")
+
+  combine_values(list(x, x2), fun = fun)
+}
+
+#' Combine pair of mcmcr_data
+#'
+#' @inheritParams combine_values
+#' @param by A character vector of variables to join by
+#' @param suffix If there are non-joined duplicate variables in x and y, these suffixes will be added to the output to diambiguate them.
+#' @export
+combine_values.mcmcr_data <- function(x, x2, fun = mean, by = NULL, suffix = c(".x", ".y"), ...) {
+  if (!is.mcmcr_data(x2)) error("x2 must be an mcmcr_data")
+
+  check_mcmcr_data(x)
+  check_mcmcr_data(x2)
+
+  combine_values(list(x, x2), fun = fun, by = by, suffix = suffix)
+}
