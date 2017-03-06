@@ -85,12 +85,10 @@ combine_values_mcmcr_data <- function(x, fun, by, suffix) {
 #' Combine list of mcmc samples
 #'
 #' @inheritParams combine_values
-#' @param by A character vector of variables to join by
-#' @param suffix If there are non-joined duplicate variables in x and y, these suffixes will be added to the output to diambiguate them.
+#' @param by A character vector of variables to join by if combining mcmcr_data objects.
+#' @param suffix If there are non-joined duplicate variables in x and y, these suffixes will be added to the output to diambiguate them if combininig mcmcr_data objects.
 #' @export
-combine_values.list <- function(x, x2, fun = mean, by = NULL, suffix = c(".x", ".y"), ...) {
-  if (!missing(x2)) error("if x is a list x2 must be missing")
-
+combine_values_list <- function(x, fun = mean, by = NULL, suffix = c(".x", ".y")) {
   if (length(x) < 2) return(x)
 
   class <- class(x[[1]])
@@ -105,22 +103,14 @@ combine_values.list <- function(x, x2, fun = mean, by = NULL, suffix = c(".x", "
 
 #' @export
 combine_values.mcmcarray <- function(x, x2, fun = mean, ...) {
-
   if (!is.mcmcarray(x2)) error("x2 must be an mcmcarray")
-
-  if (!identical(dim(x), dim(x2))) error("x and x2 must have the same dimensions")
-
-  combine_values(list(x, x2), fun = fun)
+  combine_values_list(list(x, x2), fun = fun)
 }
 
 #' @export
 combine_values.mcmcr <- function(x, x2, fun = mean, ...) {
-
   if (!is.mcmcr(x2)) error("x2 must be an mcmcr")
-
-  if (!identical(names(x), names(x2))) error("x and x2 must have the same names")
-
-  combine_values(list(x, x2), fun = fun)
+  combine_values_list(list(x, x2), fun = fun)
 }
 
 #' Combine pair of mcmcr_data
@@ -131,9 +121,5 @@ combine_values.mcmcr <- function(x, x2, fun = mean, ...) {
 #' @export
 combine_values.mcmcr_data <- function(x, x2, fun = mean, by = NULL, suffix = c(".x", ".y"), ...) {
   if (!is.mcmcr_data(x2)) error("x2 must be an mcmcr_data")
-
-  check_mcmcr_data(x)
-  check_mcmcr_data(x2)
-
-  combine_values(list(x, x2), fun = fun, by = by, suffix = suffix)
+  combine_values_list(list(x, x2), fun = fun, by = by, suffix = suffix)
 }

@@ -13,7 +13,7 @@ test_that("combine_values.mcmcarray", {
   x <- combine_values(x, x2, sum)
   expect_equal(x[1,1,1], x2[1,1,1] * 2)
 
-  expect_identical(combine_values(x, x2), combine_values(list(x, x2)))
+  expect_identical(combine_values(x, x2), combine_values_list(list(x, x2)))
 })
 
 test_that("combine_values.mcmr", {
@@ -28,7 +28,7 @@ test_that("combine_values.mcmr", {
 
   x <- combine_values(x, x2, sum)
   expect_equal(x$alpha[1,1,1], x2$alpha[1,1,1] * 2)
-  expect_equal(combine_values(x, x2), combine_values(list(x, x2)))
+  expect_equal(combine_values(x, x2), combine_values_list(list(x, x2)))
 })
 
 test_that("combine_values.mcmcr_data", {
@@ -63,6 +63,6 @@ test_that("combine_values.mcmcr_data", {
   expect_identical(colnames(y$data), c("col1", "col2.x", "col2.y"))
   expect_identical(y$data$col1, 2L)
 
-  expect_identical(combine_values(y, y), combine_values(list(y, y)))
+  expect_identical(combine_values(y, y), combine_values_list(list(y, y)))
 })
 
