@@ -22,11 +22,11 @@ bind_samples.mcmcarray <- function(x, x2, along = NULL, ...) {
   if (!identical(dim[1:2], dim2[1:2]))
     error("x and x2 must have the same number of chains and iterations")
 
-  if (is.null(along)) along <- max(ndims(x), ndims(x2)) - 2
+  if (is.null(along)) along <- max(ndims(x), ndims(x2)) - 1
 
   check_number(along)
 
-  x %<>% abind::abind(x2, along = along)
+  x %<>% abind::abind(x2, along = along + 2)
   class(x) <- "mcmcarray"
   x
 }
@@ -39,7 +39,7 @@ bind_samples.mcmcr <- function(x, x2, along = NULL, ...) {
   if (!identical(names(x), names(x2))) error("x and x2 must have the same names")
 
   if (is.null(along)) {
-    along <- purrr::map2(x, x2, function(x, x2) {max(ndims(x), ndims(x2)) - 2})
+    along <- purrr::map2(x, x2, function(x, x2) {max(ndims(x), ndims(x2)) - 1})
   } else if (length(along)  == 1) {
     along %<>% rep(length(x))
   } else if (length(along) != length(x))
@@ -51,6 +51,7 @@ bind_samples.mcmcr <- function(x, x2, along = NULL, ...) {
   x %<>% purrr::transpose()
 
   x %<>% purrr::pmap(bind_samples)
+  names(x) <- names(x2)
   class(x) <- "mcmcr"
   x
 }
