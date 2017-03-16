@@ -10,7 +10,10 @@ derive <- function(object, ...) {
   UseMethod("derive")
 }
 
-derive_sample <- function(object, expr, values, monitor) {
+derive_sample <- function(i, object, expr, values, monitor) {
+
+  object %<>% subset(iterations = i)
+
   object %<>% estimates()
 
   object %<>% c(values)
@@ -26,6 +29,18 @@ derive_sample <- function(object, expr, values, monitor) {
   object
 }
 
+derive_chain <- function(i, object, expr = expr, values = values,
+                         monitor = monitor) {
+
+  object %<>% subset(chains = i)
+
+  object <- llply(1:niters(object), .fun  = derive_sample, object = object,
+                  expr = expr, values = values, monitor = monitor)
+
+  object %<>% purrr::reduce(bind_iterations)
+  object
+}
+
 #' derive
 #'
 #' Calculate dervived parameters.
@@ -34,15 +49,17 @@ derive_sample <- function(object, expr, values, monitor) {
 #' @param expr A string of the R expression to evaluate.
 #' @param values A lists of the values to use.
 #' @param monitor A regular expression specifying the new variables to monitor.
+#' @param parallel A flag indicating whether to derive samples in parallel using foreach backend.
 #' @param quick A flag indicating whether to quickly calculate deriveions.
 #' @param ... Unused.
 #' @return An mcmcr object of the monitored parameters.
 #' @export
-derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", quick = FALSE, ...) {
+derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", parallel = FALSE, quick = FALSE, ...) {
 
   check_string(expr)
   if (!is.list(values)) error("values must be a list")
   check_string(monitor)
+  check_flag(parallel)
   check_flag(quick)
 
   values %<>% lapply(as.numeric)
@@ -81,16 +98,9 @@ derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", quick = 
 
   if (quick) object %<>% quick_mcmcr()
 
-  list <- list()
-  for (i in 1:nchains(object)) {
-    list[[i]] <- list()
-    for (j in 1:niters(object)) {
-      list[[i]][[j]] <- derive_sample(subset(object, i, j), expr, values, monitor)
-    }
-  }
+  object <- llply(1:nchains(object), derive_chain, object = object,
+                     .parallel = parallel, expr = expr, values = values, monitor = monitor)
 
-  object <- lapply(list, purrr::reduce, bind_iterations)
   object %<>% purrr::reduce(bind_chains)
-
   object
 }

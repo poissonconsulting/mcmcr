@@ -5,7 +5,7 @@
 \title{derive}
 \usage{
 \method{derive}{mcmcr}(object, expr, values = list(), monitor = ".*",
-  quick = FALSE, ...)
+  parallel = FALSE, quick = FALSE, ...)
 }
 \arguments{
 \item{object}{The mcmcr object.}
@@ -15,6 +15,8 @@
 \item{values}{A lists of the values to use.}
 
 \item{monitor}{A regular expression specifying the new variables to monitor.}
+
+\item{parallel}{A flag indicating whether to derive samples in parallel using foreach backend.}
 
 \item{quick}{A flag indicating whether to quickly calculate deriveions.}
 
