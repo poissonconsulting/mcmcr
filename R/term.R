@@ -62,8 +62,8 @@ dims_term <- function(x, ...) {
   x %<>% str_replace("^(\\w+)(.*)", "\\2") %>%
     str_replace("^(\\[)(.*)(\\])$", "\\2") %>%
     str_split("\\s*[,]\\s*")
-  x %<>% lapply(str_replace_all, "\\s+", "")
-  x %<>% lapply(as.integer)
+  x %<>% llply(str_replace_all, "\\s+", "")
+  x %<>% llply(as.integer)
   x %<>% purrr::map_if(function(x) identical(x, NA_integer_), function(x) 1L)
   x
 }

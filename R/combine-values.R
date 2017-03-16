@@ -14,7 +14,7 @@ combine_values <- function(x, x2, fun = mean, ...) {
 combine_values_mcmcarray <- function(x, fun) {
   if (!all(vapply(x, is.mcmcarray, TRUE))) error("objects in x must be of class mcmcarray")
 
-  dim <- lapply(x, dim)
+  dim <- llply(x, dim)
   names(dim) <- NULL
 
   if (!identical(dim, rep(dim[1], length(x))))
@@ -33,12 +33,12 @@ combine_values_mcmcarray <- function(x, fun) {
 combine_values_mcmcr <- function(x, fun) {
   if (!all(vapply(x, is.mcmcr, TRUE))) error("objects in x must be of class mcmcr")
 
-  names <- lapply(x, names)
+  names <- llply(x, names)
   if (!all.equal(names, rep(names[1], length(x)), check.names = FALSE)) error("objects in x must have the same names")
 
   x %<>% purrr::transpose()
 
-  x %<>% lapply(combine_values_mcmcarray, fun = fun)
+  x %<>% llply(combine_values_mcmcarray, fun = fun)
 
   class(x) <- "mcmcr"
   x
@@ -47,16 +47,16 @@ combine_values_mcmcr <- function(x, fun) {
 combine_values_mcmcr_data <- function(x, fun, by, suffix) {
   if (!all(vapply(x, is.mcmcr_data, TRUE))) error("objects in x must be of class mcmcr_data")
 
-  lapply(x, check_mcmcr_data)
+  llply(x, check_mcmcr_data)
 
-  data <- lapply(x, as.data.frame)
+  data <- llply(x, as.data.frame)
 
   for (i in seq_along(data))
     data[[i]] %<>% dplyr::mutate_(.dots = setNames(list(~1:n()), str_c("..ID", i)))
 
   data %<>% purrr::reduce(dplyr::inner_join, by = by, suffix = suffix)
 
-  mcmcr <- lapply(x, as.mcmcr)
+  mcmcr <- llply(x, as.mcmcr)
 
   names <- vapply(mcmcr, names, "")
 

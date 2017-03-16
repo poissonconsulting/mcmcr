@@ -12,7 +12,7 @@ thin.mcmcarray <- function(x, nthin = 1L, ...) {
 
 #' @export
 thin.mcmcr <- function(x, nthin = 1L, ...) {
-  x %<>% lapply(thin, nthin = nthin)
+  x %<>% llply(thin, nthin = nthin)
   class(x) <- "mcmcr"
   x
 }

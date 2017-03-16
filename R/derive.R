@@ -22,7 +22,7 @@ derive_sample <- function(i, object, expr, values, monitor) {
 
   object <- object[monitor]
 
-  object %<>% lapply(function(x) { dim(x) <- c(1L, 1L, dims(x)); class(x) <- "mcmcarray"; x})
+  object %<>% llply(function(x) { dim(x) <- c(1L, 1L, dims(x)); class(x) <- "mcmcarray"; x})
 
   class(object) <- "mcmcr"
 
@@ -62,7 +62,7 @@ derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", parallel
   check_flag(parallel)
   check_flag(quick)
 
-  values %<>% lapply(as.numeric)
+  values %<>% llply(as.numeric)
   expr %<>% parse(text = .)
 
   parameters <- parameters(object)

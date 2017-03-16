@@ -3,9 +3,9 @@ quick_mcmcr <- function(x) {
   lower <- estimates(x, stats::quantile, 0.025)
   upper <- estimates(x, stats::quantile, 0.975)
 
-  median %<>% lapply(function(x) {dim(x) <- c(1L, 1L, dims(x)); class(x) <- "mcmcarray"; x})
-  lower %<>% lapply(function(x) {dim(x) <- c(1L, 1L, dims(x)); class(x) <- "mcmcarray"; x})
-  upper %<>% lapply(function(x) {dim(x) <- c(1L, 1L, dims(x)); class(x) <- "mcmcarray"; x})
+  median %<>% llply(function(x) {dim(x) <- c(1L, 1L, dims(x)); class(x) <- "mcmcarray"; x})
+  lower %<>% llply(function(x) {dim(x) <- c(1L, 1L, dims(x)); class(x) <- "mcmcarray"; x})
+  upper %<>% llply(function(x) {dim(x) <- c(1L, 1L, dims(x)); class(x) <- "mcmcarray"; x})
 
   class(median) <- "mcmcr"
   class(lower) <- "mcmcr"

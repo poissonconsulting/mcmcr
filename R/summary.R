@@ -1,6 +1,6 @@
 #' @export
 summary.mcmcarray <- function(object, ...) {
-  
+
 
   summary <- list(estimates = estimates(object),
                   nchains = nchains(object),
@@ -12,9 +12,7 @@ summary.mcmcarray <- function(object, ...) {
 
 #' @export
 summary.mcmcr <- function(object, ...) {
-  
-
-  arrays <- lapply(object, summary)
+  arrays <- llply(object, summary)
 
   summary <- list(arrays = list(arrays))
 

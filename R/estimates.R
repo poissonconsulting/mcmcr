@@ -17,5 +17,5 @@ estimates.mcmcarray <- function(object, fun = stats::median, ...) {
 
 #' @export
 estimates.mcmcr <- function(object, fun = stats::median, ...) {
-  lapply(object, estimates, fun, ...)
+  llply(object, estimates, fun, ...)
 }

@@ -68,7 +68,7 @@ coef.mcmcr <- function(object, conf_level = 0.95, ...) {
   check_number(conf_level, c(0.5, 0.99))
 
 
-  object %<>% lapply(coef, conf_level = conf_level)
+  object %<>% llply(coef, conf_level = conf_level)
 
   object %<>% dplyr::bind_rows(.id = "id")
 
