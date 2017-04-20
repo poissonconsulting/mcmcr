@@ -8,13 +8,15 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "README-"
+  fig.path = "tools/README-"
 )
 ```
 
+![stability-unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)
 [![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/mcmcr.svg?branch=master)](https://travis-ci.org/poissonconsulting/mcmcr)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/mcmcr?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/mcmcr)
 [![Coverage Status](https://img.shields.io/codecov/c/github/poissonconsulting/mcmcr/master.svg)](https://codecov.io/github/poissonconsulting/mcmcr?branch=master)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 # mcmcr
 
@@ -55,6 +57,8 @@ devtools::install_github("poissonconsulting/mcmcr")
 Please report any [issues](https://github.com/poissonconsulting/mcmcr/issues).
 
 [Pull requests](https://github.com/poissonconsulting/mcmcr/pulls) are always welcome.
+
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 ## Inspiration
 
