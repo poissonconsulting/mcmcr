@@ -9,11 +9,9 @@
 \arguments{
 \item{.data}{An mcmcr_data object}
 
-\item{...}{Name-value pairs of summary functions like \code{\link{min}()},
-\code{\link{mean}()}, \code{\link{max}()} etc.}
+\item{...}{Pair/values of expressions coercible to lazy objects.}
 
-\item{.dots}{Used to work around non-standard evaluation. See
-\code{vignette("nse")} for details.}
+\item{.dots}{Pair/values of expressions coercible to lazy objects.}
 }
 \description{
 Summarise mcmcr data

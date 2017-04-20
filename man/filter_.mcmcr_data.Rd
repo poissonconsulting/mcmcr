@@ -9,10 +9,9 @@
 \arguments{
 \item{.data}{An mcmcr_data object}
 
-\item{...}{Logical predicates. Multiple conditions are combined with \code{&}.}
+\item{...}{Pair/values of expressions coercible to lazy objects.}
 
-\item{.dots}{Used to work around non-standard evaluation. See
-\code{vignette("nse")} for details.}
+\item{.dots}{Pair/values of expressions coercible to lazy objects.}
 }
 \description{
 Filter mcmcr data
