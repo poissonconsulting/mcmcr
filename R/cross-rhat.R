@@ -47,7 +47,7 @@ cross_converged <- function(x, x2, ...) {
 #' @inheritParams cross_converged
 #' @param rhat A number specifying the rhat threshold.
 #' @export
-cross_converged.mcmcarray <- function(x, x2, rhat = 1.2, ...) {
+cross_converged.mcmcarray <- function(x, x2, rhat = 1.1, ...) {
   check_number(rhat)
   cross_rhat(x, x2) <= rhat
 }
@@ -57,7 +57,7 @@ cross_converged.mcmcarray <- function(x, x2, rhat = 1.2, ...) {
 #' @inheritParams cross_converged
 #' @param rhat A number specifying the rhat threshold.
 #' @export
-cross_converged.mcmcr <- function(x, x2, rhat = 1.2, ...) {
+cross_converged.mcmcr <- function(x, x2, rhat = 1.1, ...) {
   check_number(rhat)
   cross_rhat(x, x2) <= rhat
 }
