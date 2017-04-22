@@ -4,7 +4,7 @@
 \alias{cross_converged.mcmcr}
 \title{Is Converged}
 \usage{
-\method{cross_converged}{mcmcr}(x, x2, rhat = 1.2, ...)
+\method{cross_converged}{mcmcr}(x, x2, rhat = 1.1, ...)
 }
 \arguments{
 \item{x}{The first object to test.}
