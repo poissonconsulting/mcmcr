@@ -13,7 +13,7 @@ test_that("mcmcrs", {
   mcmcr2 <- mcmcr
   mcmcr2[[1]] <- mcmcr2[[1]] + 1
   mcmcrs <- mcmcrs(mcmcr, mcmcr2)
-  expect_identical(rhat(mcmcrs), 2.53)
+  expect_identical(rhat(mcmcrs), 1.76)
   expect_false(converged(mcmcrs))
 })
 
