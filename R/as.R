@@ -119,6 +119,7 @@ as.mcmc.list.mcmcr <- function(x, ...) {
   x
 }
 
+#' @export
 as.mcmcrs.list <- function(x, ...) {
   if (length(x)) {
     if (!all(purrr::map_lgl(x, is.mcmcr)))
