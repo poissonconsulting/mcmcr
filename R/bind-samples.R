@@ -3,14 +3,20 @@
 #' Combines two or more mcmc objects by samples
 #'
 #' @param x an mcmc object.
-#' @param x2 a second mcmc object.
-#' @param along The dimension(s) of the samples along which to bind the arrays.
 #' @param ... Unused.
 #' @export
-bind_samples <- function(x, x2, along = NULL, ...) {
+bind_samples <- function(x, ...) {
   UseMethod("bind_samples")
 }
 
+#' Combines objects by samples
+#'
+#' Combines two or more mcmc objects by samples
+#'
+#' @param x an mcmc object.
+#' @param x2 a second mcmc object.
+#' @param along The dimension(s) of the samples along which to bind the arrays.
+#' @param ... Unused.
 #' @export
 bind_samples.mcmcarray <- function(x, x2, along = NULL, ...) {
 
@@ -31,6 +37,14 @@ bind_samples.mcmcarray <- function(x, x2, along = NULL, ...) {
   x
 }
 
+#' Combines objects by samples
+#'
+#' Combines two or more mcmc objects by samples
+#'
+#' @param x an mcmc object.
+#' @param x2 a second mcmc object.
+#' @param along The dimension(s) of the samples along which to bind the arrays.
+#' @param ... Unused.
 #' @export
 bind_samples.mcmcr <- function(x, x2, along = NULL, ...) {
 
