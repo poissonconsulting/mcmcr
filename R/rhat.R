@@ -39,6 +39,13 @@ rhat.mcmcr <- function(x, ...) {
   max(x)
 }
 
+#' @export
+rhat.mcmcrs <- function(x, ...) {
+  x %<>% purrr::map(collapse_chains)
+  x %<>% purrr::reduce(bind_chains)
+  rhat(x)
+}
+
 #' Is Converged
 #'
 #' Tests whether x has converged.
@@ -70,3 +77,14 @@ converged.mcmcr <- function(x, rhat = 1.1, ...) {
   check_number(rhat)
   rhat(x) <= rhat
 }
+
+#' Is Converged
+#'
+#' @inheritParams converged
+#' @param rhat A number specifying the rhat threshold.
+#' @export
+converged.mcmcrs <- function(x, rhat = 1.1, ...) {
+  check_number(rhat)
+  rhat(x) <= rhat
+}
+

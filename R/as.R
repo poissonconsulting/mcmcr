@@ -9,6 +9,15 @@ as.mcmcr <- function(x, ...) {
   UseMethod("as.mcmcr")
 }
 
+#' Coerce to an mcmcrs object
+#'
+#' @param x object to coerce.
+#' @param ... Unused.
+#' @export
+as.mcmcrs <- function(x, ...) {
+  UseMethod("as.mcmcrs")
+}
+
 #' Coerce to an mcmcarray object
 #'
 #' @param x object to coerce.
@@ -107,5 +116,27 @@ as.mcmc.list.mcmcr <- function(x, ...) {
 
   x %<>% purrr::map2(names(x), as.mcmc.list)
   x %<>% purrr::reduce(bind_terms)
+  x
+}
+
+as.mcmcrs.list <- function(x, ...) {
+  if (length(x)) {
+    if (!all(purrr::map_lgl(x, is.mcmcr)))
+      error("all objects must inherit from mcmcr")
+
+    nchains <- purrr::map_int(x, nchains)
+    niters <- purrr::map_int(x, niters)
+    names <- purrr::map(x, names)
+
+    if (!identical(length(unique(nchains)), 1L))
+      error("all objects must have the same number of chains")
+
+    if (!identical(length(unique(niters)), 1L))
+      error("all objects must have the same number of iterations")
+
+    if (!identical(length(unique(names)), 1L))
+      error("all objects must have the same names")
+  }
+  class(x) <- "mcmcrs"
   x
 }
