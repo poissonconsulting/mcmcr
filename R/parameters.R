@@ -23,9 +23,30 @@ npars.mcmcr <- function(x, ...) {
 #' @param ... Not used.
 #' @return A character vector of the parameter names.
 #' @export
-parameters <- function(x, ...) {UseMethod("parameters")}
+parameters <- function(x, ...) {
+  UseMethod("parameters")
+}
+
+#' Parameters
+#'
+#' Sets the parameter names for an object.
+#'
+#' @param x The object.
+#' @param value A character vector of the parameter names.
+#' @export
+`parameters<-` <- function(x, value) {
+  UseMethod("parameters<-", x)
+}
 
 #' @export
 parameters.mcmcr <- function(x, ...) {
   names(x)
+}
+
+#' @export
+`parameters<-.mcmcr` <- function(x, value) {
+  check_vector(value, "", min_length = length(x), max_length = length(x))
+  check_unique(value)
+  names(x) <- value
+  x
 }

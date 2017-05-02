@@ -66,10 +66,9 @@ coef.mcmcarray <- function(object, conf_level = 0.95, ...) {
 coef.mcmcr <- function(object, conf_level = 0.95, ...) {
   check_number(conf_level, c(0.5, 0.99))
 
-  object %<>%
-    llply(coef, conf_level = conf_level) %>%
-    dplyr::bind_rows(.id = "id") %>%
-    tidyr::unite_("term", from = c("id", "term"), sep = "")
+  object %<>% llply(coef, conf_level = conf_level)
+  suppressWarnings(object %<>% dplyr::bind_rows(.id = "id"))
+  object %<>%  tidyr::unite_("term", from = c("id", "term"), sep = "")
 
   object$term %<>% as.term()
 

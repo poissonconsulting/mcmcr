@@ -4,13 +4,15 @@
 \alias{bind_samples}
 \title{Combines objects by samples}
 \usage{
-bind_samples(x, ...)
+bind_samples(x, x2, ...)
 }
 \arguments{
 \item{x}{an mcmc object.}
 
+\item{x2}{a second mcmc object.}
+
 \item{...}{Unused.}
 }
 \description{
-Combines two or more mcmc objects by samples
+Combines two mcmc objects by samples
 }

@@ -1,21 +1,15 @@
 #' Combines objects by terms
 #'
-#' Combines two or more mcmc objects by terms.
+#' Combines two mcmc objects by terms.
 #'
 #' @param x an mcmc object.
+#' @param x2 A second mcmc object.
 #' @param ... Unused.
 #' @export
-bind_terms <- function(x, ...) {
+bind_terms <- function(x, x2, ...) {
   UseMethod("bind_terms")
 }
 
-#' Combines objects by terms
-#'
-#' Combines two or more mcmc objects by terms.
-#'
-#' @param x an mcmc object.
-#' @param x2 a second mcmc object.
-#' @param ... Unused.
 #' @export
 bind_terms.mcmc <- function(x, x2, ...) {
 

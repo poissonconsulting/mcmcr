@@ -4,13 +4,15 @@
 \alias{bind_iterations}
 \title{Combines objects by iterations.}
 \usage{
-bind_iterations(x, ...)
+bind_iterations(x, x2, ...)
 }
 \arguments{
 \item{x}{an mcmc object.}
 
+\item{x2}{a second mcmc object}
+
 \item{...}{Unused.}
 }
 \description{
-Combines two or more mcmc objects by iterations
+Combines two mcmc objects by iterations
 }

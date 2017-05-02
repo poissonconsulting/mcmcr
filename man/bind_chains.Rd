@@ -4,10 +4,12 @@
 \alias{bind_chains}
 \title{Combines objects by chains.}
 \usage{
-bind_chains(x, ...)
+bind_chains(x, x2, ...)
 }
 \arguments{
 \item{x}{an mcmc object.}
+
+\item{x2}{A second mcmcr object}
 
 \item{...}{Unused.}
 }

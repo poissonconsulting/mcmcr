@@ -4,13 +4,15 @@
 \alias{bind_terms}
 \title{Combines objects by terms}
 \usage{
-bind_terms(x, ...)
+bind_terms(x, x2, ...)
 }
 \arguments{
 \item{x}{an mcmc object.}
 
+\item{x2}{A second mcmc object.}
+
 \item{...}{Unused.}
 }
 \description{
-Combines two or more mcmc objects by terms.
+Combines two mcmc objects by terms.
 }

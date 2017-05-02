@@ -3,17 +3,13 @@
 #' Combines mcmc objects by chains.
 #'
 #' @param x an mcmc object.
+#' @param x2 A second mcmcr object
 #' @param ... Unused.
 #' @export
-bind_chains <- function(x, ...) {
+bind_chains <- function(x, x2, ...) {
   UseMethod("bind_chains")
 }
 
-#' Combines objects by chains.
-#'
-#' @param x an mcmc object.
-#' @param x2 a second mcmc object.
-#' @param ... Unused.
 #' @export
 bind_chains.mcmcarray <- function(x, x2, ...) {
 
@@ -30,11 +26,6 @@ bind_chains.mcmcarray <- function(x, x2, ...) {
   x
 }
 
-#' Combines objects by chains.
-#'
-#' @param x an mcmc object.
-#' @param x2 a second mcmc object.
-#' @param ... Unused.
 #' @export
 bind_chains.mcmcr <- function(x, x2, ...) {
 

@@ -1,21 +1,15 @@
 #' Combines objects by iterations.
 #'
-#' Combines two or more mcmc objects by iterations
+#' Combines two mcmc objects by iterations
 #'
 #' @param x an mcmc object.
+#' @param x2 a second mcmc object
 #' @param ... Unused.
 #' @export
-bind_iterations <- function(x, ...) {
+bind_iterations <- function(x, x2, ...) {
   UseMethod("bind_iterations")
 }
 
-#' Combines objects by iterations.
-#'
-#' Combines two or more mcmc objects by iterations
-#'
-#' @param x an mcmc object.
-#' @param x2 a second mcmc object.
-#' @param ... Unused.
 #' @export
 bind_iterations.mcmcarray <- function(x, x2, ...) {
 
@@ -32,13 +26,6 @@ bind_iterations.mcmcarray <- function(x, x2, ...) {
   x
 }
 
-#' Combines objects by iterations.
-#'
-#' Combines two or more mcmc objects by iterations
-#'
-#' @param x an mcmc object.
-#' @param x2 a second mcmc object.
-#' @param ... Unused.
 #' @export
 bind_iterations.mcmcr <- function(x, x2, ...) {
 
