@@ -11,7 +11,8 @@ rhat <- function(x, ...) {
 }
 
 #' @export
-rhat.mcmcarray <- function(x, ...) {
+rhat.mcmcarray <- function(x, by = "all", ...) {
+  check_scalar(by, c("all", "parameter", "term"))
   if (nchains(x) < 2) error("x must have at least two chains")
 
   dim <- dim(x)[-c(1,2)]
@@ -25,24 +26,26 @@ rhat.mcmcarray <- function(x, ...) {
 
   x[is.nan(x)] <- 1.00
 
+  if (!isTRUE(all.equal(by, "term"))) return(max(x))
+
   if (length(dim) == 1)
     return(x)
   if (length(dim) == 2)
     return(matrix(x, ncol = dim[1], nrow = dim[2]))
   array(x, dim = dim)
+}
+
+#' @export
+rhat.mcmcr <- function(x, by = "all", ...) {
+  x %<>% purrr::map(rhat, by = by)
+  if (isTRUE(all.equal(by, "all"))) return(max(unlist(x)))
   x
 }
 
 #' @export
-rhat.mcmcr <- function(x, ...) {
-  x %<>% vapply(function(x) max(rhat(x)), 1)
-  max(x)
-}
-
-#' @export
-rhat.mcmcrs <- function(x, ...) {
+rhat.mcmcrs <- function(x, by = "all", ...) {
   x %<>% purrr::reduce(bind_chains)
-  rhat(x)
+  rhat(x, by = by)
 }
 
 #' Is Converged
