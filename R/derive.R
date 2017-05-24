@@ -63,11 +63,10 @@ derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", parallel
   check_flag(quick)
 
   values %<>% llply(as.numeric)
-  expr %<>% parse(text = .)
 
   parameters <- parameters(object)
   names_values <- names(values)
-  variables_expr <- all.vars(expr)
+  variables_expr <- all.vars(parse(text = expr))
 
   if (length(values)) {
     if (is.null(names_values)) error("values must be named")
@@ -90,16 +89,17 @@ derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", parallel
 
   values[variables_expr] <- NA
 
-  monitor <- variables_expr[grepl(monitor, variables_expr)]
+  if (!length(variables_expr[grepl(monitor, variables_expr)])) error("monitor '", monitor, "' must match at least one new variable in expr\n", expr)
 
-  if (!length(monitor)) error("monitor must match at least one new variable in expr")
+  monitor <- variables_expr[grepl(monitor, variables_expr)]
 
   monitor %<>% sort()
 
   if (quick) object %<>% quick_mcmcr()
 
   object <- llply(1:nchains(object), derive_chain, object = object,
-                     .parallel = parallel, expr = expr, values = values, monitor = monitor)
+                     .parallel = parallel, expr = parse(text = expr),
+                  values = values, monitor = monitor)
 
   object %<>% purrr::reduce(bind_chains)
   object
