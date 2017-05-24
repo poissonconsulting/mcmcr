@@ -89,7 +89,8 @@ derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", parallel
 
   values[variables_expr] <- NA
 
-  if (!length(variables_expr[grepl(monitor, variables_expr)])) error("monitor '", monitor, "' must match at least one new variable in expr\n", expr)
+  if (!length(variables_expr[grepl(monitor, variables_expr)]))
+    error("monitor '", monitor, "' must match at least one new variable in expr\n", expr)
 
   monitor <- variables_expr[grepl(monitor, variables_expr)]
 
@@ -102,5 +103,8 @@ derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", parallel
                   values = values, monitor = monitor)
 
   object %<>% purrr::reduce(bind_chains)
+
+  if (anyNA(object))
+    error("monitor '", monitor, "' must not include missing values in expr\n", expr)
   object
 }

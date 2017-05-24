@@ -3,6 +3,8 @@
 S3method(">",term)
 S3method("[",term)
 S3method("parameters<-",mcmcr)
+S3method(anyNA,mcmcarray)
+S3method(anyNA,mcmcr)
 S3method(as.character,term)
 S3method(as.data.frame,mcmcr_data)
 S3method(as.mcarray,mcmcarray)
