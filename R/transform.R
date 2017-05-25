@@ -1,3 +1,17 @@
+#' Log Transformation
+#'
+#' @param x The object to replace.
+#' @param value The numeric vector to transform
+#' @export
+#' @examples
+#' x <- 1
+#' log(x) <- 0.5
+#' x
+`log<-` <- function(x, value) {
+  x <- log(value)
+  x
+}
+
 #' Logistic Transformation
 #'
 #' @param x The numeric vector to transform.
@@ -31,18 +45,3 @@ logit <- function(x) {
 ilogit <- function(x) {
   1 / (1 + exp(-x))
 }
-
-#' Inverse Logistic Transformation
-#'
-#' @param x The object to replace.
-#' @param value The numeric vector to transform
-#' @export
-#' @examples
-#' x <- 1
-#' ilogit(x) <- 0.5
-#' x
-`ilogit<-` <- function(x, value) {
-  x <- ilogit(value)
-  x
-}
-

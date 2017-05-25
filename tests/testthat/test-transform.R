@@ -5,9 +5,10 @@ test_that("logit", {
   expect_identical(logit(x), qlogis(x))
   expect_identical(ilogit(logit(x)), x)
 
-  logit(x) <- 0.5
-  expect_equal(x, logit(0.5))
-  ilogit(x) <- 0.5
-  expect_equal(x, ilogit(0.5))
+  logit(x) <- c(0.5, 1)
+  expect_identical(x, logit(c(0.5, 1)))
+
+  log(x) <- c(0.5, 1)
+  expect_identical(x, log(c(0.5, 1)))
 })
 
