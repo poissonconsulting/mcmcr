@@ -8,7 +8,7 @@
 #' log(x) <- 0.5
 #' x
 `log<-` <- function(x, value) {
-  x <- log(value)
+  x <- exp(value)
   x
 }
 
@@ -32,7 +32,7 @@ logit <- function(x) {
 #' logit(x) <- 0.5
 #' x
 `logit<-` <- function(x, value) {
-  x <- logit(value)
+  x <- ilogit(value)
   x
 }
 
