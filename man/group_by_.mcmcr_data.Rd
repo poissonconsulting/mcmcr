@@ -9,16 +9,16 @@
 \arguments{
 \item{.data}{An mcmcr_data object}
 
-\item{...}{Variables to group by. All tbls accept variable names,
-some will also accept functions of variables. Duplicated groups
+\item{...}{Variables to group by. All tbls accept variable names.
+Some tbls will accept functions of variables. Duplicated groups
 will be silently dropped.}
 
 \item{.dots}{Used to work around non-standard evaluation.
 See \code{vignette("nse")} for details.}
 
 \item{add}{When \code{add = FALSE}, the default, \code{group_by()} will
-override existing groups. To instead add to the existing groups,
-use \code{add = TRUE}}
+override existing groups. To add to the existing groups, use
+\code{add = TRUE}.}
 }
 \description{
 Group mcmcr data
