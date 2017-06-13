@@ -72,7 +72,7 @@ derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", parallel
     if (is.null(names_values)) error("values must be named")
     if (anyDuplicated(names_values)) error("values names must be unique")
 
-    if (length(intersect(names_values, parameters))) error("values must not include object parameters")
+    parameters <- parameters[!parameters %in% names_values]
 
     values <- values[intersect(names_values, variables_expr)]
   }
