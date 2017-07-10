@@ -10,9 +10,12 @@ npars <- function(x, ...) {
   UseMethod("npars")
 }
 
+#' Number of parameters
+#' @inheritParams npars
+#' @param scalar_only A flag indicating whether to only count scalar parameters.
 #' @export
-npars.mcmcr <- function(x, ...) {
-  length(parameters(x))
+npars.mcmcr <- function(x, scalar_only = FALSE, ...) {
+  length(parameters(x, scalar_only = scalar_only))
 }
 
 #' Parameters
@@ -38,8 +41,19 @@ parameters <- function(x, ...) {
   UseMethod("parameters<-", x)
 }
 
+#' Parameters
+#' @inheritParams parameters
+#' @param scalar_only A flag indicating whether to only get scalar parameters.
 #' @export
-parameters.mcmcr <- function(x, ...) {
+parameters.mcmcr <- function(x, scalar_only = FALSE, ...) {
+  check_flag(scalar_only)
+  if (scalar_only) {
+    x %<>%
+      purrr::map(dims) %>%
+      purrr::keep(function(x) magrittr::equals(x[3], 1L)) %>%
+      purrr::map(length) %>%
+      purrr::keep(magrittr::equals, 3L)
+  }
   names(x)
 }
 
