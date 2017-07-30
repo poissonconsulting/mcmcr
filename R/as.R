@@ -58,8 +58,6 @@ as.data.frame.mcmcr_data <- function(x, ...) {
 
 #' @export
 as.mcmcarray.mcarray <- function(x, ...) {
-
-
   names(dim(x)) <- NULL
   n <- ndims(x)
   x %<>% aperm(c(n, n - 1, 1:(n - 2)))
@@ -68,8 +66,21 @@ as.mcmcarray.mcarray <- function(x, ...) {
 }
 
 #' @export
-as.mcarray.mcmcarray <- function(x, ...) {
+as.mcmcarray.numeric <- function(x, ...) {
+  dim(x) <- c(1,1,length(x))
+  class(x) <- "mcmcarray"
+  x
+}
 
+#' @export
+as.mcmcarray.matrix <- function(x, ...) {
+  dim(x) <- c(1,1,dim(x))
+  class(x) <- "mcmcarray"
+  x
+}
+
+#' @export
+as.mcarray.mcmcarray <- function(x, ...) {
   n <- ndims(x)
   names(dim(x)) <- c("chain", "iteration", rep("", n - 2))
   x %<>% aperm(c(3:n, 2, 1))
