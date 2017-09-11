@@ -66,8 +66,8 @@ converged <- function(x, ...) {
 #' @param rhat A number specifying the rhat threshold.
 #' @export
 converged.mcmcarray <- function(x, rhat = 1.1, ...) {
-  check_number(rhat)
-  rhat(x) <= rhat
+  check_scalar(rhat, 1.0, 1.2)
+  rhat(x) < rhat
 }
 
 #' Is Converged
@@ -76,8 +76,8 @@ converged.mcmcarray <- function(x, rhat = 1.1, ...) {
 #' @param rhat A number specifying the rhat threshold.
 #' @export
 converged.mcmcr <- function(x, rhat = 1.1, ...) {
-  check_number(rhat)
-  rhat(x) <= rhat
+  check_scalar(rhat, 1.0, 1.2)
+  rhat(x) < rhat
 }
 
 #' Is Converged
@@ -86,7 +86,7 @@ converged.mcmcr <- function(x, rhat = 1.1, ...) {
 #' @param rhat A number specifying the rhat threshold.
 #' @export
 converged.mcmcrs <- function(x, rhat = 1.1, ...) {
-  check_number(rhat)
-  rhat(x) <= rhat
+  check_scalar(rhat, 1.0, 1.2)
+  rhat(x) < rhat
 }
 

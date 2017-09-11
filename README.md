@@ -1,6 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-![stability-unstable](https://img.shields.io/badge/stability-unstable-yellow.svg) [![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/mcmcr.svg?branch=master)](https://travis-ci.org/poissonconsulting/mcmcr) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/mcmcr?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/mcmcr) [![Coverage Status](https://img.shields.io/codecov/c/github/poissonconsulting/mcmcr/master.svg)](https://codecov.io/github/poissonconsulting/mcmcr?branch=master) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![stability-unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)](https://github.com/joethorley/stability-badges#unstable) [![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/mcmcr.svg?branch=master)](https://travis-ci.org/poissonconsulting/mcmcr) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/mcmcr?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/mcmcr) [![Coverage Status](https://img.shields.io/codecov/c/github/poissonconsulting/mcmcr/master.svg)](https://codecov.io/github/poissonconsulting/mcmcr?branch=master) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/mcmcr)](https://cran.r-project.org/package=mcmcr)
 
 mcmcr
 =====
@@ -38,28 +38,7 @@ nterms(mcmcr)
 #> [1] 7
 
 coef(mcmcr)
-#> $alpha
-#> # A tibble: 2 × 7
-#>         term estimate        sd   zscore   lower    upper pvalue
-#>   <S3: term>    <dbl>     <dbl>    <dbl>   <dbl>    <dbl>  <dbl>
-#> 1        [1] 2.998247 0.5200369 5.780869 2.00839 4.000345  1e-03
-#> 2        [2] 3.998247 0.5200369 7.703810 3.00839 5.000345  5e-04
-#> 
-#> $beta
-#> # A tibble: 4 × 7
-#>         term estimate        sd   zscore     lower    upper pvalue
-#>   <S3: term>    <dbl>     <dbl>    <dbl>     <dbl>    <dbl>  <dbl>
-#> 1      [1,1] 1.265929 0.6219194 2.050184 0.1597749 2.325026  0.023
-#> 2      [2,1] 2.265929 0.6219194 3.658109 1.1597749 3.325026  0.001
-#> 3      [1,2] 1.332370 0.6191552 2.123673 0.2768236 2.399943  0.015
-#> 4      [2,2] 2.332370 0.6191552 3.738777 1.2768236 3.399943  0.002
-#> 
-#> $sigma
-#> # A tibble: 1 × 7
-#>         term  estimate        sd   zscore    lower    upper pvalue
-#>   <S3: term>     <dbl>     <dbl>    <dbl>    <dbl>    <dbl>  <dbl>
-#> 1            0.8265352 0.6637312 1.516797 0.423992 2.726438  5e-04
-#> # A tibble: 7 × 7
+#> # A tibble: 7 x 7
 #>         term  estimate        sd   zscore     lower    upper pvalue
 #> * <S3: term>     <dbl>     <dbl>    <dbl>     <dbl>    <dbl>  <dbl>
 #> 1   alpha[1] 2.9982470 0.5200369 5.780869 2.0083900 4.000345 0.0010
