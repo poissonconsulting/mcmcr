@@ -13,7 +13,7 @@ bind_terms <- function(x, x2, ...) {
 #' @export
 bind_terms.mcmc <- function(x, x2, ...) {
 
-  if (!identical(coda::niter(x), coda::niter(x2)))
+  if (!identical(niters(x), niters(x2)))
     error("x and x2 must have the same number of iterations")
 
   x %<>% abind::abind(x2, along = 2)
@@ -26,7 +26,7 @@ bind_terms.mcmc.list <- function(x, x2, ...) {
 
   if (!coda::is.mcmc.list(x)) error("x2 must be an mcmc.list")
 
-  if (!identical(coda::nchain(x), coda::nchain(x2)))
+  if (!identical(nchains(x), nchains(x2)))
     error("x and x2 must have the same number of chains")
 
   x %<>% purrr::map2(x2, bind_terms)

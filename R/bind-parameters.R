@@ -17,10 +17,10 @@ bind_parameters <- function(x, ...) {
 #' @export
 bind_parameters.mcmcr <- function(x, x2, ...) {
 
-  if (!identical(coda::nchain(x), coda::nchain(x2)))
+  if (!identical(nchains(x), nchains(x2)))
     error("x and x2 must have the same number of chains")
 
-  if (!identical(coda::niter(x), coda::niter(x2)))
+  if (!identical(niters(x), niters(x2)))
     error("x and x2 must have the same number of iterations")
 
   if (length(intersect(parameters(x), parameters(x2))))

@@ -9,8 +9,17 @@ niters <- function(x, ...) {
 }
 
 #' @export
-niters.mcarray <- function(x, ...) {
+niters.mcmc <- function(x, ...) {
+  coda::niter(x)
+}
 
+#' @export
+nchains.mcmc.list <- function(x, ...) {
+  coda::niter(x)
+}
+
+#' @export
+niters.mcarray <- function(x, ...) {
   niters <- dim(x)[ndims(x) - 1]
   names(niters) <- NULL
   niters
@@ -18,12 +27,10 @@ niters.mcarray <- function(x, ...) {
 
 #' @export
 niters.mcmcarray <- function(x, ...) {
-
   dim(x)[2]
 }
 
 #' @export
 niters.mcmcr <- function(x, ...) {
-
   niters(x[[1]])
 }
