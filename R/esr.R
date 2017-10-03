@@ -16,10 +16,13 @@ esr.matrix <- function(x, ...) {
   x %<>%
     apply(1L, acf, lag.max = niters - 1, plot = FALSE) %>%
     lapply(function(x) x$acf[,,1]) %>%
+    lapply(function(x) c(x, -1)) %>%
     lapply(function(x) x[1:match(TRUE, x < 0)]) %>%
     lapply(function(x) sum(x[-length(x)])) %>%
     unlist() %>%
     mean()
+
+  if (is.nan(x)) x <- Inf
 
   x <- 1 / (1 + (2 * (x - 1)))
 

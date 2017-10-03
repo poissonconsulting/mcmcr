@@ -20,6 +20,8 @@ rhat.matrix <- function(x, ...) {
   var_between <- niters * var(mean_chain)
   var_within <- mean(var_chain)
   rhat <- sqrt((var_between/var_within + niters - 1) / niters)
+
+  if (is.nan(rhat)) rhat <- 1
   rhat
 }
 

@@ -1,5 +1,14 @@
 context("rhat")
 
+test_that("rhat.matrix", {
+  matrix <- matrix(1, nrow = 2, ncol = 100)
+  expect_identical(rhat(matrix), 1)
+  matrix[1,] <- 2
+  expect_true(is.infinite(rhat(matrix)))
+    matrix[1,1] <- NA
+  expect_true(is.na(rhat(matrix)))
+})
+
 test_that("rhat.mcmcmarray", {
   expect_identical(rhat(mcmcr[[1]], by = "term"), c(1, 1))
   expect_equivalent(rhat(mcmcr[[2]], by = "term"), matrix(c(1.85, 1.85, 1.87, 1.87), nrow = 2, ncol = 2))

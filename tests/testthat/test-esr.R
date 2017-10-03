@@ -1,5 +1,14 @@
 context("esr")
 
+test_that("esr.matrix", {
+  matrix <- matrix(1, nrow = 2, ncol = 100)
+  expect_identical(esr(matrix), 0)
+  matrix[1,] <- 2
+  expect_identical(esr(matrix), 0)
+  matrix[1,1] <- NA
+  expect_error(esr(matrix))
+})
+
 test_that("esr.mcmcmarray", {
   expect_identical(esr(mcmcr[[1]], by = "term"), c(0.82, 0.82))
   expect_equivalent(esr(mcmcr[[2]], by = "term"), matrix(c(0, 0, 0, 0), nrow = 2, ncol = 2))
