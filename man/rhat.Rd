@@ -2,7 +2,7 @@
 % Please edit documentation in R/rhat.R
 \name{rhat}
 \alias{rhat}
-\title{Convergence}
+\title{Rhat}
 \usage{
 rhat(x, ...)
 }
@@ -15,5 +15,5 @@ rhat(x, ...)
 A number of the rhat value.
 }
 \description{
-Get R-hat value(s) for JAGS objects
+Gets uncorrected, untransformed, univariate split R-hat value(s).
 }

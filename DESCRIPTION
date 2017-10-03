@@ -19,6 +19,7 @@ Imports:
     pryr,
     purrr,
     reshape2,
+    stats,
     stringr,
     tibble,
     tidyr

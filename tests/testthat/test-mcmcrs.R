@@ -7,13 +7,13 @@ test_that("mcmcrs", {
   expect_true(is.mcmcrs(mcmcrs))
   expect_identical(length(mcmcrs), 2L)
 
-  expect_identical(rhat(mcmcrs), 1)
-  expect_true(converged(mcmcrs))
+  expect_identical(rhat(mcmcrs), 1.77)
+  expect_false(converged(mcmcrs))
 
   mcmcr2 <- mcmcr
   mcmcr2[[1]] <- mcmcr2[[1]] + 1
   mcmcrs <- mcmcrs(mcmcr, mcmcr2)
-  expect_identical(rhat(mcmcrs), 1.76)
+  expect_identical(rhat(mcmcrs), 1.77)
   expect_false(converged(mcmcrs))
 })
 
@@ -35,3 +35,4 @@ test_that("add_mcmcrs", {
   expect_is(mcmcrs(), "mcmcrs")
   expect_identical(length(mcmcrs), 8L)
 })
+

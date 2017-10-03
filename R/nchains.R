@@ -10,12 +10,12 @@ nchains <- function(x, ...) {
 
 #' @export
 nchains.mcmc <- function(x, ...) {
-  coda::nchain(x)
+  1L
 }
 
 #' @export
 nchains.mcmc.list <- function(x, ...) {
-  coda::nchain(x)
+  length(x)
 }
 
 #' @export
@@ -23,6 +23,10 @@ nchains.mcarray <- function(x, ...) {
   nchains <- dim(x)[ndims(x)]
   names(nchains) <- NULL
   nchains
+}
+
+nchains.matrix <- function(x, ...) {
+  dim(x)[1]
 }
 
 #' @export

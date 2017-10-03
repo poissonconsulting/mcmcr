@@ -10,12 +10,18 @@ niters <- function(x, ...) {
 
 #' @export
 niters.mcmc <- function(x, ...) {
-  coda::niter(x)
+  if (is.matrix(x)) return(nrow(x))
+  length(x)
 }
 
 #' @export
-nchains.mcmc.list <- function(x, ...) {
-  coda::niter(x)
+niters.mcmc.list <- function(x, ...) {
+  if (is.matrix(x[[1]])) return(nrow(x[[1]]))
+  length(x[[1]])
+}
+
+niters.matrix <- function(x, ...) {
+  dim(x)[2]
 }
 
 #' @export
