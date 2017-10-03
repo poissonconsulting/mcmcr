@@ -43,3 +43,15 @@ ndims <- function(x) {
 nsamples <- function(x) {
   nchains(x) * niters(x)
 }
+
+#' Effective Sample Size
+#'
+#' The effective number of MCMC samples.
+#'
+#' @param x The object.
+#'
+#' @return A count of the effective total number of samples.
+#' @export
+ess <- function(x) {
+  as.integer(round(nsamples(x) * esp(x)))
+}

@@ -21,7 +21,7 @@ niters.mcmc.list <- function(x, ...) {
 }
 
 niters.matrix <- function(x, ...) {
-  dim(x)[2]
+  ncol(x)
 }
 
 #' @export

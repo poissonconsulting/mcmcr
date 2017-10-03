@@ -3,5 +3,5 @@
 #' @importFrom graphics plot
 #' @importFrom magrittr %<>% %>%
 #' @importFrom plyr llply
-#' @importFrom stats coef predict setNames terms var
+#' @importFrom stats acf coef predict setNames terms var
 NULL

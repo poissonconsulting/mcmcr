@@ -26,7 +26,7 @@ nchains.mcarray <- function(x, ...) {
 }
 
 nchains.matrix <- function(x, ...) {
-  dim(x)[1]
+  nrow(x)
 }
 
 #' @export
