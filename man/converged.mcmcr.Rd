@@ -4,14 +4,14 @@
 \alias{converged.mcmcr}
 \title{Is Converged}
 \usage{
-\method{converged}{mcmcr}(x, rhat = 1.1, efs = 0.33, ...)
+\method{converged}{mcmcr}(x, rhat = 1.1, esr = 0.33, ...)
 }
 \arguments{
 \item{x}{The object to test.}
 
 \item{rhat}{A number specifying the rhat threshold.}
 
-\item{efs}{A number specifying the minimum effective sampling rate.}
+\item{esr}{A number specifying the minimum effective sampling rate.}
 
 \item{...}{Unused}
 }

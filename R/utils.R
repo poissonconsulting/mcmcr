@@ -52,6 +52,6 @@ nsamples <- function(x) {
 #'
 #' @return A count of the effective total number of samples.
 #' @export
-neffsamples <- function(x) {
-  as.integer(round(nsamples(x) * efs(x)))
+ess <- function(x) {
+  as.integer(round(nsamples(x) * esr(x)))
 }

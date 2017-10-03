@@ -2,14 +2,14 @@
 #'
 #' @param x An mcmc object.
 #' @param ... Unused.
-#' @return A number of the efs value.
+#' @return A number of the esr value.
 #' @export
-efs <- function(x, ...) {
-  UseMethod("efs")
+esr <- function(x, ...) {
+  UseMethod("esr")
 }
 
 #' @export
-efs.matrix <- function(x, ...) {
+esr.matrix <- function(x, ...) {
   niters <- niters(x)
   nchains <- nchains(x)
 
@@ -27,11 +27,11 @@ efs.matrix <- function(x, ...) {
 }
 
 #' @export
-efs.mcmcarray <- function(x, by = "all", ...) {
+esr.mcmcarray <- function(x, by = "all", ...) {
   check_scalar(by, c("all", "parameter", "term"))
 
   x %<>%
-    estimates(fun = efs) %>%
+    estimates(fun = esr) %>%
     round(2)
 
   if (!isTRUE(all.equal(by, "term"))) return(min(x))
@@ -39,14 +39,14 @@ efs.mcmcarray <- function(x, by = "all", ...) {
 }
 
 #' @export
-efs.mcmcr <- function(x, by = "all", ...) {
-  x %<>% purrr::map(efs, by = by)
+esr.mcmcr <- function(x, by = "all", ...) {
+  x %<>% purrr::map(esr, by = by)
   if (isTRUE(all.equal(by, "all"))) return(min(unlist(x)))
   x
 }
 
 #' @export
-efs.mcmcrs <- function(x, by = "all", ...) {
+esr.mcmcrs <- function(x, by = "all", ...) {
   x %<>% purrr::reduce(bind_chains)
-  efs(x, by = by)
+  esr(x, by = by)
 }
