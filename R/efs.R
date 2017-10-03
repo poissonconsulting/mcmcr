@@ -1,15 +1,15 @@
-#' Effective Sampling Proportion
+#' Effective Sampling
 #'
 #' @param x An mcmc object.
 #' @param ... Unused.
-#' @return A number of the esp value.
+#' @return A number of the efs value.
 #' @export
-esp <- function(x, ...) {
-  UseMethod("esp")
+efs <- function(x, ...) {
+  UseMethod("efs")
 }
 
 #' @export
-esp.matrix <- function(x, ...) {
+efs.matrix <- function(x, ...) {
   niters <- niters(x)
   nchains <- nchains(x)
 
@@ -27,11 +27,11 @@ esp.matrix <- function(x, ...) {
 }
 
 #' @export
-esp.mcmcarray <- function(x, by = "all", ...) {
+efs.mcmcarray <- function(x, by = "all", ...) {
   check_scalar(by, c("all", "parameter", "term"))
 
   x %<>%
-    estimates(fun = esp) %>%
+    estimates(fun = efs) %>%
     round(2)
 
   if (!isTRUE(all.equal(by, "term"))) return(min(x))
@@ -39,14 +39,14 @@ esp.mcmcarray <- function(x, by = "all", ...) {
 }
 
 #' @export
-esp.mcmcr <- function(x, by = "all", ...) {
-  x %<>% purrr::map(esp, by = by)
+efs.mcmcr <- function(x, by = "all", ...) {
+  x %<>% purrr::map(efs, by = by)
   if (isTRUE(all.equal(by, "all"))) return(min(unlist(x)))
   x
 }
 
 #' @export
-esp.mcmcrs <- function(x, by = "all", ...) {
+efs.mcmcrs <- function(x, by = "all", ...) {
   x %<>% purrr::reduce(bind_chains)
-  esp(x, by = by)
+  efs(x, by = by)
 }
