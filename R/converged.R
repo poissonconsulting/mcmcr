@@ -1,4 +1,3 @@
-
 #' Is Converged
 #'
 #' Tests whether x has converged.
@@ -15,28 +14,34 @@ converged <- function(x, ...) {
 #'
 #' @inheritParams converged
 #' @param rhat A number specifying the rhat threshold.
+#' @param efs A number specifying the minimum effective sampling rate.
 #' @export
-converged.mcmcarray <- function(x, rhat = 1.1, ...) {
+converged.mcmcarray <- function(x, rhat = 1.1, efs = 0.33, ...) {
   check_scalar(rhat, 1.0, 1.5)
-  rhat(x) < rhat
+  check_scalar(efs, 0.1, 1.0)
+  rhat(x) < rhat & efs(x) > efs
 }
 
 #' Is Converged
 #'
 #' @inheritParams converged
 #' @param rhat A number specifying the rhat threshold.
+#' @param efs A number specifying the minimum effective sampling rate.
 #' @export
-converged.mcmcr <- function(x, rhat = 1.1, ...) {
+converged.mcmcr <- function(x, rhat = 1.1, efs = 0.33, ...) {
   check_scalar(rhat, 1.0, 1.5)
-  rhat(x) < rhat
+  check_scalar(efs, 0.1, 1.0)
+  rhat(x) < rhat & efs(x) > efs
 }
 
 #' Is Converged
 #'
 #' @inheritParams converged
 #' @param rhat A number specifying the rhat threshold.
+#' @param efs A number specifying the minimum effective sampling rate.
 #' @export
-converged.mcmcrs <- function(x, rhat = 1.1, ...) {
+converged.mcmcrs <- function(x, rhat = 1.1, efs = 0.33, ...) {
   check_scalar(rhat, 1.0, 1.5)
-  rhat(x) < rhat
+  check_scalar(efs, 0.1, 1.0)
+  rhat(x) < rhat & efs(x) > efs
 }
