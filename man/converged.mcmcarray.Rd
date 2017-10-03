@@ -4,14 +4,12 @@
 \alias{converged.mcmcarray}
 \title{Is Converged}
 \usage{
-\method{converged}{mcmcarray}(x, rhat = 1.1, esr = 0.33, ...)
+\method{converged}{mcmcarray}(x, rhat = 1.1, ...)
 }
 \arguments{
 \item{x}{The object to test.}
 
 \item{rhat}{A number specifying the rhat threshold.}
-
-\item{esr}{A number specifying the minimum effective sampling rate.}
 
 \item{...}{Unused}
 }
