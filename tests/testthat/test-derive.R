@@ -33,13 +33,6 @@ test_that("derive", {
   expect_identical(niters(derived), 10L)
   expect_identical(nterms(derived), 15L)
 
-  quick <- derive(mcmcr, expr, values = values, monitor = "^g|^a", quick = TRUE)
-
-  expect_identical(nchains(quick), 1L)
-  expect_identical(niters(quick), 3L)
-
-  expect_equal(estimates(quick), estimates(derived), tolerance = 0.01, check.attributes = FALSE)
-
   expect_error(derive(mcmcr, expr, values = values, monitor = "something"), paste0("monitor 'something' must match at least one new variable in expr\n\n    gamma "))
 
     expect_error(derive(mcmcr, expr, values = list(x = NA), monitor = "alpha3"), paste0("monitor 'alpha3' must not include missing values in expr\n\n    gamma "))

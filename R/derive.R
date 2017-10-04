@@ -50,17 +50,15 @@ derive_chain <- function(i, object, expr = expr, values = values,
 #' @param values A lists of the values to use.
 #' @param monitor A regular expression specifying the new variables to monitor.
 #' @param parallel A flag indicating whether to derive samples in parallel using foreach backend.
-#' @param quick A flag indicating whether to quickly calculate deriveions.
 #' @param ... Unused.
 #' @return An mcmcr object of the monitored parameters.
 #' @export
-derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", parallel = FALSE, quick = FALSE, ...) {
+derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", parallel = FALSE, ...) {
 
   check_string(expr)
   if (!is.list(values)) error("values must be a list")
   check_string(monitor)
   check_flag(parallel)
-  check_flag(quick)
 
   values %<>% llply(as.numeric)
 
@@ -95,8 +93,6 @@ derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", parallel
   monitor <- variables_expr[grepl(monitor, variables_expr)]
 
   monitor %<>% sort()
-
-  if (quick) object %<>% quick_mcmcr()
 
   object <- llply(1:nchains(object), derive_chain, object = object,
                      .parallel = parallel, expr = parse(text = expr),
