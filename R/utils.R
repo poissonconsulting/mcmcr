@@ -32,7 +32,7 @@ ndims <- function(x) {
   length(dims(x))
 }
 
-#' Number of MCMC Samples
+#' Size of MCMC Sample
 #'
 #' The product of the number of chains and number of iterations in each chain.
 #'
@@ -40,7 +40,7 @@ ndims <- function(x) {
 #'
 #' @return A count of the total number of samples.
 #' @export
-nsamples <- function(x) {
+nsims <- function(x) {
   nchains(x) * niters(x)
 }
 
@@ -53,5 +53,5 @@ nsamples <- function(x) {
 #' @return A count of the effective total number of samples.
 #' @export
 ess <- function(x) {
-  as.integer(round(nsamples(x) * esr(x)))
+  as.integer(round(nsims(x) * esr(x)))
 }
