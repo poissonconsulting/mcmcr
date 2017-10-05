@@ -11,9 +11,6 @@ estimates(object, ...)
 
 \item{...}{Not used.}
 }
-\value{
-The estimates as a named list.
-}
 \description{
 Gets the estimates for an object as a named list.
 }
