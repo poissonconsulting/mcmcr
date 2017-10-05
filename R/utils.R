@@ -49,9 +49,14 @@ nsims <- function(x) {
 #' The effective number of MCMC samples.
 #'
 #' @param x The object.
-#'
+#' @param by A string of the type to do by.
 #' @return A count of the effective total number of samples.
 #' @export
-ess <- function(x) {
-  as.integer(round(nsims(x) * esr(x)))
+ess <- function(x, by = "all") {
+  nsims <- nsims(x)
+  x %<>% esr(x, by = by) %>%
+    magrittr::multiply_by(nsims) %>%
+    round()
+  storage.mode(x) <- "integer"
+  x
 }

@@ -4,10 +4,12 @@
 \alias{ess}
 \title{Effective Sample Size}
 \usage{
-ess(x)
+ess(x, by = "all")
 }
 \arguments{
 \item{x}{The object.}
+
+\item{by}{A string of the type to do by.}
 }
 \value{
 A count of the effective total number of samples.
