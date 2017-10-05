@@ -11,7 +11,6 @@ esr <- function(x, ...) {
 #' @export
 esr.matrix <- function(x, ...) {
   niters <- niters(x)
-  nchains <- nchains(x)
 
   x %<>%
     apply(1L, acf, lag.max = niters - 1, plot = FALSE) %>%
@@ -25,8 +24,6 @@ esr.matrix <- function(x, ...) {
   if (is.nan(x)) x <- Inf
 
   x <- 1 / (1 + (2 * (x - 1)))
-
-  round(x, 2)
 }
 
 #' @export
