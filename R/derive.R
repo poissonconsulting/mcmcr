@@ -98,7 +98,8 @@ derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", parallel
                      .parallel = parallel, expr = parse(text = expr),
                   values = values, monitor = monitor)
 
-  object %<>% purrr::reduce(bind_chains)
+  # not use %<>% as seems to produce randomly occurring error messages....
+  object <- purrr::reduce(object, bind_chains)
 
   if (anyNA(object))
     error("monitor '", monitor, "' must not include missing values in expr\n", expr)
