@@ -29,8 +29,7 @@ derive_sample <- function(i, object, expr, values, monitor) {
   object
 }
 
-derive_chain <- function(i, object, expr = expr, values = values,
-                         monitor = monitor) {
+derive_chain <- function(i, object, expr, values, monitor) {
 
   object %<>% subset(chains = i)
 
