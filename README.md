@@ -17,7 +17,6 @@ Utilisation
 library(mcmcr)
 #> Loading required package: coda
 #> Loading required package: dplyr
-#> Warning: package 'dplyr' was built under R version 3.4.2
 #> 
 #> Attaching package: 'dplyr'
 #> The following objects are masked from 'package:stats':
