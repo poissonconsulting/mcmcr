@@ -4,12 +4,14 @@
 \alias{coef.mcmcarray}
 \title{Coef TMB Analyses}
 \usage{
-\method{coef}{mcmcarray}(object, conf_level = 0.95, ...)
+\method{coef}{mcmcarray}(object, conf_level = 0.95, estimate = median, ...)
 }
 \arguments{
 \item{object}{The list of tmb_analysis objects.}
 
 \item{conf_level}{A number specifying the confidence level. By default 0.95.}
+
+\item{estimate}{The function to use to calculate the estimate.}
 
 \item{...}{Not used.}
 }

@@ -6,19 +6,20 @@ pvalue <- function(x) {
   round(p / n, 4)
 }
 
-coefs <- function(x, conf_level) {
+coefs <- function(x, conf_level, estimate) {
   lower <- (1 - conf_level) / 2
   upper <- conf_level + lower
 
-  quantiles <- stats::quantile(x, c(lower, 0.5, upper), names = FALSE)
+  quantiles <- stats::quantile(x, c(lower, upper), names = FALSE)
 
-  if (identical(length(x), 1L)) quantiles[c(1,3)] <- NA
+  if (identical(length(x), 1L)) quantiles[c(1,2)] <- NA
 
+  estimate <- estimate(x)
   sd <- stats::sd(x)
   zscore = mean(x) / sd
 
-  c(estimate = quantiles[2], sd = sd, zscore = zscore,
-    lower = quantiles[1], upper = quantiles[3], pvalue = pvalue(x))
+  c(estimate = estimate, sd = sd, zscore = zscore,
+    lower = quantiles[1], upper = quantiles[2], pvalue = pvalue(x))
 }
 
 #' Coef TMB Analyses
@@ -27,16 +28,17 @@ coefs <- function(x, conf_level) {
 #'
 #' @param object The list of tmb_analysis objects.
 #' @param conf_level A number specifying the confidence level. By default 0.95.
+#' @param estimate The function to use to calculate the estimate.
 #' @param ... Not used.
 #' @return A tidy tibble of the coeffcient terms with the model averaged estimate, the
 #' Akaike's weight and the proportion of models including the term.
 #' @export
-coef.mcmcarray <- function(object, conf_level = 0.95, ...) {
+coef.mcmcarray <- function(object, conf_level = 0.95, estimate = median, ...) {
 
   check_number(conf_level, c(0.5, 0.99))
 
   ndims <- ndims(object)
-  coef <- apply(object, 3:ndims, coefs, conf_level = conf_level)
+  coef <- apply(object, 3:ndims, coefs, conf_level = conf_level, estimate = estimate)
 
   coef %<>% reshape2::melt()
 
@@ -60,13 +62,14 @@ coef.mcmcarray <- function(object, conf_level = 0.95, ...) {
 #'
 #' @param object The mcmcr object.
 #' @param conf_level A number specifying the confidence level. By default 0.95.
+#' @param estimate The function to use to calculate the estimate.
 #' @param ... Not used.
 #' @return A tidy tibble of the coefficient terms.
 #' @export
-coef.mcmcr <- function(object, conf_level = 0.95, ...) {
+coef.mcmcr <- function(object, conf_level = 0.95, estimate = median, ...) {
   check_number(conf_level, c(0.5, 0.99))
 
-  object %<>% llply(coef, conf_level = conf_level)
+  object %<>% llply(coef, conf_level = conf_level, estimate = estimate)
   suppressWarnings(object %<>% dplyr::bind_rows(.id = "id"))
   object %<>%  tidyr::unite_("term", from = c("id", "term"), sep = "")
 

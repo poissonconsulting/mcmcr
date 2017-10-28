@@ -4,12 +4,14 @@
 \alias{coef.mcmcr}
 \title{Coef mcmcr}
 \usage{
-\method{coef}{mcmcr}(object, conf_level = 0.95, ...)
+\method{coef}{mcmcr}(object, conf_level = 0.95, estimate = median, ...)
 }
 \arguments{
 \item{object}{The mcmcr object.}
 
 \item{conf_level}{A number specifying the confidence level. By default 0.95.}
+
+\item{estimate}{The function to use to calculate the estimate.}
 
 \item{...}{Not used.}
 }
