@@ -10,9 +10,9 @@ coefs <- function(x, conf_level, estimate) {
   lower <- (1 - conf_level) / 2
   upper <- conf_level + lower
 
-  quantiles <- stats::quantile(x, c(lower, upper), names = FALSE)
+  quantiles <- stats::quantile(x, c(lower, upper), na.rm = TRUE, names = FALSE)
 
-  if (identical(length(x), 1L)) quantiles[c(1,2)] <- NA
+  if (any(is.na(x)) || identical(length(x), 1L)) quantiles[c(1,2)] <- NA
 
   estimate <- estimate(x)
   sd <- stats::sd(x)
