@@ -13,7 +13,7 @@ converged <- function(x, ...) {
 #' @export
 converged.matrix <- function(x, rhat = 1.1, esr = 0.33, ...) {
   check_scalar(rhat, 1.0, 1.5)
-  check_scalar(esr, 1.0, 0.0)
+  check_scalar(esr, 0.0, 1.0)
 
   rhat(x) <= rhat && esr(x) >= esr
 }
