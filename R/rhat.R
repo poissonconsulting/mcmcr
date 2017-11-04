@@ -1,10 +1,11 @@
 #' Rhat
 #'
+#' Calculates the R-hat values
 #' Gets uncorrected, untransformed, univariate split R-hat value(s).
 #'
 #' @param x An mcmc object.
 #' @param ... Unused.
-#' @return A number of the rhat value.
+#' @return The rhat value(s).
 #' @export
 rhat <- function(x, ...) {
   UseMethod("rhat")

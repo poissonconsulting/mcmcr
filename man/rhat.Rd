@@ -12,8 +12,9 @@ rhat(x, ...)
 \item{...}{Unused.}
 }
 \value{
-A number of the rhat value.
+The rhat value(s).
 }
 \description{
+Calculates the R-hat values
 Gets uncorrected, untransformed, univariate split R-hat value(s).
 }

@@ -1,29 +1,38 @@
 #' Effective Sampling Rate
 #'
-#' Calculates the effective sampling rate (esr) based on the formula
+#' Calculates the effective sampling rate (\code{esr}) based on the formula
 #' \deqn{\frac{1}{1 + 2 \sum_{k = 1}^\infty\rho_k(\theta)}}
-#' in the Handbook for Markov Chain Monte Carlo.
+#' in Brooks et al. (2011).
+#' The infinite sum is truncated at
+#' lag \eqn{k} when \eqn{\rho_{k+1}(\theta) < 0}.
 #'
-#' The infinite sum is truncated at lag \eqn{k} when \eqn{\rho_k(θ) < 0}.
-#'
-#' @param x An mcmc object.
-#' @param ... Unused.
-#' @return A number of the esr value.
-#' @export
 #' @references
 #' Brooks, S., Gelman, A., Jones, G.L., and Meng, X.-L. (Editors). 2011. Handbook for Markov Chain Monte Carlo. Taylor & Francis, Boca Raton.
+#'
+#' Gelman, A., Carlin, J.B., Stern, H.S., Dunson, D.B., Vehtari, A., and
+#' Rubin, D.B. 2014. Bayesian data analysis. In Third edition. CRC Press,
+#' Boca Raton.
+#' @param x A vector, matrix (each row is a chain) or mcmc object.
+#' @param ... Unused.
+#' @return The esr value(s).
+#' @examples
+#' esr(rnorm(1000))
+#' @export
 esr <- function(x, ...) {
   UseMethod("esr")
 }
 
 #' @export
 esr.numeric <- function(x, ...) {
-  x <- acf(x, lag.max = length(x) - 1, plot = FALSE)
-  x <-  x$acf[,,1]
+  x <- acf(x, lag.max = length(x) - 1, plot = FALSE)$acf[,,1]
 
-  match <- match(TRUE, c(x,-1) < 0)
-  x <- sum(x[1:(match-1)])
-  if (is.nan(x)) return(1)
+  if (is.nan(x[1])) return(1) # all values identical
+
+  x <- c(x, -1)
+  match <- match(TRUE, x < 0)
+  x <- sum(x[1:(match-1)]) - 1
+  x <- 1 / (1 + 2 * x)
+  x <- round(x, 2)
   x
 }
 
@@ -34,9 +43,9 @@ esr.matrix <- function(x, ...) {
   x %<>%
     apply(1L, esr) %>%
     unlist() %>%
-    mean()
+    mean() %>%
+    round(2)
 
-  x <- 1 / (1 + (2 * (x - 1)))
   x
 }
 
@@ -44,9 +53,7 @@ esr.matrix <- function(x, ...) {
 esr.mcmcarray <- function(x, by = "all", ...) {
   check_scalar(by, c("all", "parameter", "term"))
 
-  x %<>%
-    estimates(fun = esr) %>%
-    round(2)
+  x %<>% estimates(fun = esr)
 
   if (!isTRUE(all.equal(by, "term"))) return(min(x))
   x
