@@ -10,32 +10,33 @@ converged <- function(x, ...) {
   UseMethod("converged")
 }
 
-#' Is Converged
-#'
-#' @inheritParams converged
-#' @param rhat A number specifying the rhat threshold.
 #' @export
-converged.mcmcarray <- function(x, rhat = 1.1, ...) {
+converged.matrix <- function(x, rhat = 1.1, esr = 0.33, ...) {
   check_scalar(rhat, 1.0, 1.5)
-  rhat(x) < rhat
+  check_scalar(esr, 1.0, 0.0)
+
+  rhat(x) <= rhat && esr(x) >= esr
 }
 
-#' Is Converged
-#'
-#' @inheritParams converged
-#' @param rhat A number specifying the rhat threshold.
 #' @export
-converged.mcmcr <- function(x, rhat = 1.1, ...) {
-  check_scalar(rhat, 1.0, 1.5)
-  rhat(x) < rhat
+converged.mcmcarray <- function(x, by = "all", rhat = 1.1, esr = 0.33, ...) {
+  check_scalar(by, c("all", "parameter", "term"))
+  x %<>%
+    estimates(fun = converged, rhat = rhat, esr = esr)
+
+  if (!isTRUE(all.equal(by, "term"))) return(all(x))
+
+  x
 }
 
-#' Is Converged
-#'
-#' @inheritParams converged
-#' @param rhat A number specifying the rhat threshold.
 #' @export
-converged.mcmcrs <- function(x, rhat = 1.1, ...) {
-  check_scalar(rhat, 1.0, 1.5)
-  rhat(x) < rhat
+converged.mcmcr <- function(x, by = "all", rhat = 1.1, esr = 0.33, ...) {
+  x %<>% purrr::map(converged, by = by, rhat = rhat, esr = esr)
+  if (isTRUE(all.equal(by, "all"))) return(all(unlist(x)))
+  x
+}
+
+#' @export
+converged.mcmcrs <- function(x, by = "all", rhat = 1.1, esr = 0.33, ...) {
+  purrr::map(x, converged, by = by, rhat = rhat, esr = esr)
 }

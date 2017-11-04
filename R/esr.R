@@ -48,6 +48,5 @@ esr.mcmcr <- function(x, by = "all", ...) {
 
 #' @export
 esr.mcmcrs <- function(x, by = "all", ...) {
-  x %<>% purrr::reduce(bind_chains)
-  esr(x, by = by)
+  purrr::map(x, esr, by = by)
 }

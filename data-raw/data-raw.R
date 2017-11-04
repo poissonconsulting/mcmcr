@@ -22,4 +22,5 @@ class(list_mcarrays$beta) <- "mcarray"
 use_data(list_mcarrays, overwrite = TRUE)
 
 mcmcr <- as.mcmcr(list_mcarrays)
-use_data(mcmcr, internal = TRUE, overwrite = TRUE)
+mcmcrs_example <- as.mcmcrs(list(mcmcr1 = mcmcr, mcmcr2 = mcmcr))
+use_data(mcmcr, mcmcrs_example, internal = TRUE, overwrite = TRUE)

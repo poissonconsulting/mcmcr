@@ -24,6 +24,7 @@ ess.mcmcarray <- function(x, by = "all", ...) {
   storage.mode(x) <- "integer"
 
   if (!isTRUE(all.equal(by, "term"))) return(min(x))
+
   x
 }
 
@@ -36,6 +37,5 @@ ess.mcmcr <- function(x, by = "all", ...) {
 
 #' @export
 ess.mcmcrs <- function(x, by = "all", ...) {
-  x %<>% purrr::reduce(bind_chains)
-  ess(x, by = by)
+  purrr::map(x, ess, by = by)
 }

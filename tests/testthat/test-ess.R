@@ -8,8 +8,13 @@ test_that("ess.mcmcmarray", {
   expect_identical(ess(mcmcr[[1]], "parameter"), ess(mcmcr[[1]], "all"))
 })
 
-test_that("rhat.mcmcr", {
+test_that("ess.mcmcr", {
   expect_identical(ess(mcmcr), 9L)
   expect_identical(ess(mcmcr, by = "parameter"), list(alpha = 1648L, beta = 9L, sigma = 749L))
 })
+
+test_that("ess.mcmcrs", {
+  expect_identical(ess(mcmcrs_example, by = "parameter")[[1]], list(alpha = 1648L, beta = 9L, sigma = 749L))
+})
+
 

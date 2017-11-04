@@ -47,6 +47,5 @@ rhat.mcmcr <- function(x, by = "all", ...) {
 
 #' @export
 rhat.mcmcrs <- function(x, by = "all", ...) {
-  x %<>% purrr::reduce(bind_chains)
-  rhat(x, by = by)
+  purrr::map(x, rhat, by = by)
 }

@@ -11,6 +11,7 @@ test_that("rhat.matrix", {
 
 test_that("rhat.mcmcmarray", {
   expect_identical(rhat(mcmcr[[1]], by = "term"), c(1, 1))
+
   expect_equivalent(rhat(mcmcr[[2]], by = "term"), matrix(c(1.85, 1.85, 1.87, 1.87), nrow = 2, ncol = 2))
   expect_identical(rhat(mcmcr[[3]], by = "term"), c(1))
   expect_identical(rhat(mcmcr[[2]]), c(1.87))
@@ -23,3 +24,7 @@ test_that("rhat.mcmcr", {
   expect_equivalent(rhat(mcmcr, by = "term"), list(alpha = c(1, 1), beta = matrix(c(1.85, 1.85, 1.87, 1.87), nrow = 2, ncol = 2), sigma = 1))
 })
 
+test_that("rhat.mcmcrs", {
+  expect_identical(rhat(mcmcrs_example), list(mcmcr1 = 1.87, mcmcr2 = 1.87))
+  expect_identical(rhat(mcmcrs_example, by = "parameter")[[1]], rhat(mcmcrs_example[[1]], by = "parameter"))
+})
