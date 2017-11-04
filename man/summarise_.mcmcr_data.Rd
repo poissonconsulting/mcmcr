@@ -4,12 +4,14 @@
 \alias{summarise_.mcmcr_data}
 \title{Summarise mcmcr data}
 \usage{
-\method{summarise_}{mcmcr_data}(.data, ..., .dots)
+\method{summarise_}{mcmcr_data}(.data, ..., .fun = sum, .dots)
 }
 \arguments{
 \item{.data}{An mcmcr_data object}
 
 \item{...}{Pair/values of expressions coercible to lazy objects.}
+
+\item{.fun}{The function to use to summarise the MCMC samples.}
 
 \item{.dots}{Pair/values of expressions coercible to lazy objects.}
 }

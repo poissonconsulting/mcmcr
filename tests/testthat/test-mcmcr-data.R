@@ -42,7 +42,8 @@ test_that("mcmcr_data", {
   expect_identical(as.character(coef2$term), c("alpha"))
 
   mcmcr_data2 <- group_by(mcmcr_data, col1)
-  coef2 <- coef(summarise(mcmcr_data2))
-  expect_identical(colnames(coef2), c("col1", "term", "estimate", "sd", "zscore", "lower", "upper", "pvalue"))
-  expect_identical(as.character(coef2$term), c("alpha[1]", "alpha[2]"))
+  coef1 <- coef(summarise(mcmcr_data2))
+  expect_identical(colnames(coef1), c("col1", "term", "estimate", "sd", "zscore", "lower", "upper", "pvalue"))
+  expect_identical(as.character(coef1$term), c("alpha[1]", "alpha[2]"))
+  coef2 <- coef(summarise(mcmcr_data2, .fun = function(x) 10))
 })

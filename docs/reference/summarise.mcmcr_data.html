@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Summarise mcmcr data — summarise_.mcmcr_data • mcmcr</title>
+<title>Summarise mcmcr data — summarise.mcmcr_data • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -83,7 +83,7 @@
     
 
     <pre class="usage"><span class='co'># S3 method for mcmcr_data</span>
-<span class='fu'>summarise_</span>(<span class='no'>.data</span>, <span class='no'>...</span>, <span class='kw'>.fun</span> <span class='kw'>=</span> <span class='no'>sum</span>, <span class='no'>.dots</span>)</pre>
+<span class='fu'>summarise</span>(<span class='no'>.data</span>, <span class='no'>...</span>, <span class='kw'>.fun</span> <span class='kw'>=</span> <span class='no'>sum</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -94,15 +94,18 @@
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Pair/values of expressions coercible to lazy objects.</p></td>
+      <td><p>Name-value pairs of summary functions. The name will be the
+name of the variable in the result. The value should be an expression
+that returns a single value like <code>min(x)</code>, <code>n()</code>, or <code>sum(is.na(y))</code>.</p>
+<p>These arguments are automatically <a href='http://www.rdocumentation.org/packages/rlang/topics/quosure'>quoted</a> and
+<a href='http://www.rdocumentation.org/packages/rlang/topics/eval_tidy'>evaluated</a> in the context of the data
+frame. They support <a href='http://www.rdocumentation.org/packages/rlang/topics/quasiquotation'>unquoting</a> and
+splicing. See <code>vignette("programming")</code> for an introduction to
+these concepts.</p></td>
     </tr>
     <tr>
       <th>.fun</th>
       <td><p>The function to use to summarise the MCMC samples.</p></td>
-    </tr>
-    <tr>
-      <th>.dots</th>
-      <td><p>Pair/values of expressions coercible to lazy objects.</p></td>
     </tr>
     </table>
     
