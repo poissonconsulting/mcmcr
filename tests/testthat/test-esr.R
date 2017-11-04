@@ -2,9 +2,9 @@ context("esr")
 
 test_that("esr.matrix", {
   matrix <- matrix(1, nrow = 2, ncol = 100)
-  expect_identical(esr(matrix), 0)
+  expect_identical(esr(matrix), 1)
   matrix[1,] <- 2
-  expect_identical(esr(matrix), 0)
+  expect_identical(esr(matrix), 1)
   matrix[1,1] <- NA
   expect_error(esr(matrix))
 })

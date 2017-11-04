@@ -21,9 +21,10 @@ esr.matrix <- function(x, ...) {
     unlist() %>%
     mean()
 
-  if (is.nan(x)) x <- Inf
+  if (is.nan(x)) return(1)
 
   x <- 1 / (1 + (2 * (x - 1)))
+  x
 }
 
 #' @export
