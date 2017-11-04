@@ -26,8 +26,4 @@ esr(rnorm(1000))
 }
 \references{
 Brooks, S., Gelman, A., Jones, G.L., and Meng, X.-L. (Editors). 2011. Handbook for Markov Chain Monte Carlo. Taylor & Francis, Boca Raton.
-
-Gelman, A., Carlin, J.B., Stern, H.S., Dunson, D.B., Vehtari, A., and
-Rubin, D.B. 2014. Bayesian data analysis. In Third edition. CRC Press,
-Boca Raton.
 }
