@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Effective Sampling — esr • mcmcr</title>
+<title>Effective Sampling Rate — esr • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -75,11 +75,13 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Effective Sampling</h1>
+    <h1>Effective Sampling Rate</h1>
     </div>
 
     
-    <p>Effective Sampling</p>
+    <p>Calculates the effective sampling rate (esr) based on the formula
+$$\frac{1}{1 + 2 \sum_{k = 1}^\infty\rho_k(\theta)}$$
+in the Handbook for Markov Chain Monte Carlo.</p>
     
 
     <pre class="usage"><span class='fu'>esr</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
@@ -101,6 +103,14 @@
 
     <p>A number of the esr value.</p>
     
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The infinite sum is truncated at lag \(k\) when \(\rho_k(θ) &lt; 0\).</p>
+    
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p>Brooks, S., Gelman, A., Jones, G.L., and Meng, X.-L. (Editors). 2011. Handbook for Markov Chain Monte Carlo. Taylor &amp; Francis, Boca Raton.</p>
+    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -109,6 +119,10 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#references">References</a></li>
           </ul>
 
   </div>

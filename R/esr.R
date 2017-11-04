@@ -1,11 +1,30 @@
-#' Effective Sampling
+#' Effective Sampling Rate
+#'
+#' Calculates the effective sampling rate (esr) based on the formula
+#' \deqn{\frac{1}{1 + 2 \sum_{k = 1}^\infty\rho_k(\theta)}}
+#' in the Handbook for Markov Chain Monte Carlo.
+#'
+#' The infinite sum is truncated at lag \eqn{k} when \eqn{\rho_k(θ) < 0}.
 #'
 #' @param x An mcmc object.
 #' @param ... Unused.
 #' @return A number of the esr value.
 #' @export
+#' @references
+#' Brooks, S., Gelman, A., Jones, G.L., and Meng, X.-L. (Editors). 2011. Handbook for Markov Chain Monte Carlo. Taylor & Francis, Boca Raton.
 esr <- function(x, ...) {
   UseMethod("esr")
+}
+
+#' @export
+esr.numeric <- function(x, ...) {
+  x <- acf(x, lag.max = length(x) - 1, plot = FALSE)
+  x <-  x$acf[,,1]
+
+  match <- match(TRUE, c(x,-1) < 0)
+  x <- sum(x[1:(match-1)])
+  if (is.nan(x)) return(1)
+  x
 }
 
 #' @export
@@ -13,15 +32,9 @@ esr.matrix <- function(x, ...) {
   niters <- niters(x)
 
   x %<>%
-    apply(1L, acf, lag.max = niters - 1, plot = FALSE) %>%
-    lapply(function(x) x$acf[,,1]) %>%
-    lapply(function(x) c(x, -1)) %>%
-    lapply(function(x) x[1:match(TRUE, x < 0)]) %>%
-    lapply(function(x) sum(x[-length(x)])) %>%
+    apply(1L, esr) %>%
     unlist() %>%
     mean()
-
-  if (is.nan(x)) return(1)
 
   x <- 1 / (1 + (2 * (x - 1)))
   x

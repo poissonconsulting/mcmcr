@@ -2,7 +2,7 @@
 % Please edit documentation in R/esr.R
 \name{esr}
 \alias{esr}
-\title{Effective Sampling}
+\title{Effective Sampling Rate}
 \usage{
 esr(x, ...)
 }
@@ -15,5 +15,13 @@ esr(x, ...)
 A number of the esr value.
 }
 \description{
-Effective Sampling
+Calculates the effective sampling rate (esr) based on the formula
+\deqn{\frac{1}{1 + 2 \sum_{k = 1}^\infty\rho_k(\theta)}}
+in the Handbook for Markov Chain Monte Carlo.
+}
+\details{
+The infinite sum is truncated at lag \eqn{k} when \eqn{\rho_k(θ) < 0}.
+}
+\references{
+Brooks, S., Gelman, A., Jones, G.L., and Meng, X.-L. (Editors). 2011. Handbook for Markov Chain Monte Carlo. Taylor & Francis, Boca Raton.
 }

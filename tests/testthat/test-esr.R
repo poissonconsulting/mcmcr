@@ -1,5 +1,14 @@
 context("esr")
 
+test_that("esr.vector", {
+  vector <- rep(1, 100)
+  expect_identical(esr(vector), 1)
+  vector <- rep(2, 100)
+  expect_identical(esr(vector), 1)
+  vector[1] <- NA
+  expect_error(esr(vector))
+})
+
 test_that("esr.matrix", {
   matrix <- matrix(1, nrow = 2, ncol = 100)
   expect_identical(esr(matrix), 1)
