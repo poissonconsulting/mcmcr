@@ -31,6 +31,14 @@ test_that("mcmcr_data", {
   expect_identical(as.character(coef2$term), c("alpha"))
   expect_identical(coef2$col1, 1L)
 
+  mcmcr_data3 <- left_join(mcmcr_data, mcmcr_data2$data, by = c("col1", "col2"))
+
+  expect_identical(mcmcr_data3, mcmcr_data)
+
+  mcmcr_data3 <- inner_join(mcmcr_data, mcmcr_data2$data, by = c("col1", "col2"))
+
+  expect_identical(mcmcr_data3, mcmcr_data2)
+
   mcmcr_data2 <- group_by(mcmcr_data, col2)
   expect_identical(ungroup(mcmcr_data2), mcmcr_data)
   expect_identical(as.character(coef(mcmcr_data2)$term), c("alpha[1]", "alpha[2]"))
