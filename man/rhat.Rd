@@ -15,6 +15,9 @@ rhat(x, ...)
 The rhat value(s).
 }
 \description{
-Calculates the R-hat values
-Gets uncorrected, untransformed, univariate split R-hat value(s).
+Calculates uncorrected, untransformed, univariate
+split R-hat (potential scale reduction factor) values.
+}
+\references{
+Gelman, A., and Rubin, D.B. 1992. Inference from Iterative Simulation Using Multiple Sequences. Statistical Science 7(4): 457–472.
 }
