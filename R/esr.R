@@ -9,11 +9,9 @@
 #' @references
 #' Brooks, S., Gelman, A., Jones, G.L., and Meng, X.-L. (Editors). 2011. Handbook for Markov Chain Monte Carlo. Taylor & Francis, Boca Raton.
 #'
-#' @param x A vector, matrix (each row is a chain) or mcmc object.
+#' @param x An mcmc object.
 #' @param ... Unused.
 #' @return The esr value(s).
-#' @examples
-#' esr(rnorm(1000))
 #' @export
 esr <- function(x, ...) {
   UseMethod("esr")

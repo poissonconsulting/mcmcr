@@ -7,7 +7,7 @@
 esr(x, ...)
 }
 \arguments{
-\item{x}{A vector, matrix (each row is a chain) or mcmc object.}
+\item{x}{An mcmc object.}
 
 \item{...}{Unused.}
 }
@@ -20,9 +20,6 @@ Calculates the effective sampling rate (\code{esr}) based on the formula
 in Brooks et al. (2011).
 The infinite sum is truncated at
 lag \eqn{k} when \eqn{\rho_{k+1}(\theta) < 0}.
-}
-\examples{
-esr(rnorm(1000))
 }
 \references{
 Brooks, S., Gelman, A., Jones, G.L., and Meng, X.-L. (Editors). 2011. Handbook for Markov Chain Monte Carlo. Taylor & Francis, Boca Raton.
