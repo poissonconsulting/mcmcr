@@ -52,6 +52,12 @@ To install the latest version from GitHub
 devtools::install_github("poissonconsulting/mcmcr")
 ```
 
+## Citation
+
+```{r, comment="", echo=FALSE}
+citation(package = "mcmcr")
+```
+
 ## Contribution
 
 Please report any [issues](https://github.com/poissonconsulting/mcmcr/issues).

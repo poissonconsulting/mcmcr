@@ -81,6 +81,25 @@ To install the latest version from GitHub
     # install.packages("devtools")
     devtools::install_github("poissonconsulting/mcmcr")
 
+## Citation
+
+``` 
+
+To cite package 'mcmcr' in publications use:
+
+  Joe Thorley (2018). mcmcr: Manipulate Monte Carlo Markov Chain
+  Samples. R package version 0.0.0.9030.
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {mcmcr: Manipulate Monte Carlo Markov Chain Samples},
+    author = {Joe Thorley},
+    year = {2018},
+    note = {R package version 0.0.0.9030},
+  }
+```
+
 ## Contribution
 
 Please report any
