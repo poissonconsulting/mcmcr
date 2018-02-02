@@ -16,7 +16,6 @@ Imports:
     lazyeval,
     magrittr,
     plyr,
-    pryr,
     purrr,
     reshape2,
     rlang,
@@ -24,8 +23,8 @@ Imports:
     stringr,
     tidyr
 Suggests:
-    testthat,
-    covr
+    covr,
+    testthat
 Additional_Repositories: http://poissonconsulting.github.io/drat
 Encoding: UTF-8
 LazyData: true
