@@ -20,15 +20,16 @@ nterms.mcmcr <- function(x, ...) {
 
 #' @export
 terms.mcmcarray <- function(x, ...) {
-  x %<>% subset(1L, 1L)
-  x %<>% drop() %>% unclass()
-  x %<>% reshape2::melt()
+  x <- subset(x, 1L, 1L)
+  x <- drop(x)
+  x <- unclass(x)
+  x <- reshape2::melt(x)
   if (nrow(x) == 1) return(as.term(""))
   if (ncol(x) == 1) return(as.term(paste0("[", 1:nrow(x), "]")))
 
-  x %<>% dplyr::select_(~-value)
-  x %<>% tidyr::unite_("term", from = colnames(.), sep = ",") %>%
-    dplyr::mutate_(term = ~paste0("[", term, "]"))
+  x <- dplyr::select_(x, ~-value)
+  x <- tidyr::unite_(x, "term", from = colnames(x), sep = ",")
+  x <- dplyr::mutate_(x, term = ~paste0("[", term, "]"))
 
   as.term(x$term)
 }
@@ -36,10 +37,10 @@ terms.mcmcarray <- function(x, ...) {
 #' @export
 terms.mcmcr <- function(x, ...) {
   parameters <- parameters(x)
-  x %<>% llply(terms)
+  x <- llply(x, terms)
 
-  x %<>% purrr::map2(parameters, function(x, y) {x <- paste0(y, x); x})
-  x %<>% unlist()
+  x <- purrr::map2(x, parameters, function(x, y) {x <- paste0(y, x); x})
+  x <- unlist(x)
   names(x) <- NULL
   as.term(x)
 }

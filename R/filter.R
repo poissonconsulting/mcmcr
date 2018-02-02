@@ -17,8 +17,8 @@ filter_.mcmcr_data <- function(.data, ..., .dots){
 
   stopifnot(!rlang::has_name(data, "IDX"))
   data$IDX <- 1:nrow(data)
-  data %<>% dplyr::filter_(..., .dots = .dots)
-  .data$mcmcr[[1]] %<>% filter_mcmcarray(data$IDX)
+  data <- dplyr::filter_(data, ..., .dots = .dots)
+  .data$mcmcr[[1]] <- filter_mcmcarray(.data$mcmcr[[1]], data$IDX)
   data$IDX <- NULL
   .data$data <- data
   .data

@@ -1,3 +1,6 @@
+multiply_by <- function(x, x2) x * x2
+equals <- function(x, x2) x == x2
+
 #' Error
 #'
 #' Throws an error without the call as part of the error message.

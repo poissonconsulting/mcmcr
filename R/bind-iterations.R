@@ -21,7 +21,7 @@ bind_iterations.mcmcarray <- function(x, x2, ...) {
   if (!identical(dim[-2], dim2[-2]))
     error("x and x2 must have the same dimensions (excluding iterations)")
 
-  x %<>% abind::abind(x2, along = 2)
+  x <- abind::abind(x, x2, along = 2)
   class(x) <- "mcmcarray"
   x
 }
@@ -33,7 +33,7 @@ bind_iterations.mcmcr <- function(x, x2, ...) {
 
   if (!identical(names(x), names(x2))) error("x and x2 must have the same names")
 
-  x %<>% purrr::map2(x2, bind_iterations)
+  x <- purrr::map2(x, x2, bind_iterations)
   class(x) <- "mcmcr"
   x
 }

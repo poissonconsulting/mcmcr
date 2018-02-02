@@ -26,7 +26,7 @@ bind_parameters.mcmcr <- function(x, x2, ...) {
   if (length(intersect(parameters(x), parameters(x2))))
     error("x and x2 must not have the same parameters")
 
-  x %<>% c(x2)
+  x <- c(x, x2)
   class(x) <- "mcmcr"
   x
 }
@@ -42,9 +42,9 @@ bind_parameters.mcmcrs <- function(x, ...) {
   if (!length(x)) return(x)
 
   for (i in seq_along(x))
-    parameters(x[[i]]) %<>% paste0(i)
+    parameters(x[[i]]) <- paste0(parameters(x[[i]]), i)
 
-  x %<>% purrr::reduce(bind_parameters)
+  x <- purrr::reduce(x, bind_parameters)
   x
 }
 

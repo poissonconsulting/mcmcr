@@ -11,18 +11,12 @@ derive <- function(object, ...) {
 }
 
 derive_sample <- function(i, object, expr, values, monitor) {
-
-  object %<>% subset(iterations = i)
-
-  object %<>% estimates()
-
-  object %<>% c(values)
-
-  object %<>% within(eval(expr))
-
+  object <- subset(object, iterations = i)
+  object <- estimates(object)
+  object <- c(object, values)
+  object <- within(object, eval(expr))
   object <- object[monitor]
-
-  object %<>% llply(function(x) { dim(x) <- c(1L, 1L, dims(x)); class(x) <- "mcmcarray"; x})
+  object <- llply(object, function(x) { dim(x) <- c(1L, 1L, dims(x)); class(x) <- "mcmcarray"; x})
 
   class(object) <- "mcmcr"
 
@@ -30,13 +24,11 @@ derive_sample <- function(i, object, expr, values, monitor) {
 }
 
 derive_chain <- function(i, object, expr, values, monitor) {
-
-  object %<>% subset(chains = i)
+  object <- subset(object, chains = i)
 
   object <- llply(1:niters(object), .fun  = derive_sample, object = object,
                   expr = expr, values = values, monitor = monitor)
-
-  object %<>% purrr::reduce(bind_iterations)
+  object <- purrr::reduce(object, bind_iterations)
   object
 }
 
@@ -59,7 +51,7 @@ derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", parallel
   check_string(monitor)
   check_flag(parallel)
 
-  values %<>% llply(as.numeric)
+  values <- llply(values, as.numeric)
 
   parameters <- parameters(object)
   names_values <- names(values)
@@ -74,13 +66,14 @@ derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", parallel
     values <- values[intersect(names_values, variables_expr)]
   }
 
-  parameters %<>% intersect(variables_expr)
+  parameters <- intersect(parameters, variables_expr)
 
   if (!length(parameters)) error("expr must include at least one object parameter")
 
-  object %<>% subset(parameters = parameters)
+  object <- subset(object, parameters = parameters)
 
-  variables_expr %<>% setdiff(parameters) %>% setdiff(names(values))
+  variables_expr <- setdiff(variables_expr, parameters)
+  variables_expr <- setdiff(variables_expr, names(values))
 
   if (!length(variables_expr)) error("expr must include at least one new variable")
 
@@ -91,13 +84,12 @@ derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", parallel
 
   monitor <- variables_expr[grepl(monitor, variables_expr)]
 
-  monitor %<>% sort()
+  monitor <- sort(monitor)
 
   object <- llply(1:nchains(object), derive_chain, object = object,
                      .parallel = parallel, expr = parse(text = expr),
                   values = values, monitor = monitor)
 
-  # not use %<>% as seems to produce randomly occurring error messages....
   object <- purrr::reduce(object, bind_chains)
 
   if (anyNA(object))

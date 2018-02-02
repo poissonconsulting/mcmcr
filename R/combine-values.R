@@ -20,9 +20,8 @@ combine_values_mcmcarray <- function(x, fun) {
   if (!identical(dim, rep(dim[1], length(x))))
     error("objects in x must have the same dimensions")
 
-  x %<>% abind::abind(along = 0)
-
-  x %<>% apply(2:ndims(x), fun)
+  x <-abind::abind(x, along = 0)
+  x <- apply(x, 2:ndims(x), fun)
 
   if (!identical(dim[[1]], dim(x))) error("function fun must return a scalar")
 
@@ -36,9 +35,9 @@ combine_values_mcmcr <- function(x, fun) {
   names <- llply(x, names)
   if (!all.equal(names, rep(names[1], length(x)), check.names = FALSE)) error("objects in x must have the same names")
 
-  x %<>% purrr::transpose()
+  x <- purrr::transpose(x)
 
-  x %<>% llply(combine_values_mcmcarray, fun = fun)
+  x <- llply(x, combine_values_mcmcarray, fun = fun)
 
   class(x) <- "mcmcr"
   x
@@ -52,9 +51,9 @@ combine_values_mcmcr_data <- function(x, fun, by, suffix) {
   data <- llply(x, as.data.frame)
 
   for (i in seq_along(data))
-    data[[i]] %<>% dplyr::mutate_(.dots = setNames(list(~1:n()), str_c("..ID", i)))
+    data[[i]] <- dplyr::mutate_(data[[i]], .dots = setNames(list(~1:n()), str_c("..ID", i)))
 
-  data %<>% purrr::reduce(dplyr::inner_join, by = by, suffix = suffix)
+  data <- purrr::reduce(data, dplyr::inner_join, by = by, suffix = suffix)
 
   mcmcr <- llply(x, as.mcmcr)
 
@@ -67,11 +66,11 @@ combine_values_mcmcr_data <- function(x, fun, by, suffix) {
     class(mcmcr[[i]]) <- "mcmcarray"
   }
 
-  mcmcr %<>% combine_values_mcmcarray(fun = fun)
+  mcmcr <- combine_values_mcmcarray(mcmcr, fun = fun)
 
-  data %<>% dplyr::select_(~-dplyr::starts_with("..ID"))
+  data <- dplyr::select_(data, ~-dplyr::starts_with("..ID"))
 
-  mcmcr %<>% list()
+  mcmcr <- list(mcmcr)
   names(mcmcr) <- names[1]
 
   class(mcmcr) <- "mcmcr"

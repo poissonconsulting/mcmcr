@@ -21,8 +21,7 @@ converged.matrix <- function(x, rhat = 1.1, esr = 0.33, ...) {
 #' @export
 converged.mcmcarray <- function(x, by = "all", rhat = 1.1, esr = 0.33, ...) {
   check_vector(by, c("all", "parameter", "term"), length = 1)
-  x %<>%
-    estimates(fun = converged, rhat = rhat, esr = esr)
+  x <- estimates(x, fun = converged, rhat = rhat, esr = esr)
 
   if (!isTRUE(all.equal(by, "term"))) return(all(x))
 
@@ -31,7 +30,7 @@ converged.mcmcarray <- function(x, by = "all", rhat = 1.1, esr = 0.33, ...) {
 
 #' @export
 converged.mcmcr <- function(x, by = "all", rhat = 1.1, esr = 0.33, ...) {
-  x %<>% purrr::map(converged, by = by, rhat = rhat, esr = esr)
+  x <- purrr::map(x, converged, by = by, rhat = rhat, esr = esr)
   if (isTRUE(all.equal(by, "all"))) return(all(unlist(x)))
   x
 }

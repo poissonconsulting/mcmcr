@@ -7,7 +7,7 @@
 #' See \code{vignette("nse")} for details.
 #' @export
 group_by_.mcmcr_data <- function(.data, ..., .dots, add = FALSE){
-  .data$data %<>% dplyr::group_by_(..., .dots = .dots, add = add)
+  .data$data <- dplyr::group_by_(.data$data, ..., .dots = .dots, add = add)
   .data
 }
 
@@ -17,6 +17,6 @@ group_by_.mcmcr_data <- function(.data, ..., .dots, add = FALSE){
 #' @param x An mcmcr_data object
 #' @export
 ungroup.mcmcr_data <- function(x, ...){
-  x$data %<>% dplyr::ungroup(...)
+  x$data <- dplyr::ungroup(x$data, ...)
   x
 }

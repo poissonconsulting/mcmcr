@@ -15,14 +15,14 @@ collapse_chains.mcmcarray <- function(x, ...) {
   if (identical(nchains, 1L)) return(x)
   y <- list()
   for (i in seq_len(nchains)) y[[i]] <- subset(x, chains = i)
-  y %<>% purrr::reduce(bind_iterations)
+  y <- purrr::reduce(y, bind_iterations)
   y
 }
 
 
 #' @export
 collapse_chains.mcmcr <- function(x, ...) {
-  x %<>% purrr::map(collapse_chains)
+  x <- purrr::map(x, collapse_chains)
   class(x) <- "mcmcr"
   x
 }

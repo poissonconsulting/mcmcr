@@ -19,7 +19,7 @@ plot.mcmcarray <- function(x, ...) {
   op <- graphics::par(mfrow = mfrow)
   on.exit(graphics::par(op))
 
-  x %<>% as.mcmc.list()
+  x <- as.mcmc.list(x)
 
   for (i in 1:nterms) {
     coda::traceplot(x[, i, drop = FALSE], smooth = TRUE)
@@ -38,7 +38,7 @@ plot.mcmcr <- function(x, ...) {
   op <- graphics::par(mfrow = mfrow)
   on.exit(graphics::par(op))
 
-  x %<>% as.mcmc.list()
+  x <- as.mcmc.list(x)
 
   for (i in 1:nterms) {
     coda::traceplot(x[, i, drop = FALSE], smooth = TRUE)

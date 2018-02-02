@@ -27,28 +27,23 @@ esr.numeric <- function(x, ...) {
   match <- match(TRUE, x < 0)
   x <- sum(x[1:(match-1)]) - 1
   x <- 1 / (1 + 2 * x)
-  x <- round(x, 2)
-  x
+  round(x, 2)
 }
 
 #' @export
 esr.matrix <- function(x, ...) {
   niters <- niters(x)
-
-  x %<>%
-    apply(1L, esr) %>%
-    unlist() %>%
-    mean() %>%
-    round(2)
-
-  x
+  x <- apply(x, 1L, esr)
+  x <- unlist(x)
+  x <- mean(x)
+  round(x, 2)
 }
 
 #' @export
 esr.mcmcarray <- function(x, by = "all", ...) {
   check_vector(by, c("all", "parameter", "term"), length = 1)
 
-  x %<>% estimates(fun = esr)
+  x <- estimates(x, fun = esr)
 
   if (!isTRUE(all.equal(by, "term"))) return(min(x))
   x
@@ -56,7 +51,7 @@ esr.mcmcarray <- function(x, by = "all", ...) {
 
 #' @export
 esr.mcmcr <- function(x, by = "all", ...) {
-  x %<>% purrr::map(esr, by = by)
+  x <- purrr::map(x, esr, by = by)
   if (isTRUE(all.equal(by, "all"))) return(min(unlist(x)))
   x
 }

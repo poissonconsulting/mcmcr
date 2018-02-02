@@ -21,6 +21,6 @@ mcmc_map.mcmcarray <- function(.x, .f, ...) {
 #' @export
 mcmc_map.mcmcr <- function(.x, .f, ...) {
   for(i in seq_along(.x))
-    .x[[i]] %<>% mcmc_map(.f = .f , ...)
+    .x[[i]] <- mcmc_map(.x[[i]], .f = .f , ...)
   .x
 }

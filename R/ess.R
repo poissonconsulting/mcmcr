@@ -17,9 +17,8 @@ ess.matrix <- function(x, ...) {
 ess.mcmcarray <- function(x, by = "all", ...) {
   check_vector(by, c("all", "parameter", "term"), length = 1)
 
-  x %<>%
-    estimates(fun = ess) %>%
-    round()
+  x <- estimates(x, fun = ess)
+  x <- round(x)
 
   storage.mode(x) <- "integer"
 
@@ -30,7 +29,7 @@ ess.mcmcarray <- function(x, by = "all", ...) {
 
 #' @export
 ess.mcmcr <- function(x, by = "all", ...) {
-  x %<>% purrr::map(ess, by = by)
+  x <- purrr::map(x, ess, by = by)
   if (isTRUE(all.equal(by, "all"))) return(min(unlist(x)))
   x
 }

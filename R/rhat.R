@@ -31,10 +31,9 @@ rhat.matrix <- function(x, ...) {
 rhat.mcmcarray <- function(x, by = "all", ...) {
   check_vector(by, c("all", "parameter", "term"), length = 1)
 
-  x %<>%
-    split_chains() %>%
-    estimates(fun = rhat) %>%
-    round(2)
+  x <- split_chains(x)
+  x <- estimates(x, fun = rhat)
+  x <- round(x, 2)
 
   if (!isTRUE(all.equal(by, "term"))) return(max(x))
   x
@@ -42,7 +41,7 @@ rhat.mcmcarray <- function(x, by = "all", ...) {
 
 #' @export
 rhat.mcmcr <- function(x, by = "all", ...) {
-  x %<>% purrr::map(rhat, by = by)
+  x <- purrr::map(x, rhat, by = by)
   if (isTRUE(all.equal(by, "all"))) return(max(unlist(x)))
   x
 }

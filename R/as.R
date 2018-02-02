@@ -40,8 +40,7 @@ as.mcarray <- function(x, ...) {
 
 #' @export
 as.mcmcr.list <- function(x, ...) {
-
-  x %<>% llply(as.mcmcarray)
+  x <- llply(x, as.mcmcarray)
   class(x) <- "mcmcr"
   x
 }
@@ -60,7 +59,7 @@ as.data.frame.mcmcr_data <- function(x, ...) {
 as.mcmcarray.mcarray <- function(x, ...) {
   names(dim(x)) <- NULL
   n <- ndims(x)
-  x %<>% aperm(c(n, n - 1, 1:(n - 2)))
+  x <- aperm(x, c(n, n - 1, 1:(n - 2)))
   class(x) <- "mcmcarray"
   x
 }
@@ -83,21 +82,21 @@ as.mcmcarray.matrix <- function(x, ...) {
 as.mcarray.mcmcarray <- function(x, ...) {
   n <- ndims(x)
   names(dim(x)) <- c("chain", "iteration", rep("", n - 2))
-  x %<>% aperm(c(3:n, 2, 1))
+  x <- aperm(x, c(3:n, 2, 1))
   class(x) <- "mcarray"
   x
 }
 
 as_mcmc <- function(x, ...) {
-  x %<>% reshape2::melt()
+  x <- reshape2::melt(x)
 
   values <- dplyr::select_(x, ~Var1, ~value)
-  x %<>% dplyr::select_(~-Var1, ~-value)
-  x %<>% tidyr::unite_("term", from = colnames(.), sep = ",") %>%
-    dplyr::mutate_(term = ~paste0("[", term, "]"))
-  x %<>% dplyr::bind_cols(values)
-  x %<>% tidyr::spread_("term", "value")
-  x %<>% dplyr::select_(~-Var1)
+  x <- dplyr::select_(x, ~-Var1, ~-value)
+  x <- tidyr::unite_(x, "term", from = colnames(x), sep = ",")
+  x <- dplyr::mutate_(x, term = ~paste0("[", term, "]"))
+  x <- dplyr::bind_cols(x, values)
+  x <- tidyr::spread_(x, "term", "value")
+  x <- dplyr::select_(x, ~-Var1)
   x
 }
 
@@ -114,19 +113,18 @@ add_colname_matrix <- function(x, name) {
 #' @export
 as.mcmc.list.mcmcarray <- function(x, name = "", ...) {
 
-  x %<>% apply(1, as_mcmc)
-  x %<>% llply(as.matrix)
-  x %<>% purrr::map(add_colname_matrix, name)
-  x %<>% llply(coda::as.mcmc)
+  x <- apply(x, 1, as_mcmc)
+  x <- llply(x, as.matrix)
+  x <- purrr::map(x, add_colname_matrix, name)
+  x <- llply(x, coda::as.mcmc)
   coda::mcmc.list(x)
 }
 
 #' @method as.mcmc.list mcmcr
 #' @export
 as.mcmc.list.mcmcr <- function(x, ...) {
-
-  x %<>% purrr::map2(names(x), as.mcmc.list)
-  x %<>% purrr::reduce(bind_terms)
+  x <- purrr::map2(x, names(x), as.mcmc.list)
+  x <- purrr::reduce(x, bind_terms)
   x
 }
 

@@ -25,7 +25,7 @@ zero.mcmcr <- function(x, parameters = NULL, ...) {
     if (anyDuplicated(parameters)) error("parameters must be unique")
   } else parameters <- parameters(x)
 
-  x %<>% purrr::map_at(parameters, zero)
+  x <- purrr::map_at(x, parameters, zero)
 
   class(x) <- "mcmcr"
   x

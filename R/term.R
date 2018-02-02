@@ -47,8 +47,8 @@ parameter.term <- function(x, ...) {
 
 #' @export
 rep.term <- function(x, times, ...) {
-  x %<>% as.character()
-  x %<>% rep(times)
+  x <- as.character(x)
+  x <- rep(x, times)
   as.term(x)
 }
 
@@ -59,33 +59,33 @@ rep.term <- function(x, times, ...) {
 #' @return A list of the dims.
 #' @export
 dims_term <- function(x, ...) {
-  x %<>% str_replace("^(\\w+)(.*)", "\\2") %>%
-    str_replace("^(\\[)(.*)(\\])$", "\\2") %>%
-    str_split("\\s*[,]\\s*")
-  x %<>% llply(str_replace_all, "\\s+", "")
-  x %<>% llply(as.integer)
-  x %<>% purrr::map_if(function(x) identical(x, NA_integer_), function(x) 1L)
+  x <- str_replace(x, "^(\\w+)(.*)", "\\2")
+  x <- str_replace(x, "^(\\[)(.*)(\\])$", "\\2")
+  x <- str_split(x, "\\s*[,]\\s*")
+  x <- llply(x, str_replace_all, "\\s+", "")
+  x <- llply(x, as.integer)
+  x <- purrr::map_if(x, function(x) identical(x, NA_integer_), function(x) 1L)
   x
 }
 
 #' @export
 `>.term` <- function(e1, e2) {
-  if (identical(length(e1), 1L)) e1 %<>% rep(length(e2))
-  if (identical(length(e2), 1L)) e2 %<>% rep(length(e1))
+  if (identical(length(e1), 1L)) e1 <- rep(e1, length(e2))
+  if (identical(length(e2), 1L)) e2 <- rep(e2, length(e1))
 
   purrr::map2_lgl(e1, e2, greater_than_term)
 }
 
 #' @export
 `[.term` <- function(x, i) {
-  x %<>% as.character()
+  x <- as.character(x)
   x <- x[i]
   as.term(x)
 }
 
 greater_than_term <- function(e1, e2) {
-  e1 %<>% as.term()
-  e2 %<>% as.term()
+  e1 <- as.term(e1)
+  e2 <- as.term(e2)
   e1_parm <- parameter(e1)
   e2_parm <- parameter(e2)
   if (e1_parm != e2_parm) return(e1_parm > e2_parm)

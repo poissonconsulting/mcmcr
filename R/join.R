@@ -7,8 +7,8 @@ anti_join.mcmcr_data <- function(x, y, by = NULL, copy = FALSE, suffix = c(".x",
   stopifnot(!rlang::has_name(y, "IDX"))
 
   x$data$IDX <- 1:nrow(x$data)
-  x$data %<>% dplyr::anti_join(y, by = by, copy = copy, suffix = suffix)
-  x$mcmcr[[1]] %<>% filter_mcmcarray(x$data$IDX)
+  x$data <- dplyr::anti_join(x$data, y, by = by, copy = copy, suffix = suffix)
+  x$mcmcr[[1]] <- filter_mcmcarray(x$mcmcr[[1]], x$data$IDX)
   x$data$IDX <- NULL
   x
 }
@@ -22,8 +22,8 @@ semi_join.mcmcr_data <- function(x, y, by = NULL, copy = FALSE, suffix = c(".x",
   stopifnot(!rlang::has_name(y, "IDX"))
 
   x$data$IDX <- 1:nrow(x$data)
-  x$data %<>% dplyr::semi_join(y, by = by, copy = copy, suffix = suffix)
-  x$mcmcr[[1]] %<>% filter_mcmcarray(x$data$IDX)
+  x$data <- dplyr::semi_join(x$data, y, by = by, copy = copy, suffix = suffix)
+  x$mcmcr[[1]] <- filter_mcmcarray(x$mcmcr[[1]], x$data$IDX)
   x$data$IDX <- NULL
   x
 }
@@ -37,8 +37,8 @@ inner_join.mcmcr_data <- function(x, y, by = NULL, copy = FALSE, suffix = c(".x"
   stopifnot(!rlang::has_name(y, "IDX"))
 
   x$data$IDX <- 1:nrow(x$data)
-  x$data %<>% dplyr::inner_join(y, by = by, copy = copy, suffix = suffix)
-  x$mcmcr[[1]] %<>% filter_mcmcarray(x$data$IDX)
+  x$data <- dplyr::inner_join(x$data, y, by = by, copy = copy, suffix = suffix)
+  x$mcmcr[[1]] <- filter_mcmcarray(x$mcmcr[[1]], x$data$IDX)
   x$data$IDX <- NULL
   x
 }
@@ -48,6 +48,6 @@ inner_join.mcmcr_data <- function(x, y, by = NULL, copy = FALSE, suffix = c(".x"
 #' @inheritParams dplyr::inner_join
 #' @export
 left_join.mcmcr_data <- function(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...){
-  x$data %<>% dplyr::left_join(y, by = by, copy = copy, suffix = suffix)
+  x$data <- dplyr::left_join(x$data, y, by = by, copy = copy, suffix = suffix)
   x
 }

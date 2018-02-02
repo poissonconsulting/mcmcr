@@ -11,8 +11,8 @@ subset.mcmcarray <- function(x, chains = NULL, iterations = NULL, ...) {
   if (!is.null(chains)) check_vector(chains, 1:nchains(x))
   if (!is.null(iterations)) check_vector(iterations, 1:niters(x))
 
-  if (!is.null(chains)) x %<>% abind::asub(chains, 1L, drop = FALSE)
-  if (!is.null(iterations)) x %<>% abind::asub(iterations, 2L, drop = FALSE)
+  if (!is.null(chains)) x <- abind::asub(x, chains, 1L, drop = FALSE)
+  if (!is.null(iterations)) x <- abind::asub(x, iterations, 2L, drop = FALSE)
   class(x) <- "mcmcarray"
 
   x
@@ -34,7 +34,7 @@ subset.mcmcr <- function(x, chains = NULL, iterations = NULL, parameters = NULL,
     x <- x[parameters]
   }
 
-  x %<>% llply(subset, chains = chains, iterations = iterations)
+  x <- llply(x, subset, chains = chains, iterations = iterations)
   class(x) <- "mcmcr"
   x
 }

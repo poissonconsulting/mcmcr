@@ -40,20 +40,19 @@ coef.mcmcarray <- function(object, conf_level = 0.95, estimate = median, ...) {
   ndims <- ndims(object)
   coef <- apply(object, 3:ndims, coefs, conf_level = conf_level, estimate = estimate)
 
-  coef %<>% reshape2::melt()
+  coef <- reshape2::melt(coef)
 
   values <- dplyr::select_(coef, ~Var1, ~value)
-  coef %<>% dplyr::select_(~-Var1, ~-value)
-  coef %<>% tidyr::unite_("term", from = colnames(.), sep = ",") %>%
-    dplyr::mutate_(term = ~paste0("[", term, "]"))
-  coef %<>% dplyr::bind_cols(values)
-  coef %<>% dplyr::mutate_(term = ~factor(term, levels = unique(term)))
-  coef %<>% tidyr::spread_("Var1", "value")
-  coef %<>% dplyr::mutate_(term = ~as.character(term))
-  if (nrow(coef) == 1) coef %<>% dplyr::mutate_(term = ~"")
-  coef$term %<>% as.term()
-  coef %<>% dplyr::as.tbl()
-  coef
+  coef <- dplyr::select_(coef, ~-Var1, ~-value)
+  coef <- tidyr::unite_(coef, "term", from = colnames(coef), sep = ",")
+  coef <- dplyr::mutate_(coef, term = ~paste0("[", term, "]"))
+  coef <- dplyr::bind_cols(coef, values)
+  coef <- dplyr::mutate_(coef, term = ~factor(term, levels = unique(term)))
+  coef <- tidyr::spread_(coef, "Var1", "value")
+  coef <- dplyr::mutate_(coef, term = ~as.character(term))
+  if (nrow(coef) == 1) coef <- dplyr::mutate_(coef, term = ~"")
+  coef$term <- as.term(coef$term)
+  dplyr::as.tbl(coef)
 }
 
 #' Coef mcmcr
@@ -69,11 +68,11 @@ coef.mcmcarray <- function(object, conf_level = 0.95, estimate = median, ...) {
 coef.mcmcr <- function(object, conf_level = 0.95, estimate = median, ...) {
   check_vector(conf_level, c(0.5, 0.99), length = 1)
 
-  object %<>% llply(coef, conf_level = conf_level, estimate = estimate)
-  suppressWarnings(object %<>% dplyr::bind_rows(.id = "id"))
-  object %<>%  tidyr::unite_("term", from = c("id", "term"), sep = "")
+  object <- llply(object, coef, conf_level = conf_level, estimate = estimate)
+  suppressWarnings(object <- dplyr::bind_rows(object, .id = "id"))
+  object <-  tidyr::unite_(object, "term", from = c("id", "term"), sep = "")
 
-  object$term %<>% as.term()
+  object$term <- as.term(object$term)
 
   object
 }
@@ -89,6 +88,5 @@ coef.mcmcr <- function(object, conf_level = 0.95, estimate = median, ...) {
 #' @export
 coef.mcmcr_data <- function(object, conf_level = 0.95, ...) {
   coef <- coef(object$mcmcr, conf_level = conf_level, ...)
-  coef %<>% dplyr::bind_cols(object$data, .)
-  coef
+  dplyr::bind_cols(object$data, coef)
 }

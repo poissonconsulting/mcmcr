@@ -5,8 +5,8 @@
 #' @return An object of class mcmcrs.
 #' @export
 add_mcmcrs <- function(x, x2) {
-  if (is.mcmcr(x)) x %<>% list()
-  if (is.mcmcr(x2)) x2 %<>% list()
-  x %<>% c(x2)
+  if (is.mcmcr(x)) x <- list(x)
+  if (is.mcmcr(x2)) x2 <- list(x2)
+  x <- c(x, x2)
   as.mcmcrs(x)
 }

@@ -16,7 +16,7 @@ split_chains.mcmcarray <- function(x, ...) {
   n <- floor(niters / 2L)
 
   y <- subset(x, iterations = (n + 1L):(n * 2L))
-  x %<>% subset(iterations = 1:n)
+  x <- subset(x, iterations = 1:n)
 
   bind_chains(x, y)
 }
@@ -24,7 +24,7 @@ split_chains.mcmcarray <- function(x, ...) {
 
 #' @export
 split_chains.mcmcr <- function(x, ...) {
-  x %<>% purrr::map(split_chains)
+  x <- purrr::map(x, split_chains)
   class(x) <- "mcmcr"
   x
 }
