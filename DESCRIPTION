@@ -19,9 +19,9 @@ Imports:
     pryr,
     purrr,
     reshape2,
+    rlang,
     stats,
     stringr,
-    tibble,
     tidyr
 Suggests:
     testthat,

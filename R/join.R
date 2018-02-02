@@ -3,8 +3,8 @@
 #' @inheritParams dplyr::inner_join
 #' @export
 anti_join.mcmcr_data <- function(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...){
-  stopifnot(!tibble::has_name(x$data, "IDX"))
-  stopifnot(!tibble::has_name(y, "IDX"))
+  stopifnot(!rlang::has_name(x$data, "IDX"))
+  stopifnot(!rlang::has_name(y, "IDX"))
 
   x$data$IDX <- 1:nrow(x$data)
   x$data %<>% dplyr::anti_join(y, by = by, copy = copy, suffix = suffix)
@@ -18,8 +18,8 @@ anti_join.mcmcr_data <- function(x, y, by = NULL, copy = FALSE, suffix = c(".x",
 #' @inheritParams dplyr::inner_join
 #' @export
 semi_join.mcmcr_data <- function(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...){
-  stopifnot(!tibble::has_name(x$data, "IDX"))
-  stopifnot(!tibble::has_name(y, "IDX"))
+  stopifnot(!rlang::has_name(x$data, "IDX"))
+  stopifnot(!rlang::has_name(y, "IDX"))
 
   x$data$IDX <- 1:nrow(x$data)
   x$data %<>% dplyr::semi_join(y, by = by, copy = copy, suffix = suffix)
@@ -33,8 +33,8 @@ semi_join.mcmcr_data <- function(x, y, by = NULL, copy = FALSE, suffix = c(".x",
 #' @inheritParams dplyr::inner_join
 #' @export
 inner_join.mcmcr_data <- function(x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ...){
-  stopifnot(!tibble::has_name(x$data, "IDX"))
-  stopifnot(!tibble::has_name(y, "IDX"))
+  stopifnot(!rlang::has_name(x$data, "IDX"))
+  stopifnot(!rlang::has_name(y, "IDX"))
 
   x$data$IDX <- 1:nrow(x$data)
   x$data %<>% dplyr::inner_join(y, by = by, copy = copy, suffix = suffix)

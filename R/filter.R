@@ -15,7 +15,7 @@ filter_mcmcarray <- function(x, idx) {
 filter_.mcmcr_data <- function(.data, ..., .dots){
   data <- .data$data
 
-  stopifnot(!tibble::has_name(data, "IDX"))
+  stopifnot(!rlang::has_name(data, "IDX"))
   data$IDX <- 1:nrow(data)
   data %<>% dplyr::filter_(..., .dots = .dots)
   .data$mcmcr[[1]] %<>% filter_mcmcarray(data$IDX)
