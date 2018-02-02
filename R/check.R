@@ -5,7 +5,7 @@ check_mcmcr_data <- function(mcmcr_data){
   data <- mcmcr_data$data
 
   if (!is.mcmcr(mcmcr)) error("mcmcr must be of class mcmcr")
-  check_data2(data)
+  check_data(data)
 
   if (length(parameters(mcmcr)) != 1) error("mcmcr must have just one parameter")
 

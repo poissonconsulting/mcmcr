@@ -15,7 +15,7 @@ ess.matrix <- function(x, ...) {
 
 #' @export
 ess.mcmcarray <- function(x, by = "all", ...) {
-  check_scalar(by, c("all", "parameter", "term"))
+  check_vector(by, c("all", "parameter", "term"), length = 1)
 
   x %<>%
     estimates(fun = ess) %>%

@@ -23,7 +23,7 @@ bind_samples.mcmcarray <- function(x, x2, along = NULL, ...) {
 
   if (is.null(along)) along <- max(ndims(x), ndims(x2)) - 1
 
-  check_number(along)
+  check_vector(along, 1, length = 1)
 
   x %<>% abind::abind(x2, along = along + 2)
   class(x) <- "mcmcarray"
@@ -44,7 +44,7 @@ bind_samples.mcmcr <- function(x, x2, along = NULL, ...) {
   } else if (length(along) != length(x))
     error("along must be a number or a vector of numbers the same length as the number of parameters in x")
 
-  check_vector(along, value = 1)
+  check_vector(along, 1)
 
   x <- list(x = x, x2 = x2, along = as.list(along))
   x %<>% purrr::transpose()

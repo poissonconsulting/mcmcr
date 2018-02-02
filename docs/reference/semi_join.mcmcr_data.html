@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Effective Sampling Proportion — esp • mcmcr</title>
+<title>Semi join mcmcr data — semi_join.mcmcr_data • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -52,7 +52,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
@@ -75,31 +75,57 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Effective Sampling Proportion</h1>
+    <h1>Semi join mcmcr data</h1>
     </div>
 
     
-    <p>Effective Sampling Proportion</p>
+    <p>Semi join mcmcr data</p>
     
 
-    <pre class="usage"><span class='fu'>esp</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='co'># S3 method for mcmcr_data</span>
+<span class='fu'>semi_join</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>copy</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>suffix</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>".x"</span>, <span class='st'>".y"</span>), <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>An mcmc object.</p></td>
+      <td><p>tbls to join</p></td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td><p>tbls to join</p></td>
+    </tr>
+    <tr>
+      <th>by</th>
+      <td><p>a character vector of variables to join by.  If <code>NULL</code>, the
+default, <code>*_join()</code> will do a natural join, using all variables with
+common names across the two tables. A message lists the variables so
+that you can check they're right (to suppress the message, simply
+explicitly list the variables that you want to join).</p>
+<p>To join by different variables on x and y use a named vector.
+For example, <code>by = c("a" = "b")</code> will match <code>x.a</code> to
+<code>y.b</code>.</p></td>
+    </tr>
+    <tr>
+      <th>copy</th>
+      <td><p>If <code>x</code> and <code>y</code> are not from the same data source,
+and <code>copy</code> is <code>TRUE</code>, then <code>y</code> will be copied into the
+same src as <code>x</code>.  This allows you to join tables across srcs, but
+it is a potentially expensive operation so you must opt into it.</p></td>
+    </tr>
+    <tr>
+      <th>suffix</th>
+      <td><p>If there are non-joined duplicate variables in <code>x</code> and
+<code>y</code>, these suffixes will be added to the output to disambiguate them.
+Should be a character vector of length 2.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Unused.</p></td>
+      <td><p>other parameters passed onto methods</p></td>
     </tr>
     </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>A number of the esp value.</p>
     
 
   </div>
@@ -107,9 +133,7 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-          </ul>
+                </ul>
 
   </div>
 </div>

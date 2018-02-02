@@ -59,7 +59,7 @@ parameters.mcmcr <- function(x, scalar_only = FALSE, ...) {
 
 #' @export
 `parameters<-.mcmcr` <- function(x, value) {
-  check_vector(value, "", min_length = length(x), max_length = length(x))
+  check_vector(value, "", length = length(x))
   check_unique(value)
   names(x) <- value
   x

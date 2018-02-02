@@ -35,7 +35,7 @@ coefs <- function(x, conf_level, estimate) {
 #' @export
 coef.mcmcarray <- function(object, conf_level = 0.95, estimate = median, ...) {
 
-  check_number(conf_level, c(0.5, 0.99))
+  check_vector(conf_level, c(0.5, 0.99), length = 1)
 
   ndims <- ndims(object)
   coef <- apply(object, 3:ndims, coefs, conf_level = conf_level, estimate = estimate)
@@ -67,7 +67,7 @@ coef.mcmcarray <- function(object, conf_level = 0.95, estimate = median, ...) {
 #' @return A tidy tibble of the coefficient terms.
 #' @export
 coef.mcmcr <- function(object, conf_level = 0.95, estimate = median, ...) {
-  check_number(conf_level, c(0.5, 0.99))
+  check_vector(conf_level, c(0.5, 0.99), length = 1)
 
   object %<>% llply(coef, conf_level = conf_level, estimate = estimate)
   suppressWarnings(object %<>% dplyr::bind_rows(.id = "id"))

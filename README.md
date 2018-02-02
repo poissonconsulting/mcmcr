@@ -1,17 +1,24 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![stability-unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)](https://github.com/joethorley/stability-badges#unstable) [![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/mcmcr.svg?branch=master)](https://travis-ci.org/poissonconsulting/mcmcr) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/mcmcr?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/mcmcr) [![Coverage Status](https://img.shields.io/codecov/c/github/poissonconsulting/mcmcr/master.svg)](https://codecov.io/github/poissonconsulting/mcmcr?branch=master) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/mcmcr)](https://cran.r-project.org/package=mcmcr)
 
-mcmcr
-=====
+[![stability-unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)](https://github.com/joethorley/stability-badges#unstable)
+[![Travis-CI Build
+Status](https://travis-ci.org/poissonconsulting/mcmcr.svg?branch=master)](https://travis-ci.org/poissonconsulting/mcmcr)
+[![AppVeyor Build
+Status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/mcmcr?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/mcmcr)
+[![Coverage
+Status](https://img.shields.io/codecov/c/github/poissonconsulting/mcmcr/master.svg)](https://codecov.io/github/poissonconsulting/mcmcr?branch=master)
+[![License:
+MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/mcmcr)](https://cran.r-project.org/package=mcmcr)
 
-Introduction
-------------
+# mcmcr
+
+## Introduction
 
 `mcmcr` is an R package to manipulate Monte Carlo Markov Chain samples.
 
-Utilisation
------------
+## Utilisation
 
 ``` r
 library(mcmcr)
@@ -39,15 +46,15 @@ nterms(mcmcr)
 
 coef(mcmcr)
 #> # A tibble: 7 x 7
-#>         term  estimate        sd   zscore     lower    upper pvalue
-#> * <S3: term>     <dbl>     <dbl>    <dbl>     <dbl>    <dbl>  <dbl>
-#> 1   alpha[1] 2.9982470 0.5200369 5.780869 2.0083900 4.000345 0.0010
-#> 2   alpha[2] 3.9982470 0.5200369 7.703810 3.0083900 5.000345 0.0005
-#> 3  beta[1,1] 1.2659291 0.6219194 2.050184 0.1597749 2.325026 0.0230
-#> 4  beta[2,1] 2.2659291 0.6219194 3.658109 1.1597749 3.325026 0.0010
-#> 5  beta[1,2] 1.3323697 0.6191552 2.123673 0.2768236 2.399943 0.0150
-#> 6  beta[2,2] 2.3323697 0.6191552 3.738777 1.2768236 3.399943 0.0020
-#> 7      sigma 0.8265352 0.6637312 1.516797 0.4239920 2.726438 0.0005
+#>   term       estimate    sd zscore lower upper   pvalue
+#> * <S3: term>    <dbl> <dbl>  <dbl> <dbl> <dbl>    <dbl>
+#> 1 alpha[1]      3.00  0.520   5.78 2.01   4.00 0.00100 
+#> 2 alpha[2]      4.00  0.520   7.70 3.01   5.00 0.000500
+#> 3 beta[1,1]     1.27  0.622   2.05 0.160  2.33 0.0230  
+#> 4 beta[2,1]     2.27  0.622   3.66 1.16   3.33 0.00100 
+#> 5 beta[1,2]     1.33  0.619   2.12 0.277  2.40 0.0150  
+#> 6 beta[2,2]     2.33  0.619   3.74 1.28   3.40 0.00200 
+#> 7 sigma         0.827 0.664   1.52 0.424  2.73 0.000500
 rhat(mcmcr)
 #> [1] 1.87
 
@@ -66,26 +73,27 @@ estimates(mcmcr)
 plot(mcmcr[[1]])
 ```
 
-![](tools/README-unnamed-chunk-2-1.png)
+![](tools/README-unnamed-chunk-2-1.png)<!-- -->
 
-Installation
-------------
+## Installation
 
 To install the latest version from GitHub
 
     # install.packages("devtools")
     devtools::install_github("poissonconsulting/mcmcr")
 
-Contribution
-------------
+## Contribution
 
-Please report any [issues](https://github.com/poissonconsulting/mcmcr/issues).
+Please report any
+[issues](https://github.com/poissonconsulting/mcmcr/issues).
 
-[Pull requests](https://github.com/poissonconsulting/mcmcr/pulls) are always welcome.
+[Pull requests](https://github.com/poissonconsulting/mcmcr/pulls) are
+always welcome.
 
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of
+Conduct](CONDUCT.md). By participating in this project you agree to
+abide by its terms.
 
-Inspiration
------------
+## Inspiration
 
--   coda and rjags
+  - coda and rjags
