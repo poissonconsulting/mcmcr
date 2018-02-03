@@ -12,7 +12,7 @@ summary.mcmcarray <- function(object, ...) {
 
 #' @export
 summary.mcmcr <- function(object, ...) {
-  arrays <- llply(object, summary)
+  arrays <- lapply(object, summary)
 
   summary <- list(arrays = list(arrays))
 

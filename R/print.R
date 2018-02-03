@@ -22,6 +22,6 @@ print.summary.mcmcarray <- function(x, ...) {
 
 #' @export
 print.summary.mcmcr <- function(x, ...) {
-  llply(x$arrays, print)
+  lapply(x$arrays, print)
   invisible(x)
 }

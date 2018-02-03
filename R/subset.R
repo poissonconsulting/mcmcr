@@ -34,7 +34,7 @@ subset.mcmcr <- function(x, chains = NULL, iterations = NULL, parameters = NULL,
     x <- x[parameters]
   }
 
-  x <- llply(x, subset, chains = chains, iterations = iterations)
+  x <- lapply(x, subset, chains = chains, iterations = iterations)
   class(x) <- "mcmcr"
   x
 }

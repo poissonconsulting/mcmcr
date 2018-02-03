@@ -16,7 +16,7 @@ derive_sample <- function(i, object, expr, values, monitor) {
   object <- c(object, values)
   object <- within(object, eval(expr))
   object <- object[monitor]
-  object <- llply(object, function(x) { dim(x) <- c(1L, 1L, dims(x)); class(x) <- "mcmcarray"; x})
+  object <- lapply(object, function(x) { dim(x) <- c(1L, 1L, dims(x)); class(x) <- "mcmcarray"; x})
 
   class(object) <- "mcmcr"
 
@@ -26,7 +26,7 @@ derive_sample <- function(i, object, expr, values, monitor) {
 derive_chain <- function(i, object, expr, values, monitor) {
   object <- subset(object, chains = i)
 
-  object <- llply(1:niters(object), .fun  = derive_sample, object = object,
+  object <- lapply(1:niters(object), FUN = derive_sample, object = object,
                   expr = expr, values = values, monitor = monitor)
   object <- purrr::reduce(object, bind_iterations)
   object
@@ -51,7 +51,7 @@ derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", parallel
   check_string(monitor)
   check_flag(parallel)
 
-  values <- llply(values, as.numeric)
+  values <- lapply(values, as.numeric)
 
   parameters <- parameters(object)
   names_values <- names(values)
@@ -86,7 +86,7 @@ derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", parallel
 
   monitor <- sort(monitor)
 
-  object <- llply(1:nchains(object), derive_chain, object = object,
+  object <- plyr::llply(1:nchains(object), derive_chain, object = object,
                      .parallel = parallel, expr = parse(text = expr),
                   values = values, monitor = monitor)
 

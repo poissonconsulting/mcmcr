@@ -37,7 +37,7 @@ terms.mcmcarray <- function(x, ...) {
 #' @export
 terms.mcmcr <- function(x, ...) {
   parameters <- parameters(x)
-  x <- llply(x, terms)
+  x <- lapply(x, terms)
 
   x <- purrr::map2(x, parameters, function(x, y) {x <- paste0(y, x); x})
   x <- unlist(x)

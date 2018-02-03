@@ -41,7 +41,7 @@ estimates.mcmcarray <- function(object, fun = stats::median, as_list = TRUE, ...
 
 #' @export
 estimates.mcmcr <- function(object, fun = stats::median, as_list = TRUE, ...) {
-  object <- llply(object, estimates, fun = fun, as_list = as_list, ...)
+  object <- lapply(object, estimates, fun = fun, as_list = as_list, ...)
   if (as_list) return(object)
 
   suppressWarnings(object <- dplyr::bind_rows(object, .id = "id"))

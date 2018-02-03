@@ -40,7 +40,7 @@ as.mcarray <- function(x, ...) {
 
 #' @export
 as.mcmcr.list <- function(x, ...) {
-  x <- llply(x, as.mcmcarray)
+  x <- lapply(x, as.mcmcarray)
   class(x) <- "mcmcr"
   x
 }
@@ -114,9 +114,9 @@ add_colname_matrix <- function(x, name) {
 as.mcmc.list.mcmcarray <- function(x, name = "", ...) {
 
   x <- apply(x, 1, as_mcmc)
-  x <- llply(x, as.matrix)
+  x <- lapply(x, as.matrix)
   x <- purrr::map(x, add_colname_matrix, name)
-  x <- llply(x, coda::as.mcmc)
+  x <- lapply(x, coda::as.mcmc)
   coda::mcmc.list(x)
 }
 
