@@ -45,7 +45,9 @@ coef.mcmcarray <- function(object, conf_level = 0.95, estimate = median, ...) {
   values <- coef[c("Var1", "value")]
   coef$Var1 <- NULL
   coef$value <- NULL
-  coef <- tidyr::unite(coef, "term", from = colnames(coef), sep = ",")
+  coef <- tibble::tibble(
+    term = apply(as.matrix(coef), 1, function(x) paste(x, collapse = ","))
+  )
   coef$term <- paste0("[", coef$term, "]")
   coef <- cbind(coef, values)
   coef$term <- factor(coef$term, levels = unique(coef$term))

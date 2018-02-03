@@ -83,7 +83,9 @@ as_mcmc <- function(x, ...) {
   values <- x[c("Var1", "value")]
   x$Var1 <- NULL
   x$value <- NULL
-  x <- tidyr::unite(x, "term", from = colnames(x), sep = ",")
+  x <- tibble::tibble(
+    term = apply(as.matrix(x), 1, function(x) paste(x, collapse = ","))
+  )
   x$term <- paste0("[", x$term, "]")
   x <- cbind(x, values)
   x <- tidyr::spread(x, "term", "value")

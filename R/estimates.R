@@ -29,7 +29,9 @@ estimates.mcmcarray <- function(object, fun = stats::median, as_list = TRUE, ...
 
     object$value <- NULL
 
-    object <- tidyr::unite(object, "term", from = colnames(object), sep = ",")
+    object <- tibble::tibble(
+      term = apply(as.matrix(object), 1, function(x) paste(x, collapse = ","))
+    )
     object$term <- paste0("[", object$term, "]")
     object <- cbind(object, values)
   }
