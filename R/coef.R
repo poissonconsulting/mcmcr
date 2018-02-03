@@ -51,7 +51,7 @@ coef.mcmcarray <- function(object, conf_level = 0.95, estimate = median, ...) {
   coef$term <- paste0("[", coef$term, "]")
   coef <- cbind(coef, values)
   coef$term <- factor(coef$term, levels = unique(coef$term))
-  coef <- tidyr::spread(coef, "Var1", "value")
+  coef <- reshape2::dcast(coef, term ~ Var1)
   coef$term <- as.character(coef$term)
   if (nrow(coef) == 1) coef$term = ""
   coef$term <- as.term(coef$term)

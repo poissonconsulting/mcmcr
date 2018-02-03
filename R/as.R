@@ -88,7 +88,7 @@ as_mcmc <- function(x, ...) {
   )
   x$term <- paste0("[", x$term, "]")
   x <- cbind(x, values)
-  x <- tidyr::spread(x, "term", "value")
+  x <- reshape2::dcast(x, Var1 ~ term)
   x$Var1 <- NULL
   x
 }

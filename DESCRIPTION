@@ -17,8 +17,7 @@ Imports:
     reshape2,
     stats,
     stringr,
-    tibble,
-    tidyr
+    tibble
 Suggests:
     covr,
     testthat
