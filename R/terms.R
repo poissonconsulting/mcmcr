@@ -29,7 +29,7 @@ terms.mcmcarray <- function(x, ...) {
 
   x <- dplyr::select_(x, ~-value)
   x <- tidyr::unite_(x, "term", from = colnames(x), sep = ",")
-  x <- dplyr::mutate_(x, term = ~paste0("[", term, "]"))
+  x$term <- paste0("[", x$term, "]")
 
   as.term(x$term)
 }

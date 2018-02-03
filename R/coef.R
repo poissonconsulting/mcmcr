@@ -45,12 +45,12 @@ coef.mcmcarray <- function(object, conf_level = 0.95, estimate = median, ...) {
   values <- dplyr::select_(coef, ~Var1, ~value)
   coef <- dplyr::select_(coef, ~-Var1, ~-value)
   coef <- tidyr::unite_(coef, "term", from = colnames(coef), sep = ",")
-  coef <- dplyr::mutate_(coef, term = ~paste0("[", term, "]"))
+  coef$term <- paste0("[", coef$term, "]")
   coef <- dplyr::bind_cols(coef, values)
-  coef <- dplyr::mutate_(coef, term = ~factor(term, levels = unique(term)))
+  coef$term <- factor(coef$term, levels = unique(coef$term))
   coef <- tidyr::spread_(coef, "Var1", "value")
-  coef <- dplyr::mutate_(coef, term = ~as.character(term))
-  if (nrow(coef) == 1) coef <- dplyr::mutate_(coef, term = ~"")
+  coef$term <- as.character(coef$term)
+  if (nrow(coef) == 1) coef$term = ""
   coef$term <- as.term(coef$term)
   dplyr::as.tbl(coef)
 }

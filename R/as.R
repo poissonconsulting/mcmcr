@@ -93,7 +93,7 @@ as_mcmc <- function(x, ...) {
   values <- dplyr::select_(x, ~Var1, ~value)
   x <- dplyr::select_(x, ~-Var1, ~-value)
   x <- tidyr::unite_(x, "term", from = colnames(x), sep = ",")
-  x <- dplyr::mutate_(x, term = ~paste0("[", term, "]"))
+  x$term <- paste0("[", x$term, "]")
   x <- dplyr::bind_cols(x, values)
   x <- tidyr::spread_(x, "term", "value")
   x <- dplyr::select_(x, ~-Var1)
