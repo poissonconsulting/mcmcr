@@ -53,7 +53,7 @@ coef.mcmcarray <- function(object, conf_level = 0.95, estimate = median, ...) {
   coef$term <- as.character(coef$term)
   if (nrow(coef) == 1) coef$term = ""
   coef$term <- as.term(coef$term)
-  dplyr::as.tbl(coef)
+  tibble::as_tibble(coef)
 }
 
 #' Coef mcmcr

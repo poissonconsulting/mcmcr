@@ -18,6 +18,7 @@ Imports:
     reshape2,
     stats,
     stringr,
+    tibble,
     tidyr
 Suggests:
     covr,

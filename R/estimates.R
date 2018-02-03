@@ -36,7 +36,7 @@ estimates.mcmcarray <- function(object, fun = stats::median, as_list = TRUE, ...
   object$term <- as.term(object$term)
   object <- object[c("term", "value")]
   colnames(object) <- c("term", "estimate")
-  dplyr::as.tbl(object)
+  tibble::as_tibble(object)
 }
 
 #' @export
