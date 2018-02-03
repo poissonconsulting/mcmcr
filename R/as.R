@@ -46,16 +46,6 @@ as.mcmcr.list <- function(x, ...) {
 }
 
 #' @export
-as.mcmcr.mcmcr_data <- function(x, ...) {
-  x$mcmcr
-}
-
-#' @export
-as.data.frame.mcmcr_data <- function(x, ...) {
-  x$data
-}
-
-#' @export
 as.mcmcarray.mcarray <- function(x, ...) {
   names(dim(x)) <- NULL
   n <- ndims(x)
