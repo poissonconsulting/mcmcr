@@ -44,7 +44,8 @@ estimates.mcmcr <- function(object, fun = stats::median, as_list = TRUE, ...) {
   object <- lapply(object, estimates, fun = fun, as_list = as_list, ...)
   if (as_list) return(object)
 
-  suppressWarnings(object <- dplyr::bind_rows(object, .id = "id"))
+  object <- purrr::map2(object, names(object), function(x, y) {x$id = y; x})
+  object <- do.call(rbind, object)
   object <-  tidyr::unite(object, "term", from = c("id", "term"), sep = "")
   object$term <- as.term(object$term)
   object

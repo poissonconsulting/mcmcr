@@ -70,7 +70,8 @@ coef.mcmcr <- function(object, conf_level = 0.95, estimate = median, ...) {
   check_vector(conf_level, c(0.5, 0.99), length = 1)
 
   object <- lapply(object, coef, conf_level = conf_level, estimate = estimate)
-  suppressWarnings(object <- dplyr::bind_rows(object, .id = "id"))
+  object <- purrr::map2(object, names(object), function(x, y) {x$id = y; x})
+  object <- do.call(rbind, object)
   object <-  tidyr::unite(object, "term", from = c("id", "term"), sep = "")
 
   object$term <- as.term(object$term)

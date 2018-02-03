@@ -10,7 +10,6 @@ Depends:
     coda
 Imports:
     abind,
-    dplyr,
     checkr (>= 0.0.2.9002),
     graphics,
     purrr,
