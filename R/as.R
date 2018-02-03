@@ -115,7 +115,7 @@ as.mcmc.list.mcmcarray <- function(x, name = "", ...) {
 
   x <- apply(x, 1, as_mcmc)
   x <- lapply(x, as.matrix)
-  x <- purrr::map(x, add_colname_matrix, name)
+  x <- lapply(x, add_colname_matrix, name)
   x <- lapply(x, coda::as.mcmc)
   coda::mcmc.list(x)
 }
@@ -136,7 +136,7 @@ as.mcmcrs.list <- function(x, ...) {
 
     nchains <- purrr::map_int(x, nchains)
     niters <- purrr::map_int(x, niters)
-    names <- purrr::map(x, names)
+    names <- lapply(x, names)
 
     if (!identical(length(unique(nchains)), 1L))
       error("all objects must have the same number of chains")

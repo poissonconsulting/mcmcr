@@ -41,12 +41,12 @@ rhat.mcmcarray <- function(x, by = "all", ...) {
 
 #' @export
 rhat.mcmcr <- function(x, by = "all", ...) {
-  x <- purrr::map(x, rhat, by = by)
+  x <- lapply(x, rhat, by = by)
   if (isTRUE(all.equal(by, "all"))) return(max(unlist(x)))
   x
 }
 
 #' @export
 rhat.mcmcrs <- function(x, by = "all", ...) {
-  purrr::map(x, rhat, by = by)
+  lapply(x, rhat, by = by)
 }

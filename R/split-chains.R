@@ -24,7 +24,7 @@ split_chains.mcmcarray <- function(x, ...) {
 
 #' @export
 split_chains.mcmcr <- function(x, ...) {
-  x <- purrr::map(x, split_chains)
+  x <- lapply(x, split_chains)
   class(x) <- "mcmcr"
   x
 }

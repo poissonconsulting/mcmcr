@@ -29,12 +29,12 @@ ess.mcmcarray <- function(x, by = "all", ...) {
 
 #' @export
 ess.mcmcr <- function(x, by = "all", ...) {
-  x <- purrr::map(x, ess, by = by)
+  x <- lapply(x, ess, by = by)
   if (isTRUE(all.equal(by, "all"))) return(min(unlist(x)))
   x
 }
 
 #' @export
 ess.mcmcrs <- function(x, by = "all", ...) {
-  purrr::map(x, ess, by = by)
+  lapply(x, ess, by = by)
 }

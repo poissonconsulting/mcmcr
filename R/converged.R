@@ -30,12 +30,12 @@ converged.mcmcarray <- function(x, by = "all", rhat = 1.1, esr = 0.33, ...) {
 
 #' @export
 converged.mcmcr <- function(x, by = "all", rhat = 1.1, esr = 0.33, ...) {
-  x <- purrr::map(x, converged, by = by, rhat = rhat, esr = esr)
+  x <- lapply(x, converged, by = by, rhat = rhat, esr = esr)
   if (isTRUE(all.equal(by, "all"))) return(all(unlist(x)))
   x
 }
 
 #' @export
 converged.mcmcrs <- function(x, by = "all", rhat = 1.1, esr = 0.33, ...) {
-  purrr::map(x, converged, by = by, rhat = rhat, esr = esr)
+  lapply(x, converged, by = by, rhat = rhat, esr = esr)
 }

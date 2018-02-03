@@ -48,9 +48,9 @@ parameters <- function(x, ...) {
 parameters.mcmcr <- function(x, scalar_only = FALSE, ...) {
   check_flag(scalar_only)
   if (scalar_only) {
-    x <- purrr::map(x, dims)
+    x <- lapply(x, dims)
     x <- purrr::keep(x, function(x) equals(x[3], 1L))
-    x <- purrr::map(x, length)
+    x <- lapply(x, length)
     x <- purrr::keep(x, equals, 3L)
   }
   names(x)

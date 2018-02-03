@@ -6,6 +6,6 @@ anyNA.mcmcarray <- function(x, recursive = FALSE) {
 
 #' @export
 anyNA.mcmcr <- function(x, recursive = FALSE) {
-  x <- purrr::map(x, anyNA, recursive = recursive)
+  x <- lapply(x, anyNA, recursive = recursive)
   any(unlist(x))
 }

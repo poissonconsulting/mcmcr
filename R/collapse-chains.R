@@ -22,7 +22,7 @@ collapse_chains.mcmcarray <- function(x, ...) {
 
 #' @export
 collapse_chains.mcmcr <- function(x, ...) {
-  x <- purrr::map(x, collapse_chains)
+  x <- lapply(x, collapse_chains)
   class(x) <- "mcmcr"
   x
 }
