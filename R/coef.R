@@ -45,11 +45,11 @@ coef.mcmcarray <- function(object, conf_level = 0.95, estimate = median, ...) {
   values <- coef[c("Var1", "value")]
   coef$Var1 <- NULL
   coef$value <- NULL
-  coef <- tidyr::unite_(coef, "term", from = colnames(coef), sep = ",")
+  coef <- tidyr::unite(coef, "term", from = colnames(coef), sep = ",")
   coef$term <- paste0("[", coef$term, "]")
   coef <- dplyr::bind_cols(coef, values)
   coef$term <- factor(coef$term, levels = unique(coef$term))
-  coef <- tidyr::spread_(coef, "Var1", "value")
+  coef <- tidyr::spread(coef, "Var1", "value")
   coef$term <- as.character(coef$term)
   if (nrow(coef) == 1) coef$term = ""
   coef$term <- as.term(coef$term)
@@ -71,7 +71,7 @@ coef.mcmcr <- function(object, conf_level = 0.95, estimate = median, ...) {
 
   object <- lapply(object, coef, conf_level = conf_level, estimate = estimate)
   suppressWarnings(object <- dplyr::bind_rows(object, .id = "id"))
-  object <-  tidyr::unite_(object, "term", from = c("id", "term"), sep = "")
+  object <-  tidyr::unite(object, "term", from = c("id", "term"), sep = "")
 
   object$term <- as.term(object$term)
 
