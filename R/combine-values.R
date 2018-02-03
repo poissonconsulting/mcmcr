@@ -50,9 +50,9 @@ combine_values_mcmcr_data <- function(x, fun, by, suffix) {
 
   data <- lapply(x, as.data.frame)
 
-  for (i in seq_along(data))
-    data[[i]] <- dplyr::mutate_(data[[i]], .dots = setNames(list(~1:n()), paste0("..ID", i)))
-
+  for (i in seq_along(data)) {
+    data[[i]][paste0("..ID", i)] <- 1:nrow(data[[i]])
+  }
   data <- purrr::reduce(data, dplyr::inner_join, by = by, suffix = suffix)
 
   mcmcr <- lapply(x, as.mcmcr)
