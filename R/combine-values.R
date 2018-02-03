@@ -68,8 +68,7 @@ combine_values_mcmcr_data <- function(x, fun, by, suffix) {
 
   mcmcr <- combine_values_mcmcarray(mcmcr, fun = fun)
 
-  data <- dplyr::select_(data, ~-dplyr::starts_with("..ID"))
-
+  data <- data[!grepl("^[.][.]ID", colnames(data))]
   mcmcr <- list(mcmcr)
   names(mcmcr) <- names[1]
 
