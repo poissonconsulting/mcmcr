@@ -21,16 +21,6 @@ MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org
 
 ``` r
 library(mcmcr)
-#> Loading required package: coda
-#> Loading required package: dplyr
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 
 mcmcr <- mcmcr:::mcmcr
 
@@ -88,7 +78,7 @@ To install the latest version from GitHub
 To cite package 'mcmcr' in publications use:
 
   Joe Thorley (2018). mcmcr: Manipulate Monte Carlo Markov Chain
-  Samples. R package version 0.0.0.9035.
+  Samples. R package version 0.0.0.9038.
 
 A BibTeX entry for LaTeX users is
 
@@ -96,7 +86,7 @@ A BibTeX entry for LaTeX users is
     title = {mcmcr: Manipulate Monte Carlo Markov Chain Samples},
     author = {Joe Thorley},
     year = {2018},
-    note = {R package version 0.0.0.9035},
+    note = {R package version 0.0.0.9038},
   }
 ```
 

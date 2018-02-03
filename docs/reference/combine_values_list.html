@@ -82,7 +82,7 @@
     <p>Combine list of mcmc samples</p>
     
 
-    <pre class="usage"><span class='fu'>combine_values_list</span>(<span class='no'>x</span>, <span class='kw'>fun</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>suffix</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>".x"</span>, <span class='st'>".y"</span>))</pre>
+    <pre class="usage"><span class='fu'>combine_values_list</span>(<span class='no'>x</span>, <span class='kw'>fun</span> <span class='kw'>=</span> <span class='no'>mean</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -94,14 +94,6 @@
     <tr>
       <th>fun</th>
       <td><p>A function.</p></td>
-    </tr>
-    <tr>
-      <th>by</th>
-      <td><p>A character vector of variables to join by if combining mcmcr_data objects.</p></td>
-    </tr>
-    <tr>
-      <th>suffix</th>
-      <td><p>If there are non-joined duplicate variables in x and y, these suffixes will be added to the output to diambiguate them if combininig mcmcr_data objects.</p></td>
     </tr>
     </table>
     
