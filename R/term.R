@@ -61,7 +61,8 @@ rep.term <- function(x, times, ...) {
 dims_term <- function(x, ...) {
   x <- str_replace(x, "^(\\w+)(.*)", "\\2")
   x <- str_replace(x, "^(\\[)(.*)(\\])$", "\\2")
-  x <- str_split(x, "\\s*[,]\\s*")
+  x <- strsplit(x, "\\s*[,]\\s*")
+  x <- purrr::map_if(x, function(x) identical(x, character(0)), function(x) "")
   x <- llply(x, str_replace_all, "\\s+", "")
   x <- llply(x, as.integer)
   x <- purrr::map_if(x, function(x) identical(x, NA_integer_), function(x) 1L)
