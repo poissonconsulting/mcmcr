@@ -48,7 +48,8 @@ estimates.mcmcr <- function(object, fun = stats::median, as_list = TRUE, ...) {
 
   object <- purrr::map2(object, names(object), function(x, y) {x$id = y; x})
   object <- do.call(rbind, object)
-  object <-  tidyr::unite(object, "term", from = c("id", "term"), sep = "")
+  object$term <- paste0(object$id, object$term)
+  object$id <- NULL
   object$term <- as.term(object$term)
   object
 }

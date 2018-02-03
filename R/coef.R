@@ -74,7 +74,8 @@ coef.mcmcr <- function(object, conf_level = 0.95, estimate = median, ...) {
   object <- lapply(object, coef, conf_level = conf_level, estimate = estimate)
   object <- purrr::map2(object, names(object), function(x, y) {x$id = y; x})
   object <- do.call(rbind, object)
-  object <-  tidyr::unite(object, "term", from = c("id", "term"), sep = "")
+  object$term <- paste0(object$id, object$term)
+  object$id <- NULL
 
   object$term <- as.term(object$term)
 
