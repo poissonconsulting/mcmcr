@@ -42,8 +42,9 @@ coef.mcmcarray <- function(object, conf_level = 0.95, estimate = median, ...) {
 
   coef <- reshape2::melt(coef)
 
-  values <- dplyr::select_(coef, ~Var1, ~value)
-  coef <- dplyr::select_(coef, ~-Var1, ~-value)
+  values <- coef[c("Var1", "value")]
+  coef$Var1 <- NULL
+  coef$value <- NULL
   coef <- tidyr::unite_(coef, "term", from = colnames(coef), sep = ",")
   coef$term <- paste0("[", coef$term, "]")
   coef <- dplyr::bind_cols(coef, values)

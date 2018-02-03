@@ -27,7 +27,7 @@ estimates.mcmcarray <- function(object, fun = stats::median, as_list = TRUE, ...
     values <- object["value"]
     if (ncol(object) == 1) object$Var1 <- 1:nrow(object)
 
-    object <- dplyr::select_(object, ~-value)
+    object$value <- NULL
 
     object <- tidyr::unite_(object, "term", from = colnames(object), sep = ",")
     object$term <- paste0("[", object$term, "]")

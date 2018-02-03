@@ -90,13 +90,14 @@ as.mcarray.mcmcarray <- function(x, ...) {
 as_mcmc <- function(x, ...) {
   x <- reshape2::melt(x)
 
-  values <- dplyr::select_(x, ~Var1, ~value)
-  x <- dplyr::select_(x, ~-Var1, ~-value)
+  values <- x[c("Var1", "value")]
+  x$Var1 <- NULL
+  x$value <- NULL
   x <- tidyr::unite_(x, "term", from = colnames(x), sep = ",")
   x$term <- paste0("[", x$term, "]")
   x <- dplyr::bind_cols(x, values)
   x <- tidyr::spread_(x, "term", "value")
-  x <- dplyr::select_(x, ~-Var1)
+  x$Var1 <- NULL
   x
 }
 
