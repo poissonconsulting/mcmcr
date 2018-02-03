@@ -42,7 +42,9 @@ is.term <- function(x, ...) {
 
 #' @export
 parameter.term <- function(x, ...) {
-  stringr::str_replace(x, "^(\\w+)(.*)", "\\1")
+  x <- as.character(x)
+  x <- sub("^(\\w+)(.*)", "\\1", x)
+  x
 }
 
 #' @export
@@ -59,11 +61,11 @@ rep.term <- function(x, times, ...) {
 #' @return A list of the dims.
 #' @export
 dims_term <- function(x, ...) {
-  x <- stringr::str_replace(x, "^(\\w+)(.*)", "\\2")
-  x <- stringr::str_replace(x, "^(\\[)(.*)(\\])$", "\\2")
+  x <- sub("^(\\w+)(.*)", "\\2", x)
+  x <- sub("^(\\[)(.*)(\\])$", "\\2", x)
   x <- strsplit(x, "\\s*[,]\\s*")
   x <- purrr::map_if(x, function(x) identical(x, character(0)), function(x) "")
-  x <- lapply(x, stringr::str_replace_all, "\\s+", "")
+  x <- lapply(x, function(x) gsub("\\s+", "", x))
   x <- lapply(x, as.integer)
   x <- purrr::map_if(x, function(x) identical(x, NA_integer_), function(x) 1L)
   x

@@ -1,6 +1,6 @@
 Package: mcmcr
 Title: Manipulate Monte Carlo Markov Chain Samples
-Version: 0.0.0.9037
+Version: 0.0.0.9038
 Date: 2018-02-02
 Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre"))
 Description: Manipulates MCMC samples.
@@ -16,7 +16,6 @@ Imports:
     plyr,
     reshape2,
     stats,
-    stringr,
     tibble
 Suggests:
     covr,
