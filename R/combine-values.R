@@ -51,7 +51,7 @@ combine_values_mcmcr_data <- function(x, fun, by, suffix) {
   data <- llply(x, as.data.frame)
 
   for (i in seq_along(data))
-    data[[i]] <- dplyr::mutate_(data[[i]], .dots = setNames(list(~1:n()), str_c("..ID", i)))
+    data[[i]] <- dplyr::mutate_(data[[i]], .dots = setNames(list(~1:n()), paste0("..ID", i)))
 
   data <- purrr::reduce(data, dplyr::inner_join, by = by, suffix = suffix)
 
@@ -62,7 +62,7 @@ combine_values_mcmcr_data <- function(x, fun, by, suffix) {
   if (!all(names == names[1])) error("mcmcr components must have the same names")
 
   for (i in seq_along(mcmcr)) {
-    mcmcr[[i]] <- mcmcr[[i]][[1]][,,data[[str_c("..ID", i)]], drop = FALSE]
+    mcmcr[[i]] <- mcmcr[[i]][[1]][,,data[[paste0("..ID", i)]], drop = FALSE]
     class(mcmcr[[i]]) <- "mcmcarray"
   }
 
