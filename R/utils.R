@@ -1,16 +1,6 @@
 multiply_by <- function(x, x2) x * x2
 equals <- function(x, x2) x == x2
-
-#' Error
-#'
-#' Throws an error without the call as part of the error message.
-#'
-#' @inheritParams base::stop
-#' @seealso base::stop
-#' @export
-error <- function(...) {
-  stop(..., call. = FALSE)
-}
+error <- function(...) stop(..., call. = FALSE)
 
 #' Dims
 #'
