@@ -1,6 +1,13 @@
 language: R
 cache: packages
 
+r:
+  - 3.1
+  - 3.2
+  - oldrel
+  - release
+  - devel
+
 r_packages:
   - covr
 
@@ -13,5 +20,4 @@ notifications:
     rooms:
       - poissonconsulting:BKjfn7jsVh8zXTu2rq7BEQEb
     on_success: change
-    on_failure: change
-
+    on_failure: always
