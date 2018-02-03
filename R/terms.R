@@ -28,7 +28,7 @@ terms.mcmcarray <- function(x, ...) {
   if (ncol(x) == 1) return(as.term(paste0("[", 1:nrow(x), "]")))
 
   x$value <- NULL
-  x <- tidyr::unite_(x, "term", from = colnames(x), sep = ",")
+  x <- tidyr::unite(x, "term", from = colnames(x), sep = ",")
   x$term <- paste0("[", x$term, "]")
 
   as.term(x$term)

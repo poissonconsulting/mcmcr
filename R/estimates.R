@@ -29,7 +29,7 @@ estimates.mcmcarray <- function(object, fun = stats::median, as_list = TRUE, ...
 
     object$value <- NULL
 
-    object <- tidyr::unite_(object, "term", from = colnames(object), sep = ",")
+    object <- tidyr::unite(object, "term", from = colnames(object), sep = ",")
     object$term <- paste0("[", object$term, "]")
     object <- dplyr::bind_cols(object, values)
   }
@@ -45,7 +45,7 @@ estimates.mcmcr <- function(object, fun = stats::median, as_list = TRUE, ...) {
   if (as_list) return(object)
 
   suppressWarnings(object <- dplyr::bind_rows(object, .id = "id"))
-  object <-  tidyr::unite_(object, "term", from = c("id", "term"), sep = "")
+  object <-  tidyr::unite(object, "term", from = c("id", "term"), sep = "")
   object$term <- as.term(object$term)
   object
 }

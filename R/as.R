@@ -93,10 +93,10 @@ as_mcmc <- function(x, ...) {
   values <- x[c("Var1", "value")]
   x$Var1 <- NULL
   x$value <- NULL
-  x <- tidyr::unite_(x, "term", from = colnames(x), sep = ",")
+  x <- tidyr::unite(x, "term", from = colnames(x), sep = ",")
   x$term <- paste0("[", x$term, "]")
   x <- dplyr::bind_cols(x, values)
-  x <- tidyr::spread_(x, "term", "value")
+  x <- tidyr::spread(x, "term", "value")
   x$Var1 <- NULL
   x
 }
