@@ -47,7 +47,7 @@ coef.mcmcarray <- function(object, conf_level = 0.95, estimate = median, ...) {
   coef$value <- NULL
   coef <- tidyr::unite(coef, "term", from = colnames(coef), sep = ",")
   coef$term <- paste0("[", coef$term, "]")
-  coef <- dplyr::bind_cols(coef, values)
+  coef <- cbind(coef, values)
   coef$term <- factor(coef$term, levels = unique(coef$term))
   coef <- tidyr::spread(coef, "Var1", "value")
   coef$term <- as.character(coef$term)

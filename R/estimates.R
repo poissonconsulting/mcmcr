@@ -31,7 +31,7 @@ estimates.mcmcarray <- function(object, fun = stats::median, as_list = TRUE, ...
 
     object <- tidyr::unite(object, "term", from = colnames(object), sep = ",")
     object$term <- paste0("[", object$term, "]")
-    object <- dplyr::bind_cols(object, values)
+    object <- cbind(object, values)
   }
   object$term <- as.term(object$term)
   object <- object[c("term", "value")]
