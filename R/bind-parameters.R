@@ -44,7 +44,7 @@ bind_parameters.mcmcrs <- function(x, ...) {
   for (i in seq_along(x))
     parameters(x[[i]]) <- paste0(parameters(x[[i]]), i)
 
-  x <- purrr::reduce(x, bind_parameters)
+  x <- Reduce(bind_parameters, x)
   x
 }
 

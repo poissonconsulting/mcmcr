@@ -117,7 +117,7 @@ as.mcmc.list.mcmcarray <- function(x, name = "", ...) {
 #' @export
 as.mcmc.list.mcmcr <- function(x, ...) {
   x <- purrr::map2(x, names(x), as.mcmc.list)
-  x <- purrr::reduce(x, bind_terms)
+  x <- Reduce(bind_terms, x)
   x
 }
 

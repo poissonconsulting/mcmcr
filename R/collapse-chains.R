@@ -15,7 +15,7 @@ collapse_chains.mcmcarray <- function(x, ...) {
   if (identical(nchains, 1L)) return(x)
   y <- list()
   for (i in seq_len(nchains)) y[[i]] <- subset(x, chains = i)
-  y <- purrr::reduce(y, bind_iterations)
+  y <- Reduce(bind_iterations, y)
   y
 }
 

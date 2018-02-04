@@ -28,7 +28,7 @@ derive_chain <- function(i, object, expr, values, monitor) {
 
   object <- lapply(1:niters(object), FUN = derive_sample, object = object,
                   expr = expr, values = values, monitor = monitor)
-  object <- purrr::reduce(object, bind_iterations)
+  object <- Reduce(bind_iterations, object)
   object
 }
 
@@ -90,7 +90,7 @@ derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", parallel
                      .parallel = parallel, expr = parse(text = expr),
                   values = values, monitor = monitor)
 
-  object <- purrr::reduce(object, bind_chains)
+  object <- Reduce(bind_chains, object)
 
   if (anyNA(object))
     error("monitor '", monitor, "' must not include missing values in expr\n", expr)
