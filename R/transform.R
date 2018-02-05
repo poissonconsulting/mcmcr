@@ -11,6 +11,18 @@ pow <- function(x, n) {
   x^n
 }
 
+#' Phi
+#'
+#' The standard normal cumulative density function.
+#'
+#' @param x A numeric vector
+#' @export
+#' @examples
+#' phi(0:2)
+phi <- function(x) {
+  pnorm(x)
+}
+
 #' Log Transformation
 #'
 #' @param x The object to replace.
