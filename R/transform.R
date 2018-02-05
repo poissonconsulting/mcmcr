@@ -1,3 +1,16 @@
+#' Power
+#'
+#' R equivalent to the C++  function.
+#'
+#' @param x A numeric vector
+#' @param n A numeric vector of the power term.
+#' @export
+#' @examples
+#' pow(10,2)
+pow <- function(x, n) {
+  x^n
+}
+
 #' Log Transformation
 #'
 #' @param x The object to replace.
