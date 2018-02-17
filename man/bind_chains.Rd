@@ -2,17 +2,17 @@
 % Please edit documentation in R/bind-chains.R
 \name{bind_chains}
 \alias{bind_chains}
-\title{Combines objects by chains.}
+\title{Combine objects by chains.}
 \usage{
 bind_chains(x, x2, ...)
 }
 \arguments{
 \item{x}{an mcmc object.}
 
-\item{x2}{A second mcmcr object}
+\item{x2}{A second mcmc object}
 
 \item{...}{Unused.}
 }
 \description{
-Combines mcmc objects by chains.
+Combines two mcmc objects by chains.
 }

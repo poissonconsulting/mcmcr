@@ -2,18 +2,18 @@
 % Please edit documentation in R/utils.R
 \name{dims}
 \alias{dims}
-\title{Dims}
+\title{Dimensions}
 \usage{
 dims(x)
 }
 \arguments{
-\item{x}{A vector, matrix or array.}
+\item{x}{The object.}
 }
 \value{
 An integer vector of the dimensions.
 }
 \description{
-Dims
+Dimensions
 }
 \examples{
 dims(character())

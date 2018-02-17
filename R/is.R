@@ -1,3 +1,11 @@
+#' Test whether an object is a term.
+#' @param x The object to test.
+#' @param ... Unused.
+#' @export
+is.term <- function(x, ...) {
+  inherits(x, "term")
+}
+
 #' Is an mcmcr object
 #'
 #' Tests whether x is an object of class 'mcmcr'

@@ -31,34 +31,44 @@ The three most common S3 classes store MCMC samples as follows:
 
 - `coda::mcmc` stores the MCMC samples from a single chain as a matrix where each each row represents an iteration and each column represents a variable
 - `coda::mcmc.list` stores multiple `mcmc` objects (with identical dimensions) as a list where each object represents a parallel chain
-- `rjags::mcarray` stores the samples from multiple parallel chains as an array where the first dimension is variables, the second dimension is the iterations and the third dimension is the chains.
+- `rjags::mcarray` stores the samples from a single parameter where the initial dimensions are the parameter dimensions, the second to last dimension is iterations and the last dimension is chains.
 
-In all threes cases the terms/parameters are represented by a single dimension which means that the dimensionality inherent in the parameters is stored in the labelling of the variables, ie, `"bIntercept", "bInteraction[1,2]", "bInteraction[2,1]", ...`.
+It is worth noting than in previous releases of `coda` an mcmc object could be multiple chains.
+Such objects are obsolete and must be converted to `mcmc.list` objects using the `coda::mcmcUpgrade()` function.
+Where possible such objects are automatically coerced to `mcmc.list` objects by the `mcmcr` package functions.
+
+In the first two cases the terms/parameters are represented by a single dimension which means that the dimensionality inherent in the parameters is stored in the labelling of the variables, ie, `"bIntercept", "bInteraction[1,2]", "bInteraction[2,1]", ...`.
 The structure of the `mcmc` and `mcmc.list` objects emphasizes the time-series nature of MCMC samples and is optimized for thining.
-According to the documentation the `mcarray` preserve the dimensions of the original node array defined in a JAGS model.
+In contrast `mcarray` objects preserve the dimensionality of the parameters.
 
-The `mcmcr` packages introduces two related S3 classes which preserve the dimensionality of
+The `mcmcr` packages introduces two related S3 classes which also preserve the dimensionality of
 the parameters:
 
-- `mcmcr::mcmcarray` stores the samples for a single parameter from one or more chains where the first dimension is the chains, the second dimension is iterations and the subsequent dimensions represent the dimensionality of the parameter;
-- `mcmcr::mcmcr` stores the samples for multiple uniquely named parameters with the same number of chains and iterations.
-
-The `mcmcr` package also introduces a third S3 class, `mcmcr::mcmcrs`, which stores multiple `mcmcr` objects representing individual analyses.
+- `mcmcr::mcmcarray` is very similar to `rjags::mcarray` except that the first dimension is the chains, the second dimension is iterations and the subsequent dimensions represent the dimensionality of the parameter (it is called `mcmcarray` to emphasize that the MCMC dimensions ie the chains and iterations come first);
+- `mcmcr::mcmcr` stores multiple uniquely named `mcmcarray` objects with the same number of chains and iterations.
 
 ## Why mcmcr?
 
-The `mcmcarray`, `mcmcr` and `mcmcrs` classes were designed to be easy to manipulate.
-As a result, the `mcmcr` package introduces a variety of generic classes to:
+`mcmcarray` objects were introduced to facilitate manipulation and querying of the MCMC samples - although they are are just one `aperm` away from `mcarray` objects the fact that the chains and iterations are the first dimensions means many operations can be performed without having to account for the dimensionality of the parameters.
+`mcmcr` objects were introduced to allow a set of parameters to be manipulated and queried as a coherent whole.
 
-- `subset` individual objects by chains, iterations or parameters;
-- `collapse` or `split` an object's chains;
-- `bind` multiple objects by their parameters, chains, iterations or terms;
+The `mcmcr` package introduces a variety of (often) generic functions to manipulate and query `mcmcarray` and `mcmcr` objects. In particular it provides functions to
+
+- coerce from and to `mcarray`, `mcmc` and `mcmc.list` objects;
+- extract an objects `coef` table as a tibble;
+- query an object's `nchains`, `niters`, `npars`, `nterms`, `nsims`
+- `subset` objects by chains, iterations or parameter names;
+- `bind` multiple objects by their parameters, chains, or iterations;
 - `combine` multiple objects by summing or otherwise combining their values;
+- `collapse` or `split` an object's chains;
 - `mcmc_map` over an objects values; 
 - assess if an object has `converged` using `rhat` and `esr` (effectively sampling rate);
-- and of course `coef`, `coerce`, `print`, `plot` etc said objects.
+- and of course `coef`, `print`, `plot` etc said objects.
 
-Finally, the mcmcr package allows the user to readily `derive` an `mcmcr` object of new parameters (with potentially novel dimensionality) from an existing mcmc object by using standard R code to define the relationship between the 'primary' parameters in the existing object and the 'derived' parameters in the created object (and any other values specified by the user).
+
+
+
+Finally, the mcmcr package allows the user to readily `derive` an `mcmcr` object of new parameters (with potentially novel dimensionality) from an existing `mcmcr` object by using standard R code to define the relationship between the 'primary' parameters in the existing object and the 'derived' parameters in the created object (and any other values specified by the user).
 No more rerunning a model because you forget to include a derived parameter!
 
 ## Demonstration

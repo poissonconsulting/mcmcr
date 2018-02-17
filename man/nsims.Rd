@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{nsims}
 \alias{nsims}
-\title{Size of MCMC Sample}
+\title{Number of MCMC Simulations}
 \usage{
 nsims(x)
 }
@@ -10,7 +10,7 @@ nsims(x)
 \item{x}{The object.}
 }
 \value{
-A count of the total number of samples.
+A count of the total number of simulations.
 }
 \description{
 The product of the number of chains and number of iterations in each chain.

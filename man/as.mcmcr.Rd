@@ -14,6 +14,3 @@ as.mcmcr(x, ...)
 \description{
 Coerce to an mcmcr object
 }
-\examples{
-as.mcmcr(list_mcarrays)
-}

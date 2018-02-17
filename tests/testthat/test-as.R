@@ -24,3 +24,14 @@ test_that("as.mcmc.list", {
 
   expect_identical(coda::nvar(as.mcmc.list(mcmcr)), 7L)
 })
+
+test_that("as.mcmcr.mcmc", {
+  mcmc <- as.mcmc.list(mcmcr)[[2]]
+  as.mcmcr(mcmc)
+  expect_identical(as.mcmcr(mcmc_list), mcmcr)
+})
+
+test_that("as.mcmcr.mcmc.list", {
+  mcmc_list <- as.mcmc.list(mcmcr)
+  expect_identical(as.mcmcr(mcmc_list), mcmcr)
+})

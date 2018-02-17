@@ -1,11 +1,17 @@
 #' @export
-anyNA.mcmcarray <- function(x, recursive = FALSE) {
-  x <- unclass(x)
-  anyNA(x, recursive = recursive)
-}
+anyNA.mcarray <- function(x, recursive = FALSE) anyNA(unclass(x))
 
 #' @export
-anyNA.mcmcr <- function(x, recursive = FALSE) {
-  x <- lapply(x, anyNA, recursive = recursive)
-  any(unlist(x))
-}
+anyNA.mcmc <- function(x, recursive = FALSE) anyNA(unclass(x))
+
+#' @export
+anyNA.mcmc.list <- function(x, recursive = FALSE) any(vapply(x, anyNA, TRUE))
+
+#' @export
+anyNA.mcmcarray <- function(x, recursive = FALSE) anyNA(unclass(x))
+
+#' @export
+anyNA.mcmcr <- function(x, recursive = FALSE) any(vapply(x, anyNA, TRUE))
+
+#' @export
+anyNA.mcmcrs <- function(x, recursive = FALSE) any(vapply(x, anyNA, TRUE))

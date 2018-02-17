@@ -15,3 +15,14 @@ test_that("term", {
   expect_identical(sort(x2), as.term(c("parm[10]", "parm[1,1]", "parm[2,1]", "parm[1,2]",
                                        "parm[2,2]", "parm3", "parm3[2]", "parm3[10]")))
 })
+
+test_that("terms.mcmcarray", {
+  expect_identical(as.term(mcmcr[[1]]), as.term(c("[1]", "[2]")))
+  expect_identical(as.term(mcmcr[[2]]), as.term(c("[1,1]", "[2,1]", "[1,2]", "[2,2]")))
+  expect_identical(as.term(mcmcr[[3]]), as.term(""))
+})
+
+test_that("terms.mcmcr", {
+  expect_identical(terms(mcmcr), as.term(c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma" )))
+})
+

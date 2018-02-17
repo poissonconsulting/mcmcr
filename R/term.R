@@ -1,19 +1,10 @@
-#' Coerce object vector to term vector.
+#' Coerce object to term vector.
 #'
 #' @param x The object to coerce
 #' @param ... Unused.
 #' @export
 as.term <- function(x, ...) {
   UseMethod("as.term")
-}
-
-#' Parameter
-#'
-#' @param x The object to get the parameter(s) for.
-#' @param ... Unused.
-#' @export
-parameter <- function(x, ...) {
-  UseMethod("parameter")
 }
 
 #' Coerce character vector to term vector
@@ -27,23 +18,47 @@ as.term.character <- function(x, ...) {
 }
 
 #' @export
+as.term.mcmc <- function(x, ...) {
+  as.term(colnames(x))
+}
+
+#' @export
+as.term.mcmc.list <- function(x, ...) {
+  as.term(x[[1]])
+}
+
+#' @export
+as.term.mcmcarray <- function(x, ...) {
+  x <- subset(x, 1L, 1L)
+  x <- drop(x)
+  x <- unclass(x)
+  x <- reshape2::melt(x)
+  if (nrow(x) == 1) return(as.term(""))
+  if (ncol(x) == 1) return(as.term(paste0("[", 1:nrow(x), "]")))
+
+  x$value <- NULL
+  x <- tibble::tibble(
+    term = apply(as.matrix(x), 1, function(x) paste(x, collapse = ","))
+  )
+  x$term <- paste0("[", x$term, "]")
+
+  as.term(x$term)
+}
+
+#' @export
+as.term.mcmcr <- function(x, ...) {
+  parameters <- parameters(x)
+  x <- lapply(x, terms)
+
+  x <- purrr::map2(x, parameters, function(x, y) {x <- paste0(y, x); x})
+  x <- unlist(x)
+  names(x) <- NULL
+  as.term(x)
+}
+
+#' @export
 as.character.term <- function(x, ...) {
   class(x) <- "character"
-  x
-}
-
-#' Test whether an object is a term.
-#' @param x The object to test.
-#' @param ... Unused.
-#' @export
-is.term <- function(x, ...) {
-  inherits(x, "term")
-}
-
-#' @export
-parameter.term <- function(x, ...) {
-  x <- as.character(x)
-  x <- sub("^(\\w+)(.*)", "\\1", x)
   x
 }
 
@@ -54,21 +69,14 @@ rep.term <- function(x, times, ...) {
   as.term(x)
 }
 
-#' Get dims for term object
+#' Get parameters for term object
 #'
 #' @param x The object.
 #' @param ... Unused
-#' @return A list of the dims.
+#' @return A vector of the parameter names.
 #' @export
-dims_term <- function(x, ...) {
-  x <- sub("^(\\w+)(.*)", "\\2", x)
-  x <- sub("^(\\[)(.*)(\\])$", "\\2", x)
-  x <- strsplit(x, "\\s*[,]\\s*")
-  x <- purrr::map_if(x, function(x) identical(x, character(0)), function(x) "")
-  x <- lapply(x, function(x) gsub("\\s+", "", x))
-  x <- lapply(x, as.integer)
-  x <- purrr::map_if(x, function(x) identical(x, NA_integer_), function(x) 1L)
-  x
+parameters_term <- function(x) {
+  sub("^(\\w+)(.*)", "\\1", as.character(x))
 }
 
 #' @export
@@ -84,26 +92,4 @@ dims_term <- function(x, ...) {
   x <- as.character(x)
   x <- x[i]
   as.term(x)
-}
-
-greater_than_term <- function(e1, e2) {
-  e1 <- as.term(e1)
-  e2 <- as.term(e2)
-  e1_parm <- parameter(e1)
-  e2_parm <- parameter(e2)
-  if (e1_parm != e2_parm) return(e1_parm > e2_parm)
-
-  e1 <- dims_term(e1)[[1]]
-  e2 <- dims_term(e2)[[1]]
-
-  if (length(e1) != length(e2)) return(length(e1) > length(e2))
-
-  equal <- e1 == e2
-
-  if (all(equal)) return(FALSE)
-
-  which <- which(!equal)
-  which <- which[length(which)]
-
-  e1[which] > e2[which]
 }

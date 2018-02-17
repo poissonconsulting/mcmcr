@@ -1,15 +1,29 @@
-#' Subset mcmc object
-#'
-#' @param x The object to subset
-#' @param chains An integer vector of the chains to subset by.
-#' @param iterations An integer vector of the iterations to subset by.
-#' @param ... Unused.
+#' @export
+subset.mcmc <- function(x, iterations = NULL, parameters = NULL, ...) {
+  checkor(check_null(iterations), check_vector(iterations, c(1L,niters(x))))
+  checkor(check_null(parameters),
+          check_vector(parameters, parameters(x), unique = TRUE))
+
+  if (!is.null(parameters)) x <- x[,parameters(x) %in% parameters,drop = FALSE]
+  if (!is.null(iterations)) x <- x[iterations,,drop = FALSE]
+  class(x) <- "mcmc"
+  x
+}
+
+#' @export
+subset.mcmc.list <- function(x, chains = NULL, iterations = NULL, parameters = NULL, ...) {
+  checkor(check_null(chains), check_vector(chains, c(1L,nchains(x))))
+  if(!is.null(chains))
+    x <- x[chains]
+  x <- lapply(x, subset, iterations = iterations, parameters = parameters)
+  class(x) <- "mcmc.list"
+  x
+}
+
 #' @export
 subset.mcmcarray <- function(x, chains = NULL, iterations = NULL, ...) {
-
-
-  if (!is.null(chains)) check_vector(chains, 1:nchains(x))
-  if (!is.null(iterations)) check_vector(iterations, 1:niters(x))
+  checkor(check_null(chains), check_vector(chains, c(1L,nchains(x))))
+  checkor(check_null(iterations), check_vector(iterations, c(1L,niters(x))))
 
   if (!is.null(chains)) x <- abind::asub(x, chains, 1L, drop = FALSE)
   if (!is.null(iterations)) x <- abind::asub(x, iterations, 2L, drop = FALSE)
@@ -18,21 +32,12 @@ subset.mcmcarray <- function(x, chains = NULL, iterations = NULL, ...) {
   x
 }
 
-#' Subset mcmc object
-#'
-#' @param x The object to subset
-#' @param chains An integer vector of the chains to subset by.
-#' @param iterations An integer vector of the iterations to subset by.
-#' @param parameters A character vector of  the parameters to subset by.
-#' @param ... Unused.
 #' @export
 subset.mcmcr <- function(x, chains = NULL, iterations = NULL, parameters = NULL, ...) {
+  checkor(check_null(parameters),
+          check_vector(parameters, parameters(x), unique = TRUE))
 
-  if (!is.null(parameters)) {
-    if (!all(parameters %in% parameters(x))) error("parameters must all be in x")
-    if (anyDuplicated(parameters)) error("parameters must be unique")
-    x <- x[parameters]
-  }
+  if (!is.null(parameters)) x <- x[parameters]
 
   x <- lapply(x, subset, chains = chains, iterations = iterations)
   class(x) <- "mcmcr"

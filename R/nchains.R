@@ -8,14 +8,8 @@ nchains <- function(x, ...) {
   UseMethod("nchains")
 }
 
-#' @export
-nchains.mcmc <- function(x, ...) {
-  1L
-}
-
-#' @export
-nchains.mcmc.list <- function(x, ...) {
-  length(x)
+nchains.matrix <- function(x, ...) {
+  nrow(x)
 }
 
 #' @export
@@ -25,8 +19,14 @@ nchains.mcarray <- function(x, ...) {
   nchains
 }
 
-nchains.matrix <- function(x, ...) {
-  nrow(x)
+#' @export
+nchains.mcmc <- function(x, ...) {
+  1L
+}
+
+#' @export
+nchains.mcmc.list <- function(x, ...) {
+  length(x)
 }
 
 #' @export

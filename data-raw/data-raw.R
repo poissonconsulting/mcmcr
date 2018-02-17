@@ -1,9 +1,13 @@
 rm(list = ls())
 
 library(abind)
-library(rjags)
-library(devtools)
 library(mcmcr)
+library(devtools)
+
+data(line, package = "coda")
+
+mcmcr <- as.mcmcr(line)
+
 
 data(LINE)
 LINE$recompile()

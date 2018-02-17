@@ -2,7 +2,7 @@
 % Please edit documentation in R/term.R
 \name{as.term}
 \alias{as.term}
-\title{Coerce object vector to term vector.}
+\title{Coerce object to term vector.}
 \usage{
 as.term(x, ...)
 }
@@ -12,5 +12,5 @@ as.term(x, ...)
 \item{...}{Unused.}
 }
 \description{
-Coerce object vector to term vector.
+Coerce object to term vector.
 }
