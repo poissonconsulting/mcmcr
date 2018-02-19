@@ -1,4 +1,4 @@
-#' List of McArrays
+#' Example mcmcr Object
 #'
-#' A list of objects of class mcarray.
-"list_mcarrays"
+#' An example mcmcr object based on coda::line.
+"mcmcr_example"
