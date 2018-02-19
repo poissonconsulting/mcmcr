@@ -1,30 +1,16 @@
-rm(list = ls())
-
-library(abind)
 library(mcmcr)
-library(devtools)
+
+rm(list = ls())
 
 data(line, package = "coda")
 
-mcmcr <- as.mcmcr(line)
+mcmcr_example <- as.mcmcr(line)
 
+stopifnot(all.equal(as.mcmc.list(mcmcr_example), line, check.attributes = FALSE))
 
-data(LINE)
-LINE$recompile()
-list_mcarrays <- jags.samples(LINE, c("alpha","beta","sigma"),
-                        n.iter = 1000)
+mcmcr_example$alpha <- bind_samples(mcmcr_example$alpha, mcmcr_example$alpha + 1)
 
-list_mcarrays$alpha <- abind(list_mcarrays$alpha, list_mcarrays$alpha + 1, along = 1)
-dim(list_mcarrays$alpha) <- c(2, iteration = 1000, chain = 2)
-class(list_mcarrays$alpha) <- "mcarray"
+mcmcr_example$beta <- bind_samples(mcmcr_example$beta, mcmcr_example$beta + 1)
+mcmcr_example$beta <- bind_samples(mcmcr_example$beta, mcmcr_example$beta + 1, along = 1)
 
-list_mcarrays$beta <- abind(list_mcarrays$beta, list_mcarrays$beta + 1, along = 1)
-list_mcarrays$beta <- abind(list_mcarrays$beta, list_mcarrays$beta + 1, along = 2)
-dim(list_mcarrays$beta) <- c(2, 2, iteration = 1000, chain = 2)
-class(list_mcarrays$beta) <- "mcarray"
-
-use_data(list_mcarrays, overwrite = TRUE)
-
-mcmcr <- as.mcmcr(list_mcarrays)
-mcmcrs_example <- as.mcmcrs(list(mcmcr1 = mcmcr, mcmcr2 = mcmcr))
-use_data(mcmcr, mcmcrs_example, internal = TRUE, overwrite = TRUE)
+devtools::use_data(mcmcr_example, overwrite = TRUE)

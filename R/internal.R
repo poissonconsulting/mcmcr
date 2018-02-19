@@ -18,21 +18,6 @@ as_matrix_mcmcarray <- function(x) {
   as.matrix(x)
 }
 
-add_colname_matrix <- function(x, name) {
-  if (length(colnames(x)) == 1) {
-    colnames(x) <- name
-  } else {
-    colnames(x) <- paste0(name, colnames(x))
-  }
-  x
-}
-
-as_mcmc_mcmcarray1 <- function(x) {
-  x <- lapply(as_matrix_mcmcarray1)
-  x <- lapply(x, add_colname_matrix, name)
-  x <- lapply(x, coda::as.mcmc)
-}
-
 dims_terms <- function(x) {
   x <- sub("^(\\w+)(.*)", "\\2", x)
   x <- sub("^(\\[)(.*)(\\])$", "\\2", x)

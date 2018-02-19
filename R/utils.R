@@ -50,3 +50,15 @@ nsams <- function(x) {
 terms <- function(x) {
   as.term(x)
 }
+
+#' Set Parameters
+#'
+#' @param x The object
+#' @param value A character vector the new parameter names.
+#'
+#' @return A copy of the updated object
+#' @export
+set_parameters <- function(x, parameters) {
+  parameters(x) <- parameters
+  x
+}

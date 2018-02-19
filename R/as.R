@@ -35,18 +35,30 @@ as.mcarray.mcmcarray <- function(x, ...) {
   x
 }
 
+#' @export
+as.mcmc.mcmcarray <- function(x) {
+  if(nchains(x) != 1) error("x must only have 1 chain")
+  terms <- as.term(x)
+  x <- apply(x, 1, identity)
+  x <- as.matrix(x)
+  colnames(x) <- as.character(terms)
+  coda::as.mcmc(x)
+}
+
 #' @method as.mcmc.list mcmcarray
 #' @export
 as.mcmc.list.mcmcarray <- function(x, ...) {
-  x <- apply(x, 1, as_mcmc_mcmcarray)
+  x <- lapply(1:nchains(x), function(chain, x) {subset(x, chains = chain)}, x = x)
+  x <- lapply(x, as.mcmc)
   coda::mcmc.list(x)
 }
 
 #' @method as.mcmc.list mcmcr
 #' @export
 as.mcmc.list.mcmcr <- function(x, ...) {
-  x <- mapply(x, names(x), FUN = function(x, y) {names(x) <- y; y})
+  parameters <- parameters(x)
   x <- lapply(x, as.mcmc.list)
+  x <- mapply(x, parameters, FUN = set_parameters, SIMPLIFY = FALSE)
   x <- Reduce(bind_parameters, x)
   x
 }

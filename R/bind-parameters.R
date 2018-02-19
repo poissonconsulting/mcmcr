@@ -9,6 +9,30 @@ bind_parameters <- function(x, ...) {
   UseMethod("bind_parameters")
 }
 
+#' @export
+bind_parameters.mcmc <- function(x, x2, ...) {
+
+  if (!identical(niters(x), niters(x2)))
+    error("x and x2 must have the same number of iterations")
+
+  x <- abind::abind(x, x2, along = 2)
+
+  coda::as.mcmc(x)
+}
+
+#' @export
+bind_parameters.mcmc.list <- function(x, x2, ...) {
+
+  if (!coda::is.mcmc.list(x)) error("x2 must be an mcmc.list")
+
+  if (!identical(nchains(x), nchains(x2)))
+    error("x and x2 must have the same number of chains")
+
+  x <- purrr::map2(x, x2, bind_parameters)
+  class(x) <- "mcmc.list"
+  x
+}
+
 #' Combines objects by parameters
 #'
 #' @param x an mcmc object.

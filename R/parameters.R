@@ -30,6 +30,23 @@ parameters.mcmc.list <- function(x, ...) parameters(x[[1]])
 parameters.mcmcr <- function(x, ...) names(x)
 
 #' @export
+`parameters<-.mcmc` <- function(x, value) {
+  check_vector(value, "", length = npars(x), unique = TRUE)
+  if(npars(x) == 1) {
+    colnames(x) <- paste0(value, colnames(x))
+    return(x)
+  }
+  x
+}
+
+#' @export
+`parameters<-.mcmc.list` <- function(x, value) {
+  x <- lapply(x, set_parameters, parameters = value)
+  class(x) <- "mcmc.list"
+  x
+}
+
+#' @export
 `parameters<-.mcmcr` <- function(x, value) {
   check_vector(value, "", length = length(x), unique = TRUE)
   names(x) <- value
