@@ -8,6 +8,10 @@ nchains <- function(x, ...) {
   UseMethod("nchains")
 }
 
+nchains.matrix <- function(x, ...) {
+  nrow(x)
+}
+
 #' @export
 nchains.mcarray <- function(x, ...) unname(dim(x)[ndims(x)])
 

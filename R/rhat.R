@@ -12,7 +12,6 @@ rhat <- function(x, ...) {
   UseMethod("rhat")
 }
 
-#' @export
 rhat.matrix <- function(x, ...) {
   mean_chain <- apply(x, 1L, mean)
   var_chain <- apply(x, 1L, var)
