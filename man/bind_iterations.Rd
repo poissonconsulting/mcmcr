@@ -14,5 +14,8 @@ bind_iterations(x, x2, ...)
 \item{...}{Unused.}
 }
 \description{
-Combines two mcmc objects by iterations
+Combines two mcmc objects by iterations.
+}
+\details{
+They must have the same parameter names, parameter dimensions and chains
 }

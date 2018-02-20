@@ -52,6 +52,9 @@ bind_chains.mcmc.list <- function(x, x2, ...) {
   x <- sort(x)
   x2 <- sort(x2)
 
+  if (!identical(parameters(x), parameters(x2)))
+    error("x and x2 must have the same parameters")
+
   if (!identical(pdims(x), pdims(x2)))
     error("x and x2 must have the same parameter dimensions")
 
