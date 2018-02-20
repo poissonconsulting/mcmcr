@@ -14,3 +14,6 @@ bind_parameters(x, ...)
 \description{
 Combines an mcmc object(s) by parameters.
 }
+\details{
+They must have the same number of chains and iterations but different parameters.
+}

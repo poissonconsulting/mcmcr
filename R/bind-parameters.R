@@ -2,6 +2,8 @@
 #'
 #' Combines an mcmc object(s) by parameters.
 #'
+#' They must have the same number of chains and iterations but different parameters.
+#'
 #' @param x an mcmc object.
 #' @param ... Unused.
 #' @export
@@ -11,8 +13,12 @@ bind_parameters <- function(x, ...) {
 
 #' @export
 bind_parameters.mcmc <- function(x, x2, ...) {
+  if (!coda::is.mcmc(x2)) error("x2 must be an mcmc.list")
 
-  if (!identical(niters(x), niters(x2)))
+  if (length(intersect(parameters(x), parameters(x2))))
+    error("x and x2 must not have the same parameters")
+
+  if (!identical(niters(x), niters(x)))
     error("x and x2 must have the same number of iterations")
 
   x <- abind::abind(x, x2, along = 2)
@@ -22,53 +28,36 @@ bind_parameters.mcmc <- function(x, x2, ...) {
 
 #' @export
 bind_parameters.mcmc.list <- function(x, x2, ...) {
+  if (!coda::is.mcmc.list(x2)) error("x2 must be an mcmc.list")
 
-  if (!coda::is.mcmc.list(x)) error("x2 must be an mcmc.list")
+  if (length(intersect(parameters(x), parameters(x2))))
+    error("x and x2 must not have the same parameters")
 
-  if (!identical(nchains(x), nchains(x2)))
+    if (!identical(nchains(x), nchains(x2)))
     error("x and x2 must have the same number of chains")
 
-  x <- purrr::map2(x, x2, bind_parameters)
+  if (!identical(niters(x), niters(x)))
+    error("x and x2 must have the same number of iterations")
+
+  x <- mapply(x, x2, FUN = bind_parameters, SIMPLIFY = FALSE)
   class(x) <- "mcmc.list"
   x
 }
 
-#' Combines objects by parameters
-#'
-#' @param x an mcmc object.
-#' @param x2 a second mcmc object
-#' @param ... Unused.
 #' @export
 bind_parameters.mcmcr <- function(x, x2, ...) {
-
-  if (!identical(nchains(x), nchains(x2)))
-    error("x and x2 must have the same number of chains")
-
-  if (!identical(niters(x), niters(x2)))
-    error("x and x2 must have the same number of iterations")
+  if (!is.mcmcr(x)) error("x2 must be an mcmcr")
 
   if (length(intersect(parameters(x), parameters(x2))))
     error("x and x2 must not have the same parameters")
+
+    if (!identical(nchains(x), nchains(x2)))
+    error("x and x2 must have the same number of chains")
+
+  if (!identical(niters(x), niters(x)))
+    error("x and x2 must have the same number of iterations")
 
   x <- c(x, x2)
   class(x) <- "mcmcr"
   x
 }
-
-#' Combines objects in mcmcrs by parameters.
-#'
-#' Ensures parameter names are distinct.
-#'
-#' @param x an mcmc object.
-#' @param ... Unused.
-#' @export
-bind_parameters.mcmcrs <- function(x, ...) {
-  if (!length(x)) return(x)
-
-  for (i in seq_along(x))
-    parameters(x[[i]]) <- paste0(parameters(x[[i]]), i)
-
-  x <- Reduce(bind_parameters, x)
-  x
-}
-

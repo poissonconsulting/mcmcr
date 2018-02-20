@@ -43,11 +43,8 @@ bind_iterations.mcmc <- function(x, x2, ...) {
   if (!identical(nchains(x), nchains(x)))
     error("x and x2 must have the same number of chains")
 
-  x <- as.matrix(x)
-  x2 <- as.matrix(x2)
-  x <- rbind(x, x2)
-  class(x) <- "mcmc"
-  x
+  x <- abind::abind(x, x2, along = 1)
+  coda::as.mcmc(x)
 }
 
 #' @export
