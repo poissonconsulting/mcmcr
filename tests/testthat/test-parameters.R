@@ -1,7 +1,7 @@
 context("parameters")
 
 test_that("parameters.term", {
-  terms <- terms(mcmcr_example)
+  terms <- terms(mcmcr::mcmcr_example)
   expect_identical(parameters(terms), c("alpha", "beta", "sigma"))
   expect_identical(parameters(terms, scalar_only = TRUE), "sigma")
   expect_identical(parameters(terms, scalar_only = TRUE, terms = TRUE), "sigma")
@@ -14,6 +14,7 @@ test_that("parameters.term", {
 })
 
 test_that("parameters.mcmcr", {
+  mcmcr_example <- mcmcr::mcmcr_example
   expect_equal(parameters(mcmcr_example), c("alpha", "beta", "sigma"))
   expect_equal(parameters(mcmcr_example, scalar_only = TRUE), c("sigma"))
   parameters(mcmcr_example) <- c("alpha1", "alpha2", "alpha3")

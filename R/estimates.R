@@ -9,7 +9,6 @@ estimates <- function(object, ...) {
   UseMethod("estimates")
 }
 
-
 #' @export
 estimates.mcmcarray <- function(object, fun = stats::median, as_list = TRUE, ...) {
   check_flag(as_list)
@@ -46,7 +45,7 @@ estimates.mcmcr <- function(object, fun = stats::median, as_list = TRUE, ...) {
   object <- lapply(object, estimates, fun = fun, as_list = as_list, ...)
   if (as_list) return(object)
 
-  object <- purrr::map2(object, names(object), function(x, y) {x$id = y; x})
+  object <- mapply(object, parameters(object), FUN = function(x, y) {x$id = y; x}, SIMPLIFY = FALSE)
   object <- do.call(rbind, object)
   object$term <- paste0(object$id, object$term)
   object$id <- NULL

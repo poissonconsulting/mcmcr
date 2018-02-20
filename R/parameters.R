@@ -40,7 +40,7 @@ parameters.mcmc.list <- function(x, scalar_only = FALSE, terms = FALSE, ...)
 #' @export
 parameters.mcmcr <- function(x, scalar_only = FALSE, terms = FALSE, ...) {
   if(!scalar_only && !terms) return(names(x))
-
+  parameters(as.term(x), scalar_only = scalar_only, terms = terms)
 }
 
 `parameters<-.term` <- function(x, value) {
