@@ -14,3 +14,6 @@ as.mcmcarray(x, ...)
 \description{
 Coerce to an mcmcarray object
 }
+\examples{
+as.mcmcarray(as.mcarray(mcmcr_example$beta))
+}

@@ -14,3 +14,6 @@ as.mcmcr(x, ...)
 \description{
 Coerce to an mcmcr object
 }
+\examples{
+as.mcmcr(coda::as.mcmc.list(mcmcr_example))
+}

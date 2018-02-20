@@ -3,6 +3,8 @@
 #' @param x object to coerce.
 #' @param ... Unused.
 #' @export
+#' @examples
+#' as.mcarray(mcmcr_example$beta)
 as.mcarray <- function(x, ...) UseMethod("as.mcarray")
 
 #' Coerce to an mcmcarray object
@@ -10,6 +12,8 @@ as.mcarray <- function(x, ...) UseMethod("as.mcarray")
 #' @param x object to coerce.
 #' @param ... Unused.
 #' @export
+#' @examples
+#' as.mcmcarray(as.mcarray(mcmcr_example$beta))
 as.mcmcarray <- function(x, ...) UseMethod("as.mcmcarray")
 
 #' Coerce to an mcmcr object
@@ -17,6 +21,8 @@ as.mcmcarray <- function(x, ...) UseMethod("as.mcmcarray")
 #' @param x object to coerce.
 #' @param ... Unused.
 #' @export
+#' @examples
+#' as.mcmcr(coda::as.mcmc.list(mcmcr_example))
 as.mcmcr <- function(x, ...) UseMethod("as.mcmcr")
 
 #' Coerce to an mcmcrs object
@@ -24,6 +30,8 @@ as.mcmcr <- function(x, ...) UseMethod("as.mcmcr")
 #' @param x object to coerce.
 #' @param ... Unused.
 #' @export
+#' @examples
+#' as.mcmcrs(list(mcmcr_example))
 as.mcmcrs <- function(x, ...) UseMethod("as.mcmcrs")
 
 #' @export

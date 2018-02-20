@@ -14,3 +14,6 @@ as.mcmcrs(x, ...)
 \description{
 Coerce to an mcmcrs object
 }
+\examples{
+as.mcmcrs(list(mcmcr_example))
+}
