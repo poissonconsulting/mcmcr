@@ -83,14 +83,10 @@ as.mcmcarray.mcarray <- function(x, ...) {
 as.mcmcarray.mcmc <- function(x, ...) {
   if(npars(x) != 1) error("x must only have 1 parameter")
 
-  dims <- pdims(x)
-  print(dims)
+  pdims <- pdims(x)[[1]]
   x <- x[,order(terms(x)), drop = FALSE]
-  print(x)
-  x <- array(data = as.vector(x), dim = c(1, niters(x), dims))
+  x <- array(data = as.vector(x), dim = c(1, niters(x), pdims))
   class(x) <- "mcmcarray"
-  print(x)
-  stop()
   x
 }
 
