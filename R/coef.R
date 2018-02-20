@@ -8,6 +8,8 @@
 #' @param ... Not used.
 #' @return A tidy tibble of the coefficient terms.
 #' @export
+#' @examples
+#' coef(mcmcr_example)
 coef.default <- function(object, conf_level = 0.95, estimate = median, ...) {
   object <- coda::as.mcmc.list(object)
   coef(object, conf_level = conf_level, estimate = estimate)

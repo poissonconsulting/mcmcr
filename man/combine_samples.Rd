@@ -18,3 +18,6 @@ combine_samples(x, x2, fun = mean, ...)
 \description{
 Combines mcmc objects by values using fun.
 }
+\examples{
+combine_samples(mcmcr_example, mcmcr_example, fun = sum)
+}

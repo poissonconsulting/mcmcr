@@ -21,3 +21,6 @@ A tidy tibble of the coefficient terms.
 \description{
 Coefficients for an mcmcr object.
 }
+\examples{
+coef(mcmcr_example)
+}

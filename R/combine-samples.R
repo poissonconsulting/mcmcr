@@ -7,6 +7,8 @@
 #' @param fun A function.
 #' @param ... Unused.
 #' @export
+#' @examples
+#' combine_samples(mcmcr_example, mcmcr_example, fun = sum)
 combine_samples <- function(x, x2, fun = mean, ...) {
   UseMethod("combine_samples")
 }

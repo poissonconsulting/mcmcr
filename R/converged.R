@@ -6,10 +6,13 @@
 #' @param ... Unused
 #' @return A flag indicating whether the test was positive.
 #' @export
+#' @examples
+#' converged(mcmcr_example)
 converged <- function(x, ...) {
   UseMethod("converged")
 }
 
+#' @export
 converged.matrix <- function(x, rhat = 1.1, esr = 0.33, ...) {
   check_vector(rhat, c(1.0, 1.5), length = 1)
   check_probability(esr)

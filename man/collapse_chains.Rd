@@ -14,3 +14,6 @@ collapse_chains(x, ...)
 \description{
 Collapses chains into a single chain.
 }
+\examples{
+collapse_chains(mcmcr_example)
+}
