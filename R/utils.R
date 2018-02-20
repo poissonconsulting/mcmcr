@@ -54,7 +54,7 @@ terms <- function(x) {
 #' Set Parameters
 #'
 #' @param x The object
-#' @param value A character vector the new parameter names.
+#' @param parameters A character vector the new parameter names.
 #'
 #' @return A copy of the updated object
 #' @export

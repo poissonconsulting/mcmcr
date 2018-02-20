@@ -10,15 +10,17 @@ collapse_chains <- function(x, ...) {
 }
 
 #' @export
-collapse_chains.mcmcarray <- function(x, ...) {
+collapse_chains.default <- function(x, ...) {
   nchains <- nchains(x)
   if (identical(nchains, 1L)) return(x)
-  y <- list()
-  for (i in seq_len(nchains)) y[[i]] <- subset(x, chains = i)
-  y <- Reduce(bind_iterations, y)
-  y
+
+  x <- lapply(1:nchains, FUN = function(chains, x) {subset(x, chains = chains)}, x = x)
+  x <- Reduce(bind_iterations, x)
+  x
 }
 
+#' @export
+collapse_chains.mcmc.list <- function(x, ...) Reduce(bind_iterations, x)
 
 #' @export
 collapse_chains.mcmcr <- function(x, ...) {

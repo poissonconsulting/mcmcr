@@ -9,7 +9,7 @@ set_parameters(x, parameters)
 \arguments{
 \item{x}{The object}
 
-\item{value}{A character vector the new parameter names.}
+\item{parameters}{A character vector the new parameter names.}
 }
 \value{
 A copy of the updated object
