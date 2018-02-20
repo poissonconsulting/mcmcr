@@ -17,3 +17,7 @@ Combines an mcmc object(s) by parameters.
 \details{
 They must have the same number of chains and iterations but different parameters.
 }
+\examples{
+bind_parameters(subset(mcmcr_example, parameters = "sigma"),
+  subset(mcmcr_example, parameters = "beta"))
+}

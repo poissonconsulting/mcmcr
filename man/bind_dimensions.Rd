@@ -21,3 +21,6 @@ Combines two mcmc objects by samples.
 \details{
 They must have the same parameters with the same number of chains and iterations.
 }
+\examples{
+bind_dimensions(mcmcr_example, mcmcr_example)
+}

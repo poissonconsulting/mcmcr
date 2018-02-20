@@ -9,6 +9,8 @@
 #' @param along A count (or NULL) indicating the parameter dimension to bind along.
 #' @param ... Unused.
 #' @export
+#' @examples
+#' bind_dimensions(mcmcr_example, mcmcr_example)
 bind_dimensions <- function(x, x2, along = NULL, ...) {
   UseMethod("bind_dimensions")
 }
@@ -27,8 +29,7 @@ bind_dimensions.mcmcarray <- function(x, x2, along = NULL, ...) {
   if (is.null(along)) along <- max(ndims(x), ndims(x2)) - 1
 
   x <- abind::abind(x, x2, along = along + 2)
-  class(x) <- "mcmcarray"
-  x
+  set_class(x, "mcmcarray")
 }
 
 #' @export
@@ -56,6 +57,5 @@ bind_dimensions.mcmcr <- function(x, x2, along = NULL, ...) {
     along <- rep(along, length(x))
 
   x <- mapply(x = x, x2 = x2, along = along, FUN = bind_dimensions, SIMPLIFY = FALSE)
-  class(x) <- "mcmcr"
-  x
+  set_class(x, "mcmcr")
 }

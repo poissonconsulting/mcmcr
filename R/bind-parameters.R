@@ -7,6 +7,9 @@
 #' @param x an mcmc object.
 #' @param ... Unused.
 #' @export
+#' @examples
+#' bind_parameters(subset(mcmcr_example, parameters = "sigma"),
+#'   subset(mcmcr_example, parameters = "beta"))
 bind_parameters <- function(x, ...) {
   UseMethod("bind_parameters")
 }
@@ -40,8 +43,7 @@ bind_parameters.mcmc.list <- function(x, x2, ...) {
     error("x and x2 must have the same number of iterations")
 
   x <- mapply(x, x2, FUN = bind_parameters, SIMPLIFY = FALSE)
-  class(x) <- "mcmc.list"
-  x
+  set_class(x, "mcmc.list")
 }
 
 #' @export
@@ -58,7 +60,6 @@ bind_parameters.mcmcr <- function(x, x2, ...) {
     error("x and x2 must have the same number of iterations")
 
   x <- c(x, x2)
-  class(x) <- "mcmcr"
-  x <- sort(x)
-  x
+  x <- set_class(x, "mcmcr")
+  sort(x)
 }

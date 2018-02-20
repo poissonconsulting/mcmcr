@@ -8,6 +8,8 @@
 #' @param x2 a second mcmc object
 #' @param ... Unused.
 #' @export
+#' @examples
+#' bind_iterations(mcmcr_example, mcmcr_example)
 bind_iterations <- function(x, x2, ...) {
   UseMethod("bind_iterations")
 }
@@ -23,8 +25,7 @@ bind_iterations.mcarray <- function(x, x2, ...) {
     error("x and x2 must have the same number of chains")
 
   x <- abind::abind(x, x2, along = ndims(x)-1)
-  class(x) <- "mcarray"
-  x
+  set_class(x, "mcarray")
 }
 
 #' @export
@@ -64,8 +65,7 @@ bind_iterations.mcmc.list <- function(x, x2, ...) {
     error("x and x2 must have the same number of chains")
 
   x <- mapply(x, x2, FUN = bind_iterations, SIMPLIFY = FALSE)
-  class(x) <- "mcmc.list"
-  x
+  set_class(x, "mcmc.list")
 }
 
 #' @export
@@ -80,8 +80,7 @@ bind_iterations.mcmcarray <- function(x, x2, ...) {
     error("x and x2 must have the same number of chains")
 
   x <- abind::abind(x, x2, along = 2)
-  class(x) <- "mcmcarray"
-  x
+  set_class(x, "mcmcarray")
 }
 
 #' @export
@@ -101,6 +100,5 @@ bind_iterations.mcmcr <- function(x, x2, ...) {
     error("x and x2 must have the same number of chains")
 
   x <- mapply(x, x2, FUN = bind_iterations, SIMPLIFY = FALSE)
-  class(x) <- "mcmcr"
-  x
+  set_class(x, "mcmcr")
 }

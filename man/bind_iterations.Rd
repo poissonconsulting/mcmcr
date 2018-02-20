@@ -19,3 +19,6 @@ Combines two mcmc objects by iterations.
 \details{
 They must have the same parameter names, parameter dimensions and chains
 }
+\examples{
+bind_iterations(mcmcr_example, mcmcr_example)
+}
