@@ -2,6 +2,8 @@
 #'
 #' Combines two mcmc objects by chains.
 #'
+#' They must have the same parameter names, parameter dimensions and iterations.
+#'
 #' @param x an mcmc object.
 #' @param x2 A second mcmc object
 #' @param ... Unused.
@@ -10,42 +12,67 @@ bind_chains <- function(x, x2, ...) UseMethod("bind_chains")
 
 #' @export
 bind_chains.mcarray <- function(x, x2, ...) {
-  if (!is.mcmcarray(x2)) error("x2 must be an mcarray")
+  if (!is.mcarray(x2)) error("x2 must be an mcarray")
 
-  dim <- dim(x)
-  dim2 <- dim(x2)
+  if (!identical(pdims(x), pdims(x2)))
+    error("x and x2 must have the same parameter dimensions")
 
-  if (!identical(dim[-length(dim)], dim2[-length(dim2)]))
-    error("x and x2 must have the same dimensions (excluding chains)")
+  if (!identical(niters(x), niters(x)))
+    error("x and x2 must have the same number of iterations")
 
-  x <- abind::abind(x, x2, along = length(dim))
+  x <- abind::abind(x, x2, along = ndims(x))
   class(x) <- "mcarray"
   x
 }
 
 #' @export
 bind_chains.mcmc <- function(x, x2, ...) {
+
   if (!is.mcmc(x2)) error("x2 must be an mcmc")
-  .NotYetImplemented()
-  x
+
+  x <- sort(x)
+  x2 <- sort(x2)
+
+  if (!identical(parameters(x), parameters(x2)))
+    error("x and x2 must have the same parameters")
+
+  if (!identical(pdims(x), pdims(x2)))
+    error("x and x2 must have the same parameter dimensions")
+
+  if (!identical(niters(x), niters(x)))
+    error("x and x2 must have the same number of iterations")
+
+  coda::as.mcmc.list(list(x, x2))
 }
 
 #' @export
 bind_chains.mcmc.list <- function(x, x2, ...) {
-  if (!is.mcmc.list(x2)) error("x2 must be an mcmc.list")
-  .NotYetImplemented()
+  if (!(is.mcmc.list(x2) || is.mcmc(x2))) error("x2 must be an mcmc or mcmc.list")
+
+  x <- sort(x)
+  x2 <- sort(x2)
+
+  if (!identical(pdims(x), pdims(x2)))
+    error("x and x2 must have the same parameter dimensions")
+
+  if (!identical(niters(x), niters(x)))
+    error("x and x2 must have the same number of iterations")
+
+  x <- c(x, x2)
+  class(x) <- "mcmc.list"
   x
 }
 
 #' @export
 bind_chains.mcmcarray <- function(x, x2, ...) {
+
   if (!is.mcmcarray(x2)) error("x2 must be an mcmcarray")
 
-  dim <- dim(x)
-  dim2 <- dim(x2)
+  if (!identical(pdims(x), pdims(x2)))
+    error("x and x2 must have the same parameter dimensions")
 
-  if (!identical(dim[-1], dim2[-1]))
-    error("x and x2 must have the same dimensions (excluding chains)")
+  if (!identical(niters(x), niters(x)))
+    error("x and x2 must have the same number of iterations")
 
   x <- abind::abind(x, x2, along = 1)
   class(x) <- "mcmcarray"
@@ -54,12 +81,18 @@ bind_chains.mcmcarray <- function(x, x2, ...) {
 
 #' @export
 bind_chains.mcmcr <- function(x, x2, ...) {
-
   if (!is.mcmcr(x)) error("x2 must be an mcmcr")
 
-  if (!identical(names(x), names(x2))) error("x and x2 must have the same names")
+  if (!identical(parameters(x), parameters(x2)))
+    error("x and x2 must have the same parameters")
 
-  x <- purrr::map2(x, x2, bind_chains)
+  if (!identical(pdims(x), pdims(x2)))
+    error("x and x2 must have the same parameter dimensions")
+
+  if (!identical(niters(x), niters(x)))
+    error("x and x2 must have the same number of iterations")
+
+  x <- mapply(x, x2, FUN = bind_chains, SIMPLIFY = FALSE)
   class(x) <- "mcmcr"
   x
 }

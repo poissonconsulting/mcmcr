@@ -6,16 +6,8 @@ is.term <- function(x, ...) {
   inherits(x, "term")
 }
 
-#' Is an mcmcr object
-#'
-#' Tests whether x is an object of class 'mcmcr'
-#'
-#' @param x The object to test.
-#'
-#' @return A flag indicating whether the test was positive.
-#' @export
-is.mcmcr <- function(x) {
-  inherits(x, "mcmcr")
+is.mcarray <- function(x) {
+  inherits(x, "mcarray")
 }
 
 #' Is an mcmcrarray object
@@ -28,6 +20,18 @@ is.mcmcr <- function(x) {
 #' @export
 is.mcmcarray <- function(x) {
   inherits(x, "mcmcarray")
+}
+
+#' Is an mcmcr object
+#'
+#' Tests whether x is an object of class 'mcmcr'
+#'
+#' @param x The object to test.
+#'
+#' @return A flag indicating whether the test was positive.
+#' @export
+is.mcmcr <- function(x) {
+  inherits(x, "mcmcr")
 }
 
 #' Is an mcmcrs object
