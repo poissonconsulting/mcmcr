@@ -8,10 +8,10 @@ test_that("data-raw", {
 
   expect_equal(coda::as.mcmc.list(mcmcr), line, check.attributes = FALSE)
 
-  mcmcr$alpha <- bind_samples(mcmcr$alpha, mcmcr$alpha + 1)
+  mcmcr$alpha <- bind_dimensions(mcmcr$alpha, mcmcr$alpha + 1)
 
-  mcmcr$beta <- bind_samples(mcmcr$beta, mcmcr$beta + 1)
-  mcmcr$beta <- bind_samples(mcmcr$beta, mcmcr$beta + 1, along = 1L)
+  mcmcr$beta <- bind_dimensions(mcmcr$beta, mcmcr$beta + 1)
+  mcmcr$beta <- bind_dimensions(mcmcr$beta, mcmcr$beta + 1, along = 1L)
 
   expect_identical(parameters(mcmcr), c("alpha", "beta", "sigma"))
   expect_identical(nchains(mcmcr), 2L)

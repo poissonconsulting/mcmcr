@@ -18,7 +18,7 @@ bind_parameters.mcmc <- function(x, x2, ...) {
   if (length(intersect(parameters(x), parameters(x2))))
     error("x and x2 must not have any of the same parameters")
 
-  if (!identical(niters(x), niters(x)))
+  if (!identical(niters(x), niters(x2)))
     error("x and x2 must have the same number of iterations")
 
   x <- abind::abind(x, x2, along = 2)
@@ -36,7 +36,7 @@ bind_parameters.mcmc.list <- function(x, x2, ...) {
     if (!identical(nchains(x), nchains(x2)))
     error("x and x2 must have the same number of chains")
 
-  if (!identical(niters(x), niters(x)))
+  if (!identical(niters(x), niters(x2)))
     error("x and x2 must have the same number of iterations")
 
   x <- mapply(x, x2, FUN = bind_parameters, SIMPLIFY = FALSE)
@@ -54,7 +54,7 @@ bind_parameters.mcmcr <- function(x, x2, ...) {
     if (!identical(nchains(x), nchains(x2)))
     error("x and x2 must have the same number of chains")
 
-  if (!identical(niters(x), niters(x)))
+  if (!identical(niters(x), niters(x2)))
     error("x and x2 must have the same number of iterations")
 
   x <- c(x, x2)

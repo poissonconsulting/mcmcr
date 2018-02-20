@@ -2,6 +2,11 @@ multiply_by <- function(x, x2) x * x2
 equals <- function(x, x2) x == x2
 error <- function(...) stop(..., call. = FALSE)
 
+set_class <- function(x, class) {
+  class(x) <- class
+  x
+}
+
 as_matrix_mcmcarray <- function(x) {
   x <- reshape2::melt(x)
 

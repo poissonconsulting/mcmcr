@@ -10,6 +10,13 @@ zero <- function(x, ...) {
 }
 
 #' @export
+zero.mcarray <- function(x, ...) {
+  x <- array(0, dims(x))
+  class(x) <- "mcarray"
+  x
+}
+
+#' @export
 zero.mcmcarray <- function(x, ...) {
   x <- array(0, dims(x))
   class(x) <- "mcmcarray"

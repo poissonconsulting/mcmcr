@@ -17,7 +17,7 @@ bind_chains.mcarray <- function(x, x2, ...) {
   if (!identical(pdims(x), pdims(x2)))
     error("x and x2 must have the same parameter dimensions")
 
-  if (!identical(niters(x), niters(x)))
+  if (!identical(niters(x), niters(x2)))
     error("x and x2 must have the same number of iterations")
 
   x <- abind::abind(x, x2, along = ndims(x))
@@ -39,7 +39,7 @@ bind_chains.mcmc <- function(x, x2, ...) {
   if (!identical(pdims(x), pdims(x2)))
     error("x and x2 must have the same parameter dimensions")
 
-  if (!identical(niters(x), niters(x)))
+  if (!identical(niters(x), niters(x2)))
     error("x and x2 must have the same number of iterations")
 
   coda::as.mcmc.list(list(x, x2))
@@ -58,7 +58,7 @@ bind_chains.mcmc.list <- function(x, x2, ...) {
   if (!identical(pdims(x), pdims(x2)))
     error("x and x2 must have the same parameter dimensions")
 
-  if (!identical(niters(x), niters(x)))
+  if (!identical(niters(x), niters(x2)))
     error("x and x2 must have the same number of iterations")
 
   x <- c(x, x2)
@@ -74,7 +74,7 @@ bind_chains.mcmcarray <- function(x, x2, ...) {
   if (!identical(pdims(x), pdims(x2)))
     error("x and x2 must have the same parameter dimensions")
 
-  if (!identical(niters(x), niters(x)))
+  if (!identical(niters(x), niters(x2)))
     error("x and x2 must have the same number of iterations")
 
   x <- abind::abind(x, x2, along = 1)
@@ -95,7 +95,7 @@ bind_chains.mcmcr <- function(x, x2, ...) {
   if (!identical(pdims(x), pdims(x2)))
     error("x and x2 must have the same parameter dimensions")
 
-  if (!identical(niters(x), niters(x)))
+  if (!identical(niters(x), niters(x2)))
     error("x and x2 must have the same number of iterations")
 
   x <- mapply(x, x2, FUN = bind_chains, SIMPLIFY = FALSE)

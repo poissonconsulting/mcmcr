@@ -19,7 +19,7 @@ bind_iterations.mcarray <- function(x, x2, ...) {
   if (!identical(pdims(x), pdims(x2)))
     error("x and x2 must have the same parameter dimensions")
 
-  if (!identical(nchains(x), nchains(x)))
+  if (!identical(nchains(x), nchains(x2)))
     error("x and x2 must have the same number of chains")
 
   x <- abind::abind(x, x2, along = ndims(x)-1)
@@ -40,7 +40,7 @@ bind_iterations.mcmc <- function(x, x2, ...) {
   if (!identical(pdims(x), pdims(x2)))
     error("x and x2 must have the same parameter dimensions")
 
-  if (!identical(nchains(x), nchains(x)))
+  if (!identical(nchains(x), nchains(x2)))
     error("x and x2 must have the same number of chains")
 
   x <- abind::abind(x, x2, along = 1)
@@ -60,7 +60,7 @@ bind_iterations.mcmc.list <- function(x, x2, ...) {
   if (!identical(pdims(x), pdims(x2)))
     error("x and x2 must have the same parameter dimensions")
 
-  if (!identical(nchains(x), nchains(x)))
+  if (!identical(nchains(x), nchains(x2)))
     error("x and x2 must have the same number of chains")
 
   x <- mapply(x, x2, FUN = bind_iterations, SIMPLIFY = FALSE)
@@ -76,7 +76,7 @@ bind_iterations.mcmcarray <- function(x, x2, ...) {
   if (!identical(pdims(x), pdims(x2)))
     error("x and x2 must have the same parameter dimensions")
 
-  if (!identical(nchains(x), nchains(x)))
+  if (!identical(nchains(x), nchains(x2)))
     error("x and x2 must have the same number of chains")
 
   x <- abind::abind(x, x2, along = 2)
@@ -97,7 +97,7 @@ bind_iterations.mcmcr <- function(x, x2, ...) {
   if (!identical(pdims(x), pdims(x2)))
     error("x and x2 must have the same parameter dimensions")
 
-  if (!identical(nchains(x), nchains(x)))
+  if (!identical(nchains(x), nchains(x2)))
     error("x and x2 must have the same number of chains")
 
   x <- mapply(x, x2, FUN = bind_iterations, SIMPLIFY = FALSE)
