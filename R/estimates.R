@@ -10,46 +10,51 @@ estimates <- function(object, ...) {
 }
 
 #' @export
+estimates.mcarray <- function(object, fun = stats::median, as_list = TRUE, ...) {
+  if(as_list)
+    return(estimates(as.mcmcarray(object), fun = fun, as_list = TRUE))
+  estimates(coda::as.mcmc.list(object), fun = fun, as_list = FALSE)
+}
+
+#' @export
+estimates.mcmc <- function(object, fun = stats::median, as_list = TRUE, ...) {
+  if(as_list)
+    return(estimates(as.mcmcr(object), fun = fun, as_list = TRUE))
+
+  terms <- terms(object)
+  object <- t(object)
+  object <- apply(object, MARGIN = 1, FUN = fun, ...)
+  if(!is.numeric(object)) error("function fun must return a scalar")
+  tibble::tibble(term = terms, estimate = object)
+}
+
+#' @export
+estimates.mcmc.list <- function(object, fun = stats::median, as_list = TRUE, ...) {
+  if(as_list)
+    return(estimates(as.mcmcr(object), fun = fun, as_list = TRUE))
+
+  object <- collapse_chains(object)
+  estimates(object, fun = fun, as_list = FALSE)
+}
+
+#' @export
 estimates.mcmcarray <- function(object, fun = stats::median, as_list = TRUE, ...) {
   check_function(fun)
   check_flag(as_list)
 
+  if(!as_list)
+    return(estimates(coda::as.mcmc.list(object), fun = fun, as_list = FALSE))
+
   ndims <- ndims(object)
   object <- apply(object, 3:ndims, FUN = fun, ...)
-
-  if (as_list) return(object)
-
-  object <- reshape2::melt(object)
-
-  if (nrow(object) == 1) {
-    object$term <- ""
-  } else {
-    values <- object["value"]
-    if (ncol(object) == 1) object$Var1 <- 1:nrow(object)
-
-    object$value <- NULL
-
-    object <- tibble::tibble(
-      term = apply(as.matrix(object), 1, function(x) paste(x, collapse = ","))
-    )
-    object$term <- paste0("[", object$term, "]")
-    object <- cbind(object, values)
-  }
-  object$term <- as.term(object$term)
-  object <- object[c("term", "value")]
-  colnames(object) <- c("term", "estimate")
-  tibble::as_tibble(object)
+  if(!identical(ndims(object), ndims - 2L))
+    error("function fun must return a scalar")
+  object
 }
 
 #' @export
 estimates.mcmcr <- function(object, fun = stats::median, as_list = TRUE, ...) {
-  object <- lapply(object, estimates, fun = fun, as_list = as_list, ...)
-  if (as_list) return(object)
-
-  object <- mapply(object, parameters(object), FUN = function(x, y) {x$id = y; x}, SIMPLIFY = FALSE)
-  object <- do.call(rbind, object)
-  object$term <- paste0(object$id, object$term)
-  object$id <- NULL
-  object$term <- as.term(object$term)
-  object
+  if(!as_list)
+    return(estimates(coda::as.mcmc.list(object), fun = fun, as_list = FALSE))
+  lapply(object, estimates, fun = fun, as_list = TRUE, ...)
 }

@@ -20,20 +20,20 @@ test_that("esr.matrix", {
 })
 
 test_that("esr.mcmcmarray", {
-  expect_identical(esr(mcmcr::mcmcr_example[[1]], by = "term"), c(0.82, 0.82))
-  expect_equivalent(esr(mcmcr[[2]], by = "term"), matrix(c(0, 0, 0, 0), nrow = 2, ncol = 2))
-  expect_identical(esr(mcmcr[[3]], by = "term"), c(0.38))
-  expect_identical(esr(mcmcr[[2]]), 0)
-  expect_identical(esr(mcmcr[[1]], "parameter"), esr(mcmcr[[1]], "all"))
+  expect_identical(esr(mcmcr::mcmcr_example[[1]], by = "term"), c(1, 1))
+  expect_equivalent(esr(mcmcr::mcmcr_example[[2]], by = "term"), matrix(c(0.81, 0.81, 0.81, 0.81), nrow = 2, ncol = 2))
+  expect_identical(esr(mcmcr::mcmcr_example[[3]], by = "term"), c(0.46))
+  expect_identical(esr(mcmcr::mcmcr_example[[2]]), 0.81)
+  expect_identical(esr(mcmcr::mcmcr_example[[2]], "parameter"), esr(mcmcr::mcmcr_example[[2]], "all"))
 })
 
 test_that("esr.mcmcr", {
-  expect_identical(esr(mcmcr), 0)
-  expect_identical(esr(mcmcr, by = "parameter"), list(alpha = 0.82, beta = 0, sigma = 0.38))
-  expect_equivalent(esr(mcmcr, by = "term"), list(alpha = c(0.82, 0.82), beta = matrix(c(0, 0, 0, 0), nrow = 2, ncol = 2), sigma = 0.38))
+  expect_identical(esr(mcmcr::mcmcr_example), 0.46)
+  expect_identical(esr(mcmcr::mcmcr_example, by = "parameter"), list(alpha = 1, beta = 0.81, sigma = 0.46))
+  expect_equivalent(esr(mcmcr::mcmcr_example, by = "term"), list(alpha = c(1, 1), beta = matrix(c(0.81, 0.81, 0.81, 0.81), nrow = 2, ncol = 2), sigma = 0.46))
 })
 
 test_that("esr.mcmcrs", {
-  expect_identical(esr(mcmcrs_example), list(mcmcr1 = 0, mcmcr2 = 0))
+  expect_identical(esr(mcmcrs(mcmcr::mcmcr_example, mcmcr::mcmcr_example)), list(mcmcr1 = 0.46, mcmcr2 = 0.46))
 })
 
