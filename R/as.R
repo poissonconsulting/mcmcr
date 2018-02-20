@@ -141,6 +141,7 @@ as.mcmcrs.list <- function(x, ...) {
 
   nchains <- vapply(x, nchains, 1L)
   niters <- vapply(x, niters, 1L)
+  pdims <- lapply(x, pdims)
   parameters <- lapply(x, parameters)
 
   if (!identical(length(unique(nchains)), 1L))
@@ -151,6 +152,13 @@ as.mcmcrs.list <- function(x, ...) {
 
   if (!identical(length(unique(parameters)), 1L))
     error("all objects must have the same parameters")
-  class(x) <- "mcmcrs"
-  x
+
+  if (!identical(length(unique(pdims)), 1L))
+    error("all objects must have the same parameter dimensions")
+
+  if(is.null(names(x))) {
+    names(x) <- paste0("mcmcr", 1:length(x))
+  } else
+    if(anyDuplicated(names(x))) error("mcmcr objects must have unique names")
+  set_class(x, "mcmcrs")
 }
