@@ -7,7 +7,7 @@
 #' @return A count of the number of terms.
 #' @export
 #' @examples
-#'
+#' nterms(mcmcr_example)
 nterms <- function(x, ...) {
   UseMethod("nterms")
 }

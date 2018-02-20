@@ -4,20 +4,16 @@
 #' @param ... Unused.
 #' @return A count indicating the number of MCMC samples in a chain.
 #' @export
+#' @examples
+#' niters(mcmcr_example)
 niters <- function(x, ...) {
   UseMethod("niters")
 }
 
-niters.matrix <- function(x, ...) {
-  ncol(x)
-}
+niters.matrix <- function(x, ...) ncol(x)
 
 #' @export
-niters.mcarray <- function(x, ...) {
-  niters <- dim(x)[ndims(x) - 1]
-  names(niters) <- NULL
-  niters
-}
+niters.mcarray <- function(x, ...) unname(dim(x)[ndims(x) - 1])
 
 #' @export
 niters.mcmc <- function(x, ...) {
@@ -26,16 +22,13 @@ niters.mcmc <- function(x, ...) {
 }
 
 #' @export
-niters.mcmc.list <- function(x, ...) {
-  niters(x[[1]])
-}
+niters.mcmc.list <- function(x, ...) niters(x[[1]])
 
 #' @export
-niters.mcmcarray <- function(x, ...) {
-  dim(x)[2]
-}
+niters.mcmcarray <- function(x, ...) dim(x)[2]
 
 #' @export
-niters.mcmcr <- function(x, ...) {
-  niters(x[[1]])
-}
+niters.mcmcr <- function(x, ...) niters(x[[1]])
+
+#' @export
+niters.mcmcrs <- function(x, ...) niters(x[[1]])

@@ -17,3 +17,6 @@ A count indicating the number of MCMC chains in object.
 \description{
 Number of MCMC chains
 }
+\examples{
+nchains(mcmcr_example)
+}

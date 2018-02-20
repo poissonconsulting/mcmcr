@@ -18,5 +18,5 @@ A count of the number of terms.
 Gets the number of terms for an object.
 }
 \examples{
-
+nterms(mcmcr_example)
 }

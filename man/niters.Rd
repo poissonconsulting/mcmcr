@@ -17,3 +17,6 @@ A count indicating the number of MCMC samples in a chain.
 \description{
 Number of MCMC samples in a single chain
 }
+\examples{
+niters(mcmcr_example)
+}

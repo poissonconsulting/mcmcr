@@ -6,34 +6,15 @@ test_that("subset.term", {
   expect_identical(subset(x, parameters = "parm3"), as.term(c("parm3[10]", "parm3[2]", "parm3")))
 })
 
-test_that("subset.mcmcarray", {
-  mcmcarray <- mcmcr[[2]]
-  expect_identical(nchains(subset(mcmcarray, 1L)), 1L)
-  expect_identical(nchains(subset(mcmcarray, rep(1L, 5))), 5L)
-  expect_identical(nsims(subset(mcmcarray, rep(1L, 5), 2:3)), 10L)
-})
-
 test_that("subset.mcmcr", {
-  expect_identical(parameters(subset(mcmcr, parameters = rev(parameters(mcmcr)))), rev(parameters(mcmcr)))
-  expect_identical(nchains(subset(mcmcr, 1L)), 1L)
-  expect_identical(nsims(subset(mcmcr, rep(1L, 5), 2:3)), 10L)
-  expect_identical(nterms(subset(mcmcr, parameters = c("beta"))), 4L)
-})
-
-test_that("subset.mcmc", {
-
-  data("line", package = "coda", envir = environment())
-  mcmc <- line[[1]]
-
-  expect_identical(parameters(subset(mcmc, parameters = "beta")), "beta")
-  expect_identical(niters(subset(mcmc, iterations = 10L)), 1L)
+  expect_identical(parameters(subset(mcmcr_example, parameters = rev(parameters(mcmcr_example)))), rev(parameters(mcmcr_example)))
+  expect_identical(nchains(subset(mcmcr_example, 1L)), 1L)
+  expect_identical(nsims(subset(mcmcr_example, rep(1L, 5), 2:3)), 10L)
+  expect_identical(nterms(subset(mcmcr_example, parameters = "beta")), 4L)
 })
 
 test_that("subset.mcmc.list", {
-
-  data("line", package = "coda", envir = environment())
-
-  expect_identical(parameters(subset(line, parameters = "beta")), "beta")
-  expect_identical(niters(subset(mcmc, iterations = 10L)), 1L)
-  expect_identical(nchains(subset(mcmc, chains = 2L)), 1L)
+  expect_identical(parameters(subset(coda::as.mcmc.list(mcmcr_example), parameters = "beta")), "beta")
+  expect_identical(niters(subset(coda::as.mcmc.list(mcmcr_example), iterations = 10L)), 1L)
+  expect_identical(nchains(subset(coda::as.mcmc.list(mcmcr_example), chains = 2L)), 1L)
 })

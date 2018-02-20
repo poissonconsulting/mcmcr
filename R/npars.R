@@ -7,7 +7,7 @@
 #' @return A count of the number of terms.
 #' @export
 #' @examples
-#'
+#' npars(mcmcr_example)
 npars <- function(x, ...) UseMethod("npars")
 
 #' @export

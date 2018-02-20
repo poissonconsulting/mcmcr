@@ -12,7 +12,7 @@ combine_samples <- function(x, x2, fun = mean, ...) {
 }
 
 #' @export
-combine_samples.mcmcarray <- function(x, x2, fun = mean) {
+combine_samples.mcmcarray <- function(x, x2, fun = mean, ...) {
   if (!is.mcmcarray(x2)) error("x2 must be an mcmcarray")
   check_function(fun)
 

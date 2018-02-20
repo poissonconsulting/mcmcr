@@ -4,13 +4,13 @@
 #' @param ... Unused.
 #' @return A count indicating the number of MCMC chains in object.
 #' @export
+#' @examples
+#' nchains(mcmcr_example)
 nchains <- function(x, ...) {
   UseMethod("nchains")
 }
 
-nchains.matrix <- function(x, ...) {
-  nrow(x)
-}
+nchains.matrix <- function(x, ...) nrow(x)
 
 #' @export
 nchains.mcarray <- function(x, ...) unname(dim(x)[ndims(x)])
@@ -26,3 +26,6 @@ nchains.mcmcarray <- function(x, ...) dim(x)[1]
 
 #' @export
 nchains.mcmcr <- function(x, ...) nchains(x[[1]])
+
+#' @export
+nchains.mcmcrs <- function(x, ...) nchains(x[[1]])

@@ -13,7 +13,7 @@ test_that("derive", {
 
 test_that("derive", {
 
-  mcmcr <- subset(mcmcr, 1:2, 1:10)
+  mcmcr <- subset(mcmcr_example, 1:2, 1:10)
 
   expr <- "
     gamma <- alpha + beta
@@ -33,7 +33,7 @@ test_that("derive", {
   expect_identical(niters(derived), 10L)
   expect_identical(nterms(derived), 15L)
 
-  expect_error(derive(mcmcr, expr, values = values, monitor = "something"), paste0("monitor 'something' must match at least one new variable in expr\n\n    gamma "))
+  expect_error(derive(mcmcr_example, expr, values = values, monitor = "something"), paste0("monitor 'something' must match at least one new variable in expr\n\n    gamma "))
 
-    expect_error(derive(mcmcr, expr, values = list(x = NA), monitor = "alpha3"), paste0("monitor 'alpha3' must not include missing values in expr\n\n    gamma "))
+    expect_error(derive(mcmcr_example, expr, values = list(x = NA), monitor = "alpha3"), paste0("monitor 'alpha3' must not include missing values in expr\n\n    gamma "))
 })

@@ -7,22 +7,6 @@ set_class <- function(x, class) {
   x
 }
 
-as_matrix_mcmcarray <- function(x) {
-  x <- reshape2::melt(x)
-
-  values <- x[c("Var1", "value")]
-  x$Var1 <- NULL
-  x$value <- NULL
-  x <- tibble::tibble(
-    term = apply(as.matrix(x), 1, function(x) paste(x, collapse = ","))
-  )
-  x$term <- paste0("[", x$term, "]")
-  x <- cbind(x, values)
-  x <- reshape2::dcast(x, Var1 ~ term)
-  x$Var1 <- NULL
-  as.matrix(x)
-}
-
 dims_terms <- function(x) {
   x <- sub("^(\\w+)(.*)", "\\2", x)
   x <- sub("^(\\[)(.*)(\\])$", "\\2", x)

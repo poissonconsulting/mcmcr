@@ -18,5 +18,5 @@ A count of the number of terms.
 Gets the number of parameters for an object.
 }
 \examples{
-
+npars(mcmcr_example)
 }
