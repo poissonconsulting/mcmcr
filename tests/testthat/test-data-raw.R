@@ -11,7 +11,7 @@ test_that("data-raw", {
   mcmcr$alpha <- bind_samples(mcmcr$alpha, mcmcr$alpha + 1)
 
   mcmcr$beta <- bind_samples(mcmcr$beta, mcmcr$beta + 1)
-  mcmcr$beta <- bind_samples(mcmcr$beta, mcmcr$beta + 1, along = 1)
+  mcmcr$beta <- bind_samples(mcmcr$beta, mcmcr$beta + 1, along = 1L)
 
   expect_identical(parameters(mcmcr), c("alpha", "beta", "sigma"))
   expect_identical(nchains(mcmcr), 2L)

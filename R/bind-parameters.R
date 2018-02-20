@@ -16,14 +16,14 @@ bind_parameters.mcmc <- function(x, x2, ...) {
   if (!coda::is.mcmc(x2)) error("x2 must be an mcmc.list")
 
   if (length(intersect(parameters(x), parameters(x2))))
-    error("x and x2 must not have the same parameters")
+    error("x and x2 must not have any of the same parameters")
 
   if (!identical(niters(x), niters(x)))
     error("x and x2 must have the same number of iterations")
 
   x <- abind::abind(x, x2, along = 2)
-
-  coda::as.mcmc(x)
+  x <- coda::as.mcmc(x)
+  sort(x)
 }
 
 #' @export
@@ -31,7 +31,7 @@ bind_parameters.mcmc.list <- function(x, x2, ...) {
   if (!coda::is.mcmc.list(x2)) error("x2 must be an mcmc.list")
 
   if (length(intersect(parameters(x), parameters(x2))))
-    error("x and x2 must not have the same parameters")
+    error("x and x2 must not have any of the same parameters")
 
     if (!identical(nchains(x), nchains(x2)))
     error("x and x2 must have the same number of chains")
@@ -49,7 +49,7 @@ bind_parameters.mcmcr <- function(x, x2, ...) {
   if (!is.mcmcr(x)) error("x2 must be an mcmcr")
 
   if (length(intersect(parameters(x), parameters(x2))))
-    error("x and x2 must not have the same parameters")
+    error("x and x2 must not have any of the same parameters")
 
     if (!identical(nchains(x), nchains(x2)))
     error("x and x2 must have the same number of chains")
@@ -59,5 +59,6 @@ bind_parameters.mcmcr <- function(x, x2, ...) {
 
   x <- c(x, x2)
   class(x) <- "mcmcr"
+  x <- sort(x)
   x
 }

@@ -4,15 +4,20 @@
 \alias{bind_samples}
 \title{Combines objects by samples}
 \usage{
-bind_samples(x, x2, ...)
+bind_samples(x, x2, along = NULL, ...)
 }
 \arguments{
 \item{x}{an mcmc object.}
 
 \item{x2}{a second mcmc object.}
 
+\item{along}{A count (or NULL) indicating the parameter dimension to bind along.}
+
 \item{...}{Unused.}
 }
 \description{
-Combines two mcmc objects by samples
+Combines two mcmc objects by samples.
+}
+\details{
+They must have the same parameters with the same number of chains and iterations.
 }

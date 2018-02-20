@@ -86,6 +86,9 @@ bind_chains.mcmcarray <- function(x, x2, ...) {
 bind_chains.mcmcr <- function(x, x2, ...) {
   if (!is.mcmcr(x)) error("x2 must be an mcmcr")
 
+  x <- sort(x)
+  x2 <- sort(x2)
+
   if (!identical(parameters(x), parameters(x2)))
     error("x and x2 must have the same parameters")
 

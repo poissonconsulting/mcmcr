@@ -1,29 +1,30 @@
 #' Combines objects by samples
 #'
-#' Combines two mcmc objects by samples
+#' Combines two mcmc objects by samples.
+#'
+#' They must have the same parameters with the same number of chains and iterations.
 #'
 #' @param x an mcmc object.
 #' @param x2 a second mcmc object.
+#' @param along A count (or NULL) indicating the parameter dimension to bind along.
 #' @param ... Unused.
 #' @export
-bind_samples <- function(x, x2, ...) {
+bind_samples <- function(x, x2, along = NULL, ...) {
   UseMethod("bind_samples")
 }
 
 #' @export
 bind_samples.mcmcarray <- function(x, x2, along = NULL, ...) {
-
   if (!is.mcmcarray(x)) error("x2 must be an mcmcarray")
+  checkor(check_null(along), check_count(along))
 
-  dim <- dim(x)
-  dim2 <- dim(x2)
+  if (!identical(nchains(x), nchains(x)))
+    error("x and x2 must have the same number of chains")
 
-  if (!identical(dim[1:2], dim2[1:2]))
-    error("x and x2 must have the same number of chains and iterations")
+  if (!identical(niters(x), niters(x)))
+    error("x and x2 must have the same number of iterations")
 
   if (is.null(along)) along <- max(ndims(x), ndims(x2)) - 1
-
-  check_vector(along, 1, length = 1)
 
   x <- abind::abind(x, x2, along = along + 2)
   class(x) <- "mcmcarray"
@@ -32,25 +33,29 @@ bind_samples.mcmcarray <- function(x, x2, along = NULL, ...) {
 
 #' @export
 bind_samples.mcmcr <- function(x, x2, along = NULL, ...) {
+  if (!is.mcmcr(x2)) error("x2 must be an mcmcr")
+  checkor(check_null(along),
+          check_vector(along, 1L, length = 1),
+          check_vector(along, 1L, length = npars(x)))
 
-  if (!is.mcmcr(x)) error("x2 must be an mcmcr")
+  x <- sort(x)
+  x2 <- sort(x2)
 
-  if (!identical(names(x), names(x2))) error("x and x2 must have the same names")
+  if (!identical(parameters(x), parameters(x2)))
+    error("x and x2 must have the same parameters")
+
+  if (!identical(nchains(x), nchains(x)))
+    error("x and x2 must have the same number of chains")
+
+  if (!identical(niters(x), niters(x)))
+    error("x and x2 must have the same number of iterations")
 
   if (is.null(along)) {
-    along <- purrr::map2(x, x2, function(x, x2) {max(ndims(x), ndims(x2)) - 1})
-  } else if (length(along)  == 1) {
+    along <- mapply(x, x2, FUN = function(x, x2) {max(ndims(x), ndims(x2)) - 1L}, SIMPLIFY = FALSE)
+  } else if (length(along)  == 1)
     along <- rep(along, length(x))
-  } else if (length(along) != length(x))
-    error("along must be a number or a vector of numbers the same length as the number of parameters in x")
 
-  check_vector(along, 1)
-
-  x <- list(x = x, x2 = x2, along = as.list(along))
-  x <- purrr::transpose(x)
-
-  x <- purrr::pmap(x, bind_samples)
-  names(x) <- names(x2)
+  x <- mapply(x = x, x2 = x2, along = along, FUN = bind_samples, SIMPLIFY = FALSE)
   class(x) <- "mcmcr"
   x
 }
