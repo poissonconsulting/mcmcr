@@ -12,15 +12,27 @@ mcmc_map <- function(.x, .f, ...) {
 }
 
 #' @export
-mcmc_map.mcmcarray <- function(.x, .f, ...) {
+mcmc_map.default <- function(.x, .f, ...) {
   x <- .f(.x, ...)
   if(!identical(dims(x), dims(.x))) error("mcmc_map function .f failed to retun a scalar")
   x
 }
 
 #' @export
-mcmc_map.mcmcr <- function(.x, .f, ...) {
-  for(i in seq_along(.x))
-    .x[[i]] <- mcmc_map(.x[[i]], .f = .f , ...)
-  .x
+mcmc_map.mcmc.list <- function(.x, .f, ...) {
+  x <- lapply(.x, mcmc_map, .f = .f, ...)
+  coda::as.mcmc.list(x)
 }
+
+#' @export
+mcmc_map.mcmcr <- function(.x, .f, ...) {
+  x <- lapply(.x, mcmc_map, .f = .f, ...)
+  set_class(x, "mcmcr")
+}
+
+#' @export
+mcmc_map.mcmcrs <- function(.x, .f, ...) {
+  x <- lapply(.x, mcmc_map, .f = .f, ...)
+  set_class(x, "mcmcrs")
+}
+
