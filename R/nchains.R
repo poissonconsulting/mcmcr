@@ -8,33 +8,17 @@ nchains <- function(x, ...) {
   UseMethod("nchains")
 }
 
-nchains.matrix <- function(x, ...) {
-  nrow(x)
-}
+#' @export
+nchains.mcarray <- function(x, ...) unname(dim(x)[ndims(x)])
 
 #' @export
-nchains.mcarray <- function(x, ...) {
-  nchains <- dim(x)[ndims(x)]
-  names(nchains) <- NULL
-  nchains
-}
+nchains.mcmc <- function(x, ...) 1L
 
 #' @export
-nchains.mcmc <- function(x, ...) {
-  1L
-}
+nchains.mcmc.list <- function(x, ...) length(x)
 
 #' @export
-nchains.mcmc.list <- function(x, ...) {
-  length(x)
-}
+nchains.mcmcarray <- function(x, ...) dim(x)[1]
 
 #' @export
-nchains.mcmcarray <- function(x, ...) {
-  dim(x)[1]
-}
-
-#' @export
-nchains.mcmcr <- function(x, ...) {
-  nchains(x[[1]])
-}
+nchains.mcmcr <- function(x, ...) nchains(x[[1]])

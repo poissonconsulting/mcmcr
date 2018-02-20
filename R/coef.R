@@ -30,12 +30,11 @@ coefs <- function(x, conf_level, estimate) {
 #' @param conf_level A number specifying the confidence level. By default 0.95.
 #' @param estimate The function to use to calculate the estimate.
 #' @param ... Not used.
-#' @return A tidy tibble of the coeffcient terms with the model averaged estimate, the
-#' Akaike's weight and the proportion of models including the term.
+#' @return A tidy tibble of the coeffcient terms.
 #' @export
 coef.mcmcarray <- function(object, conf_level = 0.95, estimate = median, ...) {
-
-  check_vector(conf_level, c(0.5, 0.99), length = 1)
+  check_probability(conf_level)
+  check_function(estimate)
 
   ndims <- ndims(object)
   coef <- apply(object, 3:ndims, coefs, conf_level = conf_level, estimate = estimate)
@@ -69,10 +68,12 @@ coef.mcmcarray <- function(object, conf_level = 0.95, estimate = median, ...) {
 #' @return A tidy tibble of the coefficient terms.
 #' @export
 coef.mcmcr <- function(object, conf_level = 0.95, estimate = median, ...) {
-  check_vector(conf_level, c(0.5, 0.99), length = 1)
+  check_probability(conf_level)
+  check_function(estimate)
 
   object <- lapply(object, coef, conf_level = conf_level, estimate = estimate)
-  object <- purrr::map2(object, names(object), function(x, y) {x$id = y; x})
+  object <- mapply(object, names(object), FUN = function(x, y) {x$id = y; x},
+                        SIMPLIFY = FALSE)
   object <- do.call(rbind, object)
   object$term <- paste0(object$id, object$term)
   object$id <- NULL

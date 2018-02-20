@@ -1,7 +1,6 @@
 context("niters")
 
 test_that("niters", {
-  expect_identical(niters(list_mcarrays[[1]]), 1000L)
-  expect_identical(niters(mcmcr), 1000L)
-  expect_identical(niters(mcmcr[[1]]), 1000L)
+  expect_identical(niters(coda::as.mcmc.list(mcmcr_example)), 200L)
+  expect_identical(niters(mcmcr_example[[1]]), 200L)
 })

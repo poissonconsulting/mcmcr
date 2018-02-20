@@ -13,14 +13,9 @@ test_that("parameters.term", {
 
 })
 
-test_that("parameters", {
-  expect_equal(parameters(mcmcr), c("alpha", "beta", "sigma"))
-  expect_equal(parameters(mcmcr, scalar_only = TRUE), c("sigma"))
-  parameters(mcmcr) <- c("alpha1", "alpha2", "alpha3")
-  expect_equal(parameters(mcmcr), c("alpha1", "alpha2", "alpha3"))
-
-  data("line", package = "coda", envir = environment())
-  expect_identical(parameters(line[[1]]), c("alpha", "beta", "sigma"))
-  expect_identical(parameters(line[[1]], scalar_only = TRUE), c("alpha", "beta", "sigma"))
-  expect_identical(parameters(line), c("alpha", "beta", "sigma"))
+test_that("parameters.mcmcr", {
+  expect_equal(parameters(mcmcr_example), c("alpha", "beta", "sigma"))
+  expect_equal(parameters(mcmcr_example, scalar_only = TRUE), c("sigma"))
+  parameters(mcmcr_example) <- c("alpha1", "alpha2", "alpha3")
+  expect_equal(parameters(mcmcr_example), c("alpha1", "alpha2", "alpha3"))
 })

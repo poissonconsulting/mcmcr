@@ -16,8 +16,7 @@
 \item{...}{Not used.}
 }
 \value{
-A tidy tibble of the coeffcient terms with the model averaged estimate, the
-Akaike's weight and the proportion of models including the term.
+A tidy tibble of the coeffcient terms.
 }
 \description{
 Coefficients for an mcmcarray object.
