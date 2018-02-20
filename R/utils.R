@@ -62,3 +62,20 @@ set_parameters <- function(x, parameters) {
   parameters(x) <- parameters
   x
 }
+
+#' P-Value
+#'
+#' @param x A vector of mcmc samples
+#'
+#' @return A number indicating the p-value.
+#' @export
+#' @examples
+#' pvalue(as.numeric(0:10))
+pvalue <- function(x) {
+  check_vector(x, 1, length = c(1, Inf))
+  n <- length(x)
+  d <- sum(x >= 0)
+  p <- min(d, n - d) * 2
+  p <- max(p, 1)
+  round(p / n, 4)
+}

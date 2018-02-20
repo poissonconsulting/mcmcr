@@ -45,6 +45,12 @@ as.mcmc.mcmcarray <- function(x) {
   coda::as.mcmc(x)
 }
 
+#' @method as.mcmc.list mcarray
+#' @export
+as.mcmc.list.mcarray <- function(x, ...) {
+  as.mcmc.list(as.mcmcarray(x))
+}
+
 #' @method as.mcmc.list mcmcarray
 #' @export
 as.mcmc.list.mcmcarray <- function(x, ...) {
