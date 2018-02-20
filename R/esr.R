@@ -13,6 +13,8 @@
 #' @param ... Unused.
 #' @return The esr value(s).
 #' @export
+#' @examples
+#' esr(mcmcr_example)
 esr <- function(x, ...) {
   UseMethod("esr")
 }

@@ -21,6 +21,9 @@ in Brooks et al. (2011).
 The infinite sum is truncated at
 lag \eqn{k} when \eqn{\rho_{k+1}(\theta) < 0}.
 }
+\examples{
+esr(mcmcr_example)
+}
 \references{
 Brooks, S., Gelman, A., Jones, G.L., and Meng, X.-L. (Editors). 2011. Handbook for Markov Chain Monte Carlo. Taylor & Francis, Boca Raton.
 }

@@ -17,3 +17,6 @@ A number of the ess value.
 \description{
 Effective Sample Size
 }
+\examples{
+ess(mcmcr_example)
+}

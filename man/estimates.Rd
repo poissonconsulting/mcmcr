@@ -14,3 +14,6 @@ estimates(object, ...)
 \description{
 Gets the estimates for an object as a named list.
 }
+\examples{
+estimates(mcmcr_example)
+}

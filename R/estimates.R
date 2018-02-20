@@ -5,6 +5,8 @@
 #' @param object The object.
 #' @param ...  Not used.
 #' @export
+#' @examples
+#' estimates(mcmcr_example)
 estimates <- function(object, ...) {
   UseMethod("estimates")
 }

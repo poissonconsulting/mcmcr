@@ -4,6 +4,8 @@
 #' @param ... Unused.
 #' @return A number of the ess value.
 #' @export
+#' @examples
+#' ess(mcmcr_example)
 ess <- function(x, ...) {
   UseMethod("ess")
 }
@@ -21,9 +23,7 @@ ess.mcmcarray <- function(x, by = "all", ...) {
   x <- round(x)
 
   storage.mode(x) <- "integer"
-
   if (!isTRUE(all.equal(by, "term"))) return(min(x))
-
   x
 }
 
