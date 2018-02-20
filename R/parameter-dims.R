@@ -9,8 +9,7 @@ parameter_dims <- function(x, ...) UseMethod("parameter_dims")
 
 #' @export
 parameter_dims.default <- function(x, ...) {
-  terms <- as.term(x)
-  dims <- dims_terms(terms)
+  dims <- dims_terms(as.term(x))
 
 
 }

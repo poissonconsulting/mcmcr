@@ -4,30 +4,21 @@ test_that("as.mcarray", {
   mcarrays <- lapply(mcmcr::mcmcr_example, as.mcarray)
   mcmcarrays <- lapply(mcarrays, as.mcmcarray)
   expect_equal(mcmcarrays, unclass(mcmcr::mcmcr_example), check.attributes = FALSE)
-  mcarrays2 <- lapply(mcmcarrays, as.mcmcarray)
+  mcarrays2 <- lapply(mcmcarrays, as.mcarray)
   expect_equal(mcarrays2, mcarrays)
 })
 
-
-test_that("as.mcmcr", {
-  expect_is(as.mcmcr(list_mcarrays), "mcmcr")
-})
-
-test_that("as.mcmcarray", {
-  expect_is(as.mcmcarray(list_mcarrays[[1]]), "mcmcarray")
+test_that("as.mcmcrs", {
+  expect_is(as.mcmcrs(list(mcmcr::mcmcr_example, mcmcr::mcmcr_example)), "mcmcrs")
 })
 
 test_that("as.mcmc.list", {
-  mcmc_list1 <- as.mcmc.list(mcmcr[[1]])
-  mcmc_list2 <- as.mcmc.list(mcmcr[[2]])
-  mcmc_list3 <- as.mcmc.list(mcmcr[[3]])
+  mcmc.list <- coda::as.mcmc.list(mcmcr::mcmcr_example)
+  expect_is(mcmc.list, "mcmc.list")
 
-  expect_is(mcmc_list1, "mcmc.list")
-  expect_identical(coda::nchain(mcmc_list1), 2L)
-  expect_identical(coda::nvar(mcmc_list2), 4L)
-  expect_equal(coda::gelman.diag(mcmc_list3, transform = TRUE, autoburnin = FALSE, multivariate = FALSE)$psrf[1], 1.006437, tolerance = 1e-06)
-
-  expect_identical(coda::nvar(as.mcmc.list(mcmcr)), 7L)
+  expect_identical(coda::nchain(mcmc.list), 2L)
+  expect_identical(coda::nvar(mcmc.list), 7L)
+  expect_equal(as.mcmcr(mcmc.list), mcmcr::mcmcr_example)
 })
 
 test_that("as.mcmcr.mcmc", {

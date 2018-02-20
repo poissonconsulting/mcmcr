@@ -9,8 +9,9 @@ parameter_ndims <- function(x, ...) UseMethod("parameter_ndims")
 
 #' @export
 parameter_ndims.default <- function(x, ...) {
-  vapply(x, )
-  terms <- as.term(x)
+  terms <- terms(x)
+  parameters <- parameters(terms)
+  vapply(parameters, function(p, terms) { }, 1L, terms = terms)
 }
 
 #' @export

@@ -1,5 +1,11 @@
 context("subset")
 
+test_that("subset.term", {
+    x <- as.term(c("parm3[10]", "parm3[2]", "parm[2,2]", "parm[1,1]", "parm[2,1]", "parm[1,2]", "parm[10]", "parm3"))
+
+  expect_identical(subset(x, parameters = "parm3"), as.term(c("parm3[10]", "parm3[2]", "parm3")))
+})
+
 test_that("subset.mcmcarray", {
   mcmcarray <- mcmcr[[2]]
   expect_identical(nchains(subset(mcmcarray, 1L)), 1L)

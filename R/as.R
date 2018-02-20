@@ -38,10 +38,10 @@ as.mcarray.mcmcarray <- function(x, ...) {
 #' @export
 as.mcmc.mcmcarray <- function(x) {
   if(nchains(x) != 1) error("x must only have 1 chain")
-  terms <- as.term(x)
+  terms <- terms(x)
   x <- apply(x, 1, identity)
-  x <- as.matrix(x)
-  colnames(x) <- as.character(terms)
+  x <- matrix(x, ncol = length(terms))
+  colnames(x) <- paste0("parameter", as.character(terms))
   coda::as.mcmc(x)
 }
 
@@ -65,9 +65,9 @@ as.mcmc.list.mcmcr <- function(x, ...) {
 
 #' @export
 as.mcmcarray.default <- function(x, ...) {
-  dim(x) <- c(1,1,dims(x))
-  class(x) <- "mcmcarray"
-  x
+   dim(x) <- c(1,1,dims(x))
+   class(x) <- "mcmcarray"
+   x
 }
 
 #' @export
@@ -75,6 +75,17 @@ as.mcmcarray.mcarray <- function(x, ...) {
   dim(x) <- unname(dim(x))
   n <- ndims(x)
   x <- aperm(x, c(n, n - 1, 1:(n - 2)))
+  class(x) <- "mcmcarray"
+  x
+}
+
+#' @export
+as.mcmcarray.mcmc <- function(x, ...) {
+  if(npars(x) != 1) error("x must only have 1 parameter")
+
+  dims <- parameter_dims(x)[[1]]
+  x <- x[,order(terms(x)), drop = FALSE]
+  x <- array(data = as.vector(x), dim = c(1, niters(x), dims))
   class(x) <- "mcmcarray"
   x
 }
@@ -104,7 +115,7 @@ as.mcmcr.list <- function(x, ...) {
 as.mcmcr.mcmc <- function(x, ...) {
   parameters <- parameters(x)
   x <- lapply(parameters, function(p, x) subset(x, parameters = p), x = x)
-  x <- lapply(x, as_mcmcarray_mcmc1)
+  x <- lapply(x, as.mcmcarray)
   names(x) <- parameters
   class(x) <- "mcmcr"
   x

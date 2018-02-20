@@ -1,10 +1,24 @@
 #' @export
+subset.term <- function(x, parameters = NULL, ...) {
+  checkor(check_null(parameters),
+          check_vector(parameters, parameters(x), unique = TRUE))
+
+  if(!is.null(parameters)) {
+    parameters <- paste0("(^", parameters, ("($|\\[))"))
+    parameters <- paste0(parameters, collapse = ")|(")
+    parameters <- paste0("(", parameters, ")", collapse = "")
+    x <- x[grepl(parameters, x)]
+  }
+  x
+}
+
+#' @export
 subset.mcmc <- function(x, iterations = NULL, parameters = NULL, ...) {
   checkor(check_null(iterations), check_vector(iterations, c(1L,niters(x))))
   checkor(check_null(parameters),
           check_vector(parameters, parameters(x), unique = TRUE))
 
-  if (!is.null(parameters)) x <- x[,parameters(x) %in% parameters,drop = FALSE]
+  if (!is.null(parameters)) x <- x[,parameters_term(as.term(x)) %in% parameters,drop = FALSE]
   if (!is.null(iterations)) x <- x[iterations,,drop = FALSE]
   class(x) <- "mcmc"
   x

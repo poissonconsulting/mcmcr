@@ -50,15 +50,3 @@ greater_than_term <- function(e1, e2) {
 
   e1[which] > e2[which]
 }
-
-#' @export
-as_mcmcarray_mcmc1 <- function(x, ...) {
-  stopifnot(nchains(x) == 1L)
-  stopifnot(npars(x) == 1L)
-
-  dims <- parameter_dims(x)[[1]]
-  x <- x[,order(terms(x)), drop = FALSE]
-  x <- array(data = as.vector(x), dim = c(1,niters(x),dims))
-  class(x) <- "mcmcarray"
-  x
-}
