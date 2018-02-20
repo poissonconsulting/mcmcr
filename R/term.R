@@ -69,16 +69,6 @@ rep.term <- function(x, times, ...) {
   as.term(x)
 }
 
-#' Get parameters for term object
-#'
-#' @param x The object.
-#' @param ... Unused
-#' @return A vector of the parameter names.
-#' @export
-parameters_term <- function(x) {
-  sub("^(\\w+)(.*)", "\\1", as.character(x))
-}
-
 #' @export
 `>.term` <- function(e1, e2) {
   if (identical(length(e1), 1L)) e1 <- rep(e1, length(e2))
@@ -88,8 +78,4 @@ parameters_term <- function(x) {
 }
 
 #' @export
-`[.term` <- function(x, i) {
-  x <- as.character(x)
-  x <- x[i]
-  as.term(x)
-}
+`[.term` <- function(x, i) as.term(as.character(x)[i])

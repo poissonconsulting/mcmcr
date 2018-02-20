@@ -1,8 +1,9 @@
-context("parameters")
+context("pdims")
 
-test_that("parameters.term", {
-  terms <- terms(mcmcr_example)
-  expect_identical(parameters(terms), c("alpha", "beta", "sigma"))
+test_that("pdims.term", {
+  expect_identical(pdims(terms(mcmcr_example))
+
+                   , c("alpha", "beta", "sigma"))
   expect_identical(parameters(terms, scalar_only = TRUE), "sigma")
   expect_identical(parameters(terms, scalar_only = TRUE, terms = TRUE), "sigma")
   expect_identical(parameters(terms, terms = TRUE),

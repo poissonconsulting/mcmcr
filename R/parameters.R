@@ -21,7 +21,12 @@ parameters <- function(x, ...) UseMethod("parameters")
 parameters.term <- function(x, scalar_only = FALSE, terms = FALSE, ...) {
   check_flag(scalar_only)
   check_flag(terms)
-  unique(parameters_term(x))
+
+  x <- as.character(x)
+  if(scalar_only) x <- x[!grepl("\\[", x)]
+  x <- sub("^(\\w+)(.*)", "\\1", x)
+  if(!terms) x <- unique(x)
+  x
 }
 
 #' @export
@@ -42,15 +47,13 @@ parameters.mcmcr <- function(x, scalar_only = FALSE, terms = FALSE, ...) {
   check_vector(value, "", length = npars(x), unique = TRUE)
 
   parameters <- parameters(x)
-  parameters_term <- parameters_term(as.term(x))
-  new_parameters_term <- parameters_term
+  terms <- x
 
-  for(i in seq_along(parameters)) {
-    which <- which(grepl(parameters[i], parameters_term, fixed = TRUE))
-    new_parameters_term[which] <-
-      sub(parameters[i], value[i], new_parameters_term[which], fixed = TRUE)
+  for(i in seq_along(value)) {
+    which <- which(grepl(parameters[i], terms, fixed = TRUE))
+    x[which] <- sub(parameters[i], value[i], x[which], fixed = TRUE)
   }
-  as.term(new_parameters_term)
+  x
 }
 
 #' @export

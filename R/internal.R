@@ -32,8 +32,8 @@ dims_terms <- function(x) {
 greater_than_term <- function(e1, e2) {
   e1 <- as.term(e1)
   e2 <- as.term(e2)
-  e1_parm <- parameter(e1)
-  e2_parm <- parameter(e2)
+  e1_parm <- parameters(e1)
+  e2_parm <- parameters(e2)
   if (e1_parm != e2_parm) return(e1_parm > e2_parm)
 
   e1 <- dims_terms(e1)[[1]]

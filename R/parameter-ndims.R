@@ -13,15 +13,3 @@ parameter_ndims.default <- function(x, ...) {
   parameters <- parameters(terms)
   vapply(parameters, function(p, terms) { }, 1L, terms = terms)
 }
-
-#' @export
-parameter_dims.mcarray <- function(x, ...) {
-  dims <- dims(x)
-  dims(x)[1:(length(dims)-2)]
-}
-
-#' @export
-parameter_dims.mcmcarray <- function(x, ...) dims(x)[-(1:2)]
-
-#' @export
-parameter_dims.mcmcr <- function(x, ...) lapply(x, parameter_dims)

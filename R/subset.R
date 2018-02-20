@@ -18,7 +18,7 @@ subset.mcmc <- function(x, iterations = NULL, parameters = NULL, ...) {
   checkor(check_null(parameters),
           check_vector(parameters, parameters(x), unique = TRUE))
 
-  if (!is.null(parameters)) x <- x[,parameters_term(as.term(x)) %in% parameters,drop = FALSE]
+  if (!is.null(parameters)) x <- x[,parameters(x, term = TRUE) %in% parameters,drop = FALSE]
   if (!is.null(iterations)) x <- x[iterations,,drop = FALSE]
   class(x) <- "mcmc"
   x
