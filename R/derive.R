@@ -1,6 +1,6 @@
 #' derive
 #'
-#' Calculate dervived parameters.
+#' Calculate derived parameters.
 #'
 #' @param object The mcmc object.
 #' @param ... Unused.
@@ -45,9 +45,8 @@ derive_chain <- function(i, object, expr, values, monitor) {
 #' @return An mcmcr object of the monitored parameters.
 #' @export
 derive.mcmcr <- function(object, expr, values = list(), monitor = ".*", parallel = FALSE, ...) {
-
   check_string(expr)
-  if (!is.list(values)) error("values must be a list")
+  check_list(values)
   check_string(monitor)
   check_flag(parallel)
 

@@ -11,5 +11,5 @@ test_that("combine_samples.mcmr", {
   x <- combine_samples(mcmcr::mcmcr_example, mcmcr::mcmcr_example)
   expect_identical(x, mcmcr::mcmcr_example)
   x <- combine_samples(mcmcr::mcmcr_example, mcmcr::mcmcr_example, sum)
-  expect_equal(x$alpha[1,,,], mcmcr::mcmcr_example$alpha[1,,,] * 2)
+  expect_equal(x$alpha[1,,], mcmcr::mcmcr_example$alpha[1,,] * 2)
 })

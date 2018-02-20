@@ -11,7 +11,7 @@ test_that("anyNA false", {
 
 test_that("anyNA true", {
   mcmcr_example <- mcmcr::mcmcr_example
-  mcmcr_example[[1]][1,1,1,] <- NA
+  mcmcr_example[[1]][1,1,] <- NA
   expect_true(anyNA(mcmcr_example))
   expect_true(anyNA(mcmcr_example[[1]]))
   expect_true(anyNA(mcmcrs(mcmcr_example, mcmcr_example)))

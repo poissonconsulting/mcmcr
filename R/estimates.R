@@ -11,6 +11,7 @@ estimates <- function(object, ...) {
 
 #' @export
 estimates.mcmcarray <- function(object, fun = stats::median, as_list = TRUE, ...) {
+  check_function(fun)
   check_flag(as_list)
 
   ndims <- ndims(object)

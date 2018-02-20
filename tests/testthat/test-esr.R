@@ -1,6 +1,6 @@
 context("esr")
 
-test_that("esr.vector", {
+test_that("esr.numeric", {
   vector <- rep(1, 100)
   expect_identical(esr(vector), 1)
   vector <- rep(2, 100)
@@ -20,7 +20,7 @@ test_that("esr.matrix", {
 })
 
 test_that("esr.mcmcmarray", {
-  expect_identical(esr(mcmcr[[1]], by = "term"), c(0.82, 0.82))
+  expect_identical(esr(mcmcr::mcmcr_example[[1]], by = "term"), c(0.82, 0.82))
   expect_equivalent(esr(mcmcr[[2]], by = "term"), matrix(c(0, 0, 0, 0), nrow = 2, ncol = 2))
   expect_identical(esr(mcmcr[[3]], by = "term"), c(0.38))
   expect_identical(esr(mcmcr[[2]]), 0)

@@ -2,7 +2,7 @@ context("derive")
 
 test_that("derive", {
 
-  mcmcr <- subset(mcmcr, 1:2, 1:10)
+  mcmcr <- subset(mcmcr::mcmcr_example, 1:2, 1:10)
 
   derived <- derive(mcmcr, "gamma <- alpha + beta")
   expect_identical(parameters(derived), "gamma")

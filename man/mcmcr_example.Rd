@@ -11,4 +11,7 @@ mcmcr_example
 \description{
 An example mcmcr object based on coda::line.
 }
+\details{
+It consists of three chains of 200 iterations of three parameters.
+}
 \keyword{datasets}
