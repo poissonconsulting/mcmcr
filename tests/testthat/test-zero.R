@@ -11,3 +11,11 @@ test_that("zero.mcmcr", {
   expect_identical(estimates(mcmcr0)$sigma, 0)
   expect_identical(estimates(mcmcr0)$beta, estimates(mcmcr_example)$beta)
 })
+
+test_that("zero.mcmcr2", {
+  mcmcr0 <- zero(mcmcr_example2, parameters = "beta")
+  expect_true(all(estimates(mcmcr0)$beta == 0))
+  expect_identical(pdims(mcmcr0), pdims(mcmcr_example2))
+  expect_identical(estimates(mcmcr0)$sigma, estimates(mcmcr_example2)$sigma)
+})
+

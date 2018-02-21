@@ -13,3 +13,11 @@ test_that("collapse_chains.mcmcr", {
   expect_identical(nchains(x), 4L)
   expect_identical(nsims(x), nsims(mcmcr_example))
 })
+
+test_that("collapse_chains.mcmcr2", {
+  x <- split_chains(mcmcr_example2)
+  expect_is(x, "mcmcr")
+  expect_identical(nchains(x), 4L)
+  expect_identical(nsims(x), nsims(mcmcr_example2))
+})
+

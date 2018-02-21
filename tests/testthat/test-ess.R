@@ -9,6 +9,7 @@ test_that("ess.mcmcmarray", {
 })
 
 test_that("ess.mcmcr", {
+  expect_identical(ess(mcmcr_example2), 184L)
   expect_identical(ess(mcmcr_example), 184L)
   expect_identical(ess(mcmcr_example, by = "parameter"), list(alpha = 400L, beta = 324L, sigma = 184L))
 })

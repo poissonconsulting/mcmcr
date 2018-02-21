@@ -19,6 +19,7 @@ test_that("rhat.mcmcmarray", {
 })
 
 test_that("rhat.mcmcr", {
+  expect_identical(rhat(mcmcr_example2), 1)
   expect_identical(rhat(mcmcr_example), 1)
   expect_identical(rhat(mcmcr_example, by = "parameter"), list(alpha = 1, beta = 1, sigma = 1))
   expect_equivalent(rhat(mcmcr_example, by = "term"), list(alpha = c(1, 1), beta = matrix(c(1, 1, 1, 1), nrow = 2, ncol = 2), sigma = 1))

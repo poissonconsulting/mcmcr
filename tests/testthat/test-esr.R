@@ -28,6 +28,7 @@ test_that("esr.mcmcmarray", {
 })
 
 test_that("esr.mcmcr", {
+  expect_identical(esr(mcmcr_example2), 0.46)
   expect_identical(esr(mcmcr_example), 0.46)
   expect_identical(esr(mcmcr_example, by = "parameter"), list(alpha = 1, beta = 0.81, sigma = 0.46))
   expect_equivalent(esr(mcmcr_example, by = "term"), list(alpha = c(1, 1), beta = matrix(c(0.81, 0.81, 0.81, 0.81), nrow = 2, ncol = 2), sigma = 0.46))

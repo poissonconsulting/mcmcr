@@ -24,5 +24,6 @@ test_that("terms.mcmcarray", {
 
 test_that("terms.mcmcr", {
   expect_identical(terms(mcmcr_example), as.term(c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma" )))
+  expect_identical(length(terms(mcmcr_example2)), 11L)
 })
 
