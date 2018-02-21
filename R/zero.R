@@ -5,35 +5,24 @@
 #' @param x The object.
 #' @param ...  Not used.
 #' @export
+#' @examples
+#' zero(mcmcr_example, parameters = "beta")
 zero <- function(x, ...) {
   UseMethod("zero")
 }
 
 #' @export
-zero.mcarray <- function(x, ...) {
-  x <- array(0, dims(x))
-  class(x) <- "mcarray"
-  x
-}
+zero.mcarray <- function(x, ...) set_class(array(0, dims(x)), "mcarray")
 
 #' @export
-zero.mcmcarray <- function(x, ...) {
-  x <- array(0, dims(x))
-  class(x) <- "mcmcarray"
-  x
-}
+zero.mcmcarray <- function(x, ...) set_class(array(0, dims(x)), "mcmcarray")
 
 #' @export
 zero.mcmcr <- function(x, parameters = NULL, ...) {
+  checkor(check_null(parameters), check_vector(parameters, rep(parameters(x), 3), unique = TRUE))
 
+  if(is.null(parameters)) parameters <- parameters(x)
 
-  if (!is.null(parameters)) {
-    if (!all(parameters %in% parameters(x))) error("parameters must all be in x")
-    if (anyDuplicated(parameters)) error("parameters must be unique")
-  } else parameters <- parameters(x)
-
-  x <- purrr::map_at(x, parameters, zero)
-
-  class(x) <- "mcmcr"
-  x
+  x[parameters] <- lapply(x[parameters], zero)
+  set_class(x, "mcmcr")
 }

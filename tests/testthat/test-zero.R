@@ -7,7 +7,7 @@ test_that("zero.mcmcarray", {
 })
 
 test_that("zero.mcmcr", {
-  mcmcr0 <- zero(mcmcr_example, parameter = "sigma")
+  mcmcr0 <- zero(mcmcr_example, parameters = "sigma")
   expect_identical(estimates(mcmcr0)$sigma, 0)
   expect_identical(estimates(mcmcr0)$beta, estimates(mcmcr_example)$beta)
 })

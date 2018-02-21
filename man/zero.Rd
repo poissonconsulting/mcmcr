@@ -14,3 +14,6 @@ zero(x, ...)
 \description{
 Zeros object
 }
+\examples{
+zero(mcmcr_example, parameters = "beta")
+}
