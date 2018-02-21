@@ -13,7 +13,6 @@ Imports:
     coda,
     graphics,
     plyr,
-    reshape2,
     stats,
     tibble
 Suggests:

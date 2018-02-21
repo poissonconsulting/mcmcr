@@ -24,20 +24,19 @@ as.term.mcmc.list <- function(x, ...) as.term(x[[1]])
 
 #' @export
 as.term.mcmcarray <- function(x, ...) {
-  x <- subset(x, 1L, 1L)
-  x <- drop(x)
-  x <- unclass(x)
-  x <- reshape2::melt(x)
-  if (nrow(x) == 1) return(as.term("parameter"))
-  if (ncol(x) == 1) return(as.term(paste0("parameter[", 1:nrow(x), "]")))
+  x <- pdims(x)
 
-  x$value <- NULL
-  x <- tibble::tibble(
-    term = apply(as.matrix(x), 1, function(x) paste(x, collapse = ","))
-  )
-  x$term <- paste0("parameter[", x$term, "]")
+  if(identical(x, 1L)) return(as.term("parameter"))
 
-  as.term(x$term)
+  if(identical(length(x), 1L))
+    return(as.term(paste0("parameter[", 1:x, "]")))
+
+  x <- lapply(x, function(x) 1:x)
+  x <- expand.grid(x)
+  x <- as.matrix(x)
+  x <- apply(x, 1, function(x) paste(x, collapse = ","))
+  x <- paste0("parameter[", x, "]")
+  as.term(x)
 }
 
 #' @export
