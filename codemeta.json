@@ -120,6 +120,10 @@
   ],
   "contIntegration": "https://travis-ci.org/poissonconsulting/mcmcr",
   "readme": "https://github.com/poissonconsulting/mcmcr/blob/master/README.md",
+<<<<<<< HEAD
   "fileSize": "220.001KB",
+=======
+  "fileSize": "192.503KB",
+>>>>>>> 16599543ebd3a9f326c148c1093b95c1e4c1c5a8
   "codeRepository": "https://github.com/poissonconsulting/mcmcr"
 }
