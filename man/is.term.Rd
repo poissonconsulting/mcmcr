@@ -14,3 +14,6 @@ is.term(x, ...)
 \description{
 Test whether an object is a term.
 }
+\examples{
+is.term(terms(mcmcr_example))
+}

@@ -2,13 +2,11 @@
 #' @param x The object to test.
 #' @param ... Unused.
 #' @export
-is.term <- function(x, ...) {
-  inherits(x, "term")
-}
+#' @examples
+#' is.term(terms(mcmcr_example))
+is.term <- function(x, ...) inherits(x, "term")
 
-is.mcarray <- function(x) {
-  inherits(x, "mcarray")
-}
+is.mcarray <- function(x) inherits(x, "mcarray")
 
 #' Is an mcmcrarray object
 #'
@@ -18,9 +16,9 @@ is.mcarray <- function(x) {
 #'
 #' @return A flag indicating whether the test was positive.
 #' @export
-is.mcmcarray <- function(x) {
-  inherits(x, "mcmcarray")
-}
+#' @examples
+#' is.mcmcarray(mcmcr_example$beta)
+is.mcmcarray <- function(x) inherits(x, "mcmcarray")
 
 #' Is an mcmcr object
 #'
@@ -30,9 +28,9 @@ is.mcmcarray <- function(x) {
 #'
 #' @return A flag indicating whether the test was positive.
 #' @export
-is.mcmcr <- function(x) {
-  inherits(x, "mcmcr")
-}
+#' @examples
+#' is.mcmcr(mcmcr_example)
+is.mcmcr <- function(x) inherits(x, "mcmcr")
 
 #' Is an mcmcrs object
 #'
@@ -42,6 +40,6 @@ is.mcmcr <- function(x) {
 #'
 #' @return A flag indicating whether the test was positive.
 #' @export
-is.mcmcrs <- function(x) {
-  inherits(x, "mcmcrs")
-}
+#' @examples
+#' is.mcmcr(mcmcrs(mcmcr_example))
+is.mcmcrs <- function(x)  inherits(x, "mcmcrs")

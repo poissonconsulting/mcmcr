@@ -15,3 +15,6 @@ A flag indicating whether the test was positive.
 \description{
 Tests whether x is an object of class 'mcmcr'
 }
+\examples{
+is.mcmcr(mcmcr_example)
+}
