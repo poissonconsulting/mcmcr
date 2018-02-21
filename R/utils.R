@@ -59,7 +59,7 @@ terms <- function(x) {
 #'
 #' @export
 #' @examples
-#' thin(mcmcr::mcmcr_example)
+#' thin(mcmcr_example)
 thin <- function(x, nthin = 1L, ...) {
   check_vector(nthin, c(1L, niters(x)), length = 1)
   iterations <- seq(1L, niters(x), by = nthin)

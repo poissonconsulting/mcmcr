@@ -17,5 +17,5 @@ thin(x, nthin = 1L, ...)
 Thin
 }
 \examples{
-thin(mcmcr::mcmcr_example)
+thin(mcmcr_example)
 }
