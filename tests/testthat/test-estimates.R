@@ -2,7 +2,7 @@ context("estimates")
 
 test_that("estimates", {
   mcmcr_example <- mcmcr_example
-  expect_equal(estimates(mcmcr_example[[1]]), c(3.01883, 4.01883))
+  expect_equal(estimates(mcmcr_example[[1]]), c(3.718025, 4.718025))
   expect_equal(estimates(mcmcr_example[[3]]), c(0.7911975))
   expect_identical(estimates(mcmcr_example)$alpha, estimates(mcmcr_example[[1]]))
 })
