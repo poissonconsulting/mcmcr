@@ -7,9 +7,7 @@
 #' @export
 #' @examples
 #' pow(10,2)
-pow <- function(x, n) {
-  x^n
-}
+pow <- function(x, n) x^n
 
 #' Phi
 #'
@@ -19,9 +17,7 @@ pow <- function(x, n) {
 #' @export
 #' @examples
 #' phi(0:2)
-phi <- function(x) {
-  pnorm(x)
-}
+phi <- function(x) pnorm(x)
 
 #' Log Transformation
 #'
@@ -43,9 +39,7 @@ phi <- function(x) {
 #' @export
 #' @examples
 #' logit(c(0.25,0.5,0.75))
-logit <- function(x) {
-  log(x / (1 - x))
-}
+logit <- function(x) log(x / (1 - x))
 
 #' Logistic Transformation
 #'
@@ -67,6 +61,4 @@ logit <- function(x) {
 #' @export
 #' @examples
 #' ilogit(c(0.25,0.5,0.75))
-ilogit <- function(x) {
-  1 / (1 + exp(-x))
-}
+ilogit <- function(x) 1 / (1 + exp(-x))
