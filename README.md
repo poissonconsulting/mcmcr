@@ -157,7 +157,7 @@ To install the latest version from GitHub
 To cite package 'mcmcr' in publications use:
 
   Joe Thorley (2018). mcmcr: Manipulate MCMC Samples. R package
-  version 0.0.0.9045.
+  version 0.0.0.9046.
 
 A BibTeX entry for LaTeX users is
 
@@ -165,7 +165,7 @@ A BibTeX entry for LaTeX users is
     title = {mcmcr: Manipulate MCMC Samples},
     author = {Joe Thorley},
     year = {2018},
-    note = {R package version 0.0.0.9045},
+    note = {R package version 0.0.0.9046},
   }
 ```
 
