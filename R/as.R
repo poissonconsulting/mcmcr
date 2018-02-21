@@ -38,6 +38,9 @@ as.mcmcrs <- function(x, ...) UseMethod("as.mcmcrs")
 as.mcarray.default <- function(x, ...) as.mcarray(as.mcmcarray(x))
 
 #' @export
+as.mcarray.mcarray <- function(x, ...) x
+
+#' @export
 as.mcarray.mcmcarray <- function(x, ...) {
   n <- ndims(x)
   names(dim(x)) <- c("chain", "iteration", rep("", n - 2))
@@ -57,6 +60,9 @@ as.mcmc.mcmcarray <- function(x) {
   colnames(x) <- as.character(terms)
   coda::as.mcmc(x)
 }
+
+#' @export
+as.mcmc.mcmc <- function(x, ...) x
 
 #' @method as.mcmc mcmc.list
 #' @export
@@ -84,6 +90,10 @@ as.mcmc.list.mcmcarray <- function(x, ...) {
 #' @export
 as.mcmc.list.mcmc <- function(x, ...) set_class(list(x), "mcmc.list")
 
+#' @method as.mcmc.list mcmc.list
+#' @export
+as.mcmc.list.mcmc.list <- function(x, ...) x
+
 #' @method as.mcmc.list mcmcr
 #' @export
 as.mcmc.list.mcmcr <- function(x, ...) {
@@ -107,6 +117,9 @@ as.mcmcarray.mcarray <- function(x, ...) {
   x <- aperm(x, c(n, n - 1, 1:(n - 2)))
   set_class(x, "mcmcarray")
 }
+
+#' @export
+as.mcmcarray.mcmcarray <- function(x, ...) x
 
 #' @export
 as.mcmcarray.mcmc <- function(x, ...) {
@@ -164,6 +177,9 @@ as.mcmcr.mcmc.list <- function(x, ...) {
 }
 
 #' @export
+as.mcmcr.mcmcr <- function(x, ...) x
+
+#' @export
 as.mcmcrs.list <- function(x, ...) {
   check_length(x)
   if (!all(vapply(x, is.mcmcr, TRUE)))
@@ -192,3 +208,7 @@ as.mcmcrs.list <- function(x, ...) {
     if(anyDuplicated(names(x))) error("mcmcr objects must have unique names")
   set_class(x, "mcmcrs")
 }
+
+#' @export
+as.mcmcrs.mcmcrs <- function(x, ...) x
+
