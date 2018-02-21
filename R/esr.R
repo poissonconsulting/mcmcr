@@ -25,9 +25,9 @@ esr.numeric <- function(x, ...) {
 
   if (is.nan(x[1])) return(1) # all values identical
 
-  x <- c(x, -1)
+  x <- c(x, -1) # adds stopper
   match <- match(TRUE, x < 0)
-  x <- sum(x[1:(match-1)]) - 1
+  x <- sum(x[1:(match-1)]) - 1 # drops lag-0
   x <- 1 / (1 + 2 * x)
   round(x, 2)
 }
