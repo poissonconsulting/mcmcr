@@ -97,13 +97,35 @@
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
+    <p>They must have the same number of chains and iterations but different parameters.</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>bind_parameters</span>(<span class='fu'>subset</span>(<span class='no'>mcmcr_example</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='st'>"sigma"</span>),
+  <span class='fu'>subset</span>(<span class='no'>mcmcr_example</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='st'>"beta"</span>))</div><div class='output co'>#&gt; $beta
+#&gt;         [,1]    [,2]
+#&gt; [1,] 0.79625 1.79625
+#&gt; [2,] 1.79625 2.79625
+#&gt; nchains:  2 
+#&gt; niters:  200 
+#&gt; 
+#&gt; $sigma
+#&gt; [1] 0.7911975
+#&gt; nchains:  2 
+#&gt; niters:  200 
+#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#details">Details</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

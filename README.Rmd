@@ -33,10 +33,6 @@ The three most common S3 classes store MCMC samples as follows:
 - `coda::mcmc.list` stores multiple `mcmc` objects (with identical dimensions) as a list where each object represents a parallel chain
 - `rjags::mcarray` stores the samples from a single parameter where the initial dimensions are the parameter dimensions, the second to last dimension is iterations and the last dimension is chains.
 
-It is worth noting than in previous releases of `coda` an mcmc object could be multiple chains.
-Such objects are obsolete and must be converted to `mcmc.list` objects using the `coda::mcmcUpgrade()` function.
-Where possible such objects are automatically coerced to `mcmc.list` objects by the `mcmcr` package functions.
-
 In the first two cases the terms/parameters are represented by a single dimension which means that the dimensionality inherent in the parameters is stored in the labelling of the variables, ie, `"bIntercept", "bInteraction[1,2]", "bInteraction[2,1]", ...`.
 The structure of the `mcmc` and `mcmc.list` objects emphasizes the time-series nature of MCMC samples and is optimized for thining.
 In contrast `mcarray` objects preserve the dimensionality of the parameters.
@@ -49,26 +45,27 @@ the parameters:
 
 ## Why mcmcr?
 
-`mcmcarray` objects were introduced to facilitate manipulation and querying of the MCMC samples - although they are are just one `aperm` away from `mcarray` objects the fact that the chains and iterations are the first dimensions means many operations can be performed without having to account for the dimensionality of the parameters.
+`mcmcarray` objects were introduced to facilitate manipulation and querying of the MCMC samples - although they are are just one `aperm` away from `mcarray` objects they are more intuitive to program with (at least for this programmer!)
 `mcmcr` objects were introduced to allow a set of parameters to be manipulated and queried as a coherent whole.
 
-The `mcmcr` package introduces a variety of (often) generic functions to manipulate and query `mcmcarray` and `mcmcr` objects. In particular it provides functions to
+The `mcmcr` package introduces a variety of (often) generic functions to manipulate and query `mcmcarray` and `mcmcr` objects. 
+In particular it provides functions to
 
 - coerce from and to `mcarray`, `mcmc` and `mcmc.list` objects;
 - extract an objects `coef` table as a tibble;
-- query an object's `nchains`, `niters`, `npars`, `nterms`, `nsims`
-- `subset` objects by chains, iterations or parameter names;
-- `bind` multiple objects by their parameters, chains, or iterations;
-- `combine` multiple objects by summing or otherwise combining their values;
-- `collapse` or `split` an object's chains;
+- query an object's `nchains`, `niters`, `npars`, `nterms`, `nsims` and `nsams` as well as it's parameter dimensions (`pdims`)
+- `subset` objects by chains, iterations and/or parameters;
+- `bind_xx` a pair of objects by their chains, iterations, parameters or parameter dimensions;
+- `combine_samples` of two objects by summing or otherwise aggregating their MCMC sample values;
+- `collapse_chains` or `split_chains` an object's chains;
 - `mcmc_map` over an objects values; 
 - assess if an object has `converged` using `rhat` and `esr` (effectively sampling rate);
-- and of course `coef`, `print`, `plot` etc said objects.
+- and of course `thin`, `rhat`, `ess` (effective sample size), `print`, `plot` etc said objects.
 
+The `mcmcr` package also provides the R equivalent to functions such as `pow()`, `logit() <- `
+that often occur in JAGS/BUGS, STAN, ADMB/TMB model code.
 
-
-
-Finally, the mcmcr package allows the user to readily `derive` an `mcmcr` object of new parameters (with potentially novel dimensionality) from an existing `mcmcr` object by using standard R code to define the relationship between the 'primary' parameters in the existing object and the 'derived' parameters in the created object (and any other values specified by the user).
+Finally, the mcmcr package allows the user to `derive` an `mcmcr` object of new parameters (with potentially novel dimensionality) from an existing `mcmcr` object using standard R code.
 No more rerunning a model because you forget to include a derived parameter!
 
 ## Demonstration
@@ -76,24 +73,14 @@ No more rerunning a model because you forget to include a derived parameter!
 ```{r}
 library(mcmcr)
 
-mcmcr <- mcmcr:::mcmcr
+mcmcr_example
 
-mcmcr
+coef(mcmcr_example)
+rhat(mcmcr_example, by = "term")
+plot(mcmcr_example[["alpha"]])
 
-parameters(mcmcr)
-nchains(mcmcr)
-niters(mcmcr)
-nterms(mcmcr)
-
-coef(mcmcr)
-rhat(mcmcr, by = "term")
-esr(mcmcr)
-converged(mcmcr)
-plot(mcmcr[["alpha"]])
-
-mcmcr2 <- derive(mcmcr, "gamma <- sum(alpha) * sigma")
-rhat(mcmcr2)
-plot(mcmcr2)
+gamma <- derive(mcmcr_example, "gamma <- sum(alpha) * sigma")
+plot(gamma)
 ```
 
 ## Installation

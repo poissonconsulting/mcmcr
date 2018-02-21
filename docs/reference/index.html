@@ -77,7 +77,7 @@
     <div class="page-header">
       <h1>
         Reference
-        <small>version&nbsp;0.0.0.9043</small>
+        <small>version&nbsp;0.0.0.9045</small>
       </h1>
     </div>
 
@@ -131,13 +131,19 @@
           <td>
             <p><code><a href="as.term.html">as.term</a></code> </p>
           </td>
-          <td><p>Coerce object vector to term vector.</p></td>
+          <td><p>Coerce object to term vector.</p></td>
         </tr><tr>
           <!--  -->
           <td>
             <p><code><a href="bind_chains.html">bind_chains</a></code> </p>
           </td>
-          <td><p>Combines objects by chains.</p></td>
+          <td><p>Combine objects by chains.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="bind_dimensions.html">bind_dimensions</a></code> </p>
+          </td>
+          <td><p>Combines objects by samples</p></td>
         </tr><tr>
           <!--  -->
           <td>
@@ -147,43 +153,13 @@
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="bind_parameters.mcmcr.html">bind_parameters</a></code> </p>
-          </td>
-          <td><p>Combines objects by parameters</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="bind_parameters.mcmcrs.html">bind_parameters</a></code> </p>
-          </td>
-          <td><p>Combines objects in mcmcrs by parameters.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
             <p><code><a href="bind_parameters.html">bind_parameters</a></code> </p>
           </td>
           <td><p>Combines objects by parameters</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="bind_samples.html">bind_samples</a></code> </p>
-          </td>
-          <td><p>Combines objects by samples</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="bind_terms.html">bind_terms</a></code> </p>
-          </td>
-          <td><p>Combines objects by terms</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="coef.mcmcarray.html">coef</a></code> </p>
-          </td>
-          <td><p>Coef TMB Analyses</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="coef.mcmcr.html">coef</a></code> </p>
+            <p><code><a href="coef.default.html">coef</a></code> </p>
           </td>
           <td><p>Coef mcmcr</p></td>
         </tr><tr>
@@ -195,15 +171,9 @@
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="combine_values_list.html">combine_values_list</a></code> </p>
+            <p><code><a href="combine_samples.html">combine_samples</a></code> </p>
           </td>
-          <td><p>Combine list of mcmc samples</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="combine_values.html">combine_values</a></code> </p>
-          </td>
-          <td><p>Combines object values.</p></td>
+          <td><p>Combines object samples.</p></td>
         </tr><tr>
           <!--  -->
           <td>
@@ -225,15 +195,9 @@
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="dims_term.html">dims_term</a></code> </p>
-          </td>
-          <td><p>Get dims for term object</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
             <p><code><a href="dims.html">dims</a></code> </p>
           </td>
-          <td><p>Dims</p></td>
+          <td><p>Dimensions</p></td>
         </tr><tr>
           <!--  -->
           <td>
@@ -285,12 +249,6 @@
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="list_mcarrays.html">list_mcarrays</a></code> </p>
-          </td>
-          <td><p>List of McArrays</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
             <p><code><a href="log-set.html">log<-</a></code> </p>
           </td>
           <td><p>Log Transformation</p></td>
@@ -312,6 +270,12 @@
             <p><code><a href="mcmc_map.html">mcmc_map</a></code> </p>
           </td>
           <td><p>MCMC map</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="mcmcr_example.html">mcmcr_example</a></code> </p>
+          </td>
+          <td><p>Example mcmcr Object</p></td>
         </tr><tr>
           <!--  -->
           <td>
@@ -339,33 +303,27 @@
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="npars.mcmcr.html">npars</a></code> </p>
+            <p><code><a href="npars.html">npars</a></code> </p>
           </td>
-          <td><p>Number of parameters</p></td>
+          <td><p>Number of Parameters</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="npars.html">npars</a></code> </p>
+            <p><code><a href="nsams.html">nsams</a></code> </p>
           </td>
-          <td><p>Number of parameters</p></td>
+          <td><p>Number of MCMC Samples</p></td>
         </tr><tr>
           <!--  -->
           <td>
             <p><code><a href="nsims.html">nsims</a></code> </p>
           </td>
-          <td><p>Size of MCMC Sample</p></td>
+          <td><p>Number of MCMC Simulations</p></td>
         </tr><tr>
           <!--  -->
           <td>
             <p><code><a href="nterms.html">nterms</a></code> </p>
           </td>
-          <td><p>Number of terms.</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="parameter.html">parameter</a></code> </p>
-          </td>
-          <td><p>Parameter</p></td>
+          <td><p>Number of terms</p></td>
         </tr><tr>
           <!--  -->
           <td>
@@ -375,15 +333,15 @@
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="parameters.mcmcr.html">parameters</a></code> </p>
+            <p><code><a href="parameters.html">parameters</a></code> </p>
           </td>
           <td><p>Parameters</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="parameters.html">parameters</a></code> </p>
+            <p><code><a href="pdims.html">pdims</a></code> </p>
           </td>
-          <td><p>Parameters</p></td>
+          <td><p>Parameter Dimensions</p></td>
         </tr><tr>
           <!--  -->
           <td>
@@ -399,9 +357,21 @@
         </tr><tr>
           <!--  -->
           <td>
+            <p><code><a href="pvalue.html">pvalue</a></code> </p>
+          </td>
+          <td><p>P-Value</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
             <p><code><a href="rhat.html">rhat</a></code> </p>
           </td>
           <td><p>Rhat</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="set_parameters.html">set_parameters</a></code> </p>
+          </td>
+          <td><p>Set Parameters</p></td>
         </tr><tr>
           <!--  -->
           <td>
@@ -411,15 +381,15 @@
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="subset.mcmcarray.html">subset</a></code> </p>
+            <p><code><a href="terms.html">terms</a></code> </p>
           </td>
-          <td><p>Subset mcmc object</p></td>
+          <td><p>Terms</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="subset.mcmcr.html">subset</a></code> </p>
+            <p><code><a href="thin.html">thin</a></code> </p>
           </td>
-          <td><p>Subset mcmc object</p></td>
+          <td><p>Thin</p></td>
         </tr><tr>
           <!--  -->
           <td>

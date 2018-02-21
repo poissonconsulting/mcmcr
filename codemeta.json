@@ -7,9 +7,9 @@
   "identifier": "mcmcr",
   "description": "Manipulates Monte Carlo Markov Chain (MCMC) samples.",
   "name": "mcmcr: Manipulate MCMC Samples",
-  "datePublished": "2018-02-12",
+  "datePublished": "2018-02-20",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.0.9043",
+  "version": "0.0.0.9045",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -97,30 +97,8 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "purrr",
-      "name": "purrr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      }
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "plyr",
       "name": "plyr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "reshape2",
-      "name": "reshape2",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -153,6 +131,6 @@
   ],
   "contIntegration": "https://travis-ci.org/poissonconsulting/mcmcr",
   "readme": "https://github.com/poissonconsulting/mcmcr/blob/master/README.md",
-  "fileSize": "389.584KB",
+  "fileSize": "192.523KB",
   "codeRepository": "https://github.com/poissonconsulting/mcmcr"
 }

@@ -32,128 +32,126 @@ classes store MCMC samples as follows:
     represents a variable
   - `coda::mcmc.list` stores multiple `mcmc` objects (with identical
     dimensions) as a list where each object represents a parallel chain
-  - `rjags::mcarray` stores the samples from multiple parallel chains as
-    an array where the first dimension is variables, the second
-    dimension is the iterations and the third dimension is the chains.
+  - `rjags::mcarray` stores the samples from a single parameter where
+    the initial dimensions are the parameter dimensions, the second to
+    last dimension is iterations and the last dimension is chains.
 
-In all threes cases the terms/parameters are represented by a single
+In the first two cases the terms/parameters are represented by a single
 dimension which means that the dimensionality inherent in the parameters
 is stored in the labelling of the variables, ie, `"bIntercept",
 "bInteraction[1,2]", "bInteraction[2,1]", ...`. The structure of the
 `mcmc` and `mcmc.list` objects emphasizes the time-series nature of MCMC
-samples and is optimized for thining. According to the documentation the
-`mcarray` preserve the dimensions of the original node array defined in
-a JAGS model.
+samples and is optimized for thining. In contrast `mcarray` objects
+preserve the dimensionality of the parameters.
 
-The `mcmcr` packages introduces two related S3 classes which preserve
-the dimensionality of the parameters:
+The `mcmcr` packages introduces two related S3 classes which also
+preserve the dimensionality of the parameters:
 
-  - `mcmcr::mcmcarray` stores the samples for a single parameter from
-    one or more chains where the first dimension is the chains, the
-    second dimension is iterations and the subsequent dimensions
-    represent the dimensionality of the parameter;
-  - `mcmcr::mcmcr` stores the samples for multiple uniquely named
-    parameters with the same number of chains and iterations.
-
-The `mcmcr` package also introduces a third S3 class, `mcmcr::mcmcrs`,
-which stores multiple `mcmcr` objects representing individual analyses.
+  - `mcmcr::mcmcarray` is very similar to `rjags::mcarray` except that
+    the first dimension is the chains, the second dimension is
+    iterations and the subsequent dimensions represent the
+    dimensionality of the parameter (it is called `mcmcarray` to
+    emphasize that the MCMC dimensions ie the chains and iterations come
+    first);
+  - `mcmcr::mcmcr` stores multiple uniquely named `mcmcarray` objects
+    with the same number of chains and iterations.
 
 ## Why mcmcr?
 
-The `mcmcarray`, `mcmcr` and `mcmcrs` classes were designed to be easy
-to manipulate. As a result, the `mcmcr` package introduces a variety of
-generic classes to:
+`mcmcarray` objects were introduced to facilitate manipulation and
+querying of the MCMC samples - although they are are just one `aperm`
+away from `mcarray` objects they are more intuitive to program with (at
+least for this programmer\!) `mcmcr` objects were introduced to allow a
+set of parameters to be manipulated and queried as a coherent whole.
 
-  - `subset` individual objects by chains, iterations or parameters;
-  - `collapse` or `split` an object’s chains;
-  - `bind` multiple objects by their parameters, chains, iterations or
-    terms;
-  - `combine` multiple objects by summing or otherwise combining their
-    values;
+The `mcmcr` package introduces a variety of (often) generic functions to
+manipulate and query `mcmcarray` and `mcmcr` objects. In particular it
+provides functions to
+
+  - coerce from and to `mcarray`, `mcmc` and `mcmc.list` objects;
+  - extract an objects `coef` table as a tibble;
+  - query an object’s `nchains`, `niters`, `npars`, `nterms`, `nsims`
+    and `nsams` as well as it’s parameter dimensions (`pdims`)
+  - `subset` objects by chains, iterations and/or parameters;
+  - `bind_xx` a pair of objects by their chains, iterations, parameters
+    or parameter dimensions;
+  - `combine_samples` of two objects by summing or otherwise aggregating
+    their MCMC sample values;
+  - `collapse_chains` or `split_chains` an object’s chains;
   - `mcmc_map` over an objects values;
   - assess if an object has `converged` using `rhat` and `esr`
     (effectively sampling rate);
-  - and of course `coef`, `coerce`, `print`, `plot` etc said objects.
+  - and of course `thin`, `rhat`, `ess` (effective sample size),
+    `print`, `plot` etc said objects.
 
-Finally, the mcmcr package allows the user to readily `derive` an
-`mcmcr` object of new parameters (with potentially novel dimensionality)
-from an existing mcmc object by using standard R code to define the
-relationship between the ‘primary’ parameters in the existing object and
-the ‘derived’ parameters in the created object (and any other values
-specified by the user). No more rerunning a model because you forget to
-include a derived parameter\!
+The `mcmcr` package also provides the R equivalent to functions such as
+`pow()`, `logit() <-` that often occur in JAGS/BUGS, STAN, ADMB/TMB
+model code.
+
+Finally, the mcmcr package allows the user to `derive` an `mcmcr` object
+of new parameters (with potentially novel dimensionality) from an
+existing `mcmcr` object using standard R code. No more rerunning a model
+because you forget to include a derived parameter\!
 
 ## Demonstration
 
 ``` r
 library(mcmcr)
+#> 
+#> Attaching package: 'mcmcr'
+#> The following object is masked from 'package:stats':
+#> 
+#>     terms
 
-mcmcr <- mcmcr:::mcmcr
-
-mcmcr
+mcmcr_example
 #> $alpha
-#> [1] 2.998247 3.998247
+#> [1] 3.01883 4.01883
 #> nchains:  2 
-#> niters:  1000 
+#> niters:  200 
 #> 
 #> $beta
-#>          [,1]    [,2]
-#> [1,] 1.265929 1.33237
-#> [2,] 2.265929 2.33237
+#>         [,1]    [,2]
+#> [1,] 0.79625 1.79625
+#> [2,] 1.79625 2.79625
 #> nchains:  2 
-#> niters:  1000 
+#> niters:  200 
 #> 
 #> $sigma
-#> [1] 0.8265352
+#> [1] 0.7911975
 #> nchains:  2 
-#> niters:  1000
+#> niters:  200
 
-parameters(mcmcr)
-#> [1] "alpha" "beta"  "sigma"
-nchains(mcmcr)
-#> [1] 2
-niters(mcmcr)
-#> [1] 1000
-nterms(mcmcr)
-#> [1] 7
-
-coef(mcmcr)
+coef(mcmcr_example)
 #> # A tibble: 7 x 7
-#>   term       estimate    sd zscore lower upper   pvalue
-#> * <S3: term>    <dbl> <dbl>  <dbl> <dbl> <dbl>    <dbl>
-#> 1 alpha[1]      3.00  0.520   5.78 2.01   4.00 0.00100 
-#> 2 alpha[2]      4.00  0.520   7.70 3.01   5.00 0.000500
-#> 3 beta[1,1]     1.27  0.622   2.05 0.160  2.33 0.0230  
-#> 4 beta[2,1]     2.27  0.622   3.66 1.16   3.33 0.00100 
-#> 5 beta[1,2]     1.33  0.619   2.12 0.277  2.40 0.0150  
-#> 6 beta[2,2]     2.33  0.619   3.74 1.28   3.40 0.00200 
-#> 7 sigma         0.827 0.664   1.52 0.424  2.73 0.000500
-rhat(mcmcr, by = "term")
+#>   term       estimate    sd zscore lower upper  pvalue
+#>   <S3: term>    <dbl> <dbl>  <dbl> <dbl> <dbl>   <dbl>
+#> 1 alpha[1]      3.02  0.498   5.99 1.97   3.88 0.00250
+#> 2 alpha[2]      4.02  0.498   8.00 2.97   4.88 0.00250
+#> 3 beta[1,1]     0.796 0.337   2.37 0.143  1.47 0.0300 
+#> 4 beta[2,1]     1.80  0.337   5.34 1.14   2.47 0.00500
+#> 5 beta[1,2]     1.80  0.337   5.34 1.14   2.47 0.00500
+#> 6 beta[2,2]     2.80  0.337   8.31 2.14   3.47 0.00250
+#> 7 sigma         0.791 0.741   1.31 0.425  2.56 0.00250
+rhat(mcmcr_example, by = "term")
 #> $alpha
 #> [1] 1 1
 #> 
 #> $beta
 #>      [,1] [,2]
-#> [1,] 1.85 1.87
-#> [2,] 1.85 1.87
+#> [1,]    1    1
+#> [2,]    1    1
 #> 
 #> $sigma
 #> [1] 1
-esr(mcmcr)
-#> [1] 0
-converged(mcmcr)
-#> [1] FALSE
-plot(mcmcr[["alpha"]])
+plot(mcmcr_example[["alpha"]])
 ```
 
 ![](tools/README-unnamed-chunk-2-1.png)<!-- -->
 
 ``` r
 
-mcmcr2 <- derive(mcmcr, "gamma <- sum(alpha) * sigma")
-rhat(mcmcr2)
-#> [1] 1.01
-plot(mcmcr2)
+gamma <- derive(mcmcr_example, "gamma <- sum(alpha) * sigma")
+plot(gamma)
 ```
 
 ![](tools/README-unnamed-chunk-2-2.png)<!-- -->
@@ -172,7 +170,7 @@ To install the latest version from GitHub
 To cite package 'mcmcr' in publications use:
 
   Joe Thorley (2018). mcmcr: Manipulate MCMC Samples. R package
-  version 0.0.0.9043.
+  version 0.0.0.9045.
 
 A BibTeX entry for LaTeX users is
 
@@ -180,7 +178,7 @@ A BibTeX entry for LaTeX users is
     title = {mcmcr: Manipulate MCMC Samples},
     author = {Joe Thorley},
     year = {2018},
-    note = {R package version 0.0.0.9043},
+    note = {R package version 0.0.0.9045},
   }
 ```
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Parameter — parameter • mcmcr</title>
+<title>Thin — thin • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -75,35 +75,59 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Parameter</h1>
+    <h1>Thin</h1>
     </div>
 
     
-    <p>Parameter</p>
+    <p>Thin</p>
     
 
-    <pre class="usage"><span class='fu'>parameter</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>thin</span>(<span class='no'>x</span>, <span class='kw'>nthin</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>The object to get the parameter(s) for.</p></td>
+      <td><p>The object to thin</p></td>
+    </tr>
+    <tr>
+      <th>nthin</th>
+      <td><p>A count of the thinning interval</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Unused.</p></td>
+      <td><p>Not used.</p></td>
     </tr>
     </table>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>thin</span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; $alpha
+#&gt; [1] 3.01883 4.01883
+#&gt; nchains:  2 
+#&gt; niters:  200 
+#&gt; 
+#&gt; $beta
+#&gt;         [,1]    [,2]
+#&gt; [1,] 0.79625 1.79625
+#&gt; [2,] 1.79625 2.79625
+#&gt; nchains:  2 
+#&gt; niters:  200 
+#&gt; 
+#&gt; $sigma
+#&gt; [1] 0.7911975
+#&gt; nchains:  2 
+#&gt; niters:  200 
+#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+            
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

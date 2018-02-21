@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Combines object values. — combine_values • mcmcr</title>
+<title>Terms — terms • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -75,43 +75,38 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Combines object values.</h1>
+    <h1>Terms</h1>
     </div>
 
     
-    <p>Combines mcmc objects by values using fun.</p>
+    <p>Terms</p>
     
 
-    <pre class="usage"><span class='fu'>combine_values</span>(<span class='no'>x</span>, <span class='no'>x2</span>, <span class='kw'>fun</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>terms</span>(<span class='no'>x</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>An mcmc object.</p></td>
-    </tr>
-    <tr>
-      <th>x2</th>
-      <td><p>A second mcmc object.</p></td>
-    </tr>
-    <tr>
-      <th>fun</th>
-      <td><p>A function.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Unused.</p></td>
+      <td><p>The object</p></td>
     </tr>
     </table>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>terms</span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; [1] "alpha[1]"  "alpha[2]"  "beta[1,1]" "beta[2,1]" "beta[1,2]" "beta[2,2]"
+#&gt; [7] "sigma"    
+#&gt; attr(,"class")
+#&gt; [1] "term"      "character"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+            
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
