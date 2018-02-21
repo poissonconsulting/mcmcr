@@ -88,11 +88,6 @@ The `mcmcr` package also provides the R equivalent to functions such as
 `pow()`, `logit() <-` that often occur in JAGS/BUGS, STAN, ADMB/TMB
 model code.
 
-Finally, the mcmcr package allows the user to `derive` an `mcmcr` object
-of new parameters (with potentially novel dimensionality) from an
-existing `mcmcr` object using standard R code. No more rerunning a model
-because you forget to include a derived parameter\!
-
 ## Demonstration
 
 ``` r
@@ -147,14 +142,6 @@ plot(mcmcr_example[["alpha"]])
 ```
 
 ![](tools/README-unnamed-chunk-2-1.png)<!-- -->
-
-``` r
-
-gamma <- derive(mcmcr_example, "gamma <- sum(alpha) * sigma")
-plot(gamma)
-```
-
-![](tools/README-unnamed-chunk-2-2.png)<!-- -->
 
 ## Installation
 

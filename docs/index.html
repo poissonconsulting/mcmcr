@@ -96,7 +96,6 @@
 <li>and of course <code>thin</code>, <code>rhat</code>, <code>ess</code> (effective sample size), <code>print</code>, <code>plot</code> etc said objects.</li>
 </ul>
 <p>The <code>mcmcr</code> package also provides the R equivalent to functions such as <code><a href="reference/pow.html">pow()</a></code>, <code>logit() &lt;-</code> that often occur in JAGS/BUGS, STAN, ADMB/TMB model code.</p>
-<p>Finally, the mcmcr package allows the user to <code>derive</code> an <code>mcmcr</code> object of new parameters (with potentially novel dimensionality) from an existing <code>mcmcr</code> object using standard R code. No more rerunning a model because you forget to include a derived parameter!</p>
 </section><section id="demonstration" class="level2"><h2>Demonstration</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(mcmcr)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">#&gt; </span></a>
@@ -147,10 +146,6 @@
 <a class="sourceLine" id="cb1-47" data-line-number="47"><span class="co">#&gt; [1] 1</span></a>
 <a class="sourceLine" id="cb1-48" data-line-number="48"><span class="kw">plot</span>(mcmcr_example[[<span class="st">"alpha"</span>]])</a></code></pre></div>
 <p><img src="tools/README-unnamed-chunk-2-1.png" width="672"></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">gamma &lt;-<span class="st"> </span><span class="kw"><a href="reference/derive.html">derive</a></span>(mcmcr_example, <span class="st">"gamma &lt;- sum(alpha) * sigma"</span>)</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">plot</span>(gamma)</a></code></pre></div>
-<p><img src="tools/README-unnamed-chunk-2-2.png" width="672"></p>
 </section><section id="installation" class="level2"><h2>Installation</h2>
 <p>To install the latest version from GitHub</p>
 <pre><code><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github"># install.packages("devtools")
