@@ -1,5 +1,3 @@
-multiply_by <- function(x, x2) x * x2
-equals <- function(x, x2) x == x2
 error <- function(...) stop(..., call. = FALSE)
 
 set_class <- function(x, class) {
