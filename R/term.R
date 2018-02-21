@@ -3,6 +3,8 @@
 #' @param x The object to coerce
 #' @param ... Unused.
 #' @export
+#' @examples
+#' as.term(mcmcr_example)
 as.term <- function(x, ...) {
   UseMethod("as.term")
 }
@@ -12,20 +14,13 @@ as.term <- function(x, ...) {
 #' @param x The character vector to coerce
 #' @param ... Unused.
 #' @export
-as.term.character <- function(x, ...) {
-  class(x) <- c("term", "character")
-  x
-}
+as.term.character <- function(x, ...) set_class(x, c("term", "character"))
 
 #' @export
-as.term.mcmc <- function(x, ...) {
-  as.term(colnames(x))
-}
+as.term.mcmc <- function(x, ...) as.term(colnames(x))
 
 #' @export
-as.term.mcmc.list <- function(x, ...) {
-  as.term(x[[1]])
-}
+as.term.mcmc.list <- function(x, ...) as.term(x[[1]])
 
 #' @export
 as.term.mcmcarray <- function(x, ...) {
@@ -33,14 +28,14 @@ as.term.mcmcarray <- function(x, ...) {
   x <- drop(x)
   x <- unclass(x)
   x <- reshape2::melt(x)
-  if (nrow(x) == 1) return(as.term(""))
-  if (ncol(x) == 1) return(as.term(paste0("[", 1:nrow(x), "]")))
+  if (nrow(x) == 1) return(as.term("parameter"))
+  if (ncol(x) == 1) return(as.term(paste0("parameter[", 1:nrow(x), "]")))
 
   x$value <- NULL
   x <- tibble::tibble(
     term = apply(as.matrix(x), 1, function(x) paste(x, collapse = ","))
   )
-  x$term <- paste0("[", x$term, "]")
+  x$term <- paste0("parameter[", x$term, "]")
 
   as.term(x$term)
 }
@@ -49,19 +44,13 @@ as.term.mcmcarray <- function(x, ...) {
 as.term.mcmcr <- function(x, ...) {
   parameters <- parameters(x)
   x <- lapply(x, terms)
-
-  x <- mapply(x, parameters, FUN = function(x, y) {x <- paste0(y, x); x},
+  x <- mapply(x, parameters, FUN = function(x, y) {sub("parameter", y, x, fixed = TRUE)},
                    SIMPLIFY = FALSE)
-  x <- unlist(x)
-  names(x) <- NULL
-  as.term(x)
+  as.term(unname(unlist(x)))
 }
 
 #' @export
-as.character.term <- function(x, ...) {
-  class(x) <- "character"
-  x
-}
+as.character.term <- function(x, ...) set_class(x, "character")
 
 #' @export
 rep.term <- function(x, times, ...) {

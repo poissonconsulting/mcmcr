@@ -49,7 +49,7 @@ as.mcmc.mcmcarray <- function(x) {
   terms <- terms(x)
   x <- apply(x, 1, identity)
   x <- matrix(x, ncol = length(terms))
-  colnames(x) <- paste0("parameter", as.character(terms))
+  colnames(x) <- as.character(terms)
   coda::as.mcmc(x)
 }
 

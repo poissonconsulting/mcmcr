@@ -17,9 +17,9 @@ test_that("term", {
 })
 
 test_that("terms.mcmcarray", {
-  expect_identical(as.term(mcmcr_example[[1]]), as.term(c("[1]", "[2]")))
-  expect_identical(as.term(mcmcr_example[[2]]), as.term(c("[1,1]", "[2,1]", "[1,2]", "[2,2]")))
-  expect_identical(as.term(mcmcr_example[[3]]), as.term(""))
+  expect_identical(as.term(mcmcr_example[[1]]), as.term(c("parameter[1]", "parameter[2]")))
+  expect_identical(as.term(mcmcr_example[[2]]), as.term(c("parameter[1,1]", "parameter[2,1]", "parameter[1,2]", "parameter[2,2]")))
+  expect_identical(as.term(mcmcr_example[[3]]), as.term("parameter"))
 })
 
 test_that("terms.mcmcr", {

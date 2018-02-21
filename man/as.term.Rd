@@ -14,3 +14,6 @@ as.term(x, ...)
 \description{
 Coerce object to term vector.
 }
+\examples{
+as.term(mcmcr_example)
+}
