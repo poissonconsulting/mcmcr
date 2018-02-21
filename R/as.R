@@ -35,13 +35,18 @@ as.mcmcr <- function(x, ...) UseMethod("as.mcmcr")
 as.mcmcrs <- function(x, ...) UseMethod("as.mcmcrs")
 
 #' @export
+as.mcarray.default <- function(x, ...) as.mcarray(as.mcmcarray(x))
+
+#' @export
 as.mcarray.mcmcarray <- function(x, ...) {
   n <- ndims(x)
   names(dim(x)) <- c("chain", "iteration", rep("", n - 2))
   x <- aperm(x, c(3:n, 2, 1))
-  class(x) <- "mcarray"
-  x
+  set_class(x, "mcarray")
 }
+
+#' @export
+as.mcmc.mcarray <- function(x) as.mcmc(as.mcmcarray(x))
 
 #' @export
 as.mcmc.mcmcarray <- function(x) {
@@ -53,11 +58,19 @@ as.mcmc.mcmcarray <- function(x) {
   coda::as.mcmc(x)
 }
 
+#' @method as.mcmc mcmc.list
+#' @export
+as.mcmc.mcmc.list <- function(x) {
+  if(nchains(x) != 1) error("x must only have 1 chain")
+  x[[1]]
+}
+
+#' @export
+as.mcmc.mcmcr <- function(x) as.mcmc(as.mcmc.list(x))
+
 #' @method as.mcmc.list mcarray
 #' @export
-as.mcmc.list.mcarray <- function(x, ...) {
-  as.mcmc.list(as.mcmcarray(x))
-}
+as.mcmc.list.mcarray <- function(x) as.mcmc.list(as.mcmcarray(x))
 
 #' @method as.mcmc.list mcmcarray
 #' @export
@@ -66,6 +79,10 @@ as.mcmc.list.mcmcarray <- function(x, ...) {
   x <- lapply(x, as.mcmc)
   coda::mcmc.list(x)
 }
+
+#' @method as.mcmc.list mcmc
+#' @export
+as.mcmc.list.mcmc <- function(x, ...) set_class(list(x), "mcmc.list")
 
 #' @method as.mcmc.list mcmcr
 #' @export
@@ -80,8 +97,7 @@ as.mcmc.list.mcmcr <- function(x, ...) {
 #' @export
 as.mcmcarray.default <- function(x, ...) {
    dim(x) <- c(1,1,dims(x))
-   class(x) <- "mcmcarray"
-   x
+   set_class(x, "mcmcarray")
 }
 
 #' @export
@@ -89,8 +105,7 @@ as.mcmcarray.mcarray <- function(x, ...) {
   dim(x) <- unname(dim(x))
   n <- ndims(x)
   x <- aperm(x, c(n, n - 1, 1:(n - 2)))
-  class(x) <- "mcmcarray"
-  x
+  set_class(x, "mcmcarray")
 }
 
 #' @export
@@ -100,8 +115,17 @@ as.mcmcarray.mcmc <- function(x, ...) {
   pdims <- pdims(x)[[1]]
   x <- x[,order(terms(x)), drop = FALSE]
   x <- array(data = as.vector(x), dim = c(1, niters(x), pdims))
-  class(x) <- "mcmcarray"
-  x
+  set_class(x, "mcmcarray")
+}
+
+#' @method as.mcmcarray mcmc.list
+#' @export
+as.mcmcarray.mcmc.list <- function(x, ...) as.mcmcarray(as.mcmcr(x))
+
+#' @export
+as.mcmcarray.mcmcr <- function(x, ...) {
+  if(npars(x) != 1) error("x must only have 1 parameter")
+  x[[1]]
 }
 
 #' @export
@@ -121,8 +145,7 @@ as.mcmcr.list <- function(x, ...) {
   if (!identical(length(unique(niters)), 1L))
     error("all objects must have the same number of iterations")
 
-  class(x) <- "mcmcr"
-  x
+  set_class(x, "mcmcr")
 }
 
 #' @export
@@ -131,8 +154,7 @@ as.mcmcr.mcmc <- function(x, ...) {
   x <- lapply(parameters, function(p, x) subset(x, parameters = p), x = x)
   x <- lapply(x, as.mcmcarray)
   names(x) <- parameters
-  class(x) <- "mcmcr"
-  x
+  set_class(x, "mcmcr")
 }
 
 #' @export

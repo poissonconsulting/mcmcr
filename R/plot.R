@@ -10,8 +10,6 @@ mfrow <- function(nterms = 1) {
 
 #' @export
 plot.mcmcarray <- function(x, ...) {
-
-
   nterms <- nterms(x)
 
   mfrow <- mfrow(nterms)
