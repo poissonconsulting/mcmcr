@@ -4,7 +4,8 @@
 \alias{coef.default}
 \title{Coef mcmcr}
 \usage{
-\method{coef}{default}(object, conf_level = 0.95, estimate = median, ...)
+\method{coef}{default}(object, conf_level = 0.95, estimate = stats::median,
+  ...)
 }
 \arguments{
 \item{object}{The mcmcr object.}

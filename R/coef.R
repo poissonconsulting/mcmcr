@@ -10,13 +10,13 @@
 #' @export
 #' @examples
 #' coef(mcmcr_example)
-coef.default <- function(object, conf_level = 0.95, estimate = median, ...) {
+coef.default <- function(object, conf_level = 0.95, estimate = stats::median, ...) {
   object <- coda::as.mcmc.list(object)
   coef(object, conf_level = conf_level, estimate = estimate)
 }
 
 #' @export
-coef.numeric <- function(object, conf_level = 0.95, estimate = median, ...) {
+coef.numeric <- function(object, conf_level = 0.95, estimate = stats::median, ...) {
   check_probability(conf_level)
   check_function(estimate)
 
@@ -37,7 +37,7 @@ coef.numeric <- function(object, conf_level = 0.95, estimate = median, ...) {
 }
 
 #' @export
-coef.mcmc <- function(object, conf_level = 0.95, estimate = median, ...) {
+coef.mcmc <- function(object, conf_level = 0.95, estimate = stats::median, ...) {
   terms <- terms(object)
   object <- t(object)
   object <- apply(object, MARGIN = 1, FUN = coef, conf_level = conf_level, estimate = estimate)
@@ -49,7 +49,7 @@ coef.mcmc <- function(object, conf_level = 0.95, estimate = median, ...) {
 }
 
 #' @export
-coef.mcmc.list <- function(object, conf_level = 0.95, estimate = median, ...) {
+coef.mcmc.list <- function(object, conf_level = 0.95, estimate = stats::median, ...) {
   object <- collapse_chains(object)
   coef(object, conf_level = conf_level, estimate = estimate)
 }

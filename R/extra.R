@@ -17,7 +17,7 @@ pow <- function(x, n) x^n
 #' @export
 #' @examples
 #' phi(0:2)
-phi <- function(x) pnorm(x)
+phi <- function(x) stats::pnorm(x)
 
 #' Log Transformation
 #'

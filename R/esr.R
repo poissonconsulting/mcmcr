@@ -21,7 +21,7 @@ esr <- function(x, ...) {
 
 #' @export
 esr.numeric <- function(x, ...) {
-  x <- acf(x, lag.max = length(x) - 1, plot = FALSE)$acf[,,1]
+  x <- stats::acf(x, lag.max = length(x) - 1, plot = FALSE)$acf[,,1]
 
   if (is.nan(x[1])) return(1) # all values identical
 

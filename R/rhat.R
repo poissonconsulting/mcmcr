@@ -14,11 +14,11 @@ rhat <- function(x, ...) {
 
 rhat.matrix <- function(x, ...) {
   mean_chain <- apply(x, 1L, mean)
-  var_chain <- apply(x, 1L, var)
+  var_chain <- apply(x, 1L, stats::var)
 
   niters <- niters(x)
 
-  var_between <- niters * var(mean_chain)
+  var_between <- niters * stats::var(mean_chain)
   var_within <- mean(var_chain)
   rhat <- sqrt((var_between/var_within + niters - 1) / niters)
 
