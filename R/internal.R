@@ -9,10 +9,10 @@ dims_terms <- function(x) {
   x <- sub("^(\\w+)(.*)", "\\2", x)
   x <- sub("^(\\[)(.*)(\\])$", "\\2", x)
   x <- strsplit(x, "\\s*[,]\\s*")
-  x <- purrr::map_if(x, function(x) identical(x, character(0)), function(x) "")
+  x[vapply(x, function(x) identical(x, character(0)), TRUE)] <- ""
   x <- lapply(x, function(x) gsub("\\s+", "", x))
   x <- lapply(x, as.integer)
-  x <- purrr::map_if(x, function(x) identical(x, NA_integer_), function(x) 1L)
+  x[is.na(x)] <- 1L
   x
 }
 
