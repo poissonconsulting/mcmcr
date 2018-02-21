@@ -84,10 +84,6 @@ provides functions to
   - and of course `thin`, `rhat`, `ess` (effective sample size),
     `print`, `plot` etc said objects.
 
-The `mcmcr` package also provides the R equivalent to functions such as
-`pow()`, `logit() <-` that often occur in JAGS/BUGS, STAN, ADMB/TMB
-model code.
-
 ## Demonstration
 
 ``` r
