@@ -15,3 +15,6 @@ An object of class mcmcrs
 \description{
 MCMCRs
 }
+\examples{
+mcmcrs(mcmcr_example, mcmcr_example)
+}

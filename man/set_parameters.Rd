@@ -17,3 +17,6 @@ A copy of the updated object
 \description{
 Set Parameters
 }
+\examples{
+set_parameters(mcmcr_example, c("gamma", "theta", "tau"))
+}

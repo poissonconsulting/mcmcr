@@ -5,6 +5,8 @@
 #' @param x An mcmc object.
 #' @param ... Unused.
 #' @export
+#' @examples
+#' split_chains(mcmcr_example)
 split_chains <- function(x, ...) {
   UseMethod("split_chains")
 }
@@ -20,7 +22,6 @@ split_chains.mcmcarray <- function(x, ...) {
 
   bind_chains(x, y)
 }
-
 
 #' @export
 split_chains.mcmcr <- function(x, ...) {

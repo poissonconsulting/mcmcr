@@ -2,11 +2,11 @@
 #'
 #' @param x The object.
 #' @return An integer vector of the dimensions.
+#' @export
 #' @examples
 #' dims(character())
 #' dims(2:3)
 #' dims(matrix(1:6, nrow = 2))
-#' @export
 dims <- function(x) if (is.vector(x) || is.factor(x)) length(x) else dim(x)
 
 #' Number of dimensions
@@ -27,6 +27,8 @@ ndims <- function(x) {
 #'
 #' @return A count of the total number of simulations.
 #' @export
+#' @examples
+#' nsims(mcmcr_example)
 nsims <- function(x) {
   nchains(x) * niters(x)
 }
@@ -39,6 +41,8 @@ nsims <- function(x) {
 #'
 #' @return A count of the total number of samples.
 #' @export
+#' @examples
+#' nsams(mcmcr_example)
 nsams <- function(x) {
   nterms(x) * nsims(x)
 }
@@ -47,6 +51,8 @@ nsams <- function(x) {
 #'
 #' @param x The object
 #' @export
+#' @examples
+#' terms(mcmcr_example)
 terms <- function(x) {
   as.term(x)
 }
@@ -73,6 +79,8 @@ thin <- function(x, nthin = 1L, ...) {
 #'
 #' @return A copy of the updated object
 #' @export
+#' @examples
+#' set_parameters(mcmcr_example, c("gamma", "theta", "tau"))
 set_parameters <- function(x, parameters) {
   parameters(x) <- parameters
   x

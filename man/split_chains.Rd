@@ -14,3 +14,6 @@ split_chains(x, ...)
 \description{
 Splits each chain into two chains.
 }
+\examples{
+split_chains(mcmcr_example)
+}

@@ -14,3 +14,6 @@ pdims(x, ...)
 \description{
 Gets the parameter dimensions of an object.
 }
+\examples{
+pdims(mcmcr_example)
+}

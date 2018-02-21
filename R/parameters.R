@@ -6,6 +6,10 @@
 #' @param ... Not used.
 #' @return A character vector of the parameter names.
 #' @export
+#' @examples
+#' parameters(mcmcr_example)
+#' parameters(mcmcr_example) <- c("gamma", "theta", "tau")
+#' parameters(mcmcr_example)
 parameters <- function(x, ...) UseMethod("parameters")
 
 #' Parameters

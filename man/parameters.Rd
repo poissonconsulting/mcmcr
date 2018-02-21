@@ -17,3 +17,8 @@ A character vector of the parameter names.
 \description{
 Gets the parameter names for an object.
 }
+\examples{
+parameters(mcmcr_example)
+parameters(mcmcr_example) <- c("gamma", "theta", "tau")
+parameters(mcmcr_example)
+}

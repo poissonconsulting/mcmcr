@@ -15,3 +15,6 @@ A count of the total number of simulations.
 \description{
 The product of the number of chains and number of iterations in each chain.
 }
+\examples{
+nsims(mcmcr_example)
+}

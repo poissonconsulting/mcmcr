@@ -15,3 +15,6 @@ A count of the total number of samples.
 \description{
 The product of the number of simulations and the number of terms.
 }
+\examples{
+nsams(mcmcr_example)
+}

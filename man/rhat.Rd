@@ -18,6 +18,11 @@ The rhat value(s).
 Calculates uncorrected, untransformed, univariate
 split R-hat (potential scale reduction factor) values.
 }
+\examples{
+rhat(mcmcr_example)
+rhat(mcmcr_example, by = "parameter")
+rhat(mcmcr_example, by = "term")
+}
 \references{
 Gelman, A., and Rubin, D.B. 1992. Inference from Iterative Simulation Using Multiple Sequences. Statistical Science 7(4): 457–472.
 }

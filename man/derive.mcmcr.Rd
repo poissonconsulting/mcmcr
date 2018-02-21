@@ -26,3 +26,6 @@ An mcmcr object of the monitored parameters.
 \description{
 Calculate dervived parameters.
 }
+\examples{
+derive(mcmcr_example, "prediction <- (alpha + beta) / sigma")
+}

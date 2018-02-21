@@ -12,3 +12,6 @@ terms(x)
 \description{
 Terms
 }
+\examples{
+terms(mcmcr_example)
+}

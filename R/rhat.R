@@ -8,10 +8,15 @@
 #' @param ... Unused.
 #' @return The rhat value(s).
 #' @export
+#' @examples
+#' rhat(mcmcr_example)
+#' rhat(mcmcr_example, by = "parameter")
+#' rhat(mcmcr_example, by = "term")
 rhat <- function(x, ...) {
   UseMethod("rhat")
 }
 
+#' @export
 rhat.matrix <- function(x, ...) {
   mean_chain <- apply(x, 1L, mean)
   var_chain <- apply(x, 1L, stats::var)

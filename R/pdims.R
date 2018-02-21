@@ -5,6 +5,8 @@
 #' @param x The object
 #' @param ... Unused.
 #' @export
+#' @examples
+#' pdims(mcmcr_example)
 pdims <- function(x, ...) UseMethod("pdims")
 
 #' @export
