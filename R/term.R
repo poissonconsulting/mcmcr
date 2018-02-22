@@ -48,6 +48,19 @@ as.term.mcmcr <- function(x, ...) {
   as.term(unname(unlist(x)))
 }
 
+
+#' @export
+terms.mcmc <- function(x, ...) as.term(x)
+
+#' @export
+terms.mcmc.list <- function(x, ...) as.term(x)
+
+#' @export
+terms.mcmcarray <- function(x, ...) as.term(x)
+
+#' @export
+terms.mcmcr <- function(x, ...) as.term(x)
+
 #' @export
 as.character.term <- function(x, ...) set_class(x, "character")
 

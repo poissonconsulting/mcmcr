@@ -47,16 +47,6 @@ nsams <- function(x) {
   nterms(x) * nsims(x)
 }
 
-#' Terms
-#'
-#' @param x The object
-#' @export
-#' @examples
-#' terms(mcmcr_example)
-terms <- function(x) {
-  as.term(x)
-}
-
 #' Thin
 #'
 #' @param x The object to thin
