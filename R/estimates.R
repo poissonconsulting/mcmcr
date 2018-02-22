@@ -12,16 +12,16 @@ estimates <- function(object, ...) {
 }
 
 #' @export
-estimates.mcarray <- function(object, fun = stats::median, as_list = TRUE, ...) {
-  if(as_list)
-    return(estimates(as.mcmcarray(object), fun = fun, as_list = TRUE))
-  estimates(coda::as.mcmc.list(object), fun = fun, as_list = FALSE)
+estimates.mcarray <- function(object, fun = stats::median, as_df = FALSE, ...) {
+  if(!as_df)
+    return(estimates(as.mcmcarray(object), fun = fun, as_df = FALSE))
+  estimates(coda::as.mcmc.list(object), fun = fun, as_df = TRUE)
 }
 
 #' @export
-estimates.mcmc <- function(object, fun = stats::median, as_list = TRUE, ...) {
-  if(as_list)
-    return(estimates(as.mcmcr(object), fun = fun, as_list = TRUE))
+estimates.mcmc <- function(object, fun = stats::median, as_df = FALSE, ...) {
+  if(!as_df)
+    return(estimates(as.mcmcr(object), fun = fun, as_df = FALSE))
 
   terms <- terms(object)
   object <- t(object)
@@ -31,21 +31,21 @@ estimates.mcmc <- function(object, fun = stats::median, as_list = TRUE, ...) {
 }
 
 #' @export
-estimates.mcmc.list <- function(object, fun = stats::median, as_list = TRUE, ...) {
-  if(as_list)
-    return(estimates(as.mcmcr(object), fun = fun, as_list = TRUE))
+estimates.mcmc.list <- function(object, fun = stats::median, as_df = FALSE, ...) {
+  if(!as_df)
+    return(estimates(as.mcmcr(object), fun = fun, as_df = FALSE))
 
   object <- collapse_chains(object)
-  estimates(object, fun = fun, as_list = FALSE)
+  estimates(object, fun = fun, as_df = TRUE)
 }
 
 #' @export
-estimates.mcmcarray <- function(object, fun = stats::median, as_list = TRUE, ...) {
+estimates.mcmcarray <- function(object, fun = stats::median, as_df = FALSE, ...) {
   check_function(fun)
-  check_flag(as_list)
+  check_flag(as_df)
 
-  if(!as_list)
-    return(estimates(coda::as.mcmc.list(object), fun = fun, as_list = FALSE))
+  if(as_df)
+    return(estimates(coda::as.mcmc.list(object), fun = fun, as_df = TRUE))
 
   ndims <- ndims(object)
   object <- apply(object, 3:ndims, FUN = fun, ...)
@@ -55,8 +55,8 @@ estimates.mcmcarray <- function(object, fun = stats::median, as_list = TRUE, ...
 }
 
 #' @export
-estimates.mcmcr <- function(object, fun = stats::median, as_list = TRUE, ...) {
-  if(!as_list)
-    return(estimates(coda::as.mcmc.list(object), fun = fun, as_list = FALSE))
-  lapply(object, estimates, fun = fun, as_list = TRUE, ...)
+estimates.mcmcr <- function(object, fun = stats::median, as_df = FALSE, ...) {
+  if(as_df)
+    return(estimates(coda::as.mcmc.list(object), fun = fun, as_df = TRUE))
+  lapply(object, estimates, fun = fun, as_df = FALSE, ...)
 }
