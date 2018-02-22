@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Converged — converged • mcmcr</title>
+<title>Converged — converged.default • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -82,24 +82,42 @@
     <p>Converged</p>
     
 
-    <pre class="usage"><span class='fu'>converged</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='co'># S3 method for default</span>
+<span class='fu'><a href='converged.html'>converged</a></span>(<span class='no'>x</span>, <span class='kw'>rhat</span> <span class='kw'>=</span> <span class='fl'>1.1</span>, <span class='kw'>esr</span> <span class='kw'>=</span> <span class='fl'>0.33</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
+  <span class='kw'>as_df</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>object to coerce.</p></td>
+      <td><p>An mcmc object.</p></td>
+    </tr>
+    <tr>
+      <th>rhat</th>
+      <td><p>The maximum rhat value.</p></td>
+    </tr>
+    <tr>
+      <th>esr</th>
+      <td><p>The minimum effective sampling rate.</p></td>
+    </tr>
+    <tr>
+      <th>by</th>
+      <td><p>A string indicating whether to determine by "term", "parameter" or "all".</p></td>
+    </tr>
+    <tr>
+      <th>as_df</th>
+      <td><p>A flag indicating whether to return the results as a (tbl) data frame.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Unused.</p></td>
+      <td><p>Unused</p></td>
     </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>converged</span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; [1] FALSE</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='converged.html'>converged</a></span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; [1] FALSE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
