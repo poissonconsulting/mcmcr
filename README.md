@@ -88,11 +88,6 @@ provides functions to
 
 ``` r
 library(mcmcr)
-#> 
-#> Attaching package: 'mcmcr'
-#> The following object is masked from 'package:stats':
-#> 
-#>     terms
 
 mcmcr_example
 #> $alpha
