@@ -37,3 +37,9 @@ greater_than_term <- function(e1, e2) {
 
   e1[which] > e2[which]
 }
+
+.thin <- function(x, nthin = 1L, ...) {
+  check_vector(nthin, c(1L, niters(x)), length = 1)
+  iterations <- seq(1L, niters(x), by = nthin)
+  subset(x, iterations = iterations)
+}

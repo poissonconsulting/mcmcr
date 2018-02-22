@@ -162,6 +162,9 @@ as.mcmcr.list <- function(x, ...) {
 }
 
 #' @export
+as.mcmcr.mcarray <- function(x, ...) as.mcmcr(as.mcmcarray(x))
+
+#' @export
 as.mcmcr.mcmc <- function(x, ...) {
   parameters <- parameters(x)
   x <- lapply(parameters, function(p, x) subset(x, parameters = p), x = x)

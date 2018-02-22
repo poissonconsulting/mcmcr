@@ -47,21 +47,6 @@ nsams <- function(x) {
   nterms(x) * nsims(x)
 }
 
-#' Thin
-#'
-#' @param x The object to thin
-#' @param nthin A count of the thinning interval
-#' @param ... Not used.
-#'
-#' @export
-#' @examples
-#' thin(mcmcr_example)
-thin <- function(x, nthin = 1L, ...) {
-  check_vector(nthin, c(1L, niters(x)), length = 1)
-  iterations <- seq(1L, niters(x), by = nthin)
-  subset(x, iterations = iterations)
-}
-
 #' Set Parameters
 #'
 #' @param x The object
