@@ -177,6 +177,9 @@ as.mcmcr.mcmc.list <- function(x, ...) {
 }
 
 #' @export
+as.mcmcr.mcmcarray <- function(x, ...) set_class(list(x), "mcmcr")
+
+#' @export
 as.mcmcr.mcmcr <- function(x, ...) x
 
 #' @export
