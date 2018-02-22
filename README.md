@@ -120,15 +120,15 @@ coef(mcmcr_example)
 #> 7 sigma         0.791 0.741   1.31 0.425  2.56 0.00120
 rhat(mcmcr_example, by = "term")
 #> $alpha
-#> [1] 2 2
+#> [1] 2.002 2.002
 #> 
 #> $beta
-#>      [,1] [,2]
-#> [1,] 1.15 1.15
-#> [2,] 1.15 1.15
+#>       [,1]  [,2]
+#> [1,] 1.147 1.147
+#> [2,] 1.147 1.147
 #> 
 #> $sigma
-#> [1] 1
+#> [1] 0.998
 plot(mcmcr_example[["alpha"]])
 ```
 
@@ -148,7 +148,7 @@ To install the latest version from GitHub
 To cite package 'mcmcr' in publications use:
 
   Joe Thorley (2018). mcmcr: Manipulate MCMC Samples. R package
-  version 0.0.0.9046.
+  version 0.0.0.9047.
 
 A BibTeX entry for LaTeX users is
 
@@ -156,7 +156,7 @@ A BibTeX entry for LaTeX users is
     title = {mcmcr: Manipulate MCMC Samples},
     author = {Joe Thorley},
     year = {2018},
-    note = {R package version 0.0.0.9046},
+    note = {R package version 0.0.0.9047},
   }
 ```
 

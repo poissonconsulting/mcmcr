@@ -62,7 +62,7 @@ greater_than_term <- function(e1, e2) {
   niters <- niters(x)
   x <- apply(x, 1L, .esr_numeric)
   x <- unlist(x)
-  round(mean(x), 2)
+  round(mean(x), 3)
 }
 
 #' @export
@@ -79,7 +79,7 @@ greater_than_term <- function(e1, e2) {
   rhat <- sqrt((var_between/var_within + niters - 1) / niters)
 
   if (is.nan(rhat)) rhat <- 1
-  round(rhat, 2)
+  round(rhat, 3)
 }
 
 #' @export
