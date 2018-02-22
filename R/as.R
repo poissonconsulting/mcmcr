@@ -146,8 +146,7 @@ as.mcmcr.list <- function(x, ...) {
   check_length(x)
   check_named(x, unique = TRUE)
 
-  if (!all(vapply(x, is.mcmcarray, TRUE)))
-    error("all objects must inherit from mcmcarray")
+  x <- lapply(x, as.mcmcarray)
 
   nchains <- vapply(x, nchains, 1L)
   niters <- vapply(x, niters, 1L)
