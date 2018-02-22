@@ -14,3 +14,9 @@ test_that("estimates not as list", {
   expect_identical(sort(estimates(mcmcr_example, as_df = TRUE)$term), sort(as.term(c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma"))))
 })
 
+test_that("estimates not as list", {
+  expect_equal(estimates(mcmcr_example[[3]], fun = sum), 774.4415, tolerance = 0.0000001)
+  expect_equal(estimates(mcmcr_example[[3]], fun = sum, as_df = TRUE)$estimate, 774.4415, tolerance = 0.0000001)
+  expect_identical(estimates(mcmcr_example[[3]], fun = length), 800L)
+  expect_identical(estimates(mcmcr_example[[3]], fun = length, as_df = TRUE)$estimate, 800L)
+})

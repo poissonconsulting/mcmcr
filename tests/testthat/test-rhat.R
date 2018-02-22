@@ -2,11 +2,11 @@ context("rhat")
 
 test_that("rhat.matrix", {
   matrix <- matrix(1, nrow = 2, ncol = 100)
-  expect_identical(rhat(matrix), 1)
+  expect_identical(.rhat(matrix), 1)
   matrix[1,] <- 2
-  expect_true(is.infinite(rhat(matrix)))
+  expect_true(is.infinite(.rhat(matrix)))
     matrix[1,1] <- NA
-  expect_true(is.na(rhat(matrix)))
+  expect_true(is.na(.rhat(matrix)))
 })
 
 test_that("rhat.mcmcmarray", {
@@ -21,6 +21,7 @@ test_that("rhat.mcmcmarray", {
 })
 
 test_that("rhat.mcmcr", {
+  expect_identical(rhat(mcmcr_example2), 2)
   expect_identical(rhat(mcmcr_example), 2)
   expect_identical(rhat(mcmcr_example, by = "parameter"), list(alpha = 2, beta = 1.15, sigma = 1))
   expect_equal(rhat(mcmcr_example, by = "parameter", as_df = TRUE), tibble::tibble(parameter = c("alpha", "beta", "sigma"), rhat = c(2, 1.15, 1)), check.attributes = FALSE)

@@ -20,41 +20,43 @@ esr <- function(x, ...) {
 }
 
 #' @export
-esr.numeric <- function(x, ...) {
-  x <- stats::acf(x, lag.max = length(x) - 1, plot = FALSE)$acf[,,1]
-
-  if (is.nan(x[1])) return(1) # all values identical
-
-  x <- c(x, -1) # adds stopper
-  match <- match(TRUE, x < 0)
-  x <- sum(x[1:(match-1)]) - 1 # drops lag-0
-  x <- 1 / (1 + 2 * x)
-  round(x, 2)
-}
+esr.mcarray <- function(x, by = "all", ...) esr(as.mcmcarray(x), by = by)
 
 #' @export
-esr.matrix <- function(x, ...) {
-  niters <- niters(x)
-  x <- apply(x, 1L, esr)
-  x <- unlist(x)
-  x <- mean(x)
-  round(x, 2)
-}
+esr.mcmc <- function(x, by = "all", ...) esr(as.mcmcr(x), by = by)
 
 #' @export
-esr.mcmcarray <- function(x, by = "all", ...) {
+esr.mcmc.list <- function(x, by = "all", ...) esr(as.mcmcr(x), by = by)
+
+#' @export
+esr.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
   check_vector(by, c("all", "parameter", "term"), length = 1)
 
-  x <- estimates(x, fun = esr)
+  x <- apply(x, 3:ndims(x), FUN = .esr)
 
-  if (!isTRUE(all.equal(by, "term"))) return(min(x))
+  if(!as_df) {
+    if(by == "term") return(x)
+    return(min(x))
+  }
+  if(by != "term")
+    return(tibble::tibble(parameter = "parameter", esr = min(x)))
+  x <- estimates(as.mcmcarray(x), as_df = TRUE)
+  colnames(x) <- c("term", "esr")
   x
 }
 
 #' @export
-esr.mcmcr <- function(x, by = "all", ...) {
-  x <- lapply(x, esr, by = by)
-  if (isTRUE(all.equal(by, "all"))) return(min(unlist(x)))
+esr.mcmcr <- function(x, by = "all", as_df = FALSE, ...) {
+  parameters <- parameters(x)
+  x <- lapply(x, esr, by = by, as_df = as_df)
+  if(!as_df) {
+    if (by != "all") return(x)
+    return(min(unlist(x)))
+  }
+  x <- Map(x, parameters, f = function(x, p) {parameters(x[[1]]) <- p; x})
+  x <- do.call(rbind, x)
+  if(by == "all")
+    return(tibble::tibble(all = "all", esr = min(x$esr)))
   x
 }
 

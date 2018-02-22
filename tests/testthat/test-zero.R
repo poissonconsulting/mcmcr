@@ -2,8 +2,7 @@ context("zero")
 
 test_that("zero.mcmcarray", {
   mcmcarray <- mcmcr_example[[2]]
-
-  expect_identical(estimates(zero(mcmcarray)), matrix(0, nrow = 2, ncol = 2))
+  expect_equal(estimates(zero(mcmcarray)), matrix(0, nrow = 2, ncol = 2), check.attributes = FALSE)
 })
 
 test_that("zero.mcmcr", {

@@ -13,7 +13,8 @@ Imports:
     coda,
     graphics,
     stats,
-    tibble
+    tibble,
+    utils
 Suggests:
     covr,
     testthat

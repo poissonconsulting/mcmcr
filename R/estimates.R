@@ -25,8 +25,7 @@ estimates.mcmc <- function(object, fun = stats::median, as_df = FALSE, ...) {
 
   terms <- terms(object)
   object <- t(object)
-  object <- apply(object, MARGIN = 1, FUN = fun, ...)
-  if(!is.numeric(object)) error("function fun must return a scalar")
+  object <- .estimates(object, fun = fun)
   tibble::tibble(term = terms, estimate = object)
 }
 
@@ -47,11 +46,8 @@ estimates.mcmcarray <- function(object, fun = stats::median, as_df = FALSE, ...)
   if(as_df)
     return(estimates(coda::as.mcmc.list(object), fun = fun, as_df = TRUE))
 
-  ndims <- ndims(object)
-  object <- apply(object, 3:ndims, FUN = fun, ...)
-  if(!identical(ndims(object), ndims - 2L))
-    error("function fun must return a scalar")
-  object
+  object <- collapse_chains(object)
+  apply(object, 3:ndims(object), FUN = .estimates, fun = fun)
 }
 
 #' @export
