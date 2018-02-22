@@ -2,7 +2,7 @@ context("rhat")
 
 test_that("rhat.matrix", {
   matrix <- matrix(1, nrow = 2, ncol = 100)
-  expect_identical(.rhat(matrix), 1)
+  expect_identical(.rhat(matrix), NA_real_)
   matrix[1,] <- 2
   expect_true(is.infinite(.rhat(matrix)))
     matrix[1,1] <- NA
@@ -17,6 +17,8 @@ test_that("rhat.mcmcmarray", {
   expect_identical(rhat(mcmcr_example[[2]]), 1.147)
   expect_identical(rhat(mcmcr_example[[2]], as_df = TRUE), tibble::tibble(parameter = "parameter", rhat = 1.147))
   expect_identical(rhat(mcmcr_example[[2]], by = "term", as_df = TRUE), tibble::tibble(term = as.term(c("parameter[1,1]", "parameter[2,1]", "parameter[1,2]", "parameter[2,2]")), rhat = rep(1.147, 4)))
+
+  expect_identical(rhat(subset(mcmcr_example[[2]], iterations = 1L), by = "term", as_df = TRUE), tibble::tibble(term = as.term(c("parameter[1,1]", "parameter[2,1]", "parameter[1,2]", "parameter[2,2]")), rhat = rep(NA_real_, 4)))
   expect_identical(rhat(mcmcr_example[[1]], "parameter"), rhat(mcmcr_example[[1]], "all"))
 })
 

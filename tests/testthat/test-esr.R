@@ -27,6 +27,7 @@ test_that("esr.mcmcmarray", {
   expect_identical(esr(mcmcr_example[[3]], by = "term", as_df = TRUE), tibble::tibble(term = as.term("parameter"), esr = 0.472))
   expect_identical(esr(mcmcr_example[[2]]), 0.05)
   expect_identical(esr(mcmcr_example[[2]], "parameter"), esr(mcmcr_example[[2]], "all"))
+  expect_identical(esr(subset(mcmcr_example[[2]], iterations = 1L), by = "term", as_df = TRUE), tibble::tibble(term = as.term(c("parameter[1,1]", "parameter[2,1]", "parameter[1,2]", "parameter[2,2]")), esr = rep(1, 4)))
 })
 
 test_that("esr.mcmcr", {

@@ -34,6 +34,16 @@ rhat.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
   check_vector(by, c("all", "parameter", "term"), length = 1)
   check_flag(as_df)
 
+  if(niters(x) < 4) {
+    if(!as_df) {
+      if(by == "term") return(utils::relist(NA_real_, estimates(x)))
+      return(NA_real_)
+    }
+    if(by == "term")
+      return(tibble::tibble(term = terms(x), rhat = NA_real_))
+    return(tibble::tibble(parameter = "parameter", rhat = NA_real_))
+  }
+
   x <- split_chains(x)
   x <- apply(x, 3:ndims(x), FUN = .rhat)
 
