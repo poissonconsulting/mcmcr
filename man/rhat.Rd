@@ -22,6 +22,7 @@ split R-hat (potential scale reduction factor) values.
 rhat(mcmcr_example)
 rhat(mcmcr_example, by = "parameter")
 rhat(mcmcr_example, by = "term")
+rhat(mcmcr_example, by = "term", as_df = TRUE)
 }
 \references{
 Gelman, A., and Rubin, D.B. 1992. Inference from Iterative Simulation Using Multiple Sequences. Statistical Science 7(4): 457–472.

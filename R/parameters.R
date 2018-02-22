@@ -47,6 +47,14 @@ parameters.mcmcr <- function(x, scalar_only = FALSE, terms = FALSE, ...) {
   parameters(as.term(x), scalar_only = scalar_only, terms = terms)
 }
 
+#' @export
+`parameters<-.character` <- function(x, value) {
+  x <- as.term(x)
+  parameters(x) <- value
+  as.character(x)
+}
+
+#' @export
 `parameters<-.term` <- function(x, value) {
   check_vector(value, "", length = npars(x), unique = TRUE)
 
