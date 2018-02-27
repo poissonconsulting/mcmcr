@@ -2,7 +2,7 @@ context("rhat")
 
 test_that("rhat.matrix", {
   matrix <- matrix(1, nrow = 2, ncol = 100)
-  expect_identical(.rhat(matrix), NA_real_)
+  expect_identical(.rhat(matrix), 1)
   matrix[1,] <- 2
   expect_true(is.infinite(.rhat(matrix)))
     matrix[1,1] <- NA

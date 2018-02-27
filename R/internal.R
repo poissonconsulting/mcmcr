@@ -78,7 +78,7 @@ greater_than_term <- function(e1, e2) {
   var_within <- mean(var_chain)
   rhat <- sqrt((var_between/var_within + niters - 1) / niters)
 
-  if (is.nan(rhat)) rhat <- NA_real_
+  if (is.nan(rhat)) rhat <- 1
   round(rhat, 3)
 }
 
