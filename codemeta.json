@@ -1,15 +1,12 @@
 {
-  "@context": [
-    "http://purl.org/codemeta/2.0",
-    "http://schema.org"
-  ],
+  "@context": ["http://purl.org/codemeta/2.0", "http://schema.org"],
   "@type": "SoftwareSourceCode",
   "identifier": "mcmcr",
   "description": "Manipulates Monte Carlo Markov Chain (MCMC) samples.",
   "name": "mcmcr: Manipulate MCMC Samples",
-  "datePublished": "2018-02-21",
+  "datePublished": "2018-03-01",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.0.9046",
+  "version": "0.0.0.9049",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -113,17 +110,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "utils",
+      "name": "utils"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
       "version": "3.2.0"
     }
   ],
+  "codeRepository": "https://github.com/poissonconsulting/mcmcr",
   "contIntegration": "https://travis-ci.org/poissonconsulting/mcmcr",
   "readme": "https://github.com/poissonconsulting/mcmcr/blob/master/README.md",
-<<<<<<< HEAD
-  "fileSize": "220.001KB",
-=======
-  "fileSize": "192.503KB",
->>>>>>> 16599543ebd3a9f326c148c1093b95c1e4c1c5a8
-  "codeRepository": "https://github.com/poissonconsulting/mcmcr"
+  "fileSize": "224.702KB"
 }
