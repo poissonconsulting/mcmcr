@@ -24,8 +24,11 @@ analysis). And while a simple parameter such as an intercept corresponds
 to a single term, more complex parameters such as an interaction between
 two factors consist of multiple terms with their own inherent
 dimensionality - in this case a matrix. Not surprisingly a set of MCMC
-samples can be stored in different ways. The three most common S3
-classes store MCMC samples as follows:
+samples can be stored in different ways.
+
+### Existing Classes
+
+The three most common S3 classes store MCMC samples as follows:
 
   - `coda::mcmc` stores the MCMC samples from a single chain as a matrix
     where each each row represents an iteration and each column
@@ -44,6 +47,8 @@ is stored in the labelling of the variables, ie, `"bIntercept",
 samples and is optimized for thining. In contrast `mcarray` objects
 preserve the dimensionality of the parameters.
 
+### New Classes
+
 The `mcmcr` packages introduces two related S3 classes which also
 preserve the dimensionality of the parameters:
 
@@ -59,10 +64,11 @@ preserve the dimensionality of the parameters:
 ## Why mcmcr?
 
 `mcmcarray` objects were introduced to facilitate manipulation and
-querying of the MCMC samples - although they are are just one `aperm`
-away from `mcarray` objects they are more intuitive to program with (at
-least for this programmer\!) `mcmcr` objects were introduced to allow a
-set of parameters to be manipulated and queried as a coherent whole.
+querying of the MCMC samples (although they are just one `aperm` away
+from `mcarray` objects they are more intuitive to program with - at
+least for this programmer\!). `mcmcr` objects were introduced to allow a
+set of dimensionality preserving parameters to be manipulated and
+queried as a whole.
 
 The `mcmcr` package introduces a variety of (often) generic functions to
 manipulate and query `mcmcarray` and `mcmcr` objects. In particular it
@@ -83,6 +89,16 @@ provides functions to
     (effectively sampling rate);
   - and of course `thin`, `rhat`, `ess` (effective sample size),
     `print`, `plot` etc said objects.
+
+The code is opinionated (I developed it for my own workflows) which has
+the advantage of providing a small set of stream-lined functions. For
+example the only ‘convergence’ metric is the uncorrected, untransformed,
+univariate split R-hat (potential scale reduction factor). If you can
+convince me that additional features are important I will add them or
+accept a pull request (see below). Alternatively you might want to use
+the `mcmcr` package to manipulate your samples before coercing them to
+an `mcmc.list` to take advantage of all the functionality in packages
+such as `coda`.
 
 ## Demonstration
 
@@ -136,10 +152,17 @@ plot(mcmcr_example[["alpha"]])
 
 ## Installation
 
-To install the latest version from GitHub
+To install the latest development version from GitHub
 
     # install.packages("devtools")
     devtools::install_github("poissonconsulting/mcmcr")
+
+Alternatively install the latest development version from the Poisson
+drat [repository](https://github.com/poissonconsulting/drat) using
+
+    # install.packages("drat")
+    drat::addRepo("poissonconsulting")
+    install.packages("mcmcr")
 
 ## Citation
 
