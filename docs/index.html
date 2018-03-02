@@ -56,11 +56,17 @@
 <div class="contents">
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<section id="mcmcr" class="level1"><div class="page-header"><h1>mcmcr</h1></div>
-<section id="introduction" class="level2"><h2>Introduction</h2>
+<div id="mcmcr" class="section level1">
+<div class="page-header"><h1 class="hasAnchor">
+<a href="#mcmcr" class="anchor"></a>mcmcr</h1></div>
+<div id="introduction" class="section level2">
+<h2 class="hasAnchor">
+<a href="#introduction" class="anchor"></a>Introduction</h2>
 <p><code>mcmcr</code> is an R package to manipulate Monte Carlo Markov Chain (MCMC) samples.</p>
 <p>For the purposes of this discussion, an MCMC sample represents the value of a term from a single iteration of a single chain (of a single analysis). And while a simple parameter such as an intercept corresponds to a single term, more complex parameters such as an interaction between two factors consist of multiple terms with their own inherent dimensionality - in this case a matrix. Not surprisingly a set of MCMC samples can be stored in different ways.</p>
-<section id="existing-classes" class="level3"><h3>Existing Classes</h3>
+<div id="existing-classes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#existing-classes" class="anchor"></a>Existing Classes</h3>
 <p>The three most common S3 classes store MCMC samples as follows:</p>
 <ul>
 <li>
@@ -71,14 +77,22 @@
 <code>rjags::mcarray</code> stores the samples from a single parameter where the initial dimensions are the parameter dimensions, the second to last dimension is iterations and the last dimension is chains.</li>
 </ul>
 <p>In the first two cases the terms/parameters are represented by a single dimension which means that the dimensionality inherent in the parameters is stored in the labelling of the variables, ie, <code>"bIntercept", "bInteraction[1,2]", "bInteraction[2,1]", ...</code>. The structure of the <code>mcmc</code> and <code>mcmc.list</code> objects emphasizes the time-series nature of MCMC samples and is optimized for thining. In contrast <code>mcarray</code> objects preserve the dimensionality of the parameters.</p>
-</section><section id="new-classes" class="level3"><h3>New Classes</h3>
+</div>
+<div id="new-classes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#new-classes" class="anchor"></a>New Classes</h3>
 <p>The <code>mcmcr</code> packages introduces two related S3 classes which also preserve the dimensionality of the parameters:</p>
 <ul>
 <li>
 <code>mcmcr::mcmcarray</code> is very similar to <code>rjags::mcarray</code> except that the first dimension is the chains, the second dimension is iterations and the subsequent dimensions represent the dimensionality of the parameter (it is called <code>mcmcarray</code> to emphasize that the MCMC dimensions ie the chains and iterations come first);</li>
 <li>
 <code>mcmcr::mcmcr</code> stores multiple uniquely named <code>mcmcarray</code> objects with the same number of chains and iterations.</li>
-</ul></section></section><section id="why-mcmcr" class="level2"><h2>Why mcmcr?</h2>
+</ul>
+</div>
+</div>
+<div id="why-mcmcr" class="section level2">
+<h2 class="hasAnchor">
+<a href="#why-mcmcr" class="anchor"></a>Why mcmcr?</h2>
 <p><code>mcmcarray</code> objects were introduced to facilitate manipulation and querying of the MCMC samples (although they are just one <code>aperm</code> away from <code>mcarray</code> objects they are more intuitive to program with - at least for this programmer!). <code>mcmcr</code> objects were introduced to allow a set of dimensionality preserving parameters to be manipulated and queried as a whole.</p>
 <p>The <code>mcmcr</code> package introduces a variety of (often) generic functions to manipulate and query <code>mcmcarray</code> and <code>mcmcr</code> objects. In particular it provides functions to</p>
 <ul>
@@ -99,7 +113,10 @@
 <li>and of course <code>thin</code>, <code>rhat</code>, <code>ess</code> (effective sample size), <code>print</code>, <code>plot</code> etc said objects.</li>
 </ul>
 <p>The code is opinionated (I developed it for my own workflows) which has the advantage of providing a small set of stream-lined functions. For example the only ‘convergence’ metric is the uncorrected, untransformed, univariate split R-hat (potential scale reduction factor). If you can convince me that additional features are important I will add them or accept a pull request (see below). Alternatively you might want to use the <code>mcmcr</code> package to manipulate your samples before coercing them to an <code>mcmc.list</code> to take advantage of all the functionality in packages such as <code>coda</code>.</p>
-</section><section id="demonstration" class="level2"><h2>Demonstration</h2>
+</div>
+<div id="demonstration" class="section level2">
+<h2 class="hasAnchor">
+<a href="#demonstration" class="anchor"></a>Demonstration</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(mcmcr)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb1-3" data-line-number="3">mcmcr_example</a>
@@ -144,7 +161,10 @@
 <a class="sourceLine" id="cb1-42" data-line-number="42"><span class="co">#&gt; [1] 0.998</span></a>
 <a class="sourceLine" id="cb1-43" data-line-number="43"><span class="kw">plot</span>(mcmcr_example[[<span class="st">"alpha"</span>]])</a></code></pre></div>
 <p><img src="tools/README-unnamed-chunk-2-1.png" width="672"></p>
-</section><section id="installation" class="level2"><h2>Installation</h2>
+</div>
+<div id="installation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#installation" class="anchor"></a>Installation</h2>
 <p>To install the latest development version from GitHub</p>
 <pre><code><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github"># install.packages("devtools")
 devtools::install_github("poissonconsulting/mcmcr")</a></code></pre>
@@ -152,7 +172,10 @@ devtools::install_github("poissonconsulting/mcmcr")</a></code></pre>
 <pre><code><a href="http://www.rdocumentation.org/packages/drat/topics/addRepo"># install.packages("drat")
 drat::addRepo("poissonconsulting")
 install.packages("mcmcr")</a></code></pre>
-</section><section id="citation" class="level2"><h2>Citation</h2>
+</div>
+<div id="citation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#citation" class="anchor"></a>Citation</h2>
 <pre><code>
 To cite package 'mcmcr' in publications use:
 
@@ -167,13 +190,20 @@ A BibTeX entry for LaTeX users is
     year = {2018},
     note = {R package version 0.0.0.9049},
   }</code></pre>
-</section><section id="contribution" class="level2"><h2>Contribution</h2>
+</div>
+<div id="contribution" class="section level2">
+<h2 class="hasAnchor">
+<a href="#contribution" class="anchor"></a>Contribution</h2>
 <p>Please report any <a href="https://github.com/poissonconsulting/mcmcr/issues">issues</a>.</p>
 <p><a href="https://github.com/poissonconsulting/mcmcr/pulls">Pull requests</a> are always welcome.</p>
 <p>Please note that this project is released with a <a href="CONDUCT.md">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</p>
-</section><section id="inspiration" class="level2"><h2>Inspiration</h2>
+</div>
+<div id="inspiration" class="section level2">
+<h2 class="hasAnchor">
+<a href="#inspiration" class="anchor"></a>Inspiration</h2>
 <p><a href="https://github.com/cran/coda">coda</a> and <a href="https://github.com/cran/rjags">rjags</a></p>
-</section></section>
+</div>
+</div>
 </div>
   </div>
 
