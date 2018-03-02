@@ -18,30 +18,6 @@ is.term <- function(x, ...) inherits(x, "term")
 #' is.mcarray(mcmcr_example)
 is.mcarray <- function(x) inherits(x, "mcarray")
 
-#' Is an mcmc object
-#'
-#' Tests whether x is an object of class 'mcmc'
-#'
-#' @param x The object to test.
-#'
-#' @return A flag indicating whether the test was positive.
-#' @export
-#' @examples
-#' is.mcmc(coda::as.mcmc.list(mcmcr_example)[[1]])
-is.mcmc <- function(x) coda::is.mcmc(x)
-
-#' Is an mcmc.list object
-#'
-#' Tests whether x is an object of class 'mcmc.list'
-#'
-#' @param x The object to test.
-#'
-#' @return A flag indicating whether the test was positive.
-#' @export
-#' @examples
-#' is.mcmc.list(coda::as.mcmc.list(mcmcr_example))
-is.mcmc.list <- function(x) inherits(x, "mcmc.list")
-
 #' Is an mcmcarray object
 #'
 #' Tests whether x is an object of class 'mcmcarray'

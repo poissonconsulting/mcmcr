@@ -16,7 +16,7 @@ bind_parameters <- function(x, ...) {
 
 #' @export
 bind_parameters.mcmc <- function(x, x2, ...) {
-  if (!is.mcmc(x2)) error("x2 must be an mcmc.list")
+  if (!coda::is.mcmc(x2)) error("x2 must be an mcmc.list")
 
   if (length(intersect(parameters(x), parameters(x2))))
     error("x and x2 must not have any of the same parameters")
@@ -31,7 +31,7 @@ bind_parameters.mcmc <- function(x, x2, ...) {
 
 #' @export
 bind_parameters.mcmc.list <- function(x, x2, ...) {
-  if (!is.mcmc.list(x2)) error("x2 must be an mcmc.list")
+  if (!coda::is.mcmc.list(x2)) error("x2 must be an mcmc.list")
 
   if (length(intersect(parameters(x), parameters(x2))))
     error("x and x2 must not have any of the same parameters")
