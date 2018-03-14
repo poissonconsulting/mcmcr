@@ -9,7 +9,7 @@
   "name": "mcmcr: Manipulate MCMC Samples",
   "datePublished": "2018-03-14",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.0.9050",
+  "version": "0.0.0.9051",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -124,6 +124,6 @@
   ],
   "contIntegration": "https://travis-ci.org/poissonconsulting/mcmcr",
   "readme": "https://github.com/poissonconsulting/mcmcr/blob/master/README.md",
-  "fileSize": "226.338KB",
+  "fileSize": "226.343KB",
   "codeRepository": "https://github.com/poissonconsulting/mcmcr"
 }
