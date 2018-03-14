@@ -1,7 +1,7 @@
 Package: mcmcr
 Title: Manipulate MCMC Samples
-Version: 0.0.0.9049
-Date: 2018-03-01
+Version: 0.0.0.9050
+Date: 2018-03-14
 Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre"))
 Description: Manipulates Monte Carlo Markov Chain (MCMC) samples.
 License: MIT + file LICENSE
@@ -9,7 +9,7 @@ Depends:
     R (>= 3.2.0)
 Imports:
     abind,
-    checkr (>= 0.0.2),
+    checkr (>= 0.1.0.9002),
     coda,
     graphics,
     stats,

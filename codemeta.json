@@ -7,9 +7,9 @@
   "identifier": "mcmcr",
   "description": "Manipulates Monte Carlo Markov Chain (MCMC) samples.",
   "name": "mcmcr: Manipulate MCMC Samples",
-  "datePublished": "2018-03-01",
+  "datePublished": "2018-03-14",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.0.9049",
+  "version": "0.0.0.9050",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -71,7 +71,7 @@
       "@type": "SoftwareApplication",
       "identifier": "checkr",
       "name": "checkr",
-      "version": "0.0.2",
+      "version": "0.1.0.9002",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -125,7 +125,6 @@
   ],
   "contIntegration": "https://travis-ci.org/poissonconsulting/mcmcr",
   "readme": "https://github.com/poissonconsulting/mcmcr/blob/master/README.md",
-  "fileSize": "224.88KB",
-  "codeRepository": "https://github.com/poissonconsulting/mcmcr",
-  "releaseNotes": "https://github.com/poissonconsulting/mcmcr/blob/master/NEWS.md"
+  "fileSize": "226.319KB",
+  "codeRepository": "https://github.com/poissonconsulting/mcmcr"
 }
