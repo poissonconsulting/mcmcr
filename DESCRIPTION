@@ -9,7 +9,7 @@ Depends:
     R (>= 3.2.0)
 Imports:
     abind,
-    checkr (>= 0.1.0.9002),
+    checkr,
     coda,
     graphics,
     stats,

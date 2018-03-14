@@ -71,7 +71,6 @@
       "@type": "SoftwareApplication",
       "identifier": "checkr",
       "name": "checkr",
-      "version": "0.1.0.9002",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -125,6 +124,6 @@
   ],
   "contIntegration": "https://travis-ci.org/poissonconsulting/mcmcr",
   "readme": "https://github.com/poissonconsulting/mcmcr/blob/master/README.md",
-  "fileSize": "226.319KB",
+  "fileSize": "226.356KB",
   "codeRepository": "https://github.com/poissonconsulting/mcmcr"
 }
