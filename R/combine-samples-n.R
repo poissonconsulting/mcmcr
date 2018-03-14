@@ -24,7 +24,6 @@ combine_samples_n.list <- function(x, ..., fun = mean) {
   check_list(x, length = TRUE)
   check_unused(...)
 
-  check_missing_names(x, "fun")
   names(x) <- NULL
   x$fun <- fun
 
