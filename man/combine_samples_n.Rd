@@ -9,7 +9,7 @@ combine_samples_n(x, ..., fun = mean)
 \arguments{
 \item{x}{An mcmc object (or a list of mcmc objects).}
 
-\item{...}{Additional mcmc objects (or unused).}
+\item{...}{Additional mcmc objects (or additional arguments).}
 
 \item{fun}{A function.}
 }

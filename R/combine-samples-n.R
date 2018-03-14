@@ -4,7 +4,7 @@
 #'
 #' @param x An mcmc object (or a list of mcmc objects).
 #' @param fun A function.
-#' @param ... Additional mcmc objects (or unused).
+#' @param ... Additional mcmc objects (or additional arguments).
 #' @export
 #' @examples
 #' combine_samples_n(mcmcr_example, mcmcr_example, mcmcr_example, fun = sum)
@@ -22,10 +22,10 @@ combine_samples_n.default <- function(x, ..., fun = mean) {
 #' @export
 combine_samples_n.list <- function(x, ..., fun = mean) {
   check_list(x, length = TRUE)
-  check_unused(...)
 
   names(x) <- NULL
   x$fun <- fun
+  x <- c(x, list(...))
 
   do.call("combine_samples_n", x)
 }
