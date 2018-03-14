@@ -1,12 +1,6 @@
 language: R
 cache: packages
 
-r:
-  - 3.2
-  - oldrel
-  - release
-  - devel
-
 r_packages:
   - covr
 
