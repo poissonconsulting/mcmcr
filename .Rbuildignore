@@ -13,3 +13,4 @@
 ^codemeta\.json$
 ^cran-comments\.md$
 ^_pkgdown.yml$
+^.github$
