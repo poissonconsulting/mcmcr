@@ -60,7 +60,7 @@ In particular it provides functions to
 - extract an objects `coef` table as a tibble;
 - query an object's `nchains`, `niters`, `npars`, `nterms`, `nsims` and `nsams` as well as it's parameter dimensions (`pdims`)
 - `subset` objects by chains, iterations and/or parameters;
-- `bind_xx` a pair of objects by their chains, iterations, parameters or parameter dimensions;
+- `bind_xx` a pair of objects by their `xx_chains`, `_iterations`, `xx_parameters` or (parameter) `xx_dimensions`;
 - `combine_samples` of two objects by summing or otherwise aggregating their MCMC sample values;
 - `collapse_chains` or `split_chains` an object's chains;
 - `mcmc_map` over an objects values; 
@@ -86,7 +86,7 @@ plot(mcmcr_example[["alpha"]])
 
 ## Installation
 
-To install the latest development version from GitHub
+To install the latest development version from [GitHub](https://github.com/poissonconsulting/mcmcr)
 ```
 # install.packages("devtools")
 devtools::install_github("poissonconsulting/mcmcr")

@@ -89,7 +89,7 @@
 <li>
 <code>mcmcr::mcmcarray</code> is very similar to <code>rjags::mcarray</code> except that the first dimension is the chains, the second dimension is iterations and the subsequent dimensions represent the dimensionality of the parameter (it is called <code>mcmcarray</code> to emphasize that the MCMC dimensions ie the chains and iterations come first);</li>
 <li>
-<code>mcmcr::mcmcr</code> stores multiple uniquely named <code>mcmcarray</code> objects with the same number of chains and iterations.</li>
+<code><a href="reference/mcmcr-package.html">mcmcr::mcmcr</a></code> stores multiple uniquely named <code>mcmcarray</code> objects with the same number of chains and iterations.</li>
 </ul>
 </div>
 </div>
@@ -105,7 +105,7 @@
 <li>
 <code>subset</code> objects by chains, iterations and/or parameters;</li>
 <li>
-<code>bind_xx</code> a pair of objects by their chains, iterations, parameters or parameter dimensions;</li>
+<code>bind_xx</code> a pair of objects by their <code>xx_chains</code>, <code>_iterations</code>, <code>xx_parameters</code> or (parameter) <code>xx_dimensions</code>;</li>
 <li>
 <code>combine_samples</code> of two objects by summing or otherwise aggregating their MCMC sample values;</li>
 <li>
@@ -168,7 +168,7 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>To install the latest development version from GitHub</p>
+<p>To install the latest development version from <a href="https://github.com/poissonconsulting/mcmcr">GitHub</a></p>
 <pre><code><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github"># install.packages("devtools")
 devtools::install_github("poissonconsulting/mcmcr")</a></code></pre>
 <p>Alternatively install the latest development version from the Poisson drat <a href="https://github.com/poissonconsulting/drat">repository</a> using</p>

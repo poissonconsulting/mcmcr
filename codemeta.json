@@ -7,7 +7,7 @@
   "identifier": "mcmcr",
   "description": "Manipulates Monte Carlo Markov Chain (MCMC) samples.",
   "name": "mcmcr: Manipulate MCMC Samples",
-  "datePublished": "2018-03-14",
+  "datePublished": "2018-04-05",
   "license": "https://spdx.org/licenses/MIT",
   "version": "0.0.0.9051",
   "programmingLanguage": {
@@ -124,6 +124,6 @@
   ],
   "contIntegration": "https://travis-ci.org/poissonconsulting/mcmcr",
   "readme": "https://github.com/poissonconsulting/mcmcr/blob/master/README.md",
-  "fileSize": "313.265KB",
+  "fileSize": "313.711KB",
   "codeRepository": "https://github.com/poissonconsulting/mcmcr"
 }

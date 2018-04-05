@@ -1,3 +1,13 @@
+#' Any Missing Values
+#'
+#' Returns a flag indicating whether there are any missing values.
+#'
+#' @param x The object to test.
+#' @param recursive Unused.
+#' @examples
+#' anyNA(mcmcr_example)
+#' anyNA(mcmcr_example$beta)
+#'
 #' @export
 anyNA.mcarray <- function(x, recursive = FALSE) anyNA(unclass(x))
 
