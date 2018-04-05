@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Any Missing Values — anyNA.mcarray • mcmcr</title>
+<title>Any Missing Values — anyNA • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Any Missing Values — anyNA.mcarray" />
+<meta property="og:title" content="Any Missing Values — anyNA" />
 
-<meta property="og:description" content="Returns a flag indicating whether there are any missing values." />
+<meta property="og:description" content="Test whether there are any missing values." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -84,10 +84,25 @@
     </div>
 
     
-    <p>Returns a flag indicating whether there are any missing values.</p>
+    <p>Test whether there are any missing values.</p>
     
 
     <pre class="usage"><span class='co'># S3 method for mcarray</span>
+<span class='fu'>anyNA</span>(<span class='no'>x</span>, <span class='kw'>recursive</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+<span class='co'># S3 method for mcmc</span>
+<span class='fu'>anyNA</span>(<span class='no'>x</span>, <span class='kw'>recursive</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+<span class='co'># S3 method for mcmc.list</span>
+<span class='fu'>anyNA</span>(<span class='no'>x</span>, <span class='kw'>recursive</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+<span class='co'># S3 method for mcmcarray</span>
+<span class='fu'>anyNA</span>(<span class='no'>x</span>, <span class='kw'>recursive</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+<span class='co'># S3 method for mcmcr</span>
+<span class='fu'>anyNA</span>(<span class='no'>x</span>, <span class='kw'>recursive</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+<span class='co'># S3 method for mcmcrs</span>
 <span class='fu'>anyNA</span>(<span class='no'>x</span>, <span class='kw'>recursive</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
@@ -103,6 +118,14 @@
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A flag indicating whether there are any missing values.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code>base::<a href='http://www.rdocumentation.org/packages/base/topics/NA'>anyNA</a></code></p>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>anyNA</span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>anyNA</span>(<span class='no'>mcmcr_example</span>$<span class='no'>beta</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
@@ -112,7 +135,11 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
