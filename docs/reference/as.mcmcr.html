@@ -87,7 +87,25 @@
     <p>Coerce to an mcmcr object</p>
     
 
-    <pre class="usage"><span class='fu'>as.mcmcr</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>as.mcmcr</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for list</span>
+<span class='fu'>as.mcmcr</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcarray</span>
+<span class='fu'>as.mcmcr</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmc</span>
+<span class='fu'>as.mcmcr</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmc.list</span>
+<span class='fu'>as.mcmcr</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcarray</span>
+<span class='fu'>as.mcmcr</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcr</span>
+<span class='fu'>as.mcmcr</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -101,6 +119,17 @@
       <td><p>Unused.</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
+
+    <ul>
+<li><p><code>list</code>: Coerces list of mcmcarray objects</p></li>
+<li><p><code>mcarray</code>: Coerces mcarray</p></li>
+<li><p><code>mcmc</code>: Coerces mcmc</p></li>
+<li><p><code>mcmc.list</code>: Coerces mcmc.list</p></li>
+<li><p><code>mcmcarray</code>: Coerces mcmcarray</p></li>
+<li><p><code>mcmcr</code>: Coerces mcmcr</p></li>
+</ul>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -126,7 +155,9 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

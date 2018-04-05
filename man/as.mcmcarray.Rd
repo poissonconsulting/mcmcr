@@ -2,9 +2,27 @@
 % Please edit documentation in R/as.R
 \name{as.mcmcarray}
 \alias{as.mcmcarray}
+\alias{as.mcmcarray.default}
+\alias{as.mcmcarray.mcarray}
+\alias{as.mcmcarray.mcmcarray}
+\alias{as.mcmcarray.mcmc}
+\alias{as.mcmcarray.mcmc.list}
+\alias{as.mcmcarray.mcmcr}
 \title{Coerce to an mcmcarray object}
 \usage{
 as.mcmcarray(x, ...)
+
+\method{as.mcmcarray}{default}(x, ...)
+
+\method{as.mcmcarray}{mcarray}(x, ...)
+
+\method{as.mcmcarray}{mcmcarray}(x, ...)
+
+\method{as.mcmcarray}{mcmc}(x, ...)
+
+\method{as.mcmcarray}{mcmc.list}(x, ...)
+
+\method{as.mcmcarray}{mcmcr}(x, ...)
 }
 \arguments{
 \item{x}{object to coerce.}
@@ -14,6 +32,21 @@ as.mcmcarray(x, ...)
 \description{
 Coerce to an mcmcarray object
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{default}: Coerces vector, matrix or array
+
+\item \code{mcarray}: Coerces mcarray
+
+\item \code{mcmcarray}: Coerces mcmcarray
+
+\item \code{mcmc}: Coerces mcmc
+
+\item \code{mcmc.list}: Coerces mcmc.list
+
+\item \code{mcmcr}: Coerces mcmcr
+}}
+
 \examples{
 as.mcmcarray(as.mcarray(mcmcr_example$beta))
 }

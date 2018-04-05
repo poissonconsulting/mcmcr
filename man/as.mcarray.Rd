@@ -2,9 +2,15 @@
 % Please edit documentation in R/as.R
 \name{as.mcarray}
 \alias{as.mcarray}
+\alias{as.mcarray.mcarray}
+\alias{as.mcarray.mcmcarray}
 \title{Coerce to an mcarray object}
 \usage{
 as.mcarray(x, ...)
+
+\method{as.mcarray}{mcarray}(x, ...)
+
+\method{as.mcarray}{mcmcarray}(x, ...)
 }
 \arguments{
 \item{x}{object to coerce.}
@@ -14,6 +20,13 @@ as.mcarray(x, ...)
 \description{
 Coerce to an mcarray object
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{mcarray}: Coerces mcarray
+
+\item \code{mcmcarray}: Coerces mcmcarray
+}}
+
 \examples{
 as.mcarray(mcmcr_example$beta)
 }

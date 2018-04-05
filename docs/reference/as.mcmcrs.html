@@ -87,7 +87,13 @@
     <p>Coerce to an mcmcrs object</p>
     
 
-    <pre class="usage"><span class='fu'>as.mcmcrs</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>as.mcmcrs</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for list</span>
+<span class='fu'>as.mcmcrs</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcrs</span>
+<span class='fu'>as.mcmcrs</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -101,6 +107,13 @@
       <td><p>Unused.</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
+
+    <ul>
+<li><p><code>list</code>: Coerces list of mcmcr objects</p></li>
+<li><p><code>mcmcrs</code>: Coerces mcmcrs</p></li>
+</ul>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -130,7 +143,9 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

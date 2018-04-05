@@ -7,6 +7,17 @@
 #' as.mcarray(mcmcr_example$beta)
 as.mcarray <- function(x, ...) UseMethod("as.mcarray")
 
+#' Coerce to an mcmc.list object
+#'
+#' @param x object to coerce.
+#' @param ... Unused.
+#' @export
+#' @seealso \code{coda::\link[coda]{as.mcmc.list}}
+#' @examples
+#' as.mcmc.list(mcmcr_example)
+#' @name as.mcmc.list
+NULL
+
 #' Coerce to an mcmcarray object
 #'
 #' @param x object to coerce.
@@ -37,9 +48,11 @@ as.mcmcrs <- function(x, ...) UseMethod("as.mcmcrs")
 #' @export
 as.mcarray.default <- function(x, ...) as.mcarray(as.mcmcarray(x))
 
+#' @describeIn as.mcarray Coerces mcarray
 #' @export
 as.mcarray.mcarray <- function(x, ...) x
 
+#' @describeIn as.mcarray Coerces mcmcarray
 #' @export
 as.mcarray.mcmcarray <- function(x, ...) {
   n <- ndims(x)
@@ -49,10 +62,10 @@ as.mcarray.mcmcarray <- function(x, ...) {
 }
 
 #' @export
-as.mcmc.mcarray <- function(x) as.mcmc(as.mcmcarray(x))
+as.mcmc.mcarray <- function(x, ...) as.mcmc(as.mcmcarray(x))
 
 #' @export
-as.mcmc.mcmcarray <- function(x) {
+as.mcmc.mcmcarray <- function(x, ...) {
   if(nchains(x) != 1) error("x must only have 1 chain")
   terms <- terms(x)
   x <- apply(x, 1, identity)
@@ -66,18 +79,20 @@ as.mcmc.mcmc <- function(x, ...) x
 
 #' @method as.mcmc mcmc.list
 #' @export
-as.mcmc.mcmc.list <- function(x) {
+as.mcmc.mcmc.list <- function(x, ...) {
   if(nchains(x) != 1) error("x must only have 1 chain")
   x[[1]]
 }
 
 #' @export
-as.mcmc.mcmcr <- function(x) as.mcmc(as.mcmc.list(x))
+as.mcmc.mcmcr <- function(x, ...) as.mcmc(as.mcmc.list(x))
 
+#' @describeIn as.mcmc.list Coerces mcarray
 #' @method as.mcmc.list mcarray
 #' @export
-as.mcmc.list.mcarray <- function(x) as.mcmc.list(as.mcmcarray(x))
+as.mcmc.list.mcarray <- function(x, ...) as.mcmc.list(as.mcmcarray(x))
 
+#' @describeIn as.mcmc.list Coerces mcmcarray
 #' @method as.mcmc.list mcmcarray
 #' @export
 as.mcmc.list.mcmcarray <- function(x, ...) {
@@ -86,14 +101,17 @@ as.mcmc.list.mcmcarray <- function(x, ...) {
   coda::mcmc.list(x)
 }
 
+#' @describeIn as.mcmc.list Coerces mcmc
 #' @method as.mcmc.list mcmc
 #' @export
 as.mcmc.list.mcmc <- function(x, ...) set_class(list(x), "mcmc.list")
 
+#' @describeIn as.mcmc.list Coerces mcmc.list
 #' @method as.mcmc.list mcmc.list
 #' @export
 as.mcmc.list.mcmc.list <- function(x, ...) x
 
+#' @describeIn as.mcmc.list Coerces mcmcr
 #' @method as.mcmc.list mcmcr
 #' @export
 as.mcmc.list.mcmcr <- function(x, ...) {
@@ -104,12 +122,14 @@ as.mcmc.list.mcmcr <- function(x, ...) {
   x
 }
 
+#' @describeIn as.mcmcarray Coerces vector, matrix or array
 #' @export
 as.mcmcarray.default <- function(x, ...) {
    dim(x) <- c(1,1,dims(x))
    set_class(x, "mcmcarray")
 }
 
+#' @describeIn as.mcmcarray Coerces mcarray
 #' @export
 as.mcmcarray.mcarray <- function(x, ...) {
   dim(x) <- unname(dim(x))
@@ -118,9 +138,11 @@ as.mcmcarray.mcarray <- function(x, ...) {
   set_class(x, "mcmcarray")
 }
 
+#' @describeIn as.mcmcarray Coerces mcmcarray
 #' @export
 as.mcmcarray.mcmcarray <- function(x, ...) x
 
+#' @describeIn as.mcmcarray Coerces mcmc
 #' @export
 as.mcmcarray.mcmc <- function(x, ...) {
   if(npars(x) != 1) error("x must only have 1 parameter")
@@ -131,16 +153,19 @@ as.mcmcarray.mcmc <- function(x, ...) {
   set_class(x, "mcmcarray")
 }
 
+#' @describeIn as.mcmcarray Coerces mcmc.list
 #' @method as.mcmcarray mcmc.list
 #' @export
 as.mcmcarray.mcmc.list <- function(x, ...) as.mcmcarray(as.mcmcr(x))
 
+#' @describeIn as.mcmcarray Coerces mcmcr
 #' @export
 as.mcmcarray.mcmcr <- function(x, ...) {
   if(npars(x) != 1) error("x must only have 1 parameter")
   x[[1]]
 }
 
+#' @describeIn as.mcmcr Coerces list of mcmcarray objects
 #' @export
 as.mcmcr.list <- function(x, ...) {
   check_length(x)
@@ -160,9 +185,11 @@ as.mcmcr.list <- function(x, ...) {
   set_class(x, "mcmcr")
 }
 
+#' @describeIn as.mcmcr Coerces mcarray
 #' @export
 as.mcmcr.mcarray <- function(x, ...) as.mcmcr(as.mcmcarray(x))
 
+#' @describeIn as.mcmcr Coerces mcmc
 #' @export
 as.mcmcr.mcmc <- function(x, ...) {
   parameters <- parameters(x)
@@ -172,18 +199,22 @@ as.mcmcr.mcmc <- function(x, ...) {
   set_class(x, "mcmcr")
 }
 
+#' @describeIn as.mcmcr Coerces mcmc.list
 #' @export
 as.mcmcr.mcmc.list <- function(x, ...) {
   x <- lapply(x, as.mcmcr)
   Reduce(bind_chains, x)
 }
 
+#' @describeIn as.mcmcr Coerces mcmcarray
 #' @export
 as.mcmcr.mcmcarray <- function(x, ...) set_class(list(x), "mcmcr")
 
+#' @describeIn as.mcmcr Coerces mcmcr
 #' @export
 as.mcmcr.mcmcr <- function(x, ...) x
 
+#' @describeIn as.mcmcrs Coerces list of mcmcr objects
 #' @export
 as.mcmcrs.list <- function(x, ...) {
   check_length(x)
@@ -214,6 +245,7 @@ as.mcmcrs.list <- function(x, ...) {
   set_class(x, "mcmcrs")
 }
 
+#' @describeIn as.mcmcrs Coerces mcmcrs
 #' @export
 as.mcmcrs.mcmcrs <- function(x, ...) x
 
