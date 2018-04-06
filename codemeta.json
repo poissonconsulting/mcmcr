@@ -5,11 +5,11 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "mcmcr",
-  "description": "Manipulates Monte Carlo Markov Chain (MCMC) samples.",
-  "name": "mcmcr: Manipulate MCMC Samples",
-  "datePublished": "2018-04-05",
+  "description": "Defines S3 classes to store Monte Carlo Markov Chain (MCMC) samples and\n    provides functions to manipulate and summarise MCMC samples.",
+  "name": "mcmcr: Store, Manipulate and Summarise MCMC Samples",
+  "datePublished": "2018-04-06",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.0.9051",
+  "version": "0.0.0.9052",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -124,6 +124,6 @@
   ],
   "contIntegration": "https://travis-ci.org/poissonconsulting/mcmcr",
   "readme": "https://github.com/poissonconsulting/mcmcr/blob/master/README.md",
-  "fileSize": "314.434KB",
+  "fileSize": "315.51KB",
   "codeRepository": "https://github.com/poissonconsulting/mcmcr"
 }
