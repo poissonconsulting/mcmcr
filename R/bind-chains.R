@@ -1,10 +1,8 @@
-#' Combine objects by chains.
+#' Combine MCMC objects by chains.
 #'
-#' Combines two mcmc objects by chains.
+#' Combines two MCMC objects (with the same parameters and iterations) by chains.
 #'
-#' They must have the same parameter names, parameter dimensions and iterations.
-#'
-#' @param x an mcmc object.
+#' @param x An mcmc object.
 #' @param x2 A second mcmc object
 #' @param ... Unused.
 #' @export
@@ -12,6 +10,7 @@
 #' bind_chains(mcmcr_example, mcmcr_example)
 bind_chains <- function(x, x2, ...) UseMethod("bind_chains")
 
+#' @describeIn bind_chains Binds chains for two mcarray objects
 #' @export
 bind_chains.mcarray <- function(x, x2, ...) {
   if (!is.mcarray(x2)) error("x2 must be an mcarray")
@@ -26,6 +25,7 @@ bind_chains.mcarray <- function(x, x2, ...) {
   set_class(x, "mcarray")
 }
 
+#' @describeIn bind_chains Binds chains for two mcmc objects
 #' @export
 bind_chains.mcmc <- function(x, x2, ...) {
 
@@ -46,6 +46,7 @@ bind_chains.mcmc <- function(x, x2, ...) {
   coda::as.mcmc.list(list(x, x2))
 }
 
+#' @describeIn bind_chains Binds chains for two mcmc.list objects
 #' @export
 bind_chains.mcmc.list <- function(x, x2, ...) {
   if (!(coda::is.mcmc.list(x2) || coda::is.mcmc(x2))) error("x2 must be an mcmc or mcmc.list")
@@ -66,6 +67,7 @@ bind_chains.mcmc.list <- function(x, x2, ...) {
   set_class(x, "mcmc.list")
 }
 
+#' @describeIn bind_chains Binds chains for two mcmcarray objects
 #' @export
 bind_chains.mcmcarray <- function(x, x2, ...) {
 
@@ -81,6 +83,7 @@ bind_chains.mcmcarray <- function(x, x2, ...) {
   set_class(x, "mcmcarray")
 }
 
+#' @describeIn bind_chains Binds chains for two mcmcr objects
 #' @export
 bind_chains.mcmcr <- function(x, x2, ...) {
   if (!is.mcmcr(x)) error("x2 must be an mcmcr")

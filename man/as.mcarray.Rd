@@ -15,7 +15,7 @@ as.mcarray(x, ...)
 \item{...}{Unused.}
 }
 \description{
-Coerces other MCMC objects to an \code{\link[rjags]{mcarray.object}}.
+Coerces MCMC objects to an \code{\link[rjags]{mcarray.object}}.
 }
 \section{Methods (by class)}{
 \itemize{

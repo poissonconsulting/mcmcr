@@ -12,7 +12,7 @@ as.mcmcrs(x, ...)
 \item{...}{Unused.}
 }
 \description{
-Coerces other MCMC objects to an \code{\link{mcmcrs-object}}.
+Coerces MCMC objects to an \code{\link{mcmcrs-object}}.
 }
 \examples{
 as.mcmcrs(list(mcmcr_example))

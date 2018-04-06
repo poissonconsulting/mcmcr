@@ -22,7 +22,7 @@
 \item{...}{Unused.}
 }
 \description{
-Coerces other MCMC objects to an \code{\link[coda]{mcmc}} object.
+Coerces MCMC objects to an \code{\link[coda]{mcmc}} object.
 }
 \section{Methods (by class)}{
 \itemize{

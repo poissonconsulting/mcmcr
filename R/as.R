@@ -1,6 +1,6 @@
 #' Coerce to an mcarray object
 #'
-#' Coerces other MCMC objects to an \code{\link[rjags]{mcarray.object}}.
+#' Coerces MCMC objects to an \code{\link[rjags]{mcarray.object}}.
 #'
 #' @param x object to coerce.
 #' @param ... Unused.
@@ -11,7 +11,7 @@ as.mcarray <- function(x, ...) UseMethod("as.mcarray")
 
 #' Coerce to an mcmc object
 #'
-#' Coerces other MCMC objects to an \code{\link[coda]{mcmc}} object.
+#' Coerces MCMC objects to an \code{\link[coda]{mcmc}} object.
 #'
 #' @param x object to coerce.
 #' @param ... Unused.
@@ -24,7 +24,7 @@ NULL
 
 #' Coerce to an mcmc.list object
 #'
-#' Coerces other MCMC objects to an \code{\link[coda]{mcmc.list}} object.
+#' Coerces MCMC objects to an \code{\link[coda]{mcmc.list}} object.
 #'
 #' @param x object to coerce.
 #' @param ... Unused.
@@ -36,7 +36,7 @@ NULL
 
 #' Coerce to an mcmcarray object
 #'
-#' Coerces other MCMC objects to an \code{\link{mcmcarray-object}}.
+#' Coerces MCMC objects to an \code{\link{mcmcarray-object}}.
 #'
 #' @param x object to coerce.
 #' @param ... Unused.
@@ -47,7 +47,7 @@ as.mcmcarray <- function(x, ...) UseMethod("as.mcmcarray")
 
 #' Coerce to an mcmcr object
 #'
-#' Coerces other MCMC objects to an \code{\link{mcmcr-object}}.
+#' Coerces MCMC objects to an \code{\link{mcmcr-object}}.
 #'
 #' @param x object to coerce.
 #' @param ... Unused.
@@ -58,7 +58,7 @@ as.mcmcr <- function(x, ...) UseMethod("as.mcmcr")
 
 #' Coerce to an mcmcrs object
 #'
-#' Coerces other MCMC objects to an \code{\link{mcmcrs-object}}.
+#' Coerces MCMC objects to an \code{\link{mcmcrs-object}}.
 #'
 #' @param x object to coerce.
 #' @param ... Unused.

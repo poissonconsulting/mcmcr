@@ -27,7 +27,7 @@ as.mcmcarray(x, ...)
 \item{...}{Unused.}
 }
 \description{
-Coerces other MCMC objects to an \code{\link{mcmcarray-object}}.
+Coerces MCMC objects to an \code{\link{mcmcarray-object}}.
 }
 \section{Methods (by class)}{
 \itemize{

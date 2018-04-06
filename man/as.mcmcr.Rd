@@ -30,7 +30,7 @@ as.mcmcr(x, ...)
 \item{...}{Unused.}
 }
 \description{
-Coerces other MCMC objects to an \code{\link{mcmcr-object}}.
+Coerces MCMC objects to an \code{\link{mcmcr-object}}.
 }
 \section{Methods (by class)}{
 \itemize{
