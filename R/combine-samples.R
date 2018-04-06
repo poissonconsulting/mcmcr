@@ -1,11 +1,15 @@
-#' Combines object samples.
+#' Combine MCMC Samples of Two Objects
 #'
-#' Combines mcmc objects by values using fun.
+#' Combines samples of two MCMC objects
+#' (with the same parameters, chains and iterations) using a function.
 #'
-#' @param x An mcmc object.
-#' @param x2 A second mcmc object.
-#' @param fun A function.
+#' @param x An MCMC object.
+#' @param x2 A second MCMC object.
+#' @param fun The function to use to combine the samples.
+#' The function must return a scalar.
 #' @param ... Unused.
+#' @return The combined samples as an MCMC object
+#' with the same parameters, chains and iterations as the original objects.
 #' @export
 #' @examples
 #' combine_samples(mcmcr_example, mcmcr_example, fun = sum)
@@ -13,6 +17,7 @@ combine_samples <- function(x, x2, fun = mean, ...) {
   UseMethod("combine_samples")
 }
 
+#' @describeIn combine_samples Combine samples of two mcmcarray objects
 #' @export
 combine_samples.mcmcarray <- function(x, x2, fun = mean, ...) {
   if (!is.mcmcarray(x2)) error("x2 must be an mcmcarray")
@@ -25,6 +30,7 @@ combine_samples.mcmcarray <- function(x, x2, fun = mean, ...) {
   set_class(x, "mcmcarray")
 }
 
+#' @describeIn combine_samples Combine samples of two mcmcr objects
 #' @export
 combine_samples.mcmcr <- function(x, x2, fun = mean, ...) {
   if (!is.mcmcr(x2)) error("x2 must be an mcmcr")

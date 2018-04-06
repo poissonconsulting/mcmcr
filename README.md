@@ -84,8 +84,10 @@ particular it provides functions to
   - `subset` objects by chains, iterations and/or parameters;
   - `bind_xx` a pair of objects by their `xx_chains`, `_iterations`,
     `xx_parameters` or (parameter) `xx_dimensions`;
-  - `combine_samples` of two objects by summing or otherwise aggregating
-    their MCMC sample values;
+  - combine the samples of two (or more) MCMC objects using
+    `combine_samples` (or `combine_samples_n`) or combine the samples of
+    a single MCMC object by reducing its dimensions using
+    `combine_dimensions`;
   - `collapse_chains` or `split_chains` an object’s chains;
   - `mcmc_map` over an objects values;
   - assess if an object has `converged` using `rhat` and `esr`

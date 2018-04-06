@@ -2,20 +2,34 @@
 % Please edit documentation in R/combine-samples-n.R
 \name{combine_samples_n}
 \alias{combine_samples_n}
-\title{Combines multiple object samples.}
+\alias{combine_samples_n.default}
+\alias{combine_samples_n.list}
+\title{Combine MCMC Samples of multiple objects}
 \usage{
 combine_samples_n(x, ..., fun = mean)
+
+\method{combine_samples_n}{default}(x, ..., fun = mean)
+
+\method{combine_samples_n}{list}(x, ..., fun = mean)
 }
 \arguments{
-\item{x}{An mcmc object (or a list of mcmc objects).}
+\item{x}{An MCMC object (or a list of mcmc objects).}
 
-\item{...}{Additional mcmc objects (or additional arguments).}
+\item{...}{Additional MCMC objects.}
 
 \item{fun}{A function.}
 }
 \description{
-Combines mcmc objects by values using fun.
+Combines samples of multiple MCMC objects
+(with the same parameters, chains and iterations) using a function.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{default}: Combine samples of multiple MCMC objects
+
+\item \code{list}: Combine samples of a list of multiple MCMC objects
+}}
+
 \examples{
 combine_samples_n(mcmcr_example, mcmcr_example, mcmcr_example, fun = sum)
 }
