@@ -2,15 +2,9 @@
 % Please edit documentation in R/as.R
 \name{as.mcmcrs}
 \alias{as.mcmcrs}
-\alias{as.mcmcrs.list}
-\alias{as.mcmcrs.mcmcrs}
 \title{Coerce to an mcmcrs object}
 \usage{
 as.mcmcrs(x, ...)
-
-\method{as.mcmcrs}{list}(x, ...)
-
-\method{as.mcmcrs}{mcmcrs}(x, ...)
 }
 \arguments{
 \item{x}{object to coerce.}
@@ -18,15 +12,8 @@ as.mcmcrs(x, ...)
 \item{...}{Unused.}
 }
 \description{
-Coerce to an mcmcrs object
+Coerces other MCMC objects to an \code{\link{mcmcrs-object}}.
 }
-\section{Methods (by class)}{
-\itemize{
-\item \code{list}: Coerces list of mcmcr objects
-
-\item \code{mcmcrs}: Coerces mcmcrs
-}}
-
 \examples{
 as.mcmcrs(list(mcmcr_example))
 }

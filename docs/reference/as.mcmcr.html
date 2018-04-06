@@ -27,7 +27,7 @@
 <script src="../pkgdown.js"></script>
 <meta property="og:title" content="Coerce to an mcmcr object — as.mcmcr" />
 
-<meta property="og:description" content="Coerce to an mcmcr object" />
+<meta property="og:description" content="Coerces other MCMC objects to an mcmcr-object." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -84,7 +84,7 @@
     </div>
 
     
-    <p>Coerce to an mcmcr object</p>
+    <p>Coerces other MCMC objects to an <code><a href='mcmcr-object.html'>mcmcr-object</a></code>.</p>
     
 
     <pre class="usage"><span class='fu'>as.mcmcr</span>(<span class='no'>x</span>, <span class='no'>...</span>)
@@ -104,8 +104,8 @@
 <span class='co'># S3 method for mcmcarray</span>
 <span class='fu'>as.mcmcr</span>(<span class='no'>x</span>, <span class='no'>...</span>)
 
-<span class='co'># S3 method for mcmcr</span>
-<span class='fu'>as.mcmcr</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+<span class='co'># S3 method for list</span>
+<span class='fu'><a href='as.mcmcrs.html'>as.mcmcrs</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -123,12 +123,12 @@
     <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
 
     <ul>
-<li><p><code>list</code>: Coerces list of mcmcarray objects</p></li>
-<li><p><code>mcarray</code>: Coerces mcarray</p></li>
-<li><p><code>mcmc</code>: Coerces mcmc</p></li>
-<li><p><code>mcmc.list</code>: Coerces mcmc.list</p></li>
-<li><p><code>mcmcarray</code>: Coerces mcmcarray</p></li>
-<li><p><code>mcmcr</code>: Coerces mcmcr</p></li>
+<li><p><code>list</code>: Coerces list (of mcmcarray objects) to an mcmcr object</p></li>
+<li><p><code>mcarray</code>: Coerces mcarray object to an mcmcr object</p></li>
+<li><p><code>mcmc</code>: Coerces mcmc object to an mcmcr object</p></li>
+<li><p><code>mcmc.list</code>: Coerces mcmc.list object to an mcmcr object</p></li>
+<li><p><code>mcmcarray</code>: Coerces mcmcarray object to an mcmcr object</p></li>
+<li><p><code>list</code>: Coerces list (of mcmcr objects with the same parameters, chains and iterations) to an mcmcrs object</p></li>
 </ul>
     
 

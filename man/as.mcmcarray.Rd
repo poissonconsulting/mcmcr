@@ -4,7 +4,6 @@
 \alias{as.mcmcarray}
 \alias{as.mcmcarray.default}
 \alias{as.mcmcarray.mcarray}
-\alias{as.mcmcarray.mcmcarray}
 \alias{as.mcmcarray.mcmc}
 \alias{as.mcmcarray.mcmc.list}
 \alias{as.mcmcarray.mcmcr}
@@ -15,8 +14,6 @@ as.mcmcarray(x, ...)
 \method{as.mcmcarray}{default}(x, ...)
 
 \method{as.mcmcarray}{mcarray}(x, ...)
-
-\method{as.mcmcarray}{mcmcarray}(x, ...)
 
 \method{as.mcmcarray}{mcmc}(x, ...)
 
@@ -30,21 +27,19 @@ as.mcmcarray(x, ...)
 \item{...}{Unused.}
 }
 \description{
-Coerce to an mcmcarray object
+Coerces other MCMC objects to an \code{\link{mcmcarray-object}}.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{default}: Coerces vector, matrix or array
+\item \code{default}: Coerces vector, matrix or array to an mcmcarray object
 
-\item \code{mcarray}: Coerces mcarray
+\item \code{mcarray}: Coerces mcarray object to an mcmcarray object
 
-\item \code{mcmcarray}: Coerces mcmcarray
+\item \code{mcmc}: Coerces mcmc object (with one parameter) to an mcmcarray object
 
-\item \code{mcmc}: Coerces mcmc
+\item \code{mcmc.list}: Coerces mcmc.list object (with one parameter) to an mcmcarray object
 
-\item \code{mcmc.list}: Coerces mcmc.list
-
-\item \code{mcmcr}: Coerces mcmcr
+\item \code{mcmcr}: Coerces mcmcr object (with one parameter) to an mcmcarray object
 }}
 
 \examples{

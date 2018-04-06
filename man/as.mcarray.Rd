@@ -2,13 +2,10 @@
 % Please edit documentation in R/as.R
 \name{as.mcarray}
 \alias{as.mcarray}
-\alias{as.mcarray.mcarray}
 \alias{as.mcarray.mcmcarray}
 \title{Coerce to an mcarray object}
 \usage{
 as.mcarray(x, ...)
-
-\method{as.mcarray}{mcarray}(x, ...)
 
 \method{as.mcarray}{mcmcarray}(x, ...)
 }
@@ -18,13 +15,11 @@ as.mcarray(x, ...)
 \item{...}{Unused.}
 }
 \description{
-Coerce to an mcarray object
+Coerces other MCMC objects to an \code{\link[rjags]{mcarray.object}}.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{mcarray}: Coerces mcarray
-
-\item \code{mcmcarray}: Coerces mcmcarray
+\item \code{mcmcarray}: Coerces mcmcarray object to an mcarray object
 }}
 
 \examples{

@@ -5,7 +5,6 @@
 \alias{as.mcmc.list.mcarray}
 \alias{as.mcmc.list.mcmcarray}
 \alias{as.mcmc.list.mcmc}
-\alias{as.mcmc.list.mcmc.list}
 \alias{as.mcmc.list.mcmcr}
 \title{Coerce to an mcmc.list object}
 \usage{
@@ -15,8 +14,6 @@
 
 \method{as.mcmc.list}{mcmc}(x, ...)
 
-\method{as.mcmc.list}{mcmc.list}(x, ...)
-
 \method{as.mcmc.list}{mcmcr}(x, ...)
 }
 \arguments{
@@ -25,24 +22,19 @@
 \item{...}{Unused.}
 }
 \description{
-Coerce to an mcmc.list object
+Coerces other MCMC objects to an \code{\link[coda]{mcmc.list}} object.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{mcarray}: Coerces mcarray
+\item \code{mcarray}: Coerces mcarray object to an mcmc.list object
 
-\item \code{mcmcarray}: Coerces mcmcarray
+\item \code{mcmcarray}: Coerces mcmcarray object to an mcmc.list object
 
-\item \code{mcmc}: Coerces mcmc
+\item \code{mcmc}: Coerces mcmc object to an mcmc.list object
 
-\item \code{mcmc.list}: Coerces mcmc.list
-
-\item \code{mcmcr}: Coerces mcmcr
+\item \code{mcmcr}: Coerces mcmcr object to an mcmc.list object
 }}
 
 \examples{
 as.mcmc.list(mcmcr_example)
-}
-\seealso{
-\code{coda::\link[coda]{as.mcmc.list}}
 }
