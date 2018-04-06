@@ -2,18 +2,36 @@
 % Please edit documentation in R/collapse-chains.R
 \name{collapse_chains}
 \alias{collapse_chains}
+\alias{collapse_chains.default}
+\alias{collapse_chains.mcmc.list}
+\alias{collapse_chains.mcmcr}
 \title{Collapse Chains}
 \usage{
 collapse_chains(x, ...)
+
+\method{collapse_chains}{default}(x, ...)
+
+\method{collapse_chains}{mcmc.list}(x, ...)
+
+\method{collapse_chains}{mcmcr}(x, ...)
 }
 \arguments{
-\item{x}{An mcmc object.}
+\item{x}{An MCMC object.}
 
 \item{...}{Unused.}
 }
 \description{
-Collapses chains into a single chain.
+Collapses an MCMC object's chains into a single chain.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{default}: Collapse an MCMC object's chains into a single chain
+
+\item \code{mcmc.list}: Collapse an mcmc.list object's chains into a single chain
+
+\item \code{mcmcr}: Collapse an mcmcr object's chains into a single chain
+}}
+
 \examples{
 collapse_chains(mcmcr_example)
 }
