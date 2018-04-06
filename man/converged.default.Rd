@@ -2,7 +2,7 @@
 % Please edit documentation in R/converged.R
 \name{converged.default}
 \alias{converged.default}
-\title{Converged}
+\title{Object Converged}
 \usage{
 \method{converged}{default}(x, rhat = 1.1, esr = 0.33, by = "all",
   as_df = FALSE, ...)
@@ -21,8 +21,5 @@
 \item{...}{Unused}
 }
 \description{
-Converged
-}
-\examples{
-converged(mcmcr_example)
+Test whether an object has converged.
 }

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Object Converged — converged.default • mcmcr</title>
+<title>MCMC Object Converged — mcmc_converged • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Object Converged — converged.default" />
+<meta property="og:title" content="MCMC Object Converged — mcmc_converged" />
 
-<meta property="og:description" content="Test whether an object has converged." />
+<meta property="og:description" content="Test whether an MCMC object has converged." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -79,16 +79,19 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Object Converged</h1>
+    <h1>MCMC Object Converged</h1>
     
     </div>
 
     
-    <p>Test whether an object has converged.</p>
+    <p>Test whether an MCMC object has converged.</p>
     
 
-    <pre class="usage"><span class='co'># S3 method for default</span>
-<span class='fu'><a href='converged.html'>converged</a></span>(<span class='no'>x</span>, <span class='kw'>rhat</span> <span class='kw'>=</span> <span class='fl'>1.1</span>, <span class='kw'>esr</span> <span class='kw'>=</span> <span class='fl'>0.33</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
+    <pre class="usage"><span class='fu'>mcmc_converged</span>(<span class='no'>x</span>, <span class='kw'>rhat</span> <span class='kw'>=</span> <span class='fl'>1.1</span>, <span class='kw'>esr</span> <span class='kw'>=</span> <span class='fl'>0.33</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>as_df</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='no'>...</span>)
+
+<span class='co'># S3 method for default</span>
+<span class='fu'>mcmc_converged</span>(<span class='no'>x</span>, <span class='kw'>rhat</span> <span class='kw'>=</span> <span class='fl'>1.1</span>, <span class='kw'>esr</span> <span class='kw'>=</span> <span class='fl'>0.33</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
   <span class='kw'>as_df</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
@@ -96,7 +99,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>An mcmc object.</p></td>
+      <td><p>An MCMC object.</p></td>
     </tr>
     <tr>
       <th>rhat</th>
@@ -120,13 +123,25 @@
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
 
+    <ul>
+<li><p><code>default</code>: Test whether an MCMC object has converged</p></li>
+</ul>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>mcmc_converged</span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; [1] FALSE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

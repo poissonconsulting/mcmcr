@@ -2,18 +2,15 @@
 % Please edit documentation in R/converged.R
 \name{converged}
 \alias{converged}
-\title{Converged}
+\title{Object Converged}
 \usage{
 converged(x, ...)
 }
 \arguments{
-\item{x}{object to coerce.}
+\item{x}{An object.}
 
 \item{...}{Unused.}
 }
 \description{
-Converged
-}
-\examples{
-converged(mcmcr_example)
+Test whether an object has converged.
 }
