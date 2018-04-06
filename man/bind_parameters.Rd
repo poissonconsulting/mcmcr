@@ -2,21 +2,38 @@
 % Please edit documentation in R/bind-parameters.R
 \name{bind_parameters}
 \alias{bind_parameters}
-\title{Combines objects by parameters}
+\alias{bind_parameters.mcmc}
+\alias{bind_parameters.mcmc.list}
+\alias{bind_parameters.mcmcr}
+\title{Combine two MCMC object by parameters}
 \usage{
 bind_parameters(x, ...)
+
+\method{bind_parameters}{mcmc}(x, x2, ...)
+
+\method{bind_parameters}{mcmc.list}(x, x2, ...)
+
+\method{bind_parameters}{mcmcr}(x, x2, ...)
 }
 \arguments{
-\item{x}{an mcmc object.}
+\item{x}{an MCMC object}
 
-\item{...}{Unused.}
+\item{...}{unused}
+
+\item{x2}{a second MCMC object}
 }
 \description{
-Combines an mcmc object(s) by parameters.
+Combines two MCMC objects (with the same chains and iterations) by their parameters.
 }
-\details{
-They must have the same number of chains and iterations but different parameters.
-}
+\section{Methods (by class)}{
+\itemize{
+\item \code{mcmc}: Binds two mcmc objects by their parameters
+
+\item \code{mcmc.list}: Binds two mcmc.list objects by their parameters
+
+\item \code{mcmcr}: Binds two mcmcr objects by their parameters
+}}
+
 \examples{
 bind_parameters(subset(mcmcr_example, parameters = "sigma"),
   subset(mcmcr_example, parameters = "beta"))

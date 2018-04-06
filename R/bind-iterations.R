@@ -1,12 +1,10 @@
-#' Combines objects by iterations.
+#' Combine two MCMC objects by iterations
 #'
-#' Combines two mcmc objects by iterations.
+#' Combines two MCMC objects (with the same parameters and chains) by iterations.
 #'
-#' They must have the same parameter names, parameter dimensions and chains
-#'
-#' @param x an mcmc object.
-#' @param x2 a second mcmc object
-#' @param ... Unused.
+#' @param x an MCMC object
+#' @param x2 a second MCMC object
+#' @param ... unused
 #' @export
 #' @examples
 #' bind_iterations(mcmcr_example, mcmcr_example)
@@ -14,6 +12,7 @@ bind_iterations <- function(x, x2, ...) {
   UseMethod("bind_iterations")
 }
 
+#' @describeIn bind_iterations Binds two mcarray objects by their iterations
 #' @export
 bind_iterations.mcarray <- function(x, x2, ...) {
   if (!is.mcarray(x2)) error("x2 must be an mcarray")
@@ -28,6 +27,7 @@ bind_iterations.mcarray <- function(x, x2, ...) {
   set_class(x, "mcarray")
 }
 
+#' @describeIn bind_iterations Binds two mcmc objects by their iterations
 #' @export
 bind_iterations.mcmc <- function(x, x2, ...) {
   if (!coda::is.mcmc(x2)) error("x2 must be an mcmc")
@@ -48,6 +48,7 @@ bind_iterations.mcmc <- function(x, x2, ...) {
   coda::as.mcmc(x)
 }
 
+#' @describeIn bind_iterations Binds two mcmc.list objects by their iterations
 #' @export
 bind_iterations.mcmc.list <- function(x, x2, ...) {
   if (!(coda::is.mcmc.list(x2) || coda::is.mcmc(x2))) error("x2 must be an mcmc.list")
@@ -68,6 +69,7 @@ bind_iterations.mcmc.list <- function(x, x2, ...) {
   set_class(x, "mcmc.list")
 }
 
+#' @describeIn bind_iterations Binds two mcmcarray objects by their iterations
 #' @export
 bind_iterations.mcmcarray <- function(x, x2, ...) {
 
@@ -83,6 +85,7 @@ bind_iterations.mcmcarray <- function(x, x2, ...) {
   set_class(x, "mcmcarray")
 }
 
+#' @describeIn bind_iterations Binds two mcmcr objects by their iterations
 #' @export
 bind_iterations.mcmcr <- function(x, x2, ...) {
   if (!is.mcmcr(x2)) error("x2 must be an mcmcr")

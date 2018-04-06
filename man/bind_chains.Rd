@@ -22,9 +22,9 @@ bind_chains(x, x2, ...)
 \method{bind_chains}{mcmcr}(x, x2, ...)
 }
 \arguments{
-\item{x}{An mcmc object.}
+\item{x}{an MCMC object.}
 
-\item{x2}{A second mcmc object}
+\item{x2}{a second MCMC object}
 
 \item{...}{Unused.}
 }
@@ -33,15 +33,15 @@ Combines two MCMC objects (with the same parameters and iterations) by chains.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{mcarray}: Binds chains for two mcarray objects
+\item \code{mcarray}: Binds two mcarray objects by their chains
 
-\item \code{mcmc}: Binds chains for two mcmc objects
+\item \code{mcmc}: Binds two mcmc objects by their chains
 
-\item \code{mcmc.list}: Binds chains for two mcmc.list objects
+\item \code{mcmc.list}: Binds two mcmc.list objects by their chains
 
-\item \code{mcmcarray}: Binds chains for two mcmcarray objects
+\item \code{mcmcarray}: Binds two mcmcarray objects by their chains
 
-\item \code{mcmcr}: Binds chains for two mcmcr objects
+\item \code{mcmcr}: Binds two mcmcr objects by their chains
 }}
 
 \examples{

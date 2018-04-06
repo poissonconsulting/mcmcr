@@ -1,11 +1,10 @@
-#' Combines objects by parameters
+#' Combine two MCMC object by parameters
 #'
-#' Combines an mcmc object(s) by parameters.
+#' Combines two MCMC objects (with the same chains and iterations) by their parameters.
 #'
-#' They must have the same number of chains and iterations but different parameters.
-#'
-#' @param x an mcmc object.
-#' @param ... Unused.
+#' @param x an MCMC object
+#' @param x2 a second MCMC object
+#' @param ... unused
 #' @export
 #' @examples
 #' bind_parameters(subset(mcmcr_example, parameters = "sigma"),
@@ -14,6 +13,7 @@ bind_parameters <- function(x, ...) {
   UseMethod("bind_parameters")
 }
 
+#' @describeIn bind_parameters Binds two mcmc objects by their parameters
 #' @export
 bind_parameters.mcmc <- function(x, x2, ...) {
   if (!coda::is.mcmc(x2)) error("x2 must be an mcmc.list")
@@ -29,6 +29,7 @@ bind_parameters.mcmc <- function(x, x2, ...) {
   sort(x)
 }
 
+#' @describeIn bind_parameters Binds two mcmc.list objects by their parameters
 #' @export
 bind_parameters.mcmc.list <- function(x, x2, ...) {
   if (!coda::is.mcmc.list(x2)) error("x2 must be an mcmc.list")
@@ -46,6 +47,7 @@ bind_parameters.mcmc.list <- function(x, x2, ...) {
   set_class(x, "mcmc.list")
 }
 
+#' @describeIn bind_parameters Binds two mcmcr objects by their parameters
 #' @export
 bind_parameters.mcmcr <- function(x, x2, ...) {
   if (!is.mcmcr(x)) error("x2 must be an mcmcr")

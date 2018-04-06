@@ -2,23 +2,48 @@
 % Please edit documentation in R/bind-iterations.R
 \name{bind_iterations}
 \alias{bind_iterations}
-\title{Combines objects by iterations.}
+\alias{bind_iterations.mcarray}
+\alias{bind_iterations.mcmc}
+\alias{bind_iterations.mcmc.list}
+\alias{bind_iterations.mcmcarray}
+\alias{bind_iterations.mcmcr}
+\title{Combine two MCMC objects by iterations}
 \usage{
 bind_iterations(x, x2, ...)
+
+\method{bind_iterations}{mcarray}(x, x2, ...)
+
+\method{bind_iterations}{mcmc}(x, x2, ...)
+
+\method{bind_iterations}{mcmc.list}(x, x2, ...)
+
+\method{bind_iterations}{mcmcarray}(x, x2, ...)
+
+\method{bind_iterations}{mcmcr}(x, x2, ...)
 }
 \arguments{
-\item{x}{an mcmc object.}
+\item{x}{an MCMC object}
 
-\item{x2}{a second mcmc object}
+\item{x2}{a second MCMC object}
 
-\item{...}{Unused.}
+\item{...}{unused}
 }
 \description{
-Combines two mcmc objects by iterations.
+Combines two MCMC objects (with the same parameters and chains) by iterations.
 }
-\details{
-They must have the same parameter names, parameter dimensions and chains
-}
+\section{Methods (by class)}{
+\itemize{
+\item \code{mcarray}: Binds two mcarray objects by their iterations
+
+\item \code{mcmc}: Binds two mcmc objects by their iterations
+
+\item \code{mcmc.list}: Binds two mcmc.list objects by their iterations
+
+\item \code{mcmcarray}: Binds two mcmcarray objects by their iterations
+
+\item \code{mcmcr}: Binds two mcmcr objects by their iterations
+}}
+
 \examples{
 bind_iterations(mcmcr_example, mcmcr_example)
 }

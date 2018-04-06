@@ -1,17 +1,17 @@
-#' Combines objects by samples
+#' Combine multiple MCMC objects by parameter dimensions
 #'
-#' Combines multiple mcmc objects by samples.
+#' Combines multiple MCMC objects (with the same parameters, chains and iterations) by parameter dimensions.
 #'
-#' They must have the same parameters with the same parameter dimensions and number of chains and iterations.
-#'
-#' @param ... One or more mcmc objects.
+#' @param ... one or more MCMC objects
 #' @export
+#' @seealso \code{\link{bind_dimensions}}
 #' @examples
 #' bind_dimensions_n(mcmcr_example, mcmcr_example, mcmcr_example)
 bind_dimensions_n <- function(...) {
   UseMethod("bind_dimensions_n")
 }
 
+#' @describeIn bind_dimensions_n Binds multiple mcmcarray objects by their dimensions
 #' @export
 bind_dimensions_n.mcmcarray <- function(...) {
   x <- list(...)
@@ -32,6 +32,7 @@ bind_dimensions_n.mcmcarray <- function(...) {
   x
 }
 
+#' @describeIn bind_dimensions_n Binds multiple mcmcr objects by their dimensions
 #' @export
 bind_dimensions_n.mcmcr <- function(...) {
   x <- list(...)

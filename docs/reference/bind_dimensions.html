@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Combines objects by samples — bind_dimensions • mcmcr</title>
+<title>Combine two MCMC objects by dimensions — bind_dimensions • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,10 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Combines objects by samples — bind_dimensions" />
+<meta property="og:title" content="Combine two MCMC objects by dimensions — bind_dimensions" />
 
-<meta property="og:description" content="Combines two mcmc objects by samples." />
+<meta property="og:description" content="Combines multiple MCMC objects (with the same parameters, chains and iterations)
+by parameter dimensions." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -79,26 +80,33 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Combines objects by samples</h1>
+    <h1>Combine two MCMC objects by dimensions</h1>
     
     </div>
 
     
-    <p>Combines two mcmc objects by samples.</p>
+    <p>Combines multiple MCMC objects (with the same parameters, chains and iterations)
+by parameter dimensions.</p>
     
 
-    <pre class="usage"><span class='fu'>bind_dimensions</span>(<span class='no'>x</span>, <span class='no'>x2</span>, <span class='kw'>along</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>bind_dimensions</span>(<span class='no'>x</span>, <span class='no'>x2</span>, <span class='kw'>along</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcarray</span>
+<span class='fu'>bind_dimensions</span>(<span class='no'>x</span>, <span class='no'>x2</span>, <span class='kw'>along</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcr</span>
+<span class='fu'>bind_dimensions</span>(<span class='no'>x</span>, <span class='no'>x2</span>, <span class='kw'>along</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>an mcmc object.</p></td>
+      <td><p>An MCMC object.</p></td>
     </tr>
     <tr>
       <th>x2</th>
-      <td><p>a second mcmc object.</p></td>
+      <td><p>a second MCMC object.</p></td>
     </tr>
     <tr>
       <th>along</th>
@@ -110,9 +118,16 @@
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
 
-    <p>They must have the same parameters with the same number of chains and iterations.</p>
+    <ul>
+<li><p><code>mcmcarray</code>: Binds two mcmcarray objects by their dimensions</p></li>
+<li><p><code>mcmcr</code>: Binds two mcmcr objects by their dimensions</p></li>
+</ul>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code><a href='bind_dimensions_n.html'>bind_dimensions_n</a></code></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -151,7 +166,9 @@
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#details">Details</a></li>
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
+
+      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

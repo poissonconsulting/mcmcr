@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Combines objects by parameters — bind_parameters • mcmcr</title>
+<title>Combine two MCMC object by parameters — bind_parameters • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Combines objects by parameters — bind_parameters" />
+<meta property="og:title" content="Combine two MCMC object by parameters — bind_parameters" />
 
-<meta property="og:description" content="Combines an mcmc object(s) by parameters." />
+<meta property="og:description" content="Combines two MCMC objects (with the same chains and iterations) by their parameters." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -79,32 +79,49 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Combines objects by parameters</h1>
+    <h1>Combine two MCMC object by parameters</h1>
     
     </div>
 
     
-    <p>Combines an mcmc object(s) by parameters.</p>
+    <p>Combines two MCMC objects (with the same chains and iterations) by their parameters.</p>
     
 
-    <pre class="usage"><span class='fu'>bind_parameters</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>bind_parameters</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmc</span>
+<span class='fu'>bind_parameters</span>(<span class='no'>x</span>, <span class='no'>x2</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmc.list</span>
+<span class='fu'>bind_parameters</span>(<span class='no'>x</span>, <span class='no'>x2</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcr</span>
+<span class='fu'>bind_parameters</span>(<span class='no'>x</span>, <span class='no'>x2</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>an mcmc object.</p></td>
+      <td><p>an MCMC object</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Unused.</p></td>
+      <td><p>unused</p></td>
+    </tr>
+    <tr>
+      <th>x2</th>
+      <td><p>a second MCMC object</p></td>
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
 
-    <p>They must have the same number of chains and iterations but different parameters.</p>
+    <ul>
+<li><p><code>mcmc</code>: Binds two mcmc objects by their parameters</p></li>
+<li><p><code>mcmc.list</code>: Binds two mcmc.list objects by their parameters</p></li>
+<li><p><code>mcmcr</code>: Binds two mcmcr objects by their parameters</p></li>
+</ul>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -127,7 +144,7 @@
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#details">Details</a></li>
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

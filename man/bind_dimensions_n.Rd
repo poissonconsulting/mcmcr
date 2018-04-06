@@ -2,19 +2,32 @@
 % Please edit documentation in R/bind-dimensions-n.R
 \name{bind_dimensions_n}
 \alias{bind_dimensions_n}
-\title{Combines objects by samples}
+\alias{bind_dimensions_n.mcmcarray}
+\alias{bind_dimensions_n.mcmcr}
+\title{Combine multiple MCMC objects by parameter dimensions}
 \usage{
 bind_dimensions_n(...)
+
+\method{bind_dimensions_n}{mcmcarray}(...)
+
+\method{bind_dimensions_n}{mcmcr}(...)
 }
 \arguments{
-\item{...}{One or more mcmc objects.}
+\item{...}{one or more MCMC objects}
 }
 \description{
-Combines multiple mcmc objects by samples.
+Combines multiple MCMC objects (with the same parameters, chains and iterations) by parameter dimensions.
 }
-\details{
-They must have the same parameters with the same parameter dimensions and number of chains and iterations.
-}
+\section{Methods (by class)}{
+\itemize{
+\item \code{mcmcarray}: Binds multiple mcmcarray objects by their dimensions
+
+\item \code{mcmcr}: Binds multiple mcmcr objects by their dimensions
+}}
+
 \examples{
 bind_dimensions_n(mcmcr_example, mcmcr_example, mcmcr_example)
+}
+\seealso{
+\code{\link{bind_dimensions}}
 }
