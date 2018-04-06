@@ -1,17 +1,20 @@
-#' Combines object dimensions
+#' Combine Samples by Dimensions
 #'
-#' Combines mcmc object dimensions along along using fun.
+#' Combines MCMC object samples by dimensions along \code{along} using \code{fun}.
 #'
-#' @param x An mcmc object.
-#' @param fun A function.
-#' @param along A count (or NULL) indicating the parameter dimension(s) to bind along.
+#' @param x An MCMC object
+#' @param fun THe function to use when combining dimensions
+#' @param along A positive interger (or NULL) indicating the parameter dimension(s) to bind along.
 #' @param ... Unused
-#' @return The object with reduced dimensions.
+#' @return The MCMC object with reduced dimensions.
 #' @export
+#' @examples
+#' combine_dimensions(mcmcr_example$alpha)
 combine_dimensions <- function(x, fun = mean, along = NULL, ...) {
   UseMethod("combine_dimensions")
 }
 
+#' @describeIn combine_dimensions Combine an mcmcarray object's samples by dimensions
 #' @export
 combine_dimensions.mcmcarray <- function(x, fun = mean, along = NULL, ...) {
   check_function(fun)
@@ -36,6 +39,7 @@ combine_dimensions.mcmcarray <- function(x, fun = mean, along = NULL, ...) {
   x
 }
 
+#' @describeIn combine_dimensions Combine an mcmcr object's samples by dimensions
 #' @export
 combine_dimensions.mcmcr <- function(x, fun = mean, along = NULL, ...) {
   check_function(fun)

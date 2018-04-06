@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Combines object dimensions — combine_dimensions • mcmcr</title>
+<title>Combine Samples by Dimensions — combine_dimensions • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Combines object dimensions — combine_dimensions" />
+<meta property="og:title" content="Combine Samples by Dimensions — combine_dimensions" />
 
-<meta property="og:description" content="Combines mcmc object dimensions along along using fun." />
+<meta property="og:description" content="Combines MCMC object samples by dimensions along along using fun." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -79,30 +79,36 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Combines object dimensions</h1>
+    <h1>Combine Samples by Dimensions</h1>
     
     </div>
 
     
-    <p>Combines mcmc object dimensions along along using fun.</p>
+    <p>Combines MCMC object samples by dimensions along <code>along</code> using <code>fun</code>.</p>
     
 
-    <pre class="usage"><span class='fu'>combine_dimensions</span>(<span class='no'>x</span>, <span class='kw'>fun</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='kw'>along</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>combine_dimensions</span>(<span class='no'>x</span>, <span class='kw'>fun</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='kw'>along</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcarray</span>
+<span class='fu'>combine_dimensions</span>(<span class='no'>x</span>, <span class='kw'>fun</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='kw'>along</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcr</span>
+<span class='fu'>combine_dimensions</span>(<span class='no'>x</span>, <span class='kw'>fun</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='kw'>along</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>An mcmc object.</p></td>
+      <td><p>An MCMC object</p></td>
     </tr>
     <tr>
       <th>fun</th>
-      <td><p>A function.</p></td>
+      <td><p>THe function to use when combining dimensions</p></td>
     </tr>
     <tr>
       <th>along</th>
-      <td><p>A count (or NULL) indicating the parameter dimension(s) to bind along.</p></td>
+      <td><p>A positive interger (or NULL) indicating the parameter dimension(s) to bind along.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -112,9 +118,20 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The object with reduced dimensions.</p>
+    <p>The MCMC object with reduced dimensions.</p>
+    
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
+
+    <ul>
+<li><p><code>mcmcarray</code>: Combine an mcmcarray object's samples by dimensions</p></li>
+<li><p><code>mcmcr</code>: Combine an mcmcr object's samples by dimensions</p></li>
+</ul>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>combine_dimensions</span>(<span class='no'>mcmcr_example</span>$<span class='no'>alpha</span>)</div><div class='output co'>#&gt; [1] 4.218025
+#&gt; nchains:  2 
+#&gt; niters:  400 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -122,7 +139,11 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-          </ul>
+
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
