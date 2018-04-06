@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Coef mcmcr — coef.mcmcr • mcmcr</title>
+<title>Term Coefficients — coef • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Coef mcmcr — coef.mcmcr" />
+<meta property="og:title" content="Term Coefficients — coef" />
 
-<meta property="og:description" content="Coefficients for an mcmcr object." />
+<meta property="og:description" content="Gets coefficients for all the terms in an MCMC object." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -79,15 +79,31 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Coef mcmcr</h1>
+    <h1>Term Coefficients</h1>
     
     </div>
 
     
-    <p>Coefficients for an mcmcr object.</p>
+    <p>Gets coefficients for all the terms in an MCMC object.</p>
     
 
-    <pre class="usage"><span class='co'># S3 method for mcmcr</span>
+    <pre class="usage"><span class='co'># S3 method for mcarray</span>
+<span class='fu'>coef</span>(<span class='no'>object</span>, <span class='kw'>conf_level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>estimate</span> <span class='kw'>=</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/stats/topics/median'>median</a></span>,
+  <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmc</span>
+<span class='fu'>coef</span>(<span class='no'>object</span>, <span class='kw'>conf_level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>estimate</span> <span class='kw'>=</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/stats/topics/median'>median</a></span>,
+  <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmc.list</span>
+<span class='fu'>coef</span>(<span class='no'>object</span>, <span class='kw'>conf_level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>,
+  <span class='kw'>estimate</span> <span class='kw'>=</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/stats/topics/median'>median</a></span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcarray</span>
+<span class='fu'>coef</span>(<span class='no'>object</span>, <span class='kw'>conf_level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>,
+  <span class='kw'>estimate</span> <span class='kw'>=</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/stats/topics/median'>median</a></span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcr</span>
 <span class='fu'>coef</span>(<span class='no'>object</span>, <span class='kw'>conf_level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>estimate</span> <span class='kw'>=</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/stats/topics/median'>median</a></span>,
   <span class='no'>...</span>)</pre>
     
@@ -96,7 +112,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>object</th>
-      <td><p>The object.</p></td>
+      <td><p>The MCMC object to get the coefficients for</p></td>
     </tr>
     <tr>
       <th>conf_level</th>
@@ -104,17 +120,33 @@
     </tr>
     <tr>
       <th>estimate</th>
-      <td><p>A The function to use to calculate the estimate.</p></td>
+      <td><p>The function to use to calculate the estimate.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Not used.</p></td>
+      <td><p>Unused</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A tidy tibble of the coefficient terms.</p>
+    <p>An tibble of the coefficients with the columns indicating the
+<code>term</code>, <code>estimate</code>, standard deviation (<code>sd</code>), <code>zscore</code>,
+<code>lower</code> and <code>upper</code> credible intervals.</p>
+    
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
+
+    <ul>
+<li><p><code>mcarray</code>: Get coefficients for terms in mcarray object</p></li>
+<li><p><code>mcmc</code>: Get coefficients for terms in mcmc object</p></li>
+<li><p><code>mcmc.list</code>: Get coefficients for terms in mcmc.list object</p></li>
+<li><p><code>mcmcarray</code>: Get coefficients for terms in mcmcarray object</p></li>
+<li><p><code>mcmcr</code>: Get coefficients for terms in mcmcr object</p></li>
+</ul>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <p><code>stats::<a href='http://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></code></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -135,6 +167,10 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
+
+      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

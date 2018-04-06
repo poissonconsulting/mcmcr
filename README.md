@@ -23,8 +23,8 @@ of a term from a single iteration of a single chain (of a single
 analysis). And while a simple parameter such as an intercept corresponds
 to a single term, more complex parameters such as an interaction between
 two factors consist of multiple terms with their own inherent
-dimensionality - in this case a matrix. Not surprisingly a set of MCMC
-samples can be stored in different ways.
+dimensionality - in this case a matrix. A set of MCMC samples can be
+stored in different ways.
 
 ### Existing Classes
 
@@ -49,7 +49,7 @@ preserve the dimensionality of the parameters.
 
 ### New Classes
 
-The `mcmcr` packages introduces two related S3 classes which also
+The `mcmcr` packages introduces three related S3 classes which also
 preserve the dimensionality of the parameters:
 
   - `mcmcr::mcmcarray` is very similar to `rjags::mcarray` except that
@@ -60,22 +60,25 @@ preserve the dimensionality of the parameters:
     first);
   - `mcmcr::mcmcr` stores multiple uniquely named `mcmcarray` objects
     with the same number of chains and iterations.
+  - `mcmcr::mcmcrs` stores multiple `mcmcr` objects with the same
+    parameters, chains and iterations.
 
 ## Why mcmcr?
 
-`mcmcarray` objects were introduced to facilitate manipulation and
-querying of the MCMC samples (although they are just one `aperm` away
-from `mcarray` objects they are more intuitive to program with - at
-least for this programmer\!). `mcmcr` objects were introduced to allow a
-set of dimensionality preserving parameters to be manipulated and
-queried as a whole.
+`mcmcarray` objects were developed to facilitate manipulation of the
+MCMC samples (although they are just one `aperm` away from `mcarray`
+objects they are more intuitive to program with - at least for this
+programmer\!). `mcmcr` objects were developed to allow a set of
+dimensionality preserving parameters from a single analysis to be
+manipulated as a whole. `mcmcrs` objects were developed to allow the
+results of multiple analyses using the same model to be manipulated.
 
 The `mcmcr` package introduces a variety of (often) generic functions to
-manipulate and query `mcmcarray` and `mcmcr` objects. In particular it
-provides functions to
+manipulate and query `mcmcarray`, `mcmcr` and `mcmcrs` objects. In
+particular it provides functions to
 
   - coerce from and to `mcarray`, `mcmc` and `mcmc.list` objects;
-  - extract an objects `coef` table as a tibble;
+  - extract an objects `coef` table (as a tibble);
   - query an object’s `nchains`, `niters`, `npars`, `nterms`, `nsims`
     and `nsams` as well as it’s parameter dimensions (`pdims`)
   - `subset` objects by chains, iterations and/or parameters;
@@ -171,13 +174,13 @@ drat [repository](https://github.com/poissonconsulting/drat) using
 
 To cite package 'mcmcr' in publications use:
 
-  Joe Thorley (2018). mcmcr: Store, Manipulate and Summarise MCMC
-  Samples. R package version 0.0.0.9052.
+  Joe Thorley (2018). mcmcr: Manipulate MCMC Samples. R package
+  version 0.0.0.9052.
 
 A BibTeX entry for LaTeX users is
 
   @Manual{,
-    title = {mcmcr: Store, Manipulate and Summarise MCMC Samples},
+    title = {mcmcr: Manipulate MCMC Samples},
     author = {Joe Thorley},
     year = {2018},
     note = {R package version 0.0.0.9052},

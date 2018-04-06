@@ -1,54 +1,21 @@
-#' @export
-coef.mcarray <- function(object, conf_level = 0.95, estimate = stats::median, ...)
-  coef(coda::as.mcmc.list(object), conf_level = conf_level, estimate = estimate)
-
-#' @export
-coef.mcmc <- function(object, conf_level = 0.95, estimate = stats::median, ...) {
-  terms <- terms(object)
-  object <- t(object)
-  object <- apply(object, MARGIN = 1, FUN = coef, conf_level = conf_level, estimate = estimate)
-  object <- do.call(rbind, object)
-  object$term <- terms
-  object <- object[c("term", "estimate", "sd", "zscore", "lower", "upper", "pvalue")]
-  object <- object[order(object$term),]
-  object
-}
-
-#' @export
-coef.mcmc.list <- function(object, conf_level = 0.95, estimate = stats::median, ...) {
-  object <- collapse_chains(object)
-  coef(object, conf_level = conf_level, estimate = estimate)
-}
-
-#' Coef mcmcarray
+#' Term Coefficients
 #'
-#' Coefficients for an mcmcarray object.
+#' Gets coefficients for all the terms in an MCMC object.
 #'
-#' @param object The object.
+#' @param object The MCMC object to get the coefficients for
 #' @param conf_level A number specifying the confidence level. By default 0.95.
-#' @param estimate A The function to use to calculate the estimate.
-#' @param ... Not used.
-#' @return A tidy tibble of the coefficient terms.
+#' @param estimate The function to use to calculate the estimate.
+#' @param ... Unused
+#' @return An tibble of the coefficients with the columns indicating the
+#' \code{term}, \code{estimate}, standard deviation (\code{sd}), \code{zscore},
+#' \code{lower} and \code{upper} credible intervals.
 #' @export
-#' @examples
-#' coef(mcmcr_example$beta)
-coef.mcmcarray <- function(object, conf_level = 0.95, estimate = stats::median, ...)
-  coef(coda::as.mcmc.list(object), conf_level = conf_level, estimate = estimate)
-
-#' Coef mcmcr
-#'
-#' Coefficients for an mcmcr object.
-#'
-#' @param object The object.
-#' @param conf_level A number specifying the confidence level. By default 0.95.
-#' @param estimate A The function to use to calculate the estimate.
-#' @param ... Not used.
-#' @return A tidy tibble of the coefficient terms.
-#' @export
+#' @seealso \code{stats::\link[stats]{coef}}
 #' @examples
 #' coef(mcmcr_example)
-coef.mcmcr <- function(object, conf_level = 0.95, estimate = stats::median, ...)
-  coef(coda::as.mcmc.list(object), conf_level = conf_level, estimate = estimate)
+#' @name coef
+NULL
+
 
 #' @export
 coef.numeric <- function(object, conf_level = 0.95, estimate = stats::median, ...) {
@@ -70,3 +37,38 @@ coef.numeric <- function(object, conf_level = 0.95, estimate = stats::median, ..
   tibble::tibble(estimate = estimate, sd = sd, zscore = zscore,
     lower = quantiles[1], upper = quantiles[2], pvalue = pvalue(object))
 }
+
+#' @describeIn coef Get coefficients for terms in mcarray object
+#' @export
+coef.mcarray <- function(object, conf_level = 0.95, estimate = stats::median, ...)
+  coef(coda::as.mcmc.list(object), conf_level = conf_level, estimate = estimate)
+
+#' @describeIn coef Get coefficients for terms in mcmc object
+#' @export
+coef.mcmc <- function(object, conf_level = 0.95, estimate = stats::median, ...) {
+  terms <- terms(object)
+  object <- t(object)
+  object <- apply(object, MARGIN = 1, FUN = coef, conf_level = conf_level, estimate = estimate)
+  object <- do.call(rbind, object)
+  object$term <- terms
+  object <- object[c("term", "estimate", "sd", "zscore", "lower", "upper", "pvalue")]
+  object <- object[order(object$term),]
+  object
+}
+
+#' @describeIn coef Get coefficients for terms in mcmc.list object
+#' @export
+coef.mcmc.list <- function(object, conf_level = 0.95, estimate = stats::median, ...) {
+  object <- collapse_chains(object)
+  coef(object, conf_level = conf_level, estimate = estimate)
+}
+
+#' @describeIn coef Get coefficients for terms in mcmcarray object
+#' @export
+coef.mcmcarray <- function(object, conf_level = 0.95, estimate = stats::median, ...)
+  coef(coda::as.mcmc.list(object), conf_level = conf_level, estimate = estimate)
+
+#' @describeIn coef Get coefficients for terms in mcmcr object
+#' @export
+coef.mcmcr <- function(object, conf_level = 0.95, estimate = stats::median, ...)
+  coef(coda::as.mcmc.list(object), conf_level = conf_level, estimate = estimate)

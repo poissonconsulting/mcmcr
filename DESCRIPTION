@@ -1,10 +1,10 @@
 Package: mcmcr
-Title: Store, Manipulate and Summarise MCMC Samples
+Title: Manipulate MCMC Samples
 Version: 0.0.0.9052
 Date: 2018-04-06
 Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre"))
-Description: Defines S3 classes to store Monte Carlo Markov Chain (MCMC) samples and
-    provides functions to manipulate and summarise MCMC samples.
+Description: Provides S3 classes to store Monte Carlo Markov Chain (MCMC) samples and
+    functions to manipulate and summarise them.
 License: MIT + file LICENSE
 Depends:
     R (>= 3.4.0)
