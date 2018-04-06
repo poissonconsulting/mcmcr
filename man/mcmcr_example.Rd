@@ -3,15 +3,16 @@
 \docType{data}
 \name{mcmcr_example}
 \alias{mcmcr_example}
-\title{Example mcmcr Object}
+\title{An Example mcmcr Object}
 \format{An object of class \code{mcmcr} of length 3.}
 \usage{
 mcmcr_example
 }
 \description{
-An example mcmcr object based on coda::line.
+An example \code{\link{mcmcr-object}}
+derived from on \code{coda::\link[coda]{line}}.
 }
-\details{
-It consists of three chains of 200 iterations of three parameters.
+\examples{
+mcmcr_example
 }
 \keyword{datasets}

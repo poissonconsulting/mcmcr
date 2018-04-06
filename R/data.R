@@ -1,6 +1,8 @@
-#' Example mcmcr Object
+#' An Example mcmcr Object
 #'
-#' An example mcmcr object based on coda::line.
+#' An example \code{\link{mcmcr-object}}
+#' derived from on \code{coda::\link[coda]{line}}.
 #'
-#' It consists of three chains of 200 iterations of three parameters.
+#'@examples
+#' mcmcr_example
 "mcmcr_example"
