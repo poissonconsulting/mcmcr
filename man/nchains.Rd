@@ -2,21 +2,54 @@
 % Please edit documentation in R/nchains.R
 \name{nchains}
 \alias{nchains}
+\alias{nchains.mcarray}
+\alias{nchains.mcmc}
+\alias{nchains.mcmc.list}
+\alias{nchains.mcmcarray}
+\alias{nchains.mcmcr}
+\alias{nchains.mcmcrs}
 \title{Number of MCMC chains}
 \usage{
 nchains(x, ...)
+
+\method{nchains}{mcarray}(x, ...)
+
+\method{nchains}{mcmc}(x, ...)
+
+\method{nchains}{mcmc.list}(x, ...)
+
+\method{nchains}{mcmcarray}(x, ...)
+
+\method{nchains}{mcmcr}(x, ...)
+
+\method{nchains}{mcmcrs}(x, ...)
 }
 \arguments{
-\item{x}{The object}
+\item{x}{An MCMC object}
 
-\item{...}{Unused.}
+\item{...}{Unused}
 }
 \value{
-A count indicating the number of MCMC chains in object.
+A count indicating the number of MCMC chains
 }
 \description{
 Number of MCMC chains
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{mcarray}: Number of MCMC chains for an mcarray object
+
+\item \code{mcmc}: Number of MCMC chains for an mcmc object
+
+\item \code{mcmc.list}: Number of MCMC chains for an mcmc.list object
+
+\item \code{mcmcarray}: Number of MCMC chains for an mcmcarray object
+
+\item \code{mcmcr}: Number of MCMC chains for an mcmcr object
+
+\item \code{mcmcrs}: Number of MCMC chains for an mcmcrs object
+}}
+
 \examples{
 nchains(mcmcr_example)
 }

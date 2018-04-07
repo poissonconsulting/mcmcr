@@ -2,7 +2,7 @@
 % Please edit documentation in R/mcmcrs.R
 \name{mcmcrs}
 \alias{mcmcrs}
-\title{MCMCRs}
+\title{Create mcmcrs}
 \usage{
 mcmcrs(...)
 }
@@ -13,7 +13,7 @@ mcmcrs(...)
 An object of class mcmcrs
 }
 \description{
-MCMCRs
+Creates an \code{\link{mcmcrs-object}} from multiple \code{link{mcmcr-object}}s.
 }
 \examples{
 mcmcrs(mcmcr_example, mcmcr_example)
