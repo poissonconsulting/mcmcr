@@ -7,7 +7,7 @@
 \alias{subset.mcmc.list}
 \alias{subset.mcmcarray}
 \alias{subset.mcmcr}
-\title{Subset MCMC Object}
+\title{Subset an MCMC Object}
 \usage{
 \method{subset}{term}(x, parameters = NULL, ...)
 
@@ -33,7 +33,7 @@
 \item{chains}{An integer vector (or NULL) of the chains to subset by.}
 }
 \description{
-Subset an MCMC object by its chains, iterations and/or parameters.
+Subsets an MCMC object by its chains, iterations and/or parameters.
 }
 \section{Methods (by class)}{
 \itemize{

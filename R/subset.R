@@ -1,6 +1,6 @@
-#' Subset MCMC Object
+#' Subset an MCMC Object
 #'
-#' Subset an MCMC object by its chains, iterations and/or parameters.
+#' Subsets an MCMC object by its chains, iterations and/or parameters.
 #'
 #' @param x The MCMC object to subset
 #' @param chains An integer vector (or NULL) of the chains to subset by.
