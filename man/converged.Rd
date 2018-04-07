@@ -2,15 +2,35 @@
 % Please edit documentation in R/converged.R
 \name{converged}
 \alias{converged}
+\alias{converged.default}
 \title{Object Converged}
 \usage{
 converged(x, ...)
+
+\method{converged}{default}(x, rhat = 1.1, esr = 0.33, by = "all",
+  as_df = FALSE, ...)
 }
 \arguments{
 \item{x}{An object.}
 
 \item{...}{Unused.}
+
+\item{rhat}{The maximum rhat value.}
+
+\item{esr}{The minimum effective sampling rate.}
+
+\item{by}{A string indicating whether to determine by "term", "parameter" or "all".}
+
+\item{as_df}{A flag indicating whether to return the results as a (tbl) data frame.}
 }
 \description{
 Test whether an object has converged.
+}
+\section{Methods (by class)}{
+\itemize{
+\item \code{default}: Test whether an object has converged
+}}
+
+\examples{
+converged(mcmcr_example)
 }

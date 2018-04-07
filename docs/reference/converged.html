@@ -87,7 +87,11 @@
     <p>Test whether an object has converged.</p>
     
 
-    <pre class="usage"><span class='fu'>converged</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>converged</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for default</span>
+<span class='fu'>converged</span>(<span class='no'>x</span>, <span class='kw'>rhat</span> <span class='kw'>=</span> <span class='fl'>1.1</span>, <span class='kw'>esr</span> <span class='kw'>=</span> <span class='fl'>0.33</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
+  <span class='kw'>as_df</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -100,15 +104,43 @@
       <th>...</th>
       <td><p>Unused.</p></td>
     </tr>
+    <tr>
+      <th>rhat</th>
+      <td><p>The maximum rhat value.</p></td>
+    </tr>
+    <tr>
+      <th>esr</th>
+      <td><p>The minimum effective sampling rate.</p></td>
+    </tr>
+    <tr>
+      <th>by</th>
+      <td><p>A string indicating whether to determine by "term", "parameter" or "all".</p></td>
+    </tr>
+    <tr>
+      <th>as_df</th>
+      <td><p>A flag indicating whether to return the results as a (tbl) data frame.</p></td>
+    </tr>
     </table>
     
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
 
+    <ul>
+<li><p><code>default</code>: Test whether an object has converged</p></li>
+</ul>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>converged</span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; [1] FALSE</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
