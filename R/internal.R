@@ -1,12 +1,6 @@
 dims_terms <- function(x) {
-  x <- sub("^(\\w+)(.*)", "\\2", x)
-  x <- sub("^(\\[)(.*)(\\])$", "\\2", x)
-  x <- strsplit(x, "\\s*[,]\\s*")
-  x[vapply(x, function(x) identical(x, character(0)), TRUE)] <- ""
-  x <- lapply(x, function(x) gsub("\\s+", "", x))
-  x <- lapply(x, as.integer)
-  x[is.na(x)] <- 1L
-  x
+  .Deprecated("tdims")
+  tdims(x)
 }
 
 greater_than_term <- function(e1, e2) {
@@ -16,8 +10,8 @@ greater_than_term <- function(e1, e2) {
   e2_parm <- parameters(e2)
   if (e1_parm != e2_parm) return(e1_parm > e2_parm)
 
-  e1 <- dims_terms(e1)[[1]]
-  e2 <- dims_terms(e2)[[1]]
+  e1 <- tdims(e1)[[1]]
+  e2 <- tdims(e2)[[1]]
 
   if (length(e1) != length(e2)) return(length(e1) > length(e2))
 

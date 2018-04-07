@@ -80,7 +80,8 @@ particular it provides functions to
   - coerce from and to `mcarray`, `mcmc` and `mcmc.list` objects;
   - extract an objects `coef` table (as a tibble);
   - query an object’s `nchains`, `niters`, `npars`, `nterms`, `nsims`
-    and `nsams` as well as it’s parameter dimensions (`pdims`)
+    and `nsams` as well as it’s parameter dimensions (`pdims`) and term
+    dimensions (`tdims`);
   - `subset` objects by chains, iterations and/or parameters;
   - `bind_xx` a pair of objects by their `xx_chains`, `_iterations`,
     `xx_parameters` or (parameter) `xx_dimensions`;
@@ -95,15 +96,14 @@ particular it provides functions to
   - and of course `thin`, `rhat`, `ess` (effective sample size),
     `print`, `plot` etc said objects.
 
-The code is opinionated (I developed it for my own workflows) which has
-the advantage of providing a small set of stream-lined functions. For
-example the only ‘convergence’ metric is the uncorrected, untransformed,
-univariate split R-hat (potential scale reduction factor). If you can
-convince me that additional features are important I will add them or
-accept a pull request (see below). Alternatively you might want to use
-the `mcmcr` package to manipulate your samples before coercing them to
-an `mcmc.list` to take advantage of all the functionality in packages
-such as `coda`.
+The code is opinionated which has the advantage of providing a small set
+of stream-lined functions. For example the only ‘convergence’ metric is
+the uncorrected, untransformed, univariate split R-hat (potential scale
+reduction factor). If you can convince me that additional features are
+important I will add them or accept a pull request (see below).
+Alternatively you might want to use the `mcmcr` package to manipulate
+your samples before coercing them to an `mcmc.list` to take advantage of
+all the functionality in packages such as `coda`.
 
 ## Demonstration
 
@@ -172,22 +172,23 @@ drat [repository](https://github.com/poissonconsulting/drat) using
 
 ## Citation
 
-``` 
-
-To cite package 'mcmcr' in publications use:
-
-  Joe Thorley (2018). mcmcr: Manipulate MCMC Samples. R package
-  version 0.0.0.9053.
-
-A BibTeX entry for LaTeX users is
-
-  @Manual{,
-    title = {mcmcr: Manipulate MCMC Samples},
-    author = {Joe Thorley},
-    year = {2018},
-    note = {R package version 0.0.0.9053},
-  }
-```
+    Warning in citation(package = "mcmcr"): no date field in DESCRIPTION file
+    of package 'mcmcr'
+    Warning in citation(package = "mcmcr"): could not determine year for
+    'mcmcr' from package DESCRIPTION file
+    
+    To cite package 'mcmcr' in publications use:
+    
+      Joe Thorley (NA). mcmcr: Manipulate MCMC Samples. R package
+      version 0.0.1.
+    
+    A BibTeX entry for LaTeX users is
+    
+      @Manual{,
+        title = {mcmcr: Manipulate MCMC Samples},
+        author = {Joe Thorley},
+        note = {R package version 0.0.1},
+      }
 
 ## Contribution
 

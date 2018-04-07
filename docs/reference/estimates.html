@@ -64,6 +64,9 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -150,7 +153,10 @@
 #&gt;           [,1]     [,2]
 #&gt; [1,] 0.9716535 1.971654
 #&gt; [2,] 1.9716535 2.971654
-#&gt; </div><div class='input'><span class='fu'>estimates</span>(<span class='no'>mcmcr_example</span>, <span class='kw'>as_df</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 2
+#&gt; 
+#&gt; $sigma
+#&gt; [1] 0.7911975
+#&gt; </div><div class='input'><span class='fu'>estimates</span>(<span class='no'>mcmcr_example</span>, <span class='kw'>as_df</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; # A tibble: 7 x 2
 #&gt;   term       estimate
 #&gt;   &lt;S3: term&gt;    &lt;dbl&gt;
 #&gt; 1 alpha[1]      3.72 
@@ -158,7 +164,8 @@
 #&gt; 3 beta[1,1]     0.972
 #&gt; 4 beta[2,1]     1.97 
 #&gt; 5 beta[1,2]     1.97 
-#&gt; 6 beta[2,2]     2.97 </div></pre>
+#&gt; 6 beta[2,2]     2.97 
+#&gt; 7 sigma         0.791</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

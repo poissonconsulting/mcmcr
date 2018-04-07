@@ -41,6 +41,9 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="news/index.html">Changelog</a>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right"></ul>
 </div>
@@ -104,7 +107,7 @@
 <ul>
 <li>coerce from and to <code>mcarray</code>, <code>mcmc</code> and <code>mcmc.list</code> objects;</li>
 <li>extract an objects <code>coef</code> table (as a tibble);</li>
-<li>query an object’s <code>nchains</code>, <code>niters</code>, <code>npars</code>, <code>nterms</code>, <code>nsims</code> and <code>nsams</code> as well as it’s parameter dimensions (<code>pdims</code>)</li>
+<li>query an object’s <code>nchains</code>, <code>niters</code>, <code>npars</code>, <code>nterms</code>, <code>nsims</code> and <code>nsams</code> as well as it’s parameter dimensions (<code>pdims</code>) and term dimensions (<code>tdims</code>);</li>
 <li>
 <code>subset</code> objects by chains, iterations and/or parameters;</li>
 <li>
@@ -117,7 +120,7 @@
 <li>assess if an object has <code>converged</code> using <code>rhat</code> and <code>esr</code> (effectively sampling rate);</li>
 <li>and of course <code>thin</code>, <code>rhat</code>, <code>ess</code> (effective sample size), <code>print</code>, <code>plot</code> etc said objects.</li>
 </ul>
-<p>The code is opinionated (I developed it for my own workflows) which has the advantage of providing a small set of stream-lined functions. For example the only ‘convergence’ metric is the uncorrected, untransformed, univariate split R-hat (potential scale reduction factor). If you can convince me that additional features are important I will add them or accept a pull request (see below). Alternatively you might want to use the <code>mcmcr</code> package to manipulate your samples before coercing them to an <code>mcmc.list</code> to take advantage of all the functionality in packages such as <code>coda</code>.</p>
+<p>The code is opinionated which has the advantage of providing a small set of stream-lined functions. For example the only ‘convergence’ metric is the uncorrected, untransformed, univariate split R-hat (potential scale reduction factor). If you can convince me that additional features are important I will add them or accept a pull request (see below). Alternatively you might want to use the <code>mcmcr</code> package to manipulate your samples before coercing them to an <code>mcmc.list</code> to take advantage of all the functionality in packages such as <code>coda</code>.</p>
 </div>
 <div id="demonstration" class="section level2">
 <h2 class="hasAnchor">
@@ -181,19 +184,22 @@ install.packages("mcmcr")</a></code></pre>
 <div id="citation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#citation" class="anchor"></a>Citation</h2>
-<pre><code>
+<pre><code>Warning in citation(package = "mcmcr"): no date field in DESCRIPTION file
+of package 'mcmcr'
+Warning in citation(package = "mcmcr"): could not determine year for
+'mcmcr' from package DESCRIPTION file
+
 To cite package 'mcmcr' in publications use:
 
-  Joe Thorley (2018). mcmcr: Manipulate MCMC Samples. R package
-  version 0.0.0.9053.
+  Joe Thorley (NA). mcmcr: Manipulate MCMC Samples. R package
+  version 0.0.1.
 
 A BibTeX entry for LaTeX users is
 
   @Manual{,
     title = {mcmcr: Manipulate MCMC Samples},
     author = {Joe Thorley},
-    year = {2018},
-    note = {R package version 0.0.0.9053},
+    note = {R package version 0.0.1},
   }</code></pre>
 </div>
 <div id="contribution" class="section level2">
