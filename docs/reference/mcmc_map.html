@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MCMC map — mcmc_map • mcmcr</title>
+<title>MCMC Map — mcmc_map • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="MCMC map — mcmc_map" />
+<meta property="og:title" content="MCMC Map — mcmc_map" />
 
-<meta property="og:description" content="Map mcmc values" />
+<meta property="og:description" content="Adjust the sample values of an MCMC object using a function." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -79,22 +79,34 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>MCMC map</h1>
+    <h1>MCMC Map</h1>
     
     </div>
 
     
-    <p>Map mcmc values</p>
+    <p>Adjust the sample values of an MCMC object using a function.</p>
     
 
-    <pre class="usage"><span class='fu'>mcmc_map</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>mcmc_map</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for default</span>
+<span class='fu'>mcmc_map</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmc.list</span>
+<span class='fu'>mcmc_map</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcr</span>
+<span class='fu'>mcmc_map</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcrs</span>
+<span class='fu'>mcmc_map</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>.x</th>
-      <td><p>The mcmc object.</p></td>
+      <td><p>An MCMC object</p></td>
     </tr>
     <tr>
       <th>.f</th>
@@ -108,9 +120,24 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The mapped mcmc object.</p>
+    <p>The updated MCMC object.</p>
+    
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
+
+    <ul>
+<li><p><code>default</code>: Adjust the sample values of an MCMC object</p></li>
+<li><p><code>mcmc.list</code>: Adjust the sample values of an mcmc.list object</p></li>
+<li><p><code>mcmcr</code>: Adjust the sample values of an mcmcr object</p></li>
+<li><p><code>mcmcrs</code>: Adjust the sample values of an mcmcrs object</p></li>
+</ul>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>mcmc_map</span>(<span class='no'>mcmcr_example</span>$<span class='no'>beta</span>, <span class='no'>exp</span>)</div><div class='output co'>#&gt;          [,1]      [,2]
+#&gt; [1,] 2.642310  7.182544
+#&gt; [2,] 7.182544 19.524180
+#&gt; nchains:  2 
+#&gt; niters:  400 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -118,7 +145,11 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-          </ul>
+
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

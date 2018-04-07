@@ -2,20 +2,46 @@
 % Please edit documentation in R/mcmc-map.R
 \name{mcmc_map}
 \alias{mcmc_map}
-\title{MCMC map}
+\alias{mcmc_map.default}
+\alias{mcmc_map.mcmc.list}
+\alias{mcmc_map.mcmcr}
+\alias{mcmc_map.mcmcrs}
+\title{MCMC Map}
 \usage{
 mcmc_map(.x, .f, ...)
+
+\method{mcmc_map}{default}(.x, .f, ...)
+
+\method{mcmc_map}{mcmc.list}(.x, .f, ...)
+
+\method{mcmc_map}{mcmcr}(.x, .f, ...)
+
+\method{mcmc_map}{mcmcrs}(.x, .f, ...)
 }
 \arguments{
-\item{.x}{The mcmc object.}
+\item{.x}{An MCMC object}
 
 \item{.f}{The function to use}
 
 \item{...}{Additional arguments passed to .f.}
 }
 \value{
-The mapped mcmc object.
+The updated MCMC object.
 }
 \description{
-Map mcmc values
+Adjust the sample values of an MCMC object using a function.
+}
+\section{Methods (by class)}{
+\itemize{
+\item \code{default}: Adjust the sample values of an MCMC object
+
+\item \code{mcmc.list}: Adjust the sample values of an mcmc.list object
+
+\item \code{mcmcr}: Adjust the sample values of an mcmcr object
+
+\item \code{mcmcrs}: Adjust the sample values of an mcmcrs object
+}}
+
+\examples{
+mcmc_map(mcmcr_example$beta, exp)
 }
