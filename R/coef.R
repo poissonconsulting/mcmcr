@@ -8,7 +8,7 @@
 #' @param ... Unused
 #' @return An tibble of the coefficients with the columns indicating the
 #' \code{term}, \code{estimate}, standard deviation (\code{sd}), \code{zscore},
-#' \code{lower} and \code{upper} credible intervals.
+#' \code{lower} and \code{upper} credible intervals and \code{pvalue}.
 #' @export
 #' @seealso \code{stats::\link[stats]{coef}}
 #' @examples

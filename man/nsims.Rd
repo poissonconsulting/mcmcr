@@ -7,13 +7,13 @@
 nsims(x)
 }
 \arguments{
-\item{x}{The object.}
+\item{x}{The MCMC object.}
 }
 \value{
 A count of the total number of simulations.
 }
 \description{
-The product of the number of chains and number of iterations in each chain.
+The product of the number of chains and number of iterations (in each chain).
 }
 \examples{
 nsims(mcmcr_example)

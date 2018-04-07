@@ -7,7 +7,7 @@
 nsams(x)
 }
 \arguments{
-\item{x}{The object.}
+\item{x}{The MCMC object.}
 }
 \value{
 A count of the total number of samples.

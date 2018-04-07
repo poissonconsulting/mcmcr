@@ -27,7 +27,7 @@
 <script src="../pkgdown.js"></script>
 <meta property="og:title" content="Effective Sample Size — ess" />
 
-<meta property="og:description" content="Effective Sample Size" />
+<meta property="og:description" content="Calculates the effective sample size based on esr." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -84,7 +84,7 @@
     </div>
 
     
-    <p>Effective Sample Size</p>
+    <p>Calculates the effective sample size based on <code><a href='esr.html'>esr</a></code>.</p>
     
 
     <pre class="usage"><span class='fu'>ess</span>(<span class='no'>x</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>as_df</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
@@ -94,7 +94,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>An mcmc object.</p></td>
+      <td><p>An MCMC object.</p></td>
     </tr>
     <tr>
       <th>by</th>
@@ -102,7 +102,8 @@
     </tr>
     <tr>
       <th>as_df</th>
-      <td><p>A flag indicating whether to return the results as a (tbl) data frame.</p></td>
+      <td><p>A flag indicating whether to return the results as a
+tibble or list.</p></td>
     </tr>
     </table>
     

@@ -1,6 +1,6 @@
 #' Dimensions
 #'
-#' @param x The object.
+#' @param x A vector, matrix or array.
 #' @return An integer vector of the dimensions.
 #' @export
 #' @examples
@@ -11,7 +11,7 @@ dims <- function(x) if (is.vector(x) || is.factor(x)) length(x) else dim(x)
 
 #' Number of dimensions
 #'
-#' @param x The object.
+#' @param x A vector, matrix or array.
 #'
 #' @return A count of the number of dimensions
 #' @export
@@ -21,10 +21,9 @@ ndims <- function(x) {
 
 #' Number of MCMC Simulations
 #'
-#' The product of the number of chains and number of iterations in each chain.
+#' The product of the number of chains and number of iterations (in each chain).
 #'
-#' @param x The object.
-#'
+#' @param x The MCMC object.
 #' @return A count of the total number of simulations.
 #' @export
 #' @examples
@@ -37,8 +36,7 @@ nsims <- function(x) {
 #'
 #' The product of the number of simulations and the number of terms.
 #'
-#' @param x The object.
-#'
+#' @param x The MCMC object.
 #' @return A count of the total number of samples.
 #' @export
 #' @examples
@@ -47,24 +45,11 @@ nsams <- function(x) {
   nterms(x) * nsims(x)
 }
 
-#' Set Parameters
-#'
-#' @param x The object
-#' @param parameters A character vector the new parameter names.
-#'
-#' @return A copy of the updated object
-#' @export
-#' @examples
-#' set_parameters(mcmcr_example, c("gamma", "theta", "tau"))
-set_parameters <- function(x, parameters) {
-  parameters(x) <- parameters
-  x
-}
-
 #' P-Value
 #'
-#' @param x A vector of mcmc samples
+#' Calculates the p-value.
 #'
+#' @param x A vector of MCMC value
 #' @return A number indicating the p-value.
 #' @export
 #' @examples
@@ -80,9 +65,12 @@ pvalue <- function(x) {
 
 #' Effective Sample Size
 #'
-#' @param x An mcmc object.
+#' Calculates the effective sample size based on \code{\link{esr}}.
+#'
+#' @param x An MCMC object.
 #' @param by A string indicating whether to determine by "term", "parameter" or "all".
-#' @param as_df A flag indicating whether to return the results as a (tbl) data frame.
+#' @param as_df A flag indicating whether to return the results as a
+#' tibble or list.
 #' @export
 #' @examples
 #' ess(mcmcr_example)

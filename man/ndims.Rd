@@ -7,7 +7,7 @@
 ndims(x)
 }
 \arguments{
-\item{x}{The object.}
+\item{x}{A vector, matrix or array.}
 }
 \value{
 A count of the number of dimensions

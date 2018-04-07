@@ -3,6 +3,7 @@
 \name{parameters}
 \alias{parameters}
 \alias{parameters<-}
+\alias{set_parameters}
 \alias{parameters.term}
 \alias{parameters.mcmc}
 \alias{parameters.mcmc.list}
@@ -13,6 +14,8 @@ parameters(x, ...)
 
 parameters(x) <- value
 
+set_parameters(x, parameters)
+
 \method{parameters}{term}(x, scalar_only = FALSE, terms = FALSE, ...)
 
 \method{parameters}{mcmc}(x, scalar_only = FALSE, terms = FALSE, ...)
@@ -22,11 +25,13 @@ parameters(x) <- value
 \method{parameters}{mcmcr}(x, scalar_only = FALSE, terms = FALSE, ...)
 }
 \arguments{
-\item{x}{The object.}
+\item{x}{An MCMC object.}
 
 \item{...}{Not used.}
 
 \item{value}{A character vector of the new parameter names.}
+
+\item{parameters}{A character vector of the new parameter names.}
 
 \item{scalar_only}{A flag indicating whether to only get the names of
 parameters with one term.}

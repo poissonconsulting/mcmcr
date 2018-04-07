@@ -7,13 +7,13 @@
 pvalue(x)
 }
 \arguments{
-\item{x}{A vector of mcmc samples}
+\item{x}{A vector of MCMC value}
 }
 \value{
 A number indicating the p-value.
 }
 \description{
-P-Value
+Calculates the p-value.
 }
 \examples{
 pvalue(as.numeric(0:10))

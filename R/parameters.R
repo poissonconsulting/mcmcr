@@ -2,13 +2,14 @@
 #'
 #' Gets or sets the parameter names for an object.
 #'
-#' @param x The object.
+#' @param x An MCMC object.
 #' @param scalar_only A flag indicating whether to only get the names of
 #' parameters with one term.
 #' @param terms A flag indicating whether to return the parameter name
 #' for each term.
 #' @param ... Not used.
 #' @param value A character vector of the new parameter names.
+#' @param parameters A character vector of the new parameter names.
 #' @return A character vector of the parameter names.
 #' @export
 #' @examples
@@ -22,6 +23,12 @@ parameters <- function(x, ...) UseMethod("parameters")
 #' @rdname parameters
 #' @export
 `parameters<-` <- function(x, value) UseMethod("parameters<-", x)
+
+#' @rdname parameters
+set_parameters <- function(x, parameters) {
+  parameters(x) <- parameters
+  x
+}
 
 #' @describeIn parameters Parameter names for a term object
 #' @export

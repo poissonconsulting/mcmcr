@@ -7,7 +7,7 @@
 dims(x)
 }
 \arguments{
-\item{x}{The object.}
+\item{x}{A vector, matrix or array.}
 }
 \value{
 An integer vector of the dimensions.

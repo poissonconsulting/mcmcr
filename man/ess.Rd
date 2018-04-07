@@ -7,14 +7,15 @@
 ess(x, by = "all", as_df = FALSE)
 }
 \arguments{
-\item{x}{An mcmc object.}
+\item{x}{An MCMC object.}
 
 \item{by}{A string indicating whether to determine by "term", "parameter" or "all".}
 
-\item{as_df}{A flag indicating whether to return the results as a (tbl) data frame.}
+\item{as_df}{A flag indicating whether to return the results as a
+tibble or list.}
 }
 \description{
-Effective Sample Size
+Calculates the effective sample size based on \code{\link{esr}}.
 }
 \examples{
 ess(mcmcr_example)
