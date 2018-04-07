@@ -2,7 +2,7 @@
 % Please edit documentation in R/is.R
 \name{is.mcmcr}
 \alias{is.mcmcr}
-\title{Is an mcmcr object}
+\title{Is mcmcr Object}
 \usage{
 is.mcmcr(x)
 }
@@ -13,7 +13,7 @@ is.mcmcr(x)
 A flag indicating whether the test was positive.
 }
 \description{
-Tests whether x is an object of class 'mcmcr'
+Tests whether an object is an \code{\link{mcmcr-object}}.
 }
 \examples{
 is.mcmcr(mcmcr_example)

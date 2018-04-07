@@ -2,7 +2,7 @@
 % Please edit documentation in R/is.R
 \name{is.mcmcrs}
 \alias{is.mcmcrs}
-\title{Is an mcmcrs object}
+\title{Is mcmcrs Object}
 \usage{
 is.mcmcrs(x)
 }
@@ -13,8 +13,8 @@ is.mcmcrs(x)
 A flag indicating whether the test was positive.
 }
 \description{
-Tests whether x is an object of class 'mcmcrs'
+Tests whether an object is an \code{\link{mcmcrs-object}}.
 }
 \examples{
-is.mcmcr(mcmcrs(mcmcr_example))
+is.mcmcrs(mcmcrs(mcmcr_example))
 }

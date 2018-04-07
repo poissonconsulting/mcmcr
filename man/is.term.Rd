@@ -2,14 +2,15 @@
 % Please edit documentation in R/is.R
 \name{is.term}
 \alias{is.term}
-\title{Test whether an object is a term.}
+\title{Is Term}
 \usage{
-is.term(x, ...)
+is.term(x)
 }
 \arguments{
 \item{x}{The object to test.}
-
-\item{...}{Unused.}
+}
+\value{
+A flag indicating whether the test was positive.
 }
 \description{
 Test whether an object is a term.

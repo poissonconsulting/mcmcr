@@ -2,7 +2,7 @@
 % Please edit documentation in R/is.R
 \name{is.mcmcarray}
 \alias{is.mcmcarray}
-\title{Is an mcmcarray object}
+\title{Is mcmcarray Object}
 \usage{
 is.mcmcarray(x)
 }
@@ -13,7 +13,7 @@ is.mcmcarray(x)
 A flag indicating whether the test was positive.
 }
 \description{
-Tests whether x is an object of class 'mcmcarray'
+Tests whether an object is an \code{\link{mcmcarray-object}}.
 }
 \examples{
 is.mcmcarray(mcmcr_example$beta)

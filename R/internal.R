@@ -1,10 +1,3 @@
-error <- function(...) stop(..., call. = FALSE)
-
-set_class <- function(x, class) {
-  class(x) <- class
-  x
-}
-
 dims_terms <- function(x) {
   x <- sub("^(\\w+)(.*)", "\\2", x)
   x <- sub("^(\\[)(.*)(\\])$", "\\2", x)
@@ -38,10 +31,20 @@ greater_than_term <- function(e1, e2) {
   e1[which] > e2[which]
 }
 
-.thin <- function(x, nthin = 1L, ...) {
-  check_vector(nthin, c(1L, niters(x)), length = 1)
-  iterations <- seq(1L, niters(x), by = nthin)
-  subset(x, iterations = iterations)
+error <- function(...) stop(..., call. = FALSE)
+
+set_class <- function(x, class) {
+  class(x) <- class
+  x
+}
+
+#' @export
+.esr <- function(x, ...) {
+  stopifnot(is.matrix(x))
+  niters <- niters(x)
+  x <- apply(x, 1L, .esr_numeric)
+  x <- unlist(x)
+  round(mean(x), 3)
 }
 
 .esr_numeric <- function(x) {
@@ -57,12 +60,11 @@ greater_than_term <- function(e1, e2) {
 }
 
 #' @export
-.esr <- function(x, ...) {
-  stopifnot(is.matrix(x))
-  niters <- niters(x)
-  x <- apply(x, 1L, .esr_numeric)
-  x <- unlist(x)
-  round(mean(x), 3)
+.estimates <- function(object, fun = stats::median) {
+  stopifnot(is.matrix(object))
+  object <- apply(object, 1L, fun)
+  if(!is.numeric(object)) error("function fun must return a scalar")
+  object
 }
 
 #' @export
@@ -82,10 +84,8 @@ greater_than_term <- function(e1, e2) {
   round(rhat, 3)
 }
 
-#' @export
-.estimates <- function(object, fun = stats::median) {
-  stopifnot(is.matrix(object))
-  object <- apply(object, 1L, fun)
-  if(!is.numeric(object)) error("function fun must return a scalar")
-  object
+.thin <- function(x, nthin = 1L, ...) {
+  check_vector(nthin, c(1L, niters(x)), length = 1)
+  iterations <- seq(1L, niters(x), by = nthin)
+  subset(x, iterations = iterations)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/is.R
 \name{is.mcarray}
 \alias{is.mcarray}
-\title{Is an mcarray object}
+\title{Is mcarray Object}
 \usage{
 is.mcarray(x)
 }
@@ -13,7 +13,7 @@ is.mcarray(x)
 A flag indicating whether the test was positive.
 }
 \description{
-Tests whether x is an object of class 'mcarray'
+Tests whether an object is an mcarray.
 }
 \examples{
 is.mcarray(mcmcr_example)
