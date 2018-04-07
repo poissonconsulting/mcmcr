@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Combine two MCMC object by parameters — bind_parameters • mcmcr</title>
+<title>Subset MCMC Object — subset • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Combine two MCMC object by parameters — bind_parameters" />
+<meta property="og:title" content="Subset MCMC Object — subset" />
 
-<meta property="og:description" content="Combines two MCMC objects (with the same chains and iterations) by their parameters." />
+<meta property="og:description" content="Subset an MCMC object by its chains, iterations and/or parameters." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -79,64 +79,80 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Combine two MCMC object by parameters</h1>
+    <h1>Subset MCMC Object</h1>
     
     </div>
 
     
-    <p>Combines two MCMC objects (with the same chains and iterations) by their parameters.</p>
+    <p>Subset an MCMC object by its chains, iterations and/or parameters.</p>
     
 
-    <pre class="usage"><span class='fu'>bind_parameters</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='co'># S3 method for term</span>
+<span class='fu'>subset</span>(<span class='no'>x</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for mcmc</span>
-<span class='fu'>bind_parameters</span>(<span class='no'>x</span>, <span class='no'>x2</span>, <span class='no'>...</span>)
+<span class='fu'>subset</span>(<span class='no'>x</span>, <span class='kw'>iterations</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for mcmc.list</span>
-<span class='fu'>bind_parameters</span>(<span class='no'>x</span>, <span class='no'>x2</span>, <span class='no'>...</span>)
+<span class='fu'>subset</span>(<span class='no'>x</span>, <span class='kw'>chains</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>iterations</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcarray</span>
+<span class='fu'>subset</span>(<span class='no'>x</span>, <span class='kw'>chains</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>iterations</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for mcmcr</span>
-<span class='fu'>bind_parameters</span>(<span class='no'>x</span>, <span class='no'>x2</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>subset</span>(<span class='no'>x</span>, <span class='kw'>chains</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>iterations</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>an MCMC object</p></td>
+      <td><p>The MCMC object to subset</p></td>
+    </tr>
+    <tr>
+      <th>parameters</th>
+      <td><p>A character vector (or NULL) of the parameters to subset by.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>unused</p></td>
+      <td><p>Unused</p></td>
     </tr>
     <tr>
-      <th>x2</th>
-      <td><p>a second MCMC object</p></td>
+      <th>iterations</th>
+      <td><p>An integer vector (or NULL) of the iterations to subset by.</p></td>
+    </tr>
+    <tr>
+      <th>chains</th>
+      <td><p>An integer vector (or NULL) of the chains to subset by.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
 
     <ul>
-<li><p><code>mcmc</code>: Binds two mcmc objects by their parameters</p></li>
-<li><p><code>mcmc.list</code>: Binds two mcmc.list objects by their parameters</p></li>
-<li><p><code>mcmcr</code>: Binds two mcmcr objects by their parameters</p></li>
+<li><p><code>term</code>: Subset a term object</p></li>
+<li><p><code>mcmc</code>: Subset an mcmc object</p></li>
+<li><p><code>mcmc.list</code>: Subset an mcmc.list object</p></li>
+<li><p><code>mcmcarray</code>: Subset an mcmcarray object</p></li>
+<li><p><code>mcmcr</code>: Subset an mcmcr object</p></li>
 </ul>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>bind_parameters</span>(<span class='fu'><a href='subset.html'>subset</a></span>(<span class='no'>mcmcr_example</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='st'>"sigma"</span>),
-  <span class='fu'><a href='subset.html'>subset</a></span>(<span class='no'>mcmcr_example</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='st'>"beta"</span>))</div><div class='output co'>#&gt; $beta
+    <pre class="examples"><div class='input'><span class='fu'>subset</span>(<span class='no'>mcmcr_example</span>, <span class='kw'>chains</span> <span class='kw'>=</span> <span class='fl'>2L</span>, <span class='kw'>iterations</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>100</span>,
+  <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"beta"</span>, <span class='st'>"alpha"</span>))</div><div class='output co'>#&gt; $beta
 #&gt;           [,1]     [,2]
-#&gt; [1,] 0.9716535 1.971654
-#&gt; [2,] 1.9716535 2.971654
-#&gt; nchains:  2 
-#&gt; niters:  400 
+#&gt; [1,] 0.7591235 1.759124
+#&gt; [2,] 1.7591235 2.759124
+#&gt; nchains:  1 
+#&gt; niters:  100 
 #&gt; 
-#&gt; $sigma
-#&gt; [1] 0.7911975
-#&gt; nchains:  2 
-#&gt; niters:  400 
+#&gt; $alpha
+#&gt; [1] 3.044835 4.044835
+#&gt; nchains:  1 
+#&gt; niters:  100 
 #&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

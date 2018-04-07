@@ -1,5 +1,19 @@
+#' Subset MCMC Object
+#'
+#' Subset an MCMC object by its chains, iterations and/or parameters.
+#'
+#' @param x The MCMC object to subset
+#' @param chains An integer vector (or NULL) of the chains to subset by.
+#' @param iterations An integer vector (or NULL) of the iterations to subset by.
+#' @param parameters A character vector (or NULL) of the parameters to subset by.
+#' @param ... Unused
+#' @name subset
+#' @examples
+#' subset(mcmcr_example, chains = 2L, iterations = 1:100,
+#'   parameters = c("beta", "alpha"))
+NULL
 
-
+#' @describeIn subset Subset a term object
 #' @export
 subset.term <- function(x, parameters = NULL, ...) {
   checkor(check_null(parameters),
@@ -14,6 +28,7 @@ subset.term <- function(x, parameters = NULL, ...) {
   x
 }
 
+#' @describeIn subset Subset an mcmc object
 #' @export
 subset.mcmc <- function(x, iterations = NULL, parameters = NULL, ...) {
   checkor(check_null(iterations), check_vector(iterations, c(1L,niters(x))))
@@ -26,6 +41,7 @@ subset.mcmc <- function(x, iterations = NULL, parameters = NULL, ...) {
   x
 }
 
+#' @describeIn subset Subset an mcmc.list object
 #' @export
 subset.mcmc.list <- function(x, chains = NULL, iterations = NULL, parameters = NULL, ...) {
   checkor(check_null(chains), check_vector(chains, c(1L,nchains(x))))
@@ -36,6 +52,7 @@ subset.mcmc.list <- function(x, chains = NULL, iterations = NULL, parameters = N
   x
 }
 
+#' @describeIn subset Subset an mcmcarray object
 #' @export
 subset.mcmcarray <- function(x, chains = NULL, iterations = NULL, ...) {
   checkor(check_null(chains), check_vector(chains, c(1L,nchains(x))))
@@ -48,6 +65,7 @@ subset.mcmcarray <- function(x, chains = NULL, iterations = NULL, ...) {
   x
 }
 
+#' @describeIn subset Subset an mcmcr object
 #' @export
 subset.mcmcr <- function(x, chains = NULL, iterations = NULL, parameters = NULL, ...) {
   checkor(check_null(parameters),
