@@ -2,18 +2,42 @@
 % Please edit documentation in R/zero.R
 \name{zero}
 \alias{zero}
-\title{Zero}
+\alias{zero.mcarray}
+\alias{zero.mcmcarray}
+\alias{zero.mcmcr}
+\title{Zero MCMC Sample Values}
 \usage{
 zero(x, ...)
+
+\method{zero}{mcarray}(x, ...)
+
+\method{zero}{mcmcarray}(x, ...)
+
+\method{zero}{mcmcr}(x, parameters = NULL, ...)
 }
 \arguments{
-\item{x}{The object.}
+\item{x}{The MCMC object.}
 
-\item{...}{Not used.}
+\item{...}{Unused}
+
+\item{parameters}{A character vector (or NULL) of the parameters to zero.}
 }
 \description{
-Zeros object
+Zeros an MCMC object's sample values.
 }
+\details{
+It is used for removing the effect of a random effect
+where the expected value is 0.
+}
+\section{Methods (by class)}{
+\itemize{
+\item \code{mcarray}: Zero an mcarray object
+
+\item \code{mcmcarray}: Zero an mcmcarray object
+
+\item \code{mcmcr}: Zero an mcmcr object
+}}
+
 \examples{
 zero(mcmcr_example, parameters = "beta")
 }
