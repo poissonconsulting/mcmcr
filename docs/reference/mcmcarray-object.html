@@ -27,15 +27,11 @@
 <script src="../pkgdown.js"></script>
 <meta property="og:title" content="mcmcarray — mcmcarray-object" />
 
-<meta property="og:description" content="An mcmcarray object is very similar to an
-mcarray.object except that
-the first dimension is the chains,
-the second dimension is the iterations
+<meta property="og:description" content="An mcmcarray object is an an array where the
+first dimension is the chains, the second dimension is the iterations
 and the subsequent dimensions represent the dimensionality of the parameter.
-In a mcarray.object the initial dimensions are the
-parameter dimensions,
-the second to last dimension is the iterations and
-the last dimension is the chains." />
+The name mcmcarray reflects the fact that the MCMC dimensions,
+ ie the chains and iterations, precede the parameter dimensions." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -92,23 +88,14 @@ the last dimension is the chains." />
     </div>
 
     
-    <p>An <code>mcmcarray</code> object is very similar to an
-<code><a href='http://www.rdocumentation.org/packages/rjags/topics/mcarray.object'>mcarray.object</a></code> except that
-the first dimension is the chains,
-the second dimension is the iterations
+    <p>An <code>mcmcarray</code> object is an an array where the
+first dimension is the chains, the second dimension is the iterations
 and the subsequent dimensions represent the dimensionality of the parameter.
-In a <code><a href='http://www.rdocumentation.org/packages/rjags/topics/mcarray.object'>mcarray.object</a></code> the initial dimensions are the
-parameter dimensions,
-the second to last dimension is the iterations and
-the last dimension is the chains.</p>
+The name <code>mcmcarray</code> reflects the fact that the MCMC dimensions,
+ ie the chains and iterations, precede the parameter dimensions.</p>
     
 
         
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>The name <code>mcmcarray</code> reflects the fact that the MCMC dimensions,
- ie the chains and iterations, precede the parameter dimensions.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>mcmcr_example</span>$<span class='no'>beta</span></div><div class='output co'>#&gt;           [,1]     [,2]
@@ -120,9 +107,7 @@ the last dimension is the chains.</p>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      
-      <li><a href="#details">Details</a></li>
-      
+            
       <li><a href="#examples">Examples</a></li>
     </ul>
 

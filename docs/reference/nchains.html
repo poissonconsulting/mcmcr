@@ -27,7 +27,7 @@
 <script src="../pkgdown.js"></script>
 <meta property="og:title" content="Number of MCMC chains — nchains" />
 
-<meta property="og:description" content="Number of MCMC chains" />
+<meta property="og:description" content="Gets the number of MCMC chains." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -84,7 +84,7 @@
     </div>
 
     
-    <p>Number of MCMC chains</p>
+    <p>Gets the number of MCMC chains.</p>
     
 
     <pre class="usage"><span class='fu'>nchains</span>(<span class='no'>x</span>, <span class='no'>...</span>)
@@ -105,7 +105,25 @@
 <span class='fu'>nchains</span>(<span class='no'>x</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for mcmcrs</span>
-<span class='fu'>nchains</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>nchains</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcarray</span>
+<span class='fu'><a href='niters.html'>niters</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmc</span>
+<span class='fu'><a href='niters.html'>niters</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmc.list</span>
+<span class='fu'><a href='niters.html'>niters</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcarray</span>
+<span class='fu'><a href='niters.html'>niters</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcr</span>
+<span class='fu'><a href='niters.html'>niters</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcrs</span>
+<span class='fu'><a href='niters.html'>niters</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -133,6 +151,12 @@
 <li><p><code>mcmcarray</code>: Number of MCMC chains for an mcmcarray object</p></li>
 <li><p><code>mcmcr</code>: Number of MCMC chains for an mcmcr object</p></li>
 <li><p><code>mcmcrs</code>: Number of MCMC chains for an mcmcrs object</p></li>
+<li><p><code>mcarray</code>: Number of MCMC iterations for an mcarray object</p></li>
+<li><p><code>mcmc</code>: Number of MCMC iterations for an mcmc object</p></li>
+<li><p><code>mcmc.list</code>: Number of MCMC iterations for an mcmc.list object</p></li>
+<li><p><code>mcmcarray</code>: Number of MCMC iterations for an mcmcarray object</p></li>
+<li><p><code>mcmcr</code>: Number of MCMC iterations for an mcmcr object</p></li>
+<li><p><code>mcmcrs</code>: Number of MCMC iterations for an mcmcrs object</p></li>
 </ul>
     
 

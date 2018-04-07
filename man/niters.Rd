@@ -2,7 +2,7 @@
 % Please edit documentation in R/niters.R
 \name{niters}
 \alias{niters}
-\title{Number of MCMC samples in a single chain}
+\title{Number of MCMC samples}
 \usage{
 niters(x, ...)
 }
@@ -12,10 +12,10 @@ niters(x, ...)
 \item{...}{Unused.}
 }
 \value{
-A count indicating the number of MCMC samples in a chain.
+A count indicating the number of MCMC iterations.
 }
 \description{
-Number of MCMC samples in a single chain
+Gets the number of MCMC iterations (in a chain).
 }
 \examples{
 niters(mcmcr_example)

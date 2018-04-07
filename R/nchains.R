@@ -1,5 +1,7 @@
 #' Number of MCMC chains
 #'
+#' Gets the number of MCMC chains.
+#'
 #' @param x An MCMC object
 #' @param ... Unused
 #' @return A count indicating the number of MCMC chains
