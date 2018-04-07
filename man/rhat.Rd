@@ -2,22 +2,61 @@
 % Please edit documentation in R/rhat.R
 \name{rhat}
 \alias{rhat}
-\title{Rhat}
+\alias{rhat.mcarray}
+\alias{rhat.mcmc}
+\alias{rhat.mcmc.list}
+\alias{rhat.mcmcarray}
+\alias{rhat.mcmcr}
+\alias{rhat.mcmcrs}
+\title{R-hat}
 \usage{
 rhat(x, ...)
+
+\method{rhat}{mcarray}(x, by = "all", as_df = FALSE, ...)
+
+\method{rhat}{mcmc}(x, by = "all", as_df = FALSE, ...)
+
+\method{rhat}{mcmc.list}(x, by = "all", as_df = FALSE, ...)
+
+\method{rhat}{mcmcarray}(x, by = "all", as_df = FALSE, ...)
+
+\method{rhat}{mcmcr}(x, by = "all", as_df = FALSE, ...)
+
+\method{rhat}{mcmcrs}(x, by = "all", as_df = FALSE, ...)
 }
 \arguments{
-\item{x}{An mcmc object.}
+\item{x}{An MCMC object.}
 
 \item{...}{Unused.}
+
+\item{by}{A string indicating whether to determine by
+"term", "parameter" or "all".}
+
+\item{as_df}{A flag indicating whether to return the values as a
+tibble versus a named list.}
 }
 \value{
 The rhat value(s).
 }
 \description{
-Calculates uncorrected, untransformed, univariate
+Calculates the uncorrected, untransformed, univariate
 split R-hat (potential scale reduction factor) values.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{mcarray}: R-hat for an mcarray object
+
+\item \code{mcmc}: R-hat for an mcmc object
+
+\item \code{mcmc.list}: R-hat for an mcmc.list object
+
+\item \code{mcmcarray}: R-hat for an mcmcarray object
+
+\item \code{mcmcr}: R-hat for an mcmcr object
+
+\item \code{mcmcrs}: R-hat for an mcmcrs object
+}}
+
 \examples{
 rhat(mcmcr_example)
 rhat(mcmcr_example, by = "parameter")

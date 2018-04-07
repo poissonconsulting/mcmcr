@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rhat — rhat • mcmcr</title>
+<title>R-hat — rhat • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Rhat — rhat" />
+<meta property="og:title" content="R-hat — rhat" />
 
-<meta property="og:description" content="Calculates uncorrected, untransformed, univariate
+<meta property="og:description" content="Calculates the uncorrected, untransformed, univariate
 split R-hat (potential scale reduction factor) values." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
@@ -80,33 +80,72 @@ split R-hat (potential scale reduction factor) values." />
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Rhat</h1>
+    <h1>R-hat</h1>
     
     </div>
 
     
-    <p>Calculates uncorrected, untransformed, univariate
+    <p>Calculates the uncorrected, untransformed, univariate
 split R-hat (potential scale reduction factor) values.</p>
     
 
-    <pre class="usage"><span class='fu'>rhat</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>rhat</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcarray</span>
+<span class='fu'>rhat</span>(<span class='no'>x</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>as_df</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmc</span>
+<span class='fu'>rhat</span>(<span class='no'>x</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>as_df</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmc.list</span>
+<span class='fu'>rhat</span>(<span class='no'>x</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>as_df</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcarray</span>
+<span class='fu'>rhat</span>(<span class='no'>x</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>as_df</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcr</span>
+<span class='fu'>rhat</span>(<span class='no'>x</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>as_df</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcrs</span>
+<span class='fu'>rhat</span>(<span class='no'>x</span>, <span class='kw'>by</span> <span class='kw'>=</span> <span class='st'>"all"</span>, <span class='kw'>as_df</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>An mcmc object.</p></td>
+      <td><p>An MCMC object.</p></td>
     </tr>
     <tr>
       <th>...</th>
       <td><p>Unused.</p></td>
+    </tr>
+    <tr>
+      <th>by</th>
+      <td><p>A string indicating whether to determine by
+"term", "parameter" or "all".</p></td>
+    </tr>
+    <tr>
+      <th>as_df</th>
+      <td><p>A flag indicating whether to return the values as a
+tibble versus a named list.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>The rhat value(s).</p>
+    
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
+
+    <ul>
+<li><p><code>mcarray</code>: R-hat for an mcarray object</p></li>
+<li><p><code>mcmc</code>: R-hat for an mcmc object</p></li>
+<li><p><code>mcmc.list</code>: R-hat for an mcmc.list object</p></li>
+<li><p><code>mcmcarray</code>: R-hat for an mcmcarray object</p></li>
+<li><p><code>mcmcr</code>: R-hat for an mcmcr object</p></li>
+<li><p><code>mcmcrs</code>: R-hat for an mcmcrs object</p></li>
+</ul>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
@@ -149,6 +188,8 @@ split R-hat (potential scale reduction factor) values.</p>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
 
       <li><a href="#references">References</a></li>
       
