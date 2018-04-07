@@ -1,8 +1,9 @@
 #' Split Chains
 #'
-#' Splits each chain into two chains.
+#' Splits each chain in half to double the number chains and halve
+#' the number of iterations.
 #'
-#' @param x An mcmc object.
+#' @param x An MCMC object.
 #' @param ... Unused.
 #' @export
 #' @examples
@@ -11,6 +12,7 @@ split_chains <- function(x, ...) {
   UseMethod("split_chains")
 }
 
+#' @describeIn split_chains Split Chains for an mcmcarray object
 #' @export
 split_chains.mcmcarray <- function(x, ...) {
   nchains <- nchains(x)
@@ -25,6 +27,7 @@ split_chains.mcmcarray <- function(x, ...) {
   bind_chains(x, y)
 }
 
+#' @describeIn split_chains Split Chains for an mcmcr object
 #' @export
 split_chains.mcmcr <- function(x, ...) {
   x <- lapply(x, split_chains)

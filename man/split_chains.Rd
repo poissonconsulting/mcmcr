@@ -2,18 +2,32 @@
 % Please edit documentation in R/split-chains.R
 \name{split_chains}
 \alias{split_chains}
+\alias{split_chains.mcmcarray}
+\alias{split_chains.mcmcr}
 \title{Split Chains}
 \usage{
 split_chains(x, ...)
+
+\method{split_chains}{mcmcarray}(x, ...)
+
+\method{split_chains}{mcmcr}(x, ...)
 }
 \arguments{
-\item{x}{An mcmc object.}
+\item{x}{An MCMC object.}
 
 \item{...}{Unused.}
 }
 \description{
-Splits each chain into two chains.
+Splits each chain in half to double the number chains and halve
+the number of iterations.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{mcmcarray}: Split Chains for an mcmcarray object
+
+\item \code{mcmcr}: Split Chains for an mcmcr object
+}}
+
 \examples{
 split_chains(mcmcr_example)
 }

@@ -27,7 +27,8 @@
 <script src="../pkgdown.js"></script>
 <meta property="og:title" content="Split Chains — split_chains" />
 
-<meta property="og:description" content="Splits each chain into two chains." />
+<meta property="og:description" content="Splits each chain in half to double the number chains and halve
+the number of iterations." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -84,23 +85,37 @@
     </div>
 
     
-    <p>Splits each chain into two chains.</p>
+    <p>Splits each chain in half to double the number chains and halve
+the number of iterations.</p>
     
 
-    <pre class="usage"><span class='fu'>split_chains</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>split_chains</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcarray</span>
+<span class='fu'>split_chains</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcr</span>
+<span class='fu'>split_chains</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>An mcmc object.</p></td>
+      <td><p>An MCMC object.</p></td>
     </tr>
     <tr>
       <th>...</th>
       <td><p>Unused.</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
+
+    <ul>
+<li><p><code>mcmcarray</code>: Split Chains for an mcmcarray object</p></li>
+<li><p><code>mcmcr</code>: Split Chains for an mcmcr object</p></li>
+</ul>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -126,7 +141,9 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
