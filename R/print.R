@@ -1,13 +1,17 @@
 #' @export
-print.mcmcarray <- function(x, ...) {
+print.term <- function(x, ...) {
+  print(as.character(x))
+  invisible(x)
+}
 
+#' @export
+print.mcmcarray <- function(x, ...) {
   print(summary(x))
   invisible(x)
 }
 
 #' @export
 print.mcmcr <- function(x, ...) {
-
   print(summary(x))
   invisible(x)
 }

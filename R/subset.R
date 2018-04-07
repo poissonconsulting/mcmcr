@@ -13,7 +13,7 @@
 #'   parameters = c("beta", "alpha"))
 NULL
 
-#' @describeIn subset Subset a term object
+#' @describeIn subset Subset a term vector
 #' @export
 subset.term <- function(x, parameters = NULL, ...) {
   checkor(check_null(parameters),

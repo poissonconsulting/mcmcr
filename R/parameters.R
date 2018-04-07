@@ -30,7 +30,7 @@ set_parameters <- function(x, parameters) {
   x
 }
 
-#' @describeIn parameters Parameter names for a term object
+#' @describeIn parameters Parameter names for a term vector
 #' @export
 parameters.term <- function(x, scalar_only = FALSE, terms = FALSE, ...) {
   check_flag(scalar_only)

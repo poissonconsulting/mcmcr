@@ -9,7 +9,7 @@
 #' pdims(mcmcr_example)
 pdims <- function(x, ...) UseMethod("pdims")
 
-#' @describeIn pdims Parameter dimensions for a term object
+#' @describeIn pdims Parameter dimensions for a term vector
 #' @export
 pdims.term <- function(x, ...) {
   x <- sort(x)

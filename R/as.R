@@ -1,3 +1,16 @@
+#' Coerce to a term vector
+#'
+#' Coerces MCMC objects to a term vector.
+#'
+#' @param x The object to coerce
+#' @param ... Unused.
+#' @export
+#' @examples
+#' as.term(mcmcr_example)
+as.term <- function(x, ...) {
+  UseMethod("as.term")
+}
+
 #' Coerce to an mcarray object
 #'
 #' Coerces MCMC objects to an \code{\link[rjags]{mcarray.object}}.
@@ -66,6 +79,50 @@ as.mcmcr <- function(x, ...) UseMethod("as.mcmcr")
 #' @examples
 #' as.mcmcrs(list(mcmcr_example))
 as.mcmcrs <- function(x, ...) UseMethod("as.mcmcrs")
+
+#' @describeIn as.term Coerces term vector to a character vector
+#' @export
+as.character.term <- function(x, ...) set_class(x, "character")
+
+#' @describeIn as.term Coerces character vector to a term vector
+#' @export
+as.term.character <- function(x, ...) set_class(x, c("term", "character"))
+
+#' @describeIn as.term Coerces mcmc object to a term vector
+#' @export
+as.term.mcmc <- function(x, ...) as.term(colnames(x))
+
+#' @describeIn as.term Coerces mcmc.list object to a term vector
+#' @export
+as.term.mcmc.list <- function(x, ...) as.term(x[[1]])
+
+#' @describeIn as.term Coerces mcmcarray object to a term vector
+#' @export
+as.term.mcmcarray <- function(x, ...) {
+  x <- pdims(x)
+
+  if(identical(x, 1L)) return(as.term("parameter"))
+
+  if(identical(length(x), 1L))
+    return(as.term(paste0("parameter[", 1:x, "]")))
+
+  x <- lapply(x, function(x) 1:x)
+  x <- expand.grid(x)
+  x <- as.matrix(x)
+  x <- apply(x, 1, function(x) paste(x, collapse = ","))
+  x <- paste0("parameter[", x, "]")
+  as.term(x)
+}
+
+#' @describeIn as.term Coerces mcmcr object to a term vector
+#' @export
+as.term.mcmcr <- function(x, ...) {
+  parameters <- parameters(x)
+  x <- lapply(x, terms)
+  x <- mapply(x, parameters, FUN = function(x, y) {sub("parameter", y, x, fixed = TRUE)},
+                   SIMPLIFY = FALSE)
+  as.term(unname(unlist(x)))
+}
 
 #' @export
 as.mcarray.default <- function(x, ...) as.mcarray(as.mcmcarray(x))

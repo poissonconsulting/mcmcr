@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Coerce to a term vector — as.term • mcmcr</title>
+<title>Term Vector — term • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Coerce to a term vector — as.term" />
+<meta property="og:title" content="Term Vector — term" />
 
-<meta property="og:description" content="Coerces MCMC objects to a term vector." />
+<meta property="og:description" content="A term vector is a sortable vector of the terms from an analysis." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -79,69 +79,25 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Coerce to a term vector</h1>
+    <h1>Term Vector</h1>
     
     </div>
 
     
-    <p>Coerces MCMC objects to a term vector.</p>
+    <p>A term vector is a sortable vector of the terms from an analysis.</p>
     
 
-    <pre class="usage"><span class='fu'>as.term</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for term</span>
-<span class='fu'>as.character</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for character</span>
-<span class='fu'>as.term</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for mcmc</span>
-<span class='fu'>as.term</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for mcmc.list</span>
-<span class='fu'>as.term</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for mcmcarray</span>
-<span class='fu'>as.term</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for mcmcr</span>
-<span class='fu'>as.term</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>x</th>
-      <td><p>The object to coerce</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Unused.</p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
-
-    <ul>
-<li><p><code>term</code>: Coerces term vector to a character vector</p></li>
-<li><p><code>character</code>: Coerces character vector to a term vector</p></li>
-<li><p><code>mcmc</code>: Coerces mcmc object to a term vector</p></li>
-<li><p><code>mcmc.list</code>: Coerces mcmc.list object to a term vector</p></li>
-<li><p><code>mcmcarray</code>: Coerces mcmcarray object to a term vector</p></li>
-<li><p><code>mcmcr</code>: Coerces mcmcr object to a term vector</p></li>
-</ul>
-    
+        
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>as.term</span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; [1] "alpha[1]"  "alpha[2]"  "beta[1,1]" "beta[2,1]" "beta[1,2]" "beta[2,2]"</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>terms</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='terms.html'>terms</a></span>(<span class='no'>mcmcr_example</span>)
+<span class='no'>terms</span> <span class='kw'>&lt;-</span> <span class='fu'>rev</span>(<span class='no'>terms</span>)
+<span class='no'>terms</span></div><div class='output co'>#&gt; [1] "beta[2,2]" "beta[1,2]" "beta[2,1]" "beta[1,1]" "alpha[2]"  "alpha[1]" </div><div class='input'><span class='fu'><a href='sort.html'>sort</a></span>(<span class='no'>terms</span>)</div><div class='output co'>#&gt; [1] "alpha[1]"  "alpha[2]"  "beta[1,1]" "beta[2,1]" "beta[1,2]" "beta[2,2]"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#methods-by-class-">Methods (by class)</a></li>
-      
+            
       <li><a href="#examples">Examples</a></li>
     </ul>
 

@@ -34,7 +34,7 @@ Gets the parameter dimensions of an object.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{term}: Parameter dimensions for a term object
+\item \code{term}: Parameter dimensions for a term vector
 
 \item \code{mcarray}: Parameter dimensions for an mcarray object
 

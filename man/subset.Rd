@@ -37,7 +37,7 @@ Subsets an MCMC object by its chains, iterations and/or parameters.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{term}: Subset a term object
+\item \code{term}: Subset a term vector
 
 \item \code{mcmc}: Subset an mcmc object
 
