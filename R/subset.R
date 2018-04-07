@@ -1,3 +1,5 @@
+
+
 #' @export
 subset.term <- function(x, parameters = NULL, ...) {
   checkor(check_null(parameters),

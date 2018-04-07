@@ -16,7 +16,6 @@
 #' @name coef
 NULL
 
-
 #' @export
 coef.numeric <- function(object, conf_level = 0.95, estimate = stats::median, ...) {
   check_probability(conf_level)

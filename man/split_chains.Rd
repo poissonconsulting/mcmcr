@@ -23,9 +23,9 @@ the number of iterations.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{mcmcarray}: Split Chains for an mcmcarray object
+\item \code{mcmcarray}: Split chains for an mcmcarray object
 
-\item \code{mcmcr}: Split Chains for an mcmcr object
+\item \code{mcmcr}: Split chains for an mcmcr object
 }}
 
 \examples{
