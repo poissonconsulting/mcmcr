@@ -2,23 +2,59 @@
 % Please edit documentation in R/parameters.R
 \name{parameters}
 \alias{parameters}
-\title{Parameters}
+\alias{parameters<-}
+\alias{parameters.term}
+\alias{parameters.mcmc}
+\alias{parameters.mcmc.list}
+\alias{parameters.mcmcr}
+\title{Parameter Names}
 \usage{
 parameters(x, ...)
+
+parameters(x) <- value
+
+\method{parameters}{term}(x, scalar_only = FALSE, terms = FALSE, ...)
+
+\method{parameters}{mcmc}(x, scalar_only = FALSE, terms = FALSE, ...)
+
+\method{parameters}{mcmc.list}(x, scalar_only = FALSE, terms = FALSE, ...)
+
+\method{parameters}{mcmcr}(x, scalar_only = FALSE, terms = FALSE, ...)
 }
 \arguments{
 \item{x}{The object.}
 
 \item{...}{Not used.}
+
+\item{value}{A character vector of the new parameter names.}
+
+\item{scalar_only}{A flag indicating whether to only get the names of
+parameters with one term.}
+
+\item{terms}{A flag indicating whether to return the parameter name
+for each term.}
 }
 \value{
 A character vector of the parameter names.
 }
 \description{
-Gets the parameter names for an object.
+Gets or sets the parameter names for an object.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{term}: Parameter names for an term object
+
+\item \code{mcmc}: Parameter names for an mcmc object
+
+\item \code{mcmc.list}: Parameter names for an mcmc.list object
+
+\item \code{mcmcr}: Parameter names for an mcmcr object
+}}
+
 \examples{
 parameters(mcmcr_example)
 parameters(mcmcr_example) <- c("gamma", "theta", "tau")
 parameters(mcmcr_example)
+parameters(mcmcr_example, scalar_only = TRUE)
+parameters(mcmcr_example, terms = TRUE)
 }

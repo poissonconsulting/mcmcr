@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Parameters — parameters • mcmcr</title>
+<title>Parameter Names — parameters • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,9 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Parameters — parameters" />
+<meta property="og:title" content="Parameter Names — parameters" />
 
-<meta property="og:description" content="Gets the parameter names for an object." />
+<meta property="og:description" content="Gets or sets the parameter names for an object." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -79,15 +79,29 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Parameters</h1>
+    <h1>Parameter Names</h1>
     
     </div>
 
     
-    <p>Gets the parameter names for an object.</p>
+    <p>Gets or sets the parameter names for an object.</p>
     
 
-    <pre class="usage"><span class='fu'>parameters</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>parameters</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='fu'>parameters</span>(<span class='no'>x</span>) <span class='kw'>&lt;-</span> <span class='no'>value</span>
+
+<span class='co'># S3 method for term</span>
+<span class='fu'>parameters</span>(<span class='no'>x</span>, <span class='kw'>scalar_only</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>terms</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmc</span>
+<span class='fu'>parameters</span>(<span class='no'>x</span>, <span class='kw'>scalar_only</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>terms</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmc.list</span>
+<span class='fu'>parameters</span>(<span class='no'>x</span>, <span class='kw'>scalar_only</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>terms</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcr</span>
+<span class='fu'>parameters</span>(<span class='no'>x</span>, <span class='kw'>scalar_only</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>terms</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -100,16 +114,39 @@
       <th>...</th>
       <td><p>Not used.</p></td>
     </tr>
+    <tr>
+      <th>value</th>
+      <td><p>A character vector of the new parameter names.</p></td>
+    </tr>
+    <tr>
+      <th>scalar_only</th>
+      <td><p>A flag indicating whether to only get the names of
+parameters with one term.</p></td>
+    </tr>
+    <tr>
+      <th>terms</th>
+      <td><p>A flag indicating whether to return the parameter name
+for each term.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A character vector of the parameter names.</p>
     
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
+
+    <ul>
+<li><p><code>term</code>: Parameter names for an term object</p></li>
+<li><p><code>mcmc</code>: Parameter names for an mcmc object</p></li>
+<li><p><code>mcmc.list</code>: Parameter names for an mcmc.list object</p></li>
+<li><p><code>mcmcr</code>: Parameter names for an mcmcr object</p></li>
+</ul>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>parameters</span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; [1] "alpha" "beta"  "sigma"</div><div class='input'><span class='fu'>parameters</span>(<span class='no'>mcmcr_example</span>) <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='st'>"gamma"</span>, <span class='st'>"theta"</span>, <span class='st'>"tau"</span>)
-<span class='fu'>parameters</span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; [1] "gamma" "theta" "tau"  </div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>parameters</span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; [1] "gamma" "theta" "tau"  </div><div class='input'><span class='fu'>parameters</span>(<span class='no'>mcmcr_example</span>) <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='st'>"gamma"</span>, <span class='st'>"theta"</span>, <span class='st'>"tau"</span>)
+<span class='fu'>parameters</span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; [1] "gamma" "theta" "tau"  </div><div class='input'><span class='fu'>parameters</span>(<span class='no'>mcmcr_example</span>, <span class='kw'>scalar_only</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "tau"</div><div class='input'><span class='fu'>parameters</span>(<span class='no'>mcmcr_example</span>, <span class='kw'>terms</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "gamma" "gamma" "theta" "theta" "theta" "theta" "tau"  </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -117,6 +154,8 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

@@ -1,26 +1,29 @@
-#' Parameters
+#' Parameter Names
 #'
-#' Gets the parameter names for an object.
+#' Gets or sets the parameter names for an object.
 #'
 #' @param x The object.
+#' @param scalar_only A flag indicating whether to only get the names of
+#' parameters with one term.
+#' @param terms A flag indicating whether to return the parameter name
+#' for each term.
 #' @param ... Not used.
+#' @param value A character vector of the new parameter names.
 #' @return A character vector of the parameter names.
 #' @export
 #' @examples
 #' parameters(mcmcr_example)
 #' parameters(mcmcr_example) <- c("gamma", "theta", "tau")
 #' parameters(mcmcr_example)
+#' parameters(mcmcr_example, scalar_only = TRUE)
+#' parameters(mcmcr_example, terms = TRUE)
 parameters <- function(x, ...) UseMethod("parameters")
 
-#' Parameters
-#'
-#' Sets the parameter names for an object.
-#'
-#' @param x The object.
-#' @param value A character vector of the parameter names.
+#' @rdname parameters
 #' @export
 `parameters<-` <- function(x, value) UseMethod("parameters<-", x)
 
+#' @describeIn parameters Parameter names for an term object
 #' @export
 parameters.term <- function(x, scalar_only = FALSE, terms = FALSE, ...) {
   check_flag(scalar_only)
@@ -33,14 +36,17 @@ parameters.term <- function(x, scalar_only = FALSE, terms = FALSE, ...) {
   x
 }
 
+#' @describeIn parameters Parameter names for an mcmc object
 #' @export
 parameters.mcmc <- function(x, scalar_only = FALSE, terms = FALSE, ...)
   parameters(as.term(x), scalar_only = scalar_only, terms = terms)
 
+#' @describeIn parameters Parameter names for an mcmc.list object
 #' @export
 parameters.mcmc.list <- function(x, scalar_only = FALSE, terms = FALSE, ...)
   parameters(x[[1]], scalar_only = scalar_only, terms = terms)
 
+#' @describeIn parameters Parameter names for an mcmcr object
 #' @export
 parameters.mcmcr <- function(x, scalar_only = FALSE, terms = FALSE, ...) {
   if(!scalar_only && !terms) return(names(x))
