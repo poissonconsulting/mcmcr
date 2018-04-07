@@ -2,9 +2,18 @@
 % Please edit documentation in R/nterms.R
 \name{nterms}
 \alias{nterms}
-\title{Number of terms}
+\alias{nterms.default}
+\alias{nterms.mcmcarray}
+\alias{nterms.mcmcr}
+\title{Number of Terms}
 \usage{
 nterms(x, ...)
+
+\method{nterms}{default}(x, ...)
+
+\method{nterms}{mcmcarray}(x, ...)
+
+\method{nterms}{mcmcr}(x, ...)
 }
 \arguments{
 \item{x}{The object.}
@@ -17,6 +26,15 @@ A count of the number of terms.
 \description{
 Gets the number of terms for an object.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{default}: Number of terms for an object
+
+\item \code{mcmcarray}: Number of terms for an mcmcarray object
+
+\item \code{mcmcr}: Number of terms for an mcmcr object
+}}
+
 \examples{
 nterms(mcmcr_example)
 }
