@@ -2,18 +2,56 @@
 % Please edit documentation in R/estimates.R
 \name{estimates}
 \alias{estimates}
-\title{Get Estimates}
+\alias{estimates.mcarray}
+\alias{estimates.mcmc}
+\alias{estimates.mcmc.list}
+\alias{estimates.mcmcarray}
+\alias{estimates.mcmcr}
+\title{Estimates}
 \usage{
 estimates(object, ...)
+
+\method{estimates}{mcarray}(object, fun = stats::median, as_df = FALSE, ...)
+
+\method{estimates}{mcmc}(object, fun = stats::median, as_df = FALSE, ...)
+
+\method{estimates}{mcmc.list}(object, fun = stats::median, as_df = FALSE,
+  ...)
+
+\method{estimates}{mcmcarray}(object, fun = stats::median, as_df = FALSE,
+  ...)
+
+\method{estimates}{mcmcr}(object, fun = stats::median, as_df = FALSE, ...)
 }
 \arguments{
-\item{object}{The object.}
+\item{object}{An MCMC object.}
 
-\item{...}{Not used.}
+\item{...}{Unused.}
+
+\item{fun}{The function to use.}
+
+\item{as_df}{A flag indicating whether to return the estimates as a tibble versus a named list.}
+}
+\value{
+A named list or tibble.
 }
 \description{
-Gets the estimates for an object as a named list.
+Get the estimates for an MCMC object.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{mcarray}: Estimates for an mcarray object
+
+\item \code{mcmc}: Estimates for an mcmc object
+
+\item \code{mcmc.list}: Estimates for an mcmc.list object
+
+\item \code{mcmcarray}: Estimates for an mcmcarray object
+
+\item \code{mcmcr}: Estimates for an mcmcr object
+}}
+
 \examples{
 estimates(mcmcr_example)
+estimates(mcmcr_example, as_df = TRUE)
 }
