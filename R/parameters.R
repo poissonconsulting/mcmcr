@@ -23,7 +23,7 @@ parameters <- function(x, ...) UseMethod("parameters")
 #' @export
 `parameters<-` <- function(x, value) UseMethod("parameters<-", x)
 
-#' @describeIn parameters Parameter names for an term object
+#' @describeIn parameters Parameter names for a term object
 #' @export
 parameters.term <- function(x, scalar_only = FALSE, terms = FALSE, ...) {
   check_flag(scalar_only)

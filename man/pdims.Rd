@@ -2,9 +2,27 @@
 % Please edit documentation in R/pdims.R
 \name{pdims}
 \alias{pdims}
+\alias{pdims.term}
+\alias{pdims.mcarray}
+\alias{pdims.mcmc}
+\alias{pdims.mcmc.list}
+\alias{pdims.mcmcarray}
+\alias{pdims.mcmcr}
 \title{Parameter Dimensions}
 \usage{
 pdims(x, ...)
+
+\method{pdims}{term}(x, ...)
+
+\method{pdims}{mcarray}(x, ...)
+
+\method{pdims}{mcmc}(x, ...)
+
+\method{pdims}{mcmc.list}(x, ...)
+
+\method{pdims}{mcmcarray}(x, ...)
+
+\method{pdims}{mcmcr}(x, ...)
 }
 \arguments{
 \item{x}{The object}
@@ -14,6 +32,21 @@ pdims(x, ...)
 \description{
 Gets the parameter dimensions of an object.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{term}: Parameter dimensions for a term object
+
+\item \code{mcarray}: Parameter dimensions for an mcarray object
+
+\item \code{mcmc}: Parameter dimensions for an mcmc object
+
+\item \code{mcmc.list}: Parameter dimensions for an mcmc.list object
+
+\item \code{mcmcarray}: Parameter dimensions for an mcmcarray object
+
+\item \code{mcmcr}: Parameter dimensions for an mcmcr object
+}}
+
 \examples{
 pdims(mcmcr_example)
 }

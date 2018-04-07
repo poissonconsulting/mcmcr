@@ -42,7 +42,7 @@ Gets or sets the parameter names for an object.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{term}: Parameter names for an term object
+\item \code{term}: Parameter names for a term object
 
 \item \code{mcmc}: Parameter names for an mcmc object
 

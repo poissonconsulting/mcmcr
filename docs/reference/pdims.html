@@ -87,7 +87,25 @@
     <p>Gets the parameter dimensions of an object.</p>
     
 
-    <pre class="usage"><span class='fu'>pdims</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>pdims</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for term</span>
+<span class='fu'>pdims</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcarray</span>
+<span class='fu'>pdims</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmc</span>
+<span class='fu'>pdims</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmc.list</span>
+<span class='fu'>pdims</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcarray</span>
+<span class='fu'>pdims</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcr</span>
+<span class='fu'>pdims</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -102,15 +120,26 @@
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
+
+    <ul>
+<li><p><code>term</code>: Parameter dimensions for a term object</p></li>
+<li><p><code>mcarray</code>: Parameter dimensions for an mcarray object</p></li>
+<li><p><code>mcmc</code>: Parameter dimensions for an mcmc object</p></li>
+<li><p><code>mcmc.list</code>: Parameter dimensions for an mcmc.list object</p></li>
+<li><p><code>mcmcarray</code>: Parameter dimensions for an mcmcarray object</p></li>
+<li><p><code>mcmcr</code>: Parameter dimensions for an mcmcr object</p></li>
+</ul>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>pdims</span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; $gamma
+    <pre class="examples"><div class='input'><span class='fu'>pdims</span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; $alpha
 #&gt; [1] 2
 #&gt; 
-#&gt; $theta
+#&gt; $beta
 #&gt; [1] 2 2
 #&gt; 
-#&gt; $tau
+#&gt; $sigma
 #&gt; [1] 1
 #&gt; </div></pre>
   </div>
@@ -118,7 +147,9 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#methods-by-class-">Methods (by class)</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

@@ -9,6 +9,7 @@
 #' pdims(mcmcr_example)
 pdims <- function(x, ...) UseMethod("pdims")
 
+#' @describeIn pdims Parameter dimensions for a term object
 #' @export
 pdims.term <- function(x, ...) {
   x <- sort(x)
@@ -21,17 +22,22 @@ pdims.term <- function(x, ...) {
   strsplit(x, ",")
 }
 
-#' @export
-pdims.mcmc <- function(x, ...) pdims(as.term(x))
-
-#' @export
-pdims.mcmc.list <- function(x, ...) pdims(x[[1]])
-
+#' @describeIn pdims Parameter dimensions for an mcarray object
 #' @export
 pdims.mcarray <- function(x, ...) dims(x)[1:(length(dims(x))-2)]
 
+#' @describeIn pdims Parameter dimensions for an mcmc object
+#' @export
+pdims.mcmc <- function(x, ...) pdims(as.term(x))
+
+#' @describeIn pdims Parameter dimensions for an mcmc.list object
+#' @export
+pdims.mcmc.list <- function(x, ...) pdims(x[[1]])
+
+#' @describeIn pdims Parameter dimensions for an mcmcarray object
 #' @export
 pdims.mcmcarray <- function(x, ...) dims(x)[-(1:2)]
 
+#' @describeIn pdims Parameter dimensions for an mcmcr object
 #' @export
 pdims.mcmcr <- function(x, ...) lapply(x, pdims)

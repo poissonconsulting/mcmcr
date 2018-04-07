@@ -137,7 +137,7 @@ for each term.</p></td>
     <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
 
     <ul>
-<li><p><code>term</code>: Parameter names for an term object</p></li>
+<li><p><code>term</code>: Parameter names for a term object</p></li>
 <li><p><code>mcmc</code>: Parameter names for an mcmc object</p></li>
 <li><p><code>mcmc.list</code>: Parameter names for an mcmc.list object</p></li>
 <li><p><code>mcmcr</code>: Parameter names for an mcmcr object</p></li>
@@ -145,7 +145,7 @@ for each term.</p></td>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>parameters</span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; [1] "gamma" "theta" "tau"  </div><div class='input'><span class='fu'>parameters</span>(<span class='no'>mcmcr_example</span>) <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='st'>"gamma"</span>, <span class='st'>"theta"</span>, <span class='st'>"tau"</span>)
+    <pre class="examples"><div class='input'><span class='fu'>parameters</span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; [1] "alpha" "beta"  "sigma"</div><div class='input'><span class='fu'>parameters</span>(<span class='no'>mcmcr_example</span>) <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='st'>"gamma"</span>, <span class='st'>"theta"</span>, <span class='st'>"tau"</span>)
 <span class='fu'>parameters</span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; [1] "gamma" "theta" "tau"  </div><div class='input'><span class='fu'>parameters</span>(<span class='no'>mcmcr_example</span>, <span class='kw'>scalar_only</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "tau"</div><div class='input'><span class='fu'>parameters</span>(<span class='no'>mcmcr_example</span>, <span class='kw'>terms</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "gamma" "gamma" "theta" "theta" "theta" "theta" "tau"  </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
