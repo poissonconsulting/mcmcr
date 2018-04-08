@@ -7,7 +7,7 @@ Description: Functions and classes to store, manipulate and summarise
    Monte Carlo Markov Chain (MCMC) samples.
 License: MIT + file LICENSE
 Depends:
-    R (>= 3.4.4)
+    R (>= 3.4.0)
 Imports:
     abind,
     checkr,

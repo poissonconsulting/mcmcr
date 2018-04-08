@@ -118,12 +118,12 @@
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
-      "version": "3.4.4"
+      "version": "3.4.0"
     }
   ],
   "contIntegration": "https://travis-ci.org/poissonconsulting/mcmcr",
   "readme": "https://github.com/poissonconsulting/mcmcr/blob/master/README.md",
-  "fileSize": "542.852KB",
+  "fileSize": "542.858KB",
   "releaseNotes": "https://github.com/poissonconsulting/mcmcr/blob/master/NEWS.md",
   "codeRepository": "https://github.com/poissonconsulting/mcmcr"
 }

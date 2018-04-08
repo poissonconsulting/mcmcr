@@ -17,7 +17,11 @@ manual.
 
 0 errors | 0 warnings | 2 notes
 
+## R CMD check response
+
 - This is a new release.
+
+- This is due to the name of as.mcmc.list which has a check exclusion in R-devel/src/library/tools/R/utils.R for package coda.
 
 ## Reverse dependencies
 
