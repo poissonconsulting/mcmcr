@@ -25,7 +25,7 @@ mcmc_map.default <- function(.x, .f, ...) {
 #' @export
 mcmc_map.mcmc.list <- function(.x, .f, ...) {
   x <- lapply(.x, mcmc_map, .f = .f, ...)
-  coda::as.mcmc.list(x)
+  as.mcmc.list(x)
 }
 
 #' @describeIn mcmc_map Adjust the sample values of an mcmcr object

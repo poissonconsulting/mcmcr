@@ -29,7 +29,7 @@ bind_chains.mcarray <- function(x, x2, ...) {
 #' @export
 bind_chains.mcmc <- function(x, x2, ...) {
 
-  if (!coda::is.mcmc(x2)) error("x2 must be an mcmc")
+  if (!is.mcmc(x2)) error("x2 must be an mcmc")
 
   x <- sort(x)
   x2 <- sort(x2)
@@ -43,13 +43,13 @@ bind_chains.mcmc <- function(x, x2, ...) {
   if (!identical(niters(x), niters(x2)))
     error("x and x2 must have the same number of iterations")
 
-  coda::as.mcmc.list(list(x, x2))
+  as.mcmc.list(list(x, x2))
 }
 
 #' @describeIn bind_chains Binds two mcmc.list objects by their chains
 #' @export
 bind_chains.mcmc.list <- function(x, x2, ...) {
-  if (!(coda::is.mcmc.list(x2) || coda::is.mcmc(x2))) error("x2 must be an mcmc or mcmc.list")
+  if (!(is.mcmc.list(x2) || is.mcmc(x2))) error("x2 must be an mcmc or mcmc.list")
 
   x <- sort(x)
   x2 <- sort(x2)

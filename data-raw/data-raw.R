@@ -6,7 +6,7 @@ data(line, package = "coda")
 
 mcmcr_example <- as.mcmcr(line)
 
-stopifnot(all.equal(coda::as.mcmc.list(mcmcr_example), line, check.attributes = FALSE))
+stopifnot(all.equal(as.mcmc.list(mcmcr_example), line, check.attributes = FALSE))
 
 mcmcr_example$alpha <- bind_dimensions(mcmcr_example$alpha, mcmcr_example$alpha + 1, along = 1L)
 

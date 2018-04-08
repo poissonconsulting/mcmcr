@@ -16,7 +16,7 @@ bind_parameters <- function(x, ...) {
 #' @describeIn bind_parameters Binds two mcmc objects by their parameters
 #' @export
 bind_parameters.mcmc <- function(x, x2, ...) {
-  if (!coda::is.mcmc(x2)) error("x2 must be an mcmc.list")
+  if (!is.mcmc(x2)) error("x2 must be an mcmc.list")
 
   if (length(intersect(parameters(x), parameters(x2))))
     error("x and x2 must not have any of the same parameters")
@@ -25,14 +25,14 @@ bind_parameters.mcmc <- function(x, x2, ...) {
     error("x and x2 must have the same number of iterations")
 
   x <- abind::abind(x, x2, along = 2)
-  x <- coda::as.mcmc(x)
+  x <- as.mcmc(x)
   sort(x)
 }
 
 #' @describeIn bind_parameters Binds two mcmc.list objects by their parameters
 #' @export
 bind_parameters.mcmc.list <- function(x, x2, ...) {
-  if (!coda::is.mcmc.list(x2)) error("x2 must be an mcmc.list")
+  if (!is.mcmc.list(x2)) error("x2 must be an mcmc.list")
 
   if (length(intersect(parameters(x), parameters(x2))))
     error("x and x2 must not have any of the same parameters")

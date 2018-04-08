@@ -151,7 +151,7 @@ as.mcmc.mcmcarray <- function(x, ...) {
   x <- apply(x, 1, identity)
   x <- matrix(x, ncol = length(terms))
   colnames(x) <- as.character(terms)
-  coda::as.mcmc(x)
+  as.mcmc(x)
 }
 
 #' @export
@@ -167,12 +167,12 @@ as.mcmc.mcmc.list <- function(x, ...) {
 
 #' @describeIn as.mcmc Coerces mcmcr object (with 1 chain) to an mcmc object
 #' @export
-as.mcmc.mcmcr <- function(x, ...) as.mcmc(coda::as.mcmc.list(x))
+as.mcmc.mcmcr <- function(x, ...) as.mcmc(as.mcmc.list(x))
 
 #' @describeIn as.mcmc.list Coerces mcarray object to an mcmc.list object
 #' @method as.mcmc.list mcarray
 #' @export
-as.mcmc.list.mcarray <- function(x, ...) coda::as.mcmc.list(as.mcmcarray(x))
+as.mcmc.list.mcarray <- function(x, ...) as.mcmc.list(as.mcmcarray(x))
 
 #' @describeIn as.mcmc.list Coerces mcmcarray object to an mcmc.list object
 #' @method as.mcmc.list mcmcarray
@@ -180,7 +180,7 @@ as.mcmc.list.mcarray <- function(x, ...) coda::as.mcmc.list(as.mcmcarray(x))
 as.mcmc.list.mcmcarray <- function(x, ...) {
   x <- lapply(1:nchains(x), function(chain, x) {subset(x, chains = chain)}, x = x)
   x <- lapply(x, as.mcmc)
-  coda::mcmc.list(x)
+  mcmc.list(x)
 }
 
 #' @describeIn as.mcmc.list Coerces mcmc object to an mcmc.list object

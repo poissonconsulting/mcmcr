@@ -40,7 +40,7 @@ coef.numeric <- function(object, conf_level = 0.95, estimate = stats::median, ..
 #' @describeIn coef Get coefficients for terms in mcarray object
 #' @export
 coef.mcarray <- function(object, conf_level = 0.95, estimate = stats::median, ...)
-  coef(coda::as.mcmc.list(object), conf_level = conf_level, estimate = estimate)
+  coef(as.mcmc.list(object), conf_level = conf_level, estimate = estimate)
 
 #' @describeIn coef Get coefficients for terms in mcmc object
 #' @export
@@ -65,9 +65,9 @@ coef.mcmc.list <- function(object, conf_level = 0.95, estimate = stats::median, 
 #' @describeIn coef Get coefficients for terms in mcmcarray object
 #' @export
 coef.mcmcarray <- function(object, conf_level = 0.95, estimate = stats::median, ...)
-  coef(coda::as.mcmc.list(object), conf_level = conf_level, estimate = estimate)
+  coef(as.mcmc.list(object), conf_level = conf_level, estimate = estimate)
 
 #' @describeIn coef Get coefficients for terms in mcmcr object
 #' @export
 coef.mcmcr <- function(object, conf_level = 0.95, estimate = stats::median, ...)
-  coef(coda::as.mcmc.list(object), conf_level = conf_level, estimate = estimate)
+  coef(as.mcmc.list(object), conf_level = conf_level, estimate = estimate)
