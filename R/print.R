@@ -19,7 +19,7 @@ print.mcmcr <- function(x, ...) {
 #' @export
 print.summary.mcmcarray <- function(x, ...) {
   print(x$estimates)
-  cat("nchains: ", x$nchains, "\n")
+  cat("\nnchains: ", x$nchains, "\n")
   cat("niters: ", x$niters, "\n")
   invisible(x)
 }

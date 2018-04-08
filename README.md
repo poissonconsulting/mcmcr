@@ -119,6 +119,7 @@ library(mcmcr)
 mcmcr_example
 #> $alpha
 #> [1] 3.718025 4.718025
+#> 
 #> nchains:  2 
 #> niters:  400 
 #> 
@@ -126,11 +127,13 @@ mcmcr_example
 #>           [,1]     [,2]
 #> [1,] 0.9716535 1.971654
 #> [2,] 1.9716535 2.971654
+#> 
 #> nchains:  2 
 #> niters:  400 
 #> 
 #> $sigma
 #> [1] 0.7911975
+#> 
 #> nchains:  2 
 #> niters:  400
 

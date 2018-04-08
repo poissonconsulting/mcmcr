@@ -5,7 +5,7 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "mcmcr",
-  "description": "Functions and classes to manipulate Monte Carlo Markov Chain (MCMC) samples.",
+  "description": "Functions and classes to store, manipulate and summarise \n   Monte Carlo Markov Chain (MCMC) samples.",
   "name": "mcmcr: Manipulate MCMC Samples",
   "license": "https://spdx.org/licenses/MIT",
   "version": "0.0.1",
@@ -145,7 +145,7 @@
   ],
   "contIntegration": "https://travis-ci.org/poissonconsulting/mcmcr",
   "readme": "https://github.com/poissonconsulting/mcmcr/blob/master/README.md",
-  "fileSize": "542.943KB",
+  "fileSize": "542.886KB",
   "releaseNotes": "https://github.com/poissonconsulting/mcmcr/blob/master/NEWS.md",
   "codeRepository": "https://github.com/poissonconsulting/mcmcr"
 }
