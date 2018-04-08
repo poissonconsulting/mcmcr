@@ -1,0 +1,58 @@
+---
+title: 'mcmcr: An R package to manipulate Markov Chain Monte Carlo samples'
+authors:
+- affiliation: 1
+  name: Joe Thorley
+  orcid: 0000-0002-7683-4592
+affiliations:
+  index: 1
+  name: Poisson Consulting, Nelson, British Columbia
+tags: 
+  - R
+  - MCMC
+  - Bayesian
+bibliography: paper.bib
+date: "`r Sys.Date()`"
+output: 
+  html_document: 
+    keep_md: yes
+---
+
+```{r options, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, messages = FALSE, fig.width = 8, fig.height = 12)
+```
+
+## Summary
+
+The results of Bayesian analyses are fully described by the posterior distribution for each term in the model.
+Bayesian software packages such as BUGS, JAGS and STAN use one or more chains to iteratively draw samples from the posterior distributions using Markov Chain Monte Carlo (MCMC) methods.
+
+While a simple *parameter* such as an intercept corresponds to a single term, more complex parameters consist of multiple terms with their own inherent dimensionality.
+
+The `mcmcr` package includes two related classes which preserve the dimensionality of the parameters.
+The first, `mcmcr::mcmcarray`, stores the samples in an array where the first dimension is the chains, the second dimension is the iterations and the subsequent dimensions represent the dimensionality of the parameter. 
+The second class, `mcmcr::mcmcr`, stores multiple `mcmcarray` objects with the same number of chains and iterations. 
+It was developed to allow a set of dimensionality preserving parameters from a single analysis to be manipulated as a whole.
+
+The package includes functions to:
+
+- coerce to and from other MCMC storing classes such as `mcarray` and `mcmc.list` objects; 
+- assess if an object has `converged` using `rhat` and `esr` (effectively sampling rate);
+- extract an object's `coef` table; 
+- `subset` an object by its chains, iterations and/or parameters;
+- bind a pair of objects by their chains, iterations, parameters or (parameter) dimensions;
+- collapse or split an object's chains;
+- `mcmc_map` over an objects values.
+
+The `mcmcr` package provides an integrated framework for storing, manipulating and summarising MCMC samples.
+
+```{r, warning=TRUE}
+library(mcmcr)
+
+mcmcr_example
+coef(mcmcr_example)
+```
+
+The software archive is at <https://github.com/poissonconsulting/mcmcr>.
+
+## References

@@ -10,8 +10,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="jquery.sticky-kit.min.js"></script><script src="pkgdown.js"></script><meta property="og:title" content="Manipulate MCMC Samples">
-<meta property="og:description" content="Provides S3 classes to store Monte Carlo Markov Chain (MCMC) samples and
-    functions to manipulate and summarise them.">
+<meta property="og:description" content="Functions and classes to manipulate Monte Carlo Markov Chain (MCMC) samples.">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -70,7 +69,7 @@
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
 <p><code>mcmcr</code> is an R package to manipulate Monte Carlo Markov Chain (MCMC) samples.</p>
-<p>For the purposes of this discussion, an MCMC sample represents the value of a term from a single iteration of a single chain (of a single analysis). And while a simple parameter such as an intercept corresponds to a single term, more complex parameters such as an interaction between two factors consist of multiple terms with their own inherent dimensionality - in this case a matrix. A set of MCMC samples can be stored in different ways.</p>
+<p>For the purposes of this discussion, an MCMC <em>sample</em> represents the value of a <em>term</em> from a single <em>iteration</em> of a single <em>chain</em>. While a simple <em>parameter</em> such as an intercept corresponds to a single term, more complex parameters such as an interaction between two factors consists of multiple terms with their own inherent dimensionality - in this case a matrix. A set of MCMC samples can be stored in different ways.</p>
 <div id="existing-classes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#existing-classes" class="anchor"></a>Existing Classes</h3>
@@ -88,7 +87,7 @@
 <div id="new-classes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#new-classes" class="anchor"></a>New Classes</h3>
-<p>The <code>mcmcr</code> packages introduces three related S3 classes which also preserve the dimensionality of the parameters:</p>
+<p>The <code>mcmcr</code> package defines three related S3 classes which also preserve the dimensionality of the parameters:</p>
 <ul>
 <li>
 <code>mcmcr::mcmcarray</code> is very similar to <code>rjags::mcarray</code> except that the first dimension is the chains, the second dimension is iterations and the subsequent dimensions represent the dimensionality of the parameter (it is called <code>mcmcarray</code> to emphasize that the MCMC dimensions ie the chains and iterations come first);</li>
@@ -102,8 +101,9 @@
 <div id="why-mcmcr" class="section level2">
 <h2 class="hasAnchor">
 <a href="#why-mcmcr" class="anchor"></a>Why mcmcr?</h2>
-<p><code>mcmcarray</code> objects were developed to facilitate manipulation of the MCMC samples (although they are just one <code>aperm</code> away from <code>mcarray</code> objects they are more intuitive to program with - at least for this programmer!). <code>mcmcr</code> objects were developed to allow a set of dimensionality preserving parameters from a single analysis to be manipulated as a whole. <code>mcmcrs</code> objects were developed to allow the results of multiple analyses using the same model to be manipulated.</p>
-<p>The <code>mcmcr</code> package introduces a variety of (often) generic functions to manipulate and query <code>mcmcarray</code>, <code>mcmcr</code> and <code>mcmcrs</code> objects. In particular it provides functions to</p>
+<p><code>mcmcarray</code> objects were developed to facilitate manipulation of the MCMC samples (although they are just one <code>aperm</code> away from <code>mcarray</code> objects they are more intuitive to program with - at least for this programmer!). <code>mcmcr</code> objects were developed to allow a set of dimensionality preserving parameters from a single analysis to be manipulated as a whole. <code>mcmcrs</code> objects were developed to allow the results of multiple analyses using the same model to be manipulated together.</p>
+<p>In addition the <code>mcmcr</code> package defines the <code>term</code> vector to store and manipulate the term labels, ie, <code>"bIntercept", "bInteraction[1,2]", "bInteraction[2,1]"</code>, when the MCMC samples are summarised in tabular form.</p>
+<p>The <code>mcmcr</code> package also introduces a variety of (often) generic functions to manipulate and query <code>mcmcarray</code>, <code>mcmcr</code> and <code>mcmcrs</code> objects. In particular it provides functions to</p>
 <ul>
 <li>coerce from and to <code>mcarray</code>, <code>mcmc</code> and <code>mcmc.list</code> objects;</li>
 <li>extract an objects <code>coef</code> table (as a tibble);</li>
@@ -120,7 +120,7 @@
 <li>assess if an object has <code>converged</code> using <code>rhat</code> and <code>esr</code> (effectively sampling rate);</li>
 <li>and of course <code>thin</code>, <code>rhat</code>, <code>ess</code> (effective sample size), <code>print</code>, <code>plot</code> etc said objects.</li>
 </ul>
-<p>The code is opinionated which has the advantage of providing a small set of stream-lined functions. For example the only ‘convergence’ metric is the uncorrected, untransformed, univariate split R-hat (potential scale reduction factor). If you can convince me that additional features are important I will add them or accept a pull request (see below). Alternatively you might want to use the <code>mcmcr</code> package to manipulate your samples before coercing them to an <code>mcmc.list</code> to take advantage of all the functionality in packages such as <code>coda</code>.</p>
+<p>The code is opinionated which has the advantage of providing a small set of stream-lined functions. For example the only ‘convergence’ metric is the uncorrected, untransformed, univariate split R-hat (potential scale reduction factor). If you can convince me that additional features are important I will add them or accept a pull request (see below). Alternatively you might want to use the <code>mcmcr</code> package to manipulate your samples before coercing them to an <code>mcmc.list</code> to take advantage of all the summary functions in packages such as <code>coda</code>.</p>
 </div>
 <div id="demonstration" class="section level2">
 <h2 class="hasAnchor">

@@ -18,13 +18,13 @@ MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org
 `mcmcr` is an R package to manipulate Monte Carlo Markov Chain (MCMC)
 samples.
 
-For the purposes of this discussion, an MCMC sample represents the value
-of a term from a single iteration of a single chain (of a single
-analysis). And while a simple parameter such as an intercept corresponds
-to a single term, more complex parameters such as an interaction between
-two factors consist of multiple terms with their own inherent
-dimensionality - in this case a matrix. A set of MCMC samples can be
-stored in different ways.
+For the purposes of this discussion, an MCMC *sample* represents the
+value of a *term* from a single *iteration* of a single *chain*. While a
+simple *parameter* such as an intercept corresponds to a single term,
+more complex parameters such as an interaction between two factors
+consists of multiple terms with their own inherent dimensionality - in
+this case a matrix. A set of MCMC samples can be stored in different
+ways.
 
 ### Existing Classes
 
@@ -49,8 +49,8 @@ preserve the dimensionality of the parameters.
 
 ### New Classes
 
-The `mcmcr` packages introduces three related S3 classes which also
-preserve the dimensionality of the parameters:
+The `mcmcr` package defines three related S3 classes which also preserve
+the dimensionality of the parameters:
 
   - `mcmcr::mcmcarray` is very similar to `rjags::mcarray` except that
     the first dimension is the chains, the second dimension is
@@ -71,11 +71,17 @@ objects they are more intuitive to program with - at least for this
 programmer\!). `mcmcr` objects were developed to allow a set of
 dimensionality preserving parameters from a single analysis to be
 manipulated as a whole. `mcmcrs` objects were developed to allow the
-results of multiple analyses using the same model to be manipulated.
+results of multiple analyses using the same model to be manipulated
+together.
 
-The `mcmcr` package introduces a variety of (often) generic functions to
-manipulate and query `mcmcarray`, `mcmcr` and `mcmcrs` objects. In
-particular it provides functions to
+In addition the `mcmcr` package defines the `term` vector to store and
+manipulate the term labels, ie, `"bIntercept", "bInteraction[1,2]",
+"bInteraction[2,1]"`, when the MCMC samples are summarised in tabular
+form.
+
+The `mcmcr` package also introduces a variety of (often) generic
+functions to manipulate and query `mcmcarray`, `mcmcr` and `mcmcrs`
+objects. In particular it provides functions to
 
   - coerce from and to `mcarray`, `mcmc` and `mcmc.list` objects;
   - extract an objects `coef` table (as a tibble);
@@ -103,7 +109,7 @@ reduction factor). If you can convince me that additional features are
 important I will add them or accept a pull request (see below).
 Alternatively you might want to use the `mcmcr` package to manipulate
 your samples before coercing them to an `mcmc.list` to take advantage of
-all the functionality in packages such as `coda`.
+all the summary functions in packages such as `coda`.
 
 ## Demonstration
 

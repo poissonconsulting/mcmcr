@@ -5,7 +5,7 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "mcmcr",
-  "description": "Provides S3 classes to store Monte Carlo Markov Chain (MCMC) samples and\n    functions to manipulate and summarise them.",
+  "description": "Functions and classes to manipulate Monte Carlo Markov Chain (MCMC) samples.",
   "name": "mcmcr: Manipulate MCMC Samples",
   "license": "https://spdx.org/licenses/MIT",
   "version": "0.0.1",
@@ -46,6 +46,28 @@
       "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Central R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "knitr",
+      "name": "knitr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Central R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -123,7 +145,7 @@
   ],
   "contIntegration": "https://travis-ci.org/poissonconsulting/mcmcr",
   "readme": "https://github.com/poissonconsulting/mcmcr/blob/master/README.md",
-  "fileSize": "321.287KB",
+  "fileSize": "542.943KB",
   "releaseNotes": "https://github.com/poissonconsulting/mcmcr/blob/master/NEWS.md",
   "codeRepository": "https://github.com/poissonconsulting/mcmcr"
 }

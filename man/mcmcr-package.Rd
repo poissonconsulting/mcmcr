@@ -6,8 +6,7 @@
 \alias{mcmcr-package}
 \title{mcmcr: Manipulate MCMC Samples}
 \description{
-Provides S3 classes to store Monte Carlo Markov Chain (MCMC) samples and
-functions to manipulate and summarise them.
+Functions and classes to manipulate Monte Carlo Markov Chain (MCMC) samples.
 }
 \author{
 \strong{Maintainer}: Joe Thorley \email{joe@poissonconsulting.ca}
