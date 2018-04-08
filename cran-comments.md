@@ -1,13 +1,23 @@
 ## Test environments
-* local OS X install, R 3.4.3
-* ubuntu 12.04 (on travis-ci), R 3.4.3
+* local OS X install, R 3.4.4
+* Ubuntu 14.04.5 LTS (on travis-ci), R 3.4.4
 * win-builder (devel and release)
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+* checking CRAN incoming feasibility ... NOTE
+Maintainer: ‘Joe Thorley <joe@poissonconsulting.ca>’
+New submission
 
-* This is a new release.
+* checking S3 generic/method consistency ... NOTE
+Found the following apparent S3 methods exported but not registered:
+  as.mcmc.list
+See section ‘Registering S3 methods’ in the ‘Writing R Extensions’
+manual.
+
+0 errors | 0 warnings | 2 notes
+
+- This is a new release.
 
 ## Reverse dependencies
 

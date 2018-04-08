@@ -167,12 +167,12 @@ as.mcmc.mcmc.list <- function(x, ...) {
 
 #' @describeIn as.mcmc Coerces mcmcr object (with 1 chain) to an mcmc object
 #' @export
-as.mcmc.mcmcr <- function(x, ...) as.mcmc(as.mcmc.list(x))
+as.mcmc.mcmcr <- function(x, ...) as.mcmc(coda::as.mcmc.list(x))
 
 #' @describeIn as.mcmc.list Coerces mcarray object to an mcmc.list object
 #' @method as.mcmc.list mcarray
 #' @export
-as.mcmc.list.mcarray <- function(x, ...) as.mcmc.list(as.mcmcarray(x))
+as.mcmc.list.mcarray <- function(x, ...) coda::as.mcmc.list(as.mcmcarray(x))
 
 #' @describeIn as.mcmc.list Coerces mcmcarray object to an mcmc.list object
 #' @method as.mcmc.list mcmcarray
