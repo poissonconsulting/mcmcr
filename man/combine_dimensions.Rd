@@ -17,7 +17,7 @@ combine_dimensions(x, fun = mean, along = NULL, ...)
 
 \item{fun}{The function to use when combining dimensions}
 
-\item{along}{A positive interger (or NULL) indicating the parameter dimension(s) to bind along.}
+\item{along}{A positive integer (or NULL) indicating the parameter dimension(s) to bind along.}
 
 \item{...}{Unused}
 }
