@@ -15,7 +15,7 @@ combine_dimensions(x, fun = mean, along = NULL, ...)
 \arguments{
 \item{x}{An MCMC object}
 
-\item{fun}{THe function to use when combining dimensions}
+\item{fun}{The function to use when combining dimensions}
 
 \item{along}{A positive interger (or NULL) indicating the parameter dimension(s) to bind along.}
 
