@@ -4,9 +4,6 @@
 #'
 #' @param x object to coerce.
 #' @param ... Unused.
-#' @export
-#' @examples
-#' as.mcmc.list(mcmcr_example)
 #' @name as.mcmc.list
 NULL
 

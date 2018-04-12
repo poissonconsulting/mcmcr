@@ -9,19 +9,11 @@
 Maintainer: ‘Joe Thorley <joe@poissonconsulting.ca>’
 New submission
 
-* checking S3 generic/method consistency ... NOTE
-Found the following apparent S3 methods exported but not registered:
-  as.mcmc.list
-See section ‘Registering S3 methods’ in the ‘Writing R Extensions’
-manual.
-
-0 errors | 0 warnings | 2 notes
+0 errors | 0 warnings | 1 note
 
 ## R CMD check response
 
 - This is a new release.
-
-- This is due to the name of as.mcmc.list which has a check exclusion in R-devel/src/library/tools/R/utils.R for package coda.
 
 ## Reverse dependencies
 

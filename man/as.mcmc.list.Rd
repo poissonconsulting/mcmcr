@@ -35,6 +35,3 @@ Coerces MCMC objects to an \code{\link[coda]{mcmc.list}} object.
 \item \code{mcmcr}: Coerces mcmcr object to an mcmc.list object
 }}
 
-\examples{
-as.mcmc.list(mcmcr_example)
-}
