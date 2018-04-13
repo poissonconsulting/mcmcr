@@ -30,6 +30,8 @@
 <meta property="og:description" content="Combines multiple MCMC objects (with the same parameters, chains and iterations)
 by parameter dimensions." />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -37,6 +39,8 @@ by parameter dimensions." />
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+
 
 
   </head>
@@ -52,8 +56,12 @@ by parameter dimensions." />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">mcmcr</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">mcmcr</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.1.9000</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -73,6 +81,7 @@ by parameter dimensions." />
       <ul class="nav navbar-nav navbar-right">
         
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -80,11 +89,12 @@ by parameter dimensions." />
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Combine two MCMC objects by dimensions</h1>
     
+    <div class="hidden name"><code>bind_dimensions.Rd</code></div>
     </div>
 
     
@@ -100,7 +110,7 @@ by parameter dimensions.</p>
 <span class='co'># S3 method for mcmcr</span>
 <span class='fu'>bind_dimensions</span>(<span class='no'>x</span>, <span class='no'>x2</span>, <span class='kw'>along</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -130,7 +140,7 @@ by parameter dimensions.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p><code><a href='bind_dimensions_n.html'>bind_dimensions_n</a></code></p>
+    <div class='dont-index'><p><code><a href='bind_dimensions_n.html'>bind_dimensions_n</a></code></p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -193,6 +203,8 @@ by parameter dimensions.</p>
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>
