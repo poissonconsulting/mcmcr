@@ -55,7 +55,7 @@ nsams <- function(x) {
 #' @examples
 #' pvalue(as.numeric(0:10))
 pvalue <- function(x) {
-  check_vector(x, 1, length = c(1, Inf))
+  check_vector(x, c(1, NA), length = c(1, Inf))
   n <- length(x)
   d <- sum(x >= 0)
   p <- min(d, n - d) * 2

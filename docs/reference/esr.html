@@ -25,6 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
+
+
+
 <meta property="og:title" content="Effective Sampling Rate — esr" />
 
 <meta property="og:description" content="Calculates the effective sampling rate (esr) based on the formula
@@ -44,8 +47,6 @@ lag \(k\) when \(\rho_{k+1}(\theta) &lt; 0\)." />
 <![endif]-->
 
 
-
-
   </head>
 
   <body>
@@ -61,7 +62,7 @@ lag \(k\) when \(\rho_{k+1}(\theta) &lt; 0\)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mcmcr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.1.9000</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.1.9001</span>
       </span>
     </div>
 
@@ -100,6 +101,7 @@ lag \(k\) when \(\rho_{k+1}(\theta) &lt; 0\)." />
     <div class="hidden name"><code>esr.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Calculates the effective sampling rate (<code>esr</code>) based on the formula
 $$\frac{1}{1 + 2 \sum_{k = 1}^\infty\rho_k(\theta)}$$
@@ -107,6 +109,7 @@ in Brooks et al. (2011).
 The infinite sum is truncated at
 lag \(k\) when \(\rho_{k+1}(\theta) &lt; 0\).</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>esr</span>(<span class='no'>x</span>, <span class='no'>...</span>)
 

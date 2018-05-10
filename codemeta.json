@@ -8,14 +8,14 @@
   "description": "Functions and classes to store, manipulate and summarise \n   Monte Carlo Markov Chain (MCMC) samples.",
   "name": "mcmcr: Manipulate MCMC Samples",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.1.9000",
+  "version": "0.0.1.9001",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.4.4",
+    "version": "3.5.0",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.4.4 (2018-03-15)",
+  "runtimePlatform": "R version 3.5.0 (2018-04-23)",
   "author": [
     {
       "@type": "Person",
@@ -24,12 +24,14 @@
       "email": "joe@poissonconsulting.ca"
     }
   ],
-  "maintainer": {
-    "@type": "Person",
-    "givenName": "Joe",
-    "familyName": "Thorley",
-    "email": "joe@poissonconsulting.ca"
-  },
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Joe",
+      "familyName": "Thorley",
+      "email": "joe@poissonconsulting.ca"
+    }
+  ],
   "softwareSuggestions": [
     {
       "@type": "SoftwareApplication",
@@ -38,9 +40,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=covr"
     },
     {
       "@type": "SoftwareApplication",
@@ -49,12 +52,19 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
     }
   ],
   "softwareRequirements": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 3.4.0"
+    },
     {
       "@type": "SoftwareApplication",
       "identifier": "abind",
@@ -62,9 +72,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=abind"
     },
     {
       "@type": "SoftwareApplication",
@@ -73,9 +84,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=checkr"
     },
     {
       "@type": "SoftwareApplication",
@@ -84,9 +96,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=coda"
     },
     {
       "@type": "SoftwareApplication",
@@ -105,25 +118,29 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tibble"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "R",
-      "name": "R",
-      "version": "3.4.0"
     }
   ],
   "contIntegration": "https://travis-ci.org/poissonconsulting/mcmcr",
   "readme": "https://github.com/poissonconsulting/mcmcr/blob/master/README.md",
-  "fileSize": "526.582KB",
+  "fileSize": "456.193KB",
   "releaseNotes": "https://github.com/poissonconsulting/mcmcr/blob/master/NEWS.md",
-  "codeRepository": "https://github.com/poissonconsulting/mcmcr"
+  "codeRepository": "https://github.com/poissonconsulting/mcmcr",
+  "provider": {
+    "@id": "https://cran.r-project.org",
+    "@type": "Organization",
+    "name": "Comprehensive R Archive Network (CRAN)",
+    "url": "https://cran.r-project.org"
+  },
+  "developmentStatus": "https://www.tidyverse.org/lifecycle/#maturing",
+  "keywords": ["mcmc", "coda", "r", "rstats"],
+  "relatedLink": "https://CRAN.R-project.org/package=mcmcr"
 }

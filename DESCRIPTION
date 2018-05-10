@@ -1,6 +1,6 @@
 Package: mcmcr
 Title: Manipulate MCMC Samples
-Version: 0.0.1.9000
+Version: 0.0.1.9001
 Authors@R: person("Joe", "Thorley", email = "joe@poissonconsulting.ca", 
     role = c("aut", "cre"))
 Description: Functions and classes to store, manipulate and summarise 
