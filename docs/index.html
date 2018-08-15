@@ -8,8 +8,8 @@
 <title>Manipulate MCMC Samples • mcmcr</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="jquery.sticky-kit.min.js"></script><script src="pkgdown.js"></script><meta property="og:title" content="Manipulate MCMC Samples">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<script src="pkgdown.js"></script><meta property="og:title" content="Manipulate MCMC Samples">
 <meta property="og:description" content="Functions and classes to store, manipulate and summarise 
    Monte Carlo Markov Chain (MCMC) samples.">
 <meta name="twitter:card" content="summary">
@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">mcmcr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.1.9001</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.1.9002</span>
       </span>
     </div>
 
@@ -49,7 +49,14 @@
   <a href="news/index.html">Changelog</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/poissonconsulting/mcmcr">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -175,11 +182,13 @@
 <a class="sourceLine" id="cb1-44" data-line-number="44"><span class="co">#&gt; $sigma</span></a>
 <a class="sourceLine" id="cb1-45" data-line-number="45"><span class="co">#&gt; [1] 0.998</span></a>
 <a class="sourceLine" id="cb1-46" data-line-number="46"><span class="kw">plot</span>(mcmcr_example[[<span class="st">"alpha"</span>]])</a></code></pre></div>
-<p><img src="tools/README-unnamed-chunk-2-1.png" width="700"></p>
+<p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
+<p>To install the latest official release from <a href="https://CRAN.R-project.org/package=mcmcr">CRAN</a></p>
+<pre><code>install.packages("mcmcr")</code></pre>
 <p>To install the latest development version from <a href="https://github.com/poissonconsulting/mcmcr">GitHub</a></p>
 <pre><code><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github"># install.packages("devtools")
 devtools::install_github("poissonconsulting/mcmcr")</a></code></pre>
@@ -191,22 +200,20 @@ install.packages("mcmcr")</a></code></pre>
 <div id="citation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#citation" class="anchor"></a>Citation</h2>
-<pre><code>Warning in citation(package = "mcmcr"): no date field in DESCRIPTION file
-of package 'mcmcr'
-Warning in citation(package = "mcmcr"): could not determine year for
-'mcmcr' from package DESCRIPTION file
-
+<pre><code>
 To cite package 'mcmcr' in publications use:
 
-  Joe Thorley (NA). mcmcr: Manipulate MCMC Samples. R package
-  version 0.0.1.9001.
+  Joe Thorley (2018). mcmcr: Manipulate MCMC Samples. R package
+  version 0.0.1.9002. https://github.com/poissonconsulting/mcmcr
 
 A BibTeX entry for LaTeX users is
 
   @Manual{,
     title = {mcmcr: Manipulate MCMC Samples},
     author = {Joe Thorley},
-    note = {R package version 0.0.1.9001},
+    year = {2018},
+    note = {R package version 0.0.1.9002},
+    url = {https://github.com/poissonconsulting/mcmcr},
   }</code></pre>
 </div>
 <div id="contribution" class="section level2">
@@ -230,7 +237,9 @@ A BibTeX entry for LaTeX users is
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=mcmcr">https://​cloud.r-project.org/​package=mcmcr</a>
 </li>
-<li>Report a bug at <br><a href="NA">NA</a>
+<li>Browse source code at <br><a href="https://github.com/poissonconsulting/mcmcr">https://​github.com/​poissonconsulting/​mcmcr</a>
+</li>
+<li>Report a bug at <br><a href="https://github.com/poissonconsulting/mcmcr/issues">https://​github.com/​poissonconsulting/​mcmcr/​issues</a>
 </li>
 </ul>
 </div>
@@ -253,7 +262,6 @@ A BibTeX entry for LaTeX users is
 <ul class="list-unstyled">
 <li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="lifecycle"></a></li>
 <li><a href="https://travis-ci.org/poissonconsulting/mcmcr"><img src="https://travis-ci.org/poissonconsulting/mcmcr.svg?branch=master" alt="Travis-CI Build Status"></a></li>
-<li><a href="https://ci.appveyor.com/project/poissonconsulting/mcmcr"><img src="https://ci.appveyor.com/api/projects/status/github/poissonconsulting/mcmcr?branch=master&amp;svg=true" alt="AppVeyor Build Status"></a></li>
 <li><a href="https://codecov.io/github/poissonconsulting/mcmcr?branch=master"><img src="https://img.shields.io/codecov/c/github/poissonconsulting/mcmcr/master.svg" alt="Coverage Status"></a></li>
 <li><a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a></li>
 <li><a href="https://cran.r-project.org/package=mcmcr"><img src="http://www.r-pkg.org/badges/version/mcmcr" alt="CRAN_Status_Badge"></a></li>

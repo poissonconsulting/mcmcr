@@ -20,7 +20,8 @@ set_parameters(x, parameters)
 
 \method{parameters}{mcmc}(x, scalar_only = FALSE, terms = FALSE, ...)
 
-\method{parameters}{mcmc.list}(x, scalar_only = FALSE, terms = FALSE, ...)
+\method{parameters}{mcmc.list}(x, scalar_only = FALSE, terms = FALSE,
+  ...)
 
 \method{parameters}{mcmcr}(x, scalar_only = FALSE, terms = FALSE, ...)
 }

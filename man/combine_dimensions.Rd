@@ -8,7 +8,8 @@
 \usage{
 combine_dimensions(x, fun = mean, along = NULL, ...)
 
-\method{combine_dimensions}{mcmcarray}(x, fun = mean, along = NULL, ...)
+\method{combine_dimensions}{mcmcarray}(x, fun = mean, along = NULL,
+  ...)
 
 \method{combine_dimensions}{mcmcr}(x, fun = mean, along = NULL, ...)
 }

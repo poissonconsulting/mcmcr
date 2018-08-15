@@ -9,11 +9,11 @@
 \alias{coef.mcmcr}
 \title{Term Coefficients}
 \usage{
-\method{coef}{mcarray}(object, conf_level = 0.95, estimate = stats::median,
-  ...)
+\method{coef}{mcarray}(object, conf_level = 0.95,
+  estimate = stats::median, ...)
 
-\method{coef}{mcmc}(object, conf_level = 0.95, estimate = stats::median,
-  ...)
+\method{coef}{mcmc}(object, conf_level = 0.95,
+  estimate = stats::median, ...)
 
 \method{coef}{mcmc.list}(object, conf_level = 0.95,
   estimate = stats::median, ...)
@@ -21,8 +21,8 @@
 \method{coef}{mcmcarray}(object, conf_level = 0.95,
   estimate = stats::median, ...)
 
-\method{coef}{mcmcr}(object, conf_level = 0.95, estimate = stats::median,
-  ...)
+\method{coef}{mcmcr}(object, conf_level = 0.95,
+  estimate = stats::median, ...)
 }
 \arguments{
 \item{object}{The MCMC object to get the coefficients for}

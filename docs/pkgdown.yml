@@ -1,8 +1,5 @@
-pandoc: '2.2'
-pkgdown: 1.0.0
+pandoc: 2.2.1
+pkgdown: 1.1.0
 pkgdown_sha: ~
 articles: []
-urls:
-  reference: http://www.poissonconsulting.ca/mcmcr/reference
-  article: http://www.poissonconsulting.ca/mcmcr/articles
 

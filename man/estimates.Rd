@@ -11,17 +11,20 @@
 \usage{
 estimates(object, ...)
 
-\method{estimates}{mcarray}(object, fun = stats::median, as_df = FALSE, ...)
-
-\method{estimates}{mcmc}(object, fun = stats::median, as_df = FALSE, ...)
-
-\method{estimates}{mcmc.list}(object, fun = stats::median, as_df = FALSE,
+\method{estimates}{mcarray}(object, fun = stats::median, as_df = FALSE,
   ...)
 
-\method{estimates}{mcmcarray}(object, fun = stats::median, as_df = FALSE,
+\method{estimates}{mcmc}(object, fun = stats::median, as_df = FALSE,
   ...)
 
-\method{estimates}{mcmcr}(object, fun = stats::median, as_df = FALSE, ...)
+\method{estimates}{mcmc.list}(object, fun = stats::median,
+  as_df = FALSE, ...)
+
+\method{estimates}{mcmcarray}(object, fun = stats::median,
+  as_df = FALSE, ...)
+
+\method{estimates}{mcmcr}(object, fun = stats::median, as_df = FALSE,
+  ...)
 }
 \arguments{
 \item{object}{An MCMC object.}

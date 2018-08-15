@@ -24,7 +24,8 @@ combine_samples_n.default <- function(x, ..., fun = mean) {
 #' @describeIn combine_samples_n Combine samples of a list of multiple MCMC objects
 #' @export
 combine_samples_n.list <- function(x, ..., fun = mean) {
-  check_list(x, length = TRUE)
+  check_list(x)
+  check_length(x)
 
   names(x) <- NULL
   x$fun <- fun
