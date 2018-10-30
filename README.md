@@ -1,6 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+# mcmcr
+
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Travis-CI Build
 Status](https://travis-ci.org/poissonconsulting/mcmcr.svg?branch=master)](https://travis-ci.org/poissonconsulting/mcmcr)
@@ -12,8 +14,6 @@ MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org
 [![CRAN
 Downloads](http://cranlogs.r-pkg.org/badges/grand-total/mcmcr)](https://CRAN.R-project.org/package=mcmcr)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1218026.svg)](https://doi.org/10.5281/zenodo.1218026)
-
-# mcmcr
 
 ## Introduction
 
@@ -177,10 +177,12 @@ To install the latest development version from
 [GitHub](https://github.com/poissonconsulting/mcmcr)
 
     # install.packages("devtools")
+    devtools::install_github("poissonconsulting/err")
+    devtools::install_github("poissonconsulting/checkr")
     devtools::install_github("poissonconsulting/mcmcr")
 
 Alternatively install the latest development version from the Poisson
-drat [repository](https://github.com/poissonconsulting/drat) using
+drat [repository](https://github.com/poissonconsulting/drat)
 
     # install.packages("drat")
     drat::addRepo("poissonconsulting")
