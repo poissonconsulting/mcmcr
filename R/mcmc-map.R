@@ -17,7 +17,7 @@ mcmc_map <- function(.x, .f, ...) {
 #' @export
 mcmc_map.default <- function(.x, .f, ...) {
   x <- .f(.x, ...)
-  if(!identical(dims(x), dims(.x))) error("mcmc_map function .f failed to retun a scalar")
+  if(!identical(dims(x), dims(.x))) err("mcmc_map function .f failed to retun a scalar")
   x
 }
 

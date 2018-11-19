@@ -25,8 +25,6 @@ greater_than_term <- function(e1, e2) {
   e1[which] > e2[which]
 }
 
-error <- function(...) stop(..., call. = FALSE)
-
 set_class <- function(x, class) {
   class(x) <- class
   x
@@ -57,7 +55,7 @@ set_class <- function(x, class) {
 .estimates <- function(object, fun = stats::median) {
   stopifnot(is.matrix(object))
   object <- apply(object, 1L, fun)
-  if(!is.numeric(object)) error("function fun must return a scalar")
+  if(!is.numeric(object)) err("function fun must return a scalar")
   object
 }
 

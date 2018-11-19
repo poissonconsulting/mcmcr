@@ -134,7 +134,7 @@ as.mcmc.mcarray <- function(x, ...) as.mcmc(as.mcmcarray(x))
 #' @describeIn as.mcmc Coerces mcmcarray object (with 1 chain) to an mcmc object
 #' @export
 as.mcmc.mcmcarray <- function(x, ...) {
-  if(nchains(x) != 1) error("x must only have 1 chain")
+  if(nchains(x) != 1) err("x must only have 1 chain")
   terms <- terms(x)
   x <- apply(x, 1, identity)
   x <- matrix(x, ncol = length(terms))
@@ -149,7 +149,7 @@ as.mcmc.mcmc <- function(x, ...) x
 #' @method as.mcmc mcmc.list
 #' @export
 as.mcmc.mcmc.list <- function(x, ...) {
-  if(nchains(x) != 1) error("x must only have 1 chain")
+  if(nchains(x) != 1) err("x must only have 1 chain")
   x[[1]]
 }
 
@@ -179,7 +179,7 @@ as.mcmcarray.mcmcarray <- function(x, ...) x
 #' @describeIn as.mcmcarray Coerces mcmc object (with one parameter) to an mcmcarray object
 #' @export
 as.mcmcarray.mcmc <- function(x, ...) {
-  if(npars(x) != 1) error("x must only have 1 parameter")
+  if(npars(x) != 1) err("x must only have 1 parameter")
 
   pdims <- pdims(x)[[1]]
   x <- x[,order(terms(x)), drop = FALSE]
@@ -195,7 +195,7 @@ as.mcmcarray.mcmc.list <- function(x, ...) as.mcmcarray(as.mcmcr(x))
 #' @describeIn as.mcmcarray Coerces mcmcr object (with one parameter) to an mcmcarray object
 #' @export
 as.mcmcarray.mcmcr <- function(x, ...) {
-  if(npars(x) != 1) error("x must only have 1 parameter")
+  if(npars(x) != 1) err("x must only have 1 parameter")
   x[[1]]
 }
 
@@ -211,10 +211,10 @@ as.mcmcr.list <- function(x, ...) {
   niters <- vapply(x, niters, 1L)
 
   if (!identical(length(unique(nchains)), 1L))
-    error("all objects must have the same number of chains")
+    err("all objects must have the same number of chains")
 
   if (!identical(length(unique(niters)), 1L))
-    error("all objects must have the same number of iterations")
+    err("all objects must have the same number of iterations")
 
   set_class(x, "mcmcr")
 }
@@ -252,7 +252,7 @@ as.mcmcr.mcmcr <- function(x, ...) x
 as.mcmcrs.list <- function(x, ...) {
   check_length(x)
   if (!all(vapply(x, is.mcmcr, TRUE)))
-    error("all objects must inherit from mcmcr")
+    err("all objects must inherit from mcmcr")
 
   nchains <- vapply(x, nchains, 1L)
   niters <- vapply(x, niters, 1L)
@@ -260,21 +260,21 @@ as.mcmcrs.list <- function(x, ...) {
   parameters <- lapply(x, parameters)
 
   if (!identical(length(unique(nchains)), 1L))
-    error("all objects must have the same number of chains")
+    err("all objects must have the same number of chains")
 
   if (!identical(length(unique(niters)), 1L))
-    error("all objects must have the same number of iterations")
+    err("all objects must have the same number of iterations")
 
   if (!identical(length(unique(parameters)), 1L))
-    error("all objects must have the same parameters")
+    err("all objects must have the same parameters")
 
   if (!identical(length(unique(pdims)), 1L))
-    error("all objects must have the same parameter dimensions")
+    err("all objects must have the same parameter dimensions")
 
   if(is.null(names(x))) {
     names(x) <- paste0("mcmcr", 1:length(x))
   } else
-    if(anyDuplicated(names(x))) error("mcmcr objects must have unique names")
+    if(anyDuplicated(names(x))) err("mcmcr objects must have unique names")
   set_class(x, "mcmcrs")
 }
 

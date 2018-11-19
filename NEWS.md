@@ -1,3 +1,5 @@
+- replace internal error() with err::err()
+
 # mcmcr 0.0.2
 
 - allow NAs in values to calculate pvalues

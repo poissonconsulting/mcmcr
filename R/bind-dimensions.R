@@ -18,14 +18,14 @@ bind_dimensions <- function(x, x2, along = NULL, ...) {
 #' @describeIn bind_dimensions Binds two mcmcarray objects by their dimensions
 #' @export
 bind_dimensions.mcmcarray <- function(x, x2, along = NULL, ...) {
-  if (!is.mcmcarray(x)) error("x2 must be an mcmcarray")
+  if (!is.mcmcarray(x)) err("x2 must be an mcmcarray")
   checkor(check_null(along), check_count(along))
 
   if (!identical(nchains(x), nchains(x2)))
-    error("x and x2 must have the same number of chains")
+    err("x and x2 must have the same number of chains")
 
   if (!identical(niters(x), niters(x2)))
-    error("x and x2 must have the same number of iterations")
+    err("x and x2 must have the same number of iterations")
 
   if (is.null(along)) along <- max(ndims(x), ndims(x2)) - 1
 
@@ -36,7 +36,7 @@ bind_dimensions.mcmcarray <- function(x, x2, along = NULL, ...) {
 #' @describeIn bind_dimensions Binds two mcmcr objects by their dimensions
 #' @export
 bind_dimensions.mcmcr <- function(x, x2, along = NULL, ...) {
-  if (!is.mcmcr(x2)) error("x2 must be an mcmcr")
+  if (!is.mcmcr(x2)) err("x2 must be an mcmcr")
   checkor(check_null(along),
           check_vector(along, 1L, length = 1),
           check_vector(along, 1L, length = npars(x)))
@@ -45,13 +45,13 @@ bind_dimensions.mcmcr <- function(x, x2, along = NULL, ...) {
   x2 <- sort(x2)
 
   if (!identical(parameters(x), parameters(x2)))
-    error("x and x2 must have the same parameters")
+    err("x and x2 must have the same parameters")
 
   if (!identical(nchains(x), nchains(x2)))
-    error("x and x2 must have the same number of chains")
+    err("x and x2 must have the same number of chains")
 
   if (!identical(niters(x), niters(x2)))
-    error("x and x2 must have the same number of iterations")
+    err("x and x2 must have the same number of iterations")
 
   if (is.null(along)) {
     along <- mapply(x, x2, FUN = function(x, x2) {max(ndims(x), ndims(x2)) - 1L}, SIMPLIFY = FALSE)

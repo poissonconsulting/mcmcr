@@ -19,7 +19,7 @@ split_chains.mcmcarray <- function(x, ...) {
   niters <- niters(x)
   n <- floor(niters / 2L)
 
-  if(n == 0) error("x must have at least two iterations")
+  if(n == 0) err("x must have at least two iterations")
 
   y <- subset(x, iterations = (n + 1L):(n * 2L))
   x <- subset(x, iterations = 1:n)
