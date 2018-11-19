@@ -32,10 +32,10 @@ esr(x, ...)
 \item{by}{A string indicating whether to return the estimates by
 the object ("all"), "parameter" or "term"}
 
-\item{as_df}{A flag indicating whether to return the estimates as a tibble versus a list.}
+\item{as_df}{A flag indicating whether to return the estimates as a data frame versus a list.}
 }
 \value{
-The esr value(s) as a tibble or list
+The esr value(s) as a data frame or list
 }
 \description{
 Calculates the effective sampling rate (\code{esr}) based on the formula

@@ -34,7 +34,7 @@
 \item{...}{Unused}
 }
 \value{
-An tibble of the coefficients with the columns indicating the
+An data frame of the coefficients with the columns indicating the
 \code{term}, \code{estimate}, standard deviation (\code{sd}), \code{zscore},
 \code{lower} and \code{upper} credible intervals and \code{pvalue}.
 }

@@ -12,7 +12,7 @@ ess(x, by = "all", as_df = FALSE)
 \item{by}{A string indicating whether to determine by "term", "parameter" or "all".}
 
 \item{as_df}{A flag indicating whether to return the results as a
-tibble or list.}
+data frame or list.}
 }
 \description{
 Calculates the effective sample size based on \code{\link{esr}}.

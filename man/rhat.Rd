@@ -33,7 +33,7 @@ rhat(x, ...)
 "term", "parameter" or "all".}
 
 \item{as_df}{A flag indicating whether to return the values as a
-tibble versus a named list.}
+data frame versus a named list.}
 }
 \value{
 The rhat value(s).

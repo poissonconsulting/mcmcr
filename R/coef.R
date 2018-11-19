@@ -6,7 +6,7 @@
 #' @param conf_level A number specifying the confidence level. By default 0.95.
 #' @param estimate The function to use to calculate the estimate.
 #' @param ... Unused
-#' @return An tibble of the coefficients with the columns indicating the
+#' @return An data frame of the coefficients with the columns indicating the
 #' \code{term}, \code{estimate}, standard deviation (\code{sd}), \code{zscore},
 #' \code{lower} and \code{upper} credible intervals and \code{pvalue}.
 #' @export
@@ -33,7 +33,7 @@ coef.numeric <- function(object, conf_level = 0.95, estimate = stats::median, ..
   sd <- stats::sd(object)
   zscore = mean(object) / sd
 
-  tibble::tibble(estimate = estimate, sd = sd, zscore = zscore,
+  tibble(estimate = estimate, sd = sd, zscore = zscore,
     lower = quantiles[1], upper = quantiles[2], pvalue = pvalue(object))
 }
 

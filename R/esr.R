@@ -12,9 +12,9 @@
 #' @param x An MCMC object
 #' @param by A string indicating whether to return the estimates by
 #' the object ("all"), "parameter" or "term"
-#' @param as_df A flag indicating whether to return the estimates as a tibble versus a list.
+#' @param as_df A flag indicating whether to return the estimates as a data frame versus a list.
 #' @param ... Unused
-#' @return The esr value(s) as a tibble or list
+#' @return The esr value(s) as a data frame or list
 #' @export
 #' @examples
 #' esr(mcmcr_example)
@@ -46,7 +46,7 @@ esr.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
     return(min(x))
   }
   if(by != "term")
-    return(tibble::tibble(parameter = "parameter", esr = min(x)))
+    return(tibble(parameter = "parameter", esr = min(x)))
   x <- estimates(as.mcmcarray(x), as_df = TRUE)
   colnames(x) <- c("term", "esr")
   x
@@ -64,7 +64,7 @@ esr.mcmcr <- function(x, by = "all", as_df = FALSE, ...) {
   x <- Map(x, parameters, f = function(x, p) {parameters(x[[1]]) <- p; x})
   x <- do.call(rbind, x)
   if(by == "all")
-    return(tibble::tibble(all = "all", esr = min(x$esr)))
+    return(tibble(all = "all", esr = min(x$esr)))
   x
 }
 

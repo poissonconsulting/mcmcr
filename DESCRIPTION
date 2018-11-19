@@ -14,12 +14,12 @@ Imports:
     err,
     checkr,
     coda,
-    tibble,
     utils
 Suggests:
     covr,
     graphics,
     testthat,
+    tibble,
     stats
 Encoding: UTF-8
 LazyData: true

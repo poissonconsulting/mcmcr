@@ -4,9 +4,9 @@
 #'
 #' @param object An MCMC object.
 #' @param fun The function to use.
-#' @param as_df A flag indicating whether to return the estimates as a tibble versus a named list.
+#' @param as_df A flag indicating whether to return the estimates as a data frame versus a named list.
 #' @param ... Unused.
-#' @return A named list or tibble.
+#' @return A named list or data frame.
 #' @export
 #' @examples
 #' estimates(mcmcr_example)
@@ -32,7 +32,7 @@ estimates.mcmc <- function(object, fun = stats::median, as_df = FALSE, ...) {
   terms <- terms(object)
   object <- t(object)
   object <- .estimates(object, fun = fun)
-  tibble::tibble(term = terms, estimate = object)
+  tibble(term = terms, estimate = object)
 }
 
 #' @describeIn estimates Estimates for an mcmc.list object

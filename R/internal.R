@@ -81,3 +81,9 @@ set_class <- function(x, class) {
   iterations <- seq(1L, niters(x), by = nthin)
   subset(x, iterations = iterations)
 }
+
+tibble <- function(...) {
+  if(requireNamespace("tibble", quietly = TRUE))
+    return(tibble::tibble(...))
+  data.frame(..., stringsAsFactors = FALSE)
+}

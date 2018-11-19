@@ -33,10 +33,10 @@ estimates(object, ...)
 
 \item{fun}{The function to use.}
 
-\item{as_df}{A flag indicating whether to return the estimates as a tibble versus a named list.}
+\item{as_df}{A flag indicating whether to return the estimates as a data frame versus a named list.}
 }
 \value{
-A named list or tibble.
+A named list or data frame.
 }
 \description{
 Get the estimates for an MCMC object.
