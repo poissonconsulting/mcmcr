@@ -14,13 +14,13 @@ Imports:
     err,
     checkr,
     coda,
-    stats,
     tibble,
     utils
 Suggests:
     covr,
     graphics,
-    testthat
+    testthat,
+    stats
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1

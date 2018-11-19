@@ -1,4 +1,8 @@
 .onLoad <- function(...) {
+  register_s3_method("stats", "terms", "mcmcarray")
+  register_s3_method("stats", "terms", "mcmcr")
+  register_s3_method("stats", "coef", "mcmcarray")
+  register_s3_method("stats", "coef", "mcmcr")
   register_s3_method("graphics", "plot", "mcmcarray")
   register_s3_method("graphics", "plot", "mcmcr")
   invisible()

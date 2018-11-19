@@ -1,4 +1,4 @@
-- from imports to suggests: graphics
+- from imports to suggests: graphics, coef
 - replace internal error() with err::err()
 
 # mcmcr 0.0.2

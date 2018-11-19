@@ -89,7 +89,7 @@ objects. In particular it provides functions to
     and `nsams` as well as it’s parameter dimensions (`pdims`) and term
     dimensions (`tdims`);
   - `subset` objects by chains, iterations and/or parameters;
-  - `bind_xx` a pair of objects by their `xx_chains`, `_iterations`,
+  - `bind_xx` a pair of objects by their `xx_chains`, `xx_iterations`,
     `xx_parameters` or (parameter) `xx_dimensions`;
   - combine the samples of two (or more) MCMC objects using
     `combine_samples` (or `combine_samples_n`) or combine the samples of
