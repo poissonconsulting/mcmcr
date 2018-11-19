@@ -20,7 +20,6 @@ knitr::opts_chunk$set(
 [![Coverage Status](https://img.shields.io/codecov/c/github/poissonconsulting/mcmcr/master.svg)](https://codecov.io/github/poissonconsulting/mcmcr?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/mcmcr)](https://cran.r-project.org/package=mcmcr)
-[![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/mcmcr)]( https://CRAN.R-project.org/package=mcmcr)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1218026.svg)](https://doi.org/10.5281/zenodo.1218026)
 
 ## Introduction
@@ -67,7 +66,7 @@ In particular it provides functions to
 - extract an objects `coef` table (as a tibble);
 - query an object's `nchains`, `niters`, `npars`, `nterms`, `nsims` and `nsams` as well as it's parameter dimensions (`pdims`) and term dimensions (`tdims`);
 - `subset` objects by chains, iterations and/or parameters;
-- `bind_xx` a pair of objects by their `xx_chains`, `_iterations`, `xx_parameters` or (parameter) `xx_dimensions`;
+- `bind_xx` a pair of objects by their `xx_chains`, `xx_iterations`, `xx_parameters` or (parameter) `xx_dimensions`;
 - combine the samples of two (or more) MCMC objects using `combine_samples` (or `combine_samples_n`) or combine the samples of a single MCMC object by reducing its dimensions using `combine_dimensions`;
 - `collapse_chains` or `split_chains` an object's chains;
 - `mcmc_map` over an objects values; 
@@ -112,12 +111,6 @@ Alternatively install the latest development version from the Poisson drat [repo
 # install.packages("drat")
 drat::addRepo("poissonconsulting")
 install.packages("mcmcr")
-```
-
-## Citation
-
-```{r, comment="", echo=FALSE}
-citation(package = "mcmcr")
 ```
 
 ## Contribution

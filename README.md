@@ -11,8 +11,6 @@ Status](https://img.shields.io/codecov/c/github/poissonconsulting/mcmcr/master.s
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/mcmcr)](https://cran.r-project.org/package=mcmcr)
-[![CRAN
-Downloads](http://cranlogs.r-pkg.org/badges/grand-total/mcmcr)](https://CRAN.R-project.org/package=mcmcr)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1218026.svg)](https://doi.org/10.5281/zenodo.1218026)
 
 ## Introduction
@@ -187,26 +185,6 @@ drat [repository](https://github.com/poissonconsulting/drat)
     # install.packages("drat")
     drat::addRepo("poissonconsulting")
     install.packages("mcmcr")
-
-## Citation
-
-``` 
-
-To cite package 'mcmcr' in publications use:
-
-  Joe Thorley (2018). mcmcr: Manipulate MCMC Samples. R package
-  version 0.0.1.9002. https://github.com/poissonconsulting/mcmcr
-
-A BibTeX entry for LaTeX users is
-
-  @Manual{,
-    title = {mcmcr: Manipulate MCMC Samples},
-    author = {Joe Thorley},
-    year = {2018},
-    note = {R package version 0.0.1.9002},
-    url = {https://github.com/poissonconsulting/mcmcr},
-  }
-```
 
 ## Contribution
 

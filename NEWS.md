@@ -1,3 +1,4 @@
+- from imports to suggests: graphics
 - replace internal error() with err::err()
 
 # mcmcr 0.0.2
