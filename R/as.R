@@ -13,7 +13,7 @@ as.term <- function(x, ...) {
 
 #' Coerce to an mcarray object
 #'
-#' Coerces MCMC objects to an \code{\link[rjags]{mcarray.object}}.
+#' Coerces MCMC objects to an mcarray object.
 #'
 #' @param x object to coerce.
 #' @param ... Unused.
