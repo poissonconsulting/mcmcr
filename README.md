@@ -203,4 +203,4 @@ abide by its terms.
 ## Inspiration
 
 [coda](https://github.com/cran/coda) and
-[rjags](https://github.com/cran/rjags)
+[rjags](https://github.com/cran/rjags).

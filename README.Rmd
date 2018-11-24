@@ -125,4 +125,4 @@ By participating in this project you agree to abide by its terms.
 
 ## Inspiration
 
-[coda](https://github.com/cran/coda) and [rjags](https://github.com/cran/rjags)
+[coda](https://github.com/cran/coda) and [rjags](https://github.com/cran/rjags).

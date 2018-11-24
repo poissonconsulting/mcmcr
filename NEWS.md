@@ -1,3 +1,5 @@
+# mcmcr 0.0.3
+
 - from imports to suggests: graphics, coef, tibble
 - replace internal error() with err::err()
 
