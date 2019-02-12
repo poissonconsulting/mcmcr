@@ -14,7 +14,6 @@
 #' @examples
 #' esr(mcmcr_example)
 #' esr(mcmcrs(mcmcr_example, mcmcr_example))
-#' esr(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE)
 esr <- function(x, ...) {
   UseMethod("esr")
 }
@@ -67,13 +66,8 @@ esr.mcmcr <- function(x, by = "all", as_df = FALSE, ...) {
 
 #' @describeIn esr Effective Sampling Rate for an mcmcrs object
 #' @export
-esr.mcmcrs <- function(x, by = "all", as_df = FALSE, bound = FALSE, ...) {
-  check_flag(bound)
+esr.mcmcrs <- function(x, by = "all", as_df = FALSE, ...) {
   check_unused(...)
 
-  if(bound) {
-    x <- Reduce(bind_chains, x)
-    return(esr(x, by = by, as_df = as_df))
-  }
   lapply(x, esr, by = by, as_df = as_df)
 }

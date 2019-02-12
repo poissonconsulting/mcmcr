@@ -17,12 +17,13 @@ converged <- function(x, ...) UseMethod("converged")
 
 #' @describeIn converged Test whether an object has converged
 #' @export
-converged.default <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FALSE, ...) {
+converged.default <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FALSE, split = TRUE, ...) {
   check_vector(rhat, c(1.0, 1.5), length = 1)
   check_probability(esr)
+  check_unused(...)
 
   esrs <- esr(x, by = "all", as_df = as_df)
-  rhats <- rhat(x, by = "all", as_df = as_df)
+  rhats <- rhat(x, by = "all", as_df = as_df, split = split)
 
   if(as_df) {
     converged <- esrs
@@ -40,14 +41,14 @@ converged.default <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FAL
 
 #' @describeIn converged Test whether an mcmcrs object has converged
 #' @export
-converged.mcmcrs <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FALSE,
+converged.mcmcrs <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FALSE, split = !bound,
                              bound = FALSE, ...) {
   check_vector(rhat, c(1.0, 1.5), length = 1)
   check_probability(esr)
   check_unused(...)
 
-  esrs <- esr(x, by = "all", as_df = as_df, bound = bound)
-  rhats <- rhat(x, by = "all", as_df = as_df, bound = bound)
+  esrs <- esr(x, by = "all", as_df = as_df)
+  rhats <- rhat(x, by = "all", as_df = as_df, bound = bound, split = split)
 
   if(as_df) {
     converged <- esrs

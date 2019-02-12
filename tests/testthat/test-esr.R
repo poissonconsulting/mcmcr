@@ -41,5 +41,4 @@ test_that("esr.mcmcr", {
 
 test_that("esr.mcmcrs", {
   expect_identical(esr(mcmcrs(mcmcr_example, mcmcr_example)), list(mcmcr1 = 0.011, mcmcr2 = 0.011))
-  expect_identical(esr(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE), 0.011)
 })

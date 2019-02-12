@@ -25,6 +25,7 @@ test_that("rhat.mcmcmarray", {
 test_that("rhat.mcmcr", {
   expect_identical(rhat(mcmcr_example2), 2.002)
   expect_identical(rhat(mcmcr_example), 2.002)
+  expect_identical(rhat(mcmcr_example, split = FALSE), 1)
   expect_identical(rhat(mcmcr_example, by = "parameter"), list(alpha = 2.002, beta = 1.147, sigma = 0.998))
   expect_equal(rhat(mcmcr_example, by = "parameter", as_df = TRUE), tibble::tibble(parameter = c("alpha", "beta", "sigma"), rhat = c(2.002, 1.147, 0.998)), check.attributes = FALSE)
   expect_equivalent(rhat(mcmcr_example, by = "term"), list(alpha = c(2.002, 2.002), beta = matrix(c(1.147, 1.147, 1.147, 1.147), nrow = 2.002, ncol = 2), sigma = 0.998))
@@ -33,10 +34,10 @@ test_that("rhat.mcmcr", {
 
 test_that("rhat.mcmcrs", {
   expect_identical(rhat(mcmcrs(mcmcr_example, mcmcr_example)), list(mcmcr1 = 2.002, mcmcr2 = 2.002))
-  expect_identical(rhat(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE), 1.891)
+  expect_identical(rhat(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE), 0.999)
   expect_identical(rhat(mcmcrs(mcmcr_example, mcmcr_example), by = "parameter"),
                    list(mcmcr1 = list(alpha = 2.002, beta = 1.147, sigma = 0.998),
                         mcmcr2 = list(alpha = 2.002, beta = 1.147, sigma = 0.998)))
   expect_identical(rhat(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE, by = "parameter"),
-                   list(alpha = 1.891, beta = 1.127, sigma = 0.998))
+                   list(alpha = 0.999, beta = 0.999, sigma = 0.999))
 })
