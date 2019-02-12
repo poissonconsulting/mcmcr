@@ -35,6 +35,7 @@ set_parameters <- function(x, parameters) {
 parameters.term <- function(x, scalar_only = FALSE, terms = FALSE, ...) {
   check_flag(scalar_only)
   check_flag(terms)
+  check_unused(...)
 
   x <- as.character(x)
   if(scalar_only) x <- x[!grepl("\\[", x)]
@@ -45,19 +46,30 @@ parameters.term <- function(x, scalar_only = FALSE, terms = FALSE, ...) {
 
 #' @describeIn parameters Parameter names for an mcmc object
 #' @export
-parameters.mcmc <- function(x, scalar_only = FALSE, terms = FALSE, ...)
+parameters.mcmc <- function(x, scalar_only = FALSE, terms = FALSE, ...) {
+  check_unused(...)
   parameters(as.term(x), scalar_only = scalar_only, terms = terms)
+}
 
 #' @describeIn parameters Parameter names for an mcmc.list object
 #' @export
-parameters.mcmc.list <- function(x, scalar_only = FALSE, terms = FALSE, ...)
+parameters.mcmc.list <- function(x, scalar_only = FALSE, terms = FALSE, ...) {
+  check_unused(...)
   parameters(x[[1]], scalar_only = scalar_only, terms = terms)
-
+}
 #' @describeIn parameters Parameter names for an mcmcr object
 #' @export
 parameters.mcmcr <- function(x, scalar_only = FALSE, terms = FALSE, ...) {
+  check_unused(...)
   if(!scalar_only && !terms) return(names(x))
   parameters(as.term(x), scalar_only = scalar_only, terms = terms)
+}
+
+#' @describeIn parameters Parameter names for an mcmcrs object
+#' @export
+parameters.mcmcrs <- function(x, scalar_only = FALSE, terms = FALSE, ...) {
+  check_unused(...)
+  parameters(x[[1]], scalar_only = scalar_only, terms = terms)
 }
 
 #' @export
@@ -99,5 +111,12 @@ parameters.mcmcr <- function(x, scalar_only = FALSE, terms = FALSE, ...) {
 `parameters<-.mcmcr` <- function(x, value) {
   check_vector(value, "", length = length(x), unique = TRUE)
   names(x) <- value
+  x
+}
+
+#' @export
+`parameters<-.mcmcrs` <- function(x, value) {
+  x <- lapply(x, `parameters<-`, value)
+  class(x) <- "mcmcrs"
   x
 }

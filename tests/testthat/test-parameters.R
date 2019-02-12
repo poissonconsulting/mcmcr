@@ -19,3 +19,11 @@ test_that("parameters.mcmcr", {
   parameters(mcmcr_example) <- c("alpha1", "alpha2", "alpha3")
   expect_equal(parameters(mcmcr_example), c("alpha1", "alpha2", "alpha3"))
 })
+
+test_that("parameters.mcmcrs", {
+  mcmcrs <- mcmcrs(mcmcr::mcmcr_example, mcmcr::mcmcr_example)
+  expect_equal(parameters(mcmcrs), c("alpha", "beta", "sigma"))
+  expect_equal(parameters(mcmcrs, scalar_only = TRUE), c("sigma"))
+  parameters(mcmcrs) <- c("alpha1", "alpha2", "alpha3")
+  expect_equal(parameters(mcmcrs), c("alpha1", "alpha2", "alpha3"))
+})

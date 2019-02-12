@@ -13,6 +13,14 @@ test_that("subset.mcmcr", {
   expect_identical(nterms(subset(mcmcr_example, parameters = "beta")), 4L)
 })
 
+test_that("subset.mcmcrs", {
+  mcmcrs <- mcmcrs(mcmcr::mcmcr_example, mcmcr::mcmcr_example)
+  expect_identical(parameters(subset(mcmcrs, parameters = rev(parameters(mcmcrs)))), rev(parameters(mcmcrs)))
+  expect_identical(nchains(subset(mcmcrs, 1L)), 1L)
+  expect_identical(nsims(subset(mcmcrs, rep(1L, 5), 2:3)), 10L)
+  expect_identical(nterms(subset(mcmcrs, parameters = "beta")), 4L)
+})
+
 test_that("subset.mcmc.list", {
   expect_identical(parameters(subset(coda::as.mcmc.list(mcmcr_example), parameters = "beta")), "beta")
   expect_identical(niters(subset(coda::as.mcmc.list(mcmcr_example), iterations = 10L)), 1L)

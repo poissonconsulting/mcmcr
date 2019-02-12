@@ -7,6 +7,7 @@
 \alias{subset.mcmc.list}
 \alias{subset.mcmcarray}
 \alias{subset.mcmcr}
+\alias{subset.mcmcrs}
 \title{Subset an MCMC Object}
 \usage{
 \method{subset}{term}(x, parameters = NULL, ...)
@@ -19,6 +20,9 @@
 \method{subset}{mcmcarray}(x, chains = NULL, iterations = NULL, ...)
 
 \method{subset}{mcmcr}(x, chains = NULL, iterations = NULL,
+  parameters = NULL, ...)
+
+\method{subset}{mcmcrs}(x, chains = NULL, iterations = NULL,
   parameters = NULL, ...)
 }
 \arguments{
@@ -46,6 +50,8 @@ Subsets an MCMC object by its chains, iterations and/or parameters.
 \item \code{mcmcarray}: Subset an mcmcarray object
 
 \item \code{mcmcr}: Subset an mcmcr object
+
+\item \code{mcmcrs}: Subset an mcmcrs object
 }}
 
 \examples{

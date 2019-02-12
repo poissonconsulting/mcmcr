@@ -18,6 +18,7 @@ NULL
 subset.term <- function(x, parameters = NULL, ...) {
   checkor(check_null(parameters),
           check_vector(parameters, parameters(x), unique = TRUE))
+  check_unused(...)
 
   if(!is.null(parameters)) {
     parameters <- paste0("(^", parameters, ("($|\\[))"))
@@ -34,6 +35,7 @@ subset.mcmc <- function(x, iterations = NULL, parameters = NULL, ...) {
   checkor(check_null(iterations), check_vector(iterations, c(1L,niters(x))))
   checkor(check_null(parameters),
           check_vector(parameters, parameters(x), unique = TRUE))
+  check_unused(...)
 
   if (!is.null(parameters)) x <- x[,parameters(x, term = TRUE) %in% parameters,drop = FALSE]
   if (!is.null(iterations)) x <- x[iterations,,drop = FALSE]
@@ -45,6 +47,8 @@ subset.mcmc <- function(x, iterations = NULL, parameters = NULL, ...) {
 #' @export
 subset.mcmc.list <- function(x, chains = NULL, iterations = NULL, parameters = NULL, ...) {
   checkor(check_null(chains), check_vector(chains, c(1L,nchains(x))))
+  check_unused(...)
+
   if(!is.null(chains))
     x <- x[chains]
   x <- lapply(x, subset, iterations = iterations, parameters = parameters)
@@ -57,11 +61,11 @@ subset.mcmc.list <- function(x, chains = NULL, iterations = NULL, parameters = N
 subset.mcmcarray <- function(x, chains = NULL, iterations = NULL, ...) {
   checkor(check_null(chains), check_vector(chains, c(1L,nchains(x))))
   checkor(check_null(iterations), check_vector(iterations, c(1L,niters(x))))
+  check_unused(...)
 
   if (!is.null(chains)) x <- abind::asub(x, chains, 1L, drop = FALSE)
   if (!is.null(iterations)) x <- abind::asub(x, iterations, 2L, drop = FALSE)
   class(x) <- "mcmcarray"
-
   x
 }
 
@@ -70,10 +74,21 @@ subset.mcmcarray <- function(x, chains = NULL, iterations = NULL, ...) {
 subset.mcmcr <- function(x, chains = NULL, iterations = NULL, parameters = NULL, ...) {
   checkor(check_null(parameters),
           check_vector(parameters, parameters(x), unique = TRUE))
+  check_unused(...)
 
   if (!is.null(parameters)) x <- x[parameters]
 
   x <- lapply(x, subset, chains = chains, iterations = iterations)
   class(x) <- "mcmcr"
+  x
+}
+
+#' @describeIn subset Subset an mcmcrs object
+#' @export
+subset.mcmcrs <- function(x, chains = NULL, iterations = NULL, parameters = NULL, ...) {
+  check_unused(...)
+
+  x <- lapply(x, FUN = subset, chains = chains, iterations = iterations, parameters = parameters)
+  class(x) <- "mcmcrs"
   x
 }

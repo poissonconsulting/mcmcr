@@ -5,6 +5,7 @@
 \alias{nterms.default}
 \alias{nterms.mcmcarray}
 \alias{nterms.mcmcr}
+\alias{nterms.mcmcrs}
 \title{Number of Terms}
 \usage{
 nterms(x, ...)
@@ -14,6 +15,8 @@ nterms(x, ...)
 \method{nterms}{mcmcarray}(x, ...)
 
 \method{nterms}{mcmcr}(x, ...)
+
+\method{nterms}{mcmcrs}(x, ...)
 }
 \arguments{
 \item{x}{The object.}
@@ -33,6 +36,8 @@ Gets the number of terms for an object.
 \item \code{mcmcarray}: Number of terms for an mcmcarray object
 
 \item \code{mcmcr}: Number of terms for an mcmcr object
+
+\item \code{mcmcrs}: Number of terms for an mcmcrs object
 }}
 
 \examples{

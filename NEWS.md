@@ -1,3 +1,4 @@
+- add subset and parameters for mcmcrs object
 - add bound = FALSE argument to rhat.mcmcrs, esr.mcmcrs and converged.mcmcrs
 
 # mcmcr 0.0.3

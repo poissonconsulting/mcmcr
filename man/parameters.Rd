@@ -8,6 +8,7 @@
 \alias{parameters.mcmc}
 \alias{parameters.mcmc.list}
 \alias{parameters.mcmcr}
+\alias{parameters.mcmcrs}
 \title{Parameter Names}
 \usage{
 parameters(x, ...)
@@ -24,6 +25,8 @@ set_parameters(x, parameters)
   ...)
 
 \method{parameters}{mcmcr}(x, scalar_only = FALSE, terms = FALSE, ...)
+
+\method{parameters}{mcmcrs}(x, scalar_only = FALSE, terms = FALSE, ...)
 }
 \arguments{
 \item{x}{An MCMC object.}
@@ -55,6 +58,8 @@ Gets or sets the parameter names for an object.
 \item \code{mcmc.list}: Parameter names for an mcmc.list object
 
 \item \code{mcmcr}: Parameter names for an mcmcr object
+
+\item \code{mcmcrs}: Parameter names for an mcmcrs object
 }}
 
 \examples{
