@@ -22,7 +22,8 @@ rhat(x, ...)
 
 \method{rhat}{mcmcr}(x, by = "all", as_df = FALSE, ...)
 
-\method{rhat}{mcmcrs}(x, by = "all", as_df = FALSE, ...)
+\method{rhat}{mcmcrs}(x, by = "all", as_df = FALSE, bound = FALSE,
+  ...)
 }
 \arguments{
 \item{x}{An MCMC object.}
@@ -34,6 +35,8 @@ rhat(x, ...)
 
 \item{as_df}{A flag indicating whether to return the values as a
 data frame versus a named list.}
+
+\item{bound}{flag specifying whether to bind mcmcrs objects by their chains before calculating rhat.}
 }
 \value{
 The rhat value(s).
@@ -62,6 +65,8 @@ rhat(mcmcr_example)
 rhat(mcmcr_example, by = "parameter")
 rhat(mcmcr_example, by = "term")
 rhat(mcmcr_example, by = "term", as_df = TRUE)
+rhat(mcmcrs(mcmcr_example, mcmcr_example))
+rhat(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE)
 }
 \references{
 Gelman, A., and Rubin, D.B. 1992. Inference from Iterative Simulation Using Multiple Sequences. Statistical Science 7(4): 457–472.

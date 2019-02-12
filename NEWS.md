@@ -1,3 +1,5 @@
+- add bound = FALSE argument to rhat.mcmcrs, esr.mcmcrs and converged.mcmcrs
+
 # mcmcr 0.0.3
 
 - from imports to suggests: graphics, coef, tibble

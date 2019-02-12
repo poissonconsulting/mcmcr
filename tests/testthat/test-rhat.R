@@ -5,7 +5,7 @@ test_that("rhat.matrix", {
   expect_identical(.rhat(matrix), 1)
   matrix[1,] <- 2
   expect_true(is.infinite(.rhat(matrix)))
-    matrix[1,1] <- NA
+  matrix[1,1] <- NA
   expect_true(is.na(.rhat(matrix)))
 })
 
@@ -33,7 +33,10 @@ test_that("rhat.mcmcr", {
 
 test_that("rhat.mcmcrs", {
   expect_identical(rhat(mcmcrs(mcmcr_example, mcmcr_example)), list(mcmcr1 = 2.002, mcmcr2 = 2.002))
+  expect_identical(rhat(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE), 1.891)
   expect_identical(rhat(mcmcrs(mcmcr_example, mcmcr_example), by = "parameter"),
                    list(mcmcr1 = list(alpha = 2.002, beta = 1.147, sigma = 0.998),
                         mcmcr2 = list(alpha = 2.002, beta = 1.147, sigma = 0.998)))
+  expect_identical(rhat(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE, by = "parameter"),
+                   list(alpha = 1.891, beta = 1.127, sigma = 0.998))
 })
