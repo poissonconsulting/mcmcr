@@ -13,20 +13,22 @@
 rhat(x, ...)
 
 \method{rhat}{mcarray}(x, by = "all", as_df = FALSE, split = TRUE,
-  ...)
+  normalized = FALSE, ...)
 
-\method{rhat}{mcmc}(x, by = "all", as_df = FALSE, split = TRUE, ...)
+\method{rhat}{mcmc}(x, by = "all", as_df = FALSE, split = TRUE,
+  normalized = FALSE, ...)
 
 \method{rhat}{mcmc.list}(x, by = "all", as_df = FALSE, split = TRUE,
-  ...)
+  normalized = FALSE, ...)
 
 \method{rhat}{mcmcarray}(x, by = "all", as_df = FALSE, split = TRUE,
-  ...)
+  normalized = FALSE, ...)
 
-\method{rhat}{mcmcr}(x, by = "all", as_df = FALSE, split = TRUE, ...)
+\method{rhat}{mcmcr}(x, by = "all", as_df = FALSE, split = TRUE,
+  normalized = FALSE, ...)
 
 \method{rhat}{mcmcrs}(x, by = "all", as_df = FALSE, split = !bound,
-  bound = FALSE, ...)
+  bound = FALSE, normalized = FALSE, ...)
 }
 \arguments{
 \item{x}{An MCMC object.}
@@ -39,7 +41,9 @@ rhat(x, ...)
 \item{as_df}{A flag indicating whether to return the values as a
 data frame versus a named list.}
 
-\item{split}{A flag specifying whether to split the chains in two.}
+\item{split}{A flag specifying whether to split the chains.}
+
+\item{normalized}{A flag specifying whether to rank normalize the values.}
 
 \item{bound}{flag specifying whether to bind mcmcrs objects by their chains before calculating rhat.}
 }
@@ -47,7 +51,7 @@ data frame versus a named list.}
 The rhat value(s).
 }
 \description{
-By default calculates the uncorrected, untransformed, univariate
+By default calculates the uncorrected, univariate, untransformed,
 split R-hat (potential scale reduction factor) values.
 }
 \section{Methods (by class)}{

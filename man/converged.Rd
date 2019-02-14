@@ -29,7 +29,7 @@ converged(x, ...)
 \item{as_df}{A flag indicating whether to return the values as a
 data frame versus a named list.}
 
-\item{split}{A flag specifying whether to split the chains in two.}
+\item{split}{A flag specifying whether to split the chains.}
 
 \item{bound}{flag specifying whether to bind mcmcrs objects by their chains before calculating rhat.}
 }
