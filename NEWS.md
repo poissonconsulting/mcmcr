@@ -1,4 +1,3 @@
-- add normalized = FALSE argument to rhat and converged
 - define subset and parameters for mcmcrs object
 - add bound = FALSE argument to rhat.mcmcrs and converged.mcmcrs
 

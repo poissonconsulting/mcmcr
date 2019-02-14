@@ -9,10 +9,10 @@
 converged(x, ...)
 
 \method{converged}{default}(x, rhat = 1.1, esr = 0.33, by = "all",
-  as_df = FALSE, normalized = FALSE, ...)
+  as_df = FALSE, ...)
 
 \method{converged}{mcmcrs}(x, rhat = 1.1, esr = 0.33, by = "all",
-  as_df = FALSE, bound = FALSE, normalized = FALSE, ...)
+  as_df = FALSE, bound = FALSE, ...)
 }
 \arguments{
 \item{x}{An object.}
@@ -28,8 +28,6 @@ converged(x, ...)
 
 \item{as_df}{A flag indicating whether to return the values as a
 data frame versus a named list.}
-
-\item{normalized}{A flag specifying whether to rank normalize the values.}
 
 \item{bound}{flag specifying whether to bind mcmcrs objects by their chains before calculating rhat.}
 }

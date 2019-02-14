@@ -60,16 +60,11 @@ set_class <- function(x, class) {
 }
 
 #' @export
-.rhat <- function(x, normalized) {
+.rhat <- function(x) {
   stopifnot(is.matrix(x))
 
   niters <- niters(x)
   nchains <- nchains(x)
-
-  if(normalized) {
-    x <- stats::qnorm((rank(x, na.last = "keep") - 0.5) / (niters * nchains))
-    x <- matrix(x, nrow = nchains, ncol = nchains)
-  }
 
   mean_chain <- apply(x, 1L, mean)
   var_chain <- apply(x, 1L, stats::var)

@@ -12,23 +12,18 @@
 \usage{
 rhat(x, ...)
 
-\method{rhat}{mcarray}(x, by = "all", as_df = FALSE,
-  normalized = FALSE, ...)
+\method{rhat}{mcarray}(x, by = "all", as_df = FALSE, ...)
 
-\method{rhat}{mcmc}(x, by = "all", as_df = FALSE, normalized = FALSE,
-  ...)
+\method{rhat}{mcmc}(x, by = "all", as_df = FALSE, ...)
 
-\method{rhat}{mcmc.list}(x, by = "all", as_df = FALSE,
-  normalized = FALSE, ...)
+\method{rhat}{mcmc.list}(x, by = "all", as_df = FALSE, ...)
 
-\method{rhat}{mcmcarray}(x, by = "all", as_df = FALSE,
-  normalized = FALSE, ...)
+\method{rhat}{mcmcarray}(x, by = "all", as_df = FALSE, ...)
 
-\method{rhat}{mcmcr}(x, by = "all", as_df = FALSE,
-  normalized = FALSE, ...)
+\method{rhat}{mcmcr}(x, by = "all", as_df = FALSE, ...)
 
 \method{rhat}{mcmcrs}(x, by = "all", as_df = FALSE, bound = FALSE,
-  normalized = FALSE, ...)
+  ...)
 }
 \arguments{
 \item{x}{An MCMC object.}
@@ -40,8 +35,6 @@ rhat(x, ...)
 
 \item{as_df}{A flag indicating whether to return the values as a
 data frame versus a named list.}
-
-\item{normalized}{A flag specifying whether to rank normalize the values.}
 
 \item{bound}{flag specifying whether to bind mcmcrs objects by their chains before calculating rhat.}
 }
