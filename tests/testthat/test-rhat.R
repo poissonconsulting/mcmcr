@@ -2,21 +2,31 @@ context("rhat")
 
 test_that("rhat.matrix", {
   matrix <- matrix(1, nrow = 2, ncol = 100)
-  expect_identical(.rhat(matrix, normalized = FALSE), 1)
+  expect_identical(.rhat(matrix, folded = FALSE, normalized = FALSE), 1)
   matrix[1,] <- 2
-  expect_true(is.infinite(.rhat(matrix, normalized = FALSE)))
-  expect_true(is.infinite(.rhat(matrix, normalized = TRUE)))
+  expect_true(is.infinite(.rhat(matrix, folded = FALSE, normalized = FALSE)))
+  expect_true(is.infinite(.rhat(matrix, folded = FALSE, normalized = TRUE)))
+  expect_true(is.infinite(.rhat(matrix, folded = FALSE, normalized = TRUE)))
   matrix[1,1] <- NA
-  expect_true(is.na(.rhat(matrix, normalized = FALSE)))
-  expect_true(is.na(.rhat(matrix, normalized = TRUE)))
+  expect_true(is.na(.rhat(matrix, folded = FALSE, normalized = FALSE)))
+  expect_true(is.na(.rhat(matrix, folded = FALSE, normalized = TRUE)))
 })
 
 test_that("rhat.mcmcmarray", {
   expect_identical(rhat(mcmcr_example[[1]], by = "term", normalized = FALSE), c(2.002, 2.002))
   expect_identical(rhat(mcmcr_example[[1]], by = "term", normalized = TRUE), c(1.413, 1.413))
+  expect_identical(rhat(mcmcr_example[[1]], by = "term", folded = TRUE), c(1.366, 1.366))
 
   expect_equivalent(rhat(mcmcr_example[[2]], by = "term"), matrix(c(1.147, 1.147, 1.147, 1.147), nrow = 2, ncol = 2))
+  expect_equivalent(rhat(mcmcr_example[[2]], by = "term", folded = TRUE), matrix(c(1.234, 1.234, 1.234, 1.234), nrow = 2, ncol = 2))
   expect_identical(rhat(mcmcr_example[[3]], by = "term"), c(0.998))
+  expect_identical(rhat(mcmcr_example[[3]], by = "term", folded = TRUE), c(1.43))
+  expect_identical(rhat(mcmcr_example[[3]], by = "term", folded = TRUE, normalized = TRUE), c(1.175))
+  expect_identical(rhat(mcmcr_example[[3]], by = "term", split = FALSE), c(0.999))
+  expect_identical(rhat(mcmcr_example[[3]], by = "term", split = FALSE, folded = TRUE), c(1.302))
+  expect_identical(rhat(mcmcr_example[[3]], by = "term", split = FALSE, folded = TRUE, normalized = TRUE), c(1.071))
+  expect_identical(rhat(mcmcr_example[[3]], by = "term", split = FALSE, normalized = TRUE), c(2.116))
+
   expect_identical(rhat(mcmcr_example[[2]]), 1.147)
   expect_identical(rhat(mcmcr_example[[2]], as_df = TRUE), tibble::tibble(parameter = "parameter", rhat = 1.147))
   expect_identical(rhat(mcmcr_example[[2]], by = "term", as_df = TRUE), tibble::tibble(term = as.term(c("parameter[1,1]", "parameter[2,1]", "parameter[1,2]", "parameter[2,2]")), rhat = rep(1.147, 4)))

@@ -1,3 +1,4 @@
+- add folded = FALSE argument to rhat and converged
 - add normalized = FALSE argument to rhat and converged
 - add split = TRUE argument to rhat and converged
 - define subset and parameters for mcmcrs object

@@ -60,14 +60,18 @@ set_class <- function(x, class) {
 }
 
 #' @export
-.rhat <- function(x, normalized) {
+.rhat <- function(x, folded, normalized) {
   stopifnot(is.matrix(x))
 
   niters <- niters(x)
   nchains <- nchains(x)
 
+  if(folded) {
+    x <- apply(x, 1L, function(x) abs(x - stats::median(x)))
+  }
+
   if(normalized) {
-    x <- qnorm((rank(x, na.last = "keep") - 0.5) / (niters * nchains))
+    x <- stats::qnorm((rank(x, na.last = "keep") - 0.5) / (niters * nchains))
     x <- matrix(x, nrow = nchains, ncol = nchains)
   }
 

@@ -10,6 +10,7 @@
 #' @param as_df A flag indicating whether to return the values as a
 #' data frame versus a named list.
 #' @param split A flag specifying whether to split the chains.
+#' @param folded A flag specifying whether to convert values into their absolute deviations from the global median.
 #' @param normalized A flag specifying whether to rank normalize the values.
 #' @param bound flag specifying whether to bind mcmcrs objects by their chains before calculating rhat.
 #' @return The rhat value(s).
@@ -30,34 +31,37 @@ rhat <- function(x, ...) {
 #' @describeIn rhat R-hat for an mcarray object
 #' @export
 rhat.mcarray <- function(x, by = "all", as_df = FALSE,
-                         split = TRUE, normalized = FALSE, ...) {
+                         split = TRUE, folded = FALSE, normalized = FALSE,
+                         ...) {
   check_unused(...)
   rhat(as.mcmcarray(x), by = by, as_df = as_df,
-       split = split, normalized = normalized)
+       split = split, folded = folded, normalized = normalized)
 }
 
 #' @describeIn rhat R-hat for an mcmc object
 #' @export
 rhat.mcmc <- function(x, by = "all", as_df = FALSE,
-                      split = TRUE, normalized = FALSE, ...) {
+                      split = TRUE, folded = FALSE, normalized = FALSE, ...) {
   check_unused(...)
   rhat(as.mcmcr(x), by = by, as_df = as_df,
-       split = split, normalized = normalized)
+       split = split, folded = folded, normalized = normalized)
 }
 
 #' @describeIn rhat R-hat for an mcmc.list object
 #' @export
-rhat.mcmc.list <- function(x, by = "all", as_df = FALSE, split = TRUE,
-                           normalized = FALSE, ...) {
+rhat.mcmc.list <- function(x, by = "all", as_df = FALSE,
+                           split = TRUE, folded = FALSE, normalized = FALSE,
+                           ...) {
   check_unused(...)
   rhat(as.mcmcr(x), by = by, as_df = as_df,
-       split = split, normalized = normalized)
+       split = split, folded = folded, normalized = normalized)
 }
 
 #' @describeIn rhat R-hat for an mcmcarray object
 #' @export
 rhat.mcmcarray <- function(x, by = "all", as_df = FALSE,
-                           split = TRUE, normalized = FALSE, ...) {
+                           split = TRUE, folded = FALSE, normalized = FALSE,
+                           ...) {
   check_unused(...)
   check_vector(by, c("all", "parameter", "term"), length = 1)
   check_flag(as_df)
@@ -75,7 +79,7 @@ rhat.mcmcarray <- function(x, by = "all", as_df = FALSE,
   }
 
   if(split) x <- split_chains(x)
-  x <- apply(x, 3:ndims(x), FUN = .rhat, normalized = normalized)
+  x <- apply(x, 3:ndims(x), FUN = .rhat, folded = folded, normalized = normalized)
 
   if(!as_df) {
     if(by == "term") return(x)
@@ -91,11 +95,11 @@ rhat.mcmcarray <- function(x, by = "all", as_df = FALSE,
 #' @describeIn rhat R-hat for an mcmcr object
 #' @export
 rhat.mcmcr <- function(x, by = "all", as_df = FALSE,
-                       split = TRUE, normalized = FALSE, ...) {
+                       split = TRUE, folded = FALSE, normalized = FALSE, ...) {
   check_unused(...)
   parameters <- parameters(x)
   x <- lapply(x, rhat, by = by, as_df = as_df,
-              split = split, normalized = normalized)
+              split = split, folded = folded, normalized = normalized)
   if(!as_df) {
     if (by != "all") return(x)
     return(max(unlist(x)))
@@ -110,7 +114,8 @@ rhat.mcmcr <- function(x, by = "all", as_df = FALSE,
 #' @describeIn rhat R-hat for an mcmcrs object
 #' @export
 rhat.mcmcrs <- function(x, by = "all", as_df = FALSE,
-                        split = !bound, bound = FALSE, normalized = FALSE, ...) {
+                        split = !bound, bound = FALSE,
+                        folded = FALSE, normalized = FALSE, ...) {
   check_flag(bound)
   check_unused(...)
 
@@ -118,8 +123,8 @@ rhat.mcmcrs <- function(x, by = "all", as_df = FALSE,
     x <- lapply(x, collapse_chains)
     x <- Reduce(bind_chains, x)
     return(rhat(x, by = by, as_df = as_df,
-                split = split, normalized = normalized))
+                split = split, folded = folded, normalized = normalized))
   }
   lapply(x, rhat, by = by, as_df = as_df,
-         split = split, normalized = normalized)
+         split = split, folded = folded, normalized = normalized)
 }

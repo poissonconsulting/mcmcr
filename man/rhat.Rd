@@ -13,22 +13,22 @@
 rhat(x, ...)
 
 \method{rhat}{mcarray}(x, by = "all", as_df = FALSE, split = TRUE,
-  normalized = FALSE, ...)
+  folded = FALSE, normalized = FALSE, ...)
 
 \method{rhat}{mcmc}(x, by = "all", as_df = FALSE, split = TRUE,
-  normalized = FALSE, ...)
+  folded = FALSE, normalized = FALSE, ...)
 
 \method{rhat}{mcmc.list}(x, by = "all", as_df = FALSE, split = TRUE,
-  normalized = FALSE, ...)
+  folded = FALSE, normalized = FALSE, ...)
 
 \method{rhat}{mcmcarray}(x, by = "all", as_df = FALSE, split = TRUE,
-  normalized = FALSE, ...)
+  folded = FALSE, normalized = FALSE, ...)
 
 \method{rhat}{mcmcr}(x, by = "all", as_df = FALSE, split = TRUE,
-  normalized = FALSE, ...)
+  folded = FALSE, normalized = FALSE, ...)
 
 \method{rhat}{mcmcrs}(x, by = "all", as_df = FALSE, split = !bound,
-  bound = FALSE, normalized = FALSE, ...)
+  bound = FALSE, folded = FALSE, normalized = FALSE, ...)
 }
 \arguments{
 \item{x}{An MCMC object.}
@@ -42,6 +42,8 @@ rhat(x, ...)
 data frame versus a named list.}
 
 \item{split}{A flag specifying whether to split the chains.}
+
+\item{folded}{A flag specifying whether to convert values into their absolute deviations from the global median.}
 
 \item{normalized}{A flag specifying whether to rank normalize the values.}
 
