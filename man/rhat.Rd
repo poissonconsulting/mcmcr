@@ -12,23 +12,23 @@
 \usage{
 rhat(x, ...)
 
-\method{rhat}{mcarray}(x, by = "all", as_df = FALSE, split = TRUE,
-  folded = FALSE, normalized = FALSE, ...)
+\method{rhat}{mcarray}(x, by = "all", as_df = FALSE, folded = NA,
+  normalized = TRUE, ...)
 
-\method{rhat}{mcmc}(x, by = "all", as_df = FALSE, split = TRUE,
-  folded = FALSE, normalized = FALSE, ...)
+\method{rhat}{mcmc}(x, by = "all", as_df = FALSE, folded = NA,
+  normalized = TRUE, ...)
 
-\method{rhat}{mcmc.list}(x, by = "all", as_df = FALSE, split = TRUE,
-  folded = FALSE, normalized = FALSE, ...)
+\method{rhat}{mcmc.list}(x, by = "all", as_df = FALSE, folded = NA,
+  normalized = TRUE, ...)
 
-\method{rhat}{mcmcarray}(x, by = "all", as_df = FALSE, split = TRUE,
-  folded = FALSE, normalized = FALSE, ...)
+\method{rhat}{mcmcarray}(x, by = "all", as_df = FALSE, folded = NA,
+  normalized = TRUE, ...)
 
-\method{rhat}{mcmcr}(x, by = "all", as_df = FALSE, split = TRUE,
-  folded = FALSE, normalized = FALSE, ...)
+\method{rhat}{mcmcr}(x, by = "all", as_df = FALSE, folded = NA,
+  normalized = TRUE, ...)
 
-\method{rhat}{mcmcrs}(x, by = "all", as_df = FALSE, split = !bound,
-  bound = FALSE, folded = FALSE, normalized = FALSE, ...)
+\method{rhat}{mcmcrs}(x, by = "all", as_df = FALSE, bound = FALSE,
+  folded = NA, normalized = TRUE, ...)
 }
 \arguments{
 \item{x}{An MCMC object.}
@@ -41,9 +41,7 @@ rhat(x, ...)
 \item{as_df}{A flag indicating whether to return the values as a
 data frame versus a named list.}
 
-\item{split}{A flag specifying whether to split the chains.}
-
-\item{folded}{A flag specifying whether to convert values into their absolute deviations from the global median.}
+\item{folded}{A logical scalar specifying whether to convert values into their absolute deviations from the global median or if NA do both and select the maximum.}
 
 \item{normalized}{A flag specifying whether to rank normalize the values.}
 
@@ -53,8 +51,9 @@ data frame versus a named list.}
 The rhat value(s).
 }
 \description{
-By default calculates the uncorrected, univariate, untransformed,
-split R-hat (potential scale reduction factor) values.
+By default calculates the maximum of the uncorrected,
+split, folded and unfolded univariate,
+rank normalized R-hat (potential scale reduction factor) values.
 }
 \section{Methods (by class)}{
 \itemize{

@@ -66,9 +66,8 @@ set_class <- function(x, class) {
   niters <- niters(x)
   nchains <- nchains(x)
 
-  if(folded) {
-    x <- apply(x, 1L, function(x) abs(x - stats::median(x)))
-  }
+  if(folded)
+    x <- t(apply(x, 1L, function(x) abs(x - stats::median(x))))
 
   if(normalized) {
     x <- stats::qnorm((rank(x, na.last = "keep") - 0.5) / (niters * nchains))

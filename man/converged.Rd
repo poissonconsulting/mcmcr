@@ -9,12 +9,11 @@
 converged(x, ...)
 
 \method{converged}{default}(x, rhat = 1.1, esr = 0.33, by = "all",
-  as_df = FALSE, split = TRUE, folded = FALSE, normalized = FALSE,
-  ...)
+  as_df = FALSE, folded = NA, normalized = TRUE, ...)
 
 \method{converged}{mcmcrs}(x, rhat = 1.1, esr = 0.33, by = "all",
-  as_df = FALSE, split = !bound, bound = FALSE, folded = FALSE,
-  normalized = FALSE, ...)
+  as_df = FALSE, bound = FALSE, folded = NA, normalized = TRUE,
+  ...)
 }
 \arguments{
 \item{x}{An object.}
@@ -31,9 +30,7 @@ converged(x, ...)
 \item{as_df}{A flag indicating whether to return the values as a
 data frame versus a named list.}
 
-\item{split}{A flag specifying whether to split the chains.}
-
-\item{folded}{A flag specifying whether to convert values into their absolute deviations from the global median.}
+\item{folded}{A logical scalar specifying whether to convert values into their absolute deviations from the global median or if NA do both and select the maximum.}
 
 \item{normalized}{A flag specifying whether to rank normalize the values.}
 
