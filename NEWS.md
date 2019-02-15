@@ -1,4 +1,4 @@
-- tibble now in imports
+- removed tibble from suggest
 - rhat now returns minimum of 1
 - define subset and parameters for mcmcrs object
 - add bound = FALSE argument to rhat.mcmcrs and converged.mcmcrs
@@ -17,4 +17,3 @@
 # mcmcr 0.0.1
 
 - released to CRAN
-
