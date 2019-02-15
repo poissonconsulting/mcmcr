@@ -73,7 +73,7 @@ set_class <- function(x, class) {
   var_within <- mean(var_chain)
   rhat <- sqrt((var_between/var_within + niters - 1) / niters)
 
-  if (is.nan(rhat)) rhat <- 1
+  if (is.nan(rhat) || (!is.na(rhat) && rhat < 1)) rhat <- 1
   round(rhat, 3)
 }
 
@@ -84,7 +84,7 @@ set_class <- function(x, class) {
 }
 
 tibble <- function(...) {
-  if(requireNamespace("tibble", quietly = TRUE))
-    return(tibble::tibble(...))
-  data.frame(..., stringsAsFactors = FALSE)
+  data <- data.frame(..., stringsAsFactors = FALSE)
+  class(data) <- c("tbl_df", "tbl", "data.frame")
+  data
 }

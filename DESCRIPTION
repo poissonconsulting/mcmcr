@@ -1,6 +1,6 @@
 Package: mcmcr
 Title: Manipulate MCMC Samples
-Version: 0.0.3.9008
+Version: 0.0.3.9009
 Authors@R: 
   person("Joe", "Thorley", role = c("aut", "cre"), 
     email = "joe@poissonconsulting.ca", 
@@ -19,8 +19,7 @@ Imports:
 Suggests:
     covr,
     graphics,
-    testthat,
-    tibble
+    testthat
 URL: https://github.com/poissonconsulting/mcmcr
 BugReports: https://github.com/poissonconsulting/mcmcr/issues
 Encoding: UTF-8
