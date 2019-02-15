@@ -140,16 +140,14 @@ mcmcr_example
 #> niters:  400
 
 coef(mcmcr_example)
-#> # A tibble: 7 x 7
-#>   term       estimate    sd zscore lower upper  pvalue
-#>   <S3: term>    <dbl> <dbl>  <dbl> <dbl> <dbl>   <dbl>
-#> 1 alpha[1]      3.72  0.901   4.15 2.21   5.23 0.00120
-#> 2 alpha[2]      4.72  0.901   5.26 3.21   6.23 0.00120
-#> 3 beta[1,1]     0.972 0.375   2.57 0.251  1.71 0.0225 
-#> 4 beta[2,1]     1.97  0.375   5.24 1.25   2.71 0.005  
-#> 5 beta[1,2]     1.97  0.375   5.24 1.25   2.71 0.005  
-#> 6 beta[2,2]     2.97  0.375   7.91 2.25   3.71 0.00120
-#> 7 sigma         0.791 0.741   1.31 0.425  2.56 0.00120
+#>        term  estimate        sd   zscore     lower    upper pvalue
+#> 1  alpha[1] 3.7180250 0.9007167 4.149545 2.2120540 5.232403 0.0012
+#> 2  alpha[2] 4.7180250 0.9007167 5.259772 3.2120540 6.232403 0.0012
+#> 3 beta[1,1] 0.9716535 0.3747971 2.572555 0.2514796 1.713996 0.0225
+#> 4 beta[2,1] 1.9716535 0.3747971 5.240666 1.2514796 2.713996 0.0050
+#> 5 beta[1,2] 1.9716535 0.3747971 5.240666 1.2514796 2.713996 0.0050
+#> 6 beta[2,2] 2.9716535 0.3747971 7.908776 2.2514796 3.713996 0.0012
+#> 7     sigma 0.7911975 0.7408373 1.306700 0.4249618 2.559520 0.0012
 rhat(mcmcr_example, by = "term")
 #> $alpha
 #> [1] 2.002 2.002
@@ -160,7 +158,7 @@ rhat(mcmcr_example, by = "term")
 #> [2,] 1.147 1.147
 #> 
 #> $sigma
-#> [1] 0.998
+#> [1] 1
 plot(mcmcr_example[["alpha"]])
 ```
 
@@ -198,7 +196,7 @@ always welcome.
 
 Please note that this project is released with a [Contributor Code of
 Conduct](CONDUCT.md). By participating in this project you agree to
-abide by its terms.
+abide by its terms
 
 ## Inspiration
 
