@@ -82,9 +82,3 @@ set_class <- function(x, class) {
   iterations <- seq(1L, niters(x), by = nthin)
   subset(x, iterations = iterations)
 }
-
-tibble <- function(...) {
-  data <- data.frame(..., stringsAsFactors = FALSE)
-  class(data) <- c("tbl_df", "tbl", "data.frame")
-  data
-}
