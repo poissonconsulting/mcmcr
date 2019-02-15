@@ -102,7 +102,6 @@ rhat.mcmcrs <- function(x, by = "all", as_df = FALSE,
   check_unused(...)
 
   if(bound) {
-    x <- lapply(x, collapse_chains)
     x <- Reduce(bind_chains, x)
     return(rhat(x, by = by, as_df = as_df))
   }
