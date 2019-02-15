@@ -15,7 +15,8 @@ Imports:
     checkr,
     coda,
     utils,
-    stats
+    stats,
+    tibble
 Suggests:
     covr,
     graphics,
