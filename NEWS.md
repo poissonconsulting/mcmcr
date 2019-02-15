@@ -17,3 +17,4 @@
 # mcmcr 0.0.1
 
 - released to CRAN
+
