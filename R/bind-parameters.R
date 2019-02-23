@@ -24,7 +24,7 @@ bind_parameters.mcmc <- function(x, x2, ...) {
   if (!identical(niters(x), niters(x2)))
     err("x and x2 must have the same number of iterations")
 
-  x <- abind::abind(x, x2, along = 2)
+  x <- abind(x, x2, along = 2)
   x <- as.mcmc(x)
   sort(x)
 }

@@ -29,7 +29,7 @@ bind_dimensions.mcmcarray <- function(x, x2, along = NULL, ...) {
 
   if (is.null(along)) along <- max(ndims(x), ndims(x2)) - 1
 
-  x <- abind::abind(x, x2, along = along + 2)
+  x <- abind(x, x2, along = along + 2, dimnames = FALSE)
   set_class(x, "mcmcarray")
 }
 

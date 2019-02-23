@@ -184,6 +184,7 @@ as.mcmcarray.mcmc <- function(x, ...) {
   pdims <- pdims(x)[[1]]
   x <- x[,order(terms(x)), drop = FALSE]
   x <- array(data = as.vector(x), dim = c(1, niters(x), pdims))
+
   set_class(x, "mcmcarray")
 }
 

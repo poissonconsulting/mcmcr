@@ -21,7 +21,7 @@ bind_chains.mcarray <- function(x, x2, ...) {
   if (!identical(niters(x), niters(x2)))
     err("x and x2 must have the same number of iterations")
 
-  x <- abind::abind(x, x2, along = ndims(x))
+  x <- abind(x, x2, along = ndims(x))
   set_class(x, "mcarray")
 }
 
@@ -80,7 +80,7 @@ bind_chains.mcmcarray <- function(x, x2, ...) {
   if (!identical(niters(x), niters(x2)))
     err("x and x2 must have the same number of iterations")
 
-  x <- abind::abind(x, x2, along = 1)
+  x <- abind(x, x2, along = 1, dimnames = FALSE)
   set_class(x, "mcmcarray")
 }
 

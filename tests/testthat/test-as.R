@@ -9,7 +9,7 @@ test_that("as.mcarray", {
 })
 
 test_that("as.mcmc.list", {
-  mcmc.list <- coda::as.mcmc.list(mcmcr_example)
+  mcmc.list <- as.mcmc.list(mcmcr_example)
   expect_is(mcmc.list, "mcmc.list")
 
   expect_identical(coda::nchain(mcmc.list), 2L)

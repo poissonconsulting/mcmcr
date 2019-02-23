@@ -23,7 +23,7 @@ bind_iterations.mcarray <- function(x, x2, ...) {
   if (!identical(nchains(x), nchains(x2)))
     err("x and x2 must have the same number of chains")
 
-  x <- abind::abind(x, x2, along = ndims(x)-1)
+  x <- abind(x, x2, along = ndims(x)-1)
   set_class(x, "mcarray")
 }
 
@@ -44,7 +44,7 @@ bind_iterations.mcmc <- function(x, x2, ...) {
   if (!identical(nchains(x), nchains(x2)))
     err("x and x2 must have the same number of chains")
 
-  x <- abind::abind(x, x2, along = 1)
+  x <- abind(x, x2, along = 1)
   as.mcmc(x)
 }
 
@@ -82,7 +82,7 @@ bind_iterations.mcmcarray <- function(x, x2, ...) {
   if (!identical(nchains(x), nchains(x2)))
     err("x and x2 must have the same number of chains")
 
-  x <- abind::abind(x, x2, along = 2)
+  x <- abind(x, x2, along = 2, dimnames = FALSE)
   set_class(x, "mcmcarray")
 }
 

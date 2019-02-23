@@ -89,3 +89,8 @@ tibble <- function(...) {
   data
 }
 
+abind <- function(x, x2, along, dimnames = TRUE) {
+  x <- abind::abind(x, x2, along = along)
+  if(!isTRUE(dimnames)) dimnames(x) <- NULL
+  x
+}

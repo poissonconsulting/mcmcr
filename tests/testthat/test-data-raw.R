@@ -6,7 +6,7 @@ test_that("data-raw", {
 
   mcmcr <- as.mcmcr(line)
 
-  expect_equal(coda::as.mcmc.list(mcmcr), line, check.attributes = FALSE)
+  expect_equal(as.mcmc.list(mcmcr), line, check.attributes = FALSE)
 
   mcmcr$alpha <- bind_dimensions(mcmcr$alpha, mcmcr$alpha + 1)
 

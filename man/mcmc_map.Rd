@@ -2,26 +2,31 @@
 % Please edit documentation in R/mcmc-map.R
 \name{mcmc_map}
 \alias{mcmc_map}
-\alias{mcmc_map.default}
+\alias{mcmc_map.mcmcarray}
+\alias{mcmc_map.mcmc}
 \alias{mcmc_map.mcmc.list}
 \alias{mcmc_map.mcmcr}
 \alias{mcmc_map.mcmcrs}
 \title{MCMC Map}
 \usage{
-mcmc_map(.x, .f, ...)
+mcmc_map(.x, .f, .by = 1:npdims(.x), ...)
 
-\method{mcmc_map}{default}(.x, .f, ...)
+\method{mcmc_map}{mcmcarray}(.x, .f, .by = 1:npdims(.x), ...)
 
-\method{mcmc_map}{mcmc.list}(.x, .f, ...)
+\method{mcmc_map}{mcmc}(.x, .f, .by = TRUE, ...)
 
-\method{mcmc_map}{mcmcr}(.x, .f, ...)
+\method{mcmc_map}{mcmc.list}(.x, .f, .by = TRUE, ...)
 
-\method{mcmc_map}{mcmcrs}(.x, .f, ...)
+\method{mcmc_map}{mcmcr}(.x, .f, .by = TRUE, ...)
+
+\method{mcmc_map}{mcmcrs}(.x, .f, .by = TRUE, ...)
 }
 \arguments{
 \item{.x}{An MCMC object}
 
 \item{.f}{The function to use}
+
+\item{.by}{A positive integer vector of the dimensions to apply the function over.}
 
 \item{...}{Additional arguments passed to .f.}
 }
@@ -33,7 +38,9 @@ Adjust the sample values of an MCMC object using a function.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{default}: Adjust the sample values of an MCMC object
+\item \code{mcmcarray}: Adjust the sample values of an MCMC object
+
+\item \code{mcmc}: Adjust the sample values of an mcmc.list object
 
 \item \code{mcmc.list}: Adjust the sample values of an mcmc.list object
 

@@ -4,40 +4,68 @@
 #'
 #' @param .x An MCMC object
 #' @param .f The function to use
+#' @param .by A positive integer vector of the dimensions to apply the function over.
 #' @param ... Additional arguments passed to .f.
 #' @return The updated MCMC object.
 #' @export
 #' @examples
 #' mcmc_map(mcmcr_example$beta, exp)
-mcmc_map <- function(.x, .f, ...) {
+mcmc_map <- function(.x, .f, .by = 1:npdims(.x), ...) {
   UseMethod("mcmc_map")
 }
 
 #' @describeIn mcmc_map Adjust the sample values of an MCMC object
 #' @export
-mcmc_map.default <- function(.x, .f, ...) {
-  x <- .f(.x, ...)
-  if(!identical(dims(x), dims(.x))) err("mcmc_map function .f failed to retun a scalar")
-  x
+mcmc_map.mcmcarray <- function(.x, .f, .by = 1:npdims(.x), ...) {
+  by_all <- 1:npdims(.x)
+
+  checkor(
+    check_flag(.by),
+    check_vector(.by, by_all, only = TRUE, unique = TRUE, sorted = TRUE))
+
+  if(isTRUE(.by)) .by <- by_all
+  if(isFALSE(.by)) .by <- NULL
+
+  x <- apply(.x, MARGIN = c(1L, 2L, .by + 2L), FUN = .f, ...)
+
+  if(!identical(sum(dims(x)), sum(dims(.x))))
+    err("mcmc_map() function .f did not preserve the dimensions.")
+
+  if(!identical(.by, by_all))
+    x <- aperm(x, perm = c(2L, 3L, .by + 3L, 1L))
+
+  # need to cut apart last ones...
+
+  if(!identical(dims(x), dims(.x)))
+    err("mcmc_map() function .f did not preserve the dimensions.")
+  return(set_class(x, "mcmcarray"))
 }
 
 #' @describeIn mcmc_map Adjust the sample values of an mcmc.list object
 #' @export
-mcmc_map.mcmc.list <- function(.x, .f, ...) {
-  x <- lapply(.x, mcmc_map, .f = .f, ...)
-  as.mcmc.list(x)
+mcmc_map.mcmc <- function(.x, .f, .by = TRUE, ...) {
+  x <- as.mcmcr(.x)
+  x <- mcmc_map(x, .f = .f, .by = .by, ...)
+  as.mcmc(x)
+}
+
+#' @describeIn mcmc_map Adjust the sample values of an mcmc.list object
+#' @export
+mcmc_map.mcmc.list <- function(.x, .f, .by = TRUE, ...) {
+  x <- lapply(.x, mcmc_map, .f = .f, .by = .by, ...)
+  set_class(x, "mcmc.list")
 }
 
 #' @describeIn mcmc_map Adjust the sample values of an mcmcr object
 #' @export
-mcmc_map.mcmcr <- function(.x, .f, ...) {
-  x <- lapply(.x, mcmc_map, .f = .f, ...)
+mcmc_map.mcmcr <- function(.x, .f, .by = TRUE, ...) {
+  x <- lapply(.x, mcmc_map, .f = .f, .by = .by, ...)
   set_class(x, "mcmcr")
 }
 
 #' @describeIn mcmc_map Adjust the sample values of an mcmcrs object
 #' @export
-mcmc_map.mcmcrs <- function(.x, .f, ...) {
-  x <- lapply(.x, mcmc_map, .f = .f, ...)
+mcmc_map.mcmcrs <- function(.x, .f, .by = TRUE, ...) {
+  x <- lapply(.x, mcmc_map, .f = .f, .by = .by, ...)
   set_class(x, "mcmcrs")
 }

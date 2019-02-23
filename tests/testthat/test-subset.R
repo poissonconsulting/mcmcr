@@ -22,7 +22,7 @@ test_that("subset.mcmcrs", {
 })
 
 test_that("subset.mcmc.list", {
-  expect_identical(parameters(subset(coda::as.mcmc.list(mcmcr_example), parameters = "beta")), "beta")
-  expect_identical(niters(subset(coda::as.mcmc.list(mcmcr_example), iterations = 10L)), 1L)
-  expect_identical(nchains(subset(coda::as.mcmc.list(mcmcr_example), chains = 2L)), 1L)
+  expect_identical(parameters(subset(as.mcmc.list(mcmcr_example), parameters = "beta")), "beta")
+  expect_identical(niters(subset(as.mcmc.list(mcmcr_example), iterations = 10L)), 1L)
+  expect_identical(nchains(subset(as.mcmc.list(mcmcr_example), chains = 2L)), 1L)
 })

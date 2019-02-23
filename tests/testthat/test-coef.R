@@ -1,7 +1,7 @@
 context("coef")
 
 test_that("coef.mcmc", {
-  coef_mcmc.list <- coef(coda::as.mcmc.list(mcmcr_example))
+  coef_mcmc.list <- coef(as.mcmc.list(mcmcr_example))
   expect_identical(colnames(coef_mcmc.list), c("term", "estimate", "sd", "zscore", "lower", "upper", "pvalue"))
   expect_identical(coef_mcmc.list$term, sort(as.term(c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma"))))
 
