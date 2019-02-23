@@ -1,3 +1,4 @@
+- Added mcmc_aperm() function to transpose parameter dimensions.
 - Added npdims() function to get number of parameter dimensions.
 - Added by = TRUE argument to mcmc_map() function.
 - Removed tibble from suggests.

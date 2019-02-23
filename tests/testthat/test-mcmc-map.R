@@ -1,8 +1,7 @@
 context("mcmc-map")
 
 test_that("mcmc_map", {
-  expect_equal(mcmc_map(mcmcr_example[[1]], identity), mcmcr_example[[1]],
-               check.attributes = FALSE)
+  expect_identical(mcmc_map(mcmcr_example[[1]], identity), mcmcr_example[[1]])
   expect_identical(mcmc_map(mcmcr_example[[1]], function(x) x * 10), mcmcr_example[[1]] * 10)
   expect_identical(mcmc_map(as.mcmc.list(mcmcr_example[[1]]), function(x) x * 10), as.mcmc.list(mcmcr_example[[1]] * 10))
   expect_error(mcmc_map(mcmcr_example[[1]], function(x) c(x,x)))

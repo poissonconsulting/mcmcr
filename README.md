@@ -99,6 +99,7 @@ objects. In particular it provides functions to
     `combine_dimensions`;
   - `collapse_chains` or `split_chains` an object’s chains;
   - `mcmc_map` over an objects values;
+  - transpose an objects parameter dimensions using `mcmc_aperm`;
   - assess if an object has `converged` using `rhat` and `esr`
     (effectively sampling rate);
   - and of course `thin`, `rhat`, `ess` (effective sample size),

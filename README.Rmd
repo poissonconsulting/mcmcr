@@ -71,6 +71,7 @@ In particular it provides functions to
 - combine the samples of two (or more) MCMC objects using `combine_samples` (or `combine_samples_n`) or combine the samples of a single MCMC object by reducing its dimensions using `combine_dimensions`;
 - `collapse_chains` or `split_chains` an object's chains;
 - `mcmc_map` over an objects values; 
+- transpose an objects parameter dimensions using `mcmc_aperm`; 
 - assess if an object has `converged` using `rhat` and `esr` (effectively sampling rate);
 - and of course `thin`, `rhat`, `ess` (effective sample size), `print`, `plot` etc said objects.
 
