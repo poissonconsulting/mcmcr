@@ -28,13 +28,18 @@ mcmc_map.mcmcarray <- function(.x, .f, .by = 1:npdims(.x), ...) {
 
   x <- apply(.x, MARGIN = c(1L, 2L, .by + 2L), FUN = .f, ...)
 
-  if(!identical(sum(dims(x)), sum(dims(.x))))
+  if(!identical(prod(dims(x)), prod(dims(.x))))
     err("mcmc_map() function .f did not preserve the dimensions.")
 
-  if(!identical(.by, by_all))
-    x <- aperm(x, perm = c(2L, 3L, .by + 3L, 1L))
-
-  # need to cut apart last ones...
+  if(!identical(.by, by_all)) {
+    by_perm <- if(is.null(.by)) NULL else 1:length(.by)
+    x <- aperm(x, perm = c(2L, 3L, by_perm + 3L, 1L))
+  }
+  if(!identical(dims(x), dims(.x))) {
+    by_missing <- setdiff(by_all, .by)
+    dim(x) <- dim(.x)[c(1L, 2L, .by + 2L, by_missing + 2L)]
+    x <- aperm(x, perm = c(1L, 2L, order(c(.by, by_missing)) + 2L))
+  }
 
   if(!identical(dims(x), dims(.x)))
     err("mcmc_map() function .f did not preserve the dimensions.")
