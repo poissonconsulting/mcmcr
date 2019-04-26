@@ -13,7 +13,7 @@ Status](https://img.shields.io/codecov/c/github/poissonconsulting/mcmcr/master.s
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/mcmcr)](https://cran.r-project.org/package=mcmcr)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1218026.svg)](https://doi.org/10.5281/zenodo.1218026)
+![CRAN Downloads](http://cranlogs.r-pkg.org/badges/mcmcr)
 
 ## Introduction
 
@@ -168,24 +168,26 @@ plot(mcmcr_example[["alpha"]])
 ## Installation
 
 To install the latest official release from
-[CRAN](https://CRAN.R-project.org/package=mcmcr)
+[CRAN](https://CRAN.R-project.org/package=checkr)
 
+    install.packages("checkr")
+
+To install the latest development version from the Poisson drat
+[repository](https://github.com/poissonconsulting/drat)
+
+    if(!"drat" %in% installed.packages()[,1]) 
+      install.packages("drat")
+    drat::addRepo("poissonconsulting")
     install.packages("mcmcr")
 
 To install the latest development version from
-[GitHub](https://github.com/poissonconsulting/mcmcr)
+[GitHub](https://github.com/poissonconsulting/checkr)
 
-    # install.packages("devtools")
+    if(!"devtools" %in% installed.packages()[,1]) 
+      install.packages("devtools")
     devtools::install_github("poissonconsulting/err")
     devtools::install_github("poissonconsulting/checkr")
     devtools::install_github("poissonconsulting/mcmcr")
-
-Alternatively install the latest development version from the Poisson
-drat [repository](https://github.com/poissonconsulting/drat)
-
-    # install.packages("drat")
-    drat::addRepo("poissonconsulting")
-    install.packages("mcmcr")
 
 ## Contribution
 

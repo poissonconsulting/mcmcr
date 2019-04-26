@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Term Dimensions — tdims • mcmcr</title>
+<title>MCMC Object Transposition — mcmc_aperm • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Term Dimensions — tdims" />
+<meta property="og:title" content="MCMC Object Transposition — mcmc_aperm" />
 
-<meta property="og:description" content="Gets the term dimensions of an object." />
+<meta property="og:description" content="Transpose an MCMC object by permuting its parameter dimensions." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -102,78 +102,78 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Term Dimensions</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/mcmcr/blob/master/R/tdims.R'><code>R/tdims.R</code></a></small>
-    <div class="hidden name"><code>tdims.Rd</code></div>
+    <h1>MCMC Object Transposition</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/mcmcr/blob/master/R/mcmc-aperm.R'><code>R/mcmc-aperm.R</code></a></small>
+    <div class="hidden name"><code>mcmc_aperm.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Gets the term dimensions of an object.</p>
+    <p>Transpose an MCMC object by permuting its parameter dimensions.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>tdims</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>mcmc_aperm</span>(<span class='no'>x</span>, <span class='no'>perm</span>, <span class='no'>...</span>)
 
-<span class='co'># S3 method for default</span>
-<span class='fu'>tdims</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+<span class='co'># S3 method for mcmcarray</span>
+<span class='fu'>mcmc_aperm</span>(<span class='no'>x</span>, <span class='kw'>perm</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
 
-<span class='co'># S3 method for term</span>
-<span class='fu'>tdims</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+<span class='co'># S3 method for mcmc</span>
+<span class='fu'>mcmc_aperm</span>(<span class='no'>x</span>, <span class='kw'>perm</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmc.list</span>
+<span class='fu'>mcmc_aperm</span>(<span class='no'>x</span>, <span class='kw'>perm</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcr</span>
+<span class='fu'>mcmc_aperm</span>(<span class='no'>x</span>, <span class='kw'>perm</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for mcmcrs</span>
+<span class='fu'>mcmc_aperm</span>(<span class='no'>x</span>, <span class='kw'>perm</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>The object</p></td>
+      <td><p>The MCMC object to transpose.</p></td>
+    </tr>
+    <tr>
+      <th>perm</th>
+      <td><p>A integer vector of the new order for the parameter dimensions.
+Missing parameter dimensions are added on the end.
+If perm = NULL (the default) the parameter dimensions are reversed.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Unused.</p></td>
+      <td><p>Unused</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>The modified MCMC object</p>
     
     <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
 
     <ul>
-<li><p><code>default</code>: Term dimensions for an object</p></li>
-<li><p><code>term</code>: Term dimensions for a term vector</p></li>
+<li><p><code>mcmcarray</code>: Transpose an mcmcarray object</p></li>
+<li><p><code>mcmc</code>: Transpose an mcmc object</p></li>
+<li><p><code>mcmc.list</code>: Transpose an mcmc.list object</p></li>
+<li><p><code>mcmcr</code>: Transpose an mcmcr object</p></li>
+<li><p><code>mcmcrs</code>: Transpose an mcmcrs object</p></li>
 </ul>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>tdims</span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] 1
-#&gt; 
-#&gt; [[2]]
-#&gt; [1] 2
-#&gt; 
-#&gt; [[3]]
-#&gt; [1] 1 1
-#&gt; 
-#&gt; [[4]]
-#&gt; [1] 2 1
-#&gt; 
-#&gt; [[5]]
-#&gt; [1] 1 2
-#&gt; 
-#&gt; [[6]]
-#&gt; [1] 2 2
-#&gt; 
-#&gt; [[7]]
-#&gt; [1] 1
-#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#value">Value</a></li>
+
       <li><a href="#methods-by-class-">Methods (by class)</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+          </ul>
 
   </div>
 </div>

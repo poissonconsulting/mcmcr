@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Term Dimensions — tdims • mcmcr</title>
+<title>Number of Parameter Dimensions — npdims • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Term Dimensions — tdims" />
+<meta property="og:title" content="Number of Parameter Dimensions — npdims" />
 
-<meta property="og:description" content="Gets the term dimensions of an object." />
+<meta property="og:description" content="Gets the number parameter dimensions of an object." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -102,24 +102,18 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Term Dimensions</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/mcmcr/blob/master/R/tdims.R'><code>R/tdims.R</code></a></small>
-    <div class="hidden name"><code>tdims.Rd</code></div>
+    <h1>Number of Parameter Dimensions</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/mcmcr/blob/master/R/npdims.R'><code>R/npdims.R</code></a></small>
+    <div class="hidden name"><code>npdims.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Gets the term dimensions of an object.</p>
+    <p>Gets the number parameter dimensions of an object.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>tdims</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for default</span>
-<span class='fu'>tdims</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for term</span>
-<span class='fu'>tdims</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>npdims</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -134,34 +128,15 @@
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
-
-    <ul>
-<li><p><code>default</code>: Term dimensions for an object</p></li>
-<li><p><code>term</code>: Term dimensions for a term vector</p></li>
-</ul>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>tdims</span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] 1
-#&gt; 
-#&gt; [[2]]
+    <pre class="examples"><div class='input'><span class='fu'><a href='pdims.html'>pdims</a></span>(<span class='no'>mcmcr_example</span>)</div><div class='output co'>#&gt; $alpha
 #&gt; [1] 2
 #&gt; 
-#&gt; [[3]]
-#&gt; [1] 1 1
-#&gt; 
-#&gt; [[4]]
-#&gt; [1] 2 1
-#&gt; 
-#&gt; [[5]]
-#&gt; [1] 1 2
-#&gt; 
-#&gt; [[6]]
+#&gt; $beta
 #&gt; [1] 2 2
 #&gt; 
-#&gt; [[7]]
+#&gt; $sigma
 #&gt; [1] 1
 #&gt; </div></pre>
   </div>
@@ -169,9 +144,7 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#methods-by-class-">Methods (by class)</a></li>
-      
+            
       <li><a href="#examples">Examples</a></li>
     </ul>
 
