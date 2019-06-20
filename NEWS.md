@@ -1,3 +1,6 @@
+- Fixed by and as_df arguments in converged().
+- Additional tests
+
 # mcmcr 0.1.0
 
 - Added mcmc_aperm() function to transpose parameter dimensions.
