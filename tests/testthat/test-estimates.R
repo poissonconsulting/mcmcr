@@ -1,10 +1,32 @@
 context("estimates")
 
-test_that("estimates", {
-  mcmcr_example <- mcmcr_example
+test_that("estimates.mcarray", {
+  expect_equal(estimates(as.mcarray(mcmcr_example[[1]])), c(3.718025, 4.718025))
+  expect_equal(estimates(as.mcarray(mcmcr_example[[1]]), as_df = TRUE),
+               structure(list(term = structure(c("parameter[1]", "parameter[2]"
+               ), class = c("term", "character")), estimate = c(3.718025, 4.718025
+               )), class = c("tbl_df", "tbl", "data.frame"), row.names = c(NA,
+                                                                           -2L)))
+})
+
+test_that("estimates.mcmcarray", {
   expect_equal(estimates(mcmcr_example[[1]]), c(3.718025, 4.718025))
   expect_equal(estimates(mcmcr_example[[3]]), c(0.7911975))
   expect_identical(estimates(mcmcr_example)$alpha, estimates(mcmcr_example[[1]]))
+})
+
+test_that("estimates.mcmc", {
+  expect_equal(estimates(as.mcmc(collapse_chains(mcmcr_example)))$alpha, c(3.718025, 4.718025))
+  expect_equal(estimates(as.mcmc(collapse_chains(mcmcr_example)), as_df = TRUE)$estimate,
+  c(3.718025, 4.718025, 0.9716535, 1.9716535, 1.9716535, 2.9716535,
+0.7911975))
+})
+
+test_that("estimates.mcmc.list", {
+  expect_equal(estimates(coda::as.mcmc.list(mcmcr_example))$alpha, c(3.718025, 4.718025))
+  expect_equal(estimates(coda::as.mcmc.list(mcmcr_example), as_df = TRUE)$estimate,
+  c(3.718025, 4.718025, 0.9716535, 1.9716535, 1.9716535, 2.9716535,
+0.7911975))
 })
 
 test_that("estimates not as list", {
