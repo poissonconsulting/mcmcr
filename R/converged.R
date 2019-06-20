@@ -19,12 +19,12 @@ converged <- function(x, ...) UseMethod("converged")
 #' @export
 converged.default <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FALSE,
                               ...) {
-  check_vector(rhat, c(1.0, 1.5), length = 1)
+  check_vector(rhat, c(1.0, 10), length = 1)
   check_probability(esr)
   check_unused(...)
 
-  esrs <- esr(x, by = "all", as_df = as_df)
-  rhats <- rhat(x, by = "all", as_df = as_df)
+  esrs <- esr(x, by = by, as_df = as_df)
+  rhats <- rhat(x, by = by, as_df = as_df)
 
   if(as_df) {
     converged <- esrs
@@ -44,23 +44,11 @@ converged.default <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FAL
 #' @export
 converged.mcmcrs <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FALSE,
                              bound = FALSE, ...) {
-  check_vector(rhat, c(1.0, 1.5), length = 1)
-  check_probability(esr)
+  check_flag(bound)
   check_unused(...)
-
-  esrs <- esr(x, by = "all", as_df = as_df)
-  rhats <- rhat(x, by = "all", as_df = as_df, bound = bound)
-
-  if(as_df) {
-    converged <- esrs
-    converged$converged <- converged$esr >= esr
-    converged$esr <- NULL
-    converged$converged <- converged$converged & rhats$rhat <= rhat
-    return(converged)
+  if(bound) {
+    x <- Reduce(bind_chains, x)
+    return(converged(x, rhat = rhat, esr = esr, by = by, as_df = as_df))
   }
-  converged <- unlist(esrs)
-  converged <- converged >= esr
-  rhats <- unlist(rhats)
-  converged <- converged & rhats <= rhat
-  utils::relist(converged, esrs)
+  lapply(x, converged, rhat = rhat, esr = esr, by = by, as_df = as_df)
 }
