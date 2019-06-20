@@ -4,15 +4,12 @@
 \alias{as.mcmc}
 \alias{as.mcmc.mcarray}
 \alias{as.mcmc.mcmcarray}
-\alias{as.mcmc.mcmc.list}
 \alias{as.mcmc.mcmcr}
 \title{Coerce to an mcmc object}
 \usage{
 \method{as.mcmc}{mcarray}(x, ...)
 
 \method{as.mcmc}{mcmcarray}(x, ...)
-
-\method{as.mcmc}{mcmc.list}(x, ...)
 
 \method{as.mcmc}{mcmcr}(x, ...)
 }
@@ -29,8 +26,6 @@ Coerces MCMC objects to an \code{\link[coda]{mcmc}} object.
 \item \code{mcarray}: Coerces mcarray object (with 1 chain) to an mcmc object
 
 \item \code{mcmcarray}: Coerces mcmcarray object (with 1 chain) to an mcmc object
-
-\item \code{mcmc.list}: Coerces mcmc.list object (with 1 chain) to an mcmc object
 
 \item \code{mcmcr}: Coerces mcmcr object (with 1 chain) to an mcmc object
 }}

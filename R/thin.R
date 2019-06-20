@@ -13,14 +13,6 @@
 #' @name thin
 NULL
 
-#' @describeIn thin Thin MCMC samples for an mcmc object
-#' @export
-thin.mcmc <- function(x, nthin = 1L, ...) .thin(x, nthin = nthin, ...)
-
-#' @describeIn thin Thin MCMC samples for an mcmc.list object
-#' @export
-thin.mcmc.list <- function(x, nthin = 1L,...) .thin(x, nthin = nthin, ...)
-
 #' @describeIn thin Thin MCMC samples for an mcmcarray object
 #' @export
 thin.mcmcarray <- function(x, nthin = 1L,...) .thin(x, nthin = nthin, ...)

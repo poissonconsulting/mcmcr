@@ -2,17 +2,11 @@
 % Please edit documentation in R/thin.R
 \name{thin}
 \alias{thin}
-\alias{thin.mcmc}
-\alias{thin.mcmc.list}
 \alias{thin.mcmcarray}
 \alias{thin.mcmcr}
 \alias{thin.mcmcrs}
 \title{Thin MCMC Samples}
 \usage{
-\method{thin}{mcmc}(x, nthin = 1L, ...)
-
-\method{thin}{mcmc.list}(x, nthin = 1L, ...)
-
 \method{thin}{mcmcarray}(x, nthin = 1L, ...)
 
 \method{thin}{mcmcr}(x, nthin = 1L, ...)
@@ -34,10 +28,6 @@ Thin an MCMC objects samples.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{mcmc}: Thin MCMC samples for an mcmc object
-
-\item \code{mcmc.list}: Thin MCMC samples for an mcmc.list object
-
 \item \code{mcmcarray}: Thin MCMC samples for an mcmcarray object
 
 \item \code{mcmcr}: Thin MCMC samples for an mcmcr object

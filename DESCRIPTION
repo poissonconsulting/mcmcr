@@ -1,6 +1,6 @@
 Package: mcmcr
 Title: Manipulate MCMC Samples
-Version: 0.1.0.9000
+Version: 0.1.0.9001
 Authors@R: 
   person("Joe", "Thorley", role = c("aut", "cre"), 
     email = "joe@poissonconsulting.ca", 

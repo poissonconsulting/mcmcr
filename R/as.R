@@ -145,14 +145,6 @@ as.mcmc.mcmcarray <- function(x, ...) {
 #' @export
 as.mcmc.mcmc <- function(x, ...) x
 
-#' @describeIn as.mcmc Coerces mcmc.list object (with 1 chain) to an mcmc object
-#' @method as.mcmc mcmc.list
-#' @export
-as.mcmc.mcmc.list <- function(x, ...) {
-  if(nchains(x) != 1) err("x must only have 1 chain")
-  x[[1]]
-}
-
 #' @describeIn as.mcmc Coerces mcmcr object (with 1 chain) to an mcmc object
 #' @export
 as.mcmc.mcmcr <- function(x, ...) as.mcmc(as.mcmc.list(x))
