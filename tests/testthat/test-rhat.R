@@ -15,8 +15,24 @@ test_that("rhat.matrix", {
   expect_true(is.na(.rhat(matrix)))
 })
 
+test_that("rhat.mcarry", {
+  expect_identical(rhat(as.mcarray(mcmcr_example$beta)), 1.147)
+})
+
+test_that("rhat.mcmc", {
+  expect_identical(rhat(coda::as.mcmc(collapse_chains(mcmcr_example$beta))), 1)
+})
+
+test_that("rhat.mcmc.list", {
+  expect_identical(rhat(coda::as.mcmc.list(mcmcr_example)), 2.002)
+})
+
 test_that("rhat.mcmcmarray", {
   expect_identical(rhat(mcmcr_example[[1]], by = "term"), c(2.002, 2.002))
+
+  expect_identical(rhat(mcmcr_example[[1]], as_df = TRUE, by = "all"),
+                   structure(list(parameter = "parameter", rhat = 2.002),
+                             class = c("tbl_df", "tbl", "data.frame"), row.names = c(NA, -1L)))
 
   expect_equivalent(rhat(mcmcr_example[[2]], by = "term"), matrix(c(1.147, 1.147, 1.147, 1.147), nrow = 2, ncol = 2))
 
@@ -30,6 +46,11 @@ test_that("rhat.mcmcmarray", {
 
 test_that("rhat.mcmcr", {
   expect_identical(rhat(mcmcr_example2), 2.002)
+  expect_identical(rhat(mcmcr_example, as_df = TRUE),
+                   structure(list(all = "all", rhat = 2.002),
+                             class = c("tbl_df", "tbl", "data.frame"),
+                             row.names = c(NA, -1L)))
+
   expect_identical(rhat(mcmcr_example), 2.002)
   expect_identical(rhat(mcmcr_example, by = "parameter"), list(alpha = 2.002, beta = 1.147, sigma = 1))
   expect_equal(rhat(mcmcr_example, by = "parameter", as_df = TRUE), tibble(parameter = c("alpha", "beta", "sigma"), rhat = c(2.002, 1.147, 1)), check.attributes = FALSE)
