@@ -1,5 +1,6 @@
+- Added check_mcmcr() and check_mcmcarray().
 - Fixed by and as_df arguments in converged().
-- Additional tests
+- Added more tests.
 
 # mcmcr 0.1.0
 
