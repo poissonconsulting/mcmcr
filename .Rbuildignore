@@ -18,3 +18,4 @@
 ^.github$
 ^build\.R$
 ^\.covrignore$
+^revdep$
