@@ -1,7 +1,7 @@
 ## Test environments
 
 * OS X (local) - release
-* Ubuntu (travis) - oldrelease, release and devel
+* Ubuntu (travis) - release and devel
 * Windows (appveyor) - release
 * Windows (win-builder) - release and devel
 * Ubuntu (rhub) - release
