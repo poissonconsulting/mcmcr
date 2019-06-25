@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Number of dimensions — ndims • mcmcr</title>
+<title>Check mcmcarray — check_mcmcarray • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Number of dimensions — ndims" />
+<meta property="og:title" content="Check mcmcarray — check_mcmcarray" />
 
-<meta property="og:description" content="Number of dimensions" />
+<meta property="og:description" content="Check mcmcarray" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -102,33 +102,43 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Number of dimensions</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/mcmcr/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
-    <div class="hidden name"><code>ndims.Rd</code></div>
+    <h1>Check mcmcarray</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/mcmcr/blob/master/R/check.R'><code>R/check.R</code></a></small>
+    <div class="hidden name"><code>check_mcmcarray.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Number of dimensions</p>
+    <p>Check mcmcarray</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ndims</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>check_mcmcarray</span>(<span class='no'>x</span>, <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/substitute'>substitute</a></span>(<span class='no'>x</span>), <span class='kw'>error</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A vector, matrix or array.</p></td>
+      <td><p>The object to check.</p></td>
+    </tr>
+    <tr>
+      <th>x_name</th>
+      <td><p>A string of the name of the object.</p></td>
+    </tr>
+    <tr>
+      <th>error</th>
+      <td><p>A flag indicating whether to throw an informative error or immediately generate an informative message if the check fails.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A count of the number of dimensions</p>
+    <p>An invisible copy of x (it if doesn't throw an error).</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>check_mcmcarray</span>(<span class='kw pkg'>mcmcr</span><span class='kw ns'>::</span><span class='no'><a href='https://www.rdocumentation.org/packages/mcmcr/topics/mcmcr_example'>mcmcr_example</a></span>$<span class='no'>beta</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -136,7 +146,9 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

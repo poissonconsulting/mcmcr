@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -76,7 +76,8 @@
 <div id="mcmcr" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#mcmcr" class="anchor"></a>mcmcr</h1></div>
-<p><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="lifecycle"></a> <a href="https://travis-ci.org/poissonconsulting/mcmcr"><img src="https://travis-ci.org/poissonconsulting/mcmcr.svg?branch=master" alt="Travis-CI Build Status"></a> <a href="https://ci.appveyor.com/project/poissonconsulting/mcmcr"><img src="https://ci.appveyor.com/api/projects/status/github/poissonconsulting/mcmcr?branch=master&amp;svg=true" alt="AppVeyor build status"></a> <a href="https://codecov.io/github/poissonconsulting/mcmcr?branch=master"><img src="https://img.shields.io/codecov/c/github/poissonconsulting/mcmcr/master.svg" alt="Coverage Status"></a> <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a> <a href="https://cran.r-project.org/package=mcmcr"><img src="http://www.r-pkg.org/badges/version/mcmcr" alt="CRAN_Status_Badge"></a> <img src="http://cranlogs.r-pkg.org/badges/mcmcr" alt="CRAN Downloads"></p>
+<!-- badges: start -->
+<p><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a> <a href="https://travis-ci.org/poissonconsulting/mcmcr"><img src="https://travis-ci.org/poissonconsulting/mcmcr.svg?branch=master" alt="Travis-CI Build Status"></a> <a href="https://ci.appveyor.com/project/poissonconsulting/mcmcr"><img src="https://ci.appveyor.com/api/projects/status/github/poissonconsulting/mcmcr?branch=master&amp;svg=true" alt="AppVeyor build status"></a> <a href="https://codecov.io/github/poissonconsulting/mcmcr?branch=master"><img src="https://img.shields.io/codecov/c/github/poissonconsulting/mcmcr/master.svg" alt="Coverage Status"></a> <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a> <a href="https://CRAN.R-project.org/package=mcmcr"><img src="https://tinyverse.netlify.com/badge/mcmcr" alt="status"></a> <a href="https://cran.r-project.org/package=mcmcr"><img src="http://www.r-pkg.org/badges/version/mcmcr" alt="CRAN_Status_Badge"></a> <img src="http://cranlogs.r-pkg.org/badges/mcmcr" alt="CRAN Downloads"><!-- badges: end --></p>
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
@@ -188,18 +189,9 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>To install the latest official release from <a href="https://CRAN.R-project.org/package=checkr">CRAN</a></p>
-<pre><code><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages("checkr")</a></code></pre>
+<pre><code><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages("mcmcr")</a></code></pre>
 <p>To install the latest development version from the Poisson drat <a href="https://github.com/poissonconsulting/drat">repository</a></p>
-<pre><code>if(!"drat" %in% installed.packages()[,1]) 
-  install.packages("drat")
-drat::addRepo("poissonconsulting")
-install.packages("mcmcr")</code></pre>
-<p>To install the latest development version from <a href="https://github.com/poissonconsulting/checkr">GitHub</a></p>
-<pre><code>if(!"devtools" %in% installed.packages()[,1]) 
-  install.packages("devtools")
-devtools::install_github("poissonconsulting/err")
-devtools::install_github("poissonconsulting/checkr")
-devtools::install_github("poissonconsulting/mcmcr")</code></pre>
+<pre><code><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages("mcmcr", repos = "http://poissonconsulting.github.io/drat")</a></code></pre>
 </div>
 <div id="contribution" class="section level2">
 <h2 class="hasAnchor">
