@@ -2,14 +2,11 @@
 % Please edit documentation in R/as.mcmc.list.R
 \name{as.mcmc.list}
 \alias{as.mcmc.list}
-\alias{as.mcmc.list.mcarray}
 \alias{as.mcmc.list.mcmcarray}
 \alias{as.mcmc.list.mcmc}
 \alias{as.mcmc.list.mcmcr}
 \title{Coerce to an mcmc.list object}
 \usage{
-\method{as.mcmc.list}{mcarray}(x, ...)
-
 \method{as.mcmc.list}{mcmcarray}(x, ...)
 
 \method{as.mcmc.list}{mcmc}(x, ...)
@@ -26,8 +23,6 @@ Coerces MCMC objects to an \code{\link[coda]{mcmc.list}} object.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{mcarray}: Coerces mcarray object to an mcmc.list object
-
 \item \code{mcmcarray}: Coerces mcmcarray object to an mcmc.list object
 
 \item \code{mcmc}: Coerces mcmc object to an mcmc.list object

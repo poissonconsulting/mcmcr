@@ -7,9 +7,7 @@
 #' @name as.mcmc.list
 NULL
 
-#' @describeIn as.mcmc.list Coerces mcarray object to an mcmc.list object
 #' @method as.mcmc.list mcarray
-#' @export
 as.mcmc.list.mcarray <- function(x, ...) as.mcmc.list(as.mcmcarray(x))
 
 #' @describeIn as.mcmc.list Coerces mcmcarray object to an mcmc.list object

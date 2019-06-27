@@ -7,7 +7,6 @@
   register_s3_method("graphics", "plot", "mcmcr")
   register_s3_method("coda", "as.mcmc.list", "mcmc")
   register_s3_method("coda", "as.mcmc.list", "mcmc.list")
-  register_s3_method("coda", "as.mcmc.list", "mcarray")
   register_s3_method("coda", "as.mcmc.list", "mcmcarray")
   register_s3_method("coda", "as.mcmc.list", "mcmcr")
   register_s3_method("coda", "as.mcmc", "mcmc")

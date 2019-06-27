@@ -33,6 +33,6 @@ test_that("mcmc_map with arrays rescale", {
   class(x) <- "mcmcarray"
   expect_identical(estimates(mcmc_map(x, .f = function(x) x / sum(x))), array(1, dim = 4:7))
   expect_identical(sum(estimates(mcmc_map(x, .f = function(x) x / sum(x)))), 840)
-  expect_identical(sum(estimates(mcmc_map(x, .f = function(x) x / sum(x), .by = FALSE))), 1)
+  expect_equal(sum(estimates(mcmc_map(x, .f = function(x) x / sum(x), .by = FALSE))), 1)
   expect_identical(sum(estimates(mcmc_map(x, .f = function(x) x / sum(x), .by = c(2L, 4L)))), 35)
 })

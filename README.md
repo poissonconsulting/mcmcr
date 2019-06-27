@@ -23,7 +23,7 @@ MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org
 ## Introduction
 
 `mcmcr` is an R package to manipulate Monte Carlo Markov Chain (MCMC)
-samples.
+samples (Brooks et al. 2011).
 
 For the purposes of this discussion, an MCMC *sample* represents the
 value of a *term* from a single *iteration* of a single *chain*. While a
@@ -173,7 +173,7 @@ plot(mcmcr_example[["alpha"]])
 ## Installation
 
 To install the latest official release from
-[CRAN](https://CRAN.R-project.org/package=checkr)
+[CRAN](https://CRAN.R-project.org/package=mcmcr)
 
     install.packages("mcmcr")
 
@@ -191,10 +191,17 @@ Please report any
 always welcome.
 
 Please note that this project is released with a [Contributor Code of
-Conduct](CONDUCT.md). By participating in this project you agree to
-abide by its terms
+Conduct](https://poissonconsulting.github.io/mcmcr/CONDUCT.html).
+
+By participating in this project you agree to abide by its terms
 
 ## Inspiration
 
 [coda](https://github.com/cran/coda) and
 [rjags](https://github.com/cran/rjags)
+
+## References
+
+Brooks, S., Gelman, A., Jones, G.L., and Meng, X.-L. (Editors). 2011.
+Handbook for Markov Chain Monte Carlo. Taylor & Francis, Boca Raton.
+ISBN: 978-1-4200-7941-8.

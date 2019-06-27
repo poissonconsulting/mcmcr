@@ -4,7 +4,8 @@ Version: 0.2.0
 Authors@R: 
   person("Joe", "Thorley", role = c("aut", "cre"), email = "joe@poissonconsulting.ca", comment = c(ORCID = "0000-0002-7683-4592"))
 Description: Functions and classes to store, manipulate and summarise 
-   Monte Carlo Markov Chain (MCMC) samples.
+   Monte Carlo Markov Chain (MCMC) samples. For more information see 
+   Brooks et al. (2011) <isbn:978-1-4200-7941-8>.
 License: MIT + file LICENSE
 Depends: R (>= 3.5)
 Imports:

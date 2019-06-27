@@ -3,6 +3,7 @@
 - Added check_mcmcr() and check_mcmcarray().
 - Fixed by and as_df arguments in converged().
 - Added more tests.
+- No longer export as.mcmc.list.mcarray() as clashes with rjags version.
 
 # mcmcr 0.1.0
 

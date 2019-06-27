@@ -7,7 +7,8 @@
 \title{mcmcr: Manipulate MCMC Samples}
 \description{
 Functions and classes to store, manipulate and summarise 
-   Monte Carlo Markov Chain (MCMC) samples.
+   Monte Carlo Markov Chain (MCMC) samples. For more information see 
+   Brooks et al. (2011) <isbn:978-1-4200-7941-8>.
 }
 \seealso{
 Useful links:
