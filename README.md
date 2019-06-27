@@ -172,15 +172,25 @@ plot(mcmcr_example[["alpha"]])
 
 ## Installation
 
-To install the latest official release from
-[CRAN](https://CRAN.R-project.org/package=mcmcr)
+To install the latest release version from
+[CRAN](https://cran.r-project.org/package=mcmcr)
 
     install.packages("mcmcr")
+
+To install the latest development version from
+[GitHub](https://github.com/poissonconsulting/mcmcr)
+
+    if(!"remotes" %in% installed.packages()[,1]) 
+      install.packages("remotes")
+    remotes::install_github("poissonconsulting/mcmcr")
 
 To install the latest development version from the Poisson drat
 [repository](https://github.com/poissonconsulting/drat)
 
-    install.packages("mcmcr", repos = "http://poissonconsulting.github.io/drat")
+    if(!"drat" %in% installed.packages()[,1]) 
+      install.packages("drat")
+    drat::addRepo("poissonconsulting")
+    install.packages("mcmcr")
 
 ## Contribution
 
@@ -191,9 +201,8 @@ Please report any
 always welcome.
 
 Please note that this project is released with a [Contributor Code of
-Conduct](https://poissonconsulting.github.io/mcmcr/CONDUCT.html).
-
-By participating in this project you agree to abide by its terms
+Conduct](https://poissonconsulting.github.io/mcmcr/CONDUCT.html). By
+participating in this project you agree to abide by its terms.
 
 ## Inspiration
 
