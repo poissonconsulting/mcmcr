@@ -16,6 +16,9 @@
   register_s3_method("coda", "thin", "mcmcarray")
   register_s3_method("coda", "thin", "mcmcr")
   register_s3_method("coda", "thin", "mcmcrs")
+  register_s3_method("nlists", "as.nlists", "mcmc")
+  register_s3_method("nlists", "as.nlists", "mcmc.list")
+  register_s3_method("nlists", "as.nlists", "mcmcr")
   invisible()
 }
 

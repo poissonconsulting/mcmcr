@@ -14,11 +14,14 @@ Imports:
     checkr,
     coda,
     utils,
-    stats
+    stats,
+    nlist
 Suggests:
     covr,
     graphics,
     testthat
+Remotes:
+    poissonconsulting/nlist
 URL: https://github.com/poissonconsulting/mcmcr
 BugReports: https://github.com/poissonconsulting/mcmcr/issues
 Encoding: UTF-8
