@@ -24,8 +24,9 @@ collapse_chains.default <- function(x, ...) {
 #' @describeIn collapse_chains Collapse an mcmc.list object's chains into a single chain
 #' @export
 collapse_chains.mcmc.list <- function(x, ...) {
-  Reduce(bind_iterations, x)
+  as.mcmc.list(Reduce(bind_iterations, x))
 }
+
 #' @describeIn collapse_chains Collapse an mcmcr object's chains into a single chain
 #' @export
 collapse_chains.mcmcr <- function(x, ...) {

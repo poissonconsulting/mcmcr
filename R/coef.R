@@ -58,7 +58,7 @@ coef.mcmc <- function(object, conf_level = 0.95, estimate = stats::median, ...) 
 #' @describeIn coef Get coefficients for terms in mcmc.list object
 #' @export
 coef.mcmc.list <- function(object, conf_level = 0.95, estimate = stats::median, ...) {
-  object <- collapse_chains(object)
+  object <- as.mcmc(collapse_chains(object))
   coef(object, conf_level = conf_level, estimate = estimate)
 }
 

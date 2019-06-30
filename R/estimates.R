@@ -41,7 +41,7 @@ estimates.mcmc.list <- function(object, fun = stats::median, as_df = FALSE, ...)
   if(!as_df)
     return(estimates(as.mcmcr(object), fun = fun, as_df = FALSE))
 
-  object <- collapse_chains(object)
+  object <- as.mcmc(collapse_chains(object))
   estimates(object, fun = fun, as_df = TRUE)
 }
 

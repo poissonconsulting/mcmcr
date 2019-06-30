@@ -20,6 +20,22 @@ test_that("as.nlists.mcmcr", {
     1.976253, 1.976253, 2.976253), .Dim = c(2L, 2L)), sigma = 0.948167), class = "nlist")), class = "nlists"))
 })
 
+test_that("as.mcmcr.nlists", {
+  x <- subset(mcmcr::mcmcr_example, iterations = 1:4)
+  expect_identical(as.mcmcr(nlist::as.nlists(x)), collapse_chains(x))
+})
+
+test_that("as.mcmc.list.nlists", {
+  x <- coda::as.mcmc.list(subset(mcmcr::mcmcr_example, iterations = 1:4))
+  expect_identical(coda::as.mcmc.list(nlist::as.nlists(x)), collapse_chains(x))
+})
+
+test_that("as.mcmc.nlists", {
+  x <- coda::as.mcmc(subset(mcmcr::mcmcr_example, chains = 1L,
+                                            iterations = 1:4))
+  expect_identical(coda::as.mcmc(nlist::as.nlists(x)), x)
+})
+
 test_that("as.nlists.mcmc.list", {
   x <- subset(mcmcr::mcmcr_example, iterations = 1:4)
   expect_identical(nlist::as.nlists(coda::as.mcmc.list(x)), nlist::as.nlists(x))

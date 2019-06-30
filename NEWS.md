@@ -1,3 +1,6 @@
+- collapse_chains.mcmc.list() now returns an mcmc.list object with one chain (as opposed to an mcmc object)
+- Added coercion to and from nlists objects for mcmcr, mcmc.list and mcmc objects.
+
 # mcmcr 0.2.0
 
 - Added check_mcmcr() and check_mcmcarray().

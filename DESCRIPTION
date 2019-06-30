@@ -1,6 +1,6 @@
 Package: mcmcr
 Title: Manipulate MCMC Samples
-Version: 0.2.0.9000
+Version: 0.2.0.9001
 Authors@R: 
   person("Joe", "Thorley", role = c("aut", "cre"), email = "joe@poissonconsulting.ca", comment = c(ORCID = "0000-0002-7683-4592"))
 Description: Functions and classes to store, manipulate and summarise 
@@ -15,7 +15,8 @@ Imports:
     coda,
     utils,
     stats,
-    nlist
+    nlist,
+    purrr
 Suggests:
     covr,
     graphics,
