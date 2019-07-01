@@ -1,16 +1,3 @@
-#' Coerce to a term vector
-#'
-#' Coerces MCMC objects to a term vector.
-#'
-#' @param x The object to coerce
-#' @param ... Unused.
-#' @export
-#' @examples
-#' as.term(mcmcr_example)
-as.term <- function(x, ...) {
-  UseMethod("as.term")
-}
-
 #' Coerce to an mcarray object
 #'
 #' Coerces MCMC objects to an mcarray object.
@@ -68,23 +55,12 @@ as.mcmcr <- function(x, ...) UseMethod("as.mcmcr")
 #' as.mcmcrs(list(mcmcr_example))
 as.mcmcrs <- function(x, ...) UseMethod("as.mcmcrs")
 
-#' @describeIn as.term Coerces term vector to a character vector
-#' @export
-as.character.term <- function(x, ...) set_class(x, "character")
-
-#' @describeIn as.term Coerces character vector to a term vector
-#' @export
-as.term.character <- function(x, ...) set_class(x, c("term", "character"))
-
-#' @describeIn as.term Coerces mcmc object to a term vector
 #' @export
 as.term.mcmc <- function(x, ...) as.term(colnames(x))
 
-#' @describeIn as.term Coerces mcmc.list object to a term vector
 #' @export
 as.term.mcmc.list <- function(x, ...) as.term(x[[1]])
 
-#' @describeIn as.term Coerces mcmcarray object to a term vector
 #' @export
 as.term.mcmcarray <- function(x, ...) {
   x <- pdims(x)
@@ -102,7 +78,6 @@ as.term.mcmcarray <- function(x, ...) {
   as.term(x)
 }
 
-#' @describeIn as.term Coerces mcmcr object to a term vector
 #' @export
 as.term.mcmcr <- function(x, ...) {
   parameters <- parameters(x)

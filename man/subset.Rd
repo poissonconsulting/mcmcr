@@ -2,7 +2,6 @@
 % Please edit documentation in R/subset.R
 \name{subset}
 \alias{subset}
-\alias{subset.term}
 \alias{subset.mcmc}
 \alias{subset.mcmc.list}
 \alias{subset.mcmcarray}
@@ -10,8 +9,6 @@
 \alias{subset.mcmcrs}
 \title{Subset an MCMC Object}
 \usage{
-\method{subset}{term}(x, parameters = NULL, ...)
-
 \method{subset}{mcmc}(x, iterations = NULL, parameters = NULL, ...)
 
 \method{subset}{mcmc.list}(x, chains = NULL, iterations = NULL,
@@ -28,11 +25,11 @@
 \arguments{
 \item{x}{The MCMC object to subset}
 
+\item{iterations}{An integer vector (or NULL) of the iterations to subset by.}
+
 \item{parameters}{A character vector (or NULL) of the parameters to subset by.}
 
 \item{...}{Unused}
-
-\item{iterations}{An integer vector (or NULL) of the iterations to subset by.}
 
 \item{chains}{An integer vector (or NULL) of the chains to subset by.}
 }
@@ -41,8 +38,6 @@ Subsets an MCMC object by its chains, iterations and/or parameters.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{term}: Subset a term vector
-
 \item \code{mcmc}: Subset an mcmc object
 
 \item \code{mcmc.list}: Subset an mcmc.list object

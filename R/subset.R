@@ -13,21 +13,6 @@
 #'   parameters = c("beta", "alpha"))
 NULL
 
-#' @describeIn subset Subset a term vector
-#' @export
-subset.term <- function(x, parameters = NULL, ...) {
-  checkor(check_null(parameters),
-          check_vector(parameters, parameters(x), unique = TRUE))
-  check_unused(...)
-
-  if(!is.null(parameters)) {
-    parameters <- paste0("(^", parameters, ("($|\\[))"))
-    parameters <- paste0(parameters, collapse = ")|(")
-    parameters <- paste0("(", parameters, ")", collapse = "")
-    x <- x[grepl(parameters, x)]
-  }
-  x
-}
 
 #' @describeIn subset Subset an mcmc object
 #' @export
