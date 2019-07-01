@@ -2,26 +2,10 @@
 % Please edit documentation in R/coef.R
 \name{coef}
 \alias{coef}
-\alias{coef.mcarray}
 \alias{coef.mcmc}
-\alias{coef.mcmc.list}
-\alias{coef.mcmcarray}
-\alias{coef.mcmcr}
 \title{Term Coefficients}
 \usage{
-\method{coef}{mcarray}(object, conf_level = 0.95,
-  estimate = stats::median, ...)
-
 \method{coef}{mcmc}(object, conf_level = 0.95,
-  estimate = stats::median, ...)
-
-\method{coef}{mcmc.list}(object, conf_level = 0.95,
-  estimate = stats::median, ...)
-
-\method{coef}{mcmcarray}(object, conf_level = 0.95,
-  estimate = stats::median, ...)
-
-\method{coef}{mcmcr}(object, conf_level = 0.95,
   estimate = stats::median, ...)
 }
 \arguments{
@@ -43,15 +27,7 @@ Gets coefficients for all the terms in an MCMC object.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{mcarray}: Get coefficients for terms in mcarray object
-
 \item \code{mcmc}: Get coefficients for terms in mcmc object
-
-\item \code{mcmc.list}: Get coefficients for terms in mcmc.list object
-
-\item \code{mcmcarray}: Get coefficients for terms in mcmcarray object
-
-\item \code{mcmcr}: Get coefficients for terms in mcmcr object
 }}
 
 \examples{

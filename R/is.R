@@ -1,14 +1,3 @@
-#' Is Term
-#'
-#' Test whether an object is a term.
-#'
-#' @param x The object to test.
-#' @return A flag indicating whether the test was positive.
-#' @export
-#' @examples
-#' is.term(terms(mcmcr_example))
-is.term <- function(x) inherits(x, "term")
-
 #' Is mcarray Object
 #'
 #' Tests whether an object is an mcarray.

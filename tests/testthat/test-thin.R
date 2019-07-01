@@ -12,5 +12,5 @@ test_that("thin.mcmcr", {
   mcmcr2t <- thin(mcmcr_example, 2L)
   expect_identical(nchains(mcmcr2t), nchains(mcmcr_example))
   expect_equal(niters(mcmcr2t), niters(mcmcr_example) / 2)
-  expect_equal(terms(mcmcr2t), terms(mcmcr_example))
+  expect_equal(term(mcmcr2t), term(mcmcr_example))
 })

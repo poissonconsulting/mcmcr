@@ -15,7 +15,6 @@ as.mcarray.default <- function(x, ...) as.mcarray(as.mcmcarray(x))
 #' @export
 as.mcarray.mcarray <- function(x, ...) x
 
-#' @describeIn as.mcarray Coerces mcmcarray object to an mcarray object
 #' @export
 as.mcarray.mcmcarray <- function(x, ...) {
   n <- ndims(x)

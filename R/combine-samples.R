@@ -17,7 +17,6 @@ combine_samples <- function(x, x2, fun = mean, ...) {
   UseMethod("combine_samples")
 }
 
-#' @describeIn combine_samples Combine samples of two mcmcarray objects
 #' @export
 combine_samples.mcmcarray <- function(x, x2, fun = mean, ...) {
   if (!is.mcmcarray(x2)) err("x2 must be an mcmcarray")
@@ -30,7 +29,6 @@ combine_samples.mcmcarray <- function(x, x2, fun = mean, ...) {
   set_class(x, "mcmcarray")
 }
 
-#' @describeIn combine_samples Combine samples of two mcmcr objects
 #' @export
 combine_samples.mcmcr <- function(x, x2, fun = mean, ...) {
   if (!is.mcmcr(x2)) err("x2 must be an mcmcr")

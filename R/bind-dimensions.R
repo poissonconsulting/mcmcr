@@ -15,7 +15,6 @@ bind_dimensions <- function(x, x2, along = NULL, ...) {
   UseMethod("bind_dimensions")
 }
 
-#' @describeIn bind_dimensions Binds two mcmcarray objects by their dimensions
 #' @export
 bind_dimensions.mcmcarray <- function(x, x2, along = NULL, ...) {
   if (!is.mcmcarray(x)) err("x2 must be an mcmcarray")
@@ -33,7 +32,6 @@ bind_dimensions.mcmcarray <- function(x, x2, along = NULL, ...) {
   set_class(x, "mcmcarray")
 }
 
-#' @describeIn bind_dimensions Binds two mcmcr objects by their dimensions
 #' @export
 bind_dimensions.mcmcr <- function(x, x2, along = NULL, ...) {
   if (!is.mcmcr(x2)) err("x2 must be an mcmcr")
@@ -44,7 +42,7 @@ bind_dimensions.mcmcr <- function(x, x2, along = NULL, ...) {
   x <- sort(x)
   x2 <- sort(x2)
 
-  if (!identical(parameters(x), parameters(x2)))
+  if (!identical(pars(x), pars(x2)))
     err("x and x2 must have the same parameters")
 
   if (!identical(nchains(x), nchains(x2)))

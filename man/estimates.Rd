@@ -3,27 +3,11 @@
 \name{estimates}
 \alias{estimates}
 \alias{estimates.mcarray}
-\alias{estimates.mcmc}
-\alias{estimates.mcmc.list}
-\alias{estimates.mcmcarray}
-\alias{estimates.mcmcr}
 \title{Estimates}
 \usage{
 estimates(object, ...)
 
 \method{estimates}{mcarray}(object, fun = stats::median, as_df = FALSE,
-  ...)
-
-\method{estimates}{mcmc}(object, fun = stats::median, as_df = FALSE,
-  ...)
-
-\method{estimates}{mcmc.list}(object, fun = stats::median,
-  as_df = FALSE, ...)
-
-\method{estimates}{mcmcarray}(object, fun = stats::median,
-  as_df = FALSE, ...)
-
-\method{estimates}{mcmcr}(object, fun = stats::median, as_df = FALSE,
   ...)
 }
 \arguments{
@@ -43,15 +27,7 @@ Get the estimates for an MCMC object.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{mcarray}: Estimates for an mcarray object
-
-\item \code{mcmc}: Estimates for an mcmc object
-
-\item \code{mcmc.list}: Estimates for an mcmc.list object
-
-\item \code{mcmcarray}: Estimates for an mcmcarray object
-
-\item \code{mcmcr}: Estimates for an mcmcr object
+\item \code{mcarray}: Estimates mcarray
 }}
 
 \examples{

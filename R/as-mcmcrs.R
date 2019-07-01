@@ -18,7 +18,7 @@ as.mcmcrs.list <- function(x, ...) {
   nchains <- vapply(x, nchains, 1L)
   niters <- vapply(x, niters, 1L)
   pdims <- lapply(x, pdims)
-  parameters <- lapply(x, parameters)
+  pars <- lapply(x, pars)
 
   if (!identical(length(unique(nchains)), 1L))
     err("all objects must have the same number of chains")
@@ -26,7 +26,7 @@ as.mcmcrs.list <- function(x, ...) {
   if (!identical(length(unique(niters)), 1L))
     err("all objects must have the same number of iterations")
 
-  if (!identical(length(unique(parameters)), 1L))
+  if (!identical(length(unique(pars)), 1L))
     err("all objects must have the same parameters")
 
   if (!identical(length(unique(pdims)), 1L))

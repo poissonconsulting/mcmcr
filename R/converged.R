@@ -15,7 +15,7 @@
 #' converged(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE)
 converged <- function(x, ...) UseMethod("converged")
 
-#' @describeIn converged Test whether an object has converged
+#' @describeIn converged Default Converged
 #' @export
 converged.default <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FALSE,
                               ...) {
@@ -40,7 +40,6 @@ converged.default <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FAL
   utils::relist(converged, esrs)
 }
 
-#' @describeIn converged Test whether an mcmcrs object has converged
 #' @export
 converged.mcmcrs <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FALSE,
                              bound = FALSE, ...) {

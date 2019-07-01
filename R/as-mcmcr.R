@@ -9,7 +9,13 @@
 #' as.mcmcr(coda::as.mcmc.list(mcmcr_example))
 as.mcmcr <- function(x, ...) UseMethod("as.mcmcr")
 
-#' @describeIn as.mcmcr Coerces list (of mcmcarray objects) to an mcmcr object
+#' @export
+as.mcmcr.nlists <- function(x, ...) {
+  x <- purrr::transpose(x)
+  x <- lapply(x, bind_iterations_mcmcarrays)
+  set_class(x, "mcmcr")
+}
+
 #' @export
 as.mcmcr.list <- function(x, ...) {
   check_length(x)
@@ -29,28 +35,24 @@ as.mcmcr.list <- function(x, ...) {
   set_class(x, "mcmcr")
 }
 
-#' @describeIn as.mcmcr Coerces mcarray object to an mcmcr object
 #' @export
 as.mcmcr.mcarray <- function(x, ...) as.mcmcr(as.mcmcarray(x))
 
-#' @describeIn as.mcmcr Coerces mcmc object to an mcmcr object
 #' @export
 as.mcmcr.mcmc <- function(x, ...) {
-  parameters <- parameters(x)
-  x <- lapply(parameters, function(p, x) subset(x, parameters = p), x = x)
+  pars <- pars(x)
+  x <- lapply(pars, function(p, x) subset(x, parameters = p), x = x)
   x <- lapply(x, as.mcmcarray)
-  names(x) <- parameters
+  names(x) <- pars
   set_class(x, "mcmcr")
 }
 
-#' @describeIn as.mcmcr Coerces mcmc.list object to an mcmcr object
 #' @export
 as.mcmcr.mcmc.list <- function(x, ...) {
   x <- lapply(x, as.mcmcr)
   Reduce(bind_chains, x)
 }
 
-#' @describeIn as.mcmcr Coerces mcmcarray object to an mcmcr object
 #' @export
 as.mcmcr.mcmcarray <- function(x, ...) set_class(list(x), "mcmcr")
 

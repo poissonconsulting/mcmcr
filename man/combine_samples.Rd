@@ -2,15 +2,9 @@
 % Please edit documentation in R/combine-samples.R
 \name{combine_samples}
 \alias{combine_samples}
-\alias{combine_samples.mcmcarray}
-\alias{combine_samples.mcmcr}
 \title{Combine MCMC Samples of Two Objects}
 \usage{
 combine_samples(x, x2, fun = mean, ...)
-
-\method{combine_samples}{mcmcarray}(x, x2, fun = mean, ...)
-
-\method{combine_samples}{mcmcr}(x, x2, fun = mean, ...)
 }
 \arguments{
 \item{x}{An MCMC object.}
@@ -30,13 +24,6 @@ with the same parameters, chains and iterations as the original objects.
 Combines samples of two MCMC objects
 (with the same parameters, chains and iterations) using a function.
 }
-\section{Methods (by class)}{
-\itemize{
-\item \code{mcmcarray}: Combine samples of two mcmcarray objects
-
-\item \code{mcmcr}: Combine samples of two mcmcr objects
-}}
-
 \examples{
 combine_samples(mcmcr_example, mcmcr_example, fun = sum)
 }

@@ -14,7 +14,7 @@ pdims <- function(x, ...) UseMethod("pdims")
 pdims.term <- function(x, ...) {
   check_unused(...)
   x <- sort(x)
-  x <- split(x, parameters(x, terms = TRUE))
+  x <- split(x, pars(x, terms = TRUE))
   x <- lapply(x, function(x) x[length(x)])
   x <- unlist(x)
   x <- sub("(^\\w+)(.*)", "\\2", as.character(x))

@@ -18,19 +18,15 @@ esr <- function(x, ...) {
   UseMethod("esr")
 }
 
-#' @describeIn esr Effective Sampling Rate for an mcarray object
 #' @export
 esr.mcarray <- function(x, by = "all", ...) esr(as.mcmcarray(x), by = by)
 
-#' @describeIn esr Effective Sampling Rate for an mcmc object
 #' @export
 esr.mcmc <- function(x, by = "all", ...) esr(as.mcmcr(x), by = by)
 
-#' @describeIn esr Effective Sampling Rate for an mcmc.list object
 #' @export
 esr.mcmc.list <- function(x, by = "all", ...) esr(as.mcmcr(x), by = by)
 
-#' @describeIn esr Effective Sampling Rate for an mcmcarray object
 #' @export
 esr.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
   check_vector(by, c("all", "parameter", "term"), length = 1)
@@ -48,23 +44,21 @@ esr.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
   x
 }
 
-#' @describeIn esr Effective Sampling Rate for an mcmcr object
 #' @export
 esr.mcmcr <- function(x, by = "all", as_df = FALSE, ...) {
-  parameters <- parameters(x)
+  parameters <- pars(x)
   x <- lapply(x, esr, by = by, as_df = as_df)
   if(!as_df) {
     if (by != "all") return(x)
     return(min(unlist(x)))
   }
-  x <- Map(x, parameters, f = function(x, p) {parameters(x[[1]]) <- p; x})
+  x <- Map(x, parameters, f = function(x, p) {pars(x[[1]]) <- p; x})
   x <- do.call(rbind, x)
   if(by == "all")
     return(tibble(all = "all", esr = min(x$esr)))
   x
 }
 
-#' @describeIn esr Effective Sampling Rate for an mcmcrs object
 #' @export
 esr.mcmcrs <- function(x, by = "all", as_df = FALSE, ...) {
   check_unused(...)

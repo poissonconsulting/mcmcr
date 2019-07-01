@@ -2,24 +2,9 @@
 % Please edit documentation in R/as-mcmcr.R
 \name{as.mcmcr}
 \alias{as.mcmcr}
-\alias{as.mcmcr.list}
-\alias{as.mcmcr.mcarray}
-\alias{as.mcmcr.mcmc}
-\alias{as.mcmcr.mcmc.list}
-\alias{as.mcmcr.mcmcarray}
 \title{Coerce to an mcmcr object}
 \usage{
 as.mcmcr(x, ...)
-
-\method{as.mcmcr}{list}(x, ...)
-
-\method{as.mcmcr}{mcarray}(x, ...)
-
-\method{as.mcmcr}{mcmc}(x, ...)
-
-\method{as.mcmcr}{mcmc.list}(x, ...)
-
-\method{as.mcmcr}{mcmcarray}(x, ...)
 }
 \arguments{
 \item{x}{object to coerce.}
@@ -29,19 +14,6 @@ as.mcmcr(x, ...)
 \description{
 Coerces MCMC objects to an \code{\link{mcmcr-object}}.
 }
-\section{Methods (by class)}{
-\itemize{
-\item \code{list}: Coerces list (of mcmcarray objects) to an mcmcr object
-
-\item \code{mcarray}: Coerces mcarray object to an mcmcr object
-
-\item \code{mcmc}: Coerces mcmc object to an mcmcr object
-
-\item \code{mcmc.list}: Coerces mcmc.list object to an mcmcr object
-
-\item \code{mcmcarray}: Coerces mcmcarray object to an mcmcr object
-}}
-
 \examples{
 as.mcmcr(coda::as.mcmc.list(mcmcr_example))
 }

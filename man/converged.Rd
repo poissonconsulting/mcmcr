@@ -3,16 +3,12 @@
 \name{converged}
 \alias{converged}
 \alias{converged.default}
-\alias{converged.mcmcrs}
 \title{Object Converged}
 \usage{
 converged(x, ...)
 
 \method{converged}{default}(x, rhat = 1.1, esr = 0.33, by = "all",
   as_df = FALSE, ...)
-
-\method{converged}{mcmcrs}(x, rhat = 1.1, esr = 0.33, by = "all",
-  as_df = FALSE, bound = FALSE, ...)
 }
 \arguments{
 \item{x}{An object.}
@@ -28,17 +24,13 @@ converged(x, ...)
 
 \item{as_df}{A flag indicating whether to return the values as a
 data frame versus a named list.}
-
-\item{bound}{flag specifying whether to bind mcmcrs objects by their chains before calculating rhat.}
 }
 \description{
 Test whether an object has converged.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{default}: Test whether an object has converged
-
-\item \code{mcmcrs}: Test whether an mcmcrs object has converged
+\item \code{default}: Default Converged
 }}
 
 \examples{

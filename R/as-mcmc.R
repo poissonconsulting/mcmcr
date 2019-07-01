@@ -1,15 +1,7 @@
-#' Coerce to an mcmc object
-#'
-#' Coerces MCMC objects to an \code{\link[coda]{mcmc}} object.
-#'
-#' @param x object to coerce.
-#' @param ... Unused.
 #' @export
-#' @seealso \code{coda::\link[coda]{mcmc}}
-#' @examples
-#' as.mcmc(subset(mcmcr_example, chains = 1L))
-#' @name as.mcmc
-NULL
+as.mcmc.nlists <- function(x, ...) {
+  as.mcmc(as.mcmcr(x))
+}
 
 #' @export
 as.mcmc.mcarray <- function(x, ...) as.mcmc(as.mcmcarray(x))
@@ -17,10 +9,10 @@ as.mcmc.mcarray <- function(x, ...) as.mcmc(as.mcmcarray(x))
 #' @export
 as.mcmc.mcmcarray <- function(x, ...) {
   if(nchains(x) != 1) err("x must only have 1 chain")
-  terms <- terms(x)
+  term <- term(x)
   x <- apply(x, 1, identity)
-  x <- matrix(x, ncol = length(terms))
-  colnames(x) <- as.character(terms)
+  x <- matrix(x, ncol = length(term))
+  colnames(x) <- as.character(term)
   as.mcmc(x)
 }
 

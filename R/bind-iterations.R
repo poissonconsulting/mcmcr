@@ -12,7 +12,6 @@ bind_iterations <- function(x, x2, ...) {
   UseMethod("bind_iterations")
 }
 
-#' @describeIn bind_iterations Binds two mcarray objects by their iterations
 #' @export
 bind_iterations.mcarray <- function(x, x2, ...) {
   if (!is.mcarray(x2)) err("x2 must be an mcarray")
@@ -27,7 +26,6 @@ bind_iterations.mcarray <- function(x, x2, ...) {
   set_class(x, "mcarray")
 }
 
-#' @describeIn bind_iterations Binds two mcmc objects by their iterations
 #' @export
 bind_iterations.mcmc <- function(x, x2, ...) {
   if (!coda::is.mcmc(x2)) err("x2 must be an mcmc")
@@ -35,7 +33,7 @@ bind_iterations.mcmc <- function(x, x2, ...) {
   x <- sort(x)
   x2 <- sort(x2)
 
-  if (!identical(parameters(x), parameters(x2)))
+  if (!identical(pars(x), pars(x2)))
     err("x and x2 must have the same parameters")
 
   if (!identical(pdims(x), pdims(x2)))
@@ -48,7 +46,6 @@ bind_iterations.mcmc <- function(x, x2, ...) {
   as.mcmc(x)
 }
 
-#' @describeIn bind_iterations Binds two mcmc.list objects by their iterations
 #' @export
 bind_iterations.mcmc.list <- function(x, x2, ...) {
   if (!(coda::is.mcmc.list(x2) || coda::is.mcmc(x2)))
@@ -57,7 +54,7 @@ bind_iterations.mcmc.list <- function(x, x2, ...) {
   x <- sort(x)
   x2 <- sort(x2)
 
-  if (!identical(parameters(x), parameters(x2)))
+  if (!identical(pars(x), pars(x2)))
     err("x and x2 must have the same parameters")
 
   if (!identical(pdims(x), pdims(x2)))
@@ -70,7 +67,6 @@ bind_iterations.mcmc.list <- function(x, x2, ...) {
   set_class(x, "mcmc.list")
 }
 
-#' @describeIn bind_iterations Binds two mcmcarray objects by their iterations
 #' @export
 bind_iterations.mcmcarray <- function(x, x2, ...) {
 
@@ -86,7 +82,6 @@ bind_iterations.mcmcarray <- function(x, x2, ...) {
   set_class(x, "mcmcarray")
 }
 
-#' @describeIn bind_iterations Binds two mcmcr objects by their iterations
 #' @export
 bind_iterations.mcmcr <- function(x, x2, ...) {
   if (!is.mcmcr(x2)) err("x2 must be an mcmcr")
@@ -94,7 +89,7 @@ bind_iterations.mcmcr <- function(x, x2, ...) {
   x <- sort(x)
   x2 <- sort(x2)
 
-  if (!identical(parameters(x), parameters(x2)))
+  if (!identical(pars(x), pars(x2)))
     err("x and x2 must have the same parameters")
 
   if (!identical(pdims(x), pdims(x2)))

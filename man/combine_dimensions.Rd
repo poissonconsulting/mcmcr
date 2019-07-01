@@ -2,16 +2,9 @@
 % Please edit documentation in R/combine-dimensions.R
 \name{combine_dimensions}
 \alias{combine_dimensions}
-\alias{combine_dimensions.mcmcarray}
-\alias{combine_dimensions.mcmcr}
 \title{Combine Samples by Dimensions}
 \usage{
 combine_dimensions(x, fun = mean, along = NULL, ...)
-
-\method{combine_dimensions}{mcmcarray}(x, fun = mean, along = NULL,
-  ...)
-
-\method{combine_dimensions}{mcmcr}(x, fun = mean, along = NULL, ...)
 }
 \arguments{
 \item{x}{An MCMC object}
@@ -28,13 +21,6 @@ The MCMC object with reduced dimensions.
 \description{
 Combines MCMC object samples by dimensions along \code{along} using \code{fun}.
 }
-\section{Methods (by class)}{
-\itemize{
-\item \code{mcmcarray}: Combine an mcmcarray object's samples by dimensions
-
-\item \code{mcmcr}: Combine an mcmcr object's samples by dimensions
-}}
-
 \examples{
 combine_dimensions(mcmcr_example$alpha)
 }

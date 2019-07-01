@@ -19,10 +19,10 @@ NULL
 subset.mcmc <- function(x, iterations = NULL, parameters = NULL, ...) {
   checkor(check_null(iterations), check_vector(iterations, c(1L,niters(x))))
   checkor(check_null(parameters),
-          check_vector(parameters, parameters(x), unique = TRUE))
+          check_vector(parameters, pars(x), unique = TRUE))
   check_unused(...)
 
-  if (!is.null(parameters)) x <- x[,parameters(x, term = TRUE) %in% parameters,drop = FALSE]
+  if (!is.null(parameters)) x <- x[,pars(x, term = TRUE) %in% parameters,drop = FALSE]
   if (!is.null(iterations)) x <- x[iterations,,drop = FALSE]
   class(x) <- "mcmc"
   x
@@ -58,7 +58,7 @@ subset.mcmcarray <- function(x, chains = NULL, iterations = NULL, ...) {
 #' @export
 subset.mcmcr <- function(x, chains = NULL, iterations = NULL, parameters = NULL, ...) {
   checkor(check_null(parameters),
-          check_vector(parameters, parameters(x), unique = TRUE))
+          check_vector(parameters, pars(x), unique = TRUE))
   check_unused(...)
 
   if (!is.null(parameters)) x <- x[parameters]

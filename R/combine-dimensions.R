@@ -14,7 +14,6 @@ combine_dimensions <- function(x, fun = mean, along = NULL, ...) {
   UseMethod("combine_dimensions")
 }
 
-#' @describeIn combine_dimensions Combine an mcmcarray object's samples by dimensions
 #' @export
 combine_dimensions.mcmcarray <- function(x, fun = mean, along = NULL, ...) {
   check_function(fun)
@@ -39,7 +38,6 @@ combine_dimensions.mcmcarray <- function(x, fun = mean, along = NULL, ...) {
   x
 }
 
-#' @describeIn combine_dimensions Combine an mcmcr object's samples by dimensions
 #' @export
 combine_dimensions.mcmcr <- function(x, fun = mean, along = NULL, ...) {
   check_function(fun)

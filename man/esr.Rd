@@ -2,38 +2,14 @@
 % Please edit documentation in R/esr.R
 \name{esr}
 \alias{esr}
-\alias{esr.mcarray}
-\alias{esr.mcmc}
-\alias{esr.mcmc.list}
-\alias{esr.mcmcarray}
-\alias{esr.mcmcr}
-\alias{esr.mcmcrs}
 \title{Effective Sampling Rate}
 \usage{
 esr(x, ...)
-
-\method{esr}{mcarray}(x, by = "all", ...)
-
-\method{esr}{mcmc}(x, by = "all", ...)
-
-\method{esr}{mcmc.list}(x, by = "all", ...)
-
-\method{esr}{mcmcarray}(x, by = "all", as_df = FALSE, ...)
-
-\method{esr}{mcmcr}(x, by = "all", as_df = FALSE, ...)
-
-\method{esr}{mcmcrs}(x, by = "all", as_df = FALSE, ...)
 }
 \arguments{
 \item{x}{An MCMC object.}
 
 \item{...}{Unused.}
-
-\item{by}{A string indicating whether to determine by
-"term", "parameter" or "all".}
-
-\item{as_df}{A flag indicating whether to return the values as a
-data frame versus a named list.}
 }
 \value{
 The esr value(s) as a data frame or list
@@ -45,21 +21,6 @@ in Brooks et al. (2011).
 The infinite sum is truncated at
 lag \eqn{k} when \eqn{\rho_{k+1}(\theta) < 0}.
 }
-\section{Methods (by class)}{
-\itemize{
-\item \code{mcarray}: Effective Sampling Rate for an mcarray object
-
-\item \code{mcmc}: Effective Sampling Rate for an mcmc object
-
-\item \code{mcmc.list}: Effective Sampling Rate for an mcmc.list object
-
-\item \code{mcmcarray}: Effective Sampling Rate for an mcmcarray object
-
-\item \code{mcmcr}: Effective Sampling Rate for an mcmcr object
-
-\item \code{mcmcrs}: Effective Sampling Rate for an mcmcrs object
-}}
-
 \examples{
 esr(mcmcr_example)
 esr(mcmcrs(mcmcr_example, mcmcr_example))

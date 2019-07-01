@@ -26,9 +26,9 @@ zero.mcmcarray <- function(x, ...) set_class(array(0, dims(x)), "mcmcarray")
 #' @describeIn zero Zero an mcmcr object
 #' @export
 zero.mcmcr <- function(x, parameters = NULL, ...) {
-  checkor(check_null(parameters), check_vector(parameters, rep(parameters(x), 3), unique = TRUE))
+  checkor(check_null(parameters), check_vector(parameters, rep(pars(x), 3), unique = TRUE))
 
-  if(is.null(parameters)) parameters <- parameters(x)
+  if(is.null(parameters)) parameters <- pars(x)
 
   x[parameters] <- lapply(x[parameters], zero)
   set_class(x, "mcmcr")

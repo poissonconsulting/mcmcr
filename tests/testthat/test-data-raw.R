@@ -13,7 +13,7 @@ test_that("data-raw", {
   mcmcr$beta <- bind_dimensions(mcmcr$beta, mcmcr$beta + 1)
   mcmcr$beta <- bind_dimensions(mcmcr$beta, mcmcr$beta + 1, along = 1L)
 
-  expect_identical(parameters(mcmcr), c("alpha", "beta", "sigma"))
+  expect_identical(pars(mcmcr), c("alpha", "beta", "sigma"))
   expect_identical(nchains(mcmcr), 2L)
   expect_identical(niters(mcmcr), 200L)
   expect_identical(nterms(mcmcr), 7L)

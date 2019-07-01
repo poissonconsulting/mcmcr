@@ -2,24 +2,9 @@
 % Please edit documentation in R/bind-chains.R
 \name{bind_chains}
 \alias{bind_chains}
-\alias{bind_chains.mcarray}
-\alias{bind_chains.mcmc}
-\alias{bind_chains.mcmc.list}
-\alias{bind_chains.mcmcarray}
-\alias{bind_chains.mcmcr}
 \title{Combine MCMC objects by chains.}
 \usage{
 bind_chains(x, x2, ...)
-
-\method{bind_chains}{mcarray}(x, x2, ...)
-
-\method{bind_chains}{mcmc}(x, x2, ...)
-
-\method{bind_chains}{mcmc.list}(x, x2, ...)
-
-\method{bind_chains}{mcmcarray}(x, x2, ...)
-
-\method{bind_chains}{mcmcr}(x, x2, ...)
 }
 \arguments{
 \item{x}{an MCMC object.}
@@ -31,19 +16,6 @@ bind_chains(x, x2, ...)
 \description{
 Combines two MCMC objects (with the same parameters and iterations) by chains.
 }
-\section{Methods (by class)}{
-\itemize{
-\item \code{mcarray}: Binds two mcarray objects by their chains
-
-\item \code{mcmc}: Binds two mcmc objects by their chains
-
-\item \code{mcmc.list}: Binds two mcmc.list objects by their chains
-
-\item \code{mcmcarray}: Binds two mcmcarray objects by their chains
-
-\item \code{mcmcr}: Binds two mcmcr objects by their chains
-}}
-
 \examples{
 bind_chains(mcmcr_example, mcmcr_example)
 }

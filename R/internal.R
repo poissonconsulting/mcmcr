@@ -1,28 +1,24 @@
-dims_terms <- function(x) {
-  .Deprecated("tdims")
-  tdims(x)
+subset_mcmcarray_iteration <- function(x, iteration) {
+  x <- abind::asub(x, iteration, 2L, drop = FALSE)
+  dim <- dim(x)[-c(1,2)]
+  if(length(dim) == 1) dim <- NULL
+  dim(x) <- dim
+  x
 }
 
-greater_than_term <- function(e1, e2) {
-  e1 <- as.term(e1)
-  e2 <- as.term(e2)
-  e1_parm <- parameters(e1)
-  e2_parm <- parameters(e2)
-  if (e1_parm != e2_parm) return(e1_parm > e2_parm)
+subset_iteration_mcmcr <- function(iteration, x) {
+  lapply(x, subset_mcmcarray_iteration, iteration = iteration)
+}
 
-  e1 <- tdims(e1)[[1]]
-  e2 <- tdims(e2)[[1]]
-
-  if (length(e1) != length(e2)) return(length(e1) > length(e2))
-
-  equal <- e1 == e2
-
-  if (all(equal)) return(FALSE)
-
-  which <- which(!equal)
-  which <- which[length(which)]
-
-  e1[which] > e2[which]
+bind_iterations_mcmcarrays <- function(x) {
+  x <- lapply(x, unclass)
+  niters <- length(x)
+  dim <- dims(x[[1]])
+  dim <- c(dim, niters, 1L)
+  x <- do.call("c", x)
+  dim(x) <- dim
+  x <- set_class(x, "mcarray")
+  as.mcmcarray(x)
 }
 
 set_class <- function(x, class) {

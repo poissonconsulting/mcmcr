@@ -59,7 +59,7 @@ rhat.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
       return(NA_real_)
     }
     if(by == "term")
-      return(tibble(term = terms(x), rhat = NA_real_))
+      return(tibble(term = term(x), rhat = NA_real_))
     return(tibble(parameter = "parameter", rhat = NA_real_))
   }
 
@@ -81,13 +81,13 @@ rhat.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
 #' @export
 rhat.mcmcr <- function(x, by = "all", as_df = FALSE, ...) {
   check_unused(...)
-  parameters <- parameters(x)
+  parameters <- pars(x)
   x <- lapply(x, rhat, by = by, as_df = as_df)
   if(!as_df) {
     if (by != "all") return(x)
     return(max(unlist(x)))
   }
-  x <- Map(x, parameters, f = function(x, p) { parameters(x[[1]]) <- p; x})
+  x <- Map(x, parameters, f = function(x, p) { pars(x[[1]]) <- p; x})
   x <- do.call(rbind, x)
   if (by == "all")
     return(tibble(all = "all", rhat = max(x$rhat)))

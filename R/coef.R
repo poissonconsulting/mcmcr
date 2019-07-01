@@ -37,7 +37,6 @@ coef.numeric <- function(object, conf_level = 0.95, estimate = stats::median, ..
     lower = quantiles[1], upper = quantiles[2], pvalue = pvalue(object))
 }
 
-#' @describeIn coef Get coefficients for terms in mcarray object
 #' @export
 coef.mcarray <- function(object, conf_level = 0.95, estimate = stats::median, ...)
   coef(as.mcmc.list(object), conf_level = conf_level, estimate = estimate)
@@ -45,29 +44,26 @@ coef.mcarray <- function(object, conf_level = 0.95, estimate = stats::median, ..
 #' @describeIn coef Get coefficients for terms in mcmc object
 #' @export
 coef.mcmc <- function(object, conf_level = 0.95, estimate = stats::median, ...) {
-  terms <- terms(object)
+  term <- term(object)
   object <- t(object)
   object <- apply(object, MARGIN = 1, FUN = coef, conf_level = conf_level, estimate = estimate)
   object <- do.call(rbind, object)
-  object$term <- terms
+  object$term <- term
   object <- object[c("term", "estimate", "sd", "zscore", "lower", "upper", "pvalue")]
   object <- object[order(object$term),]
   object
 }
 
-#' @describeIn coef Get coefficients for terms in mcmc.list object
 #' @export
 coef.mcmc.list <- function(object, conf_level = 0.95, estimate = stats::median, ...) {
   object <- as.mcmc(collapse_chains(object))
   coef(object, conf_level = conf_level, estimate = estimate)
 }
 
-#' @describeIn coef Get coefficients for terms in mcmcarray object
 #' @export
 coef.mcmcarray <- function(object, conf_level = 0.95, estimate = stats::median, ...)
   coef(as.mcmc.list(object), conf_level = conf_level, estimate = estimate)
 
-#' @describeIn coef Get coefficients for terms in mcmcr object
 #' @export
 coef.mcmcr <- function(object, conf_level = 0.95, estimate = stats::median, ...)
   coef(as.mcmc.list(object), conf_level = conf_level, estimate = estimate)

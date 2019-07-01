@@ -11,7 +11,6 @@ bind_dimensions_n <- function(...) {
   UseMethod("bind_dimensions_n")
 }
 
-#' @describeIn bind_dimensions_n Binds multiple mcmcarray objects by their dimensions
 #' @export
 bind_dimensions_n.mcmcarray <- function(...) {
   x <- list(...)
@@ -32,7 +31,6 @@ bind_dimensions_n.mcmcarray <- function(...) {
   x
 }
 
-#' @describeIn bind_dimensions_n Binds multiple mcmcr objects by their dimensions
 #' @export
 bind_dimensions_n.mcmcr <- function(...) {
   x <- list(...)
