@@ -19,16 +19,26 @@ esr <- function(x, ...) {
 }
 
 #' @export
-esr.mcarray <- function(x, by = "all", ...) esr(as.mcmcarray(x), by = by)
+esr.mcarray <- function(x, by = "all", as_df = FALSE, ...) {
+  check_unused(...)
+  esr(as.mcmcarray(x), by = by, as_df = as_df)
+}
 
 #' @export
-esr.mcmc <- function(x, by = "all", ...) esr(as.mcmcr(x), by = by)
+esr.mcmc <- function(x, by = "all", as_df = FALSE, ...) {
+  check_unused(...)
+  esr(as.mcmcr(x), by = by, as_df = as_df)
+}
 
 #' @export
-esr.mcmc.list <- function(x, by = "all", ...) esr(as.mcmcr(x), by = by)
+esr.mcmc.list <- function(x, by = "all", as_df = FALSE, ...) {
+  check_unused(...)
+  esr(as.mcmcr(x), by = by, as_df = as_df)
+}
 
 #' @export
 esr.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
+  check_unused(...)
   check_vector(by, c("all", "parameter", "term"), length = 1)
 
   x <- apply(x, 3:ndims(x), FUN = .esr)
@@ -46,6 +56,8 @@ esr.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
 
 #' @export
 esr.mcmcr <- function(x, by = "all", as_df = FALSE, ...) {
+  check_unused(...)
+
   parameters <- pars(x)
   x <- lapply(x, esr, by = by, as_df = as_df)
   if(!as_df) {

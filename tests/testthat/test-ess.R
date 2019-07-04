@@ -14,6 +14,15 @@ test_that("ess.mcmcr", {
   expect_identical(ess(mcmcr_example, by = "parameter"), list(alpha = 9L, beta = 40L, sigma = 378L))
 })
 
+test_that("ess.mcmcr as df", {
+  expect_identical(ess(mcmcr_example, as_df = TRUE),
+                   structure(list(all = "all", ess = 9L), row.names = c(NA, -1L), class = c("tbl_df",
+"tbl", "data.frame")))
+  expect_identical(ess(mcmcr_example, as_df = TRUE, by = "parameter"), structure(list(parameter = c("alpha", "beta", "sigma"), ess = c(9L,
+40L, 378L)), row.names = c("alpha", "beta", "sigma"), class = c("tbl_df",
+"tbl", "data.frame")))
+})
+
 test_that("ess.mcmcrs", {
   expect_identical(ess(mcmcrs(mcmcr_example), by = "parameter")[[1]], list(alpha = 9L, beta = 40L, sigma = 378L))
 })

@@ -1,3 +1,4 @@
+- added missing as_df = FALSE arg to esr() for mcarray, mcmc and mcmc.list
 - estimates() now checks fun returns scalar numeric
 - npdims.mcmc.list() now returns character vector (as opposed to list)
 - replaced nsims.mcmcr etc with nsims.default
