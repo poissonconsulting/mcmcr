@@ -20,7 +20,7 @@ niters.mcarray <- function(x, ...) unname(dim(x)[ndims(x) - 1])
 
 #' @describeIn nchains Number of MCMC iterations for an mcmc object
 #' @export
-niters.mcmc <- function(x, ...) nrow(x)  length(x)
+niters.mcmc <- function(x, ...) nrow(x)
 
 #' @describeIn nchains Number of MCMC iterations for an mcmc.list object
 #' @export

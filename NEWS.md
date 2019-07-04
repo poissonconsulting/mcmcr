@@ -1,3 +1,4 @@
+- estimates() now checks fun returns scalar numeric
 - npdims.mcmc.list() now returns character vector (as opposed to list)
 - replaced nsims.mcmcr etc with nsims.default
 - collapse_chains.mcmc.list() now returns an mcmc.list object with one chain (as opposed to an mcmc object)

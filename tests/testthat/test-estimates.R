@@ -42,3 +42,15 @@ test_that("estimates not as list", {
   expect_identical(estimates(mcmcr_example[[3]], fun = length), 800L)
   expect_identical(estimates(mcmcr_example[[3]], fun = length, as_df = TRUE)$estimate, 800L)
 })
+
+test_that("estimates not scalar", {
+  expect_error(estimates(mcmcr::mcmcr_example, fun = function(x) NULL),
+               "function fun must return a scalar")
+  expect_error(estimates(mcmcr::mcmcr_example, fun = identity),
+               "function fun must return a scalar")
+})
+
+test_that("estimates not numeric", {
+  expect_error(estimates(mcmcr::mcmcr_example, fun = function(x) as.character(sum(x))),
+               "function fun must return a numeric")
+})

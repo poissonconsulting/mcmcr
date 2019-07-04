@@ -50,8 +50,10 @@ set_class <- function(x, class) {
 #' @export
 .estimates <- function(object, fun = stats::median) {
   stopifnot(is.matrix(object))
+  nrow <- nrow(object)
   object <- apply(object, 1L, fun)
-  if(!is.numeric(object)) err("function fun must return a scalar")
+  if(!identical(dims(object), nrow)) err("function fun must return a scalar")
+  if(!is.numeric(object)) err("function fun must return a numeric")
   object
 }
 
