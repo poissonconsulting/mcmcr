@@ -2,24 +2,9 @@
 % Please edit documentation in R/mcmc-aperm.R
 \name{mcmc_aperm}
 \alias{mcmc_aperm}
-\alias{mcmc_aperm.mcmcarray}
-\alias{mcmc_aperm.mcmc}
-\alias{mcmc_aperm.mcmc.list}
-\alias{mcmc_aperm.mcmcr}
-\alias{mcmc_aperm.mcmcrs}
 \title{MCMC Object Transposition}
 \usage{
 mcmc_aperm(x, perm, ...)
-
-\method{mcmc_aperm}{mcmcarray}(x, perm = NULL, ...)
-
-\method{mcmc_aperm}{mcmc}(x, perm = NULL, ...)
-
-\method{mcmc_aperm}{mcmc.list}(x, perm = NULL, ...)
-
-\method{mcmc_aperm}{mcmcr}(x, perm = NULL, ...)
-
-\method{mcmc_aperm}{mcmcrs}(x, perm = NULL, ...)
 }
 \arguments{
 \item{x}{The MCMC object to transpose.}
@@ -36,16 +21,3 @@ The modified MCMC object
 \description{
 Transpose an MCMC object by permuting its parameter dimensions.
 }
-\section{Methods (by class)}{
-\itemize{
-\item \code{mcmcarray}: Transpose an mcmcarray object
-
-\item \code{mcmc}: Transpose an mcmc object
-
-\item \code{mcmc.list}: Transpose an mcmc.list object
-
-\item \code{mcmcr}: Transpose an mcmcr object
-
-\item \code{mcmcrs}: Transpose an mcmcrs object
-}}
-

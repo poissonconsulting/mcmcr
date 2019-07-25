@@ -13,7 +13,6 @@ mcmc_aperm <- function(x, perm, ...) {
   UseMethod("mcmc_aperm")
 }
 
-#' @describeIn mcmc_aperm Transpose an mcmcarray object
 #' @export
 mcmc_aperm.mcmcarray <- function(x, perm = NULL, ...) {
   checkor(check_null(perm),
@@ -27,7 +26,6 @@ mcmc_aperm.mcmcarray <- function(x, perm = NULL, ...) {
   set_class(x, "mcmcarray")
 }
 
-#' @describeIn mcmc_aperm Transpose an mcmc object
 #' @export
 mcmc_aperm.mcmc <- function(x, perm = NULL, ...) {
   check_unused(...)
@@ -36,7 +34,6 @@ mcmc_aperm.mcmc <- function(x, perm = NULL, ...) {
   as.mcmc(x)
 }
 
-#' @describeIn mcmc_aperm Transpose an mcmc.list object
 #' @export
 mcmc_aperm.mcmc.list <- function(x, perm = NULL, ...) {
   check_unused(...)
@@ -44,7 +41,6 @@ mcmc_aperm.mcmc.list <- function(x, perm = NULL, ...) {
   set_class(x, "mcmc.list")
 }
 
-#' @describeIn mcmc_aperm Transpose an mcmcr object
 #' @export
 mcmc_aperm.mcmcr <- function(x, perm = NULL, ...) {
   check_unused(...)
@@ -52,7 +48,6 @@ mcmc_aperm.mcmcr <- function(x, perm = NULL, ...) {
   set_class(x, "mcmcr")
 }
 
-#' @describeIn mcmc_aperm Transpose an mcmcrs object
 #' @export
 mcmc_aperm.mcmcrs <- function(x, perm = NULL, ...) {
   check_unused(...)

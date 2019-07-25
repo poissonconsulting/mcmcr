@@ -20,10 +20,27 @@ MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org
 ![CRAN Downloads](http://cranlogs.r-pkg.org/badges/mcmcr)
 <!-- badges: end -->
 
-## Introduction
-
 `mcmcr` is an R package to manipulate Monte Carlo Markov Chain (MCMC)
 samples (Brooks et al. 2011).
+
+## Installation
+
+To install the latest release version from
+[CRAN](https://cran.r-project.org)
+
+``` r
+install.packages("mcmcr")
+```
+
+To install the latest development version from
+[GitHub](https://github.com/poissonconsulting/mcmcr)
+
+``` r
+# install.packages("remotes")
+remotes::install_github("poissonconsulting/mcmcr")
+```
+
+## Introduction
 
 For the purposes of this discussion, an MCMC *sample* represents the
 value of a *term* from a single *iteration* of a single *chain*. While a
@@ -170,27 +187,10 @@ plot(mcmcr_example[["alpha"]])
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
-## Installation
+## Inspiration
 
-To install the latest release version from
-[CRAN](https://cran.r-project.org/package=mcmcr)
-
-    install.packages("mcmcr")
-
-To install the latest development version from
-[GitHub](https://github.com/poissonconsulting/mcmcr)
-
-    if(!"remotes" %in% installed.packages()[,1]) 
-      install.packages("remotes")
-    remotes::install_github("poissonconsulting/mcmcr")
-
-To install the latest development version from the Poisson drat
-[repository](https://github.com/poissonconsulting/drat)
-
-    if(!"drat" %in% installed.packages()[,1]) 
-      install.packages("drat")
-    drat::addRepo("poissonconsulting")
-    install.packages("mcmcr")
+[coda](https://github.com/cran/coda) and
+[rjags](https://github.com/cran/rjags)
 
 ## Contribution
 
@@ -201,13 +201,8 @@ Please report any
 always welcome.
 
 Please note that this project is released with a [Contributor Code of
-Conduct](https://poissonconsulting.github.io/mcmcr/CONDUCT.html). By
-participating in this project you agree to abide by its terms.
-
-## Inspiration
-
-[coda](https://github.com/cran/coda) and
-[rjags](https://github.com/cran/rjags)
+Conduct](https://github.com/poissonconsulting/mcmcr/blob/master/CODE_OF_CONDUCT.md).
+By contributing, you agree to abide by its terms.
 
 ## References
 

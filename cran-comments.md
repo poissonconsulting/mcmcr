@@ -1,12 +1,17 @@
 ## Test environments
 
+release 3.6.1
+
 * OS X (local) - release
-* Ubuntu (travis) - release and devel
+
+* Ubuntu (travis) - oldrelease, release and devel
+* Ubuntu (rhub) - release
+
+* Fedora (rhub) - devel
+
 * Windows (appveyor) - release
 * Windows (win-builder) - release and devel
-* Ubuntu (rhub) - release
-* Fedora (rhub) - devel
-* Windows (rhub) - devel 
+* Windows (rhub) - devel
 
 ## R CMD check results
 
@@ -17,16 +22,3 @@
 0 errors | 0 warnings | 0 note
 
 missingHE 1.1.1                           ── E: 0     | W: 0     | N: 0  
-
-## Resubmission
-
-All three issues fixed.
-
-Last released version's additional issues:
- noLD <https://www.stats.ox.ac.uk/pub/bdr/noLD/mcmcr.out>
-
-Is there some reference about the method you can add in the Description field in the form Authors (year) <doi:.....>?
-
- Found the following (possibly) invalid file URI:
-   URI: CONDUCT.md
-     From: README.md

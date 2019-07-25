@@ -1,4 +1,3 @@
-
 #' @export
 as.nlists.mcmcr <- function(x, ...) {
   x <- collapse_chains(x)
