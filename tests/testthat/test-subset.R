@@ -1,11 +1,5 @@
 context("subset")
 
-test_that("subset.term", {
-    x <- as.term(c("parm3[10]", "parm3[2]", "parm[2,2]", "parm[1,1]", "parm[2,1]", "parm[1,2]", "parm[10]", "parm3"))
-
-  expect_identical(subset(x, pars = "parm3"), as.term(c("parm3[10]", "parm3[2]", "parm3")))
-})
-
 test_that("subset.mcmcr", {
   expect_identical(pars(subset(mcmcr_example, parameters = rev(pars(mcmcr_example)))), rev(parameters(mcmcr_example)))
   expect_identical(nchains(subset(mcmcr_example, 1L)), 1L)
