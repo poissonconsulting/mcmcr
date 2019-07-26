@@ -57,7 +57,11 @@ Gets the number of chains of an MCMC object.
 
 \item \code{nlist}: Number of chains of an \code{\link[nlist]{nlist_object}}
 
+Always 1L.
+
 \item \code{nlists}: Number of chains of an \code{\link[nlist]{nlists_object}}
+
+Always 1L.
 }}
 
 \examples{

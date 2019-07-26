@@ -40,9 +40,13 @@ nchains.mcmcr <- function(x, ...) nchains(x[[1]])
 nchains.mcmcrs <- function(x, ...) nchains(x[[1]])
 
 #' @describeIn nchains Number of chains of an \code{\link[nlist]{nlist_object}}
+#'
+#' Always 1L.
 #' @export
 nchains.nlist <- function(x, ...) 1L
 
 #' @describeIn nchains Number of chains of an \code{\link[nlist]{nlists_object}}
+#'
+#' Always 1L.
 #' @export
 nchains.nlists <- function(x, ...) 1L

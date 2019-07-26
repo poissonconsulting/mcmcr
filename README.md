@@ -87,6 +87,9 @@ the dimensionality of the parameters:
   - `mcmcr::mcmcrs` stores multiple `mcmcr` objects with the same
     parameters, chains and iterations.
 
+All five classes (`mcmc`, `mcmc.list`, `mcarray`, `mcmcarray`, `mcmcr`
+and `mcmcrs`) are collectively referred to as MCMC objects.
+
 ## Why mcmcr?
 
 `mcmcarray` objects were developed to facilitate manipulation of the
@@ -96,15 +99,21 @@ manipulated as a whole. `mcmcrs` objects were developed to allow the
 results of multiple analyses using the same model to be manipulated
 together.
 
-The `mcmcr` package also introduces a variety of (often) generic
-functions to manipulate and query `mcmcarray`, `mcmcr` and `mcmcrs`
-objects. In particular it provides functions to
+The `mcmcr` package (together with the
+[term](https://github.com/poissonconsulting/term) and
+[nlist](https://github.com/poissonconsulting/nlist) packages) introduces
+a variety of (often) generic functions to manipulate and query
+`mcmcarray`, `mcmcr` and `mcmcrs` objects (and `term` and `nlist` and
+`nlists` objects).
+
+In particular it provides functions to
 
   - coerce from and to `mcarray`, `mcmc` and `mcmc.list` objects;
   - extract an objects `coef` table (as a tibble);
-  - query an object’s `nchains`, `niters`, `npars`, `nterms`, `nsims`
-    and `nsams` as well as it’s parameter dimensions (`pdims`) and term
-    indices (`tindex`);
+  - query an object’s `nchains`, `niters`, `term::npars`,
+    `term::nterms`, `nlist::nsims` and `nlist::nsams` as well as it’s
+    parameter dimensions (`term::pdims`) and term indices
+    (`term::tindex`);
   - `subset` objects by chains, iterations and/or parameters;
   - `bind_xx` a pair of objects by their `xx_chains`, `xx_iterations`,
     `xx_parameters` or (parameter) `xx_dimensions`;
