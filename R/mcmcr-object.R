@@ -6,7 +6,9 @@
 #' \code{mcmcr} objects allow a set of dimensionality preserving parameters
 #' to be manipulated and queried as a whole.
 #'
+#' @name mcmcr-object
+#' @aliases mcmcr_object
+#'
 #' @examples
 #' mcmcr_example
-#' @name mcmcr-object
 NULL

@@ -2,6 +2,7 @@
 % Please edit documentation in R/mcmcarray-object.R
 \name{mcmcarray-object}
 \alias{mcmcarray-object}
+\alias{mcmcarray_object}
 \title{mcmcarray}
 \description{
 An \code{mcmcarray} object is an an array where the

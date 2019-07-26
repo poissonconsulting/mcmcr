@@ -2,6 +2,7 @@
 % Please edit documentation in R/mcmcr-object.R
 \name{mcmcr-object}
 \alias{mcmcr-object}
+\alias{mcmcr_object}
 \title{mcmcr}
 \description{
 An \code{mcmcr} object stores multiple uniquely named \code{\link{mcmcarray-object}}

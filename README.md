@@ -90,18 +90,11 @@ the dimensionality of the parameters:
 ## Why mcmcr?
 
 `mcmcarray` objects were developed to facilitate manipulation of the
-MCMC samples (although they are just one `aperm` away from `mcarray`
-objects they are more intuitive to program with - at least for this
-programmer\!). `mcmcr` objects were developed to allow a set of
+MCMC samples. `mcmcr` objects were developed to allow a set of
 dimensionality preserving parameters from a single analysis to be
 manipulated as a whole. `mcmcrs` objects were developed to allow the
 results of multiple analyses using the same model to be manipulated
 together.
-
-In addition the `mcmcr` package defines the `term` vector to store and
-manipulate the term labels, ie, `"bIntercept", "bInteraction[1,2]",
-"bInteraction[2,1]"`, when the MCMC samples are summarised in tabular
-form.
 
 The `mcmcr` package also introduces a variety of (often) generic
 functions to manipulate and query `mcmcarray`, `mcmcr` and `mcmcrs`
@@ -111,7 +104,7 @@ objects. In particular it provides functions to
   - extract an objects `coef` table (as a tibble);
   - query an object’s `nchains`, `niters`, `npars`, `nterms`, `nsims`
     and `nsams` as well as it’s parameter dimensions (`pdims`) and term
-    dimensions (`tdims`);
+    indices (`tindex`);
   - `subset` objects by chains, iterations and/or parameters;
   - `bind_xx` a pair of objects by their `xx_chains`, `xx_iterations`,
     `xx_parameters` or (parameter) `xx_dimensions`;

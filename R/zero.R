@@ -8,7 +8,9 @@
 #' @param x The MCMC object.
 #' @param parameters A character vector (or NULL) of the parameters to zero.
 #' @param ... Unused
+#' @return The MCMC
 #' @export
+#'
 #' @examples
 #' zero(mcmcr_example, parameters = "beta")
 zero <- function(x, ...) {
@@ -26,9 +28,10 @@ zero.mcmcarray <- function(x, ...) set_class(array(0, dims(x)), "mcmcarray")
 #' @describeIn zero Zero an mcmcr object
 #' @export
 zero.mcmcr <- function(x, parameters = NULL, ...) {
-  checkor(check_null(parameters), check_vector(parameters, rep(pars(x), 3), unique = TRUE))
-
-  if(is.null(parameters)) parameters <- pars(x)
+  if(!is.null(parameters)) {
+    check_vector(parameters, rep(pars(x), 3), unique = TRUE)
+  } else
+    parameters <- pars(x)
 
   x[parameters] <- lapply(x[parameters], zero)
   set_class(x, "mcmcr")

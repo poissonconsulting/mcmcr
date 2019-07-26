@@ -22,6 +22,9 @@ zero(x, ...)
 
 \item{parameters}{A character vector (or NULL) of the parameters to zero.}
 }
+\value{
+The MCMC
+}
 \description{
 Zeros an MCMC object's sample values.
 }

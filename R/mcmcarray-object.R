@@ -6,7 +6,9 @@
 
 #' The name \code{mcmcarray} reflects the fact that the MCMC dimensions,
 #'  ie the chains and iterations, precede the parameter dimensions.
+#' @name mcmcarray-object
+#' @aliases mcmcarray_object
+#'
 #' @examples
 #' mcmcr_example$beta
-#' @name mcmcarray-object
 NULL
