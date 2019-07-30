@@ -1,6 +1,6 @@
 Package: mcmcr
 Title: Manipulate MCMC Samples
-Version: 0.2.0.9010
+Version: 0.2.0.9011
 Authors@R: c(
     person("Joe", "Thorley", , "joe@poissonconsulting.ca", c("aut", "cre"), comment = c(ORCID = "0000-0002-7683-4592")),
     person("Poisson Consulting", role = c("cph", "fnd"))
@@ -17,7 +17,7 @@ Imports:
     coda,
     utils,
     stats,
-    term (>= 0.0.0.9100),
+    term (>= 0.0.0.9101),
     nlist (>= 0.0.0.9100),
     purrr
 Suggests:

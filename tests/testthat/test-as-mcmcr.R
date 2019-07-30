@@ -18,3 +18,12 @@ test_that("as.mcmcr.mcmc", {
   mcmc2 <- mcmc2[,c("alpha[2]", "beta[1,1]", "beta[2,1]", "beta[2,2]", "sigma")]
   expect_identical(mcmc2, mcmc)
 })
+
+test_that("as.mcmcr.mcmc", {
+  mcmcr <- subset(mcmcr::mcmcr_example, chains = 1L)
+  mcmc <- coda::as.mcmc(mcmcr)
+  colnames(mcmc) <- sub("alpha", "al.pha", colnames(mcmc))
+  colnames(mcmc) <- sub("beta", "beta_", colnames(mcmc))
+  expect_identical(coda::as.mcmc(as.mcmcr(mcmc)), mcmc)
+})
+
