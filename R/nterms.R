@@ -1,4 +1,10 @@
 #' @export
+nterms.mcmc <- function(x, ...) ncol(x)
+
+#' @export
+nterms.mcmc.list <- function(x, ...) nterms(x[[1]])
+
+#' @export
 nterms.mcmcarray <- function(x, ...) as.integer(prod(dim(x)[-(1:2)]))
 
 #' @export
