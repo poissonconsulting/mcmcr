@@ -7,8 +7,8 @@
 #' @param ... unused
 #' @export
 #' @examples
-#' bind_parameters(subset(mcmcr_example, parameters = "sigma"),
-#'   subset(mcmcr_example, parameters = "beta"))
+#' bind_parameters(subset(mcmcr_example, pars = "sigma"),
+#'   subset(mcmcr_example, pars = "beta"))
 bind_parameters <- function(x, x2, ...) {
   UseMethod("bind_parameters")
 }

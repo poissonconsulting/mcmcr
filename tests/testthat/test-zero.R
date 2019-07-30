@@ -12,19 +12,19 @@ test_that("zero.mcmcarray", {
 })
 
 test_that("zero.mcmcr", {
-  mcmcr0 <- zero(mcmcr_example, parameters = "sigma")
+  mcmcr0 <- zero(mcmcr_example, pars = "sigma")
   expect_identical(estimates(mcmcr0)$sigma, 0)
   expect_identical(estimates(mcmcr0)$beta, estimates(mcmcr_example)$beta)
 })
 
-test_that("zero.mcmcr parameters = NULL", {
+test_that("zero.mcmcr pars = NULL", {
   mcmcr0 <- zero(mcmcr_example)
   expect_identical(estimates(mcmcr0)$sigma, 0)
   expect_identical(estimates(mcmcr0)$beta, matrix(0, 2, 2))
 })
 
 test_that("zero.mcmcr2", {
-  mcmcr0 <- zero(mcmcr_example2, parameters = "beta")
+  mcmcr0 <- zero(mcmcr_example2, pars = "beta")
   expect_true(all(estimates(mcmcr0)$beta == 0))
   expect_identical(pdims(mcmcr0), pdims(mcmcr_example2))
   expect_identical(estimates(mcmcr0)$sigma, estimates(mcmcr_example2)$sigma)

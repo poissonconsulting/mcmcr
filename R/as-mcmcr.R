@@ -41,7 +41,7 @@ as.mcmcr.mcarray <- function(x, ...) as.mcmcr(as.mcmcarray(x))
 #' @export
 as.mcmcr.mcmc <- function(x, ...) {
   pars <- pars(x)
-  x <- lapply(pars, function(p, x) subset(x, parameters = p), x = x)
+  x <- lapply(pars, function(p, x) subset(x, pars = p), x = x)
   x <- lapply(x, as.mcmcarray)
   names(x) <- pars
   set_class(x, "mcmcr")

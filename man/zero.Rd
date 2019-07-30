@@ -13,14 +13,14 @@ zero(x, ...)
 
 \method{zero}{mcmcarray}(x, ...)
 
-\method{zero}{mcmcr}(x, parameters = NULL, ...)
+\method{zero}{mcmcr}(x, pars = NULL, ...)
 }
 \arguments{
 \item{x}{The MCMC object.}
 
 \item{...}{Unused}
 
-\item{parameters}{A character vector (or NULL) of the parameters to zero.}
+\item{pars}{A character vector (or NULL) of the pars to zero.}
 }
 \value{
 The MCMC
@@ -42,5 +42,5 @@ where the expected value is 0.
 }}
 
 \examples{
-zero(mcmcr_example, parameters = "beta")
+zero(mcmcr_example, pars = "beta")
 }
