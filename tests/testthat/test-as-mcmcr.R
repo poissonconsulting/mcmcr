@@ -1,29 +1,43 @@
 context("as-mcmcr")
 
-test_that("as.mcmcr", {
-  expect_identical(as.mcmcr(unclass(mcmcr_example)), mcmcr_example)
-  expect_identical(as.mcmcr(mcmcr_example), mcmcr_example)
-  expect_is(as.mcmcr(as.mcarray(mcmcr_example$beta)), "mcmcr")
-  expect_is(as.mcmcr(mcmcr_example$beta), "mcmcr")
+test_that("as.mcmcr.list", {
+  expect_identical(as.mcmcr(unclass(mcmcr::mcmcr_example)), mcmcr::mcmcr_example)
+})
+
+test_that("as.mcmcr.mcarray", {
+  mcmcr <- subset(mcmcr::mcmcr_example, pars = "beta")
+  expect_identical(as.mcmcr(as.mcarray(mcmcr), "beta"), mcmcr)
+})
+
+test_that("as.mcmcr.mcmcarray", {
+  mcmcr <- subset(mcmcr::mcmcr_example, pars = "beta")
+  expect_identical(as.mcmcr(as.mcmcarray(mcmcr), "beta"), mcmcr)
+})
+
+test_that("as.mcmcr.nlist", {
+  mcmcr <- subset(mcmcr::mcmcr_example, chains = 1L, iterations = 1L)
+  expect_identical(as.mcmcr(nlist::as.nlist(mcmcr)), mcmcr)
+})
+
+test_that("as.mcmcr.nlists", {
+  mcmcr <- subset(mcmcr::mcmcr_example, chains = 1L)
+  expect_identical(as.mcmcr(nlist::as.nlists(mcmcr)), mcmcr)
 })
 
 test_that("as.mcmcr.mcmc", {
   mcmcr <- subset(mcmcr::mcmcr_example, chains = 1L)
   expect_identical(as.mcmcr(coda::as.mcmc(mcmcr)), mcmcr)
-
-  mcmc <- coda::as.mcmc(mcmcr)
-  mcmc <- mcmc[,c("alpha[2]", "beta[1,1]", "beta[2,1]", "beta[2,2]", "sigma")]
-  mcmc2 <- coda::as.mcmc(as.mcmcr(mcmc))
-
-  mcmc2 <- mcmc2[,c("alpha[2]", "beta[1,1]", "beta[2,1]", "beta[2,2]", "sigma")]
-  expect_identical(mcmc2, mcmc)
 })
 
-test_that("as.mcmcr.mcmc", {
-  mcmcr <- subset(mcmcr::mcmcr_example, chains = 1L)
-  mcmc <- coda::as.mcmc(mcmcr)
-  colnames(mcmc) <- sub("alpha", "al.pha", colnames(mcmc))
-  colnames(mcmc) <- sub("beta", "beta_", colnames(mcmc))
-  expect_identical(coda::as.mcmc(as.mcmcr(mcmc)), mcmc)
+test_that("as.mcmcr.mcmc.list", {
+  expect_identical(as.mcmcr(coda::as.mcmc.list(mcmcr::mcmcr_example)),
+                   mcmcr::mcmcr_example)
 })
 
+test_that("as.mcmcr.mcmcr", {
+  expect_identical(as.mcmcr(mcmcr::mcmcr_example), mcmcr::mcmcr_example)
+})
+
+test_that("as.mcmcr.mcmcrs", {
+  expect_identical(as.mcmcr(as.mcmcrs(mcmcr::mcmcr_example)), mcmcr::mcmcr_example)
+})

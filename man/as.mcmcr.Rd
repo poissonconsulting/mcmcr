@@ -2,18 +2,62 @@
 % Please edit documentation in R/as-mcmcr.R
 \name{as.mcmcr}
 \alias{as.mcmcr}
-\title{Coerce to an mcmcr object}
+\alias{as.mcmcr.mcarray}
+\alias{as.mcmcr.mcmcarray}
+\alias{as.mcmcr.nlist}
+\alias{as.mcmcr.nlists}
+\alias{as.mcmcr.mcmc}
+\alias{as.mcmcr.mcmc.list}
+\alias{as.mcmcr.mcmcrs}
+\title{Convert to an mcmcr Object}
 \usage{
 as.mcmcr(x, ...)
+
+\method{as.mcmcr}{mcarray}(x, name = "par", ...)
+
+\method{as.mcmcr}{mcmcarray}(x, name = "par", ...)
+
+\method{as.mcmcr}{nlist}(x, ...)
+
+\method{as.mcmcr}{nlists}(x, ...)
+
+\method{as.mcmcr}{mcmc}(x, ...)
+
+\method{as.mcmcr}{mcmc.list}(x, ...)
+
+\method{as.mcmcr}{mcmcrs}(x, ...)
 }
 \arguments{
-\item{x}{object to coerce.}
+\item{x}{An MCMC object.}
 
 \item{...}{Unused.}
+
+\item{name}{A string specifying the parameter name.}
+}
+\value{
+An mcmcr object.
 }
 \description{
-Coerces MCMC objects to an \code{\link{mcmcr-object}}.
+Converts an MCMC object to an \code{\link{mcmcr-object}}.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{mcarray}: Convert an mcarray object to an mcmcr object
+
+\item \code{mcmcarray}: Convert an \code{\link{mcmcarray-object}} to an mcmcr object
+
+\item \code{nlist}: Convert an \code{\link[nlist]{nlist-object}} to an mcmcr object
+
+\item \code{nlists}: Convert an \code{\link[nlist]{nlists-object}} to an mcmcr object
+
+\item \code{mcmc}: Convert an \code{\link[coda]{mcmc}} object to an mcmcr object
+
+\item \code{mcmc.list}: Convert an \code{\link[coda]{mcmc.list}} object to an mcmcr object
+
+\item \code{mcmcrs}: Convert tan \code{\link[mcmcr]{mcmcrs-object}} to an mcmcr object
+}}
+
 \examples{
-as.mcmcr(coda::as.mcmc.list(mcmcr_example))
+mcmc.list <- coda::as.mcmc.list(mcmcr::mcmcr_example)
+as.mcmcr(mcmc.list)
 }

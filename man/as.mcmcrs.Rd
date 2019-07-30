@@ -2,18 +2,36 @@
 % Please edit documentation in R/as-mcmcrs.R
 \name{as.mcmcrs}
 \alias{as.mcmcrs}
-\title{Coerce to an mcmcrs object}
+\alias{as.mcmcrs.list}
+\alias{as.mcmcrs.mcmcr}
+\title{Convert to an mcmcrs object}
 \usage{
 as.mcmcrs(x, ...)
+
+\method{as.mcmcrs}{list}(x, ...)
+
+\method{as.mcmcrs}{mcmcr}(x, name = "mcmcr1", ...)
 }
 \arguments{
-\item{x}{object to coerce.}
+\item{x}{An MCMC object.}
 
 \item{...}{Unused.}
+
+\item{name}{A string specifying the element name.}
+}
+\value{
+An mcmcrs object.
 }
 \description{
-Coerces MCMC objects to an \code{\link{mcmcrs-object}}.
+Converts an MCMC object to an \code{\link{mcmcrs-object}}.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{list}: Convert a list of \code{\link{mcmcr-object}s} to an mcmcrs object
+
+\item \code{mcmcr}: Convert an \code{\link{mcmcr-object}} to an mcmcrs object
+}}
+
 \examples{
-as.mcmcrs(list(mcmcr_example))
+as.mcmcrs(mcmcr::mcmcr_example)
 }
