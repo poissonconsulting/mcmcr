@@ -66,7 +66,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9010</span>
       </span>
     </div>
 
@@ -107,7 +107,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Coerce to an mcmcarray object</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/mcmcr/blob/master/R/as.R'><code>R/as.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/mcmcr/blob/master/R/as-mcmcarray.R'><code>R/as-mcmcarray.R</code></a></small>
     <div class="hidden name"><code>as.mcmcarray.Rd</code></div>
     </div>
 
@@ -117,22 +117,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>as.mcmcarray</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for default</span>
-<span class='fu'>as.mcmcarray</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for mcarray</span>
-<span class='fu'>as.mcmcarray</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for mcmc</span>
-<span class='fu'>as.mcmcarray</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for mcmc.list</span>
-<span class='fu'>as.mcmcarray</span>(<span class='no'>x</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for mcmcr</span>
-<span class='fu'>as.mcmcarray</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>as.mcmcarray</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -147,16 +132,6 @@
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
-
-    <ul>
-<li><p><code>default</code>: Coerces vector, matrix or array to an mcmcarray object</p></li>
-<li><p><code>mcarray</code>: Coerces mcarray object to an mcmcarray object</p></li>
-<li><p><code>mcmc</code>: Coerces mcmc object (with one parameter) to an mcmcarray object</p></li>
-<li><p><code>mcmc.list</code>: Coerces mcmc.list object (with one parameter) to an mcmcarray object</p></li>
-<li><p><code>mcmcr</code>: Coerces mcmcr object (with one parameter) to an mcmcarray object</p></li>
-</ul>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>as.mcmcarray</span>(<span class='fu'><a href='as.mcarray.html'>as.mcarray</a></span>(<span class='no'>mcmcr_example</span>$<span class='no'>beta</span>))</div><div class='output co'>#&gt;           [,1]     [,2]
@@ -170,9 +145,7 @@
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#methods-by-class-">Methods (by class)</a></li>
-      
+            
       <li><a href="#examples">Examples</a></li>
     </ul>
 
@@ -182,7 +155,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joe Thorley.</p>
+  <p>Developed by Joe Thorley, Poisson Consulting.</p>
 </div>
 
 <div class="pkgdown">

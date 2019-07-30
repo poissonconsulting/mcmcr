@@ -66,7 +66,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9010</span>
       </span>
     </div>
 
@@ -117,10 +117,7 @@
     
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for term</span>
-<span class='fu'>subset</span>(<span class='no'>x</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for mcmc</span>
+    <pre class="usage"><span class='co'># S3 method for mcmc</span>
 <span class='fu'>subset</span>(<span class='no'>x</span>, <span class='kw'>iterations</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for mcmc.list</span>
@@ -146,16 +143,16 @@
       <td><p>The MCMC object to subset</p></td>
     </tr>
     <tr>
+      <th>iterations</th>
+      <td><p>An integer vector (or NULL) of the iterations to subset by.</p></td>
+    </tr>
+    <tr>
       <th>parameters</th>
       <td><p>A character vector (or NULL) of the parameters to subset by.</p></td>
     </tr>
     <tr>
       <th>...</th>
       <td><p>Unused</p></td>
-    </tr>
-    <tr>
-      <th>iterations</th>
-      <td><p>An integer vector (or NULL) of the iterations to subset by.</p></td>
     </tr>
     <tr>
       <th>chains</th>
@@ -166,7 +163,6 @@
     <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
 
     <ul>
-<li><p><code>term</code>: Subset a term vector</p></li>
 <li><p><code>mcmc</code>: Subset an mcmc object</p></li>
 <li><p><code>mcmc.list</code>: Subset an mcmc.list object</p></li>
 <li><p><code>mcmcarray</code>: Subset an mcmcarray object</p></li>
@@ -208,7 +204,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joe Thorley.</p>
+  <p>Developed by Joe Thorley, Poisson Consulting.</p>
 </div>
 
 <div class="pkgdown">

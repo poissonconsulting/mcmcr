@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9010</span>
       </span>
     </div>
 
@@ -109,14 +109,14 @@
 
     <div id="mcmcr-020" class="section level1">
 <h1 class="page-header">
-<a href="#mcmcr-020" class="anchor"></a>mcmcr 0.2.0<small> Unreleased </small>
+<a href="#mcmcr-020" class="anchor"></a>mcmcr 0.2.0<small> 2019-06-27 </small>
 </h1>
 <ul>
-<li>Added check_mcmcr() and check_mcmcarray().</li>
-<li>Fixed by and as_df arguments in converged().</li>
+<li>Added <code><a href="../reference/check_mcmcr.html">check_mcmcr()</a></code> and <code><a href="../reference/check_mcmcarray.html">check_mcmcarray()</a></code>.</li>
+<li>Fixed by and as_df arguments in <code><a href="../reference/converged.html">converged()</a></code>.</li>
 <li>Added more tests.</li>
-<li>Removed as.mcmc.mcmc.list(), thin.mcmc() and thin.mcmc.list() as now defined by coda.</li>
-<li>No longer export as.mcmc.list.mcarray() as clashes with rjags version.</li>
+<li>Removed <code>as.mcmc.mcmc.list()</code>, <code>thin.mcmc()</code> and <code>thin.mcmc.list()</code> as now defined by coda.</li>
+<li>No longer export <code>as.mcmc.list.mcarray()</code> as clashes with rjags version.</li>
 </ul>
 </div>
     <div id="mcmcr-010" class="section level1">
@@ -124,13 +124,14 @@
 <a href="#mcmcr-010" class="anchor"></a>mcmcr 0.1.0<small> 2019-04-26 </small>
 </h1>
 <ul>
-<li>Added mcmc_aperm() function to transpose parameter dimensions.</li>
-<li>Added npdims() function to get number of parameter dimensions.</li>
-<li>Added by = TRUE argument to mcmc_map() function.</li>
-<li>Removed tibble from suggests.</li>
-<li>rhat now returns minimum of 1.</li>
-<li>Defined subset and parameters for mcmcrs object.</li>
-<li>Added bound = FALSE argument to rhat.mcmcrs() and converged.mcmcrs() functions.</li>
+<li>Added <code><a href="../reference/mcmc_aperm.html">mcmc_aperm()</a></code> function to transpose parameter dimensions.</li>
+<li>Added <code>npdims()</code> function to get number of parameter dimensions.</li>
+<li>Added <code>by = TRUE</code> argument to <code><a href="../reference/mcmc_map.html">mcmc_map()</a></code> function.</li>
+<li>Removed tibble package from suggests.</li>
+<li>
+<code><a href="../reference/rhat.html">rhat()</a></code> now returns minimum of 1.</li>
+<li>Defined <code><a href="../reference/subset.html">subset()</a></code> and <code>parameters()</code> for mcmcrs object.</li>
+<li>Added <code>bound = FALSE</code> argument to <code><a href="../reference/rhat.html">rhat.mcmcrs()</a></code> and <code>converged.mcmcrs()</code> functions.</li>
 </ul>
 </div>
     <div id="mcmcr-003" class="section level1">
@@ -138,8 +139,8 @@
 <a href="#mcmcr-003" class="anchor"></a>mcmcr 0.0.3<small> 2018-11-24 </small>
 </h1>
 <ul>
-<li>Moved graphics, coef, tibble from imports to suggests.</li>
-<li>Replaced internal error() with err::err().</li>
+<li>Moved graphics, coef, tibble packages from imports to suggests.</li>
+<li>Replaced internal <code>error()</code> with <code><a href="https://rdrr.io/pkg/err/man/err.html">err::err()</a></code>.</li>
 </ul>
 </div>
     <div id="mcmcr-002" class="section level1">
@@ -179,7 +180,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joe Thorley.</p>
+  <p>Developed by Joe Thorley, Poisson Consulting.</p>
 </div>
 
 <div class="pkgdown">

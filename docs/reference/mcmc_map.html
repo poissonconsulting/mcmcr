@@ -66,7 +66,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9010</span>
       </span>
     </div>
 
@@ -117,22 +117,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>mcmc_map</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='kw'>.by</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fu'><a href='npdims.html'>npdims</a></span>(<span class='no'>.x</span>), <span class='no'>...</span>)
-
-<span class='co'># S3 method for mcmcarray</span>
-<span class='fu'>mcmc_map</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='kw'>.by</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fu'><a href='npdims.html'>npdims</a></span>(<span class='no'>.x</span>), <span class='no'>...</span>)
-
-<span class='co'># S3 method for mcmc</span>
-<span class='fu'>mcmc_map</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='kw'>.by</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for mcmc.list</span>
-<span class='fu'>mcmc_map</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='kw'>.by</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for mcmcr</span>
-<span class='fu'>mcmc_map</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='kw'>.by</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)
-
-<span class='co'># S3 method for mcmcrs</span>
-<span class='fu'>mcmc_map</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='kw'>.by</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>mcmc_map</span>(<span class='no'>.x</span>, <span class='no'>.f</span>, <span class='kw'>.by</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fu'>npdims</span>(<span class='no'>.x</span>), <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -159,16 +144,6 @@
 
     <p>The updated MCMC object.</p>
     
-    <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
-
-    <ul>
-<li><p><code>mcmcarray</code>: Adjust the sample values of an MCMC object</p></li>
-<li><p><code>mcmc</code>: Adjust the sample values of an mcmc.list object</p></li>
-<li><p><code>mcmc.list</code>: Adjust the sample values of an mcmc.list object</p></li>
-<li><p><code>mcmcr</code>: Adjust the sample values of an mcmcr object</p></li>
-<li><p><code>mcmcrs</code>: Adjust the sample values of an mcmcrs object</p></li>
-</ul>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>mcmc_map</span>(<span class='no'>mcmcr_example</span>$<span class='no'>beta</span>, <span class='no'>exp</span>)</div><div class='output co'>#&gt;          [,1]      [,2]
@@ -184,8 +159,6 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-
-      <li><a href="#methods-by-class-">Methods (by class)</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>
@@ -196,7 +169,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joe Thorley.</p>
+  <p>Developed by Joe Thorley, Poisson Consulting.</p>
 </div>
 
 <div class="pkgdown">

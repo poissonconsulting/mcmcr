@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dimensions — dims • mcmcr</title>
+<title>Number of Simulations — nsims.default • mcmcr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="Dimensions — dims" />
+<meta property="og:title" content="Number of Simulations — nsims.default" />
 
-<meta property="og:description" content="Dimensions" />
+<meta property="og:description" content="Gets the number of simulations of an MCMC object." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -66,7 +66,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9010</span>
       </span>
     </div>
 
@@ -106,35 +106,40 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Dimensions</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/mcmcr/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
-    <div class="hidden name"><code>dims.Rd</code></div>
+    <h1>Number of Simulations</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/mcmcr/blob/master/R/nsims.R'><code>R/nsims.R</code></a></small>
+    <div class="hidden name"><code>nsims.default.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Dimensions</p>
+    <p>Gets the number of simulations of an MCMC object.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dims</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='co'># S3 method for default</span>
+<span class='fu'>nsims</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A vector, matrix or array.</p></td>
+      <td><p>The MCMC object</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Unused.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An integer vector of the dimensions.</p>
+    <p>A count of the number of simulations.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>dims</span>(<span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>())</div><div class='output co'>#&gt; [1] 0</div><div class='input'><span class='fu'>dims</span>(<span class='fl'>2</span>:<span class='fl'>3</span>)</div><div class='output co'>#&gt; [1] 2</div><div class='input'><span class='fu'>dims</span>(<span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>1</span>:<span class='fl'>6</span>, <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='output co'>#&gt; [1] 2 3</div></pre>
+    <pre class="examples"><div class='input'><span class='kw pkg'>nlist</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/nlist/man/nsims.html'>nsims</a></span>(<span class='kw pkg'>mcmcr</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/mcmcr/man/mcmcr_example.html'>mcmcr_example</a></span>)</div><div class='output co'>#&gt; [1] 800</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -152,7 +157,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joe Thorley.</p>
+  <p>Developed by Joe Thorley, Poisson Consulting.</p>
 </div>
 
 <div class="pkgdown">
