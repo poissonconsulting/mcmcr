@@ -25,7 +25,7 @@ pars.mcmcrs <- function(x, scalar_only = FALSE, terms = FALSE, ...) {
 
 #' @export
 `pars<-.mcmc` <- function(x, value) {
-  term <- set_pars(term(x), value)
+  term <- set_pars(as.term(x), value)
   colnames(x) <- as.character(term)
   x
 }

@@ -44,7 +44,7 @@ coef.mcarray <- function(object, conf_level = 0.95, estimate = stats::median, ..
 #' @describeIn coef Get coefficients for terms in mcmc object
 #' @export
 coef.mcmc <- function(object, conf_level = 0.95, estimate = stats::median, ...) {
-  term <- term(object)
+  term <- as.term(object)
   object <- t(object)
   object <- apply(object, MARGIN = 1, FUN = coef, conf_level = conf_level, estimate = estimate)
   object <- do.call(rbind, object)

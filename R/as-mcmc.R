@@ -9,7 +9,7 @@ as.mcmc.mcarray <- function(x, ...) as.mcmc(as.mcmcarray(x))
 #' @export
 as.mcmc.mcmcarray <- function(x, ...) {
   if(nchains(x) != 1) err("x must only have 1 chain")
-  term <- term(x)
+  term <- as.term(x)
   x <- apply(x, 1, identity)
   x <- matrix(x, ncol = length(term))
   colnames(x) <- as.character(term)

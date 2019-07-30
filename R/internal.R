@@ -92,3 +92,9 @@ abind <- function(x, x2, along, dimnames = TRUE) {
   if(!isTRUE(dimnames)) dimnames(x) <- NULL
   x
 }
+
+`pars<-.character` <- function(x, value) {
+  x <- as.term(x)
+  pars(x) <- value
+  as.character(x)
+}
