@@ -1,15 +1,8 @@
 #' @export
-npars.mcmc <- function(x, repair = TRUE, ...) {
-  check_flag(repair)
-  check_unused(...)
-  npars(as.term(x), repair = repair)
-}
+npars.mcmc <- function(x, ...) npars(as.term(x))
 
 #' @export
-npars.mcmc.list <- function(x, repair = TRUE, ...) {
-  check_unused(...)
-  npars(x[[1]], repair = repair)
-}
+npars.mcmc.list <- function(x, ...) npars(x[[1]])
 
 #' @export
 npars.mcarray <- function(x, ...) 1L

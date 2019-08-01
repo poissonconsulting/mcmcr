@@ -17,7 +17,7 @@ Imports:
     coda,
     utils,
     stats,
-    term (>= 0.0.0.9101),
+    term (>= 0.0.0.9102),
     nlist (>= 0.0.0.9100),
     purrr
 Suggests:
