@@ -3,9 +3,6 @@
 \name{collapse_chains}
 \alias{collapse_chains}
 \title{Collapse Chains}
-\usage{
-collapse_chains(x, ...)
-}
 \arguments{
 \item{x}{An MCMC object.}
 

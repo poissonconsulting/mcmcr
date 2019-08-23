@@ -10,8 +10,6 @@
 \alias{niters.mcmcrs}
 \title{Number of MCMC samples}
 \usage{
-niters(x, ...)
-
 \method{niters}{mcarray}(x, ...)
 
 \method{niters}{mcmc}(x, ...)

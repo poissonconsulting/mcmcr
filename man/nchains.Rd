@@ -8,12 +8,8 @@
 \alias{nchains.mcmcarray}
 \alias{nchains.mcmcr}
 \alias{nchains.mcmcrs}
-\alias{nchains.nlist}
-\alias{nchains.nlists}
 \title{Number of MCMC chains}
 \usage{
-nchains(x, ...)
-
 \method{nchains}{mcarray}(x, ...)
 
 \method{nchains}{mcmc}(x, ...)
@@ -25,10 +21,6 @@ nchains(x, ...)
 \method{nchains}{mcmcr}(x, ...)
 
 \method{nchains}{mcmcrs}(x, ...)
-
-\method{nchains}{nlist}(x, ...)
-
-\method{nchains}{nlists}(x, ...)
 }
 \arguments{
 \item{x}{An MCMC object}
@@ -54,14 +46,6 @@ Gets the number of chains of an MCMC object.
 \item \code{mcmcr}: Number of chains of an mcmcr object
 
 \item \code{mcmcrs}: Number of chains of an mcmcrs object
-
-\item \code{nlist}: Number of chains of an \code{\link[nlist]{nlist_object}}
-
-Always 1L.
-
-\item \code{nlists}: Number of chains of an \code{\link[nlist]{nlists_object}}
-
-Always 1L.
 }}
 
 \examples{

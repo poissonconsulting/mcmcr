@@ -6,8 +6,6 @@
 \alias{split_chains.mcmcr}
 \title{Split Chains}
 \usage{
-split_chains(x, ...)
-
 \method{split_chains}{mcmcarray}(x, ...)
 
 \method{split_chains}{mcmcr}(x, ...)

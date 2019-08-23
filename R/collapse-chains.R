@@ -4,12 +4,11 @@
 #'
 #' @param x An MCMC object.
 #' @param ... Unused.
+#' @name collapse_chains
 #' @export
 #' @examples
 #' collapse_chains(mcmcr_example)
-collapse_chains <- function(x, ...) {
-  UseMethod("collapse_chains")
-}
+NULL
 
 #' @export
 collapse_chains.default <- function(x, ...) {

@@ -23,7 +23,7 @@ as.term.mcmcarray <- function(x, ...) {
 
 #' @export
 as.term.mcmcr <- function(x, ...) {
-  parameters <- pars(x)
+  parameters <- names(x)
   x <- lapply(x, as.term)
   x <- mapply(x, parameters, FUN = function(x, y) {sub("parameter", y, x, fixed = TRUE)},
                    SIMPLIFY = FALSE)

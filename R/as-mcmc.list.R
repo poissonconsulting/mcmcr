@@ -2,18 +2,6 @@
 #' @export
 as.mcmc.list.mcarray <- function(x, ...) as.mcmc.list(as.mcmcarray(x))
 
-#' @method as.mcmc.list nlists
-#' @export
-as.mcmc.list.nlist <- function(x, ...) {
-  as.mcmc.list(coda::as.mcmc(x))
-}
-
-#' @method as.mcmc.list nlists
-#' @export
-as.mcmc.list.nlists <- function(x, ...) {
-  as.mcmc.list(coda::as.mcmc(x))
-}
-
 #' @method as.mcmc.list mcmcarray
 #' @export
 as.mcmc.list.mcmcarray <- function(x, ...) {

@@ -5,12 +5,11 @@
 #'
 #' @param x An MCMC object.
 #' @param ... Unused.
+#' @name split_chains
 #' @export
 #' @examples
 #' split_chains(mcmcr_example)
-split_chains <- function(x, ...) {
-  UseMethod("split_chains")
-}
+NULL
 
 #' @describeIn split_chains Split chains for an mcmcarray object
 #' @export

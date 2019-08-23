@@ -1,3 +1,6 @@
+- Moved `nchains()`, `niters()`, `collapse_chains()` and `split_chains()`
+generics to nlist package.
+- Replaced `pars()` argument `scalar_only = FALSE `with `scalar = NA`
 - Replaced `parameters` argument with `pars`
 - Added missing `as_df = FALSE` arg to `esr()` for mcarray, mcmc and mcmc.list
 - `estimates()` now checks fun returns scalar numeric

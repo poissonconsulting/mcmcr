@@ -5,12 +5,11 @@
 #' @param x The object
 #' @param ... Unused.
 #' @return A count indicating the number of MCMC iterations.
+#' @name niters
 #' @export
 #' @examples
 #' niters(mcmcr_example)
-niters <- function(x, ...) {
-  UseMethod("niters")
-}
+NULL
 
 niters.matrix <- function(x, ...) ncol(x)
 
