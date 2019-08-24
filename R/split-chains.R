@@ -20,8 +20,8 @@ split_chains.mcmcarray <- function(x, ...) {
 
   if(n == 0) err("x must have at least two iterations")
 
-  y <- subset(x, iterations = (n + 1L):(n * 2L))
-  x <- subset(x, iterations = 1:n)
+  y <- subset(x, iters = (n + 1L):(n * 2L))
+  x <- subset(x, iters = 1:n)
 
   bind_chains(x, y)
 }

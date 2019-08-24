@@ -1,3 +1,4 @@
+- Replaced `iterations` argument with `iters` in `subset()`.
 - Moved `nchains()`, `niters()`, `collapse_chains()` and `split_chains()`
 generics to nlist package.
 - Replaced `pars()` argument `scalar_only = FALSE `with `scalar = NA`

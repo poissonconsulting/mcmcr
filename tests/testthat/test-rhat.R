@@ -40,7 +40,7 @@ test_that("rhat.mcmcmarray", {
   expect_equal(rhat(mcmcr_example[[2]], by = "term", as_df = TRUE)$term, as.term(c("parameter[1,1]", "parameter[2,1]", "parameter[1,2]", "parameter[2,2]")))
   expect_equal(rhat(mcmcr_example[[2]], by = "term", as_df = TRUE)$rhat, c(1.147, 1.147, 1.147, 1.147))
 
-  expect_identical(rhat(subset(mcmcr_example[[2]], iterations = 1L), by = "term", as_df = TRUE)$rhat, rep(NA_real_, 4))
+  expect_identical(rhat(subset(mcmcr_example[[2]], iters = 1L), by = "term", as_df = TRUE)$rhat, rep(NA_real_, 4))
   expect_identical(rhat(mcmcr_example[[1]], "parameter"), rhat(mcmcr_example[[1]], "all"))
 })
 

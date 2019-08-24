@@ -9,32 +9,32 @@
 \alias{subset.mcmcrs}
 \title{Subset an MCMC Object}
 \usage{
-\method{subset}{mcmc}(x, iterations = NULL, pars = NULL, ...)
+\method{subset}{mcmc}(x, iters = NULL, pars = NULL, ...)
 
-\method{subset}{mcmc.list}(x, chains = NULL, iterations = NULL,
+\method{subset}{mcmc.list}(x, chains = NULL, iters = NULL,
   pars = NULL, ...)
 
-\method{subset}{mcmcarray}(x, chains = NULL, iterations = NULL, ...)
+\method{subset}{mcmcarray}(x, chains = NULL, iters = NULL, ...)
 
-\method{subset}{mcmcr}(x, chains = NULL, iterations = NULL,
-  pars = NULL, ...)
+\method{subset}{mcmcr}(x, chains = NULL, iters = NULL, pars = NULL,
+  ...)
 
-\method{subset}{mcmcrs}(x, chains = NULL, iterations = NULL,
-  pars = NULL, ...)
+\method{subset}{mcmcrs}(x, chains = NULL, iters = NULL, pars = NULL,
+  ...)
 }
 \arguments{
 \item{x}{The MCMC object to subset}
 
-\item{iterations}{An integer vector (or NULL) of the iterations to subset by.}
+\item{iters}{An integer vector of iterations.}
 
-\item{pars}{A character vector (or NULL) of the pars to subset by.}
+\item{pars}{A character vector of parameter names.}
 
-\item{...}{Unused}
+\item{...}{Unused.}
 
-\item{chains}{An integer vector (or NULL) of the chains to subset by.}
+\item{chains}{An integer vector of chains.}
 }
 \description{
-Subsets an MCMC object by its chains, iterations and/or pars.
+Subsets an MCMC object by its chains, iterations and/or parameters.
 }
 \section{Methods (by class)}{
 \itemize{
@@ -50,6 +50,6 @@ Subsets an MCMC object by its chains, iterations and/or pars.
 }}
 
 \examples{
-subset(mcmcr_example, chains = 2L, iterations = 1:100,
+subset(mcmcr_example, chains = 2L, iters = 1:100,
   pars = c("beta", "alpha"))
 }

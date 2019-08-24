@@ -15,7 +15,7 @@ test_that("as.mcmcr.mcmcarray", {
 })
 
 test_that("as.mcmcr.nlist", {
-  mcmcr <- subset(mcmcr::mcmcr_example, chains = 1L, iterations = 1L)
+  mcmcr <- subset(mcmcr::mcmcr_example, chains = 1L, iters = 1L)
   expect_identical(as.mcmcr(nlist::as.nlist(mcmcr)), mcmcr)
 })
 

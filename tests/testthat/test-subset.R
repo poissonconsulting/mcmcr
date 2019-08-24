@@ -17,6 +17,6 @@ test_that("subset.mcmcrs", {
 
 test_that("subset.mcmc.list", {
   expect_identical(pars(subset(as.mcmc.list(mcmcr_example), pars = "beta")), "beta")
-  expect_identical(niters(subset(as.mcmc.list(mcmcr_example), iterations = 10L)), 1L)
+  expect_identical(niters(subset(as.mcmc.list(mcmcr_example), iters = 10L)), 1L)
   expect_identical(nchains(subset(as.mcmc.list(mcmcr_example), chains = 2L)), 1L)
 })

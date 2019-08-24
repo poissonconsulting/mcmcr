@@ -77,8 +77,8 @@ set_class <- function(x, class) {
 
 .thin <- function(x, nthin = 1L, ...) {
   check_vector(nthin, c(1L, niters(x)), length = 1)
-  iterations <- seq(1L, niters(x), by = nthin)
-  subset(x, iterations = iterations)
+  iters <- seq(1L, niters(x), by = nthin)
+  subset(x, iters = iters)
 }
 
 tibble <- function(...) {

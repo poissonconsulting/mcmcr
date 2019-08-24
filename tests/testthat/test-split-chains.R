@@ -8,9 +8,9 @@ test_that("split_chains.mcmcarray", {
 })
 
 test_that("split_chains 1 iterations", {
-  x <- subset(mcmcr_example, iterations = 1L)
+  x <- subset(mcmcr_example, iters = 1L)
   expect_error(split_chains(x), "x must have at least two iterations")
-  x <- subset(mcmcr_example, iterations = 1:2)
+  x <- subset(mcmcr_example, iters = 1:2)
   x <- split_chains(x)
   expect_identical(nchains(x), 4L)
   expect_identical(nsims(x), 4L)
