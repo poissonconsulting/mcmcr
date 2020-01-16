@@ -34,10 +34,11 @@ bind_dimensions.mcmcarray <- function(x, x2, along = NULL, ...) {
 
 #' @export
 bind_dimensions.mcmcr <- function(x, x2, along = NULL, ...) {
-  if (!is.mcmcr(x2)) err("x2 must be an mcmcr")
-  chkor(chk_null(along),
-          check_vector(along, 1L, length = 1),
-          check_vector(along, 1L, length = npars(x)))
+  chk_s3_class(x, "mcmcr")
+  if(!is.null(along)) {
+    chk_whole_numeric(along)
+    chk_subset(length(along), c(1, npars(x)))
+  }
 
   x <- sort(x)
   x2 <- sort(x2)
