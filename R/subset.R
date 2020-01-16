@@ -73,8 +73,11 @@ subset.mcmcarray <- function(x, chains = NULL, iters = NULL, ...) {
 #' @describeIn subset Subset an mcmcr object
 #' @export
 subset.mcmcr <- function(x, chains = NULL, iters = NULL, pars = NULL, ...) {
-  chkor(chk_null(pars),
-          check_vector(pars, pars(x), unique = TRUE))
+  if(!is.null(pars)) {
+    chk_s3_class(pars, "character")
+    chk_subset(pars, pars(x))
+    chk_unique(pars)
+  }
   chk_unused(...)
 
   if (!is.null(pars)) x <- x[pars]
