@@ -11,7 +11,7 @@
 #' check_mcmcarray(mcmcr::mcmcr_example$beta)
 check_mcmcarray <- function(x, x_name = substitute(x), error = TRUE) {
   x_name <- chk_deparse(x_name)
-  check_string(x_name)
+  chk_string(x_name)
   chk_flag(error)
 
   check_inherits(x, "mcmcarray", x_name = x_name)
@@ -35,7 +35,7 @@ check_mcmcarray <- function(x, x_name = substitute(x), error = TRUE) {
 check_mcmcr <- function(x, sorted = FALSE, x_name = substitute(x), error = TRUE) {
   x_name <- chk_deparse(x_name)
   chk_flag(sorted)
-  check_string(x_name)
+  chk_string(x_name)
   chk_flag(error)
 
   check_inherits(x, "mcmcr", x_name = x_name)

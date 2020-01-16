@@ -44,7 +44,7 @@ as.mcmcr.mcarray <- function(x, name = "par", ...) {
 #' @describeIn as.mcmcr Convert an \code{\link{mcmcarray-object}} to an mcmcr object
 #' @export
 as.mcmcr.mcmcarray <- function(x, name = "par", ...) {
-  check_string(name)
+  chk_string(name)
   chk_unused(...)
   x <- list(x)
   names(x) <- name

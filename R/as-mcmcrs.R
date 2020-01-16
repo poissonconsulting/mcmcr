@@ -46,7 +46,7 @@ as.mcmcrs.list <- function(x, ...) {
 #' @describeIn as.mcmcrs Convert an \code{\link{mcmcr-object}} to an mcmcrs object
 #' @export
 as.mcmcrs.mcmcr <- function(x, name = "mcmcr1", ...) {
-  check_string(name)
+  chk_string(name)
   chk_unused(...)
 
   x <- list(x)
