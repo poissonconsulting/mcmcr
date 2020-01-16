@@ -20,7 +20,8 @@ converged <- function(x, ...) UseMethod("converged")
 converged.default <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FALSE,
                               ...) {
   check_vector(rhat, c(1.0, 10), length = 1)
-  check_probability(esr)
+  chk_number(esr)
+  chk_range(esr)
   chk_unused(...)
 
   esrs <- esr(x, by = by, as_df = as_df)

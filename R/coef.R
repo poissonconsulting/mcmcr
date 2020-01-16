@@ -18,7 +18,8 @@ NULL
 
 #' @export
 coef.numeric <- function(object, conf_level = 0.95, estimate = stats::median, ...) {
-  check_probability(conf_level)
+  chk_number(conf_level)
+  chk_range(conf_level)
   chk_function(estimate)
 
   lower <- (1 - conf_level) / 2
