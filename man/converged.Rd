@@ -7,8 +7,7 @@
 \usage{
 converged(x, ...)
 
-\method{converged}{default}(x, rhat = 1.1, esr = 0.33, by = "all",
-  as_df = FALSE, ...)
+\method{converged}{default}(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FALSE, ...)
 }
 \arguments{
 \item{x}{An object.}

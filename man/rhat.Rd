@@ -22,8 +22,7 @@ rhat(x, ...)
 
 \method{rhat}{mcmcr}(x, by = "all", as_df = FALSE, ...)
 
-\method{rhat}{mcmcrs}(x, by = "all", as_df = FALSE, bound = FALSE,
-  ...)
+\method{rhat}{mcmcrs}(x, by = "all", as_df = FALSE, bound = FALSE, ...)
 }
 \arguments{
 \item{x}{An MCMC object.}

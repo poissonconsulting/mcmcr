@@ -7,8 +7,7 @@
 \usage{
 estimates(object, ...)
 
-\method{estimates}{mcarray}(object, fun = stats::median, as_df = FALSE,
-  ...)
+\method{estimates}{mcarray}(object, fun = stats::median, as_df = FALSE, ...)
 }
 \arguments{
 \item{object}{An MCMC object.}

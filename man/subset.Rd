@@ -11,16 +11,13 @@
 \usage{
 \method{subset}{mcmc}(x, iters = NULL, pars = NULL, ...)
 
-\method{subset}{mcmc.list}(x, chains = NULL, iters = NULL,
-  pars = NULL, ...)
+\method{subset}{mcmc.list}(x, chains = NULL, iters = NULL, pars = NULL, ...)
 
 \method{subset}{mcmcarray}(x, chains = NULL, iters = NULL, ...)
 
-\method{subset}{mcmcr}(x, chains = NULL, iters = NULL, pars = NULL,
-  ...)
+\method{subset}{mcmcr}(x, chains = NULL, iters = NULL, pars = NULL, ...)
 
-\method{subset}{mcmcrs}(x, chains = NULL, iters = NULL, pars = NULL,
-  ...)
+\method{subset}{mcmcrs}(x, chains = NULL, iters = NULL, pars = NULL, ...)
 }
 \arguments{
 \item{x}{The MCMC object to subset}
