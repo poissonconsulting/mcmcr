@@ -15,7 +15,7 @@ mcmc_aperm <- function(x, perm, ...) {
 
 #' @export
 mcmc_aperm.mcmcarray <- function(x, perm = NULL, ...) {
-  checkor(check_null(perm),
+  chkor(chk_null(perm),
           check_vector(perm, 1:npdims(x), only = TRUE, unique = TRUE))
   chk_unused(...)
 

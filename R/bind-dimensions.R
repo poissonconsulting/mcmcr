@@ -18,7 +18,7 @@ bind_dimensions <- function(x, x2, along = NULL, ...) {
 #' @export
 bind_dimensions.mcmcarray <- function(x, x2, along = NULL, ...) {
   if (!is.mcmcarray(x)) err("x2 must be an mcmcarray")
-  checkor(check_null(along), check_count(along))
+  chkor(chk_null(along), check_count(along))
 
   if (!identical(nchains(x), nchains(x2)))
     err("x and x2 must have the same number of chains")
@@ -35,7 +35,7 @@ bind_dimensions.mcmcarray <- function(x, x2, along = NULL, ...) {
 #' @export
 bind_dimensions.mcmcr <- function(x, x2, along = NULL, ...) {
   if (!is.mcmcr(x2)) err("x2 must be an mcmcr")
-  checkor(check_null(along),
+  chkor(chk_null(along),
           check_vector(along, 1L, length = 1),
           check_vector(along, 1L, length = npars(x)))
 

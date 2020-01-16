@@ -14,8 +14,8 @@ NULL
 #' @describeIn subset Subset an mcmc object
 #' @export
 subset.mcmc <- function(x, iters = NULL, pars = NULL, ...) {
-  checkor(check_null(iters), check_vector(iters, c(1L,niters(x))))
-  checkor(check_null(pars),
+  chkor(chk_null(iters), check_vector(iters, c(1L,niters(x))))
+  chkor(chk_null(pars),
           check_vector(pars, pars(x), unique = TRUE))
   chk_unused(...)
 
@@ -28,7 +28,7 @@ subset.mcmc <- function(x, iters = NULL, pars = NULL, ...) {
 #' @describeIn subset Subset an mcmc.list object
 #' @export
 subset.mcmc.list <- function(x, chains = NULL, iters = NULL, pars = NULL, ...) {
-  checkor(check_null(chains), check_vector(chains, c(1L,nchains(x))))
+  chkor(chk_null(chains), check_vector(chains, c(1L,nchains(x))))
   chk_unused(...)
 
   if(!is.null(chains))
@@ -41,8 +41,8 @@ subset.mcmc.list <- function(x, chains = NULL, iters = NULL, pars = NULL, ...) {
 #' @describeIn subset Subset an mcmcarray object
 #' @export
 subset.mcmcarray <- function(x, chains = NULL, iters = NULL, ...) {
-  checkor(check_null(chains), check_vector(chains, c(1L,nchains(x))))
-  checkor(check_null(iters), check_vector(iters, c(1L,niters(x))))
+  chkor(chk_null(chains), check_vector(chains, c(1L,nchains(x))))
+  chkor(chk_null(iters), check_vector(iters, c(1L,niters(x))))
   chk_unused(...)
 
   if (!is.null(chains)) x <- abind::asub(x, chains, 1L, drop = FALSE)
@@ -54,7 +54,7 @@ subset.mcmcarray <- function(x, chains = NULL, iters = NULL, ...) {
 #' @describeIn subset Subset an mcmcr object
 #' @export
 subset.mcmcr <- function(x, chains = NULL, iters = NULL, pars = NULL, ...) {
-  checkor(check_null(pars),
+  chkor(chk_null(pars),
           check_vector(pars, pars(x), unique = TRUE))
   chk_unused(...)
 
