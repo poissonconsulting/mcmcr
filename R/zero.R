@@ -29,7 +29,9 @@ zero.mcmcarray <- function(x, ...) set_class(array(0, dims(x)), "mcmcarray")
 #' @export
 zero.mcmcr <- function(x, pars = NULL, ...) {
   if(!is.null(pars)) {
-    check_vector(pars, rep(pars(x), 3), unique = TRUE)
+    chk_s3_class(pars, "character")
+    chk_subset(pars, pars(x))
+    chk_unique(pars)
   } else
     pars <- pars(x)
 
