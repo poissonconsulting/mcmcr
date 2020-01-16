@@ -39,7 +39,8 @@ check_mcmcr <- function(x, sorted = FALSE, x_name = substitute(x), error = TRUE)
   chk_flag(error)
 
   check_inherits(x, "mcmcr", x_name = x_name)
-  check_named(x, unique = TRUE)
+  chk_named(x)
+  chk_unique(names(x))
   if(sorted) check_sorted(names(x), x_name = p0("names of ", x_name), error = error)
   mapply(check_mcmcarray, x, x_name = p0("parameter '", pars(x), "' of ", x_name),
          MoreArgs = list(error = error))

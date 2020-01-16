@@ -1,5 +1,5 @@
 #' @import err checkr term nlist
-#' @importFrom chk chk_unused chk_null chkor chk_flag
+#' @importFrom chk chk_unused chk_null chkor chk_flag chk_named chk_unique
 #' @importFrom coda as.mcmc.list as.mcmc thin mcmc.list
 #' @importFrom graphics plot
 #' @importFrom stats coef terms

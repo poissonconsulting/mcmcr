@@ -17,7 +17,8 @@ as.mcmcr <- function(x, ...) UseMethod("as.mcmcr")
 #' @export
 as.mcmcr.list <- function(x, ...) {
   check_length(x)
-  check_named(x, unique = TRUE)
+  chk_named(x)
+  chk_unique(names(x))
 
   x <- lapply(x, as.mcmcarray)
 
