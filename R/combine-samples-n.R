@@ -23,7 +23,7 @@ combine_samples_n.default <- function(x, ..., fun = mean) {
 #' @export
 combine_samples_n.list <- function(x, ..., fun = mean) {
   check_list(x)
-  check_length(x)
+  chk_not_empty(x)
 
   names(x) <- NULL
   x$fun <- fun

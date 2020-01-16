@@ -16,7 +16,7 @@ as.mcmcr <- function(x, ...) UseMethod("as.mcmcr")
 #' @describeIn as.mcarray Convert a list of uniquely named objects that can be coerced to \code{\link{mcmcarray-object}s} to an mcmcr object
 #' @export
 as.mcmcr.list <- function(x, ...) {
-  check_length(x)
+  chk_not_empty(x)
   chk_named(x)
   chk_unique(names(x))
 

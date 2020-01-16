@@ -15,7 +15,7 @@ as.mcmcrs <- function(x, ...) UseMethod("as.mcmcrs")
 #' @describeIn as.mcmcrs Convert a list of \code{\link{mcmcr-object}s} to an mcmcrs object
 #' @export
 as.mcmcrs.list <- function(x, ...) {
-  check_length(x)
+  chk_not_empty(x)
   if (!all(vapply(x, is.mcmcr, TRUE)))
     err("all objects must inherit from mcmcr")
 
