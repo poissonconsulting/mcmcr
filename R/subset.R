@@ -14,9 +14,16 @@ NULL
 #' @describeIn subset Subset an mcmc object
 #' @export
 subset.mcmc <- function(x, iters = NULL, pars = NULL, ...) {
-  chkor(chk_null(iters), check_vector(iters, c(1L,niters(x))))
-  chkor(chk_null(pars),
-          check_vector(pars, pars(x), unique = TRUE))
+  if(!is.null(iters)) {
+    chk_whole_numeric(iters)
+    chk_range(iters, c(1L, niters(x)))
+  }
+  if(!is.null(pars)) {
+    chk_s3_class(pars, "character")
+    chk_not_any_na(pars)
+    chk_unique(pars)
+    chk_subset(pars, pars(x))
+  }
   chk_unused(...)
 
   if (!is.null(pars)) x <- x[,pars(x, term = TRUE) %in% pars,drop = FALSE]
