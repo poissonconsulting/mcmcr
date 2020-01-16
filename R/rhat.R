@@ -50,7 +50,8 @@ rhat.mcmc.list <- function(x, by = "all", as_df = FALSE, ...) {
 #' @export
 rhat.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
   chk_unused(...)
-  check_vector(by, c("all", "parameter", "term"), length = 1)
+  chk_string(by)
+  chk_subset(by, c("all", "parameter", "term"))
   chk_flag(as_df)
 
   if(niters(x) < 4) {

@@ -19,7 +19,8 @@ converged <- function(x, ...) UseMethod("converged")
 #' @export
 converged.default <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FALSE,
                               ...) {
-  check_vector(rhat, c(1.0, 10), length = 1)
+  chk_number(rhat)
+  chk_range(rhat, c(1, 10))
   chk_number(esr)
   chk_range(esr)
   chk_unused(...)

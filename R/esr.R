@@ -39,7 +39,8 @@ esr.mcmc.list <- function(x, by = "all", as_df = FALSE, ...) {
 #' @export
 esr.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
   chk_unused(...)
-  check_vector(by, c("all", "parameter", "term"), length = 1)
+  chk_string(by)
+  chk_subset(by, c("all", "parameter", "term"))
 
   x <- apply(x, 3:ndims(x), FUN = .esr)
 
