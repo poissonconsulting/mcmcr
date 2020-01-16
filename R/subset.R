@@ -35,7 +35,11 @@ subset.mcmc <- function(x, iters = NULL, pars = NULL, ...) {
 #' @describeIn subset Subset an mcmc.list object
 #' @export
 subset.mcmc.list <- function(x, chains = NULL, iters = NULL, pars = NULL, ...) {
-  chkor(chk_null(chains), check_vector(chains, c(1L,nchains(x))))
+  if(!is.null(chains)) {
+    chk_whole_numeric(chains)
+    chk_not_any_na(chains)
+    chk_range(chains, c(1L, nchains(x)))
+  }
   chk_unused(...)
 
   if(!is.null(chains))
@@ -48,8 +52,16 @@ subset.mcmc.list <- function(x, chains = NULL, iters = NULL, pars = NULL, ...) {
 #' @describeIn subset Subset an mcmcarray object
 #' @export
 subset.mcmcarray <- function(x, chains = NULL, iters = NULL, ...) {
-  chkor(chk_null(chains), check_vector(chains, c(1L,nchains(x))))
-  chkor(chk_null(iters), check_vector(iters, c(1L,niters(x))))
+  if(!is.null(chains)) {
+    chk_whole_numeric(chains)
+    chk_not_any_na(chains)
+    chk_range(chains, c(1L, nchains(x)))
+  }
+  if(!is.null(iters)) {
+    chk_whole_numeric(iters)
+    chk_not_any_na(iters)
+    chk_range(iters, c(1L, niters(x)))
+  }
   chk_unused(...)
 
   if (!is.null(chains)) x <- abind::asub(x, chains, 1L, drop = FALSE)
