@@ -17,15 +17,14 @@ Imports:
     coda,
     utils,
     stats,
-    term (>= 0.0.0.9102),
-    nlist (>= 0.0.0.9100),
+    term,
+    nlist,
     purrr
 Suggests:
     covr,
     graphics,
     testthat
 Remotes:
-    poissonconsulting/term,
     poissonconsulting/nlist
 URL: https://github.com/poissonconsulting/mcmcr
 BugReports: https://github.com/poissonconsulting/mcmcr/issues
