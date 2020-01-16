@@ -19,7 +19,7 @@ mcmc_map.mcmcarray <- function(.x, .f, .by = 1:npdims(.x), ...) {
   by_all <- 1:npdims(.x)
 
   chkor(
-    check_flag(.by),
+    chk_flag(.by),
     check_vector(.by, by_all, only = TRUE, unique = TRUE, sorted = TRUE))
 
   if(isTRUE(.by)) .by <- by_all

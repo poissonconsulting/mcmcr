@@ -43,7 +43,7 @@ converged.default <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FAL
 #' @export
 converged.mcmcrs <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FALSE,
                              bound = FALSE, ...) {
-  check_flag(bound)
+  chk_flag(bound)
   chk_unused(...)
   if(bound) {
     x <- Reduce(bind_chains, x)

@@ -51,7 +51,7 @@ rhat.mcmc.list <- function(x, by = "all", as_df = FALSE, ...) {
 rhat.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
   chk_unused(...)
   check_vector(by, c("all", "parameter", "term"), length = 1)
-  check_flag(as_df)
+  chk_flag(as_df)
 
   if(niters(x) < 4) {
     if(!as_df) {
@@ -98,7 +98,7 @@ rhat.mcmcr <- function(x, by = "all", as_df = FALSE, ...) {
 #' @export
 rhat.mcmcrs <- function(x, by = "all", as_df = FALSE,
                         bound = FALSE, ...) {
-  check_flag(bound)
+  chk_flag(bound)
   chk_unused(...)
 
   if(bound) {

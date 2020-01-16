@@ -17,7 +17,7 @@
 #' term::complete_terms(mcmc)
 complete_terms.mcmc <- function(x, silent = FALSE, ...) {
 
-  check_flag(silent)
+  chk_flag(silent)
   chk_unused(...)
 
   if(!silent && anyNA(colnames(x)))

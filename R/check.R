@@ -12,7 +12,7 @@
 check_mcmcarray <- function(x, x_name = substitute(x), error = TRUE) {
   x_name <- chk_deparse(x_name)
   check_string(x_name)
-  check_flag(error)
+  chk_flag(error)
 
   check_inherits(x, "mcmcarray", x_name = x_name)
   if(!is.array(x)) err(x_name, " must be an array")
@@ -34,9 +34,9 @@ check_mcmcarray <- function(x, x_name = substitute(x), error = TRUE) {
 #' check_mcmcr(mcmcr::mcmcr_example)
 check_mcmcr <- function(x, sorted = FALSE, x_name = substitute(x), error = TRUE) {
   x_name <- chk_deparse(x_name)
-  check_flag(sorted)
+  chk_flag(sorted)
   check_string(x_name)
-  check_flag(error)
+  chk_flag(error)
 
   check_inherits(x, "mcmcr", x_name = x_name)
   check_named(x, unique = TRUE)
