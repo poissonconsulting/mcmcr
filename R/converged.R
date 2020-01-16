@@ -21,7 +21,7 @@ converged.default <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FAL
                               ...) {
   check_vector(rhat, c(1.0, 10), length = 1)
   check_probability(esr)
-  check_unused(...)
+  chk_unused(...)
 
   esrs <- esr(x, by = by, as_df = as_df)
   rhats <- rhat(x, by = by, as_df = as_df)
@@ -44,7 +44,7 @@ converged.default <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FAL
 converged.mcmcrs <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FALSE,
                              bound = FALSE, ...) {
   check_flag(bound)
-  check_unused(...)
+  chk_unused(...)
   if(bound) {
     x <- Reduce(bind_chains, x)
     return(converged(x, rhat = rhat, esr = esr, by = by, as_df = as_df))

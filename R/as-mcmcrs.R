@@ -47,7 +47,7 @@ as.mcmcrs.list <- function(x, ...) {
 #' @export
 as.mcmcrs.mcmcr <- function(x, name = "mcmcr1", ...) {
   check_string(name)
-  check_unused(...)
+  chk_unused(...)
 
   x <- list(x)
   names(x) <- name

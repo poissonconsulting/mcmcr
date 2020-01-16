@@ -18,7 +18,7 @@
 complete_terms.mcmc <- function(x, silent = FALSE, ...) {
 
   check_flag(silent)
-  check_unused(...)
+  chk_unused(...)
 
   if(!silent && anyNA(colnames(x)))
     wrn("terms with missing values have been dropped")

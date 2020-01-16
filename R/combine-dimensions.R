@@ -18,7 +18,7 @@ combine_dimensions <- function(x, fun = mean, along = NULL, ...) {
 combine_dimensions.mcmcarray <- function(x, fun = mean, along = NULL, ...) {
   check_function(fun)
   checkor(check_null(along), check_vector(along, c(1L, length(pdims(x))), length = 1))
-  check_unused(...)
+  chk_unused(...)
 
   pdims <- pdims(x)
   if(is.null(along)) along <- length(pdims)
@@ -41,7 +41,7 @@ combine_dimensions.mcmcarray <- function(x, fun = mean, along = NULL, ...) {
 #' @export
 combine_dimensions.mcmcr <- function(x, fun = mean, along = NULL, ...) {
   check_function(fun)
-  check_unused(...)
+  chk_unused(...)
 
   pdims <- pdims(x)
   lengths <- vapply(pdims, length, 1L)

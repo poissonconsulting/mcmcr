@@ -36,7 +36,7 @@ as.mcmcr.list <- function(x, ...) {
 #' @describeIn as.mcmcr Convert an mcarray object to an mcmcr object
 #' @export
 as.mcmcr.mcarray <- function(x, name = "par", ...) {
-  check_unused(...)
+  chk_unused(...)
   as.mcmcr(as.mcmcarray(x), name = name)
 }
 
@@ -44,7 +44,7 @@ as.mcmcr.mcarray <- function(x, name = "par", ...) {
 #' @export
 as.mcmcr.mcmcarray <- function(x, name = "par", ...) {
   check_string(name)
-  check_unused(...)
+  chk_unused(...)
   x <- list(x)
   names(x) <- name
   set_class(x, "mcmcr")

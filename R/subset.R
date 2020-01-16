@@ -17,7 +17,7 @@ subset.mcmc <- function(x, iters = NULL, pars = NULL, ...) {
   checkor(check_null(iters), check_vector(iters, c(1L,niters(x))))
   checkor(check_null(pars),
           check_vector(pars, pars(x), unique = TRUE))
-  check_unused(...)
+  chk_unused(...)
 
   if (!is.null(pars)) x <- x[,pars(x, term = TRUE) %in% pars,drop = FALSE]
   if (!is.null(iters)) x <- x[iters,,drop = FALSE]
@@ -29,7 +29,7 @@ subset.mcmc <- function(x, iters = NULL, pars = NULL, ...) {
 #' @export
 subset.mcmc.list <- function(x, chains = NULL, iters = NULL, pars = NULL, ...) {
   checkor(check_null(chains), check_vector(chains, c(1L,nchains(x))))
-  check_unused(...)
+  chk_unused(...)
 
   if(!is.null(chains))
     x <- x[chains]
@@ -43,7 +43,7 @@ subset.mcmc.list <- function(x, chains = NULL, iters = NULL, pars = NULL, ...) {
 subset.mcmcarray <- function(x, chains = NULL, iters = NULL, ...) {
   checkor(check_null(chains), check_vector(chains, c(1L,nchains(x))))
   checkor(check_null(iters), check_vector(iters, c(1L,niters(x))))
-  check_unused(...)
+  chk_unused(...)
 
   if (!is.null(chains)) x <- abind::asub(x, chains, 1L, drop = FALSE)
   if (!is.null(iters)) x <- abind::asub(x, iters, 2L, drop = FALSE)
@@ -56,7 +56,7 @@ subset.mcmcarray <- function(x, chains = NULL, iters = NULL, ...) {
 subset.mcmcr <- function(x, chains = NULL, iters = NULL, pars = NULL, ...) {
   checkor(check_null(pars),
           check_vector(pars, pars(x), unique = TRUE))
-  check_unused(...)
+  chk_unused(...)
 
   if (!is.null(pars)) x <- x[pars]
 
@@ -68,7 +68,7 @@ subset.mcmcr <- function(x, chains = NULL, iters = NULL, pars = NULL, ...) {
 #' @describeIn subset Subset an mcmcrs object
 #' @export
 subset.mcmcrs <- function(x, chains = NULL, iters = NULL, pars = NULL, ...) {
-  check_unused(...)
+  chk_unused(...)
 
   x <- lapply(x, FUN = subset, chains = chains, iters = iters, pars = pars)
   class(x) <- "mcmcrs"

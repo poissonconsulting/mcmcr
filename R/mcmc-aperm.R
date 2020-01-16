@@ -17,7 +17,7 @@ mcmc_aperm <- function(x, perm, ...) {
 mcmc_aperm.mcmcarray <- function(x, perm = NULL, ...) {
   checkor(check_null(perm),
           check_vector(perm, 1:npdims(x), only = TRUE, unique = TRUE))
-  check_unused(...)
+  chk_unused(...)
 
   perm_all <- 1:npdims(x)
   perm <- c(perm, if(!is.null(perm)) setdiff(perm_all, perm) else rev(perm_all))
@@ -28,7 +28,7 @@ mcmc_aperm.mcmcarray <- function(x, perm = NULL, ...) {
 
 #' @export
 mcmc_aperm.mcmc <- function(x, perm = NULL, ...) {
-  check_unused(...)
+  chk_unused(...)
   x <- as.mcmcr(x)
   x <- mcmc_aperm(x, perm = perm)
   as.mcmc(x)
@@ -36,21 +36,21 @@ mcmc_aperm.mcmc <- function(x, perm = NULL, ...) {
 
 #' @export
 mcmc_aperm.mcmc.list <- function(x, perm = NULL, ...) {
-  check_unused(...)
+  chk_unused(...)
   x <- lapply(x, mcmc_aperm, perm = perm)
   set_class(x, "mcmc.list")
 }
 
 #' @export
 mcmc_aperm.mcmcr <- function(x, perm = NULL, ...) {
-  check_unused(...)
+  chk_unused(...)
   x <- lapply(x, mcmc_aperm, perm = perm)
   set_class(x, "mcmcr")
 }
 
 #' @export
 mcmc_aperm.mcmcrs <- function(x, perm = NULL, ...) {
-  check_unused(...)
+  chk_unused(...)
   x <- lapply(x, mcmc_aperm, perm = perm)
   set_class(x, "mcmcrs")
 }

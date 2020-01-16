@@ -28,28 +28,28 @@ rhat <- function(x, ...) {
 #' @describeIn rhat R-hat for an mcarray object
 #' @export
 rhat.mcarray <- function(x, by = "all", as_df = FALSE, ...) {
-  check_unused(...)
+  chk_unused(...)
   rhat(as.mcmcarray(x), by = by, as_df = as_df)
 }
 
 #' @describeIn rhat R-hat for an mcmc object
 #' @export
 rhat.mcmc <- function(x, by = "all", as_df = FALSE, ...) {
-  check_unused(...)
+  chk_unused(...)
   rhat(as.mcmcr(x), by = by, as_df = as_df)
 }
 
 #' @describeIn rhat R-hat for an mcmc.list object
 #' @export
 rhat.mcmc.list <- function(x, by = "all", as_df = FALSE, ...) {
-  check_unused(...)
+  chk_unused(...)
   rhat(as.mcmcr(x), by = by, as_df = as_df)
 }
 
 #' @describeIn rhat R-hat for an mcmcarray object
 #' @export
 rhat.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
-  check_unused(...)
+  chk_unused(...)
   check_vector(by, c("all", "parameter", "term"), length = 1)
   check_flag(as_df)
 
@@ -80,7 +80,7 @@ rhat.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
 #' @describeIn rhat R-hat for an mcmcr object
 #' @export
 rhat.mcmcr <- function(x, by = "all", as_df = FALSE, ...) {
-  check_unused(...)
+  chk_unused(...)
   parameters <- pars(x)
   x <- lapply(x, rhat, by = by, as_df = as_df)
   if(!as_df) {
@@ -99,7 +99,7 @@ rhat.mcmcr <- function(x, by = "all", as_df = FALSE, ...) {
 rhat.mcmcrs <- function(x, by = "all", as_df = FALSE,
                         bound = FALSE, ...) {
   check_flag(bound)
-  check_unused(...)
+  chk_unused(...)
 
   if(bound) {
     x <- Reduce(bind_chains, x)
