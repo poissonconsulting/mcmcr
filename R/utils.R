@@ -8,7 +8,8 @@
 #' @examples
 #' pvalue(as.numeric(0:10))
 pvalue <- function(x) {
-  check_vector(x, c(1, NA), length = c(1, Inf))
+  chk_numeric(x)
+  if(!length(x)) return(numeric(0))
   n <- length(x)
   d <- sum(x >= 0)
   p <- min(d, n - d) * 2
