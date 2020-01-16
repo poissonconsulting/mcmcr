@@ -50,9 +50,15 @@ combine_dimensions.mcmcr <- function(x, fun = mean, along = NULL, ...) {
   pdims <- pdims(x)
   lengths <- vapply(pdims, length, 1L)
 
-  chkor(chk_null(along),
-          check_vector(along, c(1L, min(lengths)), length = 1L),
-          check_vector(along, c(1L, max(lengths)), length = length(x)))
+  if(!is.null(along)) {
+    chk_whole_numeric(along)
+    chk_not_any_na(along)
+    chk_identical(length(along), c(1L, length(x)))
+    if(length(along) == 1L) {
+      chk_range(along, c(1L, min(lengths)))
+    } else
+      chk_range(along, c(1L, max(lengths)))
+  }
 
   if(is.null(along)) {
     along <- lengths
