@@ -20,7 +20,7 @@ combine_samples <- function(x, x2, fun = mean, ...) {
 #' @export
 combine_samples.mcmcarray <- function(x, x2, fun = mean, ...) {
   if (!is.mcmcarray(x2)) err("x2 must be an mcmcarray")
-  check_function(fun)
+  chk_function(fun)
 
   x <- bind_dimensions(x, x2)
   x <- apply(x, (2:ndims(x) - 1L), fun)

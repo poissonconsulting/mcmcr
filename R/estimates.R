@@ -45,7 +45,7 @@ estimates.mcmc.list <- function(object, fun = stats::median, as_df = FALSE, ...)
 
 #' @export
 estimates.mcmcarray <- function(object, fun = stats::median, as_df = FALSE, ...) {
-  check_function(fun)
+  chk_function(fun)
   chk_flag(as_df)
 
   if(as_df)
