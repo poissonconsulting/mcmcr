@@ -39,7 +39,9 @@ pars.mcmcrs <- function(x, scalar = NA, terms = FALSE, ...) {
 
 #' @export
 `pars<-.mcmcr` <- function(x, value) {
-  check_vector(value, "", length = length(x), unique = TRUE)
+  chk_s3_class(value, "character")
+  chk_identical(length(value), length(x))
+  chk_unique(value)
   names(x) <- value
   x
 }
