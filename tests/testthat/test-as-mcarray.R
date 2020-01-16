@@ -9,7 +9,8 @@ test_that("as.mcarray", {
   expect_equal(mcarrays[[1]], as.mcarray(mcarrays[[1]]))
 
   expect_error(as.mcarray(coda::as.mcmc.list(mcmcr_example)),
-               "x must only have 1 parameter")
+               "^`x` must only have 1 parameter[.]$",
+               class = "chk_error")
 
   expect_is(as.mcarray(coda::as.mcmc.list(mcmcr_example[[1]])), "mcarray")
   expect_is(as.mcarray(as.mcarray(coda::as.mcmc.list(mcmcr_example[[1]]))), "mcarray")

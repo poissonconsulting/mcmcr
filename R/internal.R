@@ -52,8 +52,8 @@ set_class <- function(x, class) {
   stopifnot(is.matrix(object))
   nrow <- nrow(object)
   object <- apply(object, 1L, fun)
-  if(!identical(dims(object), nrow)) err("function fun must return a scalar")
-  if(!is.numeric(object)) err("function fun must return a numeric")
+  if(!identical(dims(object), nrow)) abort_chk("`fun` must return a scalar")
+  if(!is.numeric(object)) abort_chk("`fun` must return a numeric")
   object
 }
 

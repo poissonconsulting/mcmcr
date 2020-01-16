@@ -19,24 +19,24 @@ combine_samples <- function(x, x2, fun = mean, ...) {
 
 #' @export
 combine_samples.mcmcarray <- function(x, x2, fun = mean, ...) {
-  if (!is.mcmcarray(x2)) err("x2 must be an mcmcarray")
+  chk_s3_class(x2, "mcmcarray")
   chk_function(fun)
 
   x <- bind_dimensions(x, x2)
   x <- apply(x, (2:ndims(x) - 1L), fun)
 
-  if(!identical(dims(x), dims(x2))) err("function fun must return a scalar")
+  if(!identical(dims(x), dims(x2))) abort_chk("`fun` must return a scalar")
   set_class(x, "mcmcarray")
 }
 
 #' @export
 combine_samples.mcmcr <- function(x, x2, fun = mean, ...) {
-  if (!is.mcmcr(x2)) err("x2 must be an mcmcr")
+  chk_s3_class(x2, "mcmcr")
   x <- sort(x)
   x2 <- sort(x2)
 
   if (!identical(pdims(x), pdims(x2)))
-    err("x and x2 must have the same parameter dimensions")
+    abort_chk("`x` and `x2` must have the same parameter dimensions")
 
   x <- bind_dimensions(x, x2)
   x <- lapply(x, function(x, fun) {apply(x, (2:ndims(x) - 1L), fun)}, fun = fun)
@@ -44,6 +44,6 @@ combine_samples.mcmcr <- function(x, x2, fun = mean, ...) {
   x <- set_class(x, "mcmcr")
 
   if (!identical(pdims(x), pdims(x2)))
-    err("function fun must return a scalar")
+    abort_chk("`fun` must return a scalar")
   x
 }

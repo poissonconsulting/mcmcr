@@ -15,13 +15,13 @@ bind_parameters <- function(x, x2, ...) {
 
 #' @export
 bind_parameters.mcmc <- function(x, x2, ...) {
-  if (!coda::is.mcmc(x2)) err("x2 must be an mcmc.list")
+  chk_s3_class(x2, "mcmc")
 
   if (length(intersect(pars(x), pars(x2))))
-    err("x and x2 must not have any of the same parameters")
+    abort_chk("`x` and `x2` must not have any of the same parameters")
 
   if (!identical(niters(x), niters(x2)))
-    err("x and x2 must have the same number of iterations")
+    abort_chk("`x` and `x2` must have the same number of iterations")
 
   x <- abind(x, x2, along = 2)
   x <- as.mcmc(x)
@@ -30,16 +30,16 @@ bind_parameters.mcmc <- function(x, x2, ...) {
 
 #' @export
 bind_parameters.mcmc.list <- function(x, x2, ...) {
-  if (!coda::is.mcmc.list(x2)) err("x2 must be an mcmc.list")
+  chk_s3_class(x2, "mcmc.list")
 
   if (length(intersect(pars(x), pars(x2))))
-    err("x and x2 must not have any of the same parameters")
+    abort_chk("`x` and `x2` must not have any of the same parameters")
 
-    if (!identical(nchains(x), nchains(x2)))
-    err("x and x2 must have the same number of chains")
+  if (!identical(nchains(x), nchains(x2)))
+    abort_chk("`x` and `x2` must have the same number of chains")
 
   if (!identical(niters(x), niters(x2)))
-    err("x and x2 must have the same number of iterations")
+    abort_chk("`x` and `x2` must have the same number of iterations")
 
   x <- mapply(x, x2, FUN = bind_parameters, SIMPLIFY = FALSE)
   set_class(x, "mcmc.list")
@@ -47,16 +47,16 @@ bind_parameters.mcmc.list <- function(x, x2, ...) {
 
 #' @export
 bind_parameters.mcmcr <- function(x, x2, ...) {
-  if (!is.mcmcr(x)) err("x2 must be an mcmcr")
+  chk_s3_class(x2, "mcmcr")
 
   if (length(intersect(pars(x), pars(x2))))
-    err("x and x2 must not have any of the same parameters")
+    abort_chk("`x` and `x2` must not have any of the same parameters")
 
-    if (!identical(nchains(x), nchains(x2)))
-    err("x and x2 must have the same number of chains")
+  if (!identical(nchains(x), nchains(x2)))
+    abort_chk("`x` and `x2` must have the same number of chains")
 
   if (!identical(niters(x), niters(x2)))
-    err("x and x2 must have the same number of iterations")
+    abort_chk("`x` and `x2` must have the same number of iterations")
 
   x <- c(x, x2)
   x <- set_class(x, "mcmcr")

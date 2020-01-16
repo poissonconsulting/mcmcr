@@ -16,8 +16,7 @@ as.mcmcrs <- function(x, ...) UseMethod("as.mcmcrs")
 #' @export
 as.mcmcrs.list <- function(x, ...) {
   chk_not_empty(x)
-  if (!all(vapply(x, is.mcmcr, TRUE)))
-    err("all objects must inherit from mcmcr")
+  chk_all(x, chk_s3_class, class = "mcmcr")
 
   nchains <- vapply(x, nchains, 1L)
   niters <- vapply(x, niters, 1L)
@@ -25,21 +24,21 @@ as.mcmcrs.list <- function(x, ...) {
   pars <- lapply(x, pars)
 
   if (!identical(length(unique(nchains)), 1L))
-    err("all objects must have the same number of chains")
+    abort_chk("all objects must have the same number of chains")
 
   if (!identical(length(unique(niters)), 1L))
-    err("all objects must have the same number of iterations")
+    abort_chk("all objects must have the same number of iterations")
 
   if (!identical(length(unique(pars)), 1L))
-    err("all objects must have the same parameters")
+    abort_chk("all objects must have the same parameters")
 
   if (!identical(length(unique(pdims)), 1L))
-    err("all objects must have the same parameter dimensions")
+    abort_chk("all objects must have the same parameter dimensions")
 
   if(is.null(names(x))) {
     names(x) <- paste0("mcmcr", 1:length(x))
   } else
-    if(anyDuplicated(names(x))) err("mcmcr objects must have unique names")
+    if(anyDuplicated(names(x))) abort_chk("mcmcr objects must have unique names")
   set_class(x, "mcmcrs")
 }
 

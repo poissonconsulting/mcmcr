@@ -28,7 +28,7 @@ as.mcmcarray.mcmcarray <- function(x, ...) x
 
 #' @export
 as.mcmcarray.mcmc <- function(x, ...) {
-  if(npars(x) != 1) err("x must only have 1 parameter")
+  if(npars(x) != 1) abort_chk("`x` must only have 1 parameter")
 
   x <- complete_terms(x)
   x <- array(data = as.vector(x), dim = c(1, niters(x), pdims(x)[[1]]))
@@ -42,6 +42,6 @@ as.mcmcarray.mcmc.list <- function(x, ...) as.mcmcarray(as.mcmcr(x))
 
 #' @export
 as.mcmcarray.mcmcr <- function(x, ...) {
-  if(npars(x) != 1) err("x must only have 1 parameter")
+  if(npars(x) != 1) abort_chk("`x` must only have 1 parameter")
   x[[1]]
 }

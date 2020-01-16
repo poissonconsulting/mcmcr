@@ -45,12 +45,12 @@ test_that("estimates not as list", {
 
 test_that("estimates not scalar", {
   expect_error(estimates(mcmcr::mcmcr_example, fun = function(x) NULL),
-               "function fun must return a scalar")
+               "^`fun` must return a scalar[.]$", class = "chk_error")
   expect_error(estimates(mcmcr::mcmcr_example, fun = identity),
-               "function fun must return a scalar")
+               "^`fun` must return a scalar[.]$", class = "chk_error")
 })
 
 test_that("estimates not numeric", {
   expect_error(estimates(mcmcr::mcmcr_example, fun = function(x) as.character(sum(x))),
-               "function fun must return a numeric")
+               "^`fun` must return a numeric[.]$", class = "chk_error")
 })

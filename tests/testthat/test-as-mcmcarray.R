@@ -2,7 +2,8 @@ context("as-mcmcarray")
 
 test_that("as.mcmcarray.mcmc with multiple parameters",{
   expect_error(as.mcmcarray(as.mcmc(subset(mcmcr::mcmcr_example, chains = 1L))),
-               "x must only have 1 parameter")
+               "^`x` must only have 1 parameter[.]$",
+               class = "chk_error")
 })
 
 test_that("as.mcmcarray.mcmc",{

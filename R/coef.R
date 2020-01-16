@@ -30,7 +30,7 @@ coef.numeric <- function(object, conf_level = 0.95, estimate = stats::median, ..
   if (anyNA(object) || identical(length(object), 1L)) quantiles[c(1,2)] <- NA
 
   estimate <- estimate(object)
-  if(!identical(length(estimate), 1L)) err("function estimate must return a scalar")
+  if(!identical(length(estimate), 1L)) abort_chk("`estimate` must return a scalar")
   sd <- stats::sd(object)
   zscore = mean(object) / sd
 

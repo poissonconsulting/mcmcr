@@ -26,10 +26,10 @@ as.mcmcr.list <- function(x, ...) {
   niters <- vapply(x, niters, 1L)
 
   if (!identical(length(unique(nchains)), 1L))
-    err("all objects must have the same number of chains")
+    abort_chk("all objects must have the same number of chains")
 
   if (!identical(length(unique(niters)), 1L))
-    err("all objects must have the same number of iterations")
+    abort_chk("all objects must have the same number of iterations")
 
   set_class(x, "mcmcr")
 }
@@ -89,6 +89,6 @@ as.mcmcr.mcmcr <- function(x, ...) x
 #' @describeIn as.mcmcr Convert tan \code{\link[mcmcr]{mcmcrs-object}} to an mcmcr object
 #' @export
 as.mcmcr.mcmcrs <- function(x, ...) {
-  if (!identical(length(x), 1L)) err("x must have one mcmcr object")
+  if (!identical(length(x), 1L)) abort_chk("`x` must have one mcmcr object")
   x[[1]]
 }

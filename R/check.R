@@ -10,13 +10,13 @@
 #' @examples
 #' check_mcmcarray(mcmcr::mcmcr_example$beta)
 check_mcmcarray <- function(x, x_name = substitute(x), error = TRUE) {
-  x_name <- chk_deparse(x_name)
+  x_name <- deparse_backtick_chk(x_name)
   chk_string(x_name)
   chk_flag(error)
 
   chk_s3_class(x, "mcmcarray", x_name = x_name)
-  if(!is.array(x)) err(x_name, " must be an array")
-  if(anyNA(x)) err(x_name, " must not include missing values")
+  if(!is.array(x)) abort_chk(x_name, " must be an array")
+  chk_not_any_na(x, x_name = x_name)
   invisible(x)
 }
 
@@ -33,7 +33,7 @@ check_mcmcarray <- function(x, x_name = substitute(x), error = TRUE) {
 #' @examples
 #' check_mcmcr(mcmcr::mcmcr_example)
 check_mcmcr <- function(x, sorted = FALSE, x_name = substitute(x), error = TRUE) {
-  x_name <- chk_deparse(x_name)
+  x_name <- deparse_backtick_chk(x_name)
   chk_flag(sorted)
   chk_string(x_name)
   chk_flag(error)
@@ -42,7 +42,7 @@ check_mcmcr <- function(x, sorted = FALSE, x_name = substitute(x), error = TRUE)
   chk_named(x)
   chk_unique(names(x))
   if(sorted) chk_sorted(names(x), x_name = p0("names of ", x_name))
-  mapply(check_mcmcarray, x, x_name = p0("parameter '", pars(x), "' of ", x_name),
+  mapply(check_mcmcarray, x, x_name = p0(x_name, " parameter '", pars(x), "'"),
          MoreArgs = list(error = error))
   invisible(x)
 }

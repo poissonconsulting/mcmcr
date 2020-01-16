@@ -38,7 +38,7 @@ combine_dimensions.mcmcarray <- function(x, fun = mean, along = NULL, ...) {
   dim(x) <- dim
   x <- set_class(x, "mcmcarray")
 
-  if(!identical(pdims(x), pdims)) err("function fun must return a scalar")
+  if(!identical(pdims(x), pdims)) abort_chk("`fun` must return a scalar")
   x
 }
 
