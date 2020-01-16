@@ -76,7 +76,8 @@ set_class <- function(x, class) {
 }
 
 .thin <- function(x, nthin = 1L, ...) {
-  check_vector(nthin, c(1L, niters(x)), length = 1)
+  chk_whole_number(nthin)
+  chk_gte(nthin, 1)
   iters <- seq(1L, niters(x), by = nthin)
   subset(x, iters = iters)
 }
