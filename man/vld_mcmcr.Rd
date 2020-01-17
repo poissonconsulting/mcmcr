@@ -3,14 +3,11 @@
 \name{vld_mcmcr}
 \alias{vld_mcmcr}
 \alias{vld_mcmcarray}
-\alias{vld_mcmcrs}
 \title{Validate MCMC Objects}
 \usage{
 vld_mcmcarray(x)
 
 vld_mcmcr(x)
-
-vld_mcmcrs(x)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -19,28 +16,26 @@ vld_mcmcrs(x)
 A flag indicating whether the object was validated.
 }
 \description{
-Validates class and structure of MCMC objects.
+Validates structure of MCMC objects.
 }
 \details{
-To simply validate class use for example \code{\link[chk]{vld_s3_class}(x, "mcmcr")}.
+To validate the class use \code{\link[chk]{vld_s3_class}(x, "class")}.
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_mcmcarray}: Validate mcmcr Object
+\item \code{vld_mcmcarray}: Validate [mcmcarray-object()]
 
-\item \code{vld_mcmcr}: Validate mcmcr Object
-
-\item \code{vld_mcmcrs}: Validate mcmcrs Object
+\item \code{vld_mcmcr}: Validate [mcmcr-object()]
 }}
 
 \examples{
-#' vld_natomic
+#' vld_mcmcarray
 vld_mcmcarray(1)
 
 # vld_mcmcr
 vld_mcmcr(1)
 vld_mcmcr(as.mcmcr(list(x = 1)))
-
-# vld_mcmcrs
-vld_mcmcrs(1)
+}
+\seealso{
+[chk_mcmcr()]
 }
