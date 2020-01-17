@@ -1,3 +1,4 @@
+- Soft-deprecated `check_mcmcarray()` and `check_mcmcr()`.
 - Added `vld_()` and `chk_()` functions for mcmcarray and mcmcr objects.
 - Replaced `iterations` argument with `iters` in `subset()`.
 - Moved `nchains()`, `niters()`, `collapse_chains()` and `split_chains()`

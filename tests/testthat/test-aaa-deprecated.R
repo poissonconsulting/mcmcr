@@ -1,4 +1,4 @@
-context("checkr")
+context("deprecated")
 
 test_that("check_mcmcarray",{
   expect_identical(check_mcmcarray(mcmcr::mcmcr_example$sigma), mcmcr::mcmcr_example$sigma)
