@@ -16,10 +16,10 @@ vld_mcmcr(x)
 A flag indicating whether the object was validated.
 }
 \description{
-Validates structure of MCMC objects.
+Validates class and structure of MCMC objects.
 }
 \details{
-To validate the class use \code{\link[chk]{vld_s3_class}(x, "class")}.
+To just validate class use \code{\link[chk]{vld_s3_class}()}.
 }
 \section{Functions}{
 \itemize{

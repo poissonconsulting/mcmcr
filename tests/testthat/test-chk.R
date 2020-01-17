@@ -12,7 +12,12 @@ test_that("chk_mcmcarray", {
 test_that("chk_mcmcr", {
   expect_null(chk_mcmcr(as.mcmcr(list(x = 1))))
   expect_invisible(chk_mcmcr(as.mcmcr(list(x = 1))))
-  expect_error(chk_mcmcr(list(x = 1)),
-               "All elements of `list[(]x = 1[)]` must be an array.",
+  expect_error(chk_mcmcr(1), "^`1` must inherit from S3 class 'mcmcr'[.]$",
+               class = "chk_error")
+  x <- list(x = 1)
+  class(x) <- "mcmcr"
+
+  expect_error(chk_mcmcr(x),
+               "All elements of `x` must be an array.",
                class = "chk_error")
 })

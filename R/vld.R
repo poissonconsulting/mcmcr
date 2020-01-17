@@ -1,8 +1,8 @@
 #' Validate MCMC Objects
 #'
-#' Validates structure of MCMC objects.
+#' Validates class and structure of MCMC objects.
 #'
-#' To validate the class use \code{\link[chk]{vld_s3_class}(x, "class")}.
+#' To just validate class use \code{\link[chk]{vld_s3_class}()}.
 #'
 #' @inheritParams chk::chk_true
 #' @return A flag indicating whether the object was validated.
@@ -31,6 +31,7 @@ vld_mcmcarray <- function(x) {
 #' vld_mcmcr(1)
 #' vld_mcmcr(as.mcmcr(list(x = 1)))
 vld_mcmcr <- function(x) {
-  vld_list(x) && vld_named(x) && vld_unique(names(x)) &&
+  vld_s3_class(x, "mcmcr") && vld_list(x) &&
+    vld_named(x) && vld_unique(names(x)) &&
     vld_all(x, vld_mcmcarray)
 }

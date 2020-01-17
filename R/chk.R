@@ -1,8 +1,8 @@
 #' Check MCMC Objects
 #'
-#' Checks structure of MCMC objects.
+#' Checks class and structure of MCMC objects.
 #'
-#' To check the class use \code{\link[chk]{chk_s3_class}(x, "class")}.
+#' To just check class use \code{\link[chk]{chk_s3_class}()}.
 #'
 #' @inheritParams chk::chk_true
 #' @return `NULL`, invisibly. Called for the side effect of throwing an error
@@ -40,7 +40,7 @@ chk_mcmcarray <- function(x, x_name = NULL) {
 #' @description
 #'
 #' `chk_mcmcr`
-#' checks if an [mcmcr-object()] while ignoring the class.
+#' checks if an [mcmcr-object()].
 #'
 #' @export
 #'
@@ -54,6 +54,7 @@ chk_mcmcr <- function(x, x_name = NULL) {
     return(invisible())
   }
   if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  chk_s3_class(x, "mcmcr", x_name = x_name)
   chk_list(x, x_name = x_name)
   chk_named(x, x_name = x_name)
   if (!vld_unique(names(x))) {

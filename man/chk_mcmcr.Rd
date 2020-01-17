@@ -19,7 +19,7 @@ chk_mcmcr(x, x_name = NULL)
   if the condition is not met.
 }
 \description{
-Checks structure of MCMC objects.
+Checks class and structure of MCMC objects.
 
 `chk_mcmcarray`
 checks if [mcmcarray-object()] object using
@@ -27,10 +27,10 @@ checks if [mcmcarray-object()] object using
 `is.array(x) && is.numeric(x)`
 
 `chk_mcmcr`
-checks if an [mcmcr-object()] while ignoring the class.
+checks if an [mcmcr-object()].
 }
 \details{
-To check the class use \code{\link[chk]{chk_s3_class}(x, "class")}.
+To just check class use \code{\link[chk]{chk_s3_class}()}.
 }
 \section{Functions}{
 \itemize{
