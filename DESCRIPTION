@@ -1,6 +1,6 @@
 Package: mcmcr
 Title: Manipulate MCMC Samples
-Version: 0.2.0.9016
+Version: 0.2.0.9017
 Authors@R: c(
     person("Joe", "Thorley", , "joe@poissonconsulting.ca", c("aut", "cre"), comment = c(ORCID = "0000-0002-7683-4592")),
     person("Poisson Consulting", role = c("cph", "fnd"))
@@ -12,7 +12,7 @@ License: MIT + file LICENSE
 Depends: R (>= 3.5)
 Imports:
     abind,
-    chk,
+    chk (>= 0.3.0.9002),
     coda,
     utils,
     stats,
@@ -24,6 +24,7 @@ Suggests:
     graphics,
     testthat
 Remotes:
+    poissonconsulting/chk
     poissonconsulting/nlist
 URL: https://github.com/poissonconsulting/mcmcr
 BugReports: https://github.com/poissonconsulting/mcmcr/issues

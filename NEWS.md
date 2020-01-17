@@ -1,3 +1,4 @@
+- Added `vld_xxx()` for mcmcarray, mcmcr and mcmcrs objects.
 - Replaced `iterations` argument with `iters` in `subset()`.
 - Moved `nchains()`, `niters()`, `collapse_chains()` and `split_chains()`
 generics to nlist package.
