@@ -24,7 +24,7 @@ Suggests:
     graphics,
     testthat
 Remotes:
-    poissonconsulting/chk
+    poissonconsulting/chk,
     poissonconsulting/nlist
 URL: https://github.com/poissonconsulting/mcmcr
 BugReports: https://github.com/poissonconsulting/mcmcr/issues
