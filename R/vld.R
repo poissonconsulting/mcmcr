@@ -35,3 +35,18 @@ vld_mcmcr <- function(x) {
     vld_named(x) && vld_unique(names(x)) &&
     vld_all(x, vld_mcmcarray)
 }
+
+#' @describeIn vld_mcmcr Validate [mcmcrs-object()]
+#'
+#' @export
+#'
+#' @examples
+#'
+#' # vld_mcmcrs
+#' vld_mcmcrs(1)
+vld_mcmcrs <- function(x) {
+  vld_s3_class(x, "mcmcrs") && vld_list(x) &&
+    vld_named(x) && vld_unique(names(x)) &&
+    vld_all(x, vld_mcmcarray)
+}
+

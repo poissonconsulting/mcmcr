@@ -25,19 +25,27 @@ samples (Brooks et al. 2011).
 
 ## Installation
 
-To install the latest release version from
-[CRAN](https://cran.r-project.org)
+To install the latest release from [CRAN](https://cran.r-project.org)
 
 ``` r
 install.packages("mcmcr")
 ```
 
-To install the latest development version from
+To install the developmental version from
 [GitHub](https://github.com/poissonconsulting/mcmcr)
 
 ``` r
 # install.packages("remotes")
 remotes::install_github("poissonconsulting/mcmcr")
+```
+
+To install the latest developmental release from the Poisson drat
+[repository](https://github.com/poissonconsulting/drat)
+
+``` r
+# install.packages("drat")
+drat::addRepo("poissonconsulting")
+install.packages("mcmcr")
 ```
 
 ## Introduction
@@ -142,6 +150,9 @@ all the summary functions in packages such as `coda`.
 
 ``` r
 library(mcmcr)
+#> Registered S3 method overwritten by 'mcmcr':
+#>   method         from 
+#>   as.mcmc.nlists nlist
 
 mcmcr_example
 #> $alpha
@@ -187,7 +198,7 @@ rhat(mcmcr_example, by = "term")
 plot(mcmcr_example[["alpha"]])
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
 ## Inspiration
 

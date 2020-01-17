@@ -30,16 +30,24 @@ knitr::opts_chunk$set(
 
 ## Installation
 
-To install the latest release version from [CRAN](https://cran.r-project.org)
-```r
+To install the latest release from [CRAN](https://cran.r-project.org)
+```{r, eval=FALSE}
 install.packages("mcmcr")
 ```
 
-To install the latest development version from [GitHub](https://github.com/poissonconsulting/mcmcr)
-```r
+To install the developmental version from [GitHub](https://github.com/poissonconsulting/mcmcr)
+```{r, eval=FALSE}
 # install.packages("remotes")
 remotes::install_github("poissonconsulting/mcmcr")
 ```
+
+To install the latest developmental release from the Poisson drat [repository](https://github.com/poissonconsulting/drat)
+```{r, eval=FALSE}
+# install.packages("drat")
+drat::addRepo("poissonconsulting")
+install.packages("mcmcr")
+```
+
 
 ## Introduction
 
