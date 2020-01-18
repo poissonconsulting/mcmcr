@@ -35,6 +35,7 @@ vld_mcmcarray(1)
 # vld_mcmcr
 vld_mcmcr(1)
 vld_mcmcr(as.mcmcr(list(x = 1)))
+vld_mcmcr(mcmcr_example)
 }
 \seealso{
 [chk_mcmcr()]

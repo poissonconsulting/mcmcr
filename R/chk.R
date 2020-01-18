@@ -61,4 +61,8 @@ chk_mcmcr <- function(x, x_name = NULL) {
     abort_chk("names(", x_name, ") must be unique.", tidy = FALSE)
   }
   chk_all(x, chk_mcmcarray, x_name = x_name)
+  if (!vld_all_identical(lapply(x, nchains))) {
+    abort_chk("mcmcarray elements of ", x_name, " must have the same number of chains", tidy = FALSE)
+  }
+  abort_chk("mcmcarray elements of ", x_name, " must have the same number of iterations", tidy = FALSE)
 }

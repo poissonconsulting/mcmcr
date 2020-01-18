@@ -30,23 +30,11 @@ vld_mcmcarray <- function(x) {
 #' # vld_mcmcr
 #' vld_mcmcr(1)
 #' vld_mcmcr(as.mcmcr(list(x = 1)))
+#' vld_mcmcr(mcmcr_example)
 vld_mcmcr <- function(x) {
   vld_s3_class(x, "mcmcr") && vld_list(x) &&
     vld_named(x) && vld_unique(names(x)) &&
-    vld_all(x, vld_mcmcarray)
+    vld_all(x, vld_mcmcarray) &&
+    vld_all_identical(lapply(x, nchains)) &&
+    vld_all_identical(lapply(x, niters))
 }
-
-#' @describeIn vld_mcmcr Validate [mcmcrs-object()]
-#'
-#' @export
-#'
-#' @examples
-#'
-#' # vld_mcmcrs
-#' vld_mcmcrs(1)
-vld_mcmcrs <- function(x) {
-  vld_s3_class(x, "mcmcrs") && vld_list(x) &&
-    vld_named(x) && vld_unique(names(x)) &&
-    vld_all(x, vld_mcmcarray)
-}
-
