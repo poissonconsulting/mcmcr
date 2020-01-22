@@ -26,6 +26,7 @@ Imports:
     term,
     nlist,
     purrr,
+    extras,
     lifecycle
 Suggests:
     covr,
@@ -35,7 +36,8 @@ RdMacros:
     lifecycle
 Remotes:
     poissonconsulting/chk,
-    poissonconsulting/nlist
+    poissonconsulting/nlist,
+    poissonconsulting/extras
 Encoding: UTF-8
 Language: en-US
 LazyData: true
