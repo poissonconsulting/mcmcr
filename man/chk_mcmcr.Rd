@@ -3,11 +3,14 @@
 \name{chk_mcmcr}
 \alias{chk_mcmcr}
 \alias{chk_mcmcarray}
+\alias{chk_mcmcrs}
 \title{Check MCMC Objects}
 \usage{
 chk_mcmcarray(x, x_name = NULL)
 
 chk_mcmcr(x, x_name = NULL)
+
+chk_mcmcrs(x, x_name = NULL)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -28,6 +31,9 @@ checks if [mcmcarray-object()] object using
 
 `chk_mcmcr`
 checks if an [mcmcr-object()].
+
+`chk_mcmcrs`
+checks if an [mcmcrs-object()].
 }
 \details{
 To just check class use \code{\link[chk]{chk_s3_class}()}.
@@ -37,6 +43,8 @@ To just check class use \code{\link[chk]{chk_s3_class}()}.
 \item \code{chk_mcmcarray}: Check mcmcarray Object
 
 \item \code{chk_mcmcr}: Check mcmcr Object
+
+\item \code{chk_mcmcrs}: Check mcmcrs Object
 }}
 
 \examples{
@@ -47,6 +55,10 @@ try(chk_mcmcarray(1))
 # chk_mcmcr
 chk_mcmcr(as.mcmcr(list(x = 1)))
 try(chk_mcmcr(1))
+
+# chk_mcmcrs
+chk_mcmcrs(as.mcmcrs(as.mcmcr(list(x = 1))))
+try(chk_mcmcrs(1))
 }
 \seealso{
 [vld_mcmcr()]

@@ -3,11 +3,14 @@
 \name{vld_mcmcr}
 \alias{vld_mcmcr}
 \alias{vld_mcmcarray}
+\alias{vld_mcmcrs}
 \title{Validate MCMC Objects}
 \usage{
 vld_mcmcarray(x)
 
 vld_mcmcr(x)
+
+vld_mcmcrs(x)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -26,6 +29,8 @@ To just validate class use \code{\link[chk]{vld_s3_class}()}.
 \item \code{vld_mcmcarray}: Validate [mcmcarray-object()]
 
 \item \code{vld_mcmcr}: Validate [mcmcr-object()]
+
+\item \code{vld_mcmcrs}: Validate [mcmcrs-object()]
 }}
 
 \examples{
@@ -34,8 +39,10 @@ vld_mcmcarray(1)
 
 # vld_mcmcr
 vld_mcmcr(1)
-vld_mcmcr(as.mcmcr(list(x = 1)))
-vld_mcmcr(mcmcr_example)
+vld_mcmcr(mcmcr::mcmcr_example)
+
+# vld_mcmcrs
+vld_mcmcrs(1)
 }
 \seealso{
 [chk_mcmcr()]
