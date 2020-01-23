@@ -1,11 +1,15 @@
 #' @export
+coda::as.mcmc
+
 as.mcmc.nlists <- function(x, ...) {
   as.mcmc(as.mcmcr(x))
 }
 
+#' @inherit coda::as.mcmc
 #' @export
 as.mcmc.mcarray <- function(x, ...) as.mcmc(as.mcmcarray(x))
 
+#' @inherit coda::as.mcmc
 #' @export
 as.mcmc.mcmcarray <- function(x, ...) {
   chk_identical(nchains(x), 1L)
@@ -16,8 +20,10 @@ as.mcmc.mcmcarray <- function(x, ...) {
   as.mcmc(x)
 }
 
+#' @inherit coda::as.mcmc
 #' @export
 as.mcmc.mcmc <- function(x, ...) x
 
+#' @inherit coda::as.mcmc
 #' @export
 as.mcmc.mcmcr <- function(x, ...) as.mcmc(as.mcmc.list(x))
