@@ -1,3 +1,7 @@
+#' @importFrom term as.term
+#' @export
+term::as.term
+
 #' @export
 as.term.mcmc <- function(x, ...) as.term(colnames(x))
 

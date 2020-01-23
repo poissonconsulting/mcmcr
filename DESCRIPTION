@@ -26,6 +26,7 @@ Imports:
     term,
     nlist,
     purrr,
+    universals,
     extras,
     lifecycle
 Suggests:
