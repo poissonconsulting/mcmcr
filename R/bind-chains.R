@@ -1,15 +1,7 @@
-#' Combine MCMC objects by chains.
-#'
-#' Combines two MCMC objects (with the same parameters and iterations) by chains.
-#'
-#' @param x an MCMC object.
-#' @param x2 a second MCMC object
-#' @param ... Unused.
 #' @export
-#' @examples
-#' bind_chains(mcmcr_example, mcmcr_example)
-bind_chains <- function(x, x2, ...) UseMethod("bind_chains")
+universals::bind_chains
 
+#' @inherit universals::bind_chains
 #' @export
 bind_chains.mcarray <- function(x, x2, ...) {
   chk_s3_class(x2, "mcarray")
@@ -24,6 +16,7 @@ bind_chains.mcarray <- function(x, x2, ...) {
   set_class(x, "mcarray")
 }
 
+#' @inherit universals::bind_chains
 #' @export
 bind_chains.mcmc <- function(x, x2, ...) {
   chk_s3_class(x2, "mcmc")
@@ -43,6 +36,7 @@ bind_chains.mcmc <- function(x, x2, ...) {
   as.mcmc.list(list(x, x2))
 }
 
+#' @inherit universals::bind_chains
 #' @export
 bind_chains.mcmc.list <- function(x, x2, ...) {
   chkor(chk_s3_class(x, "mcmc"), chk_s3_class(x, "mcmc.list"))
@@ -63,6 +57,7 @@ bind_chains.mcmc.list <- function(x, x2, ...) {
   set_class(x, "mcmc.list")
 }
 
+#' @inherit universals::bind_chains
 #' @export
 bind_chains.mcmcarray <- function(x, x2, ...) {
   chk_s3_class(x2, "mcmcarray")
@@ -77,6 +72,7 @@ bind_chains.mcmcarray <- function(x, x2, ...) {
   set_class(x, "mcmcarray")
 }
 
+#' @inherit universals::bind_chains
 #' @export
 bind_chains.mcmcr <- function(x, x2, ...) {
   chk_s3_class(x2, "mcmcr")
