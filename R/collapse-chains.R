@@ -1,15 +1,7 @@
-#' Collapse Chains
-#'
-#' Collapses an MCMC object's chains into a single chain.
-#'
-#' @param x An MCMC object.
-#' @param ... Unused.
-#' @name collapse_chains
 #' @export
-#' @examples
-#' collapse_chains(mcmcr_example)
-NULL
+universals::collapse_chains
 
+#' @inherit universals::collapse_chains
 #' @export
 collapse_chains.default <- function(x, ...) {
   nchains <- nchains(x)
@@ -19,11 +11,13 @@ collapse_chains.default <- function(x, ...) {
   Reduce(bind_iterations, x)
 }
 
+#' @inherit universals::collapse_chains
 #' @export
 collapse_chains.mcmc.list <- function(x, ...) {
   as.mcmc.list(Reduce(bind_iterations, x))
 }
 
+#' @inherit universals::collapse_chains
 #' @export
 collapse_chains.mcmcr <- function(x, ...) {
   x <- lapply(x, collapse_chains)
