@@ -2,7 +2,7 @@
 % Please edit documentation in R/nchains.R
 \name{nchains.mcarray}
 \alias{nchains.mcarray}
-\title{Number of MCMC Chains}
+\title{Number of Chains}
 \usage{
 \method{nchains}{mcarray}(x, ...)
 }
@@ -12,11 +12,11 @@
 \item{...}{Other arguments passed to methods.}
 }
 \value{
-An integer scalar of the number of MCMC chains.
+An integer scalar of the number of chains.
 }
 \description{
 Gets the number of chains
-of a Monte Carlo Markov Chain (MCMC) object.
+of an MCMC object.
 }
 \seealso{
 Other {MCMC dimensions}: 

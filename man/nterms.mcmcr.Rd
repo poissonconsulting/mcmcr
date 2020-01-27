@@ -2,7 +2,7 @@
 % Please edit documentation in R/nterms.R
 \name{nterms.mcmcr}
 \alias{nterms.mcmcr}
-\title{Number of MCMC Terms}
+\title{Number of Terms}
 \usage{
 \method{nterms}{mcmcr}(x, ...)
 }
@@ -12,11 +12,11 @@
 \item{...}{Other arguments passed to methods.}
 }
 \value{
-A count of the number of terms.
+A integer scalar of the number of terms.
 }
 \description{
 Gets the number of terms
-of a Monte Carlo Markov Chain (MCMC) object.
+of an MCMC object.
 }
 \seealso{
 Other {MCMC dimensions}: 

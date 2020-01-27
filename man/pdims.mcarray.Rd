@@ -12,10 +12,10 @@
 \item{...}{Other arguments passed to methods.}
 }
 \value{
-A named list of the dimensions of each parameter.
+A named list of integer vectors of the dimensions of each parameter.
 }
 \description{
-Gets the parameter dimensions of an object.
+Gets the dimension of each parameter of an object.
 }
 \seealso{
 Other {dimensions}: 

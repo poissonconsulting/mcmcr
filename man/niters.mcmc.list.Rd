@@ -2,7 +2,7 @@
 % Please edit documentation in R/niters.R
 \name{niters.mcmc.list}
 \alias{niters.mcmc.list}
-\title{Number of MCMC Iterations}
+\title{Number of Iterations}
 \usage{
 \method{niters}{mcmc.list}(x, ...)
 }
@@ -12,11 +12,11 @@
 \item{...}{Other arguments passed to methods.}
 }
 \value{
-An integer scalar of the number of MCMC iterations.
+An integer scalar of the number of iterations.
 }
 \description{
 Gets the number of iterations (in a chain)
-of a Monte Carlo Markov Chain (MCMC) object.
+of an MCMC object.
 }
 \seealso{
 Other {MCMC dimensions}: 

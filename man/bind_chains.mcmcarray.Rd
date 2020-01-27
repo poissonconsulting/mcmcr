@@ -2,7 +2,7 @@
 % Please edit documentation in R/bind-chains.R
 \name{bind_chains.mcmcarray}
 \alias{bind_chains.mcmcarray}
-\title{Combine MCMC objects by chains.}
+\title{Bind by Chains.}
 \usage{
 \method{bind_chains}{mcmcarray}(x, x2, ...)
 }
@@ -14,15 +14,16 @@
 \item{...}{Other arguments passed to methods.}
 }
 \value{
-The combined objects.
+The combined object.
 }
 \description{
-Combines two MCMC objects (with the same parameters and iterations) by chains.
+Binds two MCMC objects (with the same parameters and iterations) by chains.
 }
 \seealso{
 Other {MCMC manipulations}: 
 \code{\link[universals]{collapse_chains}()},
 \code{\link[universals]{complete_terms}()},
+\code{\link[universals]{fill_all}()},
 \code{\link[universals]{fill_na}()},
 \code{\link[universals]{split_chains}()}
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/pars.R
 \name{pars.mcmc.list}
 \alias{pars.mcmc.list}
-\title{Get Parameters}
+\title{Parameters}
 \usage{
 \method{pars}{mcmc.list}(x, scalar = NA, terms = FALSE, ...)
 }
@@ -19,7 +19,7 @@
 A character vector of the parameter names.
 }
 \description{
-Gets character vector of parameter names.
+Gets the parameter names.
 }
 \seealso{
 Other {parameters}: 

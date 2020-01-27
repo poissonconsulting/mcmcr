@@ -14,16 +14,19 @@
 #' @examples
 #' zero(mcmcr_example, pars = "beta")
 zero <- function(x, ...) {
+  lifecycle::deprecate_soft("v0.3.0", "zero()", "fill_all()")
   UseMethod("zero")
 }
 
 #' @describeIn zero Zero an mcarray object
 #' @export
-zero.mcarray <- function(x, ...) set_class(array(0, dims(x)), "mcarray")
+zero.mcarray <- function(x, ...)
+  fill_all(x)
 
 #' @describeIn zero Zero an mcmcarray object
 #' @export
-zero.mcmcarray <- function(x, ...) set_class(array(0, dims(x)), "mcmcarray")
+zero.mcmcarray <- function(x, ...)
+  fill_all(x)
 
 #' @describeIn zero Zero an mcmcr object
 #' @export

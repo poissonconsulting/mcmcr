@@ -21,6 +21,7 @@ Collapses an MCMC object's chains into a single chain.
 Other {MCMC manipulations}: 
 \code{\link[universals]{bind_chains}()},
 \code{\link[universals]{complete_terms}()},
+\code{\link[universals]{fill_all}()},
 \code{\link[universals]{fill_na}()},
 \code{\link[universals]{split_chains}()}
 }

@@ -12,10 +12,10 @@
 \item{...}{Other arguments passed to methods.}
 }
 \value{
-The modified object with twice the chains and half the iterations.
+The modified object.
 }
 \description{
-Splits each chain in half
+Splits each of an MCMC object's chains in half
 to double the number chains
 and halve the number of iterations.
 }
@@ -24,5 +24,6 @@ Other {MCMC manipulations}:
 \code{\link[universals]{bind_chains}()},
 \code{\link[universals]{collapse_chains}()},
 \code{\link[universals]{complete_terms}()},
+\code{\link[universals]{fill_all}()},
 \code{\link[universals]{fill_na}()}
 }

@@ -9,6 +9,8 @@
 \item{scalar}{A logical scalar specifying whether to only include scalar terms.}
 
 \item{terms}{A logical scalar specifying whether to provide the parameters for each term.}
+
+\item{nas}{A flag specifying whether to also fill missing values.}
 }
 \description{
 Parameter Descriptions
