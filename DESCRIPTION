@@ -1,6 +1,6 @@
 Package: mcmcr
 Title: Manipulate MCMC Samples
-Version: 0.2.0.9018
+Version: 0.2.0.9019
 Authors@R: 
     c(person(given = "Joe",
              family = "Thorley",
@@ -24,7 +24,7 @@ Imports:
     utils,
     stats,
     term,
-    nlist,
+    nlist (>= 0.1.0.9000),
     purrr,
     universals,
     extras,
