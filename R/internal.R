@@ -75,13 +75,6 @@ set_class <- function(x, class) {
   round(rhat, 3)
 }
 
-.thin <- function(x, nthin = 1L, ...) {
-  chk_whole_number(nthin)
-  chk_gte(nthin, 1)
-  iters <- seq(1L, niters(x), by = nthin)
-  subset(x, iters = iters)
-}
-
 tibble <- function(...) {
   data <- data.frame(..., stringsAsFactors = FALSE)
   class(data) <- c("tbl_df", "tbl", "data.frame")

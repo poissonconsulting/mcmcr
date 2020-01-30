@@ -1,5 +1,5 @@
 #' @export
-universals::niters
+universals::nchains
 
 nchains.matrix <- function(x, ...) nrow(x)
 
