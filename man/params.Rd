@@ -11,6 +11,10 @@
 \item{terms}{A logical scalar specifying whether to provide the parameters for each term.}
 
 \item{nas}{A flag specifying whether to also fill missing values.}
+
+\item{nthin}{A positive integer of the thinning rate.}
+
+\item{...}{Unused.}
 }
 \description{
 Parameter Descriptions
