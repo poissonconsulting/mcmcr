@@ -8,7 +8,7 @@
 #'
 #' @references
 #' Brooks, S., Gelman, A., Jones, G.L., and Meng, X.-L. (Editors). 2011. Handbook for Markov Chain Monte Carlo. Taylor & Francis, Boca Raton.
-#' @inheritParams rhat
+#' @inheritParams params
 #' @return The esr value(s) as a data frame or list
 #' @export
 #' @examples

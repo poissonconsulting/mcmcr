@@ -1,52 +1,32 @@
-#' R-hat
-#'
-#' By default calculates the uncorrected, unfolded, univariate,
-#' split R-hat (potential scale reduction factor) values.
-#'
-#' @param x An MCMC object.
-#' @param ... Unused.
-#' @param by A string indicating whether to determine by
-#' "term", "parameter" or "all".
-#' @param as_df A flag indicating whether to return the values as a
-#' data frame versus a named list.
-#' @param bound flag specifying whether to bind mcmcrs objects by their chains before calculating rhat.
-#' @return The rhat value(s).
-#' @references
-#' Gelman, A., and Rubin, D.B. 1992. Inference from Iterative Simulation Using Multiple Sequences. Statistical Science 7(4): 457–472.
 #' @export
-#' @examples
-#' rhat(mcmcr_example)
-#' rhat(mcmcr_example, by = "parameter")
-#' rhat(mcmcr_example, by = "term")
-#' rhat(mcmcr_example, by = "term", as_df = TRUE)
-#' rhat(mcmcrs(mcmcr_example, mcmcr_example))
-#' rhat(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE)
-rhat <- function(x, ...) {
-  UseMethod("rhat")
-}
+universals::rhat
 
-#' @describeIn rhat R-hat for an mcarray object
+#' @inherit universals::rhat
+#' @inheritParams params
 #' @export
 rhat.mcarray <- function(x, by = "all", as_df = FALSE, ...) {
   chk_unused(...)
   rhat(as.mcmcarray(x), by = by, as_df = as_df)
 }
 
-#' @describeIn rhat R-hat for an mcmc object
+#' @inherit universals::rhat
+#' @inheritParams params
 #' @export
 rhat.mcmc <- function(x, by = "all", as_df = FALSE, ...) {
   chk_unused(...)
   rhat(as.mcmcr(x), by = by, as_df = as_df)
 }
 
-#' @describeIn rhat R-hat for an mcmc.list object
+#' @inherit universals::rhat
+#' @inheritParams params
 #' @export
 rhat.mcmc.list <- function(x, by = "all", as_df = FALSE, ...) {
   chk_unused(...)
   rhat(as.mcmcr(x), by = by, as_df = as_df)
 }
 
-#' @describeIn rhat R-hat for an mcmcarray object
+#' @inherit universals::rhat
+#' @inheritParams params
 #' @export
 rhat.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
   chk_unused(...)
@@ -78,8 +58,14 @@ rhat.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
   x
 }
 
-#' @describeIn rhat R-hat for an mcmcr object
+#' @inherit universals::rhat
+#' @inheritParams params
 #' @export
+#' @examples
+#' rhat(mcmcr_example)
+#' rhat(mcmcr_example, by = "parameter")
+#' rhat(mcmcr_example, by = "term")
+#' rhat(mcmcr_example, by = "term", as_df = TRUE)
 rhat.mcmcr <- function(x, by = "all", as_df = FALSE, ...) {
   chk_unused(...)
   parameters <- pars(x)
@@ -95,8 +81,12 @@ rhat.mcmcr <- function(x, by = "all", as_df = FALSE, ...) {
   x
 }
 
-#' @describeIn rhat R-hat for an mcmcrs object
+#' @inherit universals::rhat
+#' @inheritParams params
 #' @export
+#' @examples
+#' rhat(mcmcrs(mcmcr_example, mcmcr_example))
+#' rhat(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE)
 rhat.mcmcrs <- function(x, by = "all", as_df = FALSE,
                         bound = FALSE, ...) {
   chk_flag(bound)

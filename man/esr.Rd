@@ -7,7 +7,7 @@
 esr(x, ...)
 }
 \arguments{
-\item{x}{An MCMC object.}
+\item{x}{An object.}
 
 \item{...}{Unused.}
 }

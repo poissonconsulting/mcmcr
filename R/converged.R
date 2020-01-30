@@ -2,11 +2,7 @@
 #'
 #' Test whether an object has converged.
 #'
-#' @param x An object.
-#' @param rhat The maximum rhat value.
-#' @param esr The minimum effective sampling rate.
-#' @inheritParams rhat
-#' @param ... Unused.
+#' @inheritParams params
 #' @seealso \code{\link{rhat}} and \code{\link{esr}}
 #' @export
 #' @examples
