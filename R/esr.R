@@ -1,41 +1,32 @@
-#' Effective Sampling Rate
-#'
-#' Calculates the effective sampling rate (\code{esr}) based on the formula
-#' \deqn{\frac{1}{1 + 2 \sum_{k = 1}^\infty\rho_k(\theta)}}
-#' in Brooks et al. (2011).
-#' The infinite sum is truncated at
-#' lag \eqn{k} when \eqn{\rho_{k+1}(\theta) < 0}.
-#'
-#' @references
-#' Brooks, S., Gelman, A., Jones, G.L., and Meng, X.-L. (Editors). 2011. Handbook for Markov Chain Monte Carlo. Taylor & Francis, Boca Raton.
-#' @inheritParams params
-#' @return The esr value(s) as a data frame or list
 #' @export
-#' @examples
-#' esr(mcmcr_example)
-#' esr(mcmcrs(mcmcr_example, mcmcr_example))
-esr <- function(x, ...) {
-  UseMethod("esr")
-}
+universals::esr
 
+#' @inherit universals::esr
+#' @inheritParams params
 #' @export
 esr.mcarray <- function(x, by = "all", as_df = FALSE, ...) {
   chk_unused(...)
   esr(as.mcmcarray(x), by = by, as_df = as_df)
 }
 
+#' @inherit universals::esr
+#' @inheritParams params
 #' @export
 esr.mcmc <- function(x, by = "all", as_df = FALSE, ...) {
   chk_unused(...)
   esr(as.mcmcr(x), by = by, as_df = as_df)
 }
 
+#' @inherit universals::esr
+#' @inheritParams params
 #' @export
 esr.mcmc.list <- function(x, by = "all", as_df = FALSE, ...) {
   chk_unused(...)
   esr(as.mcmcr(x), by = by, as_df = as_df)
 }
 
+#' @inherit universals::esr
+#' @inheritParams params
 #' @export
 esr.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
   chk_unused(...)
@@ -55,7 +46,11 @@ esr.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
   x
 }
 
+#' @inherit universals::esr
+#' @inheritParams params
 #' @export
+#' @examples
+#' esr(mcmcr_example)
 esr.mcmcr <- function(x, by = "all", as_df = FALSE, ...) {
   chk_unused(...)
 
@@ -72,7 +67,11 @@ esr.mcmcr <- function(x, by = "all", as_df = FALSE, ...) {
   x
 }
 
+#' @inherit universals::esr
+#' @inheritParams params
 #' @export
+#' @examples
+#' esr(mcmcrs(mcmcr_example, mcmcr_example))
 esr.mcmcrs <- function(x, by = "all", as_df = FALSE, ...) {
   chk_unused(...)
 
