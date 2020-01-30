@@ -18,7 +18,7 @@ data frame versus a named list.}
 \item{...}{Other arguments passed to methods.}
 }
 \value{
-The esr value(s).
+A positive number indicating the esr value.
 }
 \description{
 Calculates the effective sampling rate (\code{esr}) based on the formula
@@ -32,4 +32,9 @@ esr(mcmcrs(mcmcr_example, mcmcr_example))
 }
 \references{
 Brooks, S., Gelman, A., Jones, G.L., and Meng, X.-L. (Editors). 2011. Handbook for Markov Chain Monte Carlo. Taylor & Francis, Boca Raton.
+}
+\seealso{
+Other {convergence}: 
+\code{\link[universals]{converged}()},
+\code{\link[universals]{rhat}()}
 }

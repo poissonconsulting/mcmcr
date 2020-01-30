@@ -1,18 +1,11 @@
-#' Object Converged
-#'
-#' Test whether an object has converged.
-#'
+#' @export
+universals::converged
+
+#' @inherit universals::converged
 #' @inheritParams params
-#' @seealso \code{\link{rhat}} and \code{\link{esr}}
 #' @export
 #' @examples
 #' converged(mcmcr_example)
-#' converged(mcmcrs(mcmcr_example, mcmcr_example))
-#' converged(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE)
-converged <- function(x, ...) UseMethod("converged")
-
-#' @describeIn converged Default Converged
-#' @export
 converged.default <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FALSE,
                               ...) {
   chk_number(rhat)
@@ -38,7 +31,12 @@ converged.default <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FAL
   utils::relist(converged, esrs)
 }
 
+#' @inherit universals::converged
+#' @inheritParams params
 #' @export
+#' @examples
+#' converged(mcmcrs(mcmcr_example, mcmcr_example))
+#' converged(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE)
 converged.mcmcrs <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FALSE,
                              bound = FALSE, ...) {
   chk_flag(bound)
