@@ -15,12 +15,11 @@
 A named list of integer vectors of the dimensions of each parameter.
 }
 \description{
-Gets the dimension of each parameter of an object.
+Gets the dimensions of each parameter of an object.
 }
 \seealso{
 Other {dimensions}: 
 \code{\link[universals]{dims}()},
 \code{\link[universals]{ndims}()},
-\code{\link[universals]{npdims}()},
-\code{\link[universals]{tindex}()}
+\code{\link[universals]{npdims}()}
 }

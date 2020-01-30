@@ -25,8 +25,4 @@ Other {MCMC dimensions}:
 \code{\link[universals]{npars}()},
 \code{\link[universals]{nsams}()},
 \code{\link[universals]{nsims}()}
-
-Other {terms}: 
-\code{\link[universals]{complete_terms}()},
-\code{\link[universals]{pars_terms}()}
 }

@@ -14,7 +14,7 @@
 #' @examples
 #' zero(mcmcr_example, pars = "beta")
 zero <- function(x, ...) {
-  lifecycle::deprecate_soft("v0.3.0", "zero()", "fill_all()")
+  lifecycle::deprecate_soft("v0.2.0.9020", "zero()", "fill_all()")
   UseMethod("zero")
 }
 

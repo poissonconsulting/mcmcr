@@ -23,6 +23,5 @@ Sets an object's parameter names.
 \seealso{
 Other {parameters}: 
 \code{\link[universals]{npars}()},
-\code{\link[universals]{pars_terms}()},
 \code{\link[universals]{pars}()}
 }

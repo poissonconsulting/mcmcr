@@ -22,7 +22,6 @@ Binds two MCMC objects (with the same parameters and iterations) by chains.
 \seealso{
 Other {MCMC manipulations}: 
 \code{\link[universals]{collapse_chains}()},
-\code{\link[universals]{complete_terms}()},
 \code{\link[universals]{fill_all}()},
 \code{\link[universals]{fill_na}()},
 \code{\link[universals]{split_chains}()}
