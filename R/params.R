@@ -9,6 +9,7 @@
 #' "term", "parameter" or "all".
 #' @param as_df A flag indicating whether to return the values as a
 #' data frame versus a named list.
+#' @param fun A function that given a numeric vector returns a numeric scalar.
 #' @param bound flag specifying whether to bind mcmcrs objects by their chains before calculating rhat.
 #' @param rhat The maximum rhat value.
 #' @param esr The minimum effective sampling rate.

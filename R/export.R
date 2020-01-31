@@ -1,0 +1,2 @@
+#' @export
+stats::median

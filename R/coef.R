@@ -17,7 +17,7 @@
 NULL
 
 #' @export
-coef.numeric <- function(object, conf_level = 0.95, estimate = stats::median, ...) {
+coef.numeric <- function(object, conf_level = 0.95, estimate = median, ...) {
   chk_number(conf_level)
   chk_range(conf_level)
   chk_function(estimate)
@@ -39,12 +39,12 @@ coef.numeric <- function(object, conf_level = 0.95, estimate = stats::median, ..
 }
 
 #' @export
-coef.mcarray <- function(object, conf_level = 0.95, estimate = stats::median, ...)
+coef.mcarray <- function(object, conf_level = 0.95, estimate = median, ...)
   coef(as.mcmc.list(object), conf_level = conf_level, estimate = estimate)
 
 #' @describeIn coef Get coefficients for terms in mcmc object
 #' @export
-coef.mcmc <- function(object, conf_level = 0.95, estimate = stats::median, ...) {
+coef.mcmc <- function(object, conf_level = 0.95, estimate = median, ...) {
   term <- as.term(object)
   object <- t(object)
   object <- apply(object, MARGIN = 1, FUN = coef, conf_level = conf_level, estimate = estimate)
@@ -56,15 +56,15 @@ coef.mcmc <- function(object, conf_level = 0.95, estimate = stats::median, ...) 
 }
 
 #' @export
-coef.mcmc.list <- function(object, conf_level = 0.95, estimate = stats::median, ...) {
+coef.mcmc.list <- function(object, conf_level = 0.95, estimate = median, ...) {
   object <- as.mcmc(collapse_chains(object))
   coef(object, conf_level = conf_level, estimate = estimate)
 }
 
 #' @export
-coef.mcmcarray <- function(object, conf_level = 0.95, estimate = stats::median, ...)
+coef.mcmcarray <- function(object, conf_level = 0.95, estimate = median, ...)
   coef(as.mcmc.list(object), conf_level = conf_level, estimate = estimate)
 
 #' @export
-coef.mcmcr <- function(object, conf_level = 0.95, estimate = stats::median, ...)
+coef.mcmcr <- function(object, conf_level = 0.95, estimate = median, ...)
   coef(as.mcmc.list(object), conf_level = conf_level, estimate = estimate)

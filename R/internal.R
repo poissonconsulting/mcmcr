@@ -48,7 +48,7 @@ set_class <- function(x, class) {
 }
 
 #' @export
-.estimates <- function(object, fun = stats::median) {
+.estimates <- function(object, fun = median) {
   stopifnot(is.matrix(object))
   nrow <- nrow(object)
   object <- apply(object, 1L, fun)

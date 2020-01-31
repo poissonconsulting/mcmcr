@@ -1,3 +1,4 @@
+- Renamed first argument of `estimates()` from `object` to `x`.
 - Soft-deprecated `zero()` for `fill_all()`.
 - Soft-deprecated `check_mcmcarray()` and `check_mcmcr()`.
 - Added `vld_()` and `chk_()` functions for mcmcarray and mcmcr objects.

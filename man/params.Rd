@@ -20,6 +20,8 @@
 \item{as_df}{A flag indicating whether to return the values as a
 data frame versus a named list.}
 
+\item{fun}{A function that given a numeric vector returns a numeric scalar.}
+
 \item{bound}{flag specifying whether to bind mcmcrs objects by their chains before calculating rhat.}
 
 \item{rhat}{The maximum rhat value.}

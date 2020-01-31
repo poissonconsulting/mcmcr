@@ -7,9 +7,9 @@
 \method{as.nlist}{mcmc.list}(x, ...)
 }
 \arguments{
-\item{x}{An R object.}
+\item{x}{An object.}
 
-\item{...}{Unused}
+\item{...}{Unused.}
 }
 \value{
 An nlist object.

@@ -4,12 +4,14 @@
 \alias{set_pars.mcmcr}
 \title{Set Parameters}
 \usage{
-\method{set_pars}{mcmcr}(x, value)
+\method{set_pars}{mcmcr}(x, value, ...)
 }
 \arguments{
 \item{x}{An object.}
 
 \item{value}{A character vector of the new parameter names.}
+
+\item{...}{Other arguments passed to methods.}
 }
 \value{
 The modified object.

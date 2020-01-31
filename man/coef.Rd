@@ -5,7 +5,7 @@
 \alias{coef.mcmc}
 \title{Term Coefficients}
 \usage{
-\method{coef}{mcmc}(object, conf_level = 0.95, estimate = stats::median, ...)
+\method{coef}{mcmc}(object, conf_level = 0.95, estimate = median, ...)
 }
 \arguments{
 \item{object}{The MCMC object to get the coefficients for}
