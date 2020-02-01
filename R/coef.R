@@ -35,7 +35,7 @@ coef.numeric <- function(object, conf_level = 0.95, estimate = median, ...) {
   zscore = mean(object) / sd
 
   tibble(estimate = estimate, sd = sd, zscore = zscore,
-    lower = quantiles[1], upper = quantiles[2], pvalue = pvalue(object))
+    lower = quantiles[1], upper = quantiles[2], pvalue = extras::pvalue(object))
 }
 
 #' @export

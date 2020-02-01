@@ -8,13 +8,8 @@
 #' @examples
 #' pvalue(as.numeric(0:10))
 pvalue <- function(x) {
-  chk_numeric(x)
-  if(!length(x)) return(numeric(0))
-  n <- length(x)
-  d <- sum(x >= 0)
-  p <- min(d, n - d) * 2
-  p <- max(p, 1)
-  round(p / n, 4)
+  deprecate_soft("0.2.0.9021", "pvalue()", "extras::pvalue()")
+  extras::pvalue(x)
 }
 
 #' Effective Sample Size
