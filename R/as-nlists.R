@@ -1,13 +1,19 @@
 #' @export
+nlist::as.nlists
+
+#' @inherit nlist::as.nlists
+#' @export
 as.nlists.mcmc <- function(x, ...) {
   as.nlists(as.mcmcr(x))
 }
 
+#' @inherit nlist::as.nlists
 #' @export
 as.nlists.mcmc.list <- function(x, ...) {
   as.nlists(as.mcmcr(x))
 }
 
+#' @inherit nlist::as.nlists
 #' @export
 as.nlists.mcmcr <- function(x, ...) {
   chk_identical(nchains(x), 1L)

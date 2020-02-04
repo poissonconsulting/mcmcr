@@ -1,6 +1,8 @@
 context("deprecated")
 
 test_that("check_mcmcarray",{
+  rlang::scoped_options(lifecycle_verbosity = "quiet")
+
   expect_identical(check_mcmcarray(mcmcr::mcmcr_example$sigma), mcmcr::mcmcr_example$sigma)
   expect_error(check_mcmcarray(1), "^`1` must inherit from S3 class 'mcmcarray'[.]$",
                class = "chk_error")
@@ -16,7 +18,9 @@ test_that("check_mcmcarray",{
 })
 
 test_that("check_mcmcr",{
-  expect_identical(check_mcmcr(mcmcr::mcmcr_example), mcmcr::mcmcr_example)
+  rlang::scoped_options(lifecycle_verbosity = "quiet")
+
+    expect_identical(check_mcmcr(mcmcr::mcmcr_example), mcmcr::mcmcr_example)
   expect_identical(check_mcmcr(mcmcr::mcmcr_example, sorted = TRUE), mcmcr::mcmcr_example)
   expect_error(check_mcmcr(1), "^`1` must inherit from S3 class 'mcmcr'[.]$",
                class = "chk_error")

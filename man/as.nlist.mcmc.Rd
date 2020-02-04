@@ -29,6 +29,6 @@ Coerce an R object to an \code{\link[nlist:nlist_object]{nlist_object()}}.
 }
 
 \examples{
-as.nlist(list(x = 1:4))
-as.nlist(c(`a[2]` = 3, `a[1]` = 2))
+as_nlist(list(x = 1:4))
+as_nlist(c(`a[2]` = 3, `a[1]` = 2))
 }
