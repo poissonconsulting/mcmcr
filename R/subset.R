@@ -26,7 +26,7 @@ subset.mcmc <- function(x, iters = NULL, pars = NULL, ...) {
   }
   chk_unused(...)
 
-  if (!is.null(pars)) x <- x[,pars(x, term = TRUE) %in% pars,drop = FALSE]
+  if (!is.null(pars)) x <- x[,pars_terms(x) %in% pars,drop = FALSE]
   if (!is.null(iters)) x <- x[iters,,drop = FALSE]
   class(x) <- "mcmc"
   x
