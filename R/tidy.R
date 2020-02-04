@@ -6,7 +6,7 @@ generics::tidy
 #' @export
 tidy.mcmc <- function(x, ...) {
   chk_unused(...)
-  tidy(as.nlists(x))
+  tidy(as_nlists(x))
 }
 
 #' @inherit generics::tidy
@@ -14,7 +14,7 @@ tidy.mcmc <- function(x, ...) {
 #' @export
 tidy.mcmc.list <- function(x, ...) {
   chk_unused(...)
-  tidy(as.nlists(x))
+  tidy(as_nlists(x))
 }
 
 #' @inherit generics::tidy
@@ -22,5 +22,5 @@ tidy.mcmc.list <- function(x, ...) {
 #' @export
 tidy.mcmc.mcmcr <- function(x, ...) {
   chk_unused(...)
-  tidy(as.nlists(x))
+  tidy(as_nlists(x))
 }

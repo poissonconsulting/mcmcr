@@ -8,8 +8,8 @@
 \name{reexports}
 \alias{reexports}
 \alias{as.mcmc}
-\alias{as.nlist}
-\alias{as.nlists}
+\alias{as_nlist}
+\alias{as_nlists}
 \alias{as.term}
 \alias{bind_chains}
 \alias{collapse_chains}
@@ -50,7 +50,7 @@ below to see their documentation.
 
   \item{generics}{\code{\link[generics]{tidy}}}
 
-  \item{nlist}{\code{\link[nlist]{as.nlist}}, \code{\link[nlist]{as.nlists}}, \code{\link[nlist]{nlist}}, \code{\link[nlist]{nlists}}}
+  \item{nlist}{\code{\link[nlist]{as_nlist}}, \code{\link[nlist]{as_nlists}}, \code{\link[nlist]{nlist}}, \code{\link[nlist]{nlists}}}
 
   \item{stats}{\code{\link[stats]{median}}}
 

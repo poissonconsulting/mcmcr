@@ -16,12 +16,12 @@ test_that("as.mcmcr.mcmcarray", {
 
 test_that("as.mcmcr.nlist", {
   mcmcr <- subset(mcmcr::mcmcr_example, chains = 1L, iters = 1L)
-  expect_identical(as.mcmcr(nlist::as.nlist(mcmcr)), mcmcr)
+  expect_identical(as.mcmcr(nlist::as_nlist(mcmcr)), mcmcr)
 })
 
 test_that("as.mcmcr.nlists", {
   mcmcr <- subset(mcmcr::mcmcr_example, chains = 1L)
-  expect_identical(as.mcmcr(nlist::as.nlists(mcmcr)), mcmcr)
+  expect_identical(as.mcmcr(nlist::as_nlists(mcmcr)), mcmcr)
 })
 
 test_that("as.mcmcr.mcmc", {

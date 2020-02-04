@@ -1,24 +1,24 @@
 #' @export
-nlist::as.nlist
+nlist::as_nlist
 
-#' @inherit nlist::as.nlist
+#' @inherit nlist::as_nlist
 #' @export
-as.nlist.mcmc <- function(x, ...) {
-  as.nlist(as.mcmcr(x))
+as_nlist.mcmc <- function(x, ...) {
+  as_nlist(as.mcmcr(x))
 }
 
-#' @inherit nlist::as.nlist
+#' @inherit nlist::as_nlist
 #' @export
-as.nlist.mcmc.list <- function(x, ...) {
-  as.nlist(as.mcmcr(x))
+as_nlist.mcmc.list <- function(x, ...) {
+  as_nlist(as.mcmcr(x))
 }
 
-#' @inherit nlist::as.nlist
+#' @inherit nlist::as_nlist
 #' @export
-as.nlist.mcmcr <- function(x, ...) {
+as_nlist.mcmcr <- function(x, ...) {
   chk_identical(nchains(x), 1L)
   chk_identical(niters(x), 1L)
 
-  x <- as.nlists(x)
+  x <- as_nlists(x)
   x[[1]]
 }
