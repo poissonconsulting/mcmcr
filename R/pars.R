@@ -83,7 +83,7 @@ pars.mcmcr <- function(x, scalar = NA, terms = FALSE, ...) {
 #' @export
 pars.mcmcrs <- function(x, scalar = NA, terms = FALSE, ...) {
 
-  x <- pars[[1]]
+  x <- x[[1]]
 
   chk_lgl(scalar)
   chk_flag(terms)
