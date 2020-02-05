@@ -1,17 +1,4 @@
 #' P-Value
-#'
-#' Calculates the p-value.
-#'
-#' @param x A vector of MCMC value
-#' @return A number indicating the p-value.
-#' @export
-#' @examples
-#' pvalue(as.numeric(0:10))
-pvalue <- function(x) {
-  deprecate_soft("0.2.0.9021", "pvalue()", "extras::pvalue()")
-  extras::pvalue(x)
-}
-
 #' Effective Sample Size
 #'
 #' Calculates the effective sample size based on \code{\link{esr}}.
