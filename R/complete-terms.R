@@ -38,7 +38,7 @@ complete_terms.mcmc <- function(x, silent = FALSE, ...) {
   if(!ncol(x)) return(x)
 
   pdims <- pdims(as.term(colnames(x)))
-  absent <- setdiff(term(pdims), as.term(colnames(x)))
+  absent <- setdiff(term(!!!pdims), as.term(colnames(x)))
 
   if(length(absent)) {
     na <- if(is.integer(x[[1]])) NA_integer_ else NA_real_
