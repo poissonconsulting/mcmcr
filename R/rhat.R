@@ -75,7 +75,11 @@ rhat.mcmcr <- function(x, by = "all", as_df = FALSE, ...) {
     return(max(unlist(x)))
   }
   x <- Map(x, parameters, f = function(x, p) { pars(x[[1]]) <- p; x})
-  x <- do.call(rbind, x)
+  x <- do.call("rbind", x)
+  # FIXME horrible hack to deal with
+  # https://github.com/poissonconsulting/term/issues/40
+  is.factor <- vapply(x, is.factor, TRUE)
+  x[is.factor] <- lapply(x[is.factor], function(x) new_term(as.character(x)))
   if (by == "all")
     return(tibble(all = "all", rhat = max(x$rhat)))
   x
