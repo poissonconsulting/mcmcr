@@ -13,8 +13,10 @@ test_that("pars.mcmcr", {
 test_that("pars.mcmcrs", {
   mcmcrs <- mcmcrs(mcmcr::mcmcr_example, mcmcr::mcmcr_example)
   expect_equal(pars(mcmcrs), c("alpha", "beta", "sigma"))
+  rlang::scoped_options(lifecycle_verbosity = "quiet")
+
   expect_equal(pars(mcmcrs, scalar = TRUE), c("sigma"))
-  expect_equal(pars(mcmcrs, scalar = FALSE), c("alpha", "beta"))
+  expect_error(pars(mcmcrs, scalar = FALSE))
   pars(mcmcrs) <- c("alpha1", "alpha2", "alpha3")
   expect_equal(pars(mcmcrs), c("alpha1", "alpha2", "alpha3"))
 })

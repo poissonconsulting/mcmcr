@@ -32,13 +32,17 @@ Imports:
 Suggests:
     covr,
     graphics,
-    testthat
+    testthat,
+    rlang,
+    tibble
 RdMacros: 
     lifecycle
 Remotes:
+    poissonconsulting/universals,
+    poissonconsulting/extras,
     poissonconsulting/chk,
-    poissonconsulting/nlist,
-    poissonconsulting/extras
+    poissonconsulting/term,
+    poissonconsulting/nlist
 Encoding: UTF-8
 Language: en-US
 LazyData: true
