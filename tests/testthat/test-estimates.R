@@ -3,10 +3,8 @@ context("estimates")
 test_that("estimates.mcarray", {
   expect_equal(estimates(as.mcarray(mcmcr_example[[1]])), c(3.718025, 4.718025))
   expect_equal(estimates(as.mcarray(mcmcr_example[[1]]), as_df = TRUE),
-               structure(list(term = structure(c("parameter[1]", "parameter[2]"
-               ), class = c("term", "character")), estimate = c(3.718025, 4.718025
-               )), class = c("tbl_df", "tbl", "data.frame"), row.names = c(NA,
-                                                                           -2L)))
+               tibble::tibble(term = term(parameter = 2),
+                              estimate = c(3.718025, 4.718025)))
 })
 
 test_that("estimates.mcmcarray", {
