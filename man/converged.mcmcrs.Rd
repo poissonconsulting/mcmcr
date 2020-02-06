@@ -2,7 +2,7 @@
 % Please edit documentation in R/converged.R
 \name{converged.mcmcrs}
 \alias{converged.mcmcrs}
-\title{Object Converged}
+\title{Converged}
 \usage{
 \method{converged}{mcmcrs}(
   x,

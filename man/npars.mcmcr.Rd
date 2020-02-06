@@ -15,7 +15,7 @@
 An integer scalar of the number of parameters.
 }
 \description{
-Gets the number of parameters of an object as returned by \code{\link[universals:pars]{pars()}}.
+Gets the number of parameters of an object.
 }
 \seealso{
 \code{\link[universals:pars]{pars()}}
@@ -23,11 +23,14 @@ Gets the number of parameters of an object as returned by \code{\link[universals
 Other {MCMC dimensions}: 
 \code{\link[universals]{nchains}()},
 \code{\link[universals]{niters}()},
+\code{\link[universals]{npars_scalar}()},
 \code{\link[universals]{nsams}()},
 \code{\link[universals]{nsims}()},
 \code{\link[universals]{nterms}()}
 
 Other {parameters}: 
+\code{\link[universals]{npars_scalar}()},
+\code{\link[universals]{pars_scalar}()},
 \code{\link[universals]{pars}()},
 \code{\link[universals]{set_pars}()}
 }

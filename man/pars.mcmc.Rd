@@ -2,7 +2,7 @@
 % Please edit documentation in R/pars.R
 \name{pars.mcmc}
 \alias{pars.mcmc}
-\title{Parameters}
+\title{Parameter Names}
 \usage{
 \method{pars}{mcmc}(x, scalar = NA, terms = FALSE, ...)
 }
@@ -23,6 +23,8 @@ Gets the parameter names.
 }
 \seealso{
 Other {parameters}: 
+\code{\link[universals]{npars_scalar}()},
 \code{\link[universals]{npars}()},
+\code{\link[universals]{pars_scalar}()},
 \code{\link[universals]{set_pars}()}
 }

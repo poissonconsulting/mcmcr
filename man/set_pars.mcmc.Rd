@@ -24,6 +24,8 @@ Sets an object's parameter names.
 }
 \seealso{
 Other {parameters}: 
+\code{\link[universals]{npars_scalar}()},
 \code{\link[universals]{npars}()},
+\code{\link[universals]{pars_scalar}()},
 \code{\link[universals]{pars}()}
 }
