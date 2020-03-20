@@ -14,7 +14,7 @@ converged.default <- function(x, rhat = 1.1, esr = 0.33, by = "all",
   chk_range(esr)
   chk_unused(...)
 
-  esrs <- esr(x, by = by, as_df = as_df)
+  esrs <- esr(x, by = by, as_df = as_df, na_rm = na_rm)
   rhats <- rhat(x, by = by, as_df = as_df, na_rm = na_rm)
 
   if(as_df) {

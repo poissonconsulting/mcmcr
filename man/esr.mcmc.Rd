@@ -4,7 +4,7 @@
 \alias{esr.mcmc}
 \title{Effective Sampling Rate}
 \usage{
-\method{esr}{mcmc}(x, by = "all", as_df = FALSE, ...)
+\method{esr}{mcmc}(x, by = "all", as_df = FALSE, na_rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An object.}
@@ -14,6 +14,8 @@
 
 \item{as_df}{A flag indicating whether to return the values as a
 data frame versus a named list.}
+
+\item{na_rm}{A flag specifying whether to ignore missing values.}
 
 \item{...}{Other arguments passed to methods.}
 }

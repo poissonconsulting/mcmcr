@@ -27,17 +27,20 @@ set_class <- function(x, class) {
 }
 
 #' @export
-.esr <- function(x, ...) {
+.esr <- function(x, na_rm) {
   stopifnot(is.matrix(x))
   niters <- niters(x)
-  x <- apply(x, 1L, .esr_numeric)
+  x <- apply(x, 1L, .esr_numeric, na_rm = na_rm)
   x <- unlist(x)
   round(mean(x), 3)
 }
 
-.esr_numeric <- function(x) {
+.esr_numeric <- function(x, na_rm) {
   stopifnot(is.numeric(x))
-  x <- stats::acf(x, lag.max = length(x) - 1, plot = FALSE)$acf[,,1]
+
+  if(!na_rm && any(is.na(x))) return(NA_real_)
+  x <- stats::acf(x, lag.max = length(x) - 1, na.action = na.pass,
+                  plot = FALSE)$acf[,,1]
 
   if (is.nan(x[1])) return(1) # all values identical
 

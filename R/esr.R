@@ -4,36 +4,36 @@ universals::esr
 #' @inherit universals::esr
 #' @inheritParams params
 #' @export
-esr.mcarray <- function(x, by = "all", as_df = FALSE, ...) {
+esr.mcarray <- function(x, by = "all", as_df = FALSE, na_rm = FALSE, ...) {
   chk_unused(...)
-  esr(as.mcmcarray(x), by = by, as_df = as_df)
+  esr(as.mcmcarray(x), by = by, as_df = as_df, na_rm = na_rm)
 }
 
 #' @inherit universals::esr
 #' @inheritParams params
 #' @export
-esr.mcmc <- function(x, by = "all", as_df = FALSE, ...) {
+esr.mcmc <- function(x, by = "all", as_df = FALSE, na_rm = FALSE,  ...) {
   chk_unused(...)
-  esr(as.mcmcr(x), by = by, as_df = as_df)
+  esr(as.mcmcr(x), by = by, as_df = as_df, na_rm = na_rm)
 }
 
 #' @inherit universals::esr
 #' @inheritParams params
 #' @export
-esr.mcmc.list <- function(x, by = "all", as_df = FALSE, ...) {
+esr.mcmc.list <- function(x, by = "all", as_df = FALSE, na_rm = FALSE,  ...) {
   chk_unused(...)
-  esr(as.mcmcr(x), by = by, as_df = as_df)
+  esr(as.mcmcr(x), by = by, as_df = as_df, na_rm = na_rm)
 }
 
 #' @inherit universals::esr
 #' @inheritParams params
 #' @export
-esr.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
+esr.mcmcarray <- function(x, by = "all", as_df = FALSE, na_rm = FALSE,  ...) {
   chk_unused(...)
   chk_string(by)
   chk_subset(by, c("all", "parameter", "term"))
 
-  x <- apply(x, 3:ndims(x), FUN = .esr)
+  x <- apply(x, 3:ndims(x), FUN = .esr, na_rm = na_rm)
 
   if(!as_df) {
     if(by == "term") return(x)
@@ -51,11 +51,11 @@ esr.mcmcarray <- function(x, by = "all", as_df = FALSE, ...) {
 #' @export
 #' @examples
 #' esr(mcmcr_example)
-esr.mcmcr <- function(x, by = "all", as_df = FALSE, ...) {
+esr.mcmcr <- function(x, by = "all", as_df = FALSE, na_rm = FALSE,  ...) {
   chk_unused(...)
 
   parameters <- pars(x)
-  x <- lapply(x, esr, by = by, as_df = as_df)
+  x <- lapply(x, esr, by = by, as_df = as_df, na_rm = na_rm)
   if(!as_df) {
     if (by != "all") return(x)
     return(min(unlist(x)))
@@ -76,8 +76,8 @@ esr.mcmcr <- function(x, by = "all", as_df = FALSE, ...) {
 #' @export
 #' @examples
 #' esr(mcmcrs(mcmcr_example, mcmcr_example))
-esr.mcmcrs <- function(x, by = "all", as_df = FALSE, ...) {
+esr.mcmcrs <- function(x, by = "all", as_df = FALSE, na_rm = FALSE,  ...) {
   chk_unused(...)
 
-  lapply(x, esr, by = by, as_df = as_df)
+  lapply(x, esr, by = by, as_df = as_df, na_rm = na_rm)
 }
