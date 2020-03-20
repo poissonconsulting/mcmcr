@@ -22,8 +22,14 @@ Sets an object's parameter names.
 \details{
 \code{value} must be a unique character vector of the same length as the object's parameters.
 }
+\examples{
+set_pars.foobar <- function(x, ...) {
+  NotYetImplemented()
+  # replace with code to set_pars for an object of class 'foobar'
+}
+}
 \seealso{
-Other {parameters}: 
+Other parameters: 
 \code{\link[universals]{npars_scalar}()},
 \code{\link[universals]{npars}()},
 \code{\link[universals]{pars_scalar}()},

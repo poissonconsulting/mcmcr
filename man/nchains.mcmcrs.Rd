@@ -18,8 +18,14 @@ An integer scalar of the number of chains.
 Gets the number of chains
 of an MCMC object.
 }
+\examples{
+nchains.foobar <- function(x, ...) {
+  NotYetImplemented()
+  # replace with code to get nchains for an object of class 'foobar'
+}
+}
 \seealso{
-Other {MCMC dimensions}: 
+Other MCMC dimensions: 
 \code{\link[universals]{niters}()},
 \code{\link[universals]{npars_scalar}()},
 \code{\link[universals]{npars}()},

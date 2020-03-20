@@ -2,17 +2,22 @@ context("rhat")
 
 test_that("rhat.matrix", {
   matrix <- matrix(1, nrow = 2, ncol = 100)
-  expect_identical(.rhat(matrix), 1)
-  matrix[1,] <- 2
-  expect_true(is.infinite(.rhat(matrix)))
+  expect_identical(.rhat(matrix, na_rm = FALSE), 1)
   matrix[1,1] <- NA
-  expect_true(is.na(.rhat(matrix)))
+  expect_true(is.na(.rhat(matrix, na_rm = FALSE)))
+  expect_identical(.rhat(matrix, na_rm = TRUE), 1)
+  matrix[1,] <- 2
+  expect_true(is.infinite(.rhat(matrix, na_rm = FALSE)))
 
   matrix <- matrix(rep(1, 50), rep(2, 50), nrow = 1, ncol = 100)
-  expect_true(is.na(.rhat(matrix)))
+  expect_true(is.na(.rhat(matrix, na_rm = FALSE)))
   matrix[1,1] <- 1.1
   matrix[1,100] <- 2.1
-  expect_true(is.na(.rhat(matrix)))
+  expect_true(is.na(.rhat(matrix, na_rm = FALSE)))
+
+  matrix <- matrix(NA_real_, nrow = 2, ncol = 100)
+  expect_true(is.na(.rhat(matrix, na_rm = FALSE)))
+  expect_true(is.na(.rhat(matrix, na_rm = TRUE)))
 })
 
 test_that("rhat.mcarry", {
@@ -56,6 +61,15 @@ test_that("rhat.mcmcr", {
   expect_equal(rhat(mcmcr_example, by = "parameter", as_df = TRUE), tibble(parameter = c("alpha", "beta", "sigma"), rhat = c(2.002, 1.147, 1)), check.attributes = FALSE)
   expect_equivalent(rhat(mcmcr_example, by = "term"), list(alpha = c(2.002, 2.002), beta = matrix(c(1.147, 1.147, 1.147, 1.147), nrow = 2.002, ncol = 2), sigma = 1))
   expect_equivalent(rhat(mcmcr_example, by = "term", as_df = TRUE), tibble(term = as.term(c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma")), rhat = c(2.002, 2.002, 1.147, 1.147, 1.147, 1.147, 1)))
+})
+
+test_that("rhat.mcmcr NA", {
+  x <- mcmcr:::mcmcr_example2
+  x$alpha[1,1,1,1,1] <- NA_real_
+  expect_identical(rhat(x), NA_real_)
+  expect_identical(rhat(x, na_rm = TRUE), 2.085)
+  expect_identical(rhat(x, by = "parameter"), list(alpha = NA_real_, beta = 1.147, sigma = 1))
+  expect_identical(rhat(x, by = "parameter", na_rm = TRUE), list(alpha = 2.085, beta = 1.147, sigma = 1))
 })
 
 test_that("rhat.mcmcrs", {

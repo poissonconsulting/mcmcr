@@ -4,7 +4,7 @@
 \alias{rhat.mcmcarray}
 \title{R-hat}
 \usage{
-\method{rhat}{mcmcarray}(x, by = "all", as_df = FALSE, ...)
+\method{rhat}{mcmcarray}(x, by = "all", as_df = FALSE, na_rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An object.}
@@ -15,6 +15,8 @@
 \item{as_df}{A flag indicating whether to return the values as a
 data frame versus a named list.}
 
+\item{na_rm}{A flag specifying whether to ignore missing values.}
+
 \item{...}{Other arguments passed to methods.}
 }
 \value{
@@ -24,11 +26,17 @@ A number >= 1 indicating the rhat value.
 Calculates the uncorrected, unfolded, univariate,
 split R-hat (potential scale reduction factor) value.
 }
+\examples{
+rhat.foobar <- function(x, ...) {
+  NotYetImplemented()
+  # replace with code to get rhat for an object of class 'foobar'
+}
+}
 \references{
 Gelman, A., and Rubin, D.B. 1992. Inference from Iterative Simulation Using Multiple Sequences. Statistical Science 7(4): 457–472.
 }
 \seealso{
-Other {convergence}: 
+Other convergence: 
 \code{\link[universals]{converged}()},
 \code{\link[universals]{esr}()}
 }

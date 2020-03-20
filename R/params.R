@@ -13,6 +13,7 @@
 #' @param bound flag specifying whether to bind mcmcrs objects by their chains before calculating rhat.
 #' @param rhat The maximum rhat value.
 #' @param esr The minimum effective sampling rate.
+#' @param na_rm A flag specifying whether to ignore missing values.
 #' @param ... Unused.
 #' @name params
 NULL

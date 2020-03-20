@@ -11,6 +11,7 @@
   by = "all",
   as_df = FALSE,
   bound = FALSE,
+  na_rm = FALSE,
   ...
 )
 }
@@ -29,6 +30,8 @@ data frame versus a named list.}
 
 \item{bound}{flag specifying whether to bind mcmcrs objects by their chains before calculating rhat.}
 
+\item{na_rm}{A flag specifying whether to ignore missing values.}
+
 \item{...}{Other arguments passed to methods.}
 }
 \value{
@@ -42,7 +45,7 @@ converged(mcmcrs(mcmcr_example, mcmcr_example))
 converged(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE)
 }
 \seealso{
-Other {convergence}: 
+Other convergence: 
 \code{\link[universals]{esr}()},
 \code{\link[universals]{rhat}()}
 }

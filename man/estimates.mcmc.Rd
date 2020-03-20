@@ -22,8 +22,14 @@ A named list or data frame.
 \description{
 Calculates the estimates for an MCMC object.
 }
+\examples{
+estimates.foobar <- function(x, ...) {
+  NotYetImplemented()
+  # replace with code to get estimates for an object of class 'foobar'
+}
+}
 \seealso{
-Other {MCMC manipulations}: 
+Other MCMC manipulations: 
 \code{\link[universals]{bind_chains}()},
 \code{\link[universals]{collapse_chains}()},
 \code{\link[universals]{fill_all}()},

@@ -58,14 +58,14 @@ set_class <- function(x, class) {
 }
 
 #' @export
-.rhat <- function(x) {
+.rhat <- function(x, na_rm) {
   stopifnot(is.matrix(x))
 
   niters <- niters(x)
   nchains <- nchains(x)
 
-  mean_chain <- apply(x, 1L, mean)
-  var_chain <- apply(x, 1L, stats::var)
+  mean_chain <- apply(x, 1L, mean, na.rm = na_rm)
+  var_chain <- apply(x, 1L, stats::var, na.rm = na_rm)
 
   var_between <- niters * stats::var(mean_chain)
   var_within <- mean(var_chain)

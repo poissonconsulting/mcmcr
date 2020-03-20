@@ -16,13 +16,19 @@
 \item{...}{Other arguments passed to methods.}
 }
 \value{
-A character vector of the parameter names.
+A character vector of the names of the parameters.
 }
 \description{
 Gets the parameter names.
 }
+\examples{
+pars.foobar <- function(x, ...) {
+  NotYetImplemented()
+  # replace with code to get pars for an object of class 'foobar'
+}
+}
 \seealso{
-Other {parameters}: 
+Other parameters: 
 \code{\link[universals]{npars_scalar}()},
 \code{\link[universals]{npars}()},
 \code{\link[universals]{pars_scalar}()},

@@ -17,8 +17,14 @@ A named list of integer vectors of the dimensions of each parameter.
 \description{
 Gets the dimensions of each parameter of an object.
 }
+\examples{
+pdims.foobar <- function(x, ...) {
+  NotYetImplemented()
+  # replace with code to get pdims for an object of class 'foobar'
+}
+}
 \seealso{
-Other {dimensions}: 
+Other dimensions: 
 \code{\link[universals]{dims}()},
 \code{\link[universals]{ndims}()},
 \code{\link[universals]{npdims}()}

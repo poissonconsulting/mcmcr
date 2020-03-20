@@ -34,7 +34,7 @@ esr(mcmcr_example)
 Brooks, S., Gelman, A., Jones, G.L., and Meng, X.-L. (Editors). 2011. Handbook for Markov Chain Monte Carlo. Taylor & Francis, Boca Raton.
 }
 \seealso{
-Other {convergence}: 
+Other convergence: 
 \code{\link[universals]{converged}()},
 \code{\link[universals]{rhat}()}
 }

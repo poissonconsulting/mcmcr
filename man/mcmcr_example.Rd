@@ -4,7 +4,9 @@
 \name{mcmcr_example}
 \alias{mcmcr_example}
 \title{An Example mcmcr Object}
-\format{An object of class \code{mcmcr} of length 3.}
+\format{
+An object of class \code{mcmcr} of length 3.
+}
 \usage{
 mcmcr_example
 }

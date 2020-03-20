@@ -28,6 +28,8 @@ data frame versus a named list.}
 
 \item{esr}{The minimum effective sampling rate.}
 
+\item{na_rm}{A flag specifying whether to ignore missing values.}
+
 \item{...}{Unused.}
 }
 \description{

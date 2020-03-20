@@ -19,8 +19,14 @@ The combined object.
 \description{
 Binds two MCMC objects (with the same parameters and iterations) by chains.
 }
+\examples{
+bind_chains.foobar <- function(x, x2, ...) {
+  NotYetImplemented()
+  # replace with code to bind_chains for an object of class 'foobar'
+}
+}
 \seealso{
-Other {MCMC manipulations}: 
+Other MCMC manipulations: 
 \code{\link[universals]{collapse_chains}()},
 \code{\link[universals]{estimates}()},
 \code{\link[universals]{fill_all}()},

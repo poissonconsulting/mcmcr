@@ -4,7 +4,7 @@
 \alias{rhat.mcmcr}
 \title{R-hat}
 \usage{
-\method{rhat}{mcmcr}(x, by = "all", as_df = FALSE, ...)
+\method{rhat}{mcmcr}(x, by = "all", as_df = FALSE, na_rm = FALSE, ...)
 }
 \arguments{
 \item{x}{An object.}
@@ -14,6 +14,8 @@
 
 \item{as_df}{A flag indicating whether to return the values as a
 data frame versus a named list.}
+
+\item{na_rm}{A flag specifying whether to ignore missing values.}
 
 \item{...}{Other arguments passed to methods.}
 }
@@ -34,7 +36,7 @@ rhat(mcmcr_example, by = "term", as_df = TRUE)
 Gelman, A., and Rubin, D.B. 1992. Inference from Iterative Simulation Using Multiple Sequences. Statistical Science 7(4): 457–472.
 }
 \seealso{
-Other {convergence}: 
+Other convergence: 
 \code{\link[universals]{converged}()},
 \code{\link[universals]{esr}()}
 }

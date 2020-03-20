@@ -4,7 +4,15 @@
 \alias{converged.default}
 \title{Converged}
 \usage{
-\method{converged}{default}(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FALSE, ...)
+\method{converged}{default}(
+  x,
+  rhat = 1.1,
+  esr = 0.33,
+  by = "all",
+  as_df = FALSE,
+  na_rm = FALSE,
+  ...
+)
 }
 \arguments{
 \item{x}{An object.}
@@ -19,6 +27,8 @@
 \item{as_df}{A flag indicating whether to return the values as a
 data frame versus a named list.}
 
+\item{na_rm}{A flag specifying whether to ignore missing values.}
+
 \item{...}{Other arguments passed to methods.}
 }
 \value{
@@ -31,7 +41,7 @@ Tests whether an object has converged.
 converged(mcmcr_example)
 }
 \seealso{
-Other {convergence}: 
+Other convergence: 
 \code{\link[universals]{esr}()},
 \code{\link[universals]{rhat}()}
 }

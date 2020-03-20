@@ -26,7 +26,7 @@ Calculates the estimates for an MCMC object.
 estimates(mcmcr_example)
 }
 \seealso{
-Other {MCMC manipulations}: 
+Other MCMC manipulations: 
 \code{\link[universals]{bind_chains}()},
 \code{\link[universals]{collapse_chains}()},
 \code{\link[universals]{fill_all}()},
