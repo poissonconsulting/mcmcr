@@ -1,6 +1,6 @@
 Package: mcmcr
 Title: Manipulate MCMC Samples
-Version: 0.2.0.9021
+Version: 0.2.0.9022
 Authors@R: 
     c(person(given = "Joe",
              family = "Thorley",

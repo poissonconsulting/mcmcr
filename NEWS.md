@@ -1,3 +1,16 @@
+# mcmcr 0.2.0.9022
+
+- Added na_rm argument to esr().
+- Added na_rm = FALSE to rhat().
+- Soft-deprecated `pvalue()` for `extras::pvalue()`.
+- Soft-deprecated `zero()` for `fill_all()`.
+- Soft-deprecated `check_mcmcarray()` and `check_mcmcr()`.
+- Added `vld_()` and `chk_()` functions for mcmcarray and mcmcr objects.
+- Replaced `iterations` argument with `iters` in `subset()`.
+- Moved `nchains()`, `niters()`, `collapse_chains()` and `split_chains()`
+- Replaced `pars()` argument `scalar_only = FALSE `with `scalar = NA`
+
+
 - Renamed first argument of `estimates()` from `object` to `x`.
 - Soft-deprecated `pvalue()` for `extras::pvalue()`.
 - Soft-deprecated `zero()` for `fill_all()`.
