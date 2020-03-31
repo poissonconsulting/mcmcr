@@ -20,13 +20,15 @@ data frame versus a named list.}
 \item{...}{Other arguments passed to methods.}
 }
 \value{
-A positive number indicating the esr value.
+A number between 0 and 1 indicating the esr value.
 }
 \description{
-Calculates the effective sampling rate (\code{esr}) based on the formula
+Calculates the effective sampling rate (\code{esr}).
+}
+\details{
+By default
 \deqn{\frac{1}{1 + 2 \sum_{k = 1}^\infty\rho_k(\theta)}}
-in Brooks et al. (2011).
-The infinite sum is truncated at
+from Brooks et al. (2011) where the infinite sum is truncated at
 lag \eqn{k} when \eqn{\rho_{k+1}(\theta) < 0}.
 }
 \examples{
@@ -40,6 +42,12 @@ Brooks, S., Gelman, A., Jones, G.L., and Meng, X.-L. (Editors). 2011. Handbook f
 }
 \seealso{
 Other convergence: 
+\code{\link[universals]{converged_pars}()},
+\code{\link[universals]{converged_terms}()},
 \code{\link[universals]{converged}()},
+\code{\link[universals]{esr_pars}()},
+\code{\link[universals]{esr_terms}()},
+\code{\link[universals]{rhat_pars}()},
+\code{\link[universals]{rhat_terms}()},
 \code{\link[universals]{rhat}()}
 }

@@ -29,7 +29,5 @@ bind_chains.foobar <- function(x, x2, ...) {
 Other MCMC manipulations: 
 \code{\link[universals]{collapse_chains}()},
 \code{\link[universals]{estimates}()},
-\code{\link[universals]{fill_all}()},
-\code{\link[universals]{fill_na}()},
 \code{\link[universals]{split_chains}()}
 }

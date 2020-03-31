@@ -14,9 +14,6 @@ extras::upper
 extras::svalue
 
 #' @export
-term::npars_scalar
-
-#' @export
 nlist::nlist
 
 #' @export

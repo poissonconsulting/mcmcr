@@ -2,25 +2,28 @@
 universals::npars
 
 #' @inherit universals::npars
+#' @inheritParams params
 #' @export
-npars.mcmc <- function(x, ...) npars(as.term(x))
+npars.mcarray <- function(x, scalar = NULL, ...) {
+  chk_unused(...)
+  if(is.null(scalar)) return(1L)
+  length(pars(x, scalar = scalar))
+}
 
 #' @inherit universals::npars
+#' @inheritParams params
 #' @export
-npars.mcmc.list <- function(x, ...) npars(x[[1]])
+npars.mcmcarray <- function(x, scalar = NULL, ...) {
+  chk_unused(...)
+  if(is.null(scalar)) return(1L)
+  length(pars(x, scalar = scalar))
+}
 
 #' @inherit universals::npars
+#' @inheritParams params
 #' @export
-npars.mcarray <- function(x, ...) 1L
-
-#' @inherit universals::npars
-#' @export
-npars.mcmcarray <- function(x, ...) 1L
-
-#' @inherit universals::npars
-#' @export
-npars.mcmcr <- function(x, ...) length(x)
-
-#' @inherit universals::npars
-#' @export
-npars.mcmcrs <- function(x, ...) npars(x[[1]])
+npars.mcmcr <- function(x, scalar = NULL, ...) {
+  chk_unused(...)
+  if(is.null(scalar)) return(length(x))
+  length(pars(x, scalar = scalar))
+}

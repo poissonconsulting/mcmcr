@@ -23,8 +23,11 @@ data frame versus a named list.}
 A number >= 1 indicating the rhat value.
 }
 \description{
-Calculates the uncorrected, unfolded, univariate,
-split R-hat (potential scale reduction factor) value.
+Calculates an R-hat (potential scale reduction factor) value.
+}
+\details{
+By default the uncorrected, unfolded, univariate,
+split R-hat value.
 }
 \examples{
 rhat(mcmcr_example)
@@ -37,6 +40,12 @@ Gelman, A., and Rubin, D.B. 1992. Inference from Iterative Simulation Using Mult
 }
 \seealso{
 Other convergence: 
+\code{\link[universals]{converged_pars}()},
+\code{\link[universals]{converged_terms}()},
 \code{\link[universals]{converged}()},
-\code{\link[universals]{esr}()}
+\code{\link[universals]{esr_pars}()},
+\code{\link[universals]{esr_terms}()},
+\code{\link[universals]{esr}()},
+\code{\link[universals]{rhat_pars}()},
+\code{\link[universals]{rhat_terms}()}
 }

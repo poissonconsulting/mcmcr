@@ -21,7 +21,6 @@
 \alias{lower}
 \alias{upper}
 \alias{svalue}
-\alias{npars_scalar}
 \alias{nlist}
 \alias{nlists}
 \alias{pvalue}
@@ -47,7 +46,7 @@ below to see their documentation.
 \describe{
   \item{coda}{\code{\link[coda]{as.mcmc}}, \code{\link[coda]{thin}}}
 
-  \item{extras}{\code{\link[extras]{lower}}, \code{\link[extras]{pvalue}}, \code{\link[extras]{svalue}}, \code{\link[extras]{upper}}, \code{\link[extras]{zscore}}}
+  \item{extras}{\code{\link[extras]{fill_all}}, \code{\link[extras]{lower}}, \code{\link[extras]{pvalue}}, \code{\link[extras]{svalue}}, \code{\link[extras]{upper}}, \code{\link[extras]{zscore}}}
 
   \item{generics}{\code{\link[generics]{tidy}}}
 
@@ -55,8 +54,8 @@ below to see their documentation.
 
   \item{stats}{\code{\link[stats]{median}}}
 
-  \item{term}{\code{\link[term]{as.term}}, \code{\link[term]{npars_scalar}}}
+  \item{term}{\code{\link[term]{as.term}}}
 
-  \item{universals}{\code{\link[universals]{bind_chains}}, \code{\link[universals]{collapse_chains}}, \code{\link[universals]{converged}}, \code{\link[universals]{esr}}, \code{\link[universals]{estimates}}, \code{\link[universals]{fill_all}}, \code{\link[universals]{nchains}}, \code{\link[universals]{niters}}, \code{\link[universals]{npars}}, \code{\link[universals]{npdims}}, \code{\link[universals]{nterms}}, \code{\link[universals]{pars}}, \code{\link[universals]{pdims}}, \code{\link[universals]{rhat}}, \code{\link[universals]{set_pars}}, \code{\link[universals]{split_chains}}}
+  \item{universals}{\code{\link[universals]{bind_chains}}, \code{\link[universals]{collapse_chains}}, \code{\link[universals]{converged}}, \code{\link[universals]{esr}}, \code{\link[universals]{estimates}}, \code{\link[universals]{nchains}}, \code{\link[universals]{niters}}, \code{\link[universals]{npars}}, \code{\link[universals]{npdims}}, \code{\link[universals]{nterms}}, \code{\link[universals]{pars}}, \code{\link[universals]{pdims}}, \code{\link[universals]{rhat}}, \code{\link[universals]{set_pars}}, \code{\link[universals]{split_chains}}}
 }}
 

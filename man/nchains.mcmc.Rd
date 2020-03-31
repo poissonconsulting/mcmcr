@@ -27,7 +27,6 @@ nchains.foobar <- function(x, ...) {
 \seealso{
 Other MCMC dimensions: 
 \code{\link[universals]{niters}()},
-\code{\link[universals]{npars_scalar}()},
 \code{\link[universals]{npars}()},
 \code{\link[universals]{nsams}()},
 \code{\link[universals]{nsims}()},

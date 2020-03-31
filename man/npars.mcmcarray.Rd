@@ -4,10 +4,14 @@
 \alias{npars.mcmcarray}
 \title{Number of Parameters}
 \usage{
-\method{npars}{mcmcarray}(x, ...)
+\method{npars}{mcmcarray}(x, scalar = NULL, ...)
 }
 \arguments{
 \item{x}{An object.}
+
+\item{scalar}{A logical scalar specifying whether to include
+all parameters (NULL), only scalars (TRUE) or all parameters
+except scalars (FALSE).}
 
 \item{...}{Other arguments passed to methods.}
 }
@@ -28,14 +32,11 @@ npars.foobar <- function(x, ...) {
 Other MCMC dimensions: 
 \code{\link[universals]{nchains}()},
 \code{\link[universals]{niters}()},
-\code{\link[universals]{npars_scalar}()},
 \code{\link[universals]{nsams}()},
 \code{\link[universals]{nsims}()},
 \code{\link[universals]{nterms}()}
 
 Other parameters: 
-\code{\link[universals]{npars_scalar}()},
-\code{\link[universals]{pars_scalar}()},
 \code{\link[universals]{pars}()},
 \code{\link[universals]{set_pars}()}
 }

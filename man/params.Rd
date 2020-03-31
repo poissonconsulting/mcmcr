@@ -6,7 +6,9 @@
 \arguments{
 \item{x}{An object.}
 
-\item{scalar}{A logical scalar specifying whether to only include scalar terms.}
+\item{scalar}{A logical scalar specifying whether to include
+all parameters (NULL), only scalars (TRUE) or all parameters
+except scalars (FALSE).}
 
 \item{terms}{A logical scalar specifying whether to provide the parameters for each term.}
 

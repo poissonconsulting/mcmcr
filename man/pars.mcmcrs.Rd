@@ -4,12 +4,14 @@
 \alias{pars.mcmcrs}
 \title{Parameter Names}
 \usage{
-\method{pars}{mcmcrs}(x, scalar = NA, terms = FALSE, ...)
+\method{pars}{mcmcrs}(x, scalar = NULL, terms = FALSE, ...)
 }
 \arguments{
 \item{x}{An object.}
 
-\item{scalar}{A logical scalar specifying whether to only include scalar terms.}
+\item{scalar}{A logical scalar specifying whether to include
+all parameters (NULL), only scalars (TRUE) or all parameters
+except scalars (FALSE).}
 
 \item{terms}{A logical scalar specifying whether to provide the parameters for each term.}
 
@@ -29,8 +31,6 @@ pars.foobar <- function(x, ...) {
 }
 \seealso{
 Other parameters: 
-\code{\link[universals]{npars_scalar}()},
 \code{\link[universals]{npars}()},
-\code{\link[universals]{pars_scalar}()},
 \code{\link[universals]{set_pars}()}
 }
