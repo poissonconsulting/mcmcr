@@ -1,3 +1,8 @@
+# mcmcr 0.2.0.9023
+
+- Added scalar = NULL to pars() and npars().
+
+
 # mcmcr 0.2.0.9022
 
 - Added na_rm argument to esr().
