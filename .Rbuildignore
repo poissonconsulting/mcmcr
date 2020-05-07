@@ -20,3 +20,4 @@
 ^\.covrignore$
 ^revdep$
 ^\.github$
+^\.gitignore$
