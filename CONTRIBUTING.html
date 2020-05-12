@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CONTRIBUTING • mcmcr</title>
+<title>Contributing to mcmcr • mcmcr</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="CONTRIBUTING" />
+<meta property="og:title" content="Contributing to mcmcr" />
 
 
 
@@ -110,47 +110,49 @@
 <div class="row">
   <div class="contents col-md-9">
     <div class="page-header">
-      <h1>CONTRIBUTING</h1>
+      <h1>Contributing to mcmcr</h1>
     </div>
 
-<div id="contributing" class="section level1">
+<div id="contributing-to-mcmcr" class="section level1">
 
-<div id="bugs" class="section level3">
-<h3 class="hasAnchor">
-<a href="#bugs" class="anchor"></a>Bugs?</h3>
+<p>This outlines how to propose a change to mcmcr.</p>
+<div id="fixing-typos" class="section level2">
+<h2 class="hasAnchor">
+<a href="#fixing-typos" class="anchor"></a>Fixing typos</h2>
+<p>You can fix typos, spelling mistakes, or grammatical errors in the documentation directly using the GitHub web interface, as long as the changes are made in the <em>source</em> file. This generally means you’ll need to edit <a href="https://roxygen2.r-lib.org/articles/roxygen2.html">roxygen2 comments</a> in an <code>.R</code>, not a <code>.Rd</code> file. You can find the <code>.R</code> file that generates the <code>.Rd</code> by reading the comment in the first line.</p>
+</div>
+<div id="bigger-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bigger-changes" class="anchor"></a>Bigger changes</h2>
+<p>If you want to make a bigger change, it’s a good idea to first file an issue and make sure someone from the team agrees that it’s needed. If you’ve found a bug, please file an issue that illustrates the bug with a minimal <a href="https://www.tidyverse.org/help/#reprex">reprex</a> (this will also help you write a unit test, if needed).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>       <span class="co">### Pull request process</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>       </span>
+<span id="cb1-3"><a href="#cb1-3"></a>       <span class="op">*</span><span class="st">   </span>Fork the package and clone onto your computer. If you haven<span class="st">'t done this before, we recommend using `usethis::create_from_github("", fork = TRUE)`.</span></span></code></pre></div>
 <ul>
-<li>Submit an issue on the <a href="https://github.com/poissonconsulting/mcmcr/issues">Issues page</a>
+<li><p>Install all development dependences with <code>devtools::install_dev_deps()</code>, and then make sure the package passes R CMD check by running <code>devtools::check()</code>. If R CMD check doesn’t pass cleanly, it’s a good idea to ask for help before continuing.</p></li>
+<li><p>Create a Git branch for your pull request (PR). We recommend using <code>usethis::pr_init("brief-description-of-change")</code>.</p></li>
+<li><p>Make your changes, commit to git, and then create a PR by running <code>usethis::pr_push()</code>, and following the prompts in your browser. The title of your PR should briefly describe the change. The body of your PR should contain <code>Fixes #issue-number</code>.</p></li>
+<li><p>For user-facing changes, add a bullet to the top of <code>NEWS.md</code> (i.e. just below the first header). Follow the style described in <a href="https://style.tidyverse.org/news.html" class="uri">https://style.tidyverse.org/news.html</a>.</p></li>
+</ul>
+<div id="code-style" class="section level3">
+<h3 class="hasAnchor">
+<a href="#code-style" class="anchor"></a>Code style</h3>
+<ul>
+<li>
+<p>New code should follow the tidyverse <a href="https://style.tidyverse.org">style guide</a>. You can use the <a href="https://CRAN.R-project.org/package=styler">styler</a> package to apply these styles, but please don’t restyle code that has nothing to do with your PR.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a> <span class="op">*</span><span class="st">  </span>We use [roxygen2](https<span class="op">:</span><span class="er">//</span>cran.r<span class="op">-</span>project.org<span class="op">/</span><span class="dt">package=</span>roxygen2), with [Markdown syntax](https<span class="op">:</span><span class="er">//</span>cran.r<span class="op">-</span>project.org<span class="op">/</span>web<span class="op">/</span>packages<span class="op">/</span>roxygen2<span class="op">/</span>vignettes<span class="op">/</span>rd<span class="op">-</span>formatting.html), <span class="cf">for</span> documentation.  </span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a> <span class="op">*</span><span class="st">  </span>We use [testthat](https<span class="op">:</span><span class="er">//</span>cran.r<span class="op">-</span>project.org<span class="op">/</span><span class="dt">package=</span>testthat) <span class="cf">for</span> unit tests. </span>
+<span id="cb2-4"><a href="#cb2-4"></a> Contributions with test cases included are easier to accept.  </span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a> <span class="co">## Code of Conduct</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a> Please note that the mcmcr project is released with a</span>
+<span id="cb2-9"><a href="#cb2-9"></a> [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this</span>
+<span id="cb2-10"><a href="#cb2-10"></a> project you agree to abide by its terms.</span></code></pre></div>
 </li>
 </ul>
 </div>
-<div id="issues-and-pull-requests" class="section level3">
-<h3 class="hasAnchor">
-<a href="#issues-and-pull-requests" class="anchor"></a>Issues and Pull Requests</h3>
-<p>If you are considering a pull request, you may want to open an issue first to discuss with the maintainer(s).</p>
-</div>
-<div id="code-contributions" class="section level3">
-<h3 class="hasAnchor">
-<a href="#code-contributions" class="anchor"></a>Code contributions</h3>
-<ul>
-<li>Fork this repo to your GitHub account</li>
-<li>Clone your version on your account down to your machine from your account, e.g,. <code>git clone https://github.com/&lt;yourgithubusername&gt;/mcmcr.git</code>
-</li>
-<li>Make sure to track progress upstream (i.e., on our version of <code>mcmcr</code> at <code>poissonconsulting/mcmcr</code>) by doing <code>git remote add upstream https://github.com/poissonconsulting/mcmcr.git</code>. Before making changes make sure to pull changes in from upstream by doing either <code>git fetch upstream</code> then merge later or <code>git pull upstream</code> to fetch and merge in one step</li>
-<li>Make your changes (bonus points for making changes on a new feature branch - see <a href="https://guides.github.com/introduction/flow/" class="uri">https://guides.github.com/introduction/flow/</a> for how to contribute by branching, making changes, then submitting a pull request)</li>
-<li>Push up to your account</li>
-<li>Submit a pull request to home base (likely master branch, but check to make sure) at <code>poissonconsulting/mcmcr</code>
-</li>
-</ul>
-</div>
-<div id="prefer-to-email" class="section level3">
-<h3 class="hasAnchor">
-<a href="#prefer-to-email" class="anchor"></a>Prefer to Email?</h3>
-<p>Email the person listed as maintainer in the <code>DESCRIPTION</code> file of this repo.</p>
-<p>Though note that private discussions over email don’t help others - of course email is totally warranted if it’s a sensitive problem of any kind.</p>
-</div>
-<div id="thanks-for-contributing" class="section level3">
-<h3 class="hasAnchor">
-<a href="#thanks-for-contributing" class="anchor"></a>Thanks for contributing!</h3>
 </div>
 </div>
 
