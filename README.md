@@ -9,15 +9,13 @@
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![R build
 status](https://github.com/poissonconsulting/mcmcr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/mcmcr/actions)
-[![Coverage
-Status](https://img.shields.io/codecov/c/github/poissonconsulting/mcmcr/master.svg)](https://codecov.io/github/poissonconsulting/mcmcr?branch=master)
+[![Codecov test
+coverage](https://codecov.io/gh/poissonconsulting/mcmcr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/mcmcr?branch=master)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![status](https://tinyverse.netlify.com/badge/mcmcr)](https://CRAN.R-project.org/package=mcmcr)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/mcmcr)](https://cran.r-project.org/package=mcmcr)
-![CRAN Downloads](http://cranlogs.r-pkg.org/badges/mcmcr) [![Codecov
-test
-coverage](https://codecov.io/gh/poissonconsulting/mcmcr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/mcmcr?branch=master)
+![CRAN Downloads](http://cranlogs.r-pkg.org/badges/mcmcr)
 <!-- badges: end -->
 
 `mcmcr` is an R package to manipulate Monte Carlo Markov Chain (MCMC)
