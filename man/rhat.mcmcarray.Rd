@@ -36,7 +36,9 @@ rhat.foobar <- function(x, ...) {
 }
 }
 \references{
-Gelman, A., and Rubin, D.B. 1992. Inference from Iterative Simulation Using Multiple Sequences. Statistical Science 7(4): 457–472.
+Gelman, A., and Rubin, D.B. 1992.
+Inference from Iterative Simulation Using Multiple Sequences.
+Statistical Science 7(4): 457–472.
 }
 \seealso{
 Other convergence: 

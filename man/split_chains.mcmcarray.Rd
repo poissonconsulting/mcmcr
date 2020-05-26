@@ -16,7 +16,7 @@ The modified object.
 }
 \description{
 Splits each of an MCMC object's chains in half
-to double the number chains
+to double the number of chains
 and halve the number of iterations.
 }
 \examples{

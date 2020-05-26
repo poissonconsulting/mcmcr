@@ -16,6 +16,9 @@ A named integer vector of the number of dimensions of each parameter.
 }
 \description{
 Gets the number of the dimensions of each parameter of an object.
+
+The default methods returns the length of each element of \code{\link[universals:pdims]{pdims()}}
+as an integer vector.
 }
 \examples{
 npdims.foobar <- function(x, ...) {

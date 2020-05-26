@@ -18,9 +18,12 @@ The modified object.
 }
 \description{
 Sets an object's parameter names.
+
+The assignment version \verb{pars<-()} forwards to \code{set_pars()}.
 }
 \details{
-\code{value} must be a unique character vector of the same length as the object's parameters.
+\code{value} must be a unique character vector of the same length as the
+object's parameters.
 }
 \examples{
 set_pars.foobar <- function(x, ...) {
