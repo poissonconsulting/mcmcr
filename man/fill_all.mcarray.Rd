@@ -9,7 +9,7 @@
 \arguments{
 \item{x}{An object.}
 
-\item{value}{A scalar of the value to replace all values with.}
+\item{value}{A scalar of the value to replace values with.}
 
 \item{nas}{A flag specifying whether to also fill missing values.}
 
@@ -19,5 +19,39 @@
 The modified object.
 }
 \description{
-Fills all of an object's (missing and non-missing) values while preserving the object's dimensionality and class.
+Fills all of an object's (missing and non-missing) values
+while preserving the object's dimensionality and class.
+}
+\section{Methods (by class)}{
+
+\itemize{
+\item \code{logical}: Fill All for logical Objects
+
+\item \code{integer}: Fill All for integer Objects
+
+\item \code{numeric}: Fill All for numeric Objects
+
+\item \code{character}: Fill All for character Objects
+}
+}
+
+\examples{
+# logical
+fill_all(c(TRUE, NA, FALSE))
+fill_all(c(TRUE, NA, FALSE, nas = FALSE))
+fill_all(c(TRUE, NA, FALSE, value = NA))
+
+# integer
+fill_all(matrix(1:4, nrow = 2), value = -1)
+
+# numeric
+fill_all(c(1, 4, NA), value = TRUE)
+fill_all(c(1, 4, NA), value = TRUE, nas = FALSE)
+
+# character
+fill_all(c("some", "words"), value = TRUE)
+}
+\seealso{
+Other fill: 
+\code{\link[extras]{fill_na}()}
 }
