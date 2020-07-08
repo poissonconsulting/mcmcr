@@ -1,5 +1,3 @@
-context("deprecated")
-
 test_that("check_mcmcarray",{
   rlang::scoped_options(lifecycle_verbosity = "quiet")
 

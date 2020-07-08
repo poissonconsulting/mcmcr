@@ -34,7 +34,7 @@ terms.mcmcr <- function(x, ...) {
 #' @examples
 #' check_mcmcarray(mcmcr::mcmcr_example$beta)
 check_mcmcarray <- function(x, x_name = substitute(x), error = TRUE) {
-  lifecycle::deprecate_soft("v0.2.0.9020", "check_mcmcarray()", "chk_mcmcarray()")
+  lifecycle::deprecate_soft("v0.2.1", "check_mcmcarray()", "chk_mcmcarray()")
   x_name <- deparse_backtick_chk(x_name)
   chk_string(x_name)
   chk_flag(error)
@@ -58,7 +58,7 @@ check_mcmcarray <- function(x, x_name = substitute(x), error = TRUE) {
 #' @examples
 #' check_mcmcr(mcmcr::mcmcr_example)
 check_mcmcr <- function(x, sorted = FALSE, x_name = substitute(x), error = TRUE) {
-  lifecycle::deprecate_soft("v0.2.0.9020", "check_mcmcr()", "chk_mcmcr()")
+  lifecycle::deprecate_soft("v0.2.1", "check_mcmcr()", "chk_mcmcr()")
   x_name <- deparse_backtick_chk(x_name)
   chk_flag(sorted)
   chk_string(x_name)
