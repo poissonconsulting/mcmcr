@@ -19,7 +19,7 @@ estimates.mcmc <- function(x, fun = median, as_df = FALSE, ...) {
   if(!as_df)
     return(estimates(as.mcmcr(x), fun = fun, as_df = FALSE))
 
-  term <- as.term(x)
+  term <- as_term(x)
   x <- t(x)
   x <- .estimates(x, fun = fun)
   tibble(term = term, estimate = x)

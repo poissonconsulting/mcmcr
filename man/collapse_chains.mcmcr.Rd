@@ -17,12 +17,6 @@ The modified object with one chain.
 \description{
 Collapses an MCMC object's chains into a single chain.
 }
-\examples{
-collapse_chains.foobar <- function(x, ...) {
-  NotYetImplemented()
-  # replace with code to collapse_chains for an object of class 'foobar'
-}
-}
 \seealso{
 Other MCMC manipulations: 
 \code{\link[universals]{bind_chains}()},

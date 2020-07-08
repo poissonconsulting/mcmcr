@@ -91,7 +91,7 @@ abind <- function(x, x2, along, dimnames = TRUE) {
 }
 
 `pars<-.character` <- function(x, value) {
-  x <- as.term(x)
+  x <- as_term(x)
   pars(x) <- value
   as.character(x)
 }

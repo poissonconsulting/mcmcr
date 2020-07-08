@@ -1,10 +1,18 @@
+#' @importFrom universals set_pars
 #' @export
 universals::set_pars
+
+#' @export
+set_pars.character <- function(x, value, ...) {
+  x <- as_term(x)
+  pars(x) <- value
+  as.character(x)
+}
 
 #' @inherit universals::set_pars
 #' @export
 set_pars.mcmc <- function(x, value, ...) {
-  term <- set_pars(as.term(x), value, ...)
+  term <- set_pars(as_term(x), value, ...)
   colnames(x) <- as.character(term)
   x
 }

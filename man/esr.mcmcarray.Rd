@@ -31,12 +31,6 @@ By default
 from Brooks et al. (2011) where the infinite sum is truncated at
 lag \eqn{k} when \eqn{\rho_{k+1}(\theta) < 0}.
 }
-\examples{
-esr.foobar <- function(x, ...) {
-  NotYetImplemented()
-  # replace with code to get esr for an object of class 'foobar'
-}
-}
 \references{
 Brooks, S., Gelman, A., Jones, G.L., and Meng, X.-L. (Editors). 2011.
 Handbook for Markov Chain Monte Carlo. Taylor & Francis, Boca Raton.

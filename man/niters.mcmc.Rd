@@ -19,10 +19,12 @@ Gets the number of iterations (in a chain)
 of an MCMC object.
 }
 \examples{
-niters.foobar <- function(x, ...) {
-  NotYetImplemented()
-  # replace with code to get niters for an object of class 'foobar'
-}
+\dontshow{if (requireNamespace("nlist", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+library(nlist)
+
+niters(nlist(x = 1:2))
+niters(nlists(nlist(x = c(2, 9)), nlist(x = c(1, 7))))
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other MCMC dimensions: 

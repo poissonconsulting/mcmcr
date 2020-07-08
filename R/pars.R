@@ -10,9 +10,9 @@ pars.mcmc <- function(x, scalar = NULL, terms = FALSE, ...) {
   chk_unused(...)
 
   if(terms) {
-    deprecate_soft("0.2.1", "mcmcr::pars(terms =)", details = "If `terms = TRUE` use `terms::pars_terms(as.term(x)) otherwise replace `pars(x, terms = FALSE)` with `pars(x)`.", id = "pars_terms")
+    deprecate_soft("0.2.1", "mcmcr::pars(terms =)", details = "If `terms = TRUE` use `terms::pars_terms(as_term(x)) otherwise replace `pars(x, terms = FALSE)` with `pars(x)`.", id = "pars_terms")
   }
-  x <- as.term(x)
+  x <- as_term(x)
   pars(x, scalar = scalar, terms = terms)
 }
 
@@ -32,11 +32,11 @@ pars.mcmcr <- function(x, scalar = NULL, terms = FALSE, ...) {
   chk_unused(...)
 
   if(terms) {
-    deprecate_soft("0.2.1", "mcmcr::pars(terms =)", details = "If `terms = TRUE` use `terms::pars_terms(as.term(x)) otherwise replace `pars(x, terms = FALSE)` with `pars(x)`.", id = "pars_terms")
+    deprecate_soft("0.2.1", "mcmcr::pars(terms =)", details = "If `terms = TRUE` use `terms::pars_terms(as_term(x)) otherwise replace `pars(x, terms = FALSE)` with `pars(x)`.", id = "pars_terms")
   }
 
   if(is.null(scalar) && !terms) return(names(x))
-  x <- as.term(x)
+  x <- as_term(x)
   pars(x, scalar = scalar, terms = terms)
 }
 

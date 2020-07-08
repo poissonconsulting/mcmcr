@@ -7,7 +7,7 @@ pdims.mcarray <- function(x, ...) dims(x)[1:(length(dims(x))-2)]
 
 #' @inherit universals::pdims
 #' @export
-pdims.mcmc <- function(x, ...) pdims(as.term(x))
+pdims.mcmc <- function(x, ...) pdims(as_term(x))
 
 #' @inherit universals::pdims
 #' @export

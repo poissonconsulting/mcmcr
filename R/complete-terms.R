@@ -24,21 +24,21 @@ complete_terms.mcmc <- function(x, silent = FALSE, ...) {
     wrn("terms with missing values have been dropped")
   x <- x[,!is.na(colnames(x)), drop = FALSE]
 
-  colnames(x) <- as.character(as.term(colnames(x), repair = TRUE))
+  colnames(x) <- as.character(as_term(colnames(x), repair = TRUE))
   if(anyNA(!silent && anyNA(colnames(x)))) wrn("invalid terms have been dropped")
   x <- x[,!is.na(colnames(x)), drop = FALSE]
 
   if(!ncol(x)) return(x)
 
-  consistent <- consistent_term(as.term(colnames(x)))
+  consistent <- consistent_term(as_term(colnames(x)))
   if(anyNA(!silent && any(!consistent)))
     wrn("inconsistent terms have been dropped")
   x <- x[,consistent, drop = FALSE]
 
   if(!ncol(x)) return(x)
 
-  pdims <- pdims(as.term(colnames(x)))
-  absent <- setdiff(term(!!!pdims), as.term(colnames(x)))
+  pdims <- pdims(as_term(colnames(x)))
+  absent <- setdiff(term(!!!pdims), as_term(colnames(x)))
 
   if(length(absent)) {
     na <- if(is.integer(x[[1]])) NA_integer_ else NA_real_
@@ -49,5 +49,5 @@ complete_terms.mcmc <- function(x, silent = FALSE, ...) {
     attr(x, "mcpar") <- mcpar
     x <- set_class(x, "mcmc")
   }
-  x[,order(as.term(colnames(x))), drop = FALSE]
+  x[,order(as_term(colnames(x))), drop = FALSE]
 }

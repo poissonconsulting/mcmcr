@@ -19,10 +19,17 @@ Gets the number of terms
 of an MCMC object.
 }
 \examples{
-nterms.foobar <- function(x, ...) {
-  NotYetImplemented()
-  # replace with code to get nterms for an object of class 'foobar'
-}
+\dontshow{if (requireNamespace("nlist", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+library(nlist)
+
+nterms(nlist(x = 2))
+nterms(nlist(x = NA_real_))
+nterms(nlist(x = 3, zz = matrix(2:5, 2)))
+nterms(nlists(
+  nlist(y = 3, zz = matrix(2:5, 2)),
+  nlist(y = 5, zz = matrix(1:4, 2))
+))
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other MCMC dimensions: 

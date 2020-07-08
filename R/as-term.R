@@ -2,37 +2,41 @@
 #' @export
 term::as.term
 
+#' @importFrom term as_term
 #' @export
-as.term.mcmc <- function(x, ...) as.term(colnames(x))
+term::as_term
 
 #' @export
-as.term.mcmc.list <- function(x, ...) as.term(x[[1]])
+as_term.mcmc <- function(x, ...) as_term(colnames(x))
 
 #' @export
-as.term.mcmcarray <- function(x, ...) {
+as_term.mcmc.list <- function(x, ...) as_term(x[[1]])
+
+#' @export
+as_term.mcmcarray <- function(x, ...) {
   x <- pdims(x)
 
-  if(identical(x, 1L)) return(as.term("parameter"))
+  if(identical(x, 1L)) return(as_term("parameter"))
 
   if(identical(length(x), 1L))
-    return(as.term(paste0("parameter[", 1:x, "]")))
+    return(as_term(paste0("parameter[", 1:x, "]")))
 
   x <- lapply(x, function(x) 1:x)
   x <- expand.grid(x)
   x <- as.matrix(x)
   x <- apply(x, 1, function(x) paste(x, collapse = ","))
   x <- paste0("parameter[", x, "]")
-  as.term(x)
+  as_term(x)
 }
 
 #' @export
-as.term.mcmcr <- function(x, ...) {
+as_term.mcmcr <- function(x, ...) {
   parameters <- names(x)
-  x <- lapply(x, as.term)
+  x <- lapply(x, as_term)
   x <- mapply(x, parameters, FUN = function(x, y) {sub("parameter", y, x, fixed = TRUE)},
                    SIMPLIFY = FALSE)
-  as.term(unname(unlist(x)))
+  as_term(unname(unlist(x)))
 }
 
 #' @export
-as.term.mcmcrs <- function(x, ...) as.term(x[[1]])
+as_term.mcmcrs <- function(x, ...) as_term(x[[1]])

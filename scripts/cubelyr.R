@@ -52,7 +52,7 @@ cube %>%
 
 try(
   cube %>%
-    group_by(pars(as.term(term))) %>%
+    group_by(pars(as_term(term))) %>%
     summarize(mean(value))
 )
 

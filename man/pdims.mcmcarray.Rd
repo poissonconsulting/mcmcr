@@ -18,10 +18,12 @@ A named list of integer vectors of the dimensions of each parameter.
 Gets the dimensions of each parameter of an object.
 }
 \examples{
-pdims.foobar <- function(x, ...) {
-  NotYetImplemented()
-  # replace with code to get pdims for an object of class 'foobar'
-}
+\dontshow{if (requireNamespace("nlist", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+library(nlist)
+
+pdims(nlist(x = 1:3))
+pdims(nlist(y = 3, zz = matrix(2:5, 2)))
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other dimensions: 

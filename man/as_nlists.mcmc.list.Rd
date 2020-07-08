@@ -15,7 +15,7 @@
 An nlists object.
 }
 \description{
-Coerce an R object to an \code{\link[nlist:nlists_object]{nlists_object()}}.
+Coerce an R object to an \code{\link[nlist:nlists]{nlists_object()}}.
 }
 \section{Methods (by class)}{
 

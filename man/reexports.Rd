@@ -11,6 +11,7 @@
 \alias{as_nlist}
 \alias{as_nlists}
 \alias{as.term}
+\alias{as_term}
 \alias{bind_chains}
 \alias{collapse_chains}
 \alias{converged}
@@ -44,7 +45,7 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{coda}{\code{\link[coda]{as.mcmc}}, \code{\link[coda]{thin}}}
+  \item{coda}{\code{\link[coda:mcmc]{as.mcmc}}, \code{\link[coda]{thin}}}
 
   \item{extras}{\code{\link[extras]{fill_all}}, \code{\link[extras]{lower}}, \code{\link[extras]{pvalue}}, \code{\link[extras]{svalue}}, \code{\link[extras]{upper}}, \code{\link[extras]{zscore}}}
 
@@ -54,7 +55,7 @@ below to see their documentation.
 
   \item{stats}{\code{\link[stats]{median}}}
 
-  \item{term}{\code{\link[term]{as.term}}}
+  \item{term}{\code{\link[term:as_term]{as.term}}, \code{\link[term]{as_term}}}
 
   \item{universals}{\code{\link[universals]{bind_chains}}, \code{\link[universals]{collapse_chains}}, \code{\link[universals]{converged}}, \code{\link[universals]{esr}}, \code{\link[universals]{estimates}}, \code{\link[universals]{nchains}}, \code{\link[universals]{niters}}, \code{\link[universals]{npars}}, \code{\link[universals]{npdims}}, \code{\link[universals]{nterms}}, \code{\link[universals]{pars}}, \code{\link[universals]{pdims}}, \code{\link[universals]{rhat}}, \code{\link[universals]{set_pars}}, \code{\link[universals]{split_chains}}}
 }}

@@ -24,10 +24,11 @@ A character vector of the names of the parameters.
 Gets the parameter names.
 }
 \examples{
-pars.foobar <- function(x, ...) {
-  NotYetImplemented()
-  # replace with code to get pars for an object of class 'foobar'
-}
+\dontshow{if (requireNamespace("nlist", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+library(nlist)
+
+pars(nlist(zz = 1, y = 3:6))
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other parameters: 

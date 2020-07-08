@@ -13,7 +13,7 @@ as.mcmc.mcarray <- function(x, ...) as.mcmc(as.mcmcarray(x))
 #' @export
 as.mcmc.mcmcarray <- function(x, ...) {
   chk_identical(nchains(x), 1L)
-  term <- as.term(x)
+  term <- as_term(x)
   x <- apply(x, 1, identity)
   x <- matrix(x, ncol = length(term))
   colnames(x) <- as.character(term)

@@ -41,7 +41,7 @@ rhat.mcmcarray <- function(x, by = "all", as_df = FALSE, na_rm = FALSE, ...) {
       return(NA_real_)
     }
     if(by == "term")
-      return(tibble(term = as.term(x), rhat = NA_real_))
+      return(tibble(term = as_term(x), rhat = NA_real_))
     return(tibble(parameter = "parameter", rhat = NA_real_))
   }
 
