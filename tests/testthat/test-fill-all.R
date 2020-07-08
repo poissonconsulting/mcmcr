@@ -1,5 +1,3 @@
-context("fill-all")
-
 test_that("fill_all.mcarray", {
   mcarray <- as.mcarray(mcmcr_example[[2]])
   expect_equal(estimates(fill_all(mcarray)), matrix(0, nrow = 2, ncol = 2), check.attributes = FALSE)

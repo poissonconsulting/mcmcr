@@ -1,5 +1,3 @@
-context("split_chains")
-
 test_that("split_chains.mcmcarray", {
   x <- split_chains(mcmcr_example[[2]])
   expect_is(x, "mcmcarray")

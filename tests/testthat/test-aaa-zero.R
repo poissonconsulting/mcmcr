@@ -1,5 +1,3 @@
-context("zero")
-
 test_that("zero.mcarray", {
   rlang::scoped_options(lifecycle_verbosity = "quiet")
 

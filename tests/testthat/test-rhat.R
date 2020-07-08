@@ -1,5 +1,3 @@
-context("rhat")
-
 test_that("rhat.matrix", {
   matrix <- matrix(1, nrow = 2, ncol = 100)
   expect_identical(.rhat(matrix, na_rm = FALSE), 1)

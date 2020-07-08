@@ -1,5 +1,3 @@
-context("coef")
-
 test_that("coef.mcmc", {
   coef_mcmc.list <- coef(as.mcmc.list(mcmcr_example))
   expect_identical(colnames(coef_mcmc.list), c("term", "estimate", "sd", "zscore", "lower", "upper", "pvalue"))

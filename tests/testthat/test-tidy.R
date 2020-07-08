@@ -1,5 +1,3 @@
-context("tidy")
-
 test_that("tidy.mcmc", {
   nlists <- nlists(nlist(x = 1:3, y = matrix(1)))
   expect_identical(tidy(as.mcmc(nlists)), tidy(nlists))

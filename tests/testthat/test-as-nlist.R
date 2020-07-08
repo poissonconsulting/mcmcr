@@ -1,5 +1,3 @@
-context("as_nlist")
-
 test_that("as_nlist.mcmc", {
   nlist <- nlist::nlist(x = 1, y = matrix(1:4, 2))
   expect_equal(nlist::as_nlist(coda::as.mcmc(nlist)), nlist)

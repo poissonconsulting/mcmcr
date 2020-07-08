@@ -1,5 +1,3 @@
-context("nsims")
-
 test_that("nsims",{
   expect_identical(nsims(mcmcr::mcmcr_example), 800L)
   expect_identical(nsims(as.mcmc.list(mcmcr::mcmcr_example)), 800L)

@@ -1,5 +1,3 @@
-context("as-mcmc-list")
-
 test_that("as.mcmc.list", {
   expect_is(coda::as.mcmc.list(as.mcmc(collapse_chains(mcmcr_example))),
             "mcmc.list")

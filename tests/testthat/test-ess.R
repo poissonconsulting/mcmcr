@@ -1,5 +1,3 @@
-context("ess")
-
 test_that("ess.mcmcmarray", {
   expect_identical(ess(mcmcr_example[[1]], by = "term"), c(9L, 9L))
   expect_equivalent(ess(mcmcr_example[[2]], by = "term"), matrix(c(40L, 40L, 40L, 40L), nrow = 2))

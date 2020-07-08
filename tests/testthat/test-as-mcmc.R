@@ -1,5 +1,3 @@
-context("as.mcmc")
-
 test_that("as.mcmc", {
   expect_error(coda::as.mcmc(mcmcr_example$alpha),
                "^`nchains[(]x[)]` must be identical to: 1L[.]",

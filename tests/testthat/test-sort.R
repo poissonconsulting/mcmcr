@@ -1,5 +1,3 @@
-context("sort")
-
 test_that("sort", {
   mcmcr_example2 <- subset(mcmcr_example, pars = rev(pars(mcmcr_example)))
   expect_false(identical(mcmcr_example2, mcmcr_example))

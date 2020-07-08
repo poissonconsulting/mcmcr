@@ -1,5 +1,3 @@
-context("summary")
-
 test_that("summary.mcmcarray", {
   expect_equal(summary(mcmcr_example$alpha),
                structure(list(estimates = c(3.718025, 4.718025), nchains = 2L,

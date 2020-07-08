@@ -1,5 +1,3 @@
-context("pars")
-
 test_that("pars.mcmcr", {
   expect_identical(pars(mcmcr::mcmcr_example), c("alpha", "beta", "sigma"))
   expect_identical(pars(mcmcr::mcmcr_example, scalar = TRUE), c("sigma"))

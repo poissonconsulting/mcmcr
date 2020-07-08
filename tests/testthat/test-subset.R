@@ -1,5 +1,3 @@
-context("subset")
-
 test_that("subset.mcmcr", {
   expect_identical(pars(subset(mcmcr_example, pars = rev(pars(mcmcr_example)))), rev(pars(mcmcr_example)))
   expect_identical(nchains(subset(mcmcr_example, 1L)), 1L)

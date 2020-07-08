@@ -1,5 +1,3 @@
-context("combine_samples_n")
-
 test_that("combine_samples_n.mcmcarray", {
   expect_identical(combine_samples_n(mcmcr_example$beta), mcmcr_example$beta)
 

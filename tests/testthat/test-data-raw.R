@@ -1,5 +1,3 @@
-context("data-raw")
-
 test_that("data-raw", {
 
   data(line, package = "coda")

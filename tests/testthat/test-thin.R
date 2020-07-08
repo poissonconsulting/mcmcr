@@ -1,5 +1,3 @@
-context("thin")
-
 test_that("thin.mcmcarray", {
   expect_identical(thin(mcmcr_example[[1]]), mcmcr_example[[1]])
   mcmcr2t <- thin(mcmcr_example[[2]], 2L)

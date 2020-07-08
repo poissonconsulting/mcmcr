@@ -1,5 +1,3 @@
-context("combine_dimensions")
-
 test_that("combine_dimensions.mcmcarray", {
   expect_identical(pdims(combine_dimensions(mcmcr_example$beta)), c(2L))
   expect_identical(pdims(combine_dimensions(mcmcr_example$beta, along = 1L)), c(2L))

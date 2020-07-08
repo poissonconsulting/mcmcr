@@ -1,5 +1,3 @@
-context("as-mcmcr")
-
 test_that("as.mcmcr.list", {
   expect_identical(as.mcmcr(unclass(mcmcr::mcmcr_example)), mcmcr::mcmcr_example)
 })

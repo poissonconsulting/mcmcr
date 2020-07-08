@@ -1,5 +1,3 @@
-context("anyNA")
-
 test_that("anyNA false", {
   expect_false(anyNA(mcmcr_example))
   expect_false(anyNA(mcmcr_example[[1]]))

@@ -1,5 +1,3 @@
-context("as.mcarray")
-
 test_that("as.mcarray", {
   mcarrays <- lapply(mcmcr_example, as.mcarray)
   mcmcarrays <- lapply(mcarrays, as.mcmcarray)

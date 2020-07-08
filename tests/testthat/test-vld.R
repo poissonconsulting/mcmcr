@@ -1,5 +1,3 @@
-context("vld")
-
 test_that("vld_mcmcarray", {
   expect_true(vld_mcmcarray(as.mcmcarray(1)))
   expect_false(vld_mcmcarray(structure(1, class = "mcmcarray")))

@@ -1,5 +1,3 @@
-context("esr")
-
 test_that(".esr_numeric", {
   vector <- rep(1, 100)
   expect_identical(.esr_numeric(vector, na_rm = FALSE), 1)

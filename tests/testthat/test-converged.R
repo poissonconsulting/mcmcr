@@ -1,5 +1,3 @@
-context("converged")
-
 test_that("converged.mcmcr", {
   expect_false(converged(mcmcr_example))
   expect_false(converged(mcmcr_example, rhat = 2.1))

@@ -1,5 +1,3 @@
-context("mcmc-map")
-
 test_that("mcmc_map", {
   expect_identical(mcmc_map(mcmcr_example[[1]], identity), mcmcr_example[[1]])
   expect_identical(mcmc_map(mcmcr_example[[1]], function(x) x * 10), mcmcr_example[[1]] * 10)

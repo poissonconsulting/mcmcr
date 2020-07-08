@@ -1,5 +1,3 @@
-context("estimates")
-
 test_that("estimates.mcarray", {
   expect_equal(estimates(as.mcarray(mcmcr_example[[1]])), c(3.718025, 4.718025))
   expect_equal(estimates(as.mcarray(mcmcr_example[[1]]), as_df = TRUE),

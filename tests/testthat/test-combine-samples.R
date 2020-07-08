@@ -1,5 +1,3 @@
-context("combine_samples")
-
 test_that("combine_samples.mcmcarray", {
   x <- combine_samples(mcmcr_example$beta, mcmcr_example$beta)
   expect_identical(x, mcmcr_example$beta)

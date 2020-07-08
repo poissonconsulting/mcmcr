@@ -1,5 +1,3 @@
-context("mcmc-aperm")
-
 test_that("mcmc_aperm", {
   expect_identical(mcmc_aperm(mcmcr_example[[1]], perm = 1L), mcmcr_example[[1]])
   expect_identical(mcmc_aperm(mcmcr_example[[1]]), mcmcr_example[[1]])

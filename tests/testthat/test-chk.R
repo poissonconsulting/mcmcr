@@ -1,5 +1,3 @@
-context("chk")
-
 test_that("chk_mcmcarray", {
   expect_null(chk_mcmcarray(as.mcmcarray(1)))
   expect_invisible(chk_mcmcarray(as.mcmcarray(1)))

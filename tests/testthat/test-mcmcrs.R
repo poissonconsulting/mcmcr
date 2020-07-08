@@ -1,5 +1,3 @@
-context("mcmcrs")
-
 test_that("mcmcrs", {
   mcmcrs <- mcmcrs(mcmcr_example, mcmcr_example)
   expect_identical(length(mcmcrs), 2L)
