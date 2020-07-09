@@ -118,19 +118,43 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for mcmc</span>
-<span class='fu'>subset</span>(<span class='no'>x</span>, <span class='kw'>iters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>pars</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+<span class='fu'>subset</span>(<span class='no'>x</span>, <span class='kw'>iters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>pars</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>iterations</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for mcmc.list</span>
-<span class='fu'>subset</span>(<span class='no'>x</span>, <span class='kw'>chains</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>iters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>pars</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+<span class='fu'>subset</span>(
+  <span class='no'>x</span>,
+  <span class='kw'>chains</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>iters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>pars</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>iterations</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S3 method for mcmcarray</span>
-<span class='fu'>subset</span>(<span class='no'>x</span>, <span class='kw'>chains</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>iters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+<span class='fu'>subset</span>(<span class='no'>x</span>, <span class='kw'>chains</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>iters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>iterations</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for mcmcr</span>
-<span class='fu'>subset</span>(<span class='no'>x</span>, <span class='kw'>chains</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>iters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>pars</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+<span class='fu'>subset</span>(
+  <span class='no'>x</span>,
+  <span class='kw'>chains</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>iters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>pars</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>iterations</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='no'>...</span>
+)
 
 <span class='co'># S3 method for mcmcrs</span>
-<span class='fu'>subset</span>(<span class='no'>x</span>, <span class='kw'>chains</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>iters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>pars</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>subset</span>(
+  <span class='no'>x</span>,
+  <span class='kw'>chains</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>iters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>pars</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>iterations</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -146,6 +170,14 @@
     <tr>
       <th>pars</th>
       <td><p>A character vector of parameter names.</p></td>
+    </tr>
+    <tr>
+      <th>iterations</th>
+      <td><p>An integer vector (or NULL) of the iterations to subset by.</p></td>
+    </tr>
+    <tr>
+      <th>parameters</th>
+      <td><p>A character vector (or NULL) of the parameters to subset by.</p></td>
     </tr>
     <tr>
       <th>...</th>
