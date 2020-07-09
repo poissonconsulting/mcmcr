@@ -2,6 +2,9 @@
 stats::median
 
 #' @export
+universals::dims
+
+#' @export
 extras::zscore
 
 #' @export
@@ -9,6 +12,9 @@ extras::lower
 
 #' @export
 extras::upper
+
+#' @export
+extras::pvalue
 
 #' @export
 extras::svalue

@@ -21,10 +21,3 @@
 
 # Revdeps
 
-## New problems (2)
-
-|package                              |version |error  |warning |note   |
-|:------------------------------------|:-------|:------|:-------|:------|
-|[mcmcderive](problems.md#mcmcderive) |0.0.1   |__+2__ |        |__+1__ |
-|[missingHE](problems.md#missinghe)   |1.4.1   |__+1__ |        |1      |
-
