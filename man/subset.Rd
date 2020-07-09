@@ -9,15 +9,39 @@
 \alias{subset.mcmcrs}
 \title{Subset an MCMC Object}
 \usage{
-\method{subset}{mcmc}(x, iters = NULL, pars = NULL, ...)
+\method{subset}{mcmc}(x, iters = NULL, pars = NULL, iterations = NULL, parameters = NULL, ...)
 
-\method{subset}{mcmc.list}(x, chains = NULL, iters = NULL, pars = NULL, ...)
+\method{subset}{mcmc.list}(
+  x,
+  chains = NULL,
+  iters = NULL,
+  pars = NULL,
+  iterations = NULL,
+  parameters = NULL,
+  ...
+)
 
-\method{subset}{mcmcarray}(x, chains = NULL, iters = NULL, ...)
+\method{subset}{mcmcarray}(x, chains = NULL, iters = NULL, iterations = NULL, ...)
 
-\method{subset}{mcmcr}(x, chains = NULL, iters = NULL, pars = NULL, ...)
+\method{subset}{mcmcr}(
+  x,
+  chains = NULL,
+  iters = NULL,
+  pars = NULL,
+  iterations = NULL,
+  parameters = NULL,
+  ...
+)
 
-\method{subset}{mcmcrs}(x, chains = NULL, iters = NULL, pars = NULL, ...)
+\method{subset}{mcmcrs}(
+  x,
+  chains = NULL,
+  iters = NULL,
+  pars = NULL,
+  iterations = NULL,
+  parameters = NULL,
+  ...
+)
 }
 \arguments{
 \item{x}{The MCMC object to subset}
@@ -25,6 +49,10 @@
 \item{iters}{An integer vector of iterations.}
 
 \item{pars}{A character vector of parameter names.}
+
+\item{iterations}{An integer vector (or NULL) of the iterations to subset by.}
+
+\item{parameters}{A character vector (or NULL) of the parameters to subset by.}
 
 \item{...}{Unused.}
 

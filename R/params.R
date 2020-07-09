@@ -16,6 +16,8 @@
 #' @param rhat The maximum rhat value.
 #' @param esr The minimum effective sampling rate.
 #' @param na_rm A flag specifying whether to ignore missing values.
+#' @param parameters A character vector (or NULL) of the parameters to subset by.
+#' @param iterations An integer vector (or NULL) of the iterations to subset by.
 #' @param ... Unused.
 #' @name params
 NULL

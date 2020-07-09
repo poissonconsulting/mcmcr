@@ -32,6 +32,10 @@ data frame versus a named list.}
 
 \item{na_rm}{A flag specifying whether to ignore missing values.}
 
+\item{parameters}{A character vector (or NULL) of the parameters to subset by.}
+
+\item{iterations}{An integer vector (or NULL) of the iterations to subset by.}
+
 \item{...}{Unused.}
 }
 \description{
