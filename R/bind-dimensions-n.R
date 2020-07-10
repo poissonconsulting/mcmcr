@@ -4,7 +4,7 @@
 #'
 #' @param ... one or more MCMC objects
 #' @export
-#' @seealso \code{\link{bind_dimensions}}
+#' @seealso [bind_dimensions()]
 #' @examples
 #' bind_dimensions_n(mcmcr_example, mcmcr_example, mcmcr_example)
 bind_dimensions_n <- function(...) {

@@ -16,5 +16,5 @@ Combines multiple MCMC objects (with the same parameters, chains and iterations)
 bind_dimensions_n(mcmcr_example, mcmcr_example, mcmcr_example)
 }
 \seealso{
-\code{\link{bind_dimensions}}
+\code{\link[=bind_dimensions]{bind_dimensions()}}
 }

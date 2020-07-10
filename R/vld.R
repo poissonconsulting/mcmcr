@@ -2,7 +2,7 @@
 #'
 #' Validates class and structure of MCMC objects.
 #'
-#' To just validate class use \code{\link[chk]{vld_s3_class}()}.
+#' To just validate class use [chk::vld_s3_class()].
 #'
 #' @inheritParams chk::chk_true
 #' @return A flag indicating whether the object was validated.

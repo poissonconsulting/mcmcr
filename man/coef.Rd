@@ -33,5 +33,5 @@ Gets coefficients for all the terms in an MCMC object.
 coef(mcmcr_example)
 }
 \seealso{
-\code{stats::\link[stats]{coef}}
+\verb{stats::[coef][stats::coef]}
 }

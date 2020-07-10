@@ -1,6 +1,6 @@
 #' Combine Samples by Dimensions
 #'
-#' Combines MCMC object samples by dimensions along \code{along} using \code{fun}.
+#' Combines MCMC object samples by dimensions along `along` using `fun`.
 #'
 #' @param x An MCMC object
 #' @param fun The function to use when combining dimensions

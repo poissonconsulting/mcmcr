@@ -1,6 +1,6 @@
 #' Convert to an mcmcrs object
 #'
-#' Converts an MCMC object to an \code{\link{mcmcrs-object}}.
+#' Converts an MCMC object to an [mcmcrs-object()].
 #'
 #' @param x An MCMC object.
 #' @param name A string specifying the element name.
@@ -12,7 +12,7 @@
 #' as.mcmcrs(mcmcr::mcmcr_example)
 as.mcmcrs <- function(x, ...) UseMethod("as.mcmcrs")
 
-#' @describeIn as.mcmcrs Convert a list of \code{\link{mcmcr-object}s} to an mcmcrs object
+#' @describeIn as.mcmcrs Convert a list of `[mcmcr-object]s` to an mcmcrs object
 #' @export
 as.mcmcrs.list <- function(x, ...) {
   chk_not_empty(x)
@@ -42,7 +42,7 @@ as.mcmcrs.list <- function(x, ...) {
   set_class(x, "mcmcrs")
 }
 
-#' @describeIn as.mcmcrs Convert an \code{\link{mcmcr-object}} to an mcmcrs object
+#' @describeIn as.mcmcrs Convert an [mcmcr-object()] to an mcmcrs object
 #' @export
 as.mcmcrs.mcmcr <- function(x, name = "mcmcr1", ...) {
   chk_string(name)

@@ -13,7 +13,7 @@ mcmcrs(...)
 An object of class mcmcrs
 }
 \description{
-Creates an \code{\link{mcmcrs-object}} from multiple \code{link{mcmcr-object}}s.
+Creates an \code{\link[=mcmcrs-object]{mcmcrs-object()}} from multiple \code{link{mcmcr-object}}s.
 }
 \examples{
 mcmcrs(mcmcr_example, mcmcr_example)

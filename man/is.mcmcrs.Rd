@@ -13,7 +13,7 @@ is.mcmcrs(x)
 A flag indicating whether the test was positive.
 }
 \description{
-Tests whether an object is an \code{\link{mcmcrs-object}}.
+Tests whether an object is an \code{\link[=mcmcrs-object]{mcmcrs-object()}}.
 }
 \examples{
 is.mcmcrs(mcmcrs(mcmcr_example))

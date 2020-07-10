@@ -5,7 +5,7 @@
 \alias{mcmcr_object}
 \title{mcmcr}
 \description{
-An \code{mcmcr} object stores multiple uniquely named \code{\link{mcmcarray-object}}
+An \code{mcmcr} object stores multiple uniquely named \code{\link[=mcmcarray-object]{mcmcarray-object()}}
 objects with the same number of chains and iterations.
 }
 \details{

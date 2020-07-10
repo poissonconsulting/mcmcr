@@ -13,7 +13,7 @@ is.mcmcr(x)
 A flag indicating whether the test was positive.
 }
 \description{
-Tests whether an object is an \code{\link{mcmcr-object}}.
+Tests whether an object is an \code{\link[=mcmcr-object]{mcmcr-object()}}.
 }
 \examples{
 is.mcmcr(mcmcr_example)

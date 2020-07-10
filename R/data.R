@@ -1,7 +1,7 @@
 #' An Example mcmcr Object
 #'
-#' An example \code{\link{mcmcr-object}}
-#' derived from \code{coda::\link[coda]{line}}.
+#' An example [mcmcr-object()]
+#' derived from `coda::[line][coda::line]`.
 #'
 #'@examples
 #' mcmcr_example

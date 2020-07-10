@@ -1,7 +1,7 @@
 #' P-Value
 #' Effective Sample Size
 #'
-#' Calculates the effective sample size based on \code{\link{esr}}.
+#' Calculates the effective sample size based on [esr()].
 #'
 #' @param x An MCMC object.
 #' @param by A string indicating whether to determine by "term", "parameter" or "all".

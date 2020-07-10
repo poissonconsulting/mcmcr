@@ -1,9 +1,9 @@
 #' mcmcr
 #'
-#' An \code{mcmcr} object stores multiple uniquely named \code{\link{mcmcarray-object}}
+#' An `mcmcr` object stores multiple uniquely named [mcmcarray-object()]
 #' objects with the same number of chains and iterations.
 #'
-#' \code{mcmcr} objects allow a set of dimensionality preserving parameters
+#' `mcmcr` objects allow a set of dimensionality preserving parameters
 #' to be manipulated and queried as a whole.
 #'
 #' @name mcmcr-object

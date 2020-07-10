@@ -1,6 +1,6 @@
 #' Coerce to an mcmcarray object
 #'
-#' Coerces MCMC objects to an \code{\link{mcmcarray-object}}.
+#' Coerces MCMC objects to an [mcmcarray-object()].
 #'
 #' @param x object to coerce.
 #' @param ... Unused.

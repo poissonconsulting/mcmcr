@@ -1,6 +1,6 @@
 #' Create mcmcrs
 #'
-#' Creates an \code{\link{mcmcrs-object}} from multiple \code{link{mcmcr-object}}s.
+#' Creates an [mcmcrs-object()] from multiple \code{link{mcmcr-object}}s.
 #'
 #' @param ... Objects of class mcmcr.
 #' @return An object of class mcmcrs

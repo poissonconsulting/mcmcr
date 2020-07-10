@@ -5,7 +5,7 @@
 \alias{mcmcrs_object}
 \title{mcmcrs}
 \description{
-An \code{mcmcrs} object stores multiple \code{\link{mcmcr-object}}s
+An \code{mcmcrs} object stores multiple \code{\link[=mcmcr-object]{mcmcr-object()}}s
 with the same parameters and the same number of chains and iterations.
 }
 \details{

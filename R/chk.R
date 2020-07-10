@@ -2,7 +2,7 @@
 #'
 #' Checks class and structure of MCMC objects.
 #'
-#' To just check class use \code{\link[chk]{chk_s3_class}()}.
+#' To just check class use [chk::chk_s3_class()].
 #'
 #' @inheritParams chk::chk_true
 #' @return `NULL`, invisibly. Called for the side effect of throwing an error

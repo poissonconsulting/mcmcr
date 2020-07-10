@@ -12,7 +12,7 @@ as.mcmcarray(x, ...)
 \item{...}{Unused.}
 }
 \description{
-Coerces MCMC objects to an \code{\link{mcmcarray-object}}.
+Coerces MCMC objects to an \code{\link[=mcmcarray-object]{mcmcarray-object()}}.
 }
 \examples{
 as.mcmcarray(as.mcarray(mcmcr_example$beta))

@@ -7,7 +7,7 @@
 #' @param x2 a second MCMC object.
 #' @param along A count (or NULL) indicating the parameter dimension to bind along.
 #' @param ... Unused.
-#' @seealso \code{\link{bind_dimensions_n}}
+#' @seealso [bind_dimensions_n()]
 #' @export
 #' @examples
 #' bind_dimensions(mcmcr_example, mcmcr_example)

@@ -7,10 +7,10 @@
 #' @param estimate The function to use to calculate the estimate.
 #' @param ... Unused
 #' @return An data frame of the coefficients with the columns indicating the
-#' \code{term}, \code{estimate}, standard deviation (\code{sd}), \code{zscore},
-#' \code{lower} and \code{upper} credible intervals and \code{pvalue}.
+#' `term`, `estimate`, standard deviation (`sd`), `zscore`,
+#' `lower` and `upper` credible intervals and `pvalue`.
 #' @export
-#' @seealso \code{stats::\link[stats]{coef}}
+#' @seealso `stats::[coef][stats::coef]`
 #' @examples
 #' coef(mcmcr_example)
 #' @name coef

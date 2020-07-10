@@ -18,7 +18,7 @@ The modified object.
 Sets an object's parameter names.
 }
 \details{
-`value` must be a unique character vector of the same length as the
+\code{value} must be a unique character vector of the same length as the
 object's parameters.
 
 \lifecycle{soft-deprecated} for pars<-()

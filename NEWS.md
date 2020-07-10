@@ -1,29 +1,32 @@
 # mcmcr 0.3.0
 
-- Internal changes only.
+- Added 
+  - `vld_()` and `chk_()` functions for mcmcarray and mcmcr objects.
+  - `scalar = NULL` argument to `pars()` and `npars()`.
+  - `na_rm = NA` argument to `esr()` and `rhat()`.
+  - missing `as_df = FALSE` arg to `esr()` for mcarray, mcmc and mcmc.list.
+  - coercion to and from nlists objects for mcmcr, mcmc.list and mcmc objects.
 
+- Soft-deprecated 
+  - `pvalue()` for `extras::pvalue()`.
+  - `zero()` for `fill_all()`.
+  - `check_mcmcarray()` and `check_mcmcr()` for `chk_mcmcarray()` and `chk_mcmcr()`.
 
-# mcmcr 0.2.0.9024
-
-- Added scalar = NULL to pars() and npars().
-- Added na_rm argument to esr().
-- Added na_rm = FALSE to rhat().
-- Soft-deprecated `pvalue()` for `extras::pvalue()`.
-- Soft-deprecated `zero()` for `fill_all()`.
-- Soft-deprecated `check_mcmcarray()` and `check_mcmcr()`.
-- Added `vld_()` and `chk_()` functions for mcmcarray and mcmcr objects.
+- Replaced 
+  - `nsims.mcmcr()` etc with `nsims.default()`
+  
 - Replaced `iterations` argument with `iters` in `subset()`.
 - Moved `nchains()`, `niters()`, `collapse_chains()` and `split_chains()`
 - Replaced `pars()` argument `scalar_only = FALSE `with `scalar = NA`
 
 - Renamed first argument of `estimates()` from `object` to `x`.
 - Replaced `parameters` argument with `pars`
-- Added missing `as_df = FALSE` arg to `esr()` for mcarray, mcmc and mcmc.list
 - `estimates()` now checks fun returns scalar numeric
 - `npdims.mcmc.list()` now returns character vector (as opposed to list)
-- Replaced `nsims.mcmcr()` etc with `nsims.default()`
 - `collapse_chains.mcmc.list()` now returns an mcmc.list object with one chain (as opposed to an mcmc object)
-- Added coercion to and from nlists objects for mcmcr, mcmc.list and mcmc objects.
+
+## Internal
+
 - Exported handling of terms to term package.
 
 # mcmcr 0.2.0

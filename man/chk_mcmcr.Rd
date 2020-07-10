@@ -18,25 +18,25 @@ chk_mcmcrs(x, x_name = NULL)
 \item{x_name}{A string of the name of object x or NULL.}
 }
 \value{
-`NULL`, invisibly. Called for the side effect of throwing an error
-  if the condition is not met.
+\code{NULL}, invisibly. Called for the side effect of throwing an error
+if the condition is not met.
 }
 \description{
 Checks class and structure of MCMC objects.
 
-`chk_mcmcarray`
-checks if [mcmcarray-object()] object using
+\code{chk_mcmcarray}
+checks if \code{\link[=mcmcarray-object]{mcmcarray-object()}} object using
 
-`is.array(x) && is.numeric(x)`
+\code{is.array(x) && is.numeric(x)}
 
-`chk_mcmcr`
-checks if an [mcmcr-object()].
+\code{chk_mcmcr}
+checks if an \code{\link[=mcmcr-object]{mcmcr-object()}}.
 
-`chk_mcmcrs`
-checks if an [mcmcrs-object()].
+\code{chk_mcmcrs}
+checks if an \code{\link[=mcmcrs-object]{mcmcrs-object()}}.
 }
 \details{
-To just check class use \code{\link[chk]{chk_s3_class}()}.
+To just check class use \code{\link[chk:chk_s3_class]{chk::chk_s3_class()}}.
 }
 \section{Functions}{
 \itemize{
@@ -61,5 +61,5 @@ chk_mcmcrs(as.mcmcrs(as.mcmcr(list(x = 1))))
 try(chk_mcmcrs(1))
 }
 \seealso{
-[vld_mcmcr()]
+\code{\link[=vld_mcmcr]{vld_mcmcr()}}
 }

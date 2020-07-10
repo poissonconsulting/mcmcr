@@ -23,5 +23,5 @@ by parameter dimensions.
 bind_dimensions(mcmcr_example, mcmcr_example)
 }
 \seealso{
-\code{\link{bind_dimensions_n}}
+\code{\link[=bind_dimensions_n]{bind_dimensions_n()}}
 }

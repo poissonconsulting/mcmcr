@@ -22,15 +22,15 @@ A flag indicating whether the object was validated.
 Validates class and structure of MCMC objects.
 }
 \details{
-To just validate class use \code{\link[chk]{vld_s3_class}()}.
+To just validate class use \code{\link[chk:chk_s3_class]{chk::vld_s3_class()}}.
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_mcmcarray}: Validate [mcmcarray-object()]
+\item \code{vld_mcmcarray}: Validate \code{\link[=mcmcarray-object]{mcmcarray-object()}}
 
-\item \code{vld_mcmcr}: Validate [mcmcr-object()]
+\item \code{vld_mcmcr}: Validate \code{\link[=mcmcr-object]{mcmcr-object()}}
 
-\item \code{vld_mcmcrs}: Validate [mcmcrs-object()]
+\item \code{vld_mcmcrs}: Validate \code{\link[=mcmcrs-object]{mcmcrs-object()}}
 }}
 
 \examples{
@@ -45,5 +45,5 @@ vld_mcmcr(mcmcr::mcmcr_example)
 vld_mcmcrs(1)
 }
 \seealso{
-[chk_mcmcr()]
+\code{\link[=chk_mcmcr]{chk_mcmcr()}}
 }

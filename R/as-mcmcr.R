@@ -1,6 +1,6 @@
 #' Convert to an mcmcr Object
 #'
-#' Converts an MCMC object to an \code{\link{mcmcr-object}}.
+#' Converts an MCMC object to an [mcmcr-object()].
 #'
 #' @param x An MCMC object.
 #' @param name A string specifying the parameter name.
@@ -13,7 +13,7 @@
 #' as.mcmcr(mcmc.list)
 as.mcmcr <- function(x, ...) UseMethod("as.mcmcr")
 
-#' @describeIn as.mcarray Convert a list of uniquely named objects that can be coerced to \code{\link{mcmcarray-object}s} to an mcmcr object
+#' @describeIn as.mcarray Convert a list of uniquely named objects that can be coerced to `[mcmcarray-object]s` to an mcmcr object
 #' @export
 as.mcmcr.list <- function(x, ...) {
   chk_not_empty(x)
@@ -41,7 +41,7 @@ as.mcmcr.mcarray <- function(x, name = "par", ...) {
   as.mcmcr(as.mcmcarray(x), name = name)
 }
 
-#' @describeIn as.mcmcr Convert an \code{\link{mcmcarray-object}} to an mcmcr object
+#' @describeIn as.mcmcr Convert an [mcmcarray-object()] to an mcmcr object
 #' @export
 as.mcmcr.mcmcarray <- function(x, name = "par", ...) {
   chk_string(name)
@@ -51,14 +51,14 @@ as.mcmcr.mcmcarray <- function(x, name = "par", ...) {
   set_class(x, "mcmcr")
 }
 
-#' @describeIn as.mcmcr Convert an \code{\link[nlist]{nlist-object}} to an mcmcr object
+#' @describeIn as.mcmcr Convert an [nlist::nlist-object()] to an mcmcr object
 #' @export
 as.mcmcr.nlist <- function(x, ...) {
   x <- lapply(x, as.mcmcarray)
   set_class(x, "mcmcr")
 }
 
-#' @describeIn as.mcmcr Convert an \code{\link[nlist]{nlists-object}} to an mcmcr object
+#' @describeIn as.mcmcr Convert an [nlist::nlists-object()] to an mcmcr object
 #' @export
 as.mcmcr.nlists <- function(x, ...) {
   x <- purrr::transpose(x)
@@ -66,7 +66,7 @@ as.mcmcr.nlists <- function(x, ...) {
   set_class(x, "mcmcr")
 }
 
-#' @describeIn as.mcmcr Convert an \code{\link[coda]{mcmc}} object to an mcmcr object
+#' @describeIn as.mcmcr Convert an [coda::mcmc()] object to an mcmcr object
 #' @export
 as.mcmcr.mcmc <- function(x, ...) {
   pars <- pars(x)
@@ -76,7 +76,7 @@ as.mcmcr.mcmc <- function(x, ...) {
   set_class(x, "mcmcr")
 }
 
-#' @describeIn as.mcmcr Convert an \code{\link[coda]{mcmc.list}} object to an mcmcr object
+#' @describeIn as.mcmcr Convert an [coda::mcmc.list()] object to an mcmcr object
 #' @export
 as.mcmcr.mcmc.list <- function(x, ...) {
   x <- lapply(x, as.mcmcr)
@@ -86,7 +86,7 @@ as.mcmcr.mcmc.list <- function(x, ...) {
 #' @export
 as.mcmcr.mcmcr <- function(x, ...) x
 
-#' @describeIn as.mcmcr Convert tan \code{\link[mcmcr]{mcmcrs-object}} to an mcmcr object
+#' @describeIn as.mcmcr Convert tan [mcmcr::mcmcrs-object()] to an mcmcr object
 #' @export
 as.mcmcr.mcmcrs <- function(x, ...) {
   if (!identical(length(x), 1L)) abort_chk("`x` must have one mcmcr object")

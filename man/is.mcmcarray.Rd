@@ -13,7 +13,7 @@ is.mcmcarray(x)
 A flag indicating whether the test was positive.
 }
 \description{
-Tests whether an object is an \code{\link{mcmcarray-object}}.
+Tests whether an object is an \code{\link[=mcmcarray-object]{mcmcarray-object()}}.
 }
 \examples{
 is.mcmcarray(mcmcr_example$beta)

@@ -19,7 +19,7 @@ Coerces MCMC objects to an mcarray object.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{list}: Convert a list of uniquely named objects that can be coerced to \code{\link{mcmcarray-object}s} to an mcmcr object
+\item \code{list}: Convert a list of uniquely named objects that can be coerced to \verb{[mcmcarray-object]s} to an mcmcr object
 }}
 
 \examples{
