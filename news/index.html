@@ -67,7 +67,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9024</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -110,31 +110,59 @@
       <small>Source: <a href='https://github.com/poissonconsulting/mcmcr/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="mcmcr-0209024" class="section level1">
+    <div id="mcmcr-030" class="section level1">
 <h1 class="page-header">
-<a href="#mcmcr-0209024" class="anchor"></a>mcmcr 0.2.0.9024<small> Unreleased </small>
+<a href="#mcmcr-030" class="anchor"></a>mcmcr 0.3.0<small> Unreleased </small>
 </h1>
 <ul>
-<li><p>Added scalar = NULL to pars() and npars().</p></li>
-<li><p>Added na_rm argument to esr().</p></li>
-<li><p>Added na_rm = FALSE to rhat().</p></li>
-<li><p>Soft-deprecated <code><a href="https://rdrr.io/pkg/extras/man/pvalue.html">pvalue()</a></code> for <code><a href="https://rdrr.io/pkg/extras/man/pvalue.html">extras::pvalue()</a></code>.</p></li>
-<li><p>Soft-deprecated <code><a href="../reference/zero.html">zero()</a></code> for <code><a href="https://rdrr.io/pkg/extras/man/fill_all.html">fill_all()</a></code>.</p></li>
-<li><p>Soft-deprecated <code><a href="../reference/check_mcmcarray.html">check_mcmcarray()</a></code> and <code><a href="../reference/check_mcmcr.html">check_mcmcr()</a></code>.</p></li>
-<li><p>Added <code>vld_()</code> and <code>chk_()</code> functions for mcmcarray and mcmcr objects.</p></li>
+<li>
+<p>Added</p>
+<ul>
+<li>
+<code>vld_()</code> and <code>chk_()</code> functions for mcmcarray and mcmcr objects.</li>
+<li>
+<code>scalar = NULL</code> argument to <code><a href="https://rdrr.io/pkg/universals/man/pars.html">pars()</a></code> and <code><a href="https://rdrr.io/pkg/universals/man/npars.html">npars()</a></code>.</li>
+<li>
+<code>na_rm = NA</code> argument to <code><a href="https://rdrr.io/pkg/universals/man/esr.html">esr()</a></code> and <code><a href="https://rdrr.io/pkg/universals/man/rhat.html">rhat()</a></code>.</li>
+<li>missing <code>as_df = FALSE</code> arg to <code><a href="https://rdrr.io/pkg/universals/man/esr.html">esr()</a></code> for mcarray, mcmc and mcmc.list.</li>
+<li>coercion to and from nlists objects for mcmcr, mcmc.list and mcmc objects.</li>
+</ul>
+</li>
+<li>
+<p>Soft-deprecated</p>
+<ul>
+<li>
+<code><a href="https://rdrr.io/pkg/extras/man/pvalue.html">pvalue()</a></code> for <code><a href="https://rdrr.io/pkg/extras/man/pvalue.html">extras::pvalue()</a></code>.</li>
+<li>
+<code><a href="../reference/zero.html">zero()</a></code> for <code><a href="https://rdrr.io/pkg/extras/man/fill_all.html">fill_all()</a></code>.</li>
+<li>
+<code><a href="../reference/check_mcmcarray.html">check_mcmcarray()</a></code> and <code><a href="../reference/check_mcmcr.html">check_mcmcr()</a></code> for <code><a href="../reference/chk_mcmcr.html">chk_mcmcarray()</a></code> and <code><a href="../reference/chk_mcmcr.html">chk_mcmcr()</a></code>.</li>
+</ul>
+</li>
+<li>
+<p>Replaced</p>
+<ul>
+<li>
+<code>nsims.mcmcr()</code> etc with <code>nsims.default()</code>
+</li>
+</ul>
+</li>
 <li><p>Replaced <code>iterations</code> argument with <code>iters</code> in <code><a href="../reference/subset.html">subset()</a></code>.</p></li>
 <li><p>Moved <code><a href="https://rdrr.io/pkg/universals/man/nchains.html">nchains()</a></code>, <code><a href="https://rdrr.io/pkg/universals/man/niters.html">niters()</a></code>, <code><a href="https://rdrr.io/pkg/universals/man/collapse_chains.html">collapse_chains()</a></code> and <code><a href="https://rdrr.io/pkg/universals/man/split_chains.html">split_chains()</a></code></p></li>
 <li><p>Replaced <code><a href="https://rdrr.io/pkg/universals/man/pars.html">pars()</a></code> argument <code>scalar_only = FALSE</code>with <code>scalar = NA</code></p></li>
 <li><p>Renamed first argument of <code><a href="https://rdrr.io/pkg/universals/man/estimates.html">estimates()</a></code> from <code>object</code> to <code>x</code>.</p></li>
 <li><p>Replaced <code>parameters</code> argument with <code>pars</code></p></li>
-<li><p>Added missing <code>as_df = FALSE</code> arg to <code><a href="https://rdrr.io/pkg/universals/man/esr.html">esr()</a></code> for mcarray, mcmc and mcmc.list</p></li>
 <li><p><code><a href="https://rdrr.io/pkg/universals/man/estimates.html">estimates()</a></code> now checks fun returns scalar numeric</p></li>
 <li><p><code><a href="../reference/npdims.mcmc.list.html">npdims.mcmc.list()</a></code> now returns character vector (as opposed to list)</p></li>
-<li><p>Replaced <code>nsims.mcmcr()</code> etc with <code>nsims.default()</code></p></li>
 <li><p><code><a href="../reference/collapse_chains.mcmc.list.html">collapse_chains.mcmc.list()</a></code> now returns an mcmc.list object with one chain (as opposed to an mcmc object)</p></li>
-<li><p>Added coercion to and from nlists objects for mcmcr, mcmc.list and mcmc objects.</p></li>
-<li><p>Exported handling of terms to term package.</p></li>
 </ul>
+<div id="internal" class="section level2">
+<h2 class="hasAnchor">
+<a href="#internal" class="anchor"></a>Internal</h2>
+<ul>
+<li>Exported handling of terms to term package.</li>
+</ul>
+</div>
 </div>
     <div id="mcmcr-020" class="section level1">
 <h1 class="page-header">
@@ -195,7 +223,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#mcmcr-0209024">0.2.0.9024</a></li>
+        <li><a href="#mcmcr-030">0.3.0</a></li>
         <li><a href="#mcmcr-020">0.2.0</a></li>
         <li><a href="#mcmcr-010">0.1.0</a></li>
         <li><a href="#mcmcr-003">0.0.3</a></li>
