@@ -156,10 +156,11 @@ object's parameters.</p>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>nlist</span>)
 
 <span class='no'>nlist</span> <span class='kw'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/pkg/nlist/man/nlist.html'>nlist</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>3</span>:<span class='fl'>4</span>)
-<span class='fu'><a href='https://rdrr.io/pkg/universals/man/pars.html'>pars</a></span>(<span class='no'>nlist</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"a"</span>, <span class='st'>"b"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in pars(nlist) &lt;- c("a", "b"): could not find function "pars&lt;-"</span></div><div class='input'><span class='no'>nlist</span></div><div class='output co'>#&gt; $x
+<span class='fu'><a href='https://rdrr.io/pkg/universals/man/pars.html'>pars</a></span>(<span class='no'>nlist</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"a"</span>, <span class='st'>"b"</span>)
+<span class='no'>nlist</span></div><div class='output co'>#&gt; $a
 #&gt; [1] 1
 #&gt; 
-#&gt; $y
+#&gt; $b
 #&gt; [1] 3 4
 #&gt; 
 #&gt; an nlist object with 2 numeric elements</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/universals/man/set_pars.html'>set_pars</a></span>(<span class='no'>nlist</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"z"</span>, <span class='st'>"c1"</span>))</div><div class='output co'>#&gt; $z
