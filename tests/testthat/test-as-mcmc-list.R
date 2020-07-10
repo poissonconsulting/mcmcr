@@ -1,6 +1,8 @@
 test_that("as.mcmc.list", {
-  expect_is(coda::as.mcmc.list(as.mcmc(collapse_chains(mcmcr_example))),
-            "mcmc.list")
+  expect_is(
+    coda::as.mcmc.list(as.mcmc(collapse_chains(mcmcr_example))),
+    "mcmc.list"
+  )
 
   mcmc.list <- coda::as.mcmc.list(mcmcr_example)
   expect_is(mcmc.list, "mcmc.list")

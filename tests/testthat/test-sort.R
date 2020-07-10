@@ -5,4 +5,3 @@ test_that("sort", {
   expect_identical(mcmcr_example2, mcmcr_example)
   expect_identical(sort(mcmcrs(mcmcr_example))[[1]], mcmcr_example)
 })
-

@@ -7,7 +7,9 @@ as.mcmc.list.mcarray <- function(x, ...) as.mcmc.list(as.mcmcarray(x))
 #' @method as.mcmc.list mcmcarray
 #' @export
 as.mcmc.list.mcmcarray <- function(x, ...) {
-  x <- lapply(1:nchains(x), function(chain, x) {subset(x, chains = chain)}, x = x)
+  x <- lapply(1:nchains(x), function(chain, x) {
+    subset(x, chains = chain)
+  }, x = x)
   x <- lapply(x, as.mcmc)
   mcmc.list(x)
 }

@@ -23,22 +23,26 @@ as.mcmcrs.list <- function(x, ...) {
   pdims <- lapply(x, pdims)
   pars <- lapply(x, pars)
 
-  if (!identical(length(unique(nchains)), 1L))
+  if (!identical(length(unique(nchains)), 1L)) {
     abort_chk("all objects must have the same number of chains")
+  }
 
-  if (!identical(length(unique(niters)), 1L))
+  if (!identical(length(unique(niters)), 1L)) {
     abort_chk("all objects must have the same number of iterations")
+  }
 
-  if (!identical(length(unique(pars)), 1L))
+  if (!identical(length(unique(pars)), 1L)) {
     abort_chk("all objects must have the same parameters")
+  }
 
-  if (!identical(length(unique(pdims)), 1L))
+  if (!identical(length(unique(pdims)), 1L)) {
     abort_chk("all objects must have the same parameter dimensions")
+  }
 
-  if(is.null(names(x))) {
+  if (is.null(names(x))) {
     names(x) <- paste0("mcmcr", 1:length(x))
   } else
-    if(anyDuplicated(names(x))) abort_chk("mcmcr objects must have unique names")
+  if (anyDuplicated(names(x))) abort_chk("mcmcr objects must have unique names")
   set_class(x, "mcmcrs")
 }
 

@@ -11,7 +11,11 @@ test_that("combine_dimensions.mcmcarray", {
 
 test_that("combine_dimensions.mcmcr", {
   expect_equal(combine_dimensions(bind_dimensions_n(mcmcr_example, mcmcr_example, mcmcr_example)),
-               mcmcr_example, check.attributes = FALSE)
+    mcmcr_example,
+    check.attributes = FALSE
+  )
   expect_equal(combine_dimensions(bind_dimensions_n(mcmcr_example2, mcmcr_example2, mcmcr_example2)),
-               mcmcr_example2, check.attributes = FALSE)
+    mcmcr_example2,
+    check.attributes = FALSE
+  )
 })

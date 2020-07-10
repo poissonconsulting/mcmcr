@@ -75,6 +75,8 @@ Subsets an MCMC object by its chains, iterations and/or parameters.
 }}
 
 \examples{
-subset(mcmcr_example, chains = 2L, iters = 1:100,
-  pars = c("beta", "alpha"))
+subset(mcmcr_example,
+  chains = 2L, iters = 1:100,
+  pars = c("beta", "alpha")
+)
 }

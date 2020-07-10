@@ -20,23 +20,26 @@ zero <- function(x, ...) {
 
 #' @describeIn zero Zero an mcarray object
 #' @export
-zero.mcarray <- function(x, ...)
+zero.mcarray <- function(x, ...) {
   fill_all(x)
+}
 
 #' @describeIn zero Zero an mcmcarray object
 #' @export
-zero.mcmcarray <- function(x, ...)
+zero.mcmcarray <- function(x, ...) {
   fill_all(x)
+}
 
 #' @describeIn zero Zero an mcmcr object
 #' @export
 zero.mcmcr <- function(x, pars = NULL, ...) {
-  if(!is.null(pars)) {
+  if (!is.null(pars)) {
     chk_s3_class(pars, "character")
     chk_subset(pars, pars(x))
     chk_unique(pars)
-  } else
+  } else {
     pars <- pars(x)
+  }
 
   x[pars] <- lapply(x[pars], zero)
   set_class(x, "mcmcr")

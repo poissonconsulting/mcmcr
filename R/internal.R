@@ -1,7 +1,7 @@
 subset_mcmcarray_iteration <- function(x, iteration) {
   x <- abind::asub(x, iteration, 2L, drop = FALSE)
-  dim <- dim(x)[-c(1,2)]
-  if(length(dim) == 1) dim <- NULL
+  dim <- dim(x)[-c(1, 2)]
+  if (length(dim) == 1) dim <- NULL
   dim(x) <- dim
   x
 }
@@ -38,15 +38,21 @@ set_class <- function(x, class) {
 .esr_numeric <- function(x, na_rm) {
   stopifnot(is.numeric(x))
 
-  if(!na_rm && any(is.na(x))) return(NA_real_)
-  x <- stats::acf(x, lag.max = length(x) - 1, na.action = na.pass,
-                  plot = FALSE)$acf[,,1]
+  if (!na_rm && any(is.na(x))) {
+    return(NA_real_)
+  }
+  x <- stats::acf(x,
+    lag.max = length(x) - 1, na.action = na.pass,
+    plot = FALSE
+  )$acf[, , 1]
 
-  if (is.nan(x[1])) return(1) # all values identical
+  if (is.nan(x[1])) {
+    return(1)
+  } # all values identical
 
   x <- c(x, -1) # adds stopper
   match <- match(TRUE, x < 0)
-  x <- sum(x[1:(match-1)]) - 1 # drops lag-0
+  x <- sum(x[1:(match - 1)]) - 1 # drops lag-0
   1 / (1 + 2 * x)
 }
 
@@ -55,8 +61,8 @@ set_class <- function(x, class) {
   stopifnot(is.matrix(object))
   nrow <- nrow(object)
   object <- apply(object, 1L, fun)
-  if(!identical(dims(object), nrow)) abort_chk("`fun` must return a scalar")
-  if(!is.numeric(object)) abort_chk("`fun` must return a numeric")
+  if (!identical(dims(object), nrow)) abort_chk("`fun` must return a scalar")
+  if (!is.numeric(object)) abort_chk("`fun` must return a numeric")
   object
 }
 
@@ -72,7 +78,7 @@ set_class <- function(x, class) {
 
   var_between <- niters * stats::var(mean_chain)
   var_within <- mean(var_chain)
-  rhat <- sqrt((var_between/var_within + niters - 1) / niters)
+  rhat <- sqrt((var_between / var_within + niters - 1) / niters)
 
   if (is.nan(rhat) || (!is.na(rhat) && rhat < 1)) rhat <- 1
   round(rhat, 3)
@@ -86,7 +92,7 @@ tibble <- function(...) {
 
 abind <- function(x, x2, along, dimnames = TRUE) {
   x <- abind::abind(x, x2, along = along)
-  if(!isTRUE(dimnames)) dimnames(x) <- NULL
+  if (!isTRUE(dimnames)) dimnames(x) <- NULL
   x
 }
 

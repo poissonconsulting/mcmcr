@@ -24,4 +24,3 @@ nlist::nlist
 
 #' @export
 nlist::nlists
-

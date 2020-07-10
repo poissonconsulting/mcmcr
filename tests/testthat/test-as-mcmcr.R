@@ -28,8 +28,10 @@ test_that("as.mcmcr.mcmc", {
 })
 
 test_that("as.mcmcr.mcmc.list", {
-  expect_identical(as.mcmcr(coda::as.mcmc.list(mcmcr::mcmcr_example)),
-                   mcmcr::mcmcr_example)
+  expect_identical(
+    as.mcmcr(coda::as.mcmc.list(mcmcr::mcmcr_example)),
+    mcmcr::mcmcr_example
+  )
 })
 
 test_that("as.mcmcr.mcmcr", {

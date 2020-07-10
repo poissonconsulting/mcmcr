@@ -1,8 +1,12 @@
 test_that("estimates.mcarray", {
   expect_equal(estimates(as.mcarray(mcmcr_example[[1]])), c(3.718025, 4.718025))
-  expect_equal(estimates(as.mcarray(mcmcr_example[[1]]), as_df = TRUE),
-               tibble::tibble(term = term(parameter = 2),
-                              estimate = c(3.718025, 4.718025)))
+  expect_equal(
+    estimates(as.mcarray(mcmcr_example[[1]]), as_df = TRUE),
+    tibble::tibble(
+      term = term(parameter = 2),
+      estimate = c(3.718025, 4.718025)
+    )
+  )
 })
 
 test_that("estimates.mcmcarray", {
@@ -13,16 +17,24 @@ test_that("estimates.mcmcarray", {
 
 test_that("estimates.mcmc", {
   expect_equal(estimates(as.mcmc(collapse_chains(mcmcr_example)))$alpha, c(3.718025, 4.718025))
-  expect_equal(estimates(as.mcmc(collapse_chains(mcmcr_example)), as_df = TRUE)$estimate,
-  c(3.718025, 4.718025, 0.9716535, 1.9716535, 1.9716535, 2.9716535,
-0.7911975))
+  expect_equal(
+    estimates(as.mcmc(collapse_chains(mcmcr_example)), as_df = TRUE)$estimate,
+    c(
+      3.718025, 4.718025, 0.9716535, 1.9716535, 1.9716535, 2.9716535,
+      0.7911975
+    )
+  )
 })
 
 test_that("estimates.mcmc.list", {
   expect_equal(estimates(coda::as.mcmc.list(mcmcr_example))$alpha, c(3.718025, 4.718025))
-  expect_equal(estimates(coda::as.mcmc.list(mcmcr_example), as_df = TRUE)$estimate,
-  c(3.718025, 4.718025, 0.9716535, 1.9716535, 1.9716535, 2.9716535,
-0.7911975))
+  expect_equal(
+    estimates(coda::as.mcmc.list(mcmcr_example), as_df = TRUE)$estimate,
+    c(
+      3.718025, 4.718025, 0.9716535, 1.9716535, 1.9716535, 2.9716535,
+      0.7911975
+    )
+  )
 })
 
 test_that("estimates not as list", {
@@ -41,12 +53,18 @@ test_that("estimates not as list", {
 
 test_that("estimates not scalar", {
   expect_error(estimates(mcmcr::mcmcr_example, fun = function(x) NULL),
-               "^`fun` must return a scalar[.]$", class = "chk_error")
+    "^`fun` must return a scalar[.]$",
+    class = "chk_error"
+  )
   expect_error(estimates(mcmcr::mcmcr_example, fun = identity),
-               "^`fun` must return a scalar[.]$", class = "chk_error")
+    "^`fun` must return a scalar[.]$",
+    class = "chk_error"
+  )
 })
 
 test_that("estimates not numeric", {
   expect_error(estimates(mcmcr::mcmcr_example, fun = function(x) as.character(sum(x))),
-               "^`fun` must return a numeric[.]$", class = "chk_error")
+    "^`fun` must return a numeric[.]$",
+    class = "chk_error"
+  )
 })

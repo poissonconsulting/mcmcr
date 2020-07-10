@@ -5,9 +5,13 @@ universals::collapse_chains
 #' @export
 collapse_chains.default <- function(x, ...) {
   nchains <- nchains(x)
-  if (identical(nchains, 1L)) return(x)
+  if (identical(nchains, 1L)) {
+    return(x)
+  }
 
-  x <- lapply(1:nchains, FUN = function(chains, x) {subset(x, chains = chains)}, x = x)
+  x <- lapply(1:nchains, FUN = function(chains, x) {
+    subset(x, chains = chains)
+  }, x = x)
   Reduce(bind_iterations, x)
 }
 

@@ -27,20 +27,23 @@ coef.numeric <- function(object, conf_level = 0.95, estimate = median, ...) {
 
   quantiles <- stats::quantile(object, c(lower, upper), na.rm = TRUE, names = FALSE)
 
-  if (anyNA(object) || identical(length(object), 1L)) quantiles[c(1,2)] <- NA
+  if (anyNA(object) || identical(length(object), 1L)) quantiles[c(1, 2)] <- NA
 
   estimate <- estimate(object)
-  if(!identical(length(estimate), 1L)) abort_chk("`estimate` must return a scalar")
+  if (!identical(length(estimate), 1L)) abort_chk("`estimate` must return a scalar")
   sd <- stats::sd(object)
-  zscore = mean(object) / sd
+  zscore <- mean(object) / sd
 
-  tibble(estimate = estimate, sd = sd, zscore = zscore,
-    lower = quantiles[1], upper = quantiles[2], pvalue = extras::pvalue(object))
+  tibble(
+    estimate = estimate, sd = sd, zscore = zscore,
+    lower = quantiles[1], upper = quantiles[2], pvalue = extras::pvalue(object)
+  )
 }
 
 #' @export
-coef.mcarray <- function(object, conf_level = 0.95, estimate = median, ...)
+coef.mcarray <- function(object, conf_level = 0.95, estimate = median, ...) {
   coef(as.mcmc.list(object), conf_level = conf_level, estimate = estimate)
+}
 
 #' @describeIn coef Get coefficients for terms in mcmc object
 #' @export
@@ -51,7 +54,7 @@ coef.mcmc <- function(object, conf_level = 0.95, estimate = median, ...) {
   object <- do.call(rbind, object)
   object$term <- term
   object <- object[c("term", "estimate", "sd", "zscore", "lower", "upper", "pvalue")]
-  object <- object[order(object$term),]
+  object <- object[order(object$term), ]
   object
 }
 
@@ -62,9 +65,11 @@ coef.mcmc.list <- function(object, conf_level = 0.95, estimate = median, ...) {
 }
 
 #' @export
-coef.mcmcarray <- function(object, conf_level = 0.95, estimate = median, ...)
+coef.mcmcarray <- function(object, conf_level = 0.95, estimate = median, ...) {
   coef(as.mcmc.list(object), conf_level = conf_level, estimate = estimate)
+}
 
 #' @export
-coef.mcmcr <- function(object, conf_level = 0.95, estimate = median, ...)
+coef.mcmcr <- function(object, conf_level = 0.95, estimate = median, ...) {
   coef(as.mcmc.list(object), conf_level = conf_level, estimate = estimate)
+}

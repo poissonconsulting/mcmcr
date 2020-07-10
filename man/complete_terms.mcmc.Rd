@@ -25,6 +25,6 @@ Missing or invalid or inconsistent terms are dropped with a warning.
 }
 \examples{
 mcmc <- coda::as.mcmc(subset(mcmcr::mcmcr_example, chain = 1L))
-mcmc <- mcmc[,-c(1,5,7)]
+mcmc <- mcmc[, -c(1, 5, 7)]
 term::complete_terms(mcmc)
 }

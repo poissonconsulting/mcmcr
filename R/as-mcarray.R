@@ -22,4 +22,3 @@ as.mcarray.mcmcarray <- function(x, ...) {
   x <- aperm(x, c(3:n, 2, 1))
   set_class(x, "mcarray")
 }
-

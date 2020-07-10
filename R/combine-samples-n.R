@@ -15,7 +15,9 @@ combine_samples_n <- function(x, ..., fun = mean) {
 
 #' @export
 combine_samples_n.default <- function(x, ..., fun = mean) {
-  if(!length(list(...))) return(x)
+  if (!length(list(...))) {
+    return(x)
+  }
   x <- bind_dimensions_n(x, ...)
   combine_dimensions(x, fun = fun)
 }

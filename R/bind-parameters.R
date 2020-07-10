@@ -7,8 +7,10 @@
 #' @param ... unused
 #' @export
 #' @examples
-#' bind_parameters(subset(mcmcr_example, pars = "sigma"),
-#'   subset(mcmcr_example, pars = "beta"))
+#' bind_parameters(
+#'   subset(mcmcr_example, pars = "sigma"),
+#'   subset(mcmcr_example, pars = "beta")
+#' )
 bind_parameters <- function(x, x2, ...) {
   UseMethod("bind_parameters")
 }
@@ -17,11 +19,13 @@ bind_parameters <- function(x, x2, ...) {
 bind_parameters.mcmc <- function(x, x2, ...) {
   chk_s3_class(x2, "mcmc")
 
-  if (length(intersect(pars(x), pars(x2))))
+  if (length(intersect(pars(x), pars(x2)))) {
     abort_chk("`x` and `x2` must not have any of the same parameters")
+  }
 
-  if (!identical(niters(x), niters(x2)))
+  if (!identical(niters(x), niters(x2))) {
     abort_chk("`x` and `x2` must have the same number of iterations")
+  }
 
   x <- abind(x, x2, along = 2)
   x <- as.mcmc(x)
@@ -32,14 +36,17 @@ bind_parameters.mcmc <- function(x, x2, ...) {
 bind_parameters.mcmc.list <- function(x, x2, ...) {
   chk_s3_class(x2, "mcmc.list")
 
-  if (length(intersect(pars(x), pars(x2))))
+  if (length(intersect(pars(x), pars(x2)))) {
     abort_chk("`x` and `x2` must not have any of the same parameters")
+  }
 
-  if (!identical(nchains(x), nchains(x2)))
+  if (!identical(nchains(x), nchains(x2))) {
     abort_chk("`x` and `x2` must have the same number of chains")
+  }
 
-  if (!identical(niters(x), niters(x2)))
+  if (!identical(niters(x), niters(x2))) {
     abort_chk("`x` and `x2` must have the same number of iterations")
+  }
 
   x <- mapply(x, x2, FUN = bind_parameters, SIMPLIFY = FALSE)
   set_class(x, "mcmc.list")
@@ -49,14 +56,17 @@ bind_parameters.mcmc.list <- function(x, x2, ...) {
 bind_parameters.mcmcr <- function(x, x2, ...) {
   chk_s3_class(x2, "mcmcr")
 
-  if (length(intersect(pars(x), pars(x2))))
+  if (length(intersect(pars(x), pars(x2)))) {
     abort_chk("`x` and `x2` must not have any of the same parameters")
+  }
 
-  if (!identical(nchains(x), nchains(x2)))
+  if (!identical(nchains(x), nchains(x2))) {
     abort_chk("`x` and `x2` must have the same number of chains")
+  }
 
-  if (!identical(niters(x), niters(x2)))
+  if (!identical(niters(x), niters(x2))) {
     abort_chk("`x` and `x2` must have the same number of iterations")
+  }
 
   x <- c(x, x2)
   x <- set_class(x, "mcmcr")

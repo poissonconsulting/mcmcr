@@ -6,7 +6,9 @@ universals::npars
 #' @export
 npars.mcarray <- function(x, scalar = NULL, ...) {
   chk_unused(...)
-  if(is.null(scalar)) return(1L)
+  if (is.null(scalar)) {
+    return(1L)
+  }
   length(pars(x, scalar = scalar))
 }
 
@@ -15,7 +17,9 @@ npars.mcarray <- function(x, scalar = NULL, ...) {
 #' @export
 npars.mcmcarray <- function(x, scalar = NULL, ...) {
   chk_unused(...)
-  if(is.null(scalar)) return(1L)
+  if (is.null(scalar)) {
+    return(1L)
+  }
   length(pars(x, scalar = scalar))
 }
 
@@ -24,6 +28,8 @@ npars.mcmcarray <- function(x, scalar = NULL, ...) {
 #' @export
 npars.mcmcr <- function(x, scalar = NULL, ...) {
   chk_unused(...)
-  if(is.null(scalar)) return(length(x))
+  if (is.null(scalar)) {
+    return(length(x))
+  }
   length(pars(x, scalar = scalar))
 }

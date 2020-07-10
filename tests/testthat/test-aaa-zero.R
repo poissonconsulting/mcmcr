@@ -37,4 +37,3 @@ test_that("zero.mcmcr2", {
   expect_identical(pdims(mcmcr0), pdims(mcmcr_example2))
   expect_identical(estimates(mcmcr0)$sigma, estimates(mcmcr_example2)$sigma)
 })
-

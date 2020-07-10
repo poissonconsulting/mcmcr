@@ -23,8 +23,8 @@ mcmcr_example <- bind_iterations(mcmcr_example, mcmcr_example2)
 usethis::use_data(mcmcr_example, overwrite = TRUE)
 
 mcmcr_example2 <- mcmcr_example
-dim(mcmcr_example2$alpha) <- c(dims(mcmcr_example2$alpha),1L,1L)
+dim(mcmcr_example2$alpha) <- c(dims(mcmcr_example2$alpha), 1L, 1L)
 mcmcr_example2$beta <- bind_dimensions(mcmcr_example2$beta, mcmcr_example2$beta + 1)
-dim(mcmcr_example2$sigma) <- c(dims(mcmcr_example2$sigma),1L,1L)
+dim(mcmcr_example2$sigma) <- c(dims(mcmcr_example2$sigma), 1L, 1L)
 
 usethis::use_data(mcmcr_example2, internal = TRUE, overwrite = TRUE)

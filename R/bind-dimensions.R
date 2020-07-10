@@ -18,13 +18,15 @@ bind_dimensions <- function(x, x2, along = NULL, ...) {
 #' @export
 bind_dimensions.mcmcarray <- function(x, x2, along = NULL, ...) {
   chk_s3_class(x2, "mcmcarray")
-  if(!is.null(along)) chk_whole_number(along)
+  if (!is.null(along)) chk_whole_number(along)
 
-  if (!identical(nchains(x), nchains(x2)))
+  if (!identical(nchains(x), nchains(x2))) {
     abort_chk("`x` and `x2` must have the same number of chains")
+  }
 
-  if (!identical(niters(x), niters(x2)))
+  if (!identical(niters(x), niters(x2))) {
     abort_chk("`x` and `x2` must have the same number of iterations")
+  }
 
   if (is.null(along)) along <- max(ndims(x), ndims(x2)) - 1
 
@@ -35,7 +37,7 @@ bind_dimensions.mcmcarray <- function(x, x2, along = NULL, ...) {
 #' @export
 bind_dimensions.mcmcr <- function(x, x2, along = NULL, ...) {
   chk_s3_class(x, "mcmcr")
-  if(!is.null(along)) {
+  if (!is.null(along)) {
     chk_whole_numeric(along)
     chk_subset(length(along), c(1, npars(x)))
   }
@@ -43,19 +45,25 @@ bind_dimensions.mcmcr <- function(x, x2, along = NULL, ...) {
   x <- sort(x)
   x2 <- sort(x2)
 
-  if (!identical(pars(x), pars(x2)))
+  if (!identical(pars(x), pars(x2))) {
     abort_chk("`x` and `x2` must have the same parameters")
+  }
 
-  if (!identical(nchains(x), nchains(x2)))
+  if (!identical(nchains(x), nchains(x2))) {
     abort_chk("`x` and `x2` must have the same number of chains")
+  }
 
-  if (!identical(niters(x), niters(x2)))
+  if (!identical(niters(x), niters(x2))) {
     abort_chk("`x` and `x2` must have the same number of iterations")
+  }
 
   if (is.null(along)) {
-    along <- mapply(x, x2, FUN = function(x, x2) {max(ndims(x), ndims(x2)) - 1L}, SIMPLIFY = FALSE)
-  } else if (length(along)  == 1)
+    along <- mapply(x, x2, FUN = function(x, x2) {
+      max(ndims(x), ndims(x2)) - 1L
+    }, SIMPLIFY = FALSE)
+  } else if (length(along) == 1) {
     along <- rep(along, length(x))
+  }
 
   x <- mapply(x = x, x2 = x2, along = along, FUN = bind_dimensions, SIMPLIFY = FALSE)
   set_class(x, "mcmcr")

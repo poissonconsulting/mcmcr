@@ -7,8 +7,10 @@
 #' @inheritParams params
 #' @name subset
 #' @examples
-#' subset(mcmcr_example, chains = 2L, iters = 1:100,
-#'   pars = c("beta", "alpha"))
+#' subset(mcmcr_example,
+#'   chains = 2L, iters = 1:100,
+#'   pars = c("beta", "alpha")
+#' )
 NULL
 
 
@@ -16,21 +18,23 @@ NULL
 #' @export
 subset.mcmc <- function(x, iters = NULL, pars = NULL,
                         iterations = NULL, parameters = NULL, ...) {
-  if(!missing(iterations)) {
+  if (!missing(iterations)) {
     deprecate_soft("0.2.1", "subset(iterations = )", "subset(iters = )",
-                   id = "subset_iterations")
+      id = "subset_iterations"
+    )
     iters <- iterations
   }
-  if(!missing(parameters)) {
+  if (!missing(parameters)) {
     deprecate_soft("0.2.1", "subset(parameters = )", "subset(pars = )",
-                   id = "subset_parameters")
+      id = "subset_parameters"
+    )
     pars <- parameters
   }
-  if(!is.null(iters)) {
+  if (!is.null(iters)) {
     chk_whole_numeric(iters)
     chk_range(iters, c(1L, niters(x)))
   }
-  if(!is.null(pars)) {
+  if (!is.null(pars)) {
     chk_s3_class(pars, "character")
     chk_not_any_na(pars)
     chk_unique(pars)
@@ -38,8 +42,8 @@ subset.mcmc <- function(x, iters = NULL, pars = NULL,
   }
   chk_unused(...)
 
-  if (!is.null(pars)) x <- x[,pars_terms(as_term(x)) %in% pars,drop = FALSE]
-  if (!is.null(iters)) x <- x[iters,,drop = FALSE]
+  if (!is.null(pars)) x <- x[, pars_terms(as_term(x)) %in% pars, drop = FALSE]
+  if (!is.null(iters)) x <- x[iters, , drop = FALSE]
   class(x) <- "mcmc"
   x
 }
@@ -48,25 +52,28 @@ subset.mcmc <- function(x, iters = NULL, pars = NULL,
 #' @export
 subset.mcmc.list <- function(x, chains = NULL, iters = NULL, pars = NULL,
                              iterations = NULL, parameters = NULL, ...) {
-  if(!missing(iterations)) {
+  if (!missing(iterations)) {
     deprecate_soft("0.2.1", "subset(iterations = )", "subset(iters = )",
-                   id = "subset_iterations")
+      id = "subset_iterations"
+    )
     iters <- iterations
   }
-  if(!missing(parameters)) {
+  if (!missing(parameters)) {
     deprecate_soft("0.2.1", "subset(parameters = )", "subset(pars = )",
-                   id = "subset_parameters")
+      id = "subset_parameters"
+    )
     pars <- parameters
   }
-  if(!is.null(chains)) {
+  if (!is.null(chains)) {
     chk_whole_numeric(chains)
     chk_not_any_na(chains)
     chk_range(chains, c(1L, nchains(x)))
   }
   chk_unused(...)
 
-  if(!is.null(chains))
+  if (!is.null(chains)) {
     x <- x[chains]
+  }
   x <- lapply(x, subset, iters = iters, pars = pars)
   class(x) <- "mcmc.list"
   x
@@ -76,17 +83,18 @@ subset.mcmc.list <- function(x, chains = NULL, iters = NULL, pars = NULL,
 #' @export
 subset.mcmcarray <- function(x, chains = NULL, iters = NULL,
                              iterations = NULL, ...) {
-  if(!missing(iterations)) {
+  if (!missing(iterations)) {
     deprecate_soft("0.2.1", "subset(iterations = )", "subset(iters = )",
-                   id = "subset_iterations")
+      id = "subset_iterations"
+    )
     iters <- iterations
   }
-  if(!is.null(chains)) {
+  if (!is.null(chains)) {
     chk_whole_numeric(chains)
     chk_not_any_na(chains)
     chk_range(chains, c(1L, nchains(x)))
   }
-  if(!is.null(iters)) {
+  if (!is.null(iters)) {
     chk_whole_numeric(iters)
     chk_not_any_na(iters)
     chk_range(iters, c(1L, niters(x)))
@@ -103,17 +111,19 @@ subset.mcmcarray <- function(x, chains = NULL, iters = NULL,
 #' @export
 subset.mcmcr <- function(x, chains = NULL, iters = NULL, pars = NULL,
                          iterations = NULL, parameters = NULL, ...) {
-  if(!missing(iterations)) {
+  if (!missing(iterations)) {
     deprecate_soft("0.2.1", "subset(iterations = )", "subset(iters = )",
-                   id = "subset_iterations")
+      id = "subset_iterations"
+    )
     iters <- iterations
   }
-  if(!missing(parameters)) {
+  if (!missing(parameters)) {
     deprecate_soft("0.2.1", "subset(parameters = )", "subset(pars = )",
-                   id = "subset_parameters")
+      id = "subset_parameters"
+    )
     pars <- parameters
   }
-  if(!is.null(pars)) {
+  if (!is.null(pars)) {
     chk_s3_class(pars, "character")
     chk_subset(pars, pars(x))
     chk_unique(pars)
@@ -131,14 +141,16 @@ subset.mcmcr <- function(x, chains = NULL, iters = NULL, pars = NULL,
 #' @export
 subset.mcmcrs <- function(x, chains = NULL, iters = NULL, pars = NULL,
                           iterations = NULL, parameters = NULL, ...) {
-  if(!missing(iterations)) {
+  if (!missing(iterations)) {
     deprecate_soft("0.2.1", "subset(iterations = )", "subset(iters = )",
-                   id = "subset_iterations")
+      id = "subset_iterations"
+    )
     iters <- iterations
   }
-  if(!missing(parameters)) {
+  if (!missing(parameters)) {
     deprecate_soft("0.2.1", "subset(parameters = )", "subset(pars = )",
-                   id = "subset_parameters")
+      id = "subset_parameters"
+    )
     pars <- parameters
   }
   chk_unused(...)

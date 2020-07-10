@@ -40,4 +40,4 @@ is.mcmcr <- function(x) inherits(x, "mcmcr")
 #' @export
 #' @examples
 #' is.mcmcrs(mcmcrs(mcmcr_example))
-is.mcmcrs <- function(x)  inherits(x, "mcmcrs")
+is.mcmcrs <- function(x) inherits(x, "mcmcrs")

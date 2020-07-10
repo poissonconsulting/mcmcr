@@ -17,7 +17,7 @@ combine_dimensions <- function(x, fun = mean, along = NULL, ...) {
 #' @export
 combine_dimensions.mcmcarray <- function(x, fun = mean, along = NULL, ...) {
   chk_function(fun)
-  if(!is.null(along)) {
+  if (!is.null(along)) {
     chk_whole_number(along)
     chk_not_any_na(along)
     chk_range(along, c(1L, length(pdims(x))))
@@ -25,20 +25,21 @@ combine_dimensions.mcmcarray <- function(x, fun = mean, along = NULL, ...) {
   chk_unused(...)
 
   pdims <- pdims(x)
-  if(is.null(along)) along <- length(pdims)
+  if (is.null(along)) along <- length(pdims)
 
   n <- 1:length(pdims)
   n <- n[-along]
-  if(length(pdims) > 1) {
+  if (length(pdims) > 1) {
     pdims <- pdims[-along]
-  } else
+  } else {
     pdims <- 1L
+  }
   dim <- c(nchains(x), niters(x), pdims)
   x <- apply(x, c(1L, 2L, n + 2L), fun)
   dim(x) <- dim
   x <- set_class(x, "mcmcarray")
 
-  if(!identical(pdims(x), pdims)) abort_chk("`fun` must return a scalar")
+  if (!identical(pdims(x), pdims)) abort_chk("`fun` must return a scalar")
   x
 }
 
@@ -50,22 +51,26 @@ combine_dimensions.mcmcr <- function(x, fun = mean, along = NULL, ...) {
   pdims <- pdims(x)
   lengths <- vapply(pdims, length, 1L)
 
-  if(!is.null(along)) {
+  if (!is.null(along)) {
     chk_whole_numeric(along)
     chk_not_any_na(along)
     chk_identical(length(along), c(1L, length(x)))
-    if(length(along) == 1L) {
+    if (length(along) == 1L) {
       chk_range(along, c(1L, min(lengths)))
-    } else
+    } else {
       chk_range(along, c(1L, max(lengths)))
+    }
   }
 
-  if(is.null(along)) {
+  if (is.null(along)) {
     along <- lengths
-  } else if(identical(length(along), 1L))
+  } else if (identical(length(along), 1L)) {
     along <- rep(along, length(pdims))
+  }
 
-  x <- mapply(FUN = combine_dimensions, x = x, along = along, MoreArgs = list(fun = fun),
-              SIMPLIFY = FALSE)
+  x <- mapply(
+    FUN = combine_dimensions, x = x, along = along, MoreArgs = list(fun = fun),
+    SIMPLIFY = FALSE
+  )
   set_class(x, "mcmcr")
 }

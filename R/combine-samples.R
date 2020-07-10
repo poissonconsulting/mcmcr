@@ -25,7 +25,7 @@ combine_samples.mcmcarray <- function(x, x2, fun = mean, ...) {
   x <- bind_dimensions(x, x2)
   x <- apply(x, (2:ndims(x) - 1L), fun)
 
-  if(!identical(dims(x), dims(x2))) abort_chk("`fun` must return a scalar")
+  if (!identical(dims(x), dims(x2))) abort_chk("`fun` must return a scalar")
   set_class(x, "mcmcarray")
 }
 
@@ -35,15 +35,19 @@ combine_samples.mcmcr <- function(x, x2, fun = mean, ...) {
   x <- sort(x)
   x2 <- sort(x2)
 
-  if (!identical(pdims(x), pdims(x2)))
+  if (!identical(pdims(x), pdims(x2))) {
     abort_chk("`x` and `x2` must have the same parameter dimensions")
+  }
 
   x <- bind_dimensions(x, x2)
-  x <- lapply(x, function(x, fun) {apply(x, (2:ndims(x) - 1L), fun)}, fun = fun)
+  x <- lapply(x, function(x, fun) {
+    apply(x, (2:ndims(x) - 1L), fun)
+  }, fun = fun)
   x <- lapply(x, function(x) set_class(x, "mcmcarray"))
   x <- set_class(x, "mcmcr")
 
-  if (!identical(pdims(x), pdims(x2)))
+  if (!identical(pdims(x), pdims(x2))) {
     abort_chk("`fun` must return a scalar")
+  }
   x
 }

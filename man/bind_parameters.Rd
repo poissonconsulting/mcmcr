@@ -17,6 +17,8 @@ bind_parameters(x, x2, ...)
 Combines two MCMC objects (with the same chains and iterations) by their parameters.
 }
 \examples{
-bind_parameters(subset(mcmcr_example, pars = "sigma"),
-  subset(mcmcr_example, pars = "beta"))
+bind_parameters(
+  subset(mcmcr_example, pars = "sigma"),
+  subset(mcmcr_example, pars = "beta")
+)
 }

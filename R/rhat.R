@@ -35,25 +35,31 @@ rhat.mcmcarray <- function(x, by = "all", as_df = FALSE, na_rm = FALSE, ...) {
   chk_flag(as_df)
   chk_flag(na_rm)
 
-  if(niters(x) < 4) {
-    if(!as_df) {
-      if(by == "term") return(utils::relist(NA_real_, estimates(x)))
+  if (niters(x) < 4) {
+    if (!as_df) {
+      if (by == "term") {
+        return(utils::relist(NA_real_, estimates(x)))
+      }
       return(NA_real_)
     }
-    if(by == "term")
+    if (by == "term") {
       return(tibble(term = as_term(x), rhat = NA_real_))
+    }
     return(tibble(parameter = "parameter", rhat = NA_real_))
   }
 
   x <- split_chains(x)
   x <- apply(x, 3:ndims(x), FUN = .rhat, na_rm = na_rm)
 
-  if(!as_df) {
-    if(by == "term") return(x)
+  if (!as_df) {
+    if (by == "term") {
+      return(x)
+    }
     return(max(x))
   }
-  if(by != "term")
+  if (by != "term") {
     return(tibble(parameter = "parameter", rhat = max(x)))
+  }
   x <- estimates(as.mcmcarray(x), as_df = TRUE)
   colnames(x) <- c("term", "rhat")
   x
@@ -67,22 +73,28 @@ rhat.mcmcarray <- function(x, by = "all", as_df = FALSE, na_rm = FALSE, ...) {
 #' rhat(mcmcr_example, by = "parameter")
 #' rhat(mcmcr_example, by = "term")
 #' rhat(mcmcr_example, by = "term", as_df = TRUE)
-rhat.mcmcr <- function(x, by = "all", as_df = FALSE, na_rm = FALSE,...) {
+rhat.mcmcr <- function(x, by = "all", as_df = FALSE, na_rm = FALSE, ...) {
   chk_unused(...)
   parameters <- pars(x)
   x <- lapply(x, rhat, by = by, as_df = as_df, na_rm = na_rm)
-  if(!as_df) {
-    if (by != "all") return(x)
+  if (!as_df) {
+    if (by != "all") {
+      return(x)
+    }
     return(max(unlist(x)))
   }
-  x <- Map(x, parameters, f = function(x, p) { pars(x[[1]]) <- p; x})
+  x <- Map(x, parameters, f = function(x, p) {
+    pars(x[[1]]) <- p
+    x
+  })
   x <- do.call("rbind", x)
   # FIXME horrible hack to deal with
   # https://github.com/poissonconsulting/term/issues/40
   is.factor <- vapply(x, is.factor, TRUE)
   x[is.factor] <- lapply(x[is.factor], function(x) new_term(as.character(x)))
-  if (by == "all")
+  if (by == "all") {
     return(tibble(all = "all", rhat = max(x$rhat)))
+  }
   x
 }
 
@@ -97,7 +109,7 @@ rhat.mcmcrs <- function(x, by = "all", as_df = FALSE, na_rm = FALSE,
   chk_flag(bound)
   chk_unused(...)
 
-  if(bound) {
+  if (bound) {
     x <- Reduce(bind_chains, x)
     return(rhat(x, by = by, as_df = as_df, na_rm = na_rm))
   }

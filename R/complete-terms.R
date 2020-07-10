@@ -13,35 +13,40 @@
 #'
 #' @examples
 #' mcmc <- coda::as.mcmc(subset(mcmcr::mcmcr_example, chain = 1L))
-#' mcmc <- mcmc[,-c(1,5,7)]
+#' mcmc <- mcmc[, -c(1, 5, 7)]
 #' term::complete_terms(mcmc)
 complete_terms.mcmc <- function(x, silent = FALSE, ...) {
-
   chk_flag(silent)
   chk_unused(...)
 
-  if(!silent && anyNA(colnames(x)))
+  if (!silent && anyNA(colnames(x))) {
     wrn("terms with missing values have been dropped")
-  x <- x[,!is.na(colnames(x)), drop = FALSE]
+  }
+  x <- x[, !is.na(colnames(x)), drop = FALSE]
 
   colnames(x) <- as.character(as_term(colnames(x), repair = TRUE))
-  if(anyNA(!silent && anyNA(colnames(x)))) wrn("invalid terms have been dropped")
-  x <- x[,!is.na(colnames(x)), drop = FALSE]
+  if (anyNA(!silent && anyNA(colnames(x)))) wrn("invalid terms have been dropped")
+  x <- x[, !is.na(colnames(x)), drop = FALSE]
 
-  if(!ncol(x)) return(x)
+  if (!ncol(x)) {
+    return(x)
+  }
 
   consistent <- consistent_term(as_term(colnames(x)))
-  if(anyNA(!silent && any(!consistent)))
+  if (anyNA(!silent && any(!consistent))) {
     wrn("inconsistent terms have been dropped")
-  x <- x[,consistent, drop = FALSE]
+  }
+  x <- x[, consistent, drop = FALSE]
 
-  if(!ncol(x)) return(x)
+  if (!ncol(x)) {
+    return(x)
+  }
 
   pdims <- pdims(as_term(colnames(x)))
   absent <- setdiff(term(!!!pdims), as_term(colnames(x)))
 
-  if(length(absent)) {
-    na <- if(is.integer(x[[1]])) NA_integer_ else NA_real_
+  if (length(absent)) {
+    na <- if (is.integer(x[[1]])) NA_integer_ else NA_real_
     matrix <- matrix(na, ncol = length(absent), nrow = nrow(x))
     colnames(matrix) <- absent
     mcpar <- attr(x, "mcpar")
@@ -49,5 +54,5 @@ complete_terms.mcmc <- function(x, silent = FALSE, ...) {
     attr(x, "mcpar") <- mcpar
     x <- set_class(x, "mcmc")
   }
-  x[,order(as_term(colnames(x))), drop = FALSE]
+  x[, order(as_term(colnames(x))), drop = FALSE]
 }

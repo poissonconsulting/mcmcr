@@ -15,7 +15,7 @@ mcmc_aperm <- function(x, perm, ...) {
 
 #' @export
 mcmc_aperm.mcmcarray <- function(x, perm = NULL, ...) {
-  if(!is.null(perm)) {
+  if (!is.null(perm)) {
     chk_whole_numeric(perm)
     chk_range(perm, c(1, npdims(x)))
     chk_unique(perm)
@@ -23,7 +23,7 @@ mcmc_aperm.mcmcarray <- function(x, perm = NULL, ...) {
   chk_unused(...)
 
   perm_all <- 1:npdims(x)
-  perm <- c(perm, if(!is.null(perm)) setdiff(perm_all, perm) else rev(perm_all))
+  perm <- c(perm, if (!is.null(perm)) setdiff(perm_all, perm) else rev(perm_all))
   perm <- c(1L, 2L, perm + 2L)
   x <- aperm(x, perm = perm)
   set_class(x, "mcmcarray")

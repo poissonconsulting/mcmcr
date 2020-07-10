@@ -25,11 +25,13 @@ as.mcmcr.list <- function(x, ...) {
   nchains <- vapply(x, nchains, 1L)
   niters <- vapply(x, niters, 1L)
 
-  if (!identical(length(unique(nchains)), 1L))
+  if (!identical(length(unique(nchains)), 1L)) {
     abort_chk("all objects must have the same number of chains")
+  }
 
-  if (!identical(length(unique(niters)), 1L))
+  if (!identical(length(unique(niters)), 1L)) {
     abort_chk("all objects must have the same number of iterations")
+  }
 
   set_class(x, "mcmcr")
 }

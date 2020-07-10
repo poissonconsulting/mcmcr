@@ -3,6 +3,6 @@
 #' An example [mcmcr-object()]
 #' derived from `coda::[line][coda::line]`.
 #'
-#'@examples
+#' @examples
 #' mcmcr_example
 "mcmcr_example"

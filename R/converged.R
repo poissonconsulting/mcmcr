@@ -17,7 +17,7 @@ converged.default <- function(x, rhat = 1.1, esr = 0.33, by = "all",
   esrs <- esr(x, by = by, as_df = as_df, na_rm = na_rm)
   rhats <- rhat(x, by = by, as_df = as_df, na_rm = na_rm)
 
-  if(as_df) {
+  if (as_df) {
     converged <- esrs
     converged$converged <- converged$esr >= esr
     converged$esr <- NULL
@@ -41,7 +41,7 @@ converged.mcmcrs <- function(x, rhat = 1.1, esr = 0.33, by = "all", as_df = FALS
                              bound = FALSE, na_rm = FALSE, ...) {
   chk_flag(bound)
   chk_unused(...)
-  if(bound) {
+  if (bound) {
     x <- Reduce(bind_chains, x)
     return(converged(x, rhat = rhat, esr = esr, by = by, as_df = as_df, na_rm = na_rm))
   }

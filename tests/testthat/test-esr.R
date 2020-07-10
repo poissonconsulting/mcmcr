@@ -12,9 +12,9 @@ test_that(".esr_numeric", {
 test_that("esr.matrix", {
   matrix <- matrix(1, nrow = 2, ncol = 1000)
   expect_identical(.esr(matrix, na_rm = FALSE), 1)
-  matrix[1,] <- 2
+  matrix[1, ] <- 2
   expect_identical(.esr(matrix, na_rm = FALSE), 1)
-  matrix[1,1] <- NA
+  matrix[1, 1] <- NA
   expect_true(is.na(.esr_numeric(matrix, na_rm = FALSE)))
   expect_identical(.esr_numeric(matrix, na_rm = TRUE), 1)
 })
@@ -68,7 +68,7 @@ test_that("esr.mcmcr", {
 
 test_that("esr.mcmcr NA", {
   x <- mcmcr:::mcmcr_example2
-  x$alpha[1,1,1,1,1] <- NA_real_
+  x$alpha[1, 1, 1, 1, 1] <- NA_real_
   expect_identical(esr(x), NA_real_)
   expect_identical(esr(x, na_rm = TRUE), 0.011)
   expect_identical(esr(x, by = "parameter"), list(alpha = NA_real_, beta = 0.05, sigma = 0.472))

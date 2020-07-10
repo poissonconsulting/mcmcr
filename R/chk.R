@@ -98,4 +98,3 @@ chk_mcmcrs <- function(x, x_name = NULL) {
   }
   abort_chk("mcmcr elements of ", x_name, " must have the same number of iterations", tidy = FALSE)
 }
-
