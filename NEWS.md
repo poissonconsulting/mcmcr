@@ -1,5 +1,19 @@
 # mcmcr 0.3.0
 
+- Changed
+  - `npdims.mcmc.list()` to return character vector (as opposed to list)
+  - `collapse_chains.mcmc.list()` to return an mcmc.list object with one chain (as opposed to an mcmc object)
+  - first argument of `estimates()` from `object` to `x`.
+  - `scalar_only = FALSE ` argument of `pars()` to `scalar = NA`.
+  - `estimates()` so now checks fun returns scalar numeric.
+
+- Soft-deprecated 
+  - `pvalue()` for `extras::pvalue()`.
+  - `zero()` for `fill_all()`.
+  - `check_mcmcarray()` and `check_mcmcr()` for `chk_mcmcarray()` and `chk_mcmcr()`.
+  - `iterations` argument with `iters` in `subset()`.
+  - `parameters` argument with `pars` in `subset()`.
+
 - Added 
   - `vld_()` and `chk_()` functions for mcmcarray and mcmcr objects.
   - `scalar = NULL` argument to `pars()` and `npars()`.
@@ -7,27 +21,9 @@
   - missing `as_df = FALSE` arg to `esr()` for mcarray, mcmc and mcmc.list.
   - coercion to and from nlists objects for mcmcr, mcmc.list and mcmc objects.
 
-- Soft-deprecated 
-  - `pvalue()` for `extras::pvalue()`.
-  - `zero()` for `fill_all()`.
-  - `check_mcmcarray()` and `check_mcmcr()` for `chk_mcmcarray()` and `chk_mcmcr()`.
-
-- Replaced 
-  - `nsims.mcmcr()` etc with `nsims.default()`
-  
-- Replaced `iterations` argument with `iters` in `subset()`.
-- Moved `nchains()`, `niters()`, `collapse_chains()` and `split_chains()`
-- Replaced `pars()` argument `scalar_only = FALSE `with `scalar = NA`
-
-- Renamed first argument of `estimates()` from `object` to `x`.
-- Replaced `parameters` argument with `pars`
-- `estimates()` now checks fun returns scalar numeric
-- `npdims.mcmc.list()` now returns character vector (as opposed to list)
-- `collapse_chains.mcmc.list()` now returns an mcmc.list object with one chain (as opposed to an mcmc object)
-
-## Internal
-
-- Exported handling of terms to term package.
+- Moved
+  - handling of terms to term package.
+  - generic definitions of `nchains()`, `niters()`, `collapse_chains()` and `split_chains()` etc to universals package.
 
 # mcmcr 0.2.0
 
