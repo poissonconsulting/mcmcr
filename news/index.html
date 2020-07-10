@@ -115,8 +115,34 @@
 <a href="#mcmcr-030" class="anchor"></a>mcmcr 0.3.0<small> Unreleased </small>
 </h1>
 <ul>
+<li>Changed
+<ul>
 <li>
-<p>Added</p>
+<code><a href="../reference/npdims.mcmc.list.html">npdims.mcmc.list()</a></code> to return character vector (as opposed to list)</li>
+<li>
+<code><a href="../reference/collapse_chains.mcmc.list.html">collapse_chains.mcmc.list()</a></code> to return an mcmc.list object with one chain (as opposed to an mcmc object)</li>
+<li>first argument of <code><a href="https://rdrr.io/pkg/universals/man/estimates.html">estimates()</a></code> from <code>object</code> to <code>x</code>.</li>
+<li>
+<code>scalar_only = FALSE</code> argument of <code><a href="https://rdrr.io/pkg/universals/man/pars.html">pars()</a></code> to <code>scalar = NA</code>.</li>
+<li>
+<code><a href="https://rdrr.io/pkg/universals/man/estimates.html">estimates()</a></code> so now checks fun returns scalar numeric.</li>
+</ul>
+</li>
+<li>Soft-deprecated
+<ul>
+<li>
+<code><a href="https://rdrr.io/pkg/extras/man/pvalue.html">pvalue()</a></code> for <code><a href="https://rdrr.io/pkg/extras/man/pvalue.html">extras::pvalue()</a></code>.</li>
+<li>
+<code><a href="../reference/zero.html">zero()</a></code> for <code><a href="https://rdrr.io/pkg/extras/man/fill_all.html">fill_all()</a></code>.</li>
+<li>
+<code><a href="../reference/check_mcmcarray.html">check_mcmcarray()</a></code> and <code><a href="../reference/check_mcmcr.html">check_mcmcr()</a></code> for <code><a href="../reference/chk_mcmcr.html">chk_mcmcarray()</a></code> and <code><a href="../reference/chk_mcmcr.html">chk_mcmcr()</a></code>.</li>
+<li>
+<code>iterations</code> argument with <code>iters</code> in <code><a href="../reference/subset.html">subset()</a></code>.</li>
+<li>
+<code>parameters</code> argument with <code>pars</code> in <code><a href="../reference/subset.html">subset()</a></code>.</li>
+</ul>
+</li>
+<li>Added
 <ul>
 <li>
 <code>vld_()</code> and <code>chk_()</code> functions for mcmcarray and mcmcr objects.</li>
@@ -128,41 +154,13 @@
 <li>coercion to and from nlists objects for mcmcr, mcmc.list and mcmc objects.</li>
 </ul>
 </li>
-<li>
-<p>Soft-deprecated</p>
+<li>Moved
 <ul>
-<li>
-<code><a href="https://rdrr.io/pkg/extras/man/pvalue.html">pvalue()</a></code> for <code><a href="https://rdrr.io/pkg/extras/man/pvalue.html">extras::pvalue()</a></code>.</li>
-<li>
-<code><a href="../reference/zero.html">zero()</a></code> for <code><a href="https://rdrr.io/pkg/extras/man/fill_all.html">fill_all()</a></code>.</li>
-<li>
-<code><a href="../reference/check_mcmcarray.html">check_mcmcarray()</a></code> and <code><a href="../reference/check_mcmcr.html">check_mcmcr()</a></code> for <code><a href="../reference/chk_mcmcr.html">chk_mcmcarray()</a></code> and <code><a href="../reference/chk_mcmcr.html">chk_mcmcr()</a></code>.</li>
+<li>handling of terms to term package.</li>
+<li>generic definitions of <code><a href="https://rdrr.io/pkg/universals/man/nchains.html">nchains()</a></code>, <code><a href="https://rdrr.io/pkg/universals/man/niters.html">niters()</a></code>, <code><a href="https://rdrr.io/pkg/universals/man/collapse_chains.html">collapse_chains()</a></code> and <code><a href="https://rdrr.io/pkg/universals/man/split_chains.html">split_chains()</a></code> etc to universals package.</li>
 </ul>
 </li>
-<li>
-<p>Replaced</p>
-<ul>
-<li>
-<code>nsims.mcmcr()</code> etc with <code>nsims.default()</code>
-</li>
 </ul>
-</li>
-<li><p>Replaced <code>iterations</code> argument with <code>iters</code> in <code><a href="../reference/subset.html">subset()</a></code>.</p></li>
-<li><p>Moved <code><a href="https://rdrr.io/pkg/universals/man/nchains.html">nchains()</a></code>, <code><a href="https://rdrr.io/pkg/universals/man/niters.html">niters()</a></code>, <code><a href="https://rdrr.io/pkg/universals/man/collapse_chains.html">collapse_chains()</a></code> and <code><a href="https://rdrr.io/pkg/universals/man/split_chains.html">split_chains()</a></code></p></li>
-<li><p>Replaced <code><a href="https://rdrr.io/pkg/universals/man/pars.html">pars()</a></code> argument <code>scalar_only = FALSE</code>with <code>scalar = NA</code></p></li>
-<li><p>Renamed first argument of <code><a href="https://rdrr.io/pkg/universals/man/estimates.html">estimates()</a></code> from <code>object</code> to <code>x</code>.</p></li>
-<li><p>Replaced <code>parameters</code> argument with <code>pars</code></p></li>
-<li><p><code><a href="https://rdrr.io/pkg/universals/man/estimates.html">estimates()</a></code> now checks fun returns scalar numeric</p></li>
-<li><p><code><a href="../reference/npdims.mcmc.list.html">npdims.mcmc.list()</a></code> now returns character vector (as opposed to list)</p></li>
-<li><p><code><a href="../reference/collapse_chains.mcmc.list.html">collapse_chains.mcmc.list()</a></code> now returns an mcmc.list object with one chain (as opposed to an mcmc object)</p></li>
-</ul>
-<div id="internal" class="section level2">
-<h2 class="hasAnchor">
-<a href="#internal" class="anchor"></a>Internal</h2>
-<ul>
-<li>Exported handling of terms to term package.</li>
-</ul>
-</div>
 </div>
     <div id="mcmcr-020" class="section level1">
 <h1 class="page-header">
