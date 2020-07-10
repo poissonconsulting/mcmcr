@@ -1,4 +1,6 @@
 test_that("parameters.mcmcr", {
+  rlang::scoped_options(lifecycle_verbosity = "quiet")
+  lifecycle::expect_deprecated(parameters(mcmcr::mcmcr_example))
   expect_identical(parameters(mcmcr::mcmcr_example), c("alpha", "beta", "sigma"))
   expect_identical(parameters(mcmcr::mcmcr_example, scalar = TRUE), c("sigma"))
   expect_identical(parameters(mcmcr::mcmcr_example, scalar = FALSE), c("alpha", "beta"))
@@ -7,7 +9,9 @@ test_that("parameters.mcmcr", {
 })
 
 test_that("parameters.mcmcrs", {
+  rlang::scoped_options(lifecycle_verbosity = "quiet")
   mcmcrs <- mcmcrs(mcmcr::mcmcr_example, mcmcr::mcmcr_example)
+  lifecycle::expect_deprecated(parameters(mcmcrs))
   expect_identical(parameters(mcmcrs), c("alpha", "beta", "sigma"))
   expect_identical(parameters(mcmcrs, scalar = TRUE), c("sigma"))
   expect_identical(parameters(mcmcrs, scalar = FALSE), c("alpha", "beta"))

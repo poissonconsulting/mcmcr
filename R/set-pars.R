@@ -41,3 +41,20 @@ set_pars.mcmcrs <- function(x, value, ...) {
   class(x) <- "mcmcrs"
   x
 }
+
+#' Set Parameters
+#'
+#' Sets an object's parameter names.
+#'
+#' `value` must be a unique character vector of the same length as the
+#' object's parameters.
+#'
+#' \lifecycle{soft-deprecated} for pars<-()
+#'
+#' @inheritParams params
+#' @param value A character vector of the new parameter names.
+#' @return The modified object.
+#' @export
+`parameters<-` <- function(x, value) {
+  set_pars(x, value)
+}
