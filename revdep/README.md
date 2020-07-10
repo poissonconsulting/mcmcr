@@ -10,7 +10,7 @@
 |collate  |en_CA.UTF-8                  |
 |ctype    |en_CA.UTF-8                  |
 |tz       |America/Vancouver            |
-|date     |2020-07-08                   |
+|date     |2020-07-10                   |
 
 # Dependencies
 
@@ -18,6 +18,9 @@
 |:-------|:-----|:----------|:--|
 |mcmcr   |0.2.0 |0.2.0.9024 |*  |
 |extras  |NA    |0.0.1.9000 |*  |
+|pillar  |NA    |1.4.5      |*  |
+|rlang   |NA    |0.4.7      |*  |
+|tibble  |NA    |3.0.3.9000 |*  |
 
 # Revdeps
 

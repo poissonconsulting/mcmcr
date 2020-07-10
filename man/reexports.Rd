@@ -36,6 +36,7 @@
 \alias{pdims}
 \alias{rhat}
 \alias{set_pars}
+\alias{pars<-}
 \alias{split_chains}
 \alias{thin}
 \alias{tidy}
@@ -58,6 +59,6 @@ below to see their documentation.
 
   \item{term}{\code{\link[term:as_term]{as.term}}, \code{\link[term]{as_term}}}
 
-  \item{universals}{\code{\link[universals]{bind_chains}}, \code{\link[universals]{collapse_chains}}, \code{\link[universals]{converged}}, \code{\link[universals]{dims}}, \code{\link[universals]{esr}}, \code{\link[universals]{estimates}}, \code{\link[universals]{nchains}}, \code{\link[universals]{niters}}, \code{\link[universals]{npars}}, \code{\link[universals]{npdims}}, \code{\link[universals]{nterms}}, \code{\link[universals]{pars}}, \code{\link[universals]{pdims}}, \code{\link[universals]{rhat}}, \code{\link[universals]{set_pars}}, \code{\link[universals]{split_chains}}}
+  \item{universals}{\code{\link[universals]{bind_chains}}, \code{\link[universals]{collapse_chains}}, \code{\link[universals]{converged}}, \code{\link[universals]{dims}}, \code{\link[universals]{esr}}, \code{\link[universals]{estimates}}, \code{\link[universals]{nchains}}, \code{\link[universals]{niters}}, \code{\link[universals]{npars}}, \code{\link[universals]{npdims}}, \code{\link[universals]{nterms}}, \code{\link[universals]{pars}}, \code{\link[universals:set_pars]{pars<-}}, \code{\link[universals]{pdims}}, \code{\link[universals]{rhat}}, \code{\link[universals]{set_pars}}, \code{\link[universals]{split_chains}}}
 }}
 

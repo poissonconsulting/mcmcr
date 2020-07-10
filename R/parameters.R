@@ -6,6 +6,7 @@
 #'
 #' @inheritParams params
 #' @return A character vector of the names of the parameters.
+#' @export
 parameters <- function(x, ...) {
   UseMethod("parameters")
 }

@@ -2,6 +2,10 @@
 #' @export
 universals::set_pars
 
+#' @importFrom universals pars<-
+#' @export
+universals::`pars<-`
+
 #' @export
 set_pars.character <- function(x, value, ...) {
   x <- as_term(x)
