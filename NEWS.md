@@ -1,3 +1,8 @@
+# mcmcr 0.3.0
+
+- Internal changes only.
+
+
 # mcmcr 0.2.0.9024
 
 - Added scalar = NULL to pars() and npars().
