@@ -25,6 +25,10 @@ Coerce an R object to an \code{\link[nlist:nlist]{nlist_object()}}.
 \item \code{list}: Coerce list to nlist
 
 \item \code{data.frame}: Coerce data.frame to nlist
+
+\item \code{mcmc}: Coerce mcmc (with one iteration) to nlist
+
+\item \code{mcmc.list}: Coerce mcmc.list (with one iteration) to nlist
 }
 }
 

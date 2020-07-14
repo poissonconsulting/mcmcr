@@ -28,6 +28,7 @@ estimates(mcmcr_example)
 \seealso{
 Other MCMC manipulations: 
 \code{\link[universals]{bind_chains}()},
+\code{\link[universals]{bind_iterations}()},
 \code{\link[universals]{collapse_chains}()},
 \code{\link[universals]{split_chains}()}
 }

@@ -34,6 +34,7 @@ estimates(nlists(nlist(x = 1:3), nlist(x = 2:4)), fun = mean)
 \seealso{
 Other MCMC manipulations: 
 \code{\link[universals]{bind_chains}()},
+\code{\link[universals]{bind_iterations}()},
 \code{\link[universals]{collapse_chains}()},
 \code{\link[universals]{split_chains}()}
 }

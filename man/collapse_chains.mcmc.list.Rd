@@ -20,6 +20,7 @@ Collapses an MCMC object's chains into a single chain.
 \seealso{
 Other MCMC manipulations: 
 \code{\link[universals]{bind_chains}()},
+\code{\link[universals]{bind_iterations}()},
 \code{\link[universals]{estimates}()},
 \code{\link[universals]{split_chains}()}
 }
