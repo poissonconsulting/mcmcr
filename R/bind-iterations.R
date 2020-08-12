@@ -1,16 +1,5 @@
-#' Combine two MCMC objects by iterations
-#'
-#' Combines two MCMC objects (with the same parameters and chains) by iterations.
-#'
-#' @param x an MCMC object
-#' @param x2 a second MCMC object
-#' @param ... unused
 #' @export
-#' @examples
-#' bind_iterations(mcmcr_example, mcmcr_example)
-bind_iterations <- function(x, x2, ...) {
-  UseMethod("bind_iterations")
-}
+universals::bind_iterations
 
 #' @export
 bind_iterations.mcarray <- function(x, x2, ...) {
