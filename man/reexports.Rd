@@ -2,8 +2,8 @@
 % Please edit documentation in R/as-mcmc.R, R/as-nlist.R, R/as-nlists.R,
 %   R/as-term.R, R/bind-chains.R, R/collapse-chains.R, R/converged.R, R/esr.R,
 %   R/estimates.R, R/export.R, R/fill-all.R, R/nchains.R, R/niters.R, R/npars.R,
-%   R/npdims.R, R/nterms.R, R/pars.R, R/pdims.R, R/rhat.R, R/set-pars.R,
-%   R/split-chains.R, R/thin.R, R/tidy.R
+%   R/npdims.R, R/nterms.R, R/parameters.R, R/pars.R, R/pdims.R, R/rhat.R,
+%   R/set-pars.R, R/split-chains.R, R/thin.R, R/tidy.R
 \docType{import}
 \name{reexports}
 \alias{reexports}
@@ -32,6 +32,8 @@
 \alias{npars}
 \alias{npdims}
 \alias{nterms}
+\alias{parameters}
+\alias{parameters<-}
 \alias{pars}
 \alias{pdims}
 \alias{rhat}
@@ -57,7 +59,7 @@ below to see their documentation.
 
   \item{stats}{\code{\link[stats]{median}}}
 
-  \item{term}{\code{\link[term:as_term]{as.term}}, \code{\link[term]{as_term}}}
+  \item{term}{\code{\link[term:as_term]{as.term}}, \code{\link[term]{as_term}}, \code{\link[term:deprecated]{parameters}}, \code{\link[term:deprecated]{parameters<-}}}
 
   \item{universals}{\code{\link[universals]{bind_chains}}, \code{\link[universals]{collapse_chains}}, \code{\link[universals]{converged}}, \code{\link[universals]{dims}}, \code{\link[universals]{esr}}, \code{\link[universals]{estimates}}, \code{\link[universals]{nchains}}, \code{\link[universals]{niters}}, \code{\link[universals]{npars}}, \code{\link[universals]{npdims}}, \code{\link[universals]{nterms}}, \code{\link[universals]{pars}}, \code{\link[universals:set_pars]{pars<-}}, \code{\link[universals]{pdims}}, \code{\link[universals]{rhat}}, \code{\link[universals]{set_pars}}, \code{\link[universals]{split_chains}}}
 }}
