@@ -20,14 +20,6 @@ Gets the number of the dimensions of each parameter of an object.
 The default methods returns the length of each element of \code{\link[universals:pdims]{pdims()}}
 as an integer vector.
 }
-\examples{
-\dontshow{if (requireNamespace("nlist", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-library(nlist)
-
-npdims(nlist(x = 1:3))
-npdims(nlist(y = 3, zz = matrix(2:5, 2)))
-\dontshow{\}) # examplesIf}
-}
 \seealso{
 Other dimensions: 
 \code{\link[universals]{dims}()},

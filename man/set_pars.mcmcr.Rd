@@ -25,16 +25,6 @@ The assignment version \verb{pars<-()} forwards to \code{set_pars()}.
 \code{value} must be a unique character vector of the same length as the
 object's parameters.
 }
-\examples{
-\dontshow{if (requireNamespace("nlist", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-library(nlist)
-
-nlist <-  nlist(x = 1, y = 3:4)
-pars(nlist) <- c("a", "b")
-nlist
-set_pars(nlist, c("z", "c1"))
-\dontshow{\}) # examplesIf}
-}
 \seealso{
 Other parameters: 
 \code{\link[universals]{npars}()},

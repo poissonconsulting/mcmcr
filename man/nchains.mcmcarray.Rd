@@ -18,16 +18,6 @@ An integer scalar of the number of chains.
 Gets the number of chains
 of an MCMC object.
 }
-\examples{
-\dontshow{if (requireNamespace("nlist", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-library(nlist)
-
-nchains(nlist(x = 1:2))
-nlists <- nlists(nlist(x = c(2, 9)), nlist(x = c(1, 7)))
-nchains(nlists)
-nchains(split_chains(nlists))
-\dontshow{\}) # examplesIf}
-}
 \seealso{
 Other MCMC dimensions: 
 \code{\link[universals]{niters}()},

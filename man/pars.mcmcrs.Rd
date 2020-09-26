@@ -23,13 +23,6 @@ A character vector of the names of the parameters.
 \description{
 Gets the parameter names.
 }
-\examples{
-\dontshow{if (requireNamespace("nlist", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-library(nlist)
-
-pars(nlist(zz = 1, y = 3:6))
-\dontshow{\}) # examplesIf}
-}
 \seealso{
 Other parameters: 
 \code{\link[universals]{npars}()},

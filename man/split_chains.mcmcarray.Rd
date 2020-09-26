@@ -19,15 +19,6 @@ Splits each of an MCMC object's chains in half
 to double the number of chains
 and halve the number of iterations.
 }
-\examples{
-\dontshow{if (requireNamespace("nlist", quietly = TRUE)) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-library(nlist)
-
-nlists <- nlists(nlist(x = c(2, 9)), nlist(x = c(1, 7)))
-nchains(nlists)
-nchains(split_chains(nlists))
-\dontshow{\}) # examplesIf}
-}
 \seealso{
 Other MCMC manipulations: 
 \code{\link[universals]{bind_chains}()},
