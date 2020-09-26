@@ -24,3 +24,7 @@ nlist::nlist
 
 #' @export
 nlist::nlists
+
+#' @export
+term::complete_terms
+
