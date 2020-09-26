@@ -1,6 +1,8 @@
 on:
   push:
-    branches: master
+    branches: 
+      - main
+      - master
 
 name: pkgdown
 
@@ -35,15 +37,18 @@ jobs:
         run: |
           install.packages("remotes")
           remotes::install_deps(dependencies = TRUE)
-          remotes::install_github("r-lib/pkgdown#1236")
+          remotes::install_dev("pkgdown")
         shell: Rscript {0}
 
       - name: Install package
         run: R CMD INSTALL .
 
       - name: Deploy package
-        run: pkgdown::deploy_to_branch(new_process = FALSE)
-        shell: Rscript {0}
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          Rscript -e 'pkgdown::deploy_to_branch(new_process = FALSE)'
+
       - name: action-slack
         if: failure()
         env:
