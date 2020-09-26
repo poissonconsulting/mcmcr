@@ -9,13 +9,6 @@ test_that("converged.mcmcr", {
   )
 
   expect_identical(
-    converged(mcmcr_example, by = "parameter", as_df = TRUE),
-    tibble::tibble(parameter = c("alpha", "beta", "sigma"),
-      converged = c(FALSE, FALSE, TRUE)
-      )
-  )
-
-  expect_identical(
     converged(mcmcr_example, by = "term"),
     list(
       alpha = c(FALSE, FALSE),
@@ -34,6 +27,15 @@ test_that("converged.mcmcr", {
       class = c("tbl_df", "tbl", "data.frame")
     )
   )
+
+  skip_if(packageVersion("testthat") < '2.99.0.9000')
+  expect_identical(
+    converged(mcmcr_example, by = "parameter", as_df = TRUE),
+    tibble::tibble(parameter = c("alpha", "beta", "sigma"),
+                   converged = c(FALSE, FALSE, TRUE)
+    )
+  )
+
 })
 
 test_that("converged.mcmcarray", {
