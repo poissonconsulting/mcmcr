@@ -3,7 +3,7 @@ test_that("as_nlists.mcmc", {
     nlist::nlist(x = 1, y = matrix(1:4, 2)),
     nlist::nlist(x = 3, y = matrix(4:1, 2))
   )
-  expect_equal(nlist::as_nlists(coda::as.mcmc(nlists)), nlists)
+  expect_equal(nlist::as_nlists(nlist::as_mcmc(nlists)), nlists)
 })
 
 test_that("as_nlists.mcmc.list", {
@@ -11,7 +11,7 @@ test_that("as_nlists.mcmc.list", {
     nlist::nlist(x = 1, y = matrix(1:4, 2)),
     nlist::nlist(x = 3, y = matrix(4:1, 2))
   )
-  expect_equal(as_nlists(coda::as.mcmc.list(nlists)), nlists)
+  expect_equal(as_nlists(nlist::as_mcmc_list(nlists)), nlists)
 })
 
 test_that("as_nlists.mcmcr", {

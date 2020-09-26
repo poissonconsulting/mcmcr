@@ -10,13 +10,9 @@ test_that("converged.mcmcr", {
 
   expect_identical(
     converged(mcmcr_example, by = "parameter", as_df = TRUE),
-    structure(list(
-      parameter = c("alpha", "beta", "sigma"),
+    tibble::tibble(parameter = c("alpha", "beta", "sigma"),
       converged = c(FALSE, FALSE, TRUE)
-    ),
-    row.names = c("alpha", "beta", "sigma"),
-    class = c("tbl_df", "tbl", "data.frame")
-    )
+      )
   )
 
   expect_identical(

@@ -3,12 +3,6 @@ nlist::as_nlists
 
 #' @inherit nlist::as_nlists
 #' @export
-as_nlists.mcmc <- function(x, ...) {
-  as_nlists(as.mcmcr(x))
-}
-
-#' @inherit nlist::as_nlists
-#' @export
 as_nlists.mcmc.list <- function(x, ...) {
   as_nlists(as.mcmcr(x))
 }

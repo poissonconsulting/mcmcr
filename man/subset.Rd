@@ -2,25 +2,11 @@
 % Please edit documentation in R/subset.R
 \name{subset}
 \alias{subset}
-\alias{subset.mcmc}
-\alias{subset.mcmc.list}
 \alias{subset.mcmcarray}
 \alias{subset.mcmcr}
 \alias{subset.mcmcrs}
 \title{Subset an MCMC Object}
 \usage{
-\method{subset}{mcmc}(x, iters = NULL, pars = NULL, iterations = NULL, parameters = NULL, ...)
-
-\method{subset}{mcmc.list}(
-  x,
-  chains = NULL,
-  iters = NULL,
-  pars = NULL,
-  iterations = NULL,
-  parameters = NULL,
-  ...
-)
-
 \method{subset}{mcmcarray}(x, chains = NULL, iters = NULL, iterations = NULL, ...)
 
 \method{subset}{mcmcr}(
@@ -46,27 +32,23 @@
 \arguments{
 \item{x}{The MCMC object to subset}
 
-\item{iters}{An integer vector of iterations.}
+\item{chains}{An integer vector of chains.}
 
-\item{pars}{A character vector of parameter names.}
+\item{iters}{An integer vector of iterations.}
 
 \item{iterations}{An integer vector (or NULL) of the iterations to subset by.}
 
-\item{parameters}{A character vector (or NULL) of the parameters to subset by.}
-
 \item{...}{Unused.}
 
-\item{chains}{An integer vector of chains.}
+\item{pars}{A character vector of parameter names.}
+
+\item{parameters}{A character vector (or NULL) of the parameters to subset by.}
 }
 \description{
 Subsets an MCMC object by its chains, iterations and/or parameters.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{mcmc}: Subset an mcmc object
-
-\item \code{mcmc.list}: Subset an mcmc.list object
-
 \item \code{mcmcarray}: Subset an mcmcarray object
 
 \item \code{mcmcr}: Subset an mcmcr object

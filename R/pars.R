@@ -2,26 +2,15 @@
 #' @export
 universals::pars
 
-#' @inherit universals::pars
-#' @inheritParams params
-#' @export
-pars.mcmc <- function(x, scalar = NULL, terms = FALSE, ...) {
-  if (!is.null(scalar)) chk_flag(scalar)
-  chk_flag(terms)
-  chk_unused(...)
-
-  if (terms) {
-    deprecate_soft("0.2.1", "mcmcr::pars(terms =)", details = "If `terms = TRUE` use `terms::pars_terms(as_term(x)) otherwise replace `pars(x, terms = FALSE)` with `pars(x)`.", id = "pars_terms")
+pars_impl <- function(x, scalar, terms) {
+  if (is.null(scalar) && !terms) {
+    return(names(x))
   }
   x <- as_term(x)
-  pars(x, scalar = scalar, terms = terms)
-}
+  if(isTRUE(terms))
+    return(pars_terms(x))
 
-#' @inherit universals::pars
-#' @inheritParams params
-#' @export
-pars.mcmc.list <- function(x, scalar = NULL, terms = FALSE, ...) {
-  pars(x[[1]], scalar = scalar, terms = terms, ...)
+  pars(as_term_rcrd(x), scalar = scalar)
 }
 
 #' @inherit universals::pars
@@ -32,20 +21,22 @@ pars.mcmcr <- function(x, scalar = NULL, terms = FALSE, ...) {
   chk_flag(terms)
   chk_unused(...)
 
-  if (terms) {
+  if (!missing(terms)) {
     deprecate_soft("0.2.1", "mcmcr::pars(terms =)", details = "If `terms = TRUE` use `terms::pars_terms(as_term(x)) otherwise replace `pars(x, terms = FALSE)` with `pars(x)`.", id = "pars_terms")
   }
-
-  if (is.null(scalar) && !terms) {
-    return(names(x))
-  }
-  x <- as_term(x)
-  pars(x, scalar = scalar, terms = terms)
+  pars_impl(x, scalar, terms)
 }
 
 #' @inherit universals::pars
 #' @inheritParams params
 #' @export
 pars.mcmcrs <- function(x, scalar = NULL, terms = FALSE, ...) {
-  pars(x[[1]], scalar = scalar, terms = terms, ...)
+  if (!is.null(scalar)) chk_flag(scalar)
+  chk_flag(terms)
+  chk_unused(...)
+
+  if (!missing(terms)) {
+    deprecate_soft("0.2.1", "mcmcr::pars(terms =)", details = "If `terms = TRUE` use `terms::pars_terms(as_term(x)) otherwise replace `pars(x, terms = FALSE)` with `pars(x)`.", id = "pars_terms")
+  }
+  pars_impl(x[[1]], scalar = scalar, terms = terms, ...)
 }

@@ -20,13 +20,9 @@ test_that("ess.mcmcr as df", {
       "tbl", "data.frame"
     ))
   )
-  expect_identical(ess(mcmcr_example, as_df = TRUE, by = "parameter"), structure(list(parameter = c("alpha", "beta", "sigma"), ess = c(
-    9L,
-    40L, 378L
-  )), row.names = c("alpha", "beta", "sigma"), class = c(
-    "tbl_df",
-    "tbl", "data.frame"
-  )))
+  expect_identical(ess(mcmcr_example, as_df = TRUE, by = "parameter"),
+                   tibble::tibble(parameter = c("alpha", "beta", "sigma"),
+                                   ess = c(9L, 40L, 378L)))
 })
 
 test_that("ess.mcmcrs", {

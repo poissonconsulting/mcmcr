@@ -7,12 +7,6 @@ term::as.term
 term::as_term
 
 #' @export
-as_term.mcmc <- function(x, ...) as_term(colnames(x))
-
-#' @export
-as_term.mcmc.list <- function(x, ...) as_term(x[[1]])
-
-#' @export
 as_term.mcmcarray <- function(x, ...) {
   x <- pdims(x)
 

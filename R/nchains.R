@@ -9,14 +9,6 @@ nchains.mcarray <- function(x, ...) unname(dim(x)[ndims(x)])
 
 #' @inherit universals::nchains
 #' @export
-nchains.mcmc <- function(x, ...) 1L
-
-#' @inherit universals::nchains
-#' @export
-nchains.mcmc.list <- function(x, ...) length(x)
-
-#' @inherit universals::nchains
-#' @export
 nchains.mcmcarray <- function(x, ...) dim(x)[1]
 
 #' @inherit universals::nchains
