@@ -1,3 +1,9 @@
+# mcmcr 0.4.0
+
+- Added as_mcmc_list.mcmr()
+- Removed as_nlist.mcmc(), as_nlist.mcmc.list(), as_nlists.mcmc(), as.term.mcmc(), as.term.mcmc.list(), bind_iterations.mcmc(), bind_iterations.mcmc.list(), collapse_chains.default(), collapse_chains.mcmc.list(),
+
+
 # mcmcr 0.3.0.9000
 
 - Same as previous version.
