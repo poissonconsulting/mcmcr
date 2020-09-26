@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -53,7 +57,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -88,7 +92,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/poissonconsulting/mcmcr">
+  <a href="https://github.com/poissonconsulting/mcmcr/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -106,12 +110,12 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
+      <h1 data-toc-skip>Changelog <small></small></h1>
       <small>Source: <a href='https://github.com/poissonconsulting/mcmcr/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
     <div id="mcmcr-0309000" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.3.0.9000">
 <a href="#mcmcr-0309000" class="anchor"></a>mcmcr 0.3.0.9000<small> Unreleased </small>
 </h1>
 <ul>
@@ -119,7 +123,7 @@
 </ul>
 </div>
     <div id="mcmcr-030" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.3.0">
 <a href="#mcmcr-030" class="anchor"></a>mcmcr 0.3.0<small> 2020-07-13 </small>
 </h1>
 <ul>
@@ -129,19 +133,19 @@
 <code><a href="../reference/npdims.mcmc.list.html">npdims.mcmc.list()</a></code> to return character vector (as opposed to list)</li>
 <li>
 <code><a href="../reference/collapse_chains.mcmc.list.html">collapse_chains.mcmc.list()</a></code> to return an mcmc.list object with one chain (as opposed to an mcmc object)</li>
-<li>first argument of <code><a href="https://rdrr.io/pkg/universals/man/estimates.html">estimates()</a></code> from <code>object</code> to <code>x</code>.</li>
+<li>first argument of <code><a href="https://poissonconsulting.github.io/universals/reference/estimates.html">estimates()</a></code> from <code>object</code> to <code>x</code>.</li>
 <li>
-<code>scalar_only = FALSE</code> argument of <code><a href="https://rdrr.io/pkg/universals/man/pars.html">pars()</a></code> to <code>scalar = NA</code>.</li>
+<code>scalar_only = FALSE</code> argument of <code><a href="https://poissonconsulting.github.io/universals/reference/pars.html">pars()</a></code> to <code>scalar = NA</code>.</li>
 <li>
-<code><a href="https://rdrr.io/pkg/universals/man/estimates.html">estimates()</a></code> so now checks fun returns scalar numeric.</li>
+<code><a href="https://poissonconsulting.github.io/universals/reference/estimates.html">estimates()</a></code> so now checks fun returns scalar numeric.</li>
 </ul>
 </li>
 <li>Soft-deprecated
 <ul>
 <li>
-<code><a href="https://rdrr.io/pkg/extras/man/pvalue.html">pvalue()</a></code> for <code><a href="https://rdrr.io/pkg/extras/man/pvalue.html">extras::pvalue()</a></code>.</li>
+<code><a href="https://poissonconsulting.github.io/extras/reference/pvalue.html">pvalue()</a></code> for <code><a href="https://poissonconsulting.github.io/extras/reference/pvalue.html">extras::pvalue()</a></code>.</li>
 <li>
-<code><a href="../reference/zero.html">zero()</a></code> for <code><a href="https://rdrr.io/pkg/extras/man/fill_all.html">fill_all()</a></code>.</li>
+<code><a href="../reference/zero.html">zero()</a></code> for <code><a href="https://poissonconsulting.github.io/extras/reference/fill_all.html">fill_all()</a></code>.</li>
 <li>
 <code><a href="../reference/check_mcmcarray.html">check_mcmcarray()</a></code> and <code><a href="../reference/check_mcmcr.html">check_mcmcr()</a></code> for <code><a href="../reference/chk_mcmcr.html">chk_mcmcarray()</a></code> and <code><a href="../reference/chk_mcmcr.html">chk_mcmcr()</a></code>.</li>
 <li>
@@ -155,50 +159,50 @@
 <li>
 <code>vld_()</code> and <code>chk_()</code> functions for mcmcarray and mcmcr objects.</li>
 <li>
-<code>scalar = NULL</code> argument to <code><a href="https://rdrr.io/pkg/universals/man/pars.html">pars()</a></code> and <code><a href="https://rdrr.io/pkg/universals/man/npars.html">npars()</a></code>.</li>
+<code>scalar = NULL</code> argument to <code><a href="https://poissonconsulting.github.io/universals/reference/pars.html">pars()</a></code> and <code><a href="https://poissonconsulting.github.io/universals/reference/npars.html">npars()</a></code>.</li>
 <li>
-<code>na_rm = NA</code> argument to <code><a href="https://rdrr.io/pkg/universals/man/esr.html">esr()</a></code> and <code><a href="https://rdrr.io/pkg/universals/man/rhat.html">rhat()</a></code>.</li>
-<li>missing <code>as_df = FALSE</code> arg to <code><a href="https://rdrr.io/pkg/universals/man/esr.html">esr()</a></code> for mcarray, mcmc and mcmc.list.</li>
+<code>na_rm = NA</code> argument to <code><a href="https://poissonconsulting.github.io/universals/reference/esr.html">esr()</a></code> and <code><a href="https://poissonconsulting.github.io/universals/reference/rhat.html">rhat()</a></code>.</li>
+<li>missing <code>as_df = FALSE</code> arg to <code><a href="https://poissonconsulting.github.io/universals/reference/esr.html">esr()</a></code> for mcarray, mcmc and mcmc.list.</li>
 <li>coercion to and from nlists objects for mcmcr, mcmc.list and mcmc objects.</li>
 </ul>
 </li>
 <li>Moved
 <ul>
 <li>handling of terms to term package.</li>
-<li>generic definitions of <code><a href="https://rdrr.io/pkg/universals/man/nchains.html">nchains()</a></code>, <code><a href="https://rdrr.io/pkg/universals/man/niters.html">niters()</a></code>, <code><a href="https://rdrr.io/pkg/universals/man/collapse_chains.html">collapse_chains()</a></code> and <code><a href="https://rdrr.io/pkg/universals/man/split_chains.html">split_chains()</a></code> etc to universals package.</li>
+<li>generic definitions of <code><a href="https://poissonconsulting.github.io/universals/reference/nchains.html">nchains()</a></code>, <code><a href="https://poissonconsulting.github.io/universals/reference/niters.html">niters()</a></code>, <code><a href="https://poissonconsulting.github.io/universals/reference/collapse_chains.html">collapse_chains()</a></code> and <code><a href="https://poissonconsulting.github.io/universals/reference/split_chains.html">split_chains()</a></code> etc to universals package.</li>
 </ul>
 </li>
 </ul>
 </div>
     <div id="mcmcr-020" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.2.0">
 <a href="#mcmcr-020" class="anchor"></a>mcmcr 0.2.0<small> 2019-06-27 </small>
 </h1>
 <ul>
 <li>Added <code><a href="../reference/check_mcmcr.html">check_mcmcr()</a></code> and <code><a href="../reference/check_mcmcarray.html">check_mcmcarray()</a></code>.</li>
-<li>Fixed by and as_df arguments in <code><a href="https://rdrr.io/pkg/universals/man/converged.html">converged()</a></code>.</li>
+<li>Fixed by and as_df arguments in <code><a href="https://poissonconsulting.github.io/universals/reference/converged.html">converged()</a></code>.</li>
 <li>Added more tests.</li>
 <li>Removed <code>as.mcmc.mcmc.list()</code>, <code>thin.mcmc()</code> and <code>thin.mcmc.list()</code> as now defined by coda.</li>
 <li>No longer export <code><a href="../reference/as.mcmc.list.mcarray.html">as.mcmc.list.mcarray()</a></code> as clashes with rjags version.</li>
 </ul>
 </div>
     <div id="mcmcr-010" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.1.0">
 <a href="#mcmcr-010" class="anchor"></a>mcmcr 0.1.0<small> 2019-04-26 </small>
 </h1>
 <ul>
 <li>Added <code><a href="../reference/mcmc_aperm.html">mcmc_aperm()</a></code> function to transpose parameter dimensions.</li>
-<li>Added <code><a href="https://rdrr.io/pkg/universals/man/npdims.html">npdims()</a></code> function to get number of parameter dimensions.</li>
+<li>Added <code><a href="https://poissonconsulting.github.io/universals/reference/npdims.html">npdims()</a></code> function to get number of parameter dimensions.</li>
 <li>Added <code>by = TRUE</code> argument to <code><a href="../reference/mcmc_map.html">mcmc_map()</a></code> function.</li>
 <li>Removed tibble package from suggests.</li>
 <li>
-<code><a href="https://rdrr.io/pkg/universals/man/rhat.html">rhat()</a></code> now returns minimum of 1.</li>
-<li>Defined <code><a href="../reference/subset.html">subset()</a></code> and <code><a href="https://rdrr.io/pkg/term/man/deprecated.html">parameters()</a></code> for mcmcrs object.</li>
+<code><a href="https://poissonconsulting.github.io/universals/reference/rhat.html">rhat()</a></code> now returns minimum of 1.</li>
+<li>Defined <code><a href="../reference/subset.html">subset()</a></code> and <code><a href="https://poissonconsulting.github.io/term/reference/deprecated.html">parameters()</a></code> for mcmcrs object.</li>
 <li>Added <code>bound = FALSE</code> argument to <code><a href="../reference/rhat.mcmcrs.html">rhat.mcmcrs()</a></code> and <code><a href="../reference/converged.mcmcrs.html">converged.mcmcrs()</a></code> functions.</li>
 </ul>
 </div>
     <div id="mcmcr-003" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.0.3">
 <a href="#mcmcr-003" class="anchor"></a>mcmcr 0.0.3<small> 2018-11-24 </small>
 </h1>
 <ul>
@@ -207,7 +211,7 @@
 </ul>
 </div>
     <div id="mcmcr-002" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.0.2">
 <a href="#mcmcr-002" class="anchor"></a>mcmcr 0.0.2<small> 2018-10-30 </small>
 </h1>
 <ul>
@@ -216,7 +220,7 @@
 </ul>
 </div>
     <div id="mcmcr-001" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.0.1">
 <a href="#mcmcr-001" class="anchor"></a>mcmcr 0.0.1<small> 2018-04-13 </small>
 </h1>
 <ul>
@@ -226,18 +230,9 @@
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#mcmcr-0309000">0.3.0.9000</a></li>
-        <li><a href="#mcmcr-030">0.3.0</a></li>
-        <li><a href="#mcmcr-020">0.2.0</a></li>
-        <li><a href="#mcmcr-010">0.1.0</a></li>
-        <li><a href="#mcmcr-003">0.0.3</a></li>
-        <li><a href="#mcmcr-002">0.0.2</a></li>
-        <li><a href="#mcmcr-001">0.0.1</a></li>
-      </ul>
-    </div>
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 
 </div>
@@ -249,7 +244,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>
