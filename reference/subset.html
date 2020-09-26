@@ -120,21 +120,7 @@
     <p>Subsets an MCMC object by its chains, iterations and/or parameters.</p>
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for mcmc</span>
-<span class='fu'>subset</span><span class='op'>(</span><span class='va'>x</span>, iters <span class='op'>=</span> <span class='cn'>NULL</span>, pars <span class='op'>=</span> <span class='cn'>NULL</span>, iterations <span class='op'>=</span> <span class='cn'>NULL</span>, parameters <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span>
-
-<span class='co'># S3 method for mcmc.list</span>
-<span class='fu'>subset</span><span class='op'>(</span>
-  <span class='va'>x</span>,
-  chains <span class='op'>=</span> <span class='cn'>NULL</span>,
-  iters <span class='op'>=</span> <span class='cn'>NULL</span>,
-  pars <span class='op'>=</span> <span class='cn'>NULL</span>,
-  iterations <span class='op'>=</span> <span class='cn'>NULL</span>,
-  parameters <span class='op'>=</span> <span class='cn'>NULL</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span>
-
-<span class='co'># S3 method for mcmcarray</span>
+    <pre class="usage"><span class='co'># S3 method for mcmcarray</span>
 <span class='fu'>subset</span><span class='op'>(</span><span class='va'>x</span>, chains <span class='op'>=</span> <span class='cn'>NULL</span>, iters <span class='op'>=</span> <span class='cn'>NULL</span>, iterations <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for mcmcr</span>
@@ -167,28 +153,28 @@
       <td><p>The MCMC object to subset</p></td>
     </tr>
     <tr>
-      <th>iters</th>
-      <td><p>An integer vector of iterations.</p></td>
+      <th>chains</th>
+      <td><p>An integer vector of chains.</p></td>
     </tr>
     <tr>
-      <th>pars</th>
-      <td><p>A character vector of parameter names.</p></td>
+      <th>iters</th>
+      <td><p>An integer vector of iterations.</p></td>
     </tr>
     <tr>
       <th>iterations</th>
       <td><p>An integer vector (or NULL) of the iterations to subset by.</p></td>
     </tr>
     <tr>
-      <th>parameters</th>
-      <td><p>A character vector (or NULL) of the parameters to subset by.</p></td>
-    </tr>
-    <tr>
       <th>...</th>
       <td><p>Unused.</p></td>
     </tr>
     <tr>
-      <th>chains</th>
-      <td><p>An integer vector of chains.</p></td>
+      <th>pars</th>
+      <td><p>A character vector of parameter names.</p></td>
+    </tr>
+    <tr>
+      <th>parameters</th>
+      <td><p>A character vector (or NULL) of the parameters to subset by.</p></td>
     </tr>
     </table>
 
@@ -196,8 +182,6 @@
 
     
 <ul>
-<li><p><code>mcmc</code>: Subset an mcmc object</p></li>
-<li><p><code>mcmc.list</code>: Subset an mcmc.list object</p></li>
 <li><p><code>mcmcarray</code>: Subset an mcmcarray object</p></li>
 <li><p><code>mcmcr</code>: Subset an mcmcr object</p></li>
 <li><p><code>mcmcrs</code>: Subset an mcmcrs object</p></li>
