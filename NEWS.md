@@ -1,3 +1,8 @@
+# mcmcr 0.4.0.9000
+
+- Same as previous version.
+
+
 # mcmcr 0.4.0
 
 - Added `as_mcmc_list.mcmr()`.
