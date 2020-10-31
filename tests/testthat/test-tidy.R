@@ -1,9 +1,4 @@
-test_that("tidy.mcmc", {
-  nlists <- nlists(nlist(x = 1:3, y = matrix(1)))
-  expect_identical(tidy(as_mcmc(nlists)), tidy(nlists))
-})
-
-test_that("tidy.mcmc.list", {
-  nlists <- nlists(nlist(x = 1:3, y = matrix(1)))
-  expect_identical(tidy(as_mcmc_list(nlists)), tidy(nlists))
+test_that("tidy.mcmcr", {
+  x <- subset(mcmcr::mcmcr_example, iters = 1:2)
+  expect_identical(tidy(x, simplify = TRUE), tidy(nlist::as_mcmc_list(x), simplify = TRUE))
 })

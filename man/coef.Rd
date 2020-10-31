@@ -5,7 +5,7 @@
 \alias{coef.mcmc}
 \title{Term Coefficients}
 \usage{
-\method{coef}{mcmc}(object, conf_level = 0.95, estimate = median, ...)
+\method{coef}{mcmc}(object, conf_level = 0.95, estimate = median, simplify = FALSE, ...)
 }
 \arguments{
 \item{object}{The MCMC object to get the coefficients for}
@@ -14,12 +14,14 @@
 
 \item{estimate}{The function to use to calculate the estimate.}
 
+\item{simplify}{A flag specifying whether to return just the estimate, lower, upper and svalue.}
+
 \item{...}{Unused}
 }
 \value{
 An data frame of the coefficients with the columns indicating the
-\code{term}, \code{estimate}, standard deviation (\code{sd}), \code{zscore},
-\code{lower} and \code{upper} credible intervals and \code{pvalue}.
+\code{term}, \code{estimate}, the standard deviation (\code{sd}) and \code{zscore} (if \code{simplify = FALSE}),
+\code{lower} and \code{upper} credible intervals and \code{pvalue} or \code{svalue} (if \code{simplify = TRUE}).
 }
 \description{
 Gets coefficients for all the terms in an MCMC object.

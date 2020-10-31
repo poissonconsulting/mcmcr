@@ -24,6 +24,8 @@ Coerce an R object to an \code{\link[nlist:nlists]{nlists_object()}}.
 
 \item \code{mcmc}: Coerce mcmc to nlists
 
+\item \code{mcmc.list}: Coerce mcmc.list to nlists
+
 \item \code{nlist}: Coerce nlist to nlists
 }
 }

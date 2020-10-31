@@ -1,10 +1,10 @@
 #' @export
 generics::tidy
 
-#' @inherit generics::tidy
+#' @inheritParams nlist::tidy.nlist
 #'
 #' @export
-tidy.mcmc.mcmcr <- function(x, ...) {
+tidy.mcmcr <- function(x, simplify = FALSE, ...) {
   chk_unused(...)
-  tidy(as_nlists(x))
+  tidy(as_mcmc_list(x), simplify = simplify)
 }

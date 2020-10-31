@@ -19,5 +19,5 @@ test_that("as_nlists.mcmcr", {
     nlist::nlist(x = 1, y = matrix(1:4, 2)),
     nlist::nlist(x = 3, y = matrix(4:1, 2))
   )
-  expect_identical(nlist::as_nlists(as.mcmcr(nlists)), nlists)
+  expect_equal(nlist::as_nlists(as.mcmcr(nlists)), nlists)
 })
