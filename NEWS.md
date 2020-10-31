@@ -1,3 +1,11 @@
+# mcmcr 0.4.0.9001
+
+- Added tidy.mcmcr().
+- Added simplify = FALSE argument to coef() and tidy().
+- Deprecated simplify = FALSE argument to coef() to be TRUE.
+- Moved `as_nlists.mcmc.list()` to nlist package.
+
+
 # mcmcr 0.4.0.9000
 
 - Same as previous version.
