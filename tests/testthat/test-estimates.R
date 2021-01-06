@@ -68,3 +68,15 @@ test_that("estimates not numeric", {
     class = "chk_error"
   )
 })
+
+test_that("estimates ...", {
+
+  mean1 <- function(x, plus_one = FALSE) {
+    x <- mean(x)
+    if(isFALSE(plus_one)) return(x)
+    x + 1
+  }
+
+  expect_equal(estimates(mcmcr::mcmcr_example, fun = mean1, plus_one = TRUE)$alpha,
+               estimates(mcmcr::mcmcr_example, fun = mean1)$alpha + 1)
+})

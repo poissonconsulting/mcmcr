@@ -14,7 +14,7 @@
 \item{as_df}{A flag indicating whether to return the values as a
 data frame versus a named list.}
 
-\item{...}{Other arguments passed to methods.}
+\item{...}{Optional arguments to fun.}
 }
 \value{
 A named list or data frame.
