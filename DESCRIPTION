@@ -24,7 +24,7 @@ Imports:
     utils,
     stats,
     term,
-    nlist (>= 0.3.0.9003),
+    nlist (>= 0.3.1),
     purrr,
     universals,
     extras,
@@ -35,8 +35,6 @@ Suggests:
     testthat,
     rlang,
     tibble
-Remotes:
-    poissonconsulting/nlist
 RdMacros: 
     lifecycle
 Encoding: UTF-8

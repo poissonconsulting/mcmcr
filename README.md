@@ -6,14 +6,12 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![R build
-status](https://github.com/poissonconsulting/mcmcr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/mcmcr/actions)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![R-CMD-check](https://github.com/poissonconsulting/mcmcr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/mcmcr/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/mcmcr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/mcmcr?branch=master)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![status](https://tinyverse.netlify.com/badge/mcmcr)](https://CRAN.R-project.org/package=mcmcr)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/mcmcr)](https://cran.r-project.org/package=mcmcr)
 ![CRAN Downloads](http://cranlogs.r-pkg.org/badges/mcmcr)
 <!-- badges: end -->
@@ -162,6 +160,7 @@ mcmcr_example
 #> niters:  400
 
 coef(mcmcr_example)
+#> Warning: The `simplify` argument of `coef()` must be TRUE as of mcmcr 0.4.1.
 #>        term  estimate        sd   zscore     lower    upper      pvalue
 #> 1  alpha[1] 3.7180250 0.9007167 4.149545 2.2120540 5.232403 0.001248439
 #> 2  alpha[2] 4.7180250 0.9007167 5.259772 3.2120540 6.232403 0.001248439
