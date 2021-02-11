@@ -10,7 +10,7 @@
 |collate  |en_CA.UTF-8                  |
 |ctype    |en_CA.UTF-8                  |
 |tz       |America/Vancouver            |
-|date     |2021-02-10                   |
+|date     |2021-02-11                   |
 
 # Dependencies
 
@@ -21,10 +21,4 @@
 |universals |NA    |0.0.4.9000 |*  |
 
 # Revdeps
-
-## New problems (1)
-
-|package                              |version |error  |warning |note |
-|:------------------------------------|:-------|:------|:-------|:----|
-|[mcmcderive](problems.md#mcmcderive) |0.1.0   |__+1__ |        |1    |
 
