@@ -21,25 +21,25 @@ Imports:
     abind,
     chk,
     coda,
+    extras,
     generics,
-    utils,
-    stats,
-    term,
+    lifecycle,
     nlist (>= 0.3.1),
     purrr,
+    stats,
+    term,
     universals,
-    extras,
-    lifecycle
+    utils
 Suggests:
     covr,
     graphics,
-    testthat,
     rlang,
+    testthat,
     tibble
 RdMacros: 
     lifecycle
 Encoding: UTF-8
 Language: en-US
 LazyData: true
-RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
