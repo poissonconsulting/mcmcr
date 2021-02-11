@@ -1,26 +1,10 @@
 # mcmcr 0.5.0
 
-- Same as previous version.
-
-
-# mcmcr 0.4.0.9002
-
-- Fix bug with simplify argument being added to apply function in developmental version of R!
-- Added ... Optional arguments to fun argument to estimates().
-
-
-# mcmcr 0.4.0.9001
-
-- Added tidy.mcmcr().
-- Added simplify = FALSE argument to coef() and tidy().
-- Deprecated simplify = FALSE argument to coef() to be TRUE.
+- Added 
+  - `tidy.mcmcr()`.
+  - `simplify = FALSE` argument to `coef()` and `tidy()` and soft-deprecated if not `TRUE`.
+  - `...` optional arguments for `fun = median` argument to `estimates()`.
 - Moved `as_nlists.mcmc.list()` to nlist package.
-
-
-# mcmcr 0.4.0.9000
-
-- Same as previous version.
-
 
 # mcmcr 0.4.0
 
