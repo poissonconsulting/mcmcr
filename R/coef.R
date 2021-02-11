@@ -17,8 +17,9 @@
 #' @name coef
 NULL
 
-#' @export
-coef.numeric <- function(object, conf_level = 0.95, estimate = median, simplify = FALSE, ...) {
+# .simplify is a necessary hack to stop apply using simplify argument!
+coef_numeric_impl <- function(object, conf_level, estimate, .simplify) {
+  simplify <- .simplify
   chk_number(conf_level)
   chk_range(conf_level)
   chk_function(estimate)
@@ -54,6 +55,11 @@ coef.numeric <- function(object, conf_level = 0.95, estimate = median, simplify 
 }
 
 #' @export
+coef.numeric <- function(object, conf_level = 0.95, estimate = median, simplify = FALSE, ...) {
+  coef_numeric_impl(object, conf_level = conf_level, estimate = estimate, .simplify = simplify)
+}
+
+#' @export
 coef.mcarray <- function(object, conf_level = 0.95, estimate = median, simplify = FALSE, ...) {
   coef(as.mcmc.list(object), conf_level = conf_level, estimate = estimate, simplify = simplify)
 }
@@ -63,8 +69,9 @@ coef.mcarray <- function(object, conf_level = 0.95, estimate = median, simplify 
 coef.mcmc <- function(object, conf_level = 0.95, estimate = median, simplify = FALSE, ...) {
   term <- as_term(object)
   object <- t(object)
-  object <- apply(object, MARGIN = 1, FUN = coef, conf_level = conf_level, estimate = estimate,
-                  simplify = simplify)
+  object <- apply(object, MARGIN = 1, FUN = coef_numeric_impl,
+                  conf_level = conf_level, estimate = estimate,
+                  .simplify = simplify)
   object <- do.call(rbind, object)
   object$term <- term
   colnames <- c("term", "estimate", "sd", "zscore", "lower", "upper", "pvalue")
