@@ -21,6 +21,7 @@ Imports:
     abind,
     chk,
     coda,
+    generics,
     utils,
     stats,
     term,
