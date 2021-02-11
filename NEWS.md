@@ -1,3 +1,9 @@
+# mcmcr 0.4.0.9002
+
+- Fix bug with simplify argument being added to apply function in developmental version of R!
+- Added ... Optional arguments to fun argument to estimates().
+
+
 # mcmcr 0.4.0.9001
 
 - Added tidy.mcmcr().
