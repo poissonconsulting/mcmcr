@@ -1,3 +1,8 @@
+# mcmcr 0.5.0
+
+- Same as previous version.
+
+
 # mcmcr 0.4.0.9002
 
 - Fix bug with simplify argument being added to apply function in developmental version of R!
