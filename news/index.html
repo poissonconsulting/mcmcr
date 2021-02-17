@@ -57,9 +57,15 @@
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -73,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9000</span>
       </span>
     </div>
 
@@ -110,23 +116,30 @@
       <small>Source: <a href='https://github.com/poissonconsulting/mcmcr/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="mcmcr-0409001" class="section level1">
-<h1 class="page-header" data-toc-text="0.4.0.9001">
-<a href="#mcmcr-0409001" class="anchor"></a>mcmcr 0.4.0.9001<small> Unreleased </small>
+    <div id="mcmcr-0509000" class="section level1">
+<h1 class="page-header" data-toc-text="0.5.0.9000">
+<a href="#mcmcr-0509000" class="anchor"></a>mcmcr 0.5.0.9000<small> Unreleased </small>
 </h1>
 <ul>
-<li>Added tidy.mcmcr().</li>
-<li>Added simplify = FALSE argument to coef() and tidy().</li>
-<li>Deprecated simplify = FALSE argument to coef() to be TRUE.</li>
-<li>Moved <code>as_nlists.mcmc.list()</code> to nlist package.</li>
+<li>Internal changes only.</li>
 </ul>
 </div>
-    <div id="mcmcr-0409000" class="section level1">
-<h1 class="page-header" data-toc-text="0.4.0.9000">
-<a href="#mcmcr-0409000" class="anchor"></a>mcmcr 0.4.0.9000<small> Unreleased </small>
+    <div id="mcmcr-050" class="section level1">
+<h1 class="page-header" data-toc-text="0.5.0">
+<a href="#mcmcr-050" class="anchor"></a>mcmcr 0.5.0<small> 2021-02-11 </small>
 </h1>
 <ul>
-<li>Same as previous version.</li>
+<li>Added
+<ul>
+<li>
+<code>tidy.mcmcr()</code>.</li>
+<li>
+<code>simplify = FALSE</code> argument to <code><a href="../reference/coef.html">coef()</a></code> and <code><a href="https://generics.r-lib.org/reference/tidy.html" class="external-link">tidy()</a></code> and soft-deprecated if not <code>TRUE</code>.</li>
+<li>
+<code>...</code> optional arguments for <code>fun = median</code> argument to <code><a href="https://poissonconsulting.github.io/universals/reference/estimates.html" class="external-link">estimates()</a></code>.</li>
+</ul>
+</li>
+<li>Moved <code>as_nlists.mcmc.list()</code> to nlist package.</li>
 </ul>
 </div>
     <div id="mcmcr-040" class="section level1">
@@ -165,19 +178,19 @@
 <code>npdims.mcmc.list()</code> to return character vector (as opposed to list)</li>
 <li>
 <code>collapse_chains.mcmc.list()</code> to return an mcmc.list object with one chain (as opposed to an mcmc object)</li>
-<li>first argument of <code><a href="https://poissonconsulting.github.io/universals/reference/estimates.html">estimates()</a></code> from <code>object</code> to <code>x</code>.</li>
+<li>first argument of <code><a href="https://poissonconsulting.github.io/universals/reference/estimates.html" class="external-link">estimates()</a></code> from <code>object</code> to <code>x</code>.</li>
 <li>
-<code>scalar_only = FALSE</code> argument of <code><a href="https://poissonconsulting.github.io/universals/reference/pars.html">pars()</a></code> to <code>scalar = NA</code>.</li>
+<code>scalar_only = FALSE</code> argument of <code><a href="https://poissonconsulting.github.io/universals/reference/pars.html" class="external-link">pars()</a></code> to <code>scalar = NA</code>.</li>
 <li>
-<code><a href="https://poissonconsulting.github.io/universals/reference/estimates.html">estimates()</a></code> so now checks fun returns scalar numeric.</li>
+<code><a href="https://poissonconsulting.github.io/universals/reference/estimates.html" class="external-link">estimates()</a></code> so now checks fun returns scalar numeric.</li>
 </ul>
 </li>
 <li>Soft-deprecated
 <ul>
 <li>
-<code><a href="https://poissonconsulting.github.io/extras/reference/pvalue.html">pvalue()</a></code> for <code><a href="https://poissonconsulting.github.io/extras/reference/pvalue.html">extras::pvalue()</a></code>.</li>
+<code><a href="https://poissonconsulting.github.io/extras/reference/pvalue.html" class="external-link">pvalue()</a></code> for <code><a href="https://poissonconsulting.github.io/extras/reference/pvalue.html" class="external-link">extras::pvalue()</a></code>.</li>
 <li>
-<code><a href="../reference/zero.html">zero()</a></code> for <code><a href="https://poissonconsulting.github.io/extras/reference/fill_all.html">fill_all()</a></code>.</li>
+<code><a href="../reference/zero.html">zero()</a></code> for <code><a href="https://poissonconsulting.github.io/extras/reference/fill_all.html" class="external-link">fill_all()</a></code>.</li>
 <li>
 <code><a href="../reference/check_mcmcarray.html">check_mcmcarray()</a></code> and <code><a href="../reference/check_mcmcr.html">check_mcmcr()</a></code> for <code><a href="../reference/chk_mcmcr.html">chk_mcmcarray()</a></code> and <code><a href="../reference/chk_mcmcr.html">chk_mcmcr()</a></code>.</li>
 <li>
@@ -191,17 +204,17 @@
 <li>
 <code>vld_()</code> and <code>chk_()</code> functions for mcmcarray and mcmcr objects.</li>
 <li>
-<code>scalar = NULL</code> argument to <code><a href="https://poissonconsulting.github.io/universals/reference/pars.html">pars()</a></code> and <code><a href="https://poissonconsulting.github.io/universals/reference/npars.html">npars()</a></code>.</li>
+<code>scalar = NULL</code> argument to <code><a href="https://poissonconsulting.github.io/universals/reference/pars.html" class="external-link">pars()</a></code> and <code><a href="https://poissonconsulting.github.io/universals/reference/npars.html" class="external-link">npars()</a></code>.</li>
 <li>
-<code>na_rm = NA</code> argument to <code><a href="https://poissonconsulting.github.io/universals/reference/esr.html">esr()</a></code> and <code><a href="https://poissonconsulting.github.io/universals/reference/rhat.html">rhat()</a></code>.</li>
-<li>missing <code>as_df = FALSE</code> arg to <code><a href="https://poissonconsulting.github.io/universals/reference/esr.html">esr()</a></code> for mcarray, mcmc and mcmc.list.</li>
+<code>na_rm = NA</code> argument to <code><a href="https://poissonconsulting.github.io/universals/reference/esr.html" class="external-link">esr()</a></code> and <code><a href="https://poissonconsulting.github.io/universals/reference/rhat.html" class="external-link">rhat()</a></code>.</li>
+<li>missing <code>as_df = FALSE</code> arg to <code><a href="https://poissonconsulting.github.io/universals/reference/esr.html" class="external-link">esr()</a></code> for mcarray, mcmc and mcmc.list.</li>
 <li>coercion to and from nlists objects for mcmcr, mcmc.list and mcmc objects.</li>
 </ul>
 </li>
 <li>Moved
 <ul>
 <li>handling of terms to term package.</li>
-<li>generic definitions of <code><a href="https://poissonconsulting.github.io/universals/reference/nchains.html">nchains()</a></code>, <code><a href="https://poissonconsulting.github.io/universals/reference/niters.html">niters()</a></code>, <code><a href="https://poissonconsulting.github.io/universals/reference/collapse_chains.html">collapse_chains()</a></code> and <code><a href="https://poissonconsulting.github.io/universals/reference/split_chains.html">split_chains()</a></code> etc to universals package.</li>
+<li>generic definitions of <code><a href="https://poissonconsulting.github.io/universals/reference/nchains.html" class="external-link">nchains()</a></code>, <code><a href="https://poissonconsulting.github.io/universals/reference/niters.html" class="external-link">niters()</a></code>, <code><a href="https://poissonconsulting.github.io/universals/reference/collapse_chains.html" class="external-link">collapse_chains()</a></code> and <code><a href="https://poissonconsulting.github.io/universals/reference/split_chains.html" class="external-link">split_chains()</a></code> etc to universals package.</li>
 </ul>
 </li>
 </ul>
@@ -212,7 +225,7 @@
 </h1>
 <ul>
 <li>Added <code><a href="../reference/check_mcmcr.html">check_mcmcr()</a></code> and <code><a href="../reference/check_mcmcarray.html">check_mcmcarray()</a></code>.</li>
-<li>Fixed by and as_df arguments in <code><a href="https://poissonconsulting.github.io/universals/reference/converged.html">converged()</a></code>.</li>
+<li>Fixed by and as_df arguments in <code><a href="https://poissonconsulting.github.io/universals/reference/converged.html" class="external-link">converged()</a></code>.</li>
 <li>Added more tests.</li>
 <li>Removed <code>as.mcmc.mcmc.list()</code>, <code>thin.mcmc()</code> and <code>thin.mcmc.list()</code> as now defined by coda.</li>
 <li>No longer export <code>as.mcmc.list.mcarray()</code> as clashes with rjags version.</li>
@@ -224,12 +237,12 @@
 </h1>
 <ul>
 <li>Added <code><a href="../reference/mcmc_aperm.html">mcmc_aperm()</a></code> function to transpose parameter dimensions.</li>
-<li>Added <code><a href="https://poissonconsulting.github.io/universals/reference/npdims.html">npdims()</a></code> function to get number of parameter dimensions.</li>
+<li>Added <code><a href="https://poissonconsulting.github.io/universals/reference/npdims.html" class="external-link">npdims()</a></code> function to get number of parameter dimensions.</li>
 <li>Added <code>by = TRUE</code> argument to <code><a href="../reference/mcmc_map.html">mcmc_map()</a></code> function.</li>
 <li>Removed tibble package from suggests.</li>
 <li>
-<code><a href="https://poissonconsulting.github.io/universals/reference/rhat.html">rhat()</a></code> now returns minimum of 1.</li>
-<li>Defined <code><a href="../reference/subset.html">subset()</a></code> and <code><a href="https://poissonconsulting.github.io/term/reference/deprecated.html">parameters()</a></code> for mcmcrs object.</li>
+<code><a href="https://poissonconsulting.github.io/universals/reference/rhat.html" class="external-link">rhat()</a></code> now returns minimum of 1.</li>
+<li>Defined <code><a href="../reference/subset.html">subset()</a></code> and <code><a href="https://poissonconsulting.github.io/term/reference/deprecated.html" class="external-link">parameters()</a></code> for mcmcrs object.</li>
 <li>Added <code>bound = FALSE</code> argument to <code><a href="../reference/rhat.mcmcrs.html">rhat.mcmcrs()</a></code> and <code><a href="../reference/converged.mcmcrs.html">converged.mcmcrs()</a></code> functions.</li>
 </ul>
 </div>
@@ -284,6 +297,8 @@
 
   
 
+
+  
 
   </body>
 </html>

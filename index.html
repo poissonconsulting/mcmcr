@@ -21,6 +21,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -33,7 +35,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9000</span>
       </span>
     </div>
 
@@ -74,13 +76,13 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>To install the latest release from <a href="https://cran.r-project.org">CRAN</a></p>
+<p>To install the latest release from <a href="https://cran.r-project.org" class="external-link">CRAN</a></p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"mcmcr"</span><span class="op">)</span></code></pre></div>
-<p>To install the developmental version from <a href="https://github.com/poissonconsulting/mcmcr">GitHub</a></p>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"mcmcr"</span><span class="op">)</span></code></pre></div>
+<p>To install the developmental version from <a href="https://github.com/poissonconsulting/mcmcr" class="external-link">GitHub</a></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"poissonconsulting/mcmcr"</span><span class="op">)</span></code></pre></div>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"poissonconsulting/mcmcr"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
@@ -92,9 +94,9 @@
 <p>The three most common S3 classes store MCMC samples as follows:</p>
 <ul>
 <li>
-<code><a href="https://rdrr.io/pkg/coda/man/mcmc.html">coda::mcmc</a></code> stores the MCMC samples from a single chain as a matrix where each each row represents an iteration and each column represents a variable</li>
+<code><a href="https://rdrr.io/pkg/coda/man/mcmc.html" class="external-link">coda::mcmc</a></code> stores the MCMC samples from a single chain as a matrix where each each row represents an iteration and each column represents a variable</li>
 <li>
-<code><a href="https://rdrr.io/pkg/coda/man/mcmc.list.html">coda::mcmc.list</a></code> stores multiple <code>mcmc</code> objects (with identical dimensions) as a list where each object represents a parallel chain</li>
+<code><a href="https://rdrr.io/pkg/coda/man/mcmc.list.html" class="external-link">coda::mcmc.list</a></code> stores multiple <code>mcmc</code> objects (with identical dimensions) as a list where each object represents a parallel chain</li>
 <li>
 <code>rjags::mcarray</code> stores the samples from a single parameter where the initial dimensions are the parameter dimensions, the second to last dimension is iterations and the last dimension is chains.</li>
 </ul>
@@ -119,12 +121,12 @@
 <h2 class="hasAnchor">
 <a href="#why-mcmcr" class="anchor"></a>Why mcmcr?</h2>
 <p><code>mcmcarray</code> objects were developed to facilitate manipulation of the MCMC samples. <code>mcmcr</code> objects were developed to allow a set of dimensionality preserving parameters from a single analysis to be manipulated as a whole. <code>mcmcrs</code> objects were developed to allow the results of multiple analyses using the same model to be manipulated together.</p>
-<p>The <code>mcmcr</code> package (together with the <a href="https://github.com/poissonconsulting/term">term</a> and <a href="https://github.com/poissonconsulting/nlist">nlist</a> packages) introduces a variety of (often) generic functions to manipulate and query <code>mcmcarray</code>, <code>mcmcr</code> and <code>mcmcrs</code> objects (and <code>term</code> and <code>nlist</code> and <code>nlists</code> objects).</p>
+<p>The <code>mcmcr</code> package (together with the <a href="https://github.com/poissonconsulting/term" class="external-link">term</a> and <a href="https://github.com/poissonconsulting/nlist" class="external-link">nlist</a> packages) introduces a variety of (often) generic functions to manipulate and query <code>mcmcarray</code>, <code>mcmcr</code> and <code>mcmcrs</code> objects (and <code>term</code> and <code>nlist</code> and <code>nlists</code> objects).</p>
 <p>In particular it provides functions to</p>
 <ul>
 <li>coerce from and to <code>mcarray</code>, <code>mcmc</code> and <code>mcmc.list</code> objects;</li>
 <li>extract an objects <code>coef</code> table (as a tibble);</li>
-<li>query an object’s <code>nchains</code>, <code>niters</code>, <code><a href="https://poissonconsulting.github.io/universals/reference/npars.html">term::npars</a></code>, <code><a href="https://poissonconsulting.github.io/universals/reference/nterms.html">term::nterms</a></code>, <code><a href="https://poissonconsulting.github.io/universals/reference/nsims.html">nlist::nsims</a></code> and <code>nlist::nsams</code> as well as it’s parameter dimensions (<code><a href="https://poissonconsulting.github.io/universals/reference/pdims.html">term::pdims</a></code>) and term indices (<code><a href="https://poissonconsulting.github.io/term/reference/tindex.html">term::tindex</a></code>);</li>
+<li>query an object’s <code>nchains</code>, <code>niters</code>, <code><a href="https://poissonconsulting.github.io/universals/reference/npars.html" class="external-link">term::npars</a></code>, <code><a href="https://poissonconsulting.github.io/universals/reference/nterms.html" class="external-link">term::nterms</a></code>, <code><a href="https://poissonconsulting.github.io/universals/reference/nsims.html" class="external-link">nlist::nsims</a></code> and <code>nlist::nsams</code> as well as it’s parameter dimensions (<code><a href="https://poissonconsulting.github.io/universals/reference/pdims.html" class="external-link">term::pdims</a></code>) and term indices (<code><a href="https://poissonconsulting.github.io/term/reference/tindex.html" class="external-link">term::tindex</a></code>);</li>
 <li>
 <code>subset</code> objects by chains, iterations and/or parameters;</li>
 <li>
@@ -144,7 +146,7 @@
 <h2 class="hasAnchor">
 <a href="#demonstration" class="anchor"></a>Demonstration</h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/poissonconsulting/mcmcr">mcmcr</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/poissonconsulting/mcmcr" class="external-link">mcmcr</a></span><span class="op">)</span>
 
 <span class="va">mcmcr_example</span>
 <span class="co">#&gt; $alpha</span>
@@ -167,17 +169,16 @@
 <span class="co">#&gt; nchains:  2 </span>
 <span class="co">#&gt; niters:  400</span>
 
-<span class="fu"><a href="reference/coef.html">coef</a></span><span class="op">(</span><span class="va">mcmcr_example</span><span class="op">)</span>
-<span class="co">#&gt; Warning: The `simplify` argument of `coef()` must be TRUE as of mcmcr 0.4.1.</span>
-<span class="co">#&gt;        term  estimate        sd   zscore     lower    upper      pvalue</span>
-<span class="co">#&gt; 1  alpha[1] 3.7180250 0.9007167 4.149545 2.2120540 5.232403 0.001248439</span>
-<span class="co">#&gt; 2  alpha[2] 4.7180250 0.9007167 5.259772 3.2120540 6.232403 0.001248439</span>
-<span class="co">#&gt; 3 beta[1,1] 0.9716535 0.3747971 2.572555 0.2514796 1.713996 0.023720350</span>
-<span class="co">#&gt; 4 beta[2,1] 1.9716535 0.3747971 5.240666 1.2514796 2.713996 0.006242197</span>
-<span class="co">#&gt; 5 beta[1,2] 1.9716535 0.3747971 5.240666 1.2514796 2.713996 0.006242197</span>
-<span class="co">#&gt; 6 beta[2,2] 2.9716535 0.3747971 7.908776 2.2514796 3.713996 0.001248439</span>
-<span class="co">#&gt; 7     sigma 0.7911975 0.7408373 1.306700 0.4249618 2.559520 0.001248439</span>
-<span class="fu"><a href="https://poissonconsulting.github.io/universals/reference/rhat.html">rhat</a></span><span class="op">(</span><span class="va">mcmcr_example</span>, by <span class="op">=</span> <span class="st">"term"</span><span class="op">)</span>
+<span class="fu"><a href="reference/coef.html">coef</a></span><span class="op">(</span><span class="va">mcmcr_example</span>, simplify <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co">#&gt;        term  estimate     lower    upper   svalue</span>
+<span class="co">#&gt; 1  alpha[1] 3.7180250 2.2120540 5.232403 9.645658</span>
+<span class="co">#&gt; 2  alpha[2] 4.7180250 3.2120540 6.232403 9.645658</span>
+<span class="co">#&gt; 3 beta[1,1] 0.9716535 0.2514796 1.713996 5.397731</span>
+<span class="co">#&gt; 4 beta[2,1] 1.9716535 1.2514796 2.713996 7.323730</span>
+<span class="co">#&gt; 5 beta[1,2] 1.9716535 1.2514796 2.713996 7.323730</span>
+<span class="co">#&gt; 6 beta[2,2] 2.9716535 2.2514796 3.713996 9.645658</span>
+<span class="co">#&gt; 7     sigma 0.7911975 0.4249618 2.559520 9.645658</span>
+<span class="fu"><a href="https://poissonconsulting.github.io/universals/reference/rhat.html" class="external-link">rhat</a></span><span class="op">(</span><span class="va">mcmcr_example</span>, by <span class="op">=</span> <span class="st">"term"</span><span class="op">)</span>
 <span class="co">#&gt; $alpha</span>
 <span class="co">#&gt; [1] 2.002 2.002</span>
 <span class="co">#&gt; </span>
@@ -188,24 +189,24 @@
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $sigma</span>
 <span class="co">#&gt; [1] 1</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mcmcr_example</span><span class="op">[[</span><span class="st">"alpha"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mcmcr_example</span><span class="op">[[</span><span class="st">"alpha"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="100%"></p>
 </div>
 <div id="inspiration" class="section level2">
 <h2 class="hasAnchor">
 <a href="#inspiration" class="anchor"></a>Inspiration</h2>
-<p><a href="https://github.com/cran/coda">coda</a> and <a href="https://github.com/cran/rjags">rjags</a></p>
+<p><a href="https://github.com/cran/coda" class="external-link">coda</a> and <a href="https://github.com/cran/rjags" class="external-link">rjags</a></p>
 </div>
 <div id="contribution" class="section level2">
 <h2 class="hasAnchor">
 <a href="#contribution" class="anchor"></a>Contribution</h2>
-<p>Please report any <a href="https://github.com/poissonconsulting/mcmcr/issues">issues</a>.</p>
-<p><a href="https://github.com/poissonconsulting/mcmcr/pulls">Pull requests</a> are always welcome.</p>
+<p>Please report any <a href="https://github.com/poissonconsulting/mcmcr/issues" class="external-link">issues</a>.</p>
+<p><a href="https://github.com/poissonconsulting/mcmcr/pulls" class="external-link">Pull requests</a> are always welcome.</p>
 </div>
 <div id="code-of-conduct" class="section level2">
 <h2 class="hasAnchor">
 <a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
-<p>Please note that the mcmcr project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<p>Please note that the mcmcr project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 <div id="references" class="section level2">
 <h2 class="hasAnchor">
@@ -217,7 +218,7 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=mcmcr">https://​cloud.r-project.org/​package=mcmcr</a>
 </li>
@@ -227,39 +228,43 @@
 </li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
 <li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
 <div class="community">
-<h2>Community</h2>
+<h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Joe Thorley <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-7683-4592" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>Poisson Consulting <br><small class="roles"> Copyright holder, funder </small>  </li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
-<li><a href="https://github.com/poissonconsulting/mcmcr/actions"><img src="https://github.com/poissonconsulting/mcmcr/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://codecov.io/gh/poissonconsulting/mcmcr?branch=master"><img src="https://codecov.io/gh/poissonconsulting/mcmcr/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a></li>
-<li><a href="https://cran.r-project.org/package=mcmcr"><img src="http://www.r-pkg.org/badges/version/mcmcr" alt="CRAN_Status_Badge"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
+<li><a href="https://github.com/poissonconsulting/mcmcr/actions" class="external-link"><img src="https://github.com/poissonconsulting/mcmcr/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://codecov.io/gh/poissonconsulting/mcmcr?branch=master" class="external-link"><img src="https://codecov.io/gh/poissonconsulting/mcmcr/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://opensource.org/licenses/MIT" class="external-link"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a></li>
+<li><a href="https://cran.r-project.org/package=mcmcr" class="external-link"><img src="http://www.r-pkg.org/badges/version/mcmcr" alt="CRAN_Status_Badge"></a></li>
 </ul>
 </div>
-</div>
+
+  </div>
 </div>
 
 
@@ -276,6 +281,8 @@
 
   
 
+
+  
 
   </body>
 </html>
