@@ -9,9 +9,9 @@ bind_parameters(x, x2, ...)
 \arguments{
 \item{x}{an MCMC object}
 
-\item{x2}{a second MCMC object}
+\item{x2}{a second MCMC object.}
 
-\item{...}{unused}
+\item{...}{Unused.}
 }
 \description{
 Combines two MCMC objects (with the same chains and iterations) by their parameters.

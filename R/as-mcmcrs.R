@@ -2,9 +2,9 @@
 #'
 #' Converts an MCMC object to an [mcmcrs-object()].
 #'
+#' @inheritParams params
 #' @param x An MCMC object.
 #' @param name A string specifying the element name.
-#' @param ... Unused.
 #' @return An mcmcrs object.
 #' @export
 #'

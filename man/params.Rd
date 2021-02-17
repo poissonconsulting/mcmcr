@@ -19,7 +19,7 @@ except scalars (FALSE).}
 \item{by}{A string indicating whether to determine by
 "term", "parameter" or "all".}
 
-\item{as_df}{A flag indicating whether to return the values as a
+\item{as_df}{A flag indicating whether to return the results as a
 data frame versus a named list.}
 
 \item{fun}{A function that given a numeric vector returns a numeric scalar.}
@@ -37,6 +37,28 @@ data frame versus a named list.}
 \item{iterations}{An integer vector (or NULL) of the iterations to subset by.}
 
 \item{...}{Unused.}
+
+\item{x2}{a second MCMC object.}
+
+\item{x_name}{A string of the name of the object.}
+
+\item{error}{A flag indicating whether to throw an informative error or immediately generate an informative message if the check fails.}
+
+\item{sorted}{A flag specifying whether the parameters must be sorted.}
+
+\item{object}{The MCMC object to get the coefficients for}
+
+\item{conf_level}{A number specifying the confidence level. By default 0.95.}
+
+\item{estimate}{The function to use to calculate the estimate.}
+
+\item{simplify}{A flag specifying whether to return just the estimate, lower, upper and svalue.}
+
+\item{perm}{A integer vector of the new order for the parameter dimensions.}
+
+\item{pars}{A character vector (or NULL) of the pars to zero.}
+
+\item{name}{A string specifying the parameter name.}
 }
 \description{
 Parameter Descriptions
