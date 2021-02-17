@@ -7,13 +7,13 @@
 mcmc_aperm(x, perm, ...)
 }
 \arguments{
-\item{x}{The MCMC object to transpose.}
-
-\item{perm}{A integer vector of the new order for the parameter dimensions.
+\item{x}{The MCMC object to transpose.
 Missing parameter dimensions are added on the end.
 If perm = NULL (the default) the parameter dimensions are reversed.}
 
-\item{...}{Unused}
+\item{perm}{A integer vector of the new order for the parameter dimensions.}
+
+\item{...}{Unused.}
 }
 \value{
 The modified MCMC object

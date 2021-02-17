@@ -3,10 +3,8 @@
 #'
 #' Calculates the effective sample size based on [esr()].
 #'
+#' @inheritParams params
 #' @param x An MCMC object.
-#' @param by A string indicating whether to determine by "term", "parameter" or "all".
-#' @param as_df A flag indicating whether to return the results as a
-#' data frame or list.
 #' @export
 #' @examples
 #' ess(mcmcr_example)

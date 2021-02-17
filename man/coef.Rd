@@ -16,7 +16,7 @@
 
 \item{simplify}{A flag specifying whether to return just the estimate, lower, upper and svalue.}
 
-\item{...}{Unused}
+\item{...}{Unused.}
 }
 \value{
 An data frame of the coefficients with the columns indicating the

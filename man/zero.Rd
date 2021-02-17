@@ -18,7 +18,7 @@ zero(x, ...)
 \arguments{
 \item{x}{The MCMC object.}
 
-\item{...}{Unused}
+\item{...}{Unused.}
 
 \item{pars}{A character vector (or NULL) of the pars to zero.}
 }
