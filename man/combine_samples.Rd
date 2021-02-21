@@ -9,7 +9,7 @@ combine_samples(x, x2, fun = mean, ...)
 \arguments{
 \item{x}{An MCMC object.}
 
-\item{x2}{A second MCMC object.}
+\item{x2}{a second MCMC object.}
 
 \item{fun}{The function to use to combine the samples.
 The function must return a scalar.}

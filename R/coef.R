@@ -2,11 +2,7 @@
 #'
 #' Gets coefficients for all the terms in an MCMC object.
 #'
-#' @param object The MCMC object to get the coefficients for
-#' @param conf_level A number specifying the confidence level. By default 0.95.
-#' @param estimate The function to use to calculate the estimate.
-#' @param simplify A flag specifying whether to return just the estimate, lower, upper and svalue.
-#' @param ... Unused
+#' @inheritParams params
 #' @return An data frame of the coefficients with the columns indicating the
 #' `term`, `estimate`, the standard deviation (`sd`) and `zscore` (if `simplify = FALSE`),
 #' `lower` and `upper` credible intervals and `pvalue` or `svalue` (if `simplify = TRUE`).

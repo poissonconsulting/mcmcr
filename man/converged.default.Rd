@@ -24,7 +24,7 @@
 \item{by}{A string indicating whether to determine by
 "term", "parameter" or "all".}
 
-\item{as_df}{A flag indicating whether to return the values as a
+\item{as_df}{A flag indicating whether to return the results as a
 data frame versus a named list.}
 
 \item{na_rm}{A flag specifying whether to ignore missing values.}

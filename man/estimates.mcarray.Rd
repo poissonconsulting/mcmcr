@@ -11,7 +11,7 @@
 
 \item{fun}{A function that given a numeric vector returns a numeric scalar.}
 
-\item{as_df}{A flag indicating whether to return the values as a
+\item{as_df}{A flag indicating whether to return the results as a
 data frame versus a named list.}
 
 \item{...}{Optional arguments to fun.}

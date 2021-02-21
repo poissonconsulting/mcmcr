@@ -10,10 +10,11 @@ ess(x, by = "all", as_df = FALSE)
 \arguments{
 \item{x}{An MCMC object.}
 
-\item{by}{A string indicating whether to determine by "term", "parameter" or "all".}
+\item{by}{A string indicating whether to determine by
+"term", "parameter" or "all".}
 
 \item{as_df}{A flag indicating whether to return the results as a
-data frame or list.}
+data frame versus a named list.}
 }
 \description{
 Calculates the effective sample size based on \code{\link[=esr]{esr()}}.

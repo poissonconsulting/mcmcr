@@ -3,10 +3,9 @@
 #' Combines multiple MCMC objects (with the same parameters, chains and iterations)
 #' by parameter dimensions.
 #'
+#' @inheritParams params
 #' @param x An MCMC object.
-#' @param x2 a second MCMC object.
 #' @param along A count (or NULL) indicating the parameter dimension to bind along.
-#' @param ... Unused.
 #' @seealso [bind_dimensions_n()]
 #' @export
 #' @examples

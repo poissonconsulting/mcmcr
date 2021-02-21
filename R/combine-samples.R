@@ -3,11 +3,10 @@
 #' Combines samples of two MCMC objects
 #' (with the same parameters, chains and iterations) using a function.
 #'
+#' @inheritParams params
 #' @param x An MCMC object.
-#' @param x2 A second MCMC object.
 #' @param fun The function to use to combine the samples.
 #' The function must return a scalar.
-#' @param ... Unused.
 #' @return The combined samples as an MCMC object
 #' with the same parameters, chains and iterations as the original objects.
 #' @export

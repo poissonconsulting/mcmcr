@@ -2,9 +2,8 @@
 #'
 #' Converts an MCMC object to an [mcmcr-object()].
 #'
+#' @inheritParams params
 #' @param x An MCMC object.
-#' @param name A string specifying the parameter name.
-#' @param ... Unused.
 #' @return An mcmcr object.
 #' @export
 #'

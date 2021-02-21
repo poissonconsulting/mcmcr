@@ -2,8 +2,8 @@
 #'
 #' Coerces MCMC objects to an mcarray object.
 #'
+#' @inheritParams params
 #' @param x object to coerce.
-#' @param ... Unused.
 #' @export
 #' @examples
 #' as.mcarray(mcmcr_example$beta)

@@ -13,7 +13,7 @@ combine_dimensions(x, fun = mean, along = NULL, ...)
 
 \item{along}{A positive integer (or NULL) indicating the parameter dimension(s) to bind along.}
 
-\item{...}{Unused}
+\item{...}{Unused.}
 }
 \value{
 The MCMC object with reduced dimensions.
