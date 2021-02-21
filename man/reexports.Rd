@@ -2,9 +2,9 @@
 % Please edit documentation in R/as-mcmc.R, R/as-nlist.R, R/as-nlists.R,
 %   R/as-term.R, R/bind-chains.R, R/bind-iterations.R, R/collapse-chains.R,
 %   R/converged.R, R/esr.R, R/estimates.R, R/export.R, R/fill-all.R,
-%   R/nchains.R, R/niters.R, R/npars.R, R/npdims.R, R/nterms.R, R/parameters.R,
-%   R/pars.R, R/pdims.R, R/rhat.R, R/set-pars.R, R/split-chains.R, R/thin.R,
-%   R/tidy.R
+%   R/fill_na.R, R/nchains.R, R/niters.R, R/npars.R, R/npdims.R,
+%   R/nterms.R, R/parameters.R, R/pars.R, R/pdims.R, R/rhat.R, R/set-pars.R,
+%   R/split-chains.R, R/thin.R, R/tidy.R
 \docType{import}
 \name{reexports}
 \alias{reexports}
@@ -30,6 +30,7 @@
 \alias{nlists}
 \alias{complete_terms}
 \alias{fill_all}
+\alias{fill_na}
 \alias{nchains}
 \alias{niters}
 \alias{npars}
@@ -54,7 +55,7 @@ below to see their documentation.
 \describe{
   \item{coda}{\code{\link[coda:mcmc]{as.mcmc}}, \code{\link[coda]{thin}}}
 
-  \item{extras}{\code{\link[extras]{fill_all}}, \code{\link[extras]{lower}}, \code{\link[extras]{pvalue}}, \code{\link[extras]{svalue}}, \code{\link[extras]{upper}}, \code{\link[extras]{zscore}}}
+  \item{extras}{\code{\link[extras]{fill_all}}, \code{\link[extras]{fill_na}}, \code{\link[extras]{lower}}, \code{\link[extras]{pvalue}}, \code{\link[extras]{svalue}}, \code{\link[extras]{upper}}, \code{\link[extras]{zscore}}}
 
   \item{generics}{\code{\link[generics]{tidy}}}
 
