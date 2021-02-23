@@ -2,7 +2,7 @@
 % Please edit documentation in R/params.R
 \name{params}
 \alias{params}
-\title{Parameter Descriptions}
+\title{Parameter descriptions}
 \arguments{
 \item{x}{An object.}
 
@@ -61,5 +61,5 @@ data frame versus a named list.}
 \item{name}{A string specifying the parameter name.}
 }
 \description{
-Parameter Descriptions
+Parameter descriptions
 }

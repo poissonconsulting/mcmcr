@@ -4,6 +4,7 @@
 #'
 #' @param ... Objects of class mcmcr.
 #' @return An object of class mcmcrs
+#' @family coerce
 #' @export
 #' @examples
 #' mcmcrs(mcmcr_example, mcmcr_example)

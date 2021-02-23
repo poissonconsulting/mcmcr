@@ -1,4 +1,4 @@
-#' Validate MCMC Objects
+#' Validate MCMC objects
 #'
 #' Validates class and structure of MCMC objects.
 #'

@@ -1,4 +1,4 @@
-#' Zero MCMC Sample Values
+#' Zero MCMC sample values
 #'
 #' Zeros an MCMC object's sample values.
 #'

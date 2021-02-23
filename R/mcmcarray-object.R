@@ -8,7 +8,7 @@
 #'  ie the chains and iterations, precede the parameter dimensions.
 #' @name mcmcarray-object
 #' @aliases mcmcarray_object
-#'
+#' @family objects
 #' @examples
 #' mcmcr_example$beta
 NULL

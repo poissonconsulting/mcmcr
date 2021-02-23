@@ -6,7 +6,8 @@
 #' @inheritParams params
 #' @param x An MCMC object.
 #' @param along A count (or NULL) indicating the parameter dimension to bind along.
-#' @seealso [bind_dimensions_n()]
+#' @seealso [universals::bind_chains()]
+#' @family bind
 #' @export
 #' @examples
 #' bind_dimensions(mcmcr_example, mcmcr_example)

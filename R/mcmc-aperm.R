@@ -1,4 +1,4 @@
-#' MCMC Object Transposition
+#' MCMC object transposition
 #'
 #' Transpose an MCMC object by permuting its parameter dimensions.
 #'
@@ -7,6 +7,7 @@
 #' Missing parameter dimensions are added on the end.
 #' If perm = NULL (the default) the parameter dimensions are reversed.
 #' @return The modified MCMC object
+#' @family manipulate
 #' @export
 mcmc_aperm <- function(x, perm, ...) {
   UseMethod("mcmc_aperm")

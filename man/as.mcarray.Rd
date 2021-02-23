@@ -25,3 +25,10 @@ Coerces MCMC objects to an mcarray object.
 \examples{
 as.mcarray(mcmcr_example$beta)
 }
+\seealso{
+Other coerce: 
+\code{\link{as.mcmcarray}()},
+\code{\link{as.mcmcr}()},
+\code{\link{mcmcrs}()}
+}
+\concept{coerce}

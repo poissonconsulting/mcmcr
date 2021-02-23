@@ -1,10 +1,11 @@
-#' Convert to an mcmcr Object
+#' Convert to an mcmcr object
 #'
 #' Converts an MCMC object to an [mcmcr-object()].
 #'
 #' @inheritParams params
 #' @param x An MCMC object.
 #' @return An mcmcr object.
+#' @family coerce
 #' @export
 #'
 #' @examples

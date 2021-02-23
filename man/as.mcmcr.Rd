@@ -9,7 +9,7 @@
 \alias{as.mcmcr.mcmc}
 \alias{as.mcmcr.mcmc.list}
 \alias{as.mcmcr.mcmcrs}
-\title{Convert to an mcmcr Object}
+\title{Convert to an mcmcr object}
 \usage{
 as.mcmcr(x, ...)
 
@@ -61,3 +61,10 @@ Converts an MCMC object to an \code{\link[=mcmcr-object]{mcmcr-object()}}.
 mcmc.list <- coda::as.mcmc.list(mcmcr::mcmcr_example)
 as.mcmcr(mcmc.list)
 }
+\seealso{
+Other coerce: 
+\code{\link{as.mcarray}()},
+\code{\link{as.mcmcarray}()},
+\code{\link{mcmcrs}()}
+}
+\concept{coerce}

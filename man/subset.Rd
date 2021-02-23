@@ -5,7 +5,7 @@
 \alias{subset.mcmcarray}
 \alias{subset.mcmcr}
 \alias{subset.mcmcrs}
-\title{Subset an MCMC Object}
+\title{Subset an MCMC object}
 \usage{
 \method{subset}{mcmcarray}(x, chains = NULL, iters = NULL, iterations = NULL, ...)
 
@@ -61,4 +61,7 @@ subset(mcmcr_example,
   chains = 2L, iters = 1:100,
   pars = c("beta", "alpha")
 )
+}
+\seealso{
+\code{\link[universals:split_chains]{universals::split_chains()}}
 }

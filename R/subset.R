@@ -1,4 +1,4 @@
-#' Subset an MCMC Object
+#' Subset an MCMC object
 #'
 #' Subsets an MCMC object by its chains, iterations and/or parameters.
 #'
@@ -6,6 +6,7 @@
 #' @inheritParams nlist::subset.nlists
 #' @inheritParams params
 #' @name subset
+#' @seealso [universals::split_chains()]
 #' @examples
 #' subset(mcmcr_example,
 #'   chains = 2L, iters = 1:100,

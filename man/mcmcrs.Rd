@@ -18,3 +18,10 @@ Creates an \code{\link[=mcmcrs-object]{mcmcrs-object()}} from multiple \code{lin
 \examples{
 mcmcrs(mcmcr_example, mcmcr_example)
 }
+\seealso{
+Other coerce: 
+\code{\link{as.mcarray}()},
+\code{\link{as.mcmcarray}()},
+\code{\link{as.mcmcr}()}
+}
+\concept{coerce}

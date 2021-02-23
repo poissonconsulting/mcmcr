@@ -8,7 +8,7 @@
 #'
 #' @name mcmcr-object
 #' @aliases mcmcr_object
-#'
+#' @family objects
 #' @examples
 #' mcmcr_example
 NULL

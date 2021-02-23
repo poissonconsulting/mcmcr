@@ -1,4 +1,4 @@
-#' MCMC Map
+#' MCMC map
 #'
 #' Adjust the sample values of an MCMC object using a function.
 #'
@@ -7,6 +7,7 @@
 #' @param .by A positive integer vector of the dimensions to apply the function over.
 #' @param ... Additional arguments passed to .f.
 #' @return The updated MCMC object.
+#' @family manipulate
 #' @export
 #' @examples
 #' mcmc_map(mcmcr_example$beta, exp)

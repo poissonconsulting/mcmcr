@@ -1,4 +1,4 @@
-#' Combine MCMC Samples of Two Objects
+#' Combine MCMC samples of two objects
 #'
 #' Combines samples of two MCMC objects
 #' (with the same parameters, chains and iterations) using a function.
@@ -9,6 +9,7 @@
 #' The function must return a scalar.
 #' @return The combined samples as an MCMC object
 #' with the same parameters, chains and iterations as the original objects.
+#' @family combine
 #' @export
 #' @examples
 #' combine_samples(mcmcr_example, mcmcr_example, fun = sum)

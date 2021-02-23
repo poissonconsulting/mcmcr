@@ -24,3 +24,6 @@ An invisible copy of x (it if doesn't throw an error).
 \examples{
 check_mcmcr(mcmcr::mcmcr_example)
 }
+\seealso{
+\code{\link[=check_mcmcr]{check_mcmcr()}}
+}

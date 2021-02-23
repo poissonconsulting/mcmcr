@@ -22,3 +22,11 @@ bind_parameters(
   subset(mcmcr_example, pars = "beta")
 )
 }
+\seealso{
+\code{\link[universals:bind_chains]{universals::bind_chains()}}
+
+Other bind: 
+\code{\link{bind_dimensions_n}()},
+\code{\link{bind_dimensions}()}
+}
+\concept{bind}
