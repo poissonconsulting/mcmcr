@@ -2,7 +2,7 @@
 % Please edit documentation in R/mcmc-aperm.R
 \name{mcmc_aperm}
 \alias{mcmc_aperm}
-\title{MCMC Object Transposition}
+\title{MCMC object transposition}
 \usage{
 mcmc_aperm(x, perm, ...)
 }
@@ -21,3 +21,8 @@ The modified MCMC object
 \description{
 Transpose an MCMC object by permuting its parameter dimensions.
 }
+\seealso{
+Other manipulate: 
+\code{\link{mcmc_map}()}
+}
+\concept{manipulate}

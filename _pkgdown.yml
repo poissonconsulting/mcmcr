@@ -1,0 +1,83 @@
+destination: docs
+
+reference:
+- title: Bind/Combine
+  desc: Bind or combine chains or objects
+  contents:
+  - '`bind_chains`'
+  - '`bind_dimensions`'
+  - '`bind_dimensions_n`'
+  - '`bind_parameters`'
+  - '`combine_dimensions`'
+  - '`combine_samples`'
+  - '`combine_samples_n`'
+- title: Calculate
+  desc: Calculate
+  contents:
+  - '`coef`'
+  - '`esr`'
+  - '`ess`'
+  - '`estimates`'
+  - '`rhat`'
+- title: Check
+  desc: Check objects
+  contents:
+  - '`check_mcmcarray`'
+  - '`check_mcmcr`'
+  - '`chk_mcmcarray`'
+  - '`chk_mcmcr`'
+  - '`chk_mcmcrs`'
+- title: Coerce or Create
+  desc: Coerce, convert or create  object
+  contents:
+  - '`as.mcmc`'
+  - '`as.mcmcr`'
+  - '`as.mcmcrs'
+  - '`as.mcarray`'
+  - '`as.mcmcarray`'
+  - '`as_nlist`'
+  - '`as_nlists`'
+  - '`mcmcrs`'
+- title: Identify
+  desc: Identify objects
+  contents:
+  - '`is.mcarray`'
+  - '`is.mcmcarray`'
+  - '`is.mcmcr`'
+  - '`is.mcmcrs`'
+- title: Manipulate
+  desc: Manipulate Objects
+  contents:
+  - '`collapse_chains`'
+  - '`fill_all`'
+  - '`fill_na`'
+  - '`mcmc_aperm`'
+  - '`mcmc_map`'
+  - '`set_pars`'
+  - '`split_chains`'
+  - '`subset`'
+  - '`zero`'
+- title: Objects
+  desc: Objects
+  contents:
+  - '`mcmcarray-object`'
+  - '`mcmcr-object`'
+  - '`mcmcr_example`'
+  - '`mcmcrs-object`'
+- title: Query
+  desc: Query object's dimensions/parameters
+  contents:
+  - '`nchains`'
+  - '`niters`'
+  - '`npars`'
+  - '`npdims`'
+  - '`nterms`'
+  - '`params`'
+  - '`pars`'
+  - '`pdims`'
+- title: Validate
+  desc: Validate MCMC objects
+  contents:
+  - '`vld_mcmcarray`'
+  - '`vld_mcmcr`'
+  - '`vld_mcmcrs`'

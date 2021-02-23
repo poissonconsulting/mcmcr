@@ -3,6 +3,7 @@
 #' @inheritParams params
 #' @param x The object to check.
 #' @return An invisible copy of x (it if doesn't throw an error).
+#' @seealso [check_mcmcr()]
 #' @export
 #'
 #' @examples
@@ -24,6 +25,7 @@ check_mcmcarray <- function(x, x_name = substitute(x), error = TRUE) {
 #' @inheritParams params
 #' @param x The object to check.
 #' @return An invisible copy of x (it if doesn't throw an error).
+#' @seealso [check_mcmcr()]
 #' @export
 #'
 #' @examples

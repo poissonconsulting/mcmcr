@@ -1,4 +1,4 @@
-#' Check MCMC Objects
+#' Check MCMC objects
 #'
 #' Checks class and structure of MCMC objects.
 #'
@@ -7,7 +7,9 @@
 #' @inheritParams chk::chk_true
 #' @return `NULL`, invisibly. Called for the side effect of throwing an error
 #'   if the condition is not met.
+#'
 #' @seealso [vld_mcmcr()]
+#'
 #' @name chk_mcmcr
 NULL
 
@@ -19,7 +21,6 @@ NULL
 #' checks if [mcmcarray-object()] object using
 #'
 #' `is.array(x) && is.numeric(x)`
-#'
 #' @export
 #'
 #' @examples

@@ -17,3 +17,10 @@ Coerces MCMC objects to an \code{\link[=mcmcarray-object]{mcmcarray-object()}}.
 \examples{
 as.mcmcarray(as.mcarray(mcmcr_example$beta))
 }
+\seealso{
+Other coerce: 
+\code{\link{as.mcarray}()},
+\code{\link{as.mcmcr}()},
+\code{\link{mcmcrs}()}
+}
+\concept{coerce}

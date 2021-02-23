@@ -1,10 +1,11 @@
 #' P-Value
-#' Effective Sample Size
+#' effective sample size
 #'
 #' Calculates the effective sample size based on [esr()].
 #'
 #' @inheritParams params
 #' @param x An MCMC object.
+#' @seealso [universals::esr]
 #' @export
 #' @examples
 #' ess(mcmcr_example)

@@ -23,5 +23,10 @@ by parameter dimensions.
 bind_dimensions(mcmcr_example, mcmcr_example)
 }
 \seealso{
-\code{\link[=bind_dimensions_n]{bind_dimensions_n()}}
+\code{\link[universals:bind_chains]{universals::bind_chains()}}
+
+Other bind: 
+\code{\link{bind_dimensions_n}()},
+\code{\link{bind_parameters}()}
 }
+\concept{bind}

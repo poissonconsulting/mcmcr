@@ -4,7 +4,7 @@
 \alias{vld_mcmcr}
 \alias{vld_mcmcarray}
 \alias{vld_mcmcrs}
-\title{Validate MCMC Objects}
+\title{Validate MCMC objects}
 \usage{
 vld_mcmcarray(x)
 

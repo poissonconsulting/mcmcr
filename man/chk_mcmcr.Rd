@@ -4,7 +4,7 @@
 \alias{chk_mcmcr}
 \alias{chk_mcmcarray}
 \alias{chk_mcmcrs}
-\title{Check MCMC Objects}
+\title{Check MCMC objects}
 \usage{
 chk_mcmcarray(x, x_name = NULL)
 
