@@ -2,7 +2,7 @@
 % Please edit documentation in R/combine-samples-n.R
 \name{combine_samples_n}
 \alias{combine_samples_n}
-\title{Combine MCMC Samples of multiple objects}
+\title{Combine MCMC samples of multiple objects}
 \usage{
 combine_samples_n(x, ..., fun = mean)
 }
@@ -20,3 +20,9 @@ Combines samples of multiple MCMC objects
 \examples{
 combine_samples_n(mcmcr_example, mcmcr_example, mcmcr_example, fun = sum)
 }
+\seealso{
+Other combine: 
+\code{\link{combine_dimensions}()},
+\code{\link{combine_samples}()}
+}
+\concept{combine}

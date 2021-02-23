@@ -5,7 +5,7 @@
 \alias{zero.mcarray}
 \alias{zero.mcmcarray}
 \alias{zero.mcmcr}
-\title{Zero MCMC Sample Values}
+\title{Zero MCMC sample values}
 \usage{
 zero(x, ...)
 

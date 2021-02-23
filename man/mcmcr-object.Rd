@@ -15,3 +15,9 @@ to be manipulated and queried as a whole.
 \examples{
 mcmcr_example
 }
+\seealso{
+Other objects: 
+\code{\link{mcmcarray-object}},
+\code{\link{mcmcrs-object}}
+}
+\concept{objects}

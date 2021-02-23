@@ -1,4 +1,4 @@
-#' Term Coefficients
+#' Term coefficients
 #'
 #' Gets coefficients for all the terms in an MCMC object.
 #'
@@ -7,7 +7,7 @@
 #' `term`, `estimate`, the standard deviation (`sd`) and `zscore` (if `simplify = FALSE`),
 #' `lower` and `upper` credible intervals and `pvalue` or `svalue` (if `simplify = TRUE`).
 #' @export
-#' @seealso `stats::[coef][stats::coef]`
+#' @seealso [stats::coef]
 #' @examples
 #' coef(mcmcr_example)
 #' @name coef

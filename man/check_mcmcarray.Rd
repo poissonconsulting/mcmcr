@@ -22,3 +22,6 @@ An invisible copy of x (it if doesn't throw an error).
 \examples{
 check_mcmcarray(mcmcr::mcmcr_example$beta)
 }
+\seealso{
+\code{\link[=check_mcmcr]{check_mcmcr()}}
+}

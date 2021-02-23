@@ -3,8 +3,10 @@
 #' Combines multiple MCMC objects (with the same parameters, chains and iterations) by parameter dimensions.
 #'
 #' @param ... one or more MCMC objects
+#' @family bind
+#' @seealso [universals::bind_chains()]
 #' @export
-#' @seealso [bind_dimensions()]
+#'
 #' @examples
 #' bind_dimensions_n(mcmcr_example, mcmcr_example, mcmcr_example)
 bind_dimensions_n <- function(...) {

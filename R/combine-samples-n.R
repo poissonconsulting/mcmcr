@@ -1,4 +1,4 @@
-#' Combine MCMC Samples of multiple objects
+#' Combine MCMC samples of multiple objects
 #'
 #' Combines samples of multiple MCMC objects
 #' (with the same parameters, chains and iterations) using a function.
@@ -6,6 +6,7 @@
 #' @param x An MCMC object (or a list of mcmc objects).
 #' @param fun A function.
 #' @param ... Additional MCMC objects.
+#' @family combine
 #' @export
 #' @examples
 #' combine_samples_n(mcmcr_example, mcmcr_example, mcmcr_example, fun = sum)

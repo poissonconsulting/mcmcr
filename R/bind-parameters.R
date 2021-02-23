@@ -4,6 +4,8 @@
 #'
 #' @inheritParams params
 #' @param x an MCMC object
+#' @seealso [universals::bind_chains()]
+#' @family bind
 #' @export
 #' @examples
 #' bind_parameters(

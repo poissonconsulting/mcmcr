@@ -2,7 +2,7 @@
 % Please edit documentation in R/mcmc-map.R
 \name{mcmc_map}
 \alias{mcmc_map}
-\title{MCMC Map}
+\title{MCMC map}
 \usage{
 mcmc_map(.x, .f, .by = 1:npdims(.x), ...)
 }
@@ -24,3 +24,8 @@ Adjust the sample values of an MCMC object using a function.
 \examples{
 mcmc_map(mcmcr_example$beta, exp)
 }
+\seealso{
+Other manipulate: 
+\code{\link{mcmc_aperm}()}
+}
+\concept{manipulate}

@@ -1,4 +1,4 @@
-#' Parameter Descriptions
+#' Parameter descriptions
 #'
 #' @param x An object.
 #' @param scalar A logical scalar specifying whether to include

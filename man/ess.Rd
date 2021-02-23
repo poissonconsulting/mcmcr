@@ -3,7 +3,7 @@
 \name{ess}
 \alias{ess}
 \title{P-Value
-Effective Sample Size}
+effective sample size}
 \usage{
 ess(x, by = "all", as_df = FALSE)
 }
@@ -21,4 +21,7 @@ Calculates the effective sample size based on \code{\link[=esr]{esr()}}.
 }
 \examples{
 ess(mcmcr_example)
+}
+\seealso{
+\link[universals:esr]{universals::esr}
 }

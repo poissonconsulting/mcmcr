@@ -2,7 +2,7 @@
 % Please edit documentation in R/is.R
 \name{is.mcmcr}
 \alias{is.mcmcr}
-\title{Is mcmcr Object}
+\title{Is mcmcr object}
 \usage{
 is.mcmcr(x)
 }
@@ -18,3 +18,10 @@ Tests whether an object is an \code{\link[=mcmcr-object]{mcmcr-object()}}.
 \examples{
 is.mcmcr(mcmcr_example)
 }
+\seealso{
+Other is: 
+\code{\link{is.mcarray}()},
+\code{\link{is.mcmcarray}()},
+\code{\link{is.mcmcrs}()}
+}
+\concept{is}
