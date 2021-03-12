@@ -22,6 +22,10 @@ The modified object.
 Fills all of an object's (missing and non-missing) values
 while preserving the object's dimensionality and class.
 }
+\details{
+It should only be defined for objects with values of consistent class ie
+not standard data.frames.
+}
 \section{Methods (by class)}{
 
 \itemize{

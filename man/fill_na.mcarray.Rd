@@ -17,7 +17,12 @@
 The modified object.
 }
 \description{
-Fills an object's missing values while preserving the object's class.
+Fills all of an object's missing values
+while preserving the object's dimensionality and class.
+}
+\details{
+It should only be defined for objects with values of consistent class ie
+not standard data.frames.
 }
 \section{Methods (by class)}{
 
