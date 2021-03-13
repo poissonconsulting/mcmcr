@@ -25,6 +25,10 @@ test_that("as.mcmcr.nlists", {
 test_that("as.mcmcr.mcmc", {
   mcmcr <- subset(mcmcr::mcmcr_example, chains = 1L)
   expect_identical(as.mcmcr(coda::as.mcmc(mcmcr)), mcmcr)
+
+  x <- coda::as.mcmc(mcmcr)
+  colnames(x) <- 1:ncol(x)
+  expect_identical(expect_warning(nterms(as.mcmcr(x))), 0L)
 })
 
 test_that("as.mcmcr.mcmc.list", {

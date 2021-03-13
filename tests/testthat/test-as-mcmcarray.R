@@ -8,6 +8,13 @@ test_that("as.mcmcarray.mcmc with multiple parameters", {
 test_that("as.mcmcarray.mcmc", {
   mcmcarray <- subset(mcmcr::mcmcr_example, chains = 1L)$beta
   expect_identical(as.mcmcarray(coda::as.mcmc(mcmcarray)), mcmcarray)
+
+  mcmcarray <- subset(mcmcr::mcmcr_example, chains = 1L)$sigma
+
+  x <- coda::as.mcmc(mcmcarray)
+  expect_identical(as.mcmcarray(x), mcmcarray)
+  colnames(x) <- "1"
+  expect_identical(expect_warning(as.mcmcarray(x)), structure(numeric(0), .Dim = c(1L, 400L, 0L), class = "mcmcarray"))
 })
 
 test_that("as.mcmcarray.mcmc with missing values", {
