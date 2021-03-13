@@ -24,7 +24,7 @@ Imports:
     extras,
     generics,
     lifecycle,
-    nlist (>= 0.3.1),
+    nlist (>= 0.3.1.9001),
     purrr,
     stats,
     term,
@@ -36,6 +36,8 @@ Suggests:
     rlang,
     testthat,
     tibble
+Remotes:
+    poissonconsulting/nlist
 RdMacros: 
     lifecycle
 Encoding: UTF-8
