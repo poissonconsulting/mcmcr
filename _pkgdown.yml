@@ -5,20 +5,44 @@ reference:
   desc: Bind or combine chains or objects
   contents:
   - '`bind_chains`'
+  - '`bind_chains.mcarray`'
+  - '`bind_chains.mcmc`'
+  - '`bind_chains.mcmc.list`'
+  - '`bind_chains.mcmcarray`'
+  - '`bind_chains.mcmcr`'
   - '`bind_dimensions`'
   - '`bind_dimensions_n`'
   - '`bind_parameters`'
   - '`combine_dimensions`'
   - '`combine_samples`'
   - '`combine_samples_n`'
+  - '`converged.default`'
+  - '`converged.mcmcrs`'
 - title: Calculate
   desc: Calculate
   contents:
   - '`coef`'
   - '`esr`'
+  - '`esr.mcarray`'
+  - '`esr.mcmc`'
+  - '`esr.mcmc.list`'
+  - '`esr.mcmcarray`'
+  - '`esr.mcmcr`'
+  - '`esr.mcmcrs`'
   - '`ess`'
   - '`estimates`'
+  - '`estimates.mcarray`'
+  - '`estimates.mcmc`'
+  - '`estimates.mcmc.list`'
+  - '`estimates.mcmcarray`'
+  - '`estimates.mcmcr`'
   - '`rhat`'
+  - '`rhat.mcarray`'
+  - '`rhat.mcmc`'
+  - '`rhat.mcmc.list`'
+  - '`rhat.mcmcarray`'
+  - '`rhat.mcmcr`'
+  - '`rhat.mcmcrs`'
 - title: Check
   desc: Check objects
   contents:
@@ -31,12 +55,18 @@ reference:
   desc: Coerce, convert or create  object
   contents:
   - '`as.mcmc`'
+  - '`as.mcmc.mcarray`'
+  - '`as.mcmc.mcmc`'
+  - '`as.mcmc.mcmcarray`'
+  - '`as.mcmc.mcmcr`'
   - '`as.mcmcr`'
-  - '`as.mcmcrs'
+  - '`as.mcmcrs`'
   - '`as.mcarray`'
   - '`as.mcmcarray`'
   - '`as_nlist`'
+  - '`as_nlist.mcmcr`'
   - '`as_nlists`'
+  - '`as_nlists.mcmcr`'
   - '`mcmcrs`'
 - title: Identify
   desc: Identify objects
@@ -49,12 +79,23 @@ reference:
   desc: Manipulate Objects
   contents:
   - '`collapse_chains`'
+  - '`collapse_chains.mcmcr`'
   - '`fill_all`'
+  - '`fill_all.mcarray`'
+  - '`fill_all.mcmcarray`'
+  - '`fill_all.mcmcr`'
   - '`fill_na`'
+  - '`fill_na.mcarray`'
+  - '`fill_na.mcmcarray`'
+  - '`fill_na.mcmcr`'
   - '`mcmc_aperm`'
   - '`mcmc_map`'
   - '`set_pars`'
+  - '`set_pars.mcmcr`'
+  - '`set_pars.mcmcrs`'
   - '`split_chains`'
+  - '`split_chains.mcmcarray`'
+  - '`split_chains.mcmcr`'
   - '`subset`'
   - '`zero`'
 - title: Objects
@@ -68,13 +109,34 @@ reference:
   desc: Query object's dimensions/parameters
   contents:
   - '`nchains`'
+  - '`nchains.mcarray`'
+  - '`nchains.mcmcarray`'
+  - '`nchains.mcmcr`'
+  - '`nchains.mcmcrs`'
   - '`niters`'
+  - '`niters.mcarray`'
+  - '`niters.mcmcarray`'
+  - '`niters.mcmcr`'
+  - '`niters.mcmcrs`'
   - '`npars`'
+  - '`npars.mcarray`'
+  - '`npars.mcmcarray`'
+  - '`npars.mcmcr`'
   - '`npdims`'
+  - '`npdims.mcmcarray`'
+  - '`npdims.mcmcr`'
   - '`nterms`'
+  - '`nterms.mcmcarray`'
+  - '`nterms.mcmcr`'
+  - '`nterms.mcmcrs`'
   - '`params`'
   - '`pars`'
+  - '`pars.mcmcr`'
+  - '`pars.mcmcrs`'
   - '`pdims`'
+  - '`pdims.mcarray`'
+  - '`pdims.mcmcarray`'
+  - '`pdims.mcmcr`'
 - title: Validate
   desc: Validate MCMC objects
   contents:
