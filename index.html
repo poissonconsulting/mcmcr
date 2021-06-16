@@ -35,7 +35,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9001</span>
       </span>
     </div>
 
@@ -69,13 +69,13 @@
   <div class="contents col-md-9">
 <div id="mcmcr" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#mcmcr" class="anchor"></a>mcmcr</h1></div>
+<a href="#mcmcr" class="anchor" aria-hidden="true"></a>mcmcr</h1></div>
 <!-- badges: start -->
 
 <p><code>mcmcr</code> is an R package to manipulate Monte Carlo Markov Chain (MCMC) samples (Brooks et al. 2011).</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<a href="#installation" class="anchor" aria-hidden="true"></a>Installation</h2>
 <p>To install the latest release from <a href="https://cran.r-project.org" class="external-link">CRAN</a></p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"mcmcr"</span><span class="op">)</span></code></pre></div>
@@ -86,11 +86,11 @@
 </div>
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>Introduction</h2>
+<a href="#introduction" class="anchor" aria-hidden="true"></a>Introduction</h2>
 <p>For the purposes of this discussion, an MCMC <em>sample</em> represents the value of a <em>term</em> from a single <em>iteration</em> of a single <em>chain</em>. While a simple <em>parameter</em> such as an intercept corresponds to a single term, more complex parameters such as an interaction between two factors consists of multiple terms with their own inherent dimensionality - in this case a matrix. A set of MCMC samples can be stored in different ways.</p>
 <div id="existing-classes" class="section level3">
 <h3 class="hasAnchor">
-<a href="#existing-classes" class="anchor"></a>Existing Classes</h3>
+<a href="#existing-classes" class="anchor" aria-hidden="true"></a>Existing Classes</h3>
 <p>The three most common S3 classes store MCMC samples as follows:</p>
 <ul>
 <li>
@@ -104,7 +104,7 @@
 </div>
 <div id="new-classes" class="section level3">
 <h3 class="hasAnchor">
-<a href="#new-classes" class="anchor"></a>New Classes</h3>
+<a href="#new-classes" class="anchor" aria-hidden="true"></a>New Classes</h3>
 <p>The <code>mcmcr</code> package defines three related S3 classes which also preserve the dimensionality of the parameters:</p>
 <ul>
 <li>
@@ -119,7 +119,7 @@
 </div>
 <div id="why-mcmcr" class="section level2">
 <h2 class="hasAnchor">
-<a href="#why-mcmcr" class="anchor"></a>Why mcmcr?</h2>
+<a href="#why-mcmcr" class="anchor" aria-hidden="true"></a>Why mcmcr?</h2>
 <p><code>mcmcarray</code> objects were developed to facilitate manipulation of the MCMC samples. <code>mcmcr</code> objects were developed to allow a set of dimensionality preserving parameters from a single analysis to be manipulated as a whole. <code>mcmcrs</code> objects were developed to allow the results of multiple analyses using the same model to be manipulated together.</p>
 <p>The <code>mcmcr</code> package (together with the <a href="https://github.com/poissonconsulting/term" class="external-link">term</a> and <a href="https://github.com/poissonconsulting/nlist" class="external-link">nlist</a> packages) introduces a variety of (often) generic functions to manipulate and query <code>mcmcarray</code>, <code>mcmcr</code> and <code>mcmcrs</code> objects (and <code>term</code> and <code>nlist</code> and <code>nlists</code> objects).</p>
 <p>In particular it provides functions to</p>
@@ -144,7 +144,7 @@
 </div>
 <div id="demonstration" class="section level2">
 <h2 class="hasAnchor">
-<a href="#demonstration" class="anchor"></a>Demonstration</h2>
+<a href="#demonstration" class="anchor" aria-hidden="true"></a>Demonstration</h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/poissonconsulting/mcmcr" class="external-link">mcmcr</a></span><span class="op">)</span>
 
@@ -194,23 +194,23 @@
 </div>
 <div id="inspiration" class="section level2">
 <h2 class="hasAnchor">
-<a href="#inspiration" class="anchor"></a>Inspiration</h2>
+<a href="#inspiration" class="anchor" aria-hidden="true"></a>Inspiration</h2>
 <p><a href="https://github.com/cran/coda" class="external-link">coda</a> and <a href="https://github.com/cran/rjags" class="external-link">rjags</a></p>
 </div>
 <div id="contribution" class="section level2">
 <h2 class="hasAnchor">
-<a href="#contribution" class="anchor"></a>Contribution</h2>
+<a href="#contribution" class="anchor" aria-hidden="true"></a>Contribution</h2>
 <p>Please report any <a href="https://github.com/poissonconsulting/mcmcr/issues" class="external-link">issues</a>.</p>
 <p><a href="https://github.com/poissonconsulting/mcmcr/pulls" class="external-link">Pull requests</a> are always welcome.</p>
 </div>
 <div id="code-of-conduct" class="section level2">
 <h2 class="hasAnchor">
-<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
+<a href="#code-of-conduct" class="anchor" aria-hidden="true"></a>Code of Conduct</h2>
 <p>Please note that the mcmcr project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 <div id="references" class="section level2">
 <h2 class="hasAnchor">
-<a href="#references" class="anchor"></a>References</h2>
+<a href="#references" class="anchor" aria-hidden="true"></a>References</h2>
 <p>Brooks, S., Gelman, A., Jones, G.L., and Meng, X.-L. (Editors). 2011. Handbook for Markov Chain Monte Carlo. Taylor &amp; Francis, Boca Raton. ISBN: 978-1-4200-7941-8.</p>
 </div>
 </div>
@@ -275,7 +275,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p>
 </div>
 
       </footer>

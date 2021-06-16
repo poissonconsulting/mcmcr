@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Combine MCMC Samples of Two Objects — combine_samples • mcmcr</title>
+<title>Combine MCMC samples of two objects — combine_samples • mcmcr</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Combine MCMC Samples of Two Objects — combine_samples" />
+<meta property="og:title" content="Combine MCMC samples of two objects — combine_samples" />
 <meta property="og:description" content="Combines samples of two MCMC objects
 (with the same parameters, chains and iterations) using a function." />
 
@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9001</span>
       </span>
     </div>
 
@@ -114,7 +114,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Combine MCMC Samples of Two Objects</h1>
+    <h1>Combine MCMC samples of two objects</h1>
     <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/mcmcr/blob/master/R/combine-samples.R'><code>R/combine-samples.R</code></a></small>
     <div class="hidden name"><code>combine_samples.Rd</code></div>
     </div>
@@ -124,7 +124,7 @@
 (with the same parameters, chains and iterations) using a function.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>combine_samples</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>x2</span>, fun <span class='op'>=</span> <span class='va'>mean</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>combine_samples</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>x2</span>, fun <span class='op'>=</span> <span class='va'>mean</span>, <span class='va'>...</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -152,29 +152,35 @@ The function must return a scalar.</p></td>
 
     <p>The combined samples as an MCMC object
 with the same parameters, chains and iterations as the original objects.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other combine: 
+<code><a href='combine_dimensions.html'>combine_dimensions</a>()</code>,
+<code><a href='combine_samples_n.html'>combine_samples_n</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>combine_samples</span><span class='op'>(</span><span class='va'>mcmcr_example</span>, <span class='va'>mcmcr_example</span>, fun <span class='op'>=</span> <span class='va'>sum</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $alpha
-#&gt; [1] 7.43605 9.43605
-#&gt; 
-#&gt; nchains:  2 
-#&gt; niters:  400 
-#&gt; 
-#&gt; $beta
-#&gt;          [,1]     [,2]
-#&gt; [1,] 1.943307 3.943307
-#&gt; [2,] 3.943307 5.943307
-#&gt; 
-#&gt; nchains:  2 
-#&gt; niters:  400 
-#&gt; 
-#&gt; $sigma
-#&gt; [1] 1.582395
-#&gt; 
-#&gt; nchains:  2 
-#&gt; niters:  400 
-#&gt; </div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>combine_samples</span><span class='op'>(</span><span class='va'>mcmcr_example</span>, <span class='va'>mcmcr_example</span>, fun <span class='op'>=</span> <span class='va'>sum</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $alpha</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 7.43605 9.43605</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> nchains:  2 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> niters:  400 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $beta</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>          [,1]     [,2]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] 1.943307 3.943307</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2,] 3.943307 5.943307</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> nchains:  2 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> niters:  400 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $sigma</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 1.582395</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> nchains:  2 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> niters:  400 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -190,7 +196,7 @@ with the same parameters, chains and iterations as the original objects.</p>
 </div>
 
 <div class="pkgdown">
-  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p></p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>

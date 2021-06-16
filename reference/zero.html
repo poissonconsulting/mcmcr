@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Zero MCMC Sample Values — zero • mcmcr</title>
+<title>Zero MCMC sample values — zero • mcmcr</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Zero MCMC Sample Values — zero" />
+<meta property="og:title" content="Zero MCMC sample values — zero" />
 <meta property="og:description" content="Zeros an MCMC object's sample values." />
 
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9001</span>
       </span>
     </div>
 
@@ -113,7 +113,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Zero MCMC Sample Values</h1>
+    <h1>Zero MCMC sample values</h1>
     <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/mcmcr/blob/master/R/zero.R'><code>R/zero.R</code></a></small>
     <div class="hidden name"><code>zero.Rd</code></div>
     </div>
@@ -122,7 +122,7 @@
     <p>Zeros an MCMC object's sample values.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>zero</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>zero</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for mcarray</span>
 <span class='fu'>zero</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
@@ -131,7 +131,7 @@
 <span class='fu'>zero</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for mcmcr</span>
-<span class='fu'>zero</span><span class='op'>(</span><span class='va'>x</span>, pars <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+<span class='fu'>zero</span><span class='op'>(</span><span class='va'>x</span>, pars <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -167,28 +167,30 @@ where the expected value is 0.</p>
 </ul>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>zero</span><span class='op'>(</span><span class='va'>mcmcr_example</span>, pars <span class='op'>=</span> <span class='st'>"beta"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: `zero()` was deprecated in mcmcr v0.2.1.</span>
-#&gt; <span class='warning'>Please use `fill_all()` instead.</span></div><div class='output co'>#&gt; $alpha
-#&gt; [1] 3.718025 4.718025
-#&gt; 
-#&gt; nchains:  2 
-#&gt; niters:  400 
-#&gt; 
-#&gt; $beta
-#&gt;      [,1] [,2]
-#&gt; [1,]    0    0
-#&gt; [2,]    0    0
-#&gt; 
-#&gt; nchains:  2 
-#&gt; niters:  400 
-#&gt; 
-#&gt; $sigma
-#&gt; [1] 0.7911975
-#&gt; 
-#&gt; nchains:  2 
-#&gt; niters:  400 
-#&gt; </div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>zero</span><span class='op'>(</span><span class='va'>mcmcr_example</span>, pars <span class='op'>=</span> <span class='st'>"beta"</span><span class='op'>)</span></span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>`zero()` was deprecated in mcmcr v0.2.1.</span>
+<span class='r-wrn co'><span class='r-pr'>#&gt;</span> Please use `fill_all()` instead.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $alpha</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 3.718025 4.718025</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> nchains:  2 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> niters:  400 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $beta</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1] [,2]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,]    0    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2,]    0    0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> nchains:  2 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> niters:  400 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $sigma</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 0.7911975</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> nchains:  2 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> niters:  400 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -204,7 +206,7 @@ where the expected value is 0.</p>
 </div>
 
 <div class="pkgdown">
-  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p></p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>

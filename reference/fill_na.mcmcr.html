@@ -40,7 +40,8 @@
 
 
 <meta property="og:title" content="Fill Missing Values — fill_na.mcmcr" />
-<meta property="og:description" content="Fills an object's missing values while preserving the object's class." />
+<meta property="og:description" content="Fills all of an object's missing values
+while preserving the object's dimensionality and class." />
 
 
 
@@ -80,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9001</span>
       </span>
     </div>
 
@@ -119,11 +120,12 @@
     </div>
 
     <div class="ref-description">
-    <p>Fills an object's missing values while preserving the object's class.</p>
+    <p>Fills all of an object's missing values
+while preserving the object's dimensionality and class.</p>
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for mcmcr</span>
-<span class='fu'><a href='https://poissonconsulting.github.io/extras/reference/fill_na.html'>fill_na</a></span><span class='op'>(</span><span class='va'>x</span>, value <span class='op'>=</span> <span class='fl'>0</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='co'># S3 method for mcmcr</span>
+<span class='fu'><a href='https://poissonconsulting.github.io/extras/reference/fill_na.html'>fill_na</a></span><span class='op'>(</span><span class='va'>x</span>, value <span class='op'>=</span> <span class='fl'>0</span>, <span class='va'>...</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -145,6 +147,10 @@
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>The modified object.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>It should only be defined for objects with values of consistent class ie
+not standard data.frames.</p>
     <h2 class="hasAnchor" id="methods-by-class-"><a class="anchor" href="#methods-by-class-"></a>Methods (by class)</h2>
 
     
@@ -162,21 +168,26 @@
 <code><a href='https://poissonconsulting.github.io/extras/reference/fill_all.html'>fill_all</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># logical</span>
-<span class='fu'><a href='https://poissonconsulting.github.io/extras/reference/fill_na.html'>fill_na</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='cn'>NA</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1]  TRUE FALSE</div><div class='input'>
-<span class='co'># integer</span>
-<span class='fu'><a href='https://poissonconsulting.github.io/extras/reference/fill_na.html'>fill_na</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1L</span>, <span class='cn'>NA</span><span class='op'>)</span>, <span class='fl'>0</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 1 0</div><div class='input'>
-<span class='co'># numeric</span>
-<span class='fu'><a href='https://poissonconsulting.github.io/extras/reference/fill_na.html'>fill_na</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='cn'>NA</span><span class='op'>)</span>, <span class='cn'>Inf</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1]   1 Inf</div><div class='input'>
-<span class='co'># character</span>
-<span class='fu'><a href='https://poissonconsulting.github.io/extras/reference/fill_na.html'>fill_na</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"text"</span>, <span class='cn'>NA</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "text" "0"   </div><div class='input'><span class='fu'><a href='https://poissonconsulting.github.io/extras/reference/fill_na.html'>fill_na</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"text"</span>, <span class='cn'>NA</span><span class='op'>)</span><span class='op'>)</span>, value <span class='op'>=</span> <span class='cn'>Inf</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;      [,1]  
-#&gt; [1,] "text"
-#&gt; [2,] "Inf" </div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'># logical</span></span>
+<span class='r-in'><span class='fu'><a href='https://poissonconsulting.github.io/extras/reference/fill_na.html'>fill_na</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='cn'>NA</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1]  TRUE FALSE</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># integer</span></span>
+<span class='r-in'><span class='fu'><a href='https://poissonconsulting.github.io/extras/reference/fill_na.html'>fill_na</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1L</span>, <span class='cn'>NA</span><span class='op'>)</span>, <span class='fl'>0</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 1 0</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># numeric</span></span>
+<span class='r-in'><span class='fu'><a href='https://poissonconsulting.github.io/extras/reference/fill_na.html'>fill_na</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='cn'>NA</span><span class='op'>)</span>, <span class='cn'>Inf</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1]   1 Inf</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># character</span></span>
+<span class='r-in'><span class='fu'><a href='https://poissonconsulting.github.io/extras/reference/fill_na.html'>fill_na</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"text"</span>, <span class='cn'>NA</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "text" "0"   </span>
+<span class='r-in'><span class='fu'><a href='https://poissonconsulting.github.io/extras/reference/fill_na.html'>fill_na</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"text"</span>, <span class='cn'>NA</span><span class='op'>)</span><span class='op'>)</span>, value <span class='op'>=</span> <span class='cn'>Inf</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      [,1]  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] "text"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2,] "Inf" </span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -192,7 +203,7 @@
 </div>
 
 <div class="pkgdown">
-  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p></p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>

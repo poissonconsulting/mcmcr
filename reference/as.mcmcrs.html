@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0.9001</span>
       </span>
     </div>
 
@@ -122,13 +122,13 @@
     <p>Converts an MCMC object to an <code><a href='mcmcrs-object.html'>mcmcrs-object()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>as.mcmcrs</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>as.mcmcrs</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for list</span>
 <span class='fu'>as.mcmcrs</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for mcmcr</span>
-<span class='fu'>as.mcmcrs</span><span class='op'>(</span><span class='va'>x</span>, name <span class='op'>=</span> <span class='st'>"mcmcr1"</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+<span class='fu'>as.mcmcrs</span><span class='op'>(</span><span class='va'>x</span>, name <span class='op'>=</span> <span class='st'>"mcmcr1"</span>, <span class='va'>...</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -159,31 +159,32 @@
 </ul>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>as.mcmcrs</span><span class='op'>(</span><span class='fu'>mcmcr</span><span class='fu'>::</span><span class='va'><a href='mcmcr_example.html'>mcmcr_example</a></span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $mcmcr1
-#&gt; $alpha
-#&gt; [1] 3.718025 4.718025
-#&gt; 
-#&gt; nchains:  2 
-#&gt; niters:  400 
-#&gt; 
-#&gt; $beta
-#&gt;           [,1]     [,2]
-#&gt; [1,] 0.9716535 1.971654
-#&gt; [2,] 1.9716535 2.971654
-#&gt; 
-#&gt; nchains:  2 
-#&gt; niters:  400 
-#&gt; 
-#&gt; $sigma
-#&gt; [1] 0.7911975
-#&gt; 
-#&gt; nchains:  2 
-#&gt; niters:  400 
-#&gt; 
-#&gt; 
-#&gt; attr(,"class")
-#&gt; [1] "mcmcrs"</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>as.mcmcrs</span><span class='op'>(</span><span class='fu'>mcmcr</span><span class='fu'>::</span><span class='va'><a href='mcmcr_example.html'>mcmcr_example</a></span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $mcmcr1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $alpha</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 3.718025 4.718025</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> nchains:  2 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> niters:  400 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $beta</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>           [,1]     [,2]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1,] 0.9716535 1.971654</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2,] 1.9716535 2.971654</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> nchains:  2 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> niters:  400 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $sigma</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 0.7911975</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> nchains:  2 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> niters:  400 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> attr(,"class")</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "mcmcrs"</span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -199,7 +200,7 @@
 </div>
 
 <div class="pkgdown">
-  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p></p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
