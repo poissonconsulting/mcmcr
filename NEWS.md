@@ -1,3 +1,10 @@
+<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+
+# mcmcr 0.5.0.9002
+
+- Same as previous version.
+
+
 # mcmcr 0.5.0.9001
 
 - Fixed `as.mcmcarray.mcmc()` (and `as.mcmcr.mcmc()`) so can now return an `mcmcarray` (and `mcmcr`) object with no terms
