@@ -9,9 +9,9 @@ Authors@R:
              comment = c(ORCID = "0000-0002-7683-4592")),
       person(given = "Poisson Consulting",
              role = c("cph", "fnd")))
-Description: Functions and classes to store, manipulate and
-    summarise Monte Carlo Markov Chain (MCMC) samples. For more
-    information see Brooks et al. (2011) <isbn:978-1-4200-7941-8>.
+Description: Functions and classes to store, manipulate and summarise
+    Monte Carlo Markov Chain (MCMC) samples. For more information see
+    Brooks et al. (2011) <isbn:978-1-4200-7941-8>.
 License: MIT + file LICENSE
 URL: https://github.com/poissonconsulting/mcmcr
 BugReports: https://github.com/poissonconsulting/mcmcr/issues
@@ -24,7 +24,7 @@ Imports:
     extras,
     generics,
     lifecycle,
-    nlist (>= 0.3.1.9001),
+    nlist,
     purrr,
     stats,
     term,
@@ -36,8 +36,6 @@ Suggests:
     rlang,
     testthat,
     tibble
-Remotes:
-    poissonconsulting/nlist
 RdMacros: 
     lifecycle
 Encoding: UTF-8
