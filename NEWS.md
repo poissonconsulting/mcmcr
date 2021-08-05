@@ -2,29 +2,8 @@
 
 # mcmcr 0.6.0
 
-- Same as previous version.
-
-
-# mcmcr 0.5.0.9003
-
-- Same as previous version.
-
-
-# mcmcr 0.5.0.9002
-
-- Same as previous version.
-
-
-# mcmcr 0.5.0.9001
-
-- Fixed `as.mcmcarray.mcmc()` (and `as.mcmcr.mcmc()`) so can now return an `mcmcarray` (and `mcmcr`) object with no terms
 - Added `fill_na()` for `mcarray`, `mcmcarray` and `mcmcr`.
-
-
-# mcmcr 0.5.0.9000
-
-- Internal changes only.
-
+- Fixed `as.mcmcarray.mcmc()` (and `as.mcmcr.mcmc()`) so now returns an `mcmcarray` (and `mcmcr`) object with no terms.
 
 # mcmcr 0.5.0
 
