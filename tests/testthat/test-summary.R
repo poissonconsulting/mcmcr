@@ -9,5 +9,5 @@ test_that("summary.mcmcarray", {
 })
 
 test_that("summary.mcmcr", {
-  expect_is(summary(mcmcr_example), "summary.mcmcr")
+  expect_s3_class(summary(mcmcr_example), "summary.mcmcr")
 })

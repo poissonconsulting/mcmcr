@@ -1,0 +1,4 @@
+parameter,converged
+alpha,FALSE
+beta,FALSE
+sigma,TRUE

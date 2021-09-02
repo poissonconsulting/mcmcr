@@ -1,13 +1,13 @@
 test_that("fill_na.mcarray", {
   mcarray <- as.mcarray(mcmcr_example[[2]])
   mcarray <- fill_all(mcarray, NA_real_)
-  expect_equal(estimates(fill_na(mcarray, 1)), matrix(1, nrow = 2, ncol = 2), check.attributes = FALSE)
+  expect_equal(estimates(fill_na(mcarray, 1)), matrix(1, nrow = 2, ncol = 2), ignore_attr = FALSE)
 })
 
 test_that("fill_na.mcmcarray", {
   mcmcarray <- mcmcr_example[[2]]
   mcmcarray <- fill_all(mcmcarray, NA_real_)
-  expect_equal(estimates(fill_na(mcmcarray, 2)), matrix(2, nrow = 2, ncol = 2), check.attributes = FALSE)
+  expect_equal(estimates(fill_na(mcmcarray, 2)), matrix(2, nrow = 2, ncol = 2), ignore_attr = FALSE)
 })
 #
 # test_that("fill_na.mcmcr", {

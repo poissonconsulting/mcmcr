@@ -40,7 +40,7 @@ test_that("rhat.mcmcmarray", {
     )
   )
 
-  expect_equivalent(rhat(mcmcr_example[[2]], by = "term"), matrix(c(1.147, 1.147, 1.147, 1.147), nrow = 2, ncol = 2))
+  expect_equal(rhat(mcmcr_example[[2]], by = "term"), matrix(c(1.147, 1.147, 1.147, 1.147), nrow = 2, ncol = 2))
 
   expect_identical(rhat(mcmcr_example[[2]]), 1.147)
   expect_equal(rhat(mcmcr_example[[2]], by = "term", as_df = TRUE)$term, as_term(c("parameter[1,1]", "parameter[2,1]", "parameter[1,2]", "parameter[2,2]")))
@@ -62,9 +62,9 @@ test_that("rhat.mcmcr", {
 
   expect_identical(rhat(mcmcr_example), 2.002)
   expect_identical(rhat(mcmcr_example, by = "parameter"), list(alpha = 2.002, beta = 1.147, sigma = 1))
-  expect_equal(rhat(mcmcr_example, by = "parameter", as_df = TRUE), tibble(parameter = c("alpha", "beta", "sigma"), rhat = c(2.002, 1.147, 1)), check.attributes = FALSE)
-  expect_equivalent(rhat(mcmcr_example, by = "term"), list(alpha = c(2.002, 2.002), beta = matrix(c(1.147, 1.147, 1.147, 1.147), nrow = 2.002, ncol = 2), sigma = 1))
-  expect_equivalent(rhat(mcmcr_example, by = "term", as_df = TRUE), tibble(term = as_term(c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma")), rhat = c(2.002, 2.002, 1.147, 1.147, 1.147, 1.147, 1)))
+  expect_equal(rhat(mcmcr_example, by = "parameter", as_df = TRUE), tibble(parameter = c("alpha", "beta", "sigma"), rhat = c(2.002, 1.147, 1)), ignore_attr = FALSE)
+  expect_equal(rhat(mcmcr_example, by = "term"), list(alpha = c(2.002, 2.002), beta = matrix(c(1.147, 1.147, 1.147, 1.147), nrow = 2.002, ncol = 2), sigma = 1))
+  expect_equal(rhat(mcmcr_example, by = "term", as_df = TRUE), tibble(term = as_term(c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma")), rhat = c(2.002, 2.002, 1.147, 1.147, 1.147, 1.147, 1)))
 })
 
 test_that("rhat.mcmcr NA", {

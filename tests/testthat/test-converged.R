@@ -28,14 +28,8 @@ test_that("converged.mcmcr", {
     )
   )
 
-  skip_if(packageVersion("testthat") < '2.99.0.9000')
-  expect_identical(
-    converged(mcmcr_example, by = "parameter", as_df = TRUE),
-    tibble::tibble(parameter = c("alpha", "beta", "sigma"),
-                   converged = c(FALSE, FALSE, TRUE)
-    )
-  )
-
+  expect_snapshot_data(converged(mcmcr_example, by = "parameter", as_df = TRUE),
+                       "converged")
 })
 
 test_that("converged.mcmcarray", {
