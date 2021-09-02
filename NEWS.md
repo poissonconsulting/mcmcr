@@ -2,18 +2,7 @@
 
 # mcmcr 0.6.1
 
-- Same as previous version.
-
-
-# mcmcr 0.6.0.9001
-
-- Same as previous version.
-
-
-# mcmcr 0.6.0.9000
-
-- Same as previous version.
-
+- Update testing to testthat 3.
 
 # mcmcr 0.6.0
 
