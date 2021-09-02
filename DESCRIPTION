@@ -19,7 +19,7 @@ Depends:
     R (>= 3.5)
 Imports:
     abind,
-    chk,
+    chk (>= 0.7.0),
     coda,
     extras,
     generics,
@@ -27,7 +27,7 @@ Imports:
     nlist,
     purrr,
     stats,
-    term,
+    term (>= 0.3.2),
     universals,
     utils
 Suggests:
