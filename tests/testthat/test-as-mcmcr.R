@@ -28,7 +28,8 @@ test_that("as.mcmcr.mcmc", {
 
   x <- coda::as.mcmc(mcmcr)
   colnames(x) <- 1:ncol(x)
-  expect_identical(expect_warning(expect_warning(nterms(as.mcmcr(x)))), 0L)
+
+  expect_warning(expect_warning(expect_identical(nterms(as.mcmcr(x)), 0L)))
 })
 
 test_that("as.mcmcr.mcmc.list", {

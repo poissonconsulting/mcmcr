@@ -37,9 +37,6 @@ Suggests:
     rlang,
     testthat,
     tibble
-Remotes:
-    poissonconsulting/chk,
-    poissonconsulting/term
 RdMacros: 
     lifecycle
 Config/testthat/edition: 3

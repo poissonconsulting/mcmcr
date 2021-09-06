@@ -14,7 +14,7 @@ test_that("as.mcmcarray.mcmc", {
   x <- coda::as.mcmc(mcmcarray)
   expect_identical(as.mcmcarray(x), mcmcarray)
   colnames(x) <- "1"
-  expect_identical(expect_warning(as.mcmcarray(x)), structure(numeric(0), .Dim = c(1L, 400L, 0L), class = "mcmcarray"))
+  expect_warning(expect_identical(as.mcmcarray(x), structure(numeric(0), .Dim = c(1L, 400L, 0L), class = "mcmcarray")))
 })
 
 test_that("as.mcmcarray.mcmc with missing values", {
