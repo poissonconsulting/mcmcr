@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# mcmcr 0.6.1.9000
+
+- Same as previous version.
+
+
 # mcmcr 0.6.1
 
 - Update testing to testthat 3.
