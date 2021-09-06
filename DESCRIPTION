@@ -27,7 +27,7 @@ Imports:
     nlist,
     purrr,
     stats,
-    term (>= 0.3.2),
+    term,
     universals,
     utils
 Suggests:

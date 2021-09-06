@@ -30,6 +30,7 @@ rhat
 rjags
 summarise
 svalue
+testthat
 thining
 tibble
 untransformed
