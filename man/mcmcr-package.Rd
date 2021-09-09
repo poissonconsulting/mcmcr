@@ -6,6 +6,8 @@
 \alias{mcmcr-package}
 \title{mcmcr: Manipulate MCMC Samples}
 \description{
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+
 Functions and classes to store, manipulate and summarise
     Monte Carlo Markov Chain (MCMC) samples. For more information see
     Brooks et al. (2011) <isbn:978-1-4200-7941-8>.

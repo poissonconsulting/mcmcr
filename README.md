@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# mcmcr
+# mcmcr <img src="man/figures/logo.png" align="right" />
 
 <!-- badges: start -->
 
@@ -49,37 +49,38 @@ ways.
 
 The three most common S3 classes store MCMC samples as follows:
 
-  - `coda::mcmc` stores the MCMC samples from a single chain as a matrix
+-   `coda::mcmc` stores the MCMC samples from a single chain as a matrix
     where each each row represents an iteration and each column
     represents a variable
-  - `coda::mcmc.list` stores multiple `mcmc` objects (with identical
+-   `coda::mcmc.list` stores multiple `mcmc` objects (with identical
     dimensions) as a list where each object represents a parallel chain
-  - `rjags::mcarray` stores the samples from a single parameter where
+-   `rjags::mcarray` stores the samples from a single parameter where
     the initial dimensions are the parameter dimensions, the second to
     last dimension is iterations and the last dimension is chains.
 
 In the first two cases the terms/parameters are represented by a single
 dimension which means that the dimensionality inherent in the parameters
-is stored in the labelling of the variables, ie, `"bIntercept",
-"bInteraction[1,2]", "bInteraction[2,1]", ...`. The structure of the
-`mcmc` and `mcmc.list` objects emphasizes the time-series nature of MCMC
-samples and is optimized for thining. In contrast `mcarray` objects
-preserve the dimensionality of the parameters.
+is stored in the labelling of the variables, ie,
+`"bIntercept", "bInteraction[1,2]", "bInteraction[2,1]", ...`. The
+structure of the `mcmc` and `mcmc.list` objects emphasizes the
+time-series nature of MCMC samples and is optimized for thining. In
+contrast `mcarray` objects preserve the dimensionality of the
+parameters.
 
 ### New Classes
 
 The `mcmcr` package defines three related S3 classes which also preserve
 the dimensionality of the parameters:
 
-  - `mcmcr::mcmcarray` is very similar to `rjags::mcarray` except that
+-   `mcmcr::mcmcarray` is very similar to `rjags::mcarray` except that
     the first dimension is the chains, the second dimension is
     iterations and the subsequent dimensions represent the
     dimensionality of the parameter (it is called `mcmcarray` to
     emphasize that the MCMC dimensions ie the chains and iterations come
     first);
-  - `mcmcr::mcmcr` stores multiple uniquely named `mcmcarray` objects
+-   `mcmcr::mcmcr` stores multiple uniquely named `mcmcarray` objects
     with the same number of chains and iterations.
-  - `mcmcr::mcmcrs` stores multiple `mcmcr` objects with the same
+-   `mcmcr::mcmcrs` stores multiple `mcmcr` objects with the same
     parameters, chains and iterations.
 
 All five classes (`mcmc`, `mcmc.list`, `mcarray`, `mcmcarray`, `mcmcr`
@@ -103,25 +104,25 @@ a variety of (often) generic functions to manipulate and query
 
 In particular it provides functions to
 
-  - coerce from and to `mcarray`, `mcmc` and `mcmc.list` objects;
-  - extract an objects `coef` table (as a tibble);
-  - query an object’s `nchains`, `niters`, `term::npars`,
+-   coerce from and to `mcarray`, `mcmc` and `mcmc.list` objects;
+-   extract an objects `coef` table (as a tibble);
+-   query an object’s `nchains`, `niters`, `term::npars`,
     `term::nterms`, `nlist::nsims` and `nlist::nsams` as well as it’s
     parameter dimensions (`term::pdims`) and term indices
     (`term::tindex`);
-  - `subset` objects by chains, iterations and/or parameters;
-  - `bind_xx` a pair of objects by their `xx_chains`, `xx_iterations`,
+-   `subset` objects by chains, iterations and/or parameters;
+-   `bind_xx` a pair of objects by their `xx_chains`, `xx_iterations`,
     `xx_parameters` or (parameter) `xx_dimensions`;
-  - combine the samples of two (or more) MCMC objects using
+-   combine the samples of two (or more) MCMC objects using
     `combine_samples` (or `combine_samples_n`) or combine the samples of
     a single MCMC object by reducing its dimensions using
     `combine_dimensions`;
-  - `collapse_chains` or `split_chains` an object’s chains;
-  - `mcmc_map` over an objects values;
-  - transpose an objects parameter dimensions using `mcmc_aperm`;
-  - assess if an object has `converged` using `rhat` and `esr`
+-   `collapse_chains` or `split_chains` an object’s chains;
+-   `mcmc_map` over an objects values;
+-   transpose an objects parameter dimensions using `mcmc_aperm`;
+-   assess if an object has `converged` using `rhat` and `esr`
     (effectively sampling rate);
-  - and of course `thin`, `rhat`, `ess` (effective sample size),
+-   and of course `thin`, `rhat`, `ess` (effective sample size),
     `print`, `plot` etc said objects.
 
 The code is opinionated which has the advantage of providing a small set
