@@ -42,7 +42,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.6.1.9000</span>
       </span>
     </div>
 
@@ -57,7 +57,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/poissonconsulting/mcmcr/">
+  <a href="https://github.com/poissonconsulting/mcmcr/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -74,16 +74,15 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="mcmcr-" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#mcmcr-" class="anchor" aria-hidden="true"></a>mcmcr <img src="reference/figures/logo.png" align="right">
+<div class="section level1">
+<div class="page-header"><h1 id="mcmcr-">mcmcr <img src="reference/figures/logo.png" align="right"><a class="anchor" aria-label="anchor" href="#mcmcr-"></a>
 </h1></div>
 <!-- badges: start -->
 
 <p><code>mcmcr</code> is an R package to manipulate Monte Carlo Markov Chain (MCMC) samples (Brooks et al. 2011).</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor" aria-hidden="true"></a>Installation</h2>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>To install the latest release from <a href="https://cran.r-project.org" class="external-link">CRAN</a></p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"mcmcr"</span><span class="op">)</span></code></pre></div>
@@ -92,13 +91,13 @@
 <code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"poissonconsulting/mcmcr"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="introduction" class="section level2">
-<h2 class="hasAnchor">
-<a href="#introduction" class="anchor" aria-hidden="true"></a>Introduction</h2>
+<div class="section level2">
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
 <p>For the purposes of this discussion, an MCMC <em>sample</em> represents the value of a <em>term</em> from a single <em>iteration</em> of a single <em>chain</em>. While a simple <em>parameter</em> such as an intercept corresponds to a single term, more complex parameters such as an interaction between two factors consists of multiple terms with their own inherent dimensionality - in this case a matrix. A set of MCMC samples can be stored in different ways.</p>
-<div id="existing-classes" class="section level3">
-<h3 class="hasAnchor">
-<a href="#existing-classes" class="anchor" aria-hidden="true"></a>Existing Classes</h3>
+<div class="section level3">
+<h3 id="existing-classes">Existing Classes<a class="anchor" aria-label="anchor" href="#existing-classes"></a>
+</h3>
 <p>The three most common S3 classes store MCMC samples as follows:</p>
 <ul>
 <li>
@@ -110,9 +109,9 @@
 </ul>
 <p>In the first two cases the terms/parameters are represented by a single dimension which means that the dimensionality inherent in the parameters is stored in the labelling of the variables, ie, <code>"bIntercept", "bInteraction[1,2]", "bInteraction[2,1]", ...</code>. The structure of the <code>mcmc</code> and <code>mcmc.list</code> objects emphasizes the time-series nature of MCMC samples and is optimized for thining. In contrast <code>mcarray</code> objects preserve the dimensionality of the parameters.</p>
 </div>
-<div id="new-classes" class="section level3">
-<h3 class="hasAnchor">
-<a href="#new-classes" class="anchor" aria-hidden="true"></a>New Classes</h3>
+<div class="section level3">
+<h3 id="new-classes">New Classes<a class="anchor" aria-label="anchor" href="#new-classes"></a>
+</h3>
 <p>The <code>mcmcr</code> package defines three related S3 classes which also preserve the dimensionality of the parameters:</p>
 <ul>
 <li>
@@ -125,9 +124,9 @@
 <p>All five classes (<code>mcmc</code>, <code>mcmc.list</code>, <code>mcarray</code>, <code>mcmcarray</code>, <code>mcmcr</code> and <code>mcmcrs</code>) are collectively referred to as MCMC objects.</p>
 </div>
 </div>
-<div id="why-mcmcr" class="section level2">
-<h2 class="hasAnchor">
-<a href="#why-mcmcr" class="anchor" aria-hidden="true"></a>Why mcmcr?</h2>
+<div class="section level2">
+<h2 id="why-mcmcr">Why mcmcr?<a class="anchor" aria-label="anchor" href="#why-mcmcr"></a>
+</h2>
 <p><code>mcmcarray</code> objects were developed to facilitate manipulation of the MCMC samples. <code>mcmcr</code> objects were developed to allow a set of dimensionality preserving parameters from a single analysis to be manipulated as a whole. <code>mcmcrs</code> objects were developed to allow the results of multiple analyses using the same model to be manipulated together.</p>
 <p>The <code>mcmcr</code> package (together with the <a href="https://github.com/poissonconsulting/term" class="external-link">term</a> and <a href="https://github.com/poissonconsulting/nlist" class="external-link">nlist</a> packages) introduces a variety of (often) generic functions to manipulate and query <code>mcmcarray</code>, <code>mcmcr</code> and <code>mcmcrs</code> objects (and <code>term</code> and <code>nlist</code> and <code>nlists</code> objects).</p>
 <p>In particular it provides functions to</p>
@@ -150,9 +149,9 @@
 </ul>
 <p>The code is opinionated which has the advantage of providing a small set of stream-lined functions. For example the only ‘convergence’ metric is the uncorrected, untransformed, univariate split R-hat (potential scale reduction factor). If you can convince me that additional features are important I will add them or accept a pull request (see below). Alternatively you might want to use the <code>mcmcr</code> package to manipulate your samples before coercing them to an <code>mcmc.list</code> to take advantage of all the summary functions in packages such as <code>coda</code>.</p>
 </div>
-<div id="demonstration" class="section level2">
-<h2 class="hasAnchor">
-<a href="#demonstration" class="anchor" aria-hidden="true"></a>Demonstration</h2>
+<div class="section level2">
+<h2 id="demonstration">Demonstration<a class="anchor" aria-label="anchor" href="#demonstration"></a>
+</h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/poissonconsulting/mcmcr" class="external-link">mcmcr</a></span><span class="op">)</span>
 
@@ -200,25 +199,25 @@
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mcmcr_example</span><span class="op">[[</span><span class="st">"alpha"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="100%"></p>
 </div>
-<div id="inspiration" class="section level2">
-<h2 class="hasAnchor">
-<a href="#inspiration" class="anchor" aria-hidden="true"></a>Inspiration</h2>
+<div class="section level2">
+<h2 id="inspiration">Inspiration<a class="anchor" aria-label="anchor" href="#inspiration"></a>
+</h2>
 <p><a href="https://github.com/cran/coda" class="external-link">coda</a> and <a href="https://github.com/cran/rjags" class="external-link">rjags</a></p>
 </div>
-<div id="contribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#contribution" class="anchor" aria-hidden="true"></a>Contribution</h2>
+<div class="section level2">
+<h2 id="contribution">Contribution<a class="anchor" aria-label="anchor" href="#contribution"></a>
+</h2>
 <p>Please report any <a href="https://github.com/poissonconsulting/mcmcr/issues" class="external-link">issues</a>.</p>
 <p><a href="https://github.com/poissonconsulting/mcmcr/pulls" class="external-link">Pull requests</a> are always welcome.</p>
 </div>
-<div id="code-of-conduct" class="section level2">
-<h2 class="hasAnchor">
-<a href="#code-of-conduct" class="anchor" aria-hidden="true"></a>Code of Conduct</h2>
+<div class="section level2">
+<h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
+</h2>
 <p>Please note that the mcmcr project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
-<div id="references" class="section level2">
-<h2 class="hasAnchor">
-<a href="#references" class="anchor" aria-hidden="true"></a>References</h2>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
 <p>Brooks, S., Gelman, A., Jones, G.L., and Meng, X.-L. (Editors). 2011. Handbook for Markov Chain Monte Carlo. Taylor &amp; Francis, Boca Raton. ISBN: 978-1-4200-7941-8.</p>
 </div>
 </div>
@@ -228,12 +227,9 @@
     <div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=mcmcr">https://​cloud.r-project.org/​package=mcmcr</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/poissonconsulting/mcmcr/">https://​github.com/​poissonconsulting/​mcmcr/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/poissonconsulting/mcmcr/issues">https://​github.com/​poissonconsulting/​mcmcr/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=mcmcr" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/poissonconsulting/mcmcr/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/poissonconsulting/mcmcr/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
@@ -241,7 +237,7 @@
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
 
@@ -256,7 +252,7 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Joe Thorley <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-7683-4592" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Joe Thorley <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-7683-4592" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>Poisson Consulting <br><small class="roles"> Copyright holder, funder </small>  </li>
 </ul>
 </div>
@@ -283,7 +279,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
 </div>
 
       </footer>
