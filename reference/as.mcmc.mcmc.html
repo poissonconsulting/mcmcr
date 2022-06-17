@@ -89,9 +89,19 @@ MCMC objects resemble time series (ts) objects and have
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>An object that may be coerced to an mcmc object</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Further arguments to be passed to specific methods</p></dd>
+
 </dl></div>
+    <div id="note">
+    <h2>Note</h2>
+    <p>The format of the mcmc class has changed between coda version 0.3
+   and 0.4.  Older mcmc objects will now cause <code>is.mcmc</code> to
+   fail with an appropriate warning message.  Obsolete mcmc objects can
+   be upgraded with the <code>mcmcUpgrade</code> function.</p>
+    </div>
     <div id="see-also">
     <h2>See also</h2>
     <div class="dont-index"><p><code><a href="https://rdrr.io/pkg/coda/man/mcmc.list.html" class="external-link">mcmc.list</a></code>,
@@ -118,7 +128,7 @@ MCMC objects resemble time series (ts) objects and have
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.9000.</p>
 </div>
 
       </footer></div>
