@@ -31,6 +31,12 @@ The function \code{mcmc} is used to create a Markov Chain Monte Carlo
    methods for the generic functions \code{time}, \code{start},
    \code{end}, \code{frequency} and \code{window}.
 }
+\note{
+The format of the mcmc class has changed between coda version 0.3
+   and 0.4.  Older mcmc objects will now cause \code{is.mcmc} to
+   fail with an appropriate warning message.  Obsolete mcmc objects can
+   be upgraded with the \code{mcmcUpgrade} function.
+}
 \seealso{
 \code{\link[coda]{mcmc.list}},
    \code{\link[coda]{mcmcUpgrade}},
