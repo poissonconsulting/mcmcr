@@ -29,13 +29,14 @@ not standard data.frames.
 \section{Methods (by class)}{
 
 \itemize{
-\item \code{logical}: Fill All for logical Objects
+\item \code{fill_all(logical)}: Fill All for logical Objects
 
-\item \code{integer}: Fill All for integer Objects
+\item \code{fill_all(integer)}: Fill All for integer Objects
 
-\item \code{numeric}: Fill All for numeric Objects
+\item \code{fill_all(numeric)}: Fill All for numeric Objects
 
-\item \code{character}: Fill All for character Objects
+\item \code{fill_all(character)}: Fill All for character Objects
+
 }
 }
 

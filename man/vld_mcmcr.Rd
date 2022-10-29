@@ -26,13 +26,13 @@ To just validate class use \code{\link[chk:chk_s3_class]{chk::vld_s3_class()}}.
 }
 \section{Functions}{
 \itemize{
-\item \code{vld_mcmcarray}: Validate \code{\link[=mcmcarray-object]{mcmcarray-object()}}
+\item \code{vld_mcmcarray()}: Validate \code{\link[=mcmcarray-object]{mcmcarray-object()}}
 
-\item \code{vld_mcmcr}: Validate \code{\link[=mcmcr-object]{mcmcr-object()}}
+\item \code{vld_mcmcr()}: Validate \code{\link[=mcmcr-object]{mcmcr-object()}}
 
-\item \code{vld_mcmcrs}: Validate \code{\link[=mcmcrs-object]{mcmcrs-object()}}
+\item \code{vld_mcmcrs()}: Validate \code{\link[=mcmcrs-object]{mcmcrs-object()}}
+
 }}
-
 \examples{
 #' vld_mcmcarray
 vld_mcmcarray(1)

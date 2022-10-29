@@ -23,6 +23,9 @@ Useful links:
 
 Other contributors:
 \itemize{
+  \item Kirill Müller (\href{https://orcid.org/0000-0002-1416-3412}{ORCID}) [contributor]
+  \item Nadine Hussein (\href{https://orcid.org/0000-0003-4470-8361}{ORCID}) [contributor]
+  \item Ayla Pearson (\href{https://orcid.org/0000-0001-7388-1222}{ORCID}) [contributor]
   \item Poisson Consulting [copyright holder, funder]
 }
 

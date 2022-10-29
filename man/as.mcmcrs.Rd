@@ -27,11 +27,11 @@ Converts an MCMC object to an \code{\link[=mcmcrs-object]{mcmcrs-object()}}.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{list}: Convert a list of \verb{[mcmcr-object]s} to an mcmcrs object
+\item \code{as.mcmcrs(list)}: Convert a list of \verb{[mcmcr-object]s} to an mcmcrs object
 
-\item \code{mcmcr}: Convert an \code{\link[=mcmcr-object]{mcmcr-object()}} to an mcmcrs object
+\item \code{as.mcmcrs(mcmcr)}: Convert an \code{\link[=mcmcr-object]{mcmcr-object()}} to an mcmcrs object
+
 }}
-
 \examples{
 as.mcmcrs(mcmcr::mcmcr_example)
 }

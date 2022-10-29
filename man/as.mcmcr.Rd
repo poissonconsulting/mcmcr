@@ -42,21 +42,21 @@ Converts an MCMC object to an \code{\link[=mcmcr-object]{mcmcr-object()}}.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{mcarray}: Convert an mcarray object to an mcmcr object
+\item \code{as.mcmcr(mcarray)}: Convert an mcarray object to an mcmcr object
 
-\item \code{mcmcarray}: Convert an \code{\link[=mcmcarray-object]{mcmcarray-object()}} to an mcmcr object
+\item \code{as.mcmcr(mcmcarray)}: Convert an \code{\link[=mcmcarray-object]{mcmcarray-object()}} to an mcmcr object
 
-\item \code{nlist}: Convert an \code{\link[nlist:nlist]{nlist::nlist-object()}} to an mcmcr object
+\item \code{as.mcmcr(nlist)}: Convert an \code{\link[nlist:nlist]{nlist::nlist-object()}} to an mcmcr object
 
-\item \code{nlists}: Convert an \code{\link[nlist:nlists]{nlist::nlists-object()}} to an mcmcr object
+\item \code{as.mcmcr(nlists)}: Convert an \code{\link[nlist:nlists]{nlist::nlists-object()}} to an mcmcr object
 
-\item \code{mcmc}: Convert an \code{\link[coda:mcmc]{coda::mcmc()}} object to an mcmcr object
+\item \code{as.mcmcr(mcmc)}: Convert an \code{\link[coda:mcmc]{coda::mcmc()}} object to an mcmcr object
 
-\item \code{mcmc.list}: Convert an \code{\link[coda:mcmc.list]{coda::mcmc.list()}} object to an mcmcr object
+\item \code{as.mcmcr(mcmc.list)}: Convert an \code{\link[coda:mcmc.list]{coda::mcmc.list()}} object to an mcmcr object
 
-\item \code{mcmcrs}: Convert tan \code{\link[=mcmcrs-object]{mcmcrs-object()}} to an mcmcr object
+\item \code{as.mcmcr(mcmcrs)}: Convert tan \code{\link[=mcmcrs-object]{mcmcrs-object()}} to an mcmcr object
+
 }}
-
 \examples{
 mcmc.list <- coda::as.mcmc.list(mcmcr::mcmcr_example)
 as.mcmcr(mcmc.list)

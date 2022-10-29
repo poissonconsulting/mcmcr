@@ -28,9 +28,9 @@ Gets coefficients for all the terms in an MCMC object.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{mcmc}: Get coefficients for terms in mcmc object
-}}
+\item \code{coef(mcmc)}: Get coefficients for terms in mcmc object
 
+}}
 \examples{
 coef(mcmcr_example)
 }

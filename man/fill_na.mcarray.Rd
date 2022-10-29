@@ -27,13 +27,14 @@ not standard data.frames.
 \section{Methods (by class)}{
 
 \itemize{
-\item \code{logical}: Fill Missing Values for logical Objects
+\item \code{fill_na(logical)}: Fill Missing Values for logical Objects
 
-\item \code{integer}: Fill Missing Values for integer Objects
+\item \code{fill_na(integer)}: Fill Missing Values for integer Objects
 
-\item \code{numeric}: Fill Missing Values for numeric Objects
+\item \code{fill_na(numeric)}: Fill Missing Values for numeric Objects
 
-\item \code{character}: Fill Missing Values for character Objects
+\item \code{fill_na(character)}: Fill Missing Values for character Objects
+
 }
 }
 

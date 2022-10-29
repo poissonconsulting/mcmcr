@@ -34,13 +34,13 @@ where the expected value is 0.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{mcarray}: Zero an mcarray object
+\item \code{zero(mcarray)}: Zero an mcarray object
 
-\item \code{mcmcarray}: Zero an mcmcarray object
+\item \code{zero(mcmcarray)}: Zero an mcmcarray object
 
-\item \code{mcmcr}: Zero an mcmcr object
+\item \code{zero(mcmcr)}: Zero an mcmcr object
+
 }}
-
 \examples{
 zero(mcmcr_example, pars = "beta")
 }

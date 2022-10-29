@@ -17,11 +17,11 @@ as.mcarray(x, ...)
 \description{
 Coerces MCMC objects to an mcarray object.
 }
-\section{Methods (by class)}{
+\section{Functions}{
 \itemize{
-\item \code{list}: Convert a list of uniquely named objects that can be coerced to \verb{[mcmcarray-object]s} to an mcmcr object
-}}
+\item \code{as.mcmcr(list)}: Convert a list of uniquely named objects that can be coerced to \verb{[mcmcarray-object]s} to an mcmcr object
 
+}}
 \examples{
 as.mcarray(mcmcr_example$beta)
 }

@@ -49,13 +49,13 @@ Subsets an MCMC object by its chains, iterations and/or parameters.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{mcmcarray}: Subset an mcmcarray object
+\item \code{subset(mcmcarray)}: Subset an mcmcarray object
 
-\item \code{mcmcr}: Subset an mcmcr object
+\item \code{subset(mcmcr)}: Subset an mcmcr object
 
-\item \code{mcmcrs}: Subset an mcmcrs object
+\item \code{subset(mcmcrs)}: Subset an mcmcrs object
+
 }}
-
 \examples{
 subset(mcmcr_example,
   chains = 2L, iters = 1:100,

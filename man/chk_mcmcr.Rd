@@ -40,13 +40,13 @@ To just check class use \code{\link[chk:chk_s3_class]{chk::chk_s3_class()}}.
 }
 \section{Functions}{
 \itemize{
-\item \code{chk_mcmcarray}: Check mcmcarray Object
+\item \code{chk_mcmcarray()}: Check mcmcarray Object
 
-\item \code{chk_mcmcr}: Check mcmcr Object
+\item \code{chk_mcmcr()}: Check mcmcr Object
 
-\item \code{chk_mcmcrs}: Check mcmcrs Object
+\item \code{chk_mcmcrs()}: Check mcmcrs Object
+
 }}
-
 \examples{
 
 # chk_mcmcarray
