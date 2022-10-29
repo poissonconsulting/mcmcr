@@ -31,7 +31,7 @@ Depends:
     R (>= 3.5)
 Imports:
     abind,
-    chk (>= 0.7.0),
+    chk,
     coda,
     extras,
     generics,
