@@ -20,15 +20,16 @@ Coerce an R object to an \code{\link[nlist:nlist_object]{nlist_object()}}.
 \section{Methods (by class)}{
 
 \itemize{
-\item \code{numeric}: Coerce named numeric vector to nlist
+\item \code{as_nlist(numeric)}: Coerce named numeric vector to nlist
 
-\item \code{list}: Coerce list to nlist
+\item \code{as_nlist(list)}: Coerce list to nlist
 
-\item \code{data.frame}: Coerce data.frame to nlist
+\item \code{as_nlist(data.frame)}: Coerce data.frame to nlist
 
-\item \code{mcmc}: Coerce mcmc (with one iteration) to nlist
+\item \code{as_nlist(mcmc)}: Coerce mcmc (with one iteration) to nlist
 
-\item \code{mcmc.list}: Coerce mcmc.list (with one iteration) to nlist
+\item \code{as_nlist(mcmc.list)}: Coerce mcmc.list (with one iteration) to nlist
+
 }
 }
 

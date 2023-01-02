@@ -36,7 +36,7 @@ test_that("rhat.mcmcmarray", {
   expect_identical(
     rhat(mcmcr_example[[1]], as_df = TRUE, by = "all"),
     structure(list(parameter = "parameter", rhat = 2.002),
-      class = c("tbl_df", "tbl", "data.frame"), row.names = c(NA, -1L)
+              class = c("tbl_df", "tbl", "data.frame"), row.names = c(NA, -1L)
     )
   )
 
@@ -55,8 +55,8 @@ test_that("rhat.mcmcr", {
   expect_identical(
     rhat(mcmcr_example, as_df = TRUE),
     structure(list(all = "all", rhat = 2.002),
-      class = c("tbl_df", "tbl", "data.frame"),
-      row.names = c(NA, -1L)
+              class = c("tbl_df", "tbl", "data.frame"),
+              row.names = c(NA, -1L)
     )
   )
 
@@ -78,7 +78,7 @@ test_that("rhat.mcmcr NA", {
 
 test_that("rhat.mcmcrs", {
   expect_identical(rhat(mcmcrs(mcmcr_example, mcmcr_example)), list(mcmcr1 = 2.002, mcmcr2 = 2.002))
-  expect_identical(rhat(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE), 1.891)
+  expect_identical(rhat(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE), list(mcmcr1 = 2.002, mcmcr2 = 2.002, bound = 1.891))
   expect_identical(
     rhat(mcmcrs(mcmcr_example, mcmcr_example), by = "parameter"),
     list(
@@ -88,6 +88,11 @@ test_that("rhat.mcmcrs", {
   )
   expect_identical(
     rhat(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE, by = "parameter"),
-    list(alpha = 1.891, beta = 1.127, sigma = 1)
+    list(mcmcr1 = list(alpha = 2.002, beta = 1.147, sigma = 1),
+         mcmcr2 = list(alpha = 2.002, beta = 1.147, sigma = 1),
+         bound = list(alpha = 1.891, beta = 1.127, sigma = 1))
   )
+  expect_identical(rhat(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE, as_df = TRUE), structure(list(all = "all", mcmcr1 = 2.002, mcmcr2 = 2.002, bound = 1.891), class = "data.frame", row.names = c(NA,-1L)))
+  expect_identical(rhat(mcmcrs(mcmcr_example, mcmcr_example), by = "parameter", bound = TRUE, as_df = TRUE), structure(list(parameter = c("alpha", "beta", "sigma"), mcmcr1 = c(2.002,1.147, 1), mcmcr2 = c(2.002, 1.147, 1), bound = c(1.891, 1.127, 1)), class = "data.frame", row.names = c(NA, -3L)))
+  expect_identical(rhat(mcmcrs(mcmcr_example, mcmcr_example), by = "term", bound = TRUE, as_df = TRUE), structure(list(term = structure(c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma"), class = c("term", "vctrs_vctr")), mcmcr1 = c(2.002, 2.002, 1.147, 1.147, 1.147,1.147, 1), mcmcr2 = c(2.002, 2.002, 1.147, 1.147, 1.147, 1.147, 1), bound = c(1.891, 1.891, 1.127, 1.127, 1.127, 1.127, 1)), class = "data.frame", row.names = c(NA, -7L)))
 })

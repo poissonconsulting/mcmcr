@@ -20,13 +20,14 @@ Coerce an R object to an \code{\link[nlist:nlists_object]{nlists_object()}}.
 \section{Methods (by class)}{
 
 \itemize{
-\item \code{list}: Coerce list to nlists
+\item \code{as_nlists(list)}: Coerce list to nlists
 
-\item \code{mcmc}: Coerce mcmc to nlists
+\item \code{as_nlists(mcmc)}: Coerce mcmc to nlists
 
-\item \code{mcmc.list}: Coerce mcmc.list to nlists
+\item \code{as_nlists(mcmc.list)}: Coerce mcmc.list to nlists
 
-\item \code{nlist}: Coerce nlist to nlists
+\item \code{as_nlists(nlist)}: Coerce nlist to nlists
+
 }
 }
 

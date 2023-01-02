@@ -109,9 +109,25 @@ rhat.mcmcrs <- function(x, by = "all", as_df = FALSE, na_rm = FALSE,
   chk_flag(bound)
   chk_unused(...)
 
-  if (bound) {
-    x <- Reduce(bind_chains, x)
-    return(rhat(x, by = by, as_df = as_df, na_rm = na_rm))
+  rhat <- lapply(x, rhat, by = by, as_df = as_df, na_rm = na_rm)
+  if(!bound) {
+    return(rhat)
   }
-  lapply(x, rhat, by = by, as_df = as_df, na_rm = na_rm)
+  x <- Reduce(bind_chains, x)
+  x <- rhat(x, by = by, as_df = as_df, na_rm = na_rm)
+  rhat <- c(rhat, list(bound = x))
+
+  name_rhat <- function(x, nm) {
+    colnames(x) <- sub("^rhat$", nm, colnames(x))
+    x
+  }
+
+  if(as_df) {
+    by <- rhat[[1]]
+    by <- by[colnames(by) != "rhat"]
+    rhat <- lapply(rhat, function(x) x["rhat"])
+    rhat <- mapply(stats::setNames, rhat, names(rhat), SIMPLIFY = FALSE)
+    rhat <- Reduce(cbind, c(list(by = by), rhat))
+  }
+  return(rhat)
 }
