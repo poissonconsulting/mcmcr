@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.6.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.6.1.9001</span>
       </span>
     </div>
 
@@ -53,8 +53,8 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for mcmc</span>
-<span class="fu">coef</span><span class="op">(</span><span class="va">object</span>, conf_level <span class="op">=</span> <span class="fl">0.95</span>, estimate <span class="op">=</span> <span class="va">median</span>, simplify <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for mcmc</span></span>
+<span><span class="fu">coef</span><span class="op">(</span><span class="va">object</span>, conf_level <span class="op">=</span> <span class="fl">0.95</span>, estimate <span class="op">=</span> <span class="va">median</span>, simplify <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -92,7 +92,7 @@
     <div id="methods-by-class-">
     <h2>Methods (by class)</h2>
     
-<ul><li><p><code>mcmc</code>: Get coefficients for terms in mcmc object</p></li>
+<ul><li><p><code>coef(mcmc)</code>: Get coefficients for terms in mcmc object</p></li>
 </ul></div>
     <div id="see-also">
     <h2>See also</h2>
@@ -101,7 +101,7 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">coef</span><span class="op">(</span><span class="va">mcmcr_example</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">coef</span><span class="op">(</span><span class="va">mcmcr_example</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   term      estimate lower upper svalue</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;term&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -126,7 +126,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

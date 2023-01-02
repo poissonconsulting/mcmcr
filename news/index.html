@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.6.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.6.1.9001</span>
       </span>
     </div>
 
@@ -48,11 +48,24 @@
     </div>
 
     <div class="section level2">
+<h2 class="page-header" data-toc-text="0.6.1.9001" id="mcmcr-0619001">mcmcr 0.6.1.9001<a class="anchor" aria-label="anchor" href="#mcmcr-0619001"></a></h2>
+<ul><li><p>When <code>bound = TRUE</code> <code><a href="https://poissonconsulting.github.io/universals/reference/rhat.html" class="external-link">rhat()</a></code> now also returns rhat values for separate analyses.</p></li>
+<li><p>When <code>bound = TRUE</code> and <code>as_df = TRUE</code> <code><a href="https://poissonconsulting.github.io/universals/reference/rhat.html" class="external-link">rhat()</a></code> now returns a data.frame with the rhat values for the separate and combined analyses.</p></li>
+<li><p>Merge pull request <a href="https://github.com/poissonconsulting/mcmcr/issues/52" class="external-link">#52</a> from poissonconsulting/description-contr.</p></li>
+</ul><p>add contributors</p>
+<ul><li>Merge pull request <a href="https://github.com/poissonconsulting/mcmcr/issues/50" class="external-link">#50</a> from poissonconsulting/rcmd-check.</li>
+</ul><p>update rcmd check and documentation</p>
+<ul><li>Merge pull request <a href="https://github.com/poissonconsulting/mcmcr/issues/49" class="external-link">#49</a> from poissonconsulting/changes_to_actions.</li>
+</ul><p>Made changes to Actions using UsePois and Files were created</p>
+</div>
+    <div class="section level2">
 <h2 class="page-header" data-toc-text="0.6.1.9000" id="mcmcr-0619000">mcmcr 0.6.1.9000<a class="anchor" aria-label="anchor" href="#mcmcr-0619000"></a></h2>
-<ul><li>Same as previous version.</li></ul></div>
+<ul><li>Same as previous version.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.6.1" id="mcmcr-061">mcmcr 0.6.1<small>2021-09-06</small><a class="anchor" aria-label="anchor" href="#mcmcr-061"></a></h2>
-<ul><li>Update testing to testthat 3.</li></ul></div>
+<ul><li>Update testing to testthat 3.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.6.0" id="mcmcr-060">mcmcr 0.6.0<small>2021-08-05</small><a class="anchor" aria-label="anchor" href="#mcmcr-060"></a></h2>
 <ul><li>Added <code><a href="https://poissonconsulting.github.io/extras/reference/fill_na.html" class="external-link">fill_na()</a></code> for <code>mcarray</code>, <code>mcmcarray</code> and <code>mcmcr</code>.</li>
@@ -60,7 +73,8 @@
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.5.0" id="mcmcr-050">mcmcr 0.5.0<small>2021-02-11</small><a class="anchor" aria-label="anchor" href="#mcmcr-050"></a></h2>
-<ul><li>Added<ul><li>
+<ul><li>Added
+<ul><li>
 <code>tidy.mcmcr()</code>.</li>
 <li>
 <code>simplify = FALSE</code> argument to <code><a href="../reference/coef.html">coef()</a></code> and <code><a href="https://generics.r-lib.org/reference/tidy.html" class="external-link">tidy()</a></code> and soft-deprecated if not <code>TRUE</code>.</li>
@@ -72,7 +86,8 @@
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.4.0" id="mcmcr-040">mcmcr 0.4.0<small>2020-09-27</small><a class="anchor" aria-label="anchor" href="#mcmcr-040"></a></h2>
 <ul><li>Added <code>as_mcmc_list.mcmr()</code>.</li>
-<li>Moved the following to <code>nlist</code><ul><li>
+<li>Moved the following to <code>nlist</code>
+<ul><li>
 <code>as_nlist.mcmc()</code> and <code>as_nlist.mcmc.list()</code>
 </li>
 <li><code>as_nlists.mcmc()</code></li>
@@ -89,7 +104,8 @@
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.0" id="mcmcr-030">mcmcr 0.3.0<small>2020-07-13</small><a class="anchor" aria-label="anchor" href="#mcmcr-030"></a></h2>
-<ul><li>Changed<ul><li>
+<ul><li>Changed
+<ul><li>
 <code>npdims.mcmc.list()</code> to return character vector (as opposed to list)</li>
 <li>
 <code>collapse_chains.mcmc.list()</code> to return an mcmc.list object with one chain (as opposed to an mcmc object)</li>
@@ -99,7 +115,8 @@
 <li>
 <code><a href="https://poissonconsulting.github.io/universals/reference/estimates.html" class="external-link">estimates()</a></code> so now checks fun returns scalar numeric.</li>
 </ul></li>
-<li>Soft-deprecated<ul><li>
+<li>Soft-deprecated
+<ul><li>
 <code><a href="https://poissonconsulting.github.io/extras/reference/pvalue.html" class="external-link">pvalue()</a></code> for <code><a href="https://poissonconsulting.github.io/extras/reference/pvalue.html" class="external-link">extras::pvalue()</a></code>.</li>
 <li>
 <code><a href="../reference/zero.html">zero()</a></code> for <code><a href="https://poissonconsulting.github.io/extras/reference/fill_all.html" class="external-link">fill_all()</a></code>.</li>
@@ -110,7 +127,8 @@
 <li>
 <code>parameters</code> argument with <code>pars</code> in <code><a href="../reference/subset.html">subset()</a></code>.</li>
 </ul></li>
-<li>Added<ul><li>
+<li>Added
+<ul><li>
 <code>vld_()</code> and <code>chk_()</code> functions for mcmcarray and mcmcr objects.</li>
 <li>
 <code>scalar = NULL</code> argument to <code><a href="https://poissonconsulting.github.io/universals/reference/pars.html" class="external-link">pars()</a></code> and <code><a href="https://poissonconsulting.github.io/universals/reference/npars.html" class="external-link">npars()</a></code>.</li>
@@ -119,7 +137,8 @@
 <li>missing <code>as_df = FALSE</code> arg to <code><a href="https://poissonconsulting.github.io/universals/reference/esr.html" class="external-link">esr()</a></code> for mcarray, mcmc and mcmc.list.</li>
 <li>coercion to and from nlists objects for mcmcr, mcmc.list and mcmc objects.</li>
 </ul></li>
-<li>Moved<ul><li>handling of terms to term package.</li>
+<li>Moved
+<ul><li>handling of terms to term package.</li>
 <li>generic definitions of <code><a href="https://poissonconsulting.github.io/universals/reference/nchains.html" class="external-link">nchains()</a></code>, <code><a href="https://poissonconsulting.github.io/universals/reference/niters.html" class="external-link">niters()</a></code>, <code><a href="https://poissonconsulting.github.io/universals/reference/collapse_chains.html" class="external-link">collapse_chains()</a></code> and <code><a href="https://poissonconsulting.github.io/universals/reference/split_chains.html" class="external-link">split_chains()</a></code> etc to universals package.</li>
 </ul></li>
 </ul></div>
@@ -154,7 +173,8 @@
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.0.1" id="mcmcr-001">mcmcr 0.0.1<small>2018-04-13</small><a class="anchor" aria-label="anchor" href="#mcmcr-001"></a></h2>
-<ul><li>Released to CRAN.</li></ul></div>
+<ul><li>Released to CRAN.</li>
+</ul></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -169,7 +189,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

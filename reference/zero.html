@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.6.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.6.1.9001</span>
       </span>
     </div>
 
@@ -53,16 +53,16 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">zero</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for mcarray</span>
-<span class="fu">zero</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for mcmcarray</span>
-<span class="fu">zero</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for mcmcr</span>
-<span class="fu">zero</span><span class="op">(</span><span class="va">x</span>, pars <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">zero</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for mcarray</span></span>
+<span><span class="fu">zero</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for mcmcarray</span></span>
+<span><span class="fu">zero</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for mcmcr</span></span>
+<span><span class="fu">zero</span><span class="op">(</span><span class="va">x</span>, pars <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -93,16 +93,16 @@ where the expected value is 0.</p>
     <div id="methods-by-class-">
     <h2>Methods (by class)</h2>
     
-<ul><li><p><code>mcarray</code>: Zero an mcarray object</p></li>
-<li><p><code>mcmcarray</code>: Zero an mcmcarray object</p></li>
-<li><p><code>mcmcr</code>: Zero an mcmcr object</p></li>
+<ul><li><p><code>zero(mcarray)</code>: Zero an mcarray object</p></li>
+<li><p><code>zero(mcmcarray)</code>: Zero an mcmcarray object</p></li>
+<li><p><code>zero(mcmcr)</code>: Zero an mcmcr object</p></li>
 </ul></div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">zero</span><span class="op">(</span><span class="va">mcmcr_example</span>, pars <span class="op">=</span> <span class="st">"beta"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">zero</span><span class="op">(</span><span class="va">mcmcr_example</span>, pars <span class="op">=</span> <span class="st">"beta"</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`zero()` was deprecated in mcmcr v0.2.1.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> Please use `fill_all()` instead.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please use `fill_all()` instead.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $alpha</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3.718025 4.718025</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -137,7 +137,7 @@ where the expected value is 0.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

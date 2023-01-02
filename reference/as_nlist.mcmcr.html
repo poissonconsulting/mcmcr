@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.6.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.6.1.9001</span>
       </span>
     </div>
 
@@ -53,8 +53,8 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for mcmcr</span>
-<span class="fu"><a href="https://rdrr.io/pkg/nlist/man/as_nlist.html" class="external-link">as_nlist</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for mcmcr</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/nlist/man/as_nlist.html" class="external-link">as_nlist</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -77,11 +77,11 @@
     <h2>Methods (by class)</h2>
     
 
-<ul><li><p><code>numeric</code>: Coerce named numeric vector to nlist</p></li>
-<li><p><code>list</code>: Coerce list to nlist</p></li>
-<li><p><code>data.frame</code>: Coerce data.frame to nlist</p></li>
-<li><p><code>mcmc</code>: Coerce mcmc (with one iteration) to nlist</p></li>
-<li><p><code>mcmc.list</code>: Coerce mcmc.list (with one iteration) to nlist</p></li>
+<ul><li><p><code>as_nlist(numeric)</code>: Coerce named numeric vector to nlist</p></li>
+<li><p><code>as_nlist(list)</code>: Coerce list to nlist</p></li>
+<li><p><code>as_nlist(data.frame)</code>: Coerce data.frame to nlist</p></li>
+<li><p><code>as_nlist(mcmc)</code>: Coerce mcmc (with one iteration) to nlist</p></li>
+<li><p><code>as_nlist(mcmc.list)</code>: Coerce mcmc.list (with one iteration) to nlist</p></li>
 </ul></div>
     <div id="see-also">
     <h2>See also</h2>
@@ -91,12 +91,12 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/pkg/nlist/man/as_nlist.html" class="external-link">as_nlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/nlist/man/as_nlist.html" class="external-link">as_nlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $x</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 2 3 4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> an nlist object with 1 numeric element</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/pkg/nlist/man/as_nlist.html" class="external-link">as_nlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>`a[2]` <span class="op">=</span> <span class="fl">3</span>, `a[1]` <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/nlist/man/as_nlist.html" class="external-link">as_nlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>`a[2]` <span class="op">=</span> <span class="fl">3</span>, `a[1]` <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $a</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -115,7 +115,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

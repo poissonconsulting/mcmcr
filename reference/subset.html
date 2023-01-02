@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mcmcr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.6.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.6.1.9001</span>
       </span>
     </div>
 
@@ -53,30 +53,30 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for mcmcarray</span>
-<span class="fu">subset</span><span class="op">(</span><span class="va">x</span>, chains <span class="op">=</span> <span class="cn">NULL</span>, iters <span class="op">=</span> <span class="cn">NULL</span>, iterations <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for mcmcr</span>
-<span class="fu">subset</span><span class="op">(</span>
-  <span class="va">x</span>,
-  chains <span class="op">=</span> <span class="cn">NULL</span>,
-  iters <span class="op">=</span> <span class="cn">NULL</span>,
-  pars <span class="op">=</span> <span class="cn">NULL</span>,
-  iterations <span class="op">=</span> <span class="cn">NULL</span>,
-  parameters <span class="op">=</span> <span class="cn">NULL</span>,
-  <span class="va">...</span>
-<span class="op">)</span>
-
-<span class="co"># S3 method for mcmcrs</span>
-<span class="fu">subset</span><span class="op">(</span>
-  <span class="va">x</span>,
-  chains <span class="op">=</span> <span class="cn">NULL</span>,
-  iters <span class="op">=</span> <span class="cn">NULL</span>,
-  pars <span class="op">=</span> <span class="cn">NULL</span>,
-  iterations <span class="op">=</span> <span class="cn">NULL</span>,
-  parameters <span class="op">=</span> <span class="cn">NULL</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for mcmcarray</span></span>
+<span><span class="fu">subset</span><span class="op">(</span><span class="va">x</span>, chains <span class="op">=</span> <span class="cn">NULL</span>, iters <span class="op">=</span> <span class="cn">NULL</span>, iterations <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for mcmcr</span></span>
+<span><span class="fu">subset</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  chains <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  iters <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  pars <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  iterations <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  parameters <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for mcmcrs</span></span>
+<span><span class="fu">subset</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  chains <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  iters <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  pars <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  iterations <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  parameters <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -112,9 +112,9 @@
     <div id="methods-by-class-">
     <h2>Methods (by class)</h2>
     
-<ul><li><p><code>mcmcarray</code>: Subset an mcmcarray object</p></li>
-<li><p><code>mcmcr</code>: Subset an mcmcr object</p></li>
-<li><p><code>mcmcrs</code>: Subset an mcmcrs object</p></li>
+<ul><li><p><code>subset(mcmcarray)</code>: Subset an mcmcarray object</p></li>
+<li><p><code>subset(mcmcr)</code>: Subset an mcmcr object</p></li>
+<li><p><code>subset(mcmcrs)</code>: Subset an mcmcrs object</p></li>
 </ul></div>
     <div id="see-also">
     <h2>See also</h2>
@@ -123,10 +123,10 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">subset</span><span class="op">(</span><span class="va">mcmcr_example</span>,</span>
-<span class="r-in">  chains <span class="op">=</span> <span class="fl">2L</span>, iters <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span>,</span>
-<span class="r-in">  pars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"beta"</span>, <span class="st">"alpha"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">subset</span><span class="op">(</span><span class="va">mcmcr_example</span>,</span></span>
+<span class="r-in"><span>  chains <span class="op">=</span> <span class="fl">2L</span>, iters <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span>,</span></span>
+<span class="r-in"><span>  pars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"beta"</span>, <span class="st">"alpha"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $beta</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]     [,2]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.7591235 1.759124</span>
@@ -155,7 +155,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>
