@@ -29,7 +29,6 @@ set_class <- function(x, class) {
 #' @export
 .esr <- function(x, na_rm) {
   stopifnot(is.matrix(x))
-  niters <- niters(x)
   x <- apply(x, 1L, .esr_numeric, na_rm = na_rm)
   x <- unlist(x)
   round(mean(x), 3)
