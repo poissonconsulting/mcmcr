@@ -1,5 +1,5 @@
 test_that("coef.mcmc", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
+  rlang::local_options(lifecycle_verbosity = "quiet")
 
   coef_mcmc.list <- coef(as.mcmc.list(mcmcr_example), simplify = FALSE)
   expect_identical(colnames(coef_mcmc.list), c("term", "estimate", "sd", "zscore", "lower", "upper", "pvalue"))

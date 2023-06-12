@@ -7,7 +7,7 @@ test_that("as_term", {
 })
 
 test_that("as.term", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
+  rlang::local_options(lifecycle_verbosity = "quiet")
   term <- as_term(mcmcr_example)
   expect_identical(term, term::new_term(c(
     "alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]",

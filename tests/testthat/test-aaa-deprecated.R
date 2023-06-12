@@ -1,5 +1,5 @@
 test_that("check_mcmcarray", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
+  rlang::local_options(lifecycle_verbosity = "quiet")
 
   expect_identical(check_mcmcarray(mcmcr::mcmcr_example$sigma), mcmcr::mcmcr_example$sigma)
   expect_error(check_mcmcarray(1), "^`1` must inherit from S3 class 'mcmcarray'[.]$",
@@ -19,7 +19,7 @@ test_that("check_mcmcarray", {
 })
 
 test_that("check_mcmcr", {
-  rlang::scoped_options(lifecycle_verbosity = "quiet")
+  rlang::local_options(lifecycle_verbosity = "quiet")
 
   expect_identical(check_mcmcr(mcmcr::mcmcr_example), mcmcr::mcmcr_example)
   expect_identical(check_mcmcr(mcmcr::mcmcr_example, sorted = TRUE), mcmcr::mcmcr_example)
