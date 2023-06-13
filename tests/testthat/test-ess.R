@@ -24,6 +24,14 @@ test_that("ess.mcmcr as df", {
                        "ess")
 })
 
+test_that("ess.mcmcr constant", {
+  x <- mcmcr::mcmcr_example
+  x$sigma[,,1] <- 0
+
+  expect_identical(ess(x$sigma), 800L)
+  expect_identical(ess(x), 9L)
+})
+
 test_that("ess.mcmcrs", {
   expect_identical(ess(mcmcrs(mcmcr_example), by = "parameter")[[1]], list(alpha = 9L, beta = 40L, sigma = 378L))
 })

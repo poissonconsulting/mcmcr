@@ -83,6 +83,14 @@ test_that("esr.mcmcr NA", {
   expect_identical(esr(x, by = "parameter", na_rm = TRUE), list(alpha = 0.011, beta = 0.05, sigma = 0.472))
 })
 
+test_that("esr.mcmcr constant", {
+  x <- mcmcr::mcmcr_example
+  x$sigma[,,1] <- 0
+
+  expect_identical(esr(x$sigma), 1)
+  expect_identical(esr(x), 0.011)
+})
+
 test_that("esr.mcmcrs", {
   expect_identical(esr(mcmcrs(mcmcr_example, mcmcr_example)), list(mcmcr1 = 0.011, mcmcr2 = 0.011))
 })
