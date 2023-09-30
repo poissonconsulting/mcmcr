@@ -1,4 +1,8 @@
-<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+<!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
+
+# mcmcr 0.6.1.9002
+
+- Provide soft deprecated message on breaking change.
 
 # mcmcr 0.6.1.9001
 
