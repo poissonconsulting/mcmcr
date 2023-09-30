@@ -76,12 +76,14 @@ test_that("rhat.mcmcr NA", {
   expect_identical(rhat(x, by = "parameter", na_rm = TRUE), list(alpha = 2.085, beta = 1.147, sigma = 1))
 })
 
-
-# this one
 test_that("rhat.mcmcrs", {
-  #withr::local_options(lifecycle_verbosity = "quiet")
 
-  expect_identical(rhat(mcmcrs(mcmcr_example, mcmcr_example)), list(mcmcr1 = 2.002, mcmcr2 = 2.002))
+  expect_identical(
+    rhat(
+      mcmcrs(mcmcr_example, mcmcr_example)
+    ),
+    list(mcmcr1 = 2.002, mcmcr2 = 2.002)
+  )
 
   lifecycle::expect_deprecated(
     expect_identical(
@@ -109,7 +111,6 @@ test_that("rhat.mcmcrs", {
     regexp = "`rhat.mcmcrs\\(x, bound = TRUE\\)` returns scalar was deprecated in mcmcr 0.6.1.9001."
   )
 
-
   lifecycle::expect_deprecated(
     expect_identical(
       rhat(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE, as_df = TRUE),
@@ -121,7 +122,44 @@ test_that("rhat.mcmcrs", {
     regexp = "`rhat.mcmcrs\\(x, bound = TRUE\\)` returns scalar was deprecated in mcmcr 0.6.1.9001."
   )
 
-  expect_identical(rhat(mcmcrs(mcmcr_example, mcmcr_example), by = "parameter", bound = TRUE, as_df = TRUE), structure(list(parameter = c("alpha", "beta", "sigma"), mcmcr1 = c(2.002,1.147, 1), mcmcr2 = c(2.002, 1.147, 1), bound = c(1.891, 1.127, 1)), class = "data.frame", row.names = c(NA, -3L)))
+  lifecycle::expect_deprecated(
+    expect_identical(
+      rhat(
+        mcmcrs(mcmcr_example, mcmcr_example),
+        by = "parameter", bound = TRUE, as_df = TRUE
+      ),
+      structure(
+        list(
+          parameter = c("alpha", "beta", "sigma"),
+          mcmcr1 = c(2.002,1.147, 1),
+          mcmcr2 = c(2.002, 1.147, 1),
+          bound = c(1.891, 1.127, 1)),
+        class = "data.frame",
+        row.names = c(NA, -3L)
+      )
+    ),
+    regexp = "`rhat.mcmcrs\\(x, bound = TRUE\\)` returns scalar was deprecated in mcmcr 0.6.1.9001."
+  )
 
-  expect_identical(rhat(mcmcrs(mcmcr_example, mcmcr_example), by = "term", bound = TRUE, as_df = TRUE), structure(list(term = structure(c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma"), class = c("term", "vctrs_vctr")), mcmcr1 = c(2.002, 2.002, 1.147, 1.147, 1.147,1.147, 1), mcmcr2 = c(2.002, 2.002, 1.147, 1.147, 1.147, 1.147, 1), bound = c(1.891, 1.891, 1.127, 1.127, 1.127, 1.127, 1)), class = "data.frame", row.names = c(NA, -7L)))
+  lifecycle::expect_deprecated(
+    expect_identical(
+      rhat(
+        mcmcrs(mcmcr_example, mcmcr_example),
+        by = "term", bound = TRUE, as_df = TRUE
+      ),
+      structure(
+        list(
+          term = structure(
+            c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma"),
+            class = c("term", "vctrs_vctr")
+          ),
+          mcmcr1 = c(2.002, 2.002, 1.147, 1.147, 1.147,1.147, 1),
+          mcmcr2 = c(2.002, 2.002, 1.147, 1.147, 1.147, 1.147, 1),
+          bound = c(1.891, 1.891, 1.127, 1.127, 1.127, 1.127, 1)),
+        class = "data.frame",
+        row.names = c(NA, -7L)
+      )
+    ),
+    regexp = "`rhat.mcmcrs\\(x, bound = TRUE\\)` returns scalar was deprecated in mcmcr 0.6.1.9001."
+  )
 })
