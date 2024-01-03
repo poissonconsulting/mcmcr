@@ -32,6 +32,9 @@ test_that("ess.mcmcr constant", {
   expect_identical(ess(x), 9L)
 })
 
-test_that("ess.mcmcrs", {
-  expect_identical(ess(mcmcrs(mcmcr_example), by = "parameter")[[1]], list(alpha = 9L, beta = 40L, sigma = 378L))
+test_that("ess.mcmcarray constant", {
+  x <- structure(rep(-0.75377180237638, 300), dim = c(3L, 100L, 1L), class = "mcmcarray")
+  expect_identical(ess(x), 300L)
+  x <- structure(rep(-0.75377180237638, 30), dim = c(3L, 10L, 1L), class = "mcmcarray")
+  expect_identical(ess(x), 30L)
 })
