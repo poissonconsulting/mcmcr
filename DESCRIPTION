@@ -28,7 +28,7 @@ License: MIT + file LICENSE
 URL: https://github.com/poissonconsulting/mcmcr
 BugReports: https://github.com/poissonconsulting/mcmcr/issues
 Depends: 
-    R (>= 3.5)
+    R (>= 3.6)
 Imports:
     abind,
     chk,

@@ -88,9 +88,17 @@ test_that("esr.mcmcr constant", {
   x$sigma[,,1] <- 0
 
   expect_identical(esr(x$sigma), 1)
+
   expect_identical(esr(x), 0.011)
 })
 
 test_that("esr.mcmcrs", {
   expect_identical(esr(mcmcrs(mcmcr_example, mcmcr_example)), list(mcmcr1 = 0.011, mcmcr2 = 0.011))
+})
+
+test_that("esr.mcmcarray constant", {
+  x <- structure(rep(-0.75377180237638, 300), dim = c(3L, 100L, 1L), class = "mcmcarray")
+  expect_identical(esr(x), 1)
+  x <- structure(rep(-0.75377180237638, 30), dim = c(3L, 10L, 1L), class = "mcmcarray")
+  expect_identical(esr(x), 1)
 })
