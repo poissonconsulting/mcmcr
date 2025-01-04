@@ -16,23 +16,7 @@ status](https://www.r-pkg.org/badges/version/mcmcr)](https://cran.r-project.org/
 <!-- badges: end -->
 
 `mcmcr` is an R package to manipulate Monte Carlo Markov Chain (MCMC)
-samples (Brooks et al. 2011).
-
-## Installation
-
-To install the latest release from [CRAN](https://cran.r-project.org)
-
-``` r
-install.packages("mcmcr")
-```
-
-To install the developmental version from
-[GitHub](https://github.com/poissonconsulting/mcmcr)
-
-``` r
-# install.packages("remotes")
-remotes::install_github("poissonconsulting/mcmcr")
-```
+samples.
 
 ## Introduction
 
@@ -183,7 +167,37 @@ rhat(mcmcr_example, by = "term")
 plot(mcmcr_example[["alpha"]])
 ```
 
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+
+## Installation
+
+### Release
+
+To install the release version from
+[CRAN](https://CRAN.R-project.org/package=mcmcr).
+
+``` r
+install.packages("mcmcr")
+```
+
+The website for the release version is at
+<https://poissonconsulting.github.io/mcmcr/>.
+
+### Development
+
+To install the development version from
+[r-universe](https://poissonconsulting.r-universe.dev/mcmcr).
+
+``` r
+install.packages("mcmcr", repos = c("https://poissonconsulting.r-universe.dev", "https://cloud.r-project.org"))
+```
+
+or from [GitHub](https://github.com/poissonconsulting/mcmcr)
+
+``` r
+# install.packages("remotes")
+remotes::install_github("poissonconsulting/mcmcr")
+```
 
 ## Inspiration
 
