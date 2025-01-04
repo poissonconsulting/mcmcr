@@ -1,0 +1,8 @@
+pandoc: 3.1.11
+pkgdown: 2.1.1
+pkgdown_sha: ~
+articles: {}
+last_built: 2025-01-04T00:42Z
+urls:
+  reference: https://poissonconsulting.github.io/mcmcr/reference
+  article: https://poissonconsulting.github.io/mcmcr/articles
