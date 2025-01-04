@@ -11,7 +11,7 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/mcmcr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/mcmcr?branch=master)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/mcmcr)](https://cran.r-project.org/package=mcmcr)
-![CRAN Downloads](http://cranlogs.r-pkg.org/badges/mcmcr)
+![CRAN Downloads](https://cranlogs.r-pkg.org/badges/mcmcr)
 <!-- badges: end -->
 
 `mcmcr` is an R package to manipulate Monte Carlo Markov Chain (MCMC)
@@ -134,6 +134,9 @@ all the summary functions in packages such as `coda`.
 
 ``` r
 library(mcmcr)
+#> Registered S3 method overwritten by 'mcmcr':
+#>   method         from 
+#>   as.mcmc.nlists nlist
 
 mcmcr_example
 #> $alpha

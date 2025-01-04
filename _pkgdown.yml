@@ -1,4 +1,11 @@
-destination: docs
+url: https://poissonconsulting.github.io/mcmcr/
+
+template:
+  bootstrap: 5
+  package: poissontemplate
+
+development:
+  mode: auto
 
 reference:
 - title: Bind/Combine
@@ -143,3 +150,4 @@ reference:
   - '`vld_mcmcarray`'
   - '`vld_mcmcr`'
   - '`vld_mcmcrs`'
+
