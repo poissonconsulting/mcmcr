@@ -188,17 +188,17 @@ The website for the release version is at
 ### Development
 
 To install the development version from
-[r-universe](https://poissonconsulting.r-universe.dev/mcmcr).
-
-``` r
-install.packages("mcmcr", repos = c("https://poissonconsulting.r-universe.dev", "https://cloud.r-project.org"))
-```
-
-or from [GitHub](https://github.com/poissonconsulting/mcmcr)
+[GitHub](https://github.com/poissonconsulting/mcmcr)
 
 ``` r
 # install.packages("remotes")
 remotes::install_github("poissonconsulting/mcmcr")
+```
+
+or from [r-universe](https://poissonconsulting.r-universe.dev/mcmcr).
+
+``` r
+install.packages("mcmcr", repos = c("https://poissonconsulting.r-universe.dev", "https://cloud.r-project.org"))
 ```
 
 ## Inspiration
