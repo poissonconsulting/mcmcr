@@ -7,7 +7,7 @@ pars_impl <- function(x, scalar, terms) {
     return(names(x))
   }
   x <- as_term(x)
-  if(isTRUE(terms))
+  if (isTRUE(terms))
     return(pars_terms(x))
 
   pars(as_term_rcrd(x), scalar = scalar)

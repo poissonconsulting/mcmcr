@@ -41,5 +41,3 @@ as_mcmc_list.mcmcr <- function(x, ...) {
   x <- Reduce(bind_parameters, x)
   x
 }
-
-

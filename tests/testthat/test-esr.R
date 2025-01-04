@@ -8,8 +8,8 @@ test_that(".esr_numeric", {
   expect_identical(.esr_numeric(vector, na_rm = TRUE), 1)
   expect_equal(.esr_numeric(1:2, na_rm = FALSE), 1)
   expect_equal(.esr_numeric(1:3, na_rm = FALSE), 1)
-  expect_equal(.esr_numeric(c(10,20,30), na_rm = FALSE), 1)
-  expect_equal(.esr_numeric(1:4, na_rm = FALSE), 2/3)
+  expect_equal(.esr_numeric(c(10, 20, 30), na_rm = FALSE), 1)
+  expect_equal(.esr_numeric(1:4, na_rm = FALSE), 2 / 3)
   expect_equal(.esr_numeric(1:5, na_rm = FALSE), 0.555555555555556)
   expect_equal(.esr_numeric(1:10, na_rm = FALSE), 0.283993115318416)
   set.seed(42)
@@ -85,7 +85,7 @@ test_that("esr.mcmcr NA", {
 
 test_that("esr.mcmcr constant", {
   x <- mcmcr::mcmcr_example
-  x$sigma[,,1] <- 0
+  x$sigma[, , 1] <- 0
 
   expect_identical(esr(x$sigma), 1)
 

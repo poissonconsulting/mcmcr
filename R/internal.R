@@ -40,7 +40,7 @@ set_class <- function(x, class) {
   if (!na_rm && any(is.na(x))) {
     return(NA_real_)
   }
-  if(length(unique(x)) == 1) {
+  if (length(unique(x)) == 1) {
     return(1)
   }
   x <- stats::acf(x, lag.max = length(x) - 1, na.action = na.pass, plot = FALSE)$acf[, , 1]

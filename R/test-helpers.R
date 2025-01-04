@@ -11,5 +11,6 @@ expect_snapshot_data <- function(x, name, digits = 6) {
   testthat::expect_snapshot_file(
     path,
     paste0(name, ".csv"),
-    compare = testthat::compare_file_text)
+    compare = testthat::compare_file_text
+  )
 }

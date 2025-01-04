@@ -44,7 +44,7 @@ bind_chains.mcmc <- function(x, x2, ...) {
 #' @inherit universals::bind_chains
 #' @export
 bind_chains.mcmc.list <- function(x, x2, ...) {
-  if(!vld_s3_class(x, "mcmc") && !vld_s3_class(x, "mcmc.list")) {
+  if (!vld_s3_class(x, "mcmc") && !vld_s3_class(x, "mcmc.list")) {
     chkor_vld(vld_s3_class(x, "mcmc"), vld_s3_class(x, "mcmc.list"))
   }
 

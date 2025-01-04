@@ -27,4 +27,3 @@ nlist::nlists
 
 #' @export
 term::complete_terms
-

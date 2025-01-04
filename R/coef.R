@@ -21,7 +21,7 @@ coef_numeric_impl <- function(object, conf_level, estimate, .simplify) {
   chk_function(estimate)
   chk_flag(simplify)
 
-  if(!simplify) {
+  if (!simplify) {
     lifecycle::deprecate_warn("0.4.1", "coef(simplify = 'must be TRUE')")
   }
 
@@ -35,7 +35,7 @@ coef_numeric_impl <- function(object, conf_level, estimate, .simplify) {
   estimate <- estimate(object)
   if (!identical(length(estimate), 1L)) abort_chk("`estimate` must return a scalar")
 
-  if(simplify) {
+  if (simplify) {
     return(tibble(
       estimate = estimate, lower = quantiles[1], upper = quantiles[2],
       svalue = extras::svalue(object)
@@ -65,13 +65,15 @@ coef.mcarray <- function(object, conf_level = 0.95, estimate = median, simplify 
 coef.mcmc <- function(object, conf_level = 0.95, estimate = median, simplify = TRUE, ...) {
   term <- as_term(object)
   object <- t(object)
-  object <- apply(object, MARGIN = 1, FUN = coef_numeric_impl,
-                  conf_level = conf_level, estimate = estimate,
-                  .simplify = simplify)
+  object <- apply(object,
+    MARGIN = 1, FUN = coef_numeric_impl,
+    conf_level = conf_level, estimate = estimate,
+    .simplify = simplify
+  )
   object <- do.call(rbind, object)
   object$term <- term
   colnames <- c("term", "estimate", "sd", "zscore", "lower", "upper", "pvalue")
-  if(simplify)
+  if (simplify)
     colnames <- c("term", "estimate", "lower", "upper", "svalue")
   object <- object[colnames]
   object <- object[order(object$term), ]

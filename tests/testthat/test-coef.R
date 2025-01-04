@@ -4,7 +4,6 @@ test_that("coef.mcmc", {
   coef_mcmc.list <- coef(as.mcmc.list(mcmcr_example), simplify = FALSE)
   expect_identical(colnames(coef_mcmc.list), c("term", "estimate", "sd", "zscore", "lower", "upper", "pvalue"))
   expect_identical(coef_mcmc.list$term, sort(as_term(c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma"))))
-
 })
 
 test_that("coef.mcmc simplify = TRUE", {
@@ -26,4 +25,3 @@ test_that("coef.mcmc simplify = TRUE", {
   coef_mcarray <- coef(as.mcarray(mcmcr_example$beta))
   expect_identical(coef_mcarray, coef_mcmcarray)
 })
-

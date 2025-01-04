@@ -1,8 +1,10 @@
 test_that("estimates.mcarray", {
   expect_equal(estimates(as.mcarray(mcmcr_example[[1]])), c(3.718025, 4.718025))
 
-  expect_snapshot_data(estimates(as.mcarray(mcmcr_example[[1]]), as_df = TRUE),
-                       "estimates")
+  expect_snapshot_data(
+    estimates(as.mcarray(mcmcr_example[[1]]), as_df = TRUE),
+    "estimates"
+  )
 })
 
 test_that("estimates.mcmcarray", {
@@ -66,13 +68,14 @@ test_that("estimates not numeric", {
 })
 
 test_that("estimates ...", {
-
   mean1 <- function(x, plus_one = FALSE) {
     x <- mean(x)
-    if(isFALSE(plus_one)) return(x)
+    if (isFALSE(plus_one)) return(x)
     x + 1
   }
 
-  expect_equal(estimates(mcmcr::mcmcr_example, fun = mean1, plus_one = TRUE)$alpha,
-               estimates(mcmcr::mcmcr_example, fun = mean1)$alpha + 1)
+  expect_equal(
+    estimates(mcmcr::mcmcr_example, fun = mean1, plus_one = TRUE)$alpha,
+    estimates(mcmcr::mcmcr_example, fun = mean1)$alpha + 1
+  )
 })

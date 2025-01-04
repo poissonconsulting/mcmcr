@@ -110,14 +110,15 @@ rhat.mcmcrs <- function(x, by = "all", as_df = FALSE, na_rm = FALSE,
   chk_unused(...)
 
   rhat <- lapply(x, rhat, by = by, as_df = as_df, na_rm = na_rm)
-  if(!bound) {
+  if (!bound) {
     return(rhat)
   }
   lifecycle::deprecate_soft(
     "0.6.1.9001",
     I("`rhat.mcmcrs(x, bound = TRUE)` returns scalar"),
     I("`rhat(x, bound = TRUE)$bound` for previous behaviour"),
-    details = "`rhat.mcmcrs(bound = TRUE)` now returns named list of scalars.")
+    details = "`rhat.mcmcrs(bound = TRUE)` now returns named list of scalars."
+  )
 
   x <- Reduce(bind_chains, x)
   x <- rhat(x, by = by, as_df = as_df, na_rm = na_rm)
@@ -128,7 +129,7 @@ rhat.mcmcrs <- function(x, by = "all", as_df = FALSE, na_rm = FALSE,
     x
   }
 
-  if(as_df) {
+  if (as_df) {
     by <- rhat[[1]]
     by <- by[colnames(by) != "rhat"]
     rhat <- lapply(rhat, function(x) x["rhat"])

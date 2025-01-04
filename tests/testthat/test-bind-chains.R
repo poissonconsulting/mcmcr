@@ -16,12 +16,13 @@ test_that("bind_chains.mcarray", {
     class = "chk_error"
   )
 
-  expect_error(bind_chains(
-    as.mcarray(mcmcr_example$beta),
-    as.mcarray(mcmcr_example$alpha)
-  ),
-  "^`x` and `x2` must have the same parameter dimensions[.]$",
-  class = "chk_error"
+  expect_error(
+    bind_chains(
+      as.mcarray(mcmcr_example$beta),
+      as.mcarray(mcmcr_example$alpha)
+    ),
+    "^`x` and `x2` must have the same parameter dimensions[.]$",
+    class = "chk_error"
   )
 })
 
@@ -36,20 +37,22 @@ test_that("bind_chains.mcmc", {
     mcmcr_example
   )), "^`x2` must inherit from S3 class 'mcmc'[.]$", class = "chk_error")
 
-  expect_error(bind_chains(
-    as.mcmc(collapse_chains(mcmcr_example$beta)),
-    as.mcmc(collapse_chains(mcmcr_example))
-  ),
-  "^`x` and `x2` must have the same parameters[.]$",
-  class = "chk_error"
+  expect_error(
+    bind_chains(
+      as.mcmc(collapse_chains(mcmcr_example$beta)),
+      as.mcmc(collapse_chains(mcmcr_example))
+    ),
+    "^`x` and `x2` must have the same parameters[.]$",
+    class = "chk_error"
   )
 
 
-  expect_error(bind_chains(
-    as.mcmc(collapse_chains(thin(mcmcr_example, 2L))),
-    as.mcmc(collapse_chains(mcmcr_example))
-  ),
-  "^`x` and `x2` must have the same number of iterations[.]$",
-  class = "chk_error"
+  expect_error(
+    bind_chains(
+      as.mcmc(collapse_chains(thin(mcmcr_example, 2L))),
+      as.mcmc(collapse_chains(mcmcr_example))
+    ),
+    "^`x` and `x2` must have the same number of iterations[.]$",
+    class = "chk_error"
   )
 })

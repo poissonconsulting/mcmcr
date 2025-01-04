@@ -28,8 +28,10 @@ test_that("converged.mcmcr", {
     )
   )
 
-  expect_snapshot_data(converged(mcmcr_example, by = "parameter", as_df = TRUE),
-                       "converged")
+  expect_snapshot_data(
+    converged(mcmcr_example, by = "parameter", as_df = TRUE),
+    "converged"
+  )
 })
 
 test_that("converged.mcmcarray", {

@@ -20,13 +20,15 @@ test_that("ess.mcmcr as df", {
       "tbl", "data.frame"
     ))
   )
-  expect_snapshot_data(ess(mcmcr_example, as_df = TRUE, by = "parameter"),
-                       "ess")
+  expect_snapshot_data(
+    ess(mcmcr_example, as_df = TRUE, by = "parameter"),
+    "ess"
+  )
 })
 
 test_that("ess.mcmcr constant", {
   x <- mcmcr::mcmcr_example
-  x$sigma[,,1] <- 0
+  x$sigma[, , 1] <- 0
 
   expect_identical(ess(x$sigma), 800L)
   expect_identical(ess(x), 9L)

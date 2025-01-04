@@ -41,8 +41,7 @@ as.mcmcrs.list <- function(x, ...) {
 
   if (is.null(names(x))) {
     names(x) <- paste0("mcmcr", 1:length(x))
-  } else
-  if (anyDuplicated(names(x))) abort_chk("mcmcr objects must have unique names")
+  } else if (anyDuplicated(names(x))) abort_chk("mcmcr objects must have unique names")
   set_class(x, "mcmcrs")
 }
 
