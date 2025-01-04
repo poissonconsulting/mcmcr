@@ -2,7 +2,8 @@
 % Please edit documentation in R/check.R
 \name{check_mcmcarray}
 \alias{check_mcmcarray}
-\title{\lifecycle{soft-deprecated} Check mcmcarray}
+\title{Check mcmcarray
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}}
 \usage{
 check_mcmcarray(x, x_name = substitute(x), error = TRUE)
 }
@@ -17,7 +18,8 @@ check_mcmcarray(x, x_name = substitute(x), error = TRUE)
 An invisible copy of x (it if doesn't throw an error).
 }
 \description{
-\lifecycle{soft-deprecated} Check mcmcarray
+Check mcmcarray
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 }
 \examples{
 check_mcmcarray(mcmcr::mcmcr_example$beta)

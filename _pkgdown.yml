@@ -62,6 +62,7 @@ reference:
   desc: Coerce, convert or create  object
   contents:
   - '`as.mcmc`'
+  - '`as.mcmc.nlists`'
   - '`as.mcmc.mcarray`'
   - '`as.mcmc.mcmc`'
   - '`as.mcmc.mcmcarray`'
@@ -116,11 +117,13 @@ reference:
   desc: Query object's dimensions/parameters
   contents:
   - '`nchains`'
+  - '`nchains.matrix`'
   - '`nchains.mcarray`'
   - '`nchains.mcmcarray`'
   - '`nchains.mcmcr`'
   - '`nchains.mcmcrs`'
   - '`niters`'
+  - '`niters.matrix`'
   - '`niters.mcarray`'
   - '`niters.mcmcarray`'
   - '`niters.mcmcr`'

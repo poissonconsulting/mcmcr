@@ -1,4 +1,5 @@
-#' \lifecycle{soft-deprecated} Check mcmcarray
+#' Check mcmcarray
+#' `r lifecycle::badge('deprecated')`
 #'
 #' @inheritParams params
 #' @param x The object to check.
@@ -20,7 +21,8 @@ check_mcmcarray <- function(x, x_name = substitute(x), error = TRUE) {
   invisible(x)
 }
 
-#' \lifecycle{soft-deprecated} Check mcmcr
+#' Check mcmcr
+#' `r lifecycle::badge('deprecated')`
 #'
 #' @inheritParams params
 #' @param x The object to check.

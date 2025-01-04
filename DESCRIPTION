@@ -16,7 +16,8 @@ Description: Functions and classes to store, manipulate and summarise
     Monte Carlo Markov Chain (MCMC) samples. For more information see
     Brooks et al. (2011) <isbn:978-1-4200-7941-8>.
 License: MIT + file LICENSE
-URL: https://github.com/poissonconsulting/mcmcr
+URL: https://github.com/poissonconsulting/mcmr,
+    https://poissonconsulting.github.io/mcmcr/
 BugReports: https://github.com/poissonconsulting/mcmcr/issues
 Depends: 
     R (>= 4.3)
@@ -39,7 +40,7 @@ Suggests:
     graphics,
     readr,
     rlang,
-    testthat,
+    testthat (>= 3.0.0),
     tibble,
     withr
 RdMacros: 
