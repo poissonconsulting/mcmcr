@@ -1,3 +1,6 @@
+#' @export
+coda::as.mcmc.list
+
 #' @method as.mcmc.list mcarray
 #' @export
 as.mcmc.list.mcarray <- function(x, ...) as.mcmc.list(as.mcmcarray(x))

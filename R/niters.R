@@ -1,6 +1,8 @@
 #' @export
 universals::niters
 
+#' @inherit universals::niters
+#' @export
 niters.matrix <- function(x, ...) ncol(x)
 
 #' @inherit universals::niters

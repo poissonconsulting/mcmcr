@@ -21,7 +21,7 @@ is.mcmcarray(mcmcr_example$beta)
 \seealso{
 Other is: 
 \code{\link{is.mcarray}()},
-\code{\link{is.mcmcrs}()},
-\code{\link{is.mcmcr}()}
+\code{\link{is.mcmcr}()},
+\code{\link{is.mcmcrs}()}
 }
 \concept{is}

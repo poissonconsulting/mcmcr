@@ -42,12 +42,12 @@ Statistical Science 7(4): 457–472.
 }
 \seealso{
 Other convergence: 
+\code{\link[universals]{converged}()},
 \code{\link[universals]{converged_pars}()},
 \code{\link[universals]{converged_terms}()},
-\code{\link[universals]{converged}()},
+\code{\link[universals]{esr}()},
 \code{\link[universals]{esr_pars}()},
 \code{\link[universals]{esr_terms}()},
-\code{\link[universals]{esr}()},
 \code{\link[universals]{rhat_pars}()},
 \code{\link[universals]{rhat_terms}()}
 }

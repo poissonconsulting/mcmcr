@@ -1,6 +1,8 @@
 #' @export
 universals::nchains
 
+#' @inherit universals::nchains
+#' @export
 nchains.matrix <- function(x, ...) nrow(x)
 
 #' @inherit universals::nchains

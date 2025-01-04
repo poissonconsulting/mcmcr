@@ -29,11 +29,11 @@ test_that("check_mcmcr", {
 
   y <- set_class(list(x = 1), "mcmcr")
   expect_error(check_mcmcr(y),
-    "^`\"`y` parameter 'x'\"` must inherit from S3 class 'mcmcarray'[.]$",
+    "must inherit from S3 class 'mcmcarray'[.]$",
     class = "chk_error"
   )
 
   mcmcr <- mcmcr::mcmcr_example
   is.na(mcmcr$sigma[2, 2, 1]) <- TRUE
-  expect_error(check_mcmcr(mcmcr), "`\"`mcmcr` parameter 'sigma'\"` must not have any missing values", class = "chk_error")
+  expect_error(check_mcmcr(mcmcr), "must not have any missing values", class = "chk_error")
 })

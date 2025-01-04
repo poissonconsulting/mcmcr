@@ -26,7 +26,7 @@ bind_parameters(
 \code{\link[universals:bind_chains]{universals::bind_chains()}}
 
 Other bind: 
-\code{\link{bind_dimensions_n}()},
-\code{\link{bind_dimensions}()}
+\code{\link{bind_dimensions}()},
+\code{\link{bind_dimensions_n}()}
 }
 \concept{bind}

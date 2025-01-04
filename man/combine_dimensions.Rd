@@ -26,7 +26,7 @@ combine_dimensions(mcmcr_example$alpha)
 }
 \seealso{
 Other combine: 
-\code{\link{combine_samples_n}()},
-\code{\link{combine_samples}()}
+\code{\link{combine_samples}()},
+\code{\link{combine_samples_n}()}
 }
 \concept{combine}

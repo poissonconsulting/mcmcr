@@ -21,7 +21,7 @@ is.mcarray(mcmcr_example)
 \seealso{
 Other is: 
 \code{\link{is.mcmcarray}()},
-\code{\link{is.mcmcrs}()},
-\code{\link{is.mcmcr}()}
+\code{\link{is.mcmcr}()},
+\code{\link{is.mcmcrs}()}
 }
 \concept{is}

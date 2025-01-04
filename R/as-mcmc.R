@@ -1,6 +1,8 @@
 #' @export
 coda::as.mcmc
 
+#' @inherit universals::nchains
+#' @export
 as.mcmc.nlists <- function(x, ...) {
   as.mcmc(as.mcmcr(x))
 }
