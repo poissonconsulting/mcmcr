@@ -1,6 +1,6 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
-# mcmcr 0.6.1.9900
+# mcmcr 0.6.2
 
 - Depends on R \>= 4.0.
 - When `bound = TRUE` `rhat()` now also returns rhat values for separate analyses.
