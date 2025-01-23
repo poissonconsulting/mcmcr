@@ -1,10 +1,11 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
-# mcmcr 0.6.1.9003
+# mcmcr 0.6.1.9900
 
 - Depends on R \>= 4.0.
 - When `bound = TRUE` `rhat()` now also returns rhat values for separate analyses.
 - When `bound = TRUE` and `as_df = TRUE` `rhat()` now returns a data.frame with the rhat values for the separate and combined analyses.
+
 
 # mcmcr 0.6.1
 
