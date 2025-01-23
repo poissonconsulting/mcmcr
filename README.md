@@ -10,8 +10,6 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 [![R-CMD-check](https://github.com/poissonconsulting/mcmcr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/poissonconsulting/mcmcr/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/mcmcr/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/mcmcr)
-[![License:
-MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/license/mit)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/mcmcr)](https://cran.r-project.org/package=mcmcr)
 ![CRAN Downloads](https://cranlogs.r-pkg.org/badges/mcmcr)
