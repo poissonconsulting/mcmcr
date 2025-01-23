@@ -13,7 +13,7 @@ Functions and classes to store, manipulate and summarise Monte Carlo Markov Chai
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/poissonconsulting/mcmr}
+  \item \url{https://github.com/poissonconsulting/mcmcr}
   \item \url{https://poissonconsulting.github.io/mcmcr/}
   \item Report bugs at \url{https://github.com/poissonconsulting/mcmcr/issues}
 }
