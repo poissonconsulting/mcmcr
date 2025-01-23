@@ -1,32 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
-# mcmcr 0.6.1.9002
+# mcmcr 0.6.1.9003
 
-- Provide soft deprecated message on breaking change.
-
-# mcmcr 0.6.1.9001
-
+- Depends on R \>= 4.0.
 - When `bound = TRUE` `rhat()` now also returns rhat values for separate analyses.
-
 - When `bound = TRUE` and `as_df = TRUE` `rhat()` now returns a data.frame with the rhat values for the separate and combined analyses.
-
-- Merge pull request #52 from poissonconsulting/description-contr.
-
-add contributors
-
-- Merge pull request #50 from poissonconsulting/rcmd-check.
-
-update rcmd check and documentation
-
-- Merge pull request #49 from poissonconsulting/changes_to_actions.
-
-Made changes to Actions using UsePois and Files were created
-
-
-# mcmcr 0.6.1.9000
-
-- Same as previous version.
-
 
 # mcmcr 0.6.1
 
