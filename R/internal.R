@@ -26,7 +26,6 @@ set_class <- function(x, class) {
   x
 }
 
-#' @export
 .esr <- function(x, na_rm) {
   stopifnot(is.matrix(x))
   x <- apply(x, 1L, .esr_numeric, na_rm = na_rm)
@@ -55,7 +54,6 @@ set_class <- function(x, class) {
   1 / (1 + 2 * x)
 }
 
-#' @export
 .estimates <- function(object, fun = median, ...) {
   stopifnot(is.matrix(object))
   nrow <- nrow(object)
@@ -65,7 +63,6 @@ set_class <- function(x, class) {
   object
 }
 
-#' @export
 .rhat <- function(x, na_rm) {
   stopifnot(is.matrix(x))
 
