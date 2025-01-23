@@ -1,6 +1,6 @@
 save_csv <- function(x) {
   path <- tempfile(fileext = ".csv")
-  readr::write_csv(x, path)
+  utils::write.csv(x, path, quote = FALSE, row.names = FALSE)
   path
 }
 

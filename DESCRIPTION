@@ -32,15 +32,14 @@ Imports:
     purrr,
     stats,
     term,
+    tibble,
     universals,
     utils
 Suggests:
     covr,
     graphics,
-    readr,
     rlang,
     testthat (>= 3.0.0),
-    tibble,
     withr
 RdMacros: 
     lifecycle
