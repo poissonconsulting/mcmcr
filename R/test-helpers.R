@@ -6,7 +6,10 @@ save_csv <- function(x) {
 
 expect_snapshot_data <- function(x, name, digits = 6) {
   fun <- function(x) signif(x, digits = digits)
-  x <- dplyr::mutate(x, dplyr::across(dplyr::where(is.numeric), fun))
+  x <- x |>
+    as.list() |>
+    purrr::map_if(.p = is.numeric, .f = signif, digits = digits) |>
+    as.data.frame()
   path <- save_csv(x)
   testthat::expect_snapshot_file(
     path,
