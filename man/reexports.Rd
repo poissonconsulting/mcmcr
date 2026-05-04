@@ -64,7 +64,7 @@ below to see their documentation.
 
   \item{stats}{\code{\link[stats]{median}}}
 
-  \item{term}{\code{\link[term]{as_term}}, \code{\link[term:as_term]{as.term}}, \code{\link[term]{complete_terms}}, \code{\link[term:deprecated]{parameters}}, \code{\link[term:deprecated]{parameters<-}}}
+  \item{term}{\code{\link[term:as_term]{as.term}}, \code{\link[term]{as_term}}, \code{\link[term]{complete_terms}}, \code{\link[term:deprecated]{parameters}}, \code{\link[term:deprecated]{parameters<-}}}
 
   \item{universals}{\code{\link[universals]{bind_chains}}, \code{\link[universals]{bind_iterations}}, \code{\link[universals]{collapse_chains}}, \code{\link[universals]{converged}}, \code{\link[universals]{dims}}, \code{\link[universals]{esr}}, \code{\link[universals]{estimates}}, \code{\link[universals]{nchains}}, \code{\link[universals]{niters}}, \code{\link[universals]{npars}}, \code{\link[universals]{npdims}}, \code{\link[universals]{nterms}}, \code{\link[universals]{pars}}, \code{\link[universals:set_pars]{pars<-}}, \code{\link[universals]{pdims}}, \code{\link[universals]{rhat}}, \code{\link[universals]{set_pars}}, \code{\link[universals]{split_chains}}}
 }}
