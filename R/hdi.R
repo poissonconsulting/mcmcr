@@ -6,6 +6,7 @@
 #' @param x A numeric vector of MCMC samples.
 #' @param width A number between 0 and 1 (exclusive) specifying the width of the HDI.
 #' @param warn A flag indicating whether to return warnings.
+#' @param na_rm A flag indicating whether to remove missing values.
 #' @return A data frame of the `lower` and `upper` limits for the credible interval.
 #' Note that the interval is not guaranteed to be one-sided or two-sided.
 #' @export

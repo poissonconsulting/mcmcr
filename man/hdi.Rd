@@ -9,6 +9,8 @@
 \item{width}{A number between 0 and 1 (exclusive) specifying the width of the HDI.}
 
 \item{warn}{A flag indicating whether to return warnings.}
+
+\item{na_rm}{A flag indicating whether to remove missing values.}
 }
 \value{
 A data frame of the \code{lower} and \code{upper} limits for the credible interval.
