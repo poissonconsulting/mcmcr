@@ -42,6 +42,7 @@ reference:
   - '`estimates.mcmc.list`'
   - '`estimates.mcmcarray`'
   - '`estimates.mcmcr`'
+  - '`hdi`'
   - '`rhat`'
   - '`rhat.mcarray`'
   - '`rhat.mcmc`'
