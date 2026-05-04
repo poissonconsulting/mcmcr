@@ -3,7 +3,7 @@
 #' Gets coefficients for all the terms in an MCMC object.
 #'
 #' @inheritParams params
-#' @return An data frame of the coefficients with the columns indicating the
+#' @return A data frame of the coefficients with the columns indicating the
 #' `term`, `estimate`,
 #' `lower` and `upper` credible intervals and `svalue`
 #' @export

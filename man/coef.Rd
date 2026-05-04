@@ -19,7 +19,7 @@
 \item{...}{Unused.}
 }
 \value{
-An data frame of the coefficients with the columns indicating the
+A data frame of the coefficients with the columns indicating the
 \code{term}, \code{estimate},
 \code{lower} and \code{upper} credible intervals and \code{svalue}
 }
