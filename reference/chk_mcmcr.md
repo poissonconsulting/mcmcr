@@ -59,6 +59,7 @@ To just check class use
 ## Examples
 
 ``` r
+
 # chk_mcmcarray
 try(chk_mcmcarray(1))
 #> Error in chk_mcmcarray(1) : `1` must inherit from S3 class 'mcmcarray'.

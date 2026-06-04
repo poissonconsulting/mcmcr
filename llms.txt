@@ -111,6 +111,7 @@ all the summary functions in packages such as `coda`.
 ## Demonstration
 
 ``` r
+
 library(mcmcr)
 #> Registered S3 method overwritten by 'mcmcr':
 #>   method         from 
@@ -170,6 +171,7 @@ To install the release version from
 [CRAN](https://CRAN.R-project.org/package=mcmcr).
 
 ``` r
+
 install.packages("mcmcr")
 ```
 
@@ -182,6 +184,7 @@ To install the development version from
 [GitHub](https://github.com/poissonconsulting/mcmcr)
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("poissonconsulting/mcmcr")
 ```
@@ -189,6 +192,7 @@ remotes::install_github("poissonconsulting/mcmcr")
 or from [r-universe](https://poissonconsulting.r-universe.dev/mcmcr).
 
 ``` r
+
 install.packages("mcmcr", repos = c("https://poissonconsulting.r-universe.dev", "https://cloud.r-project.org"))
 ```
 
