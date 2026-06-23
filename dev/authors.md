@@ -26,12 +26,12 @@ Source:
 [`DESCRIPTION`](https://github.com/poissonconsulting/mcmcr/blob/main/DESCRIPTION)
 
 Thorley J (2026). *mcmcr: Manipulate MCMC Samples*. R package version
-0.6.2.9000, <https://github.com/poissonconsulting/mcmcr>.
+0.6.2.9001, <https://github.com/poissonconsulting/mcmcr>.
 
     @Manual{,
       title = {mcmcr: Manipulate MCMC Samples},
       author = {Joe Thorley},
       year = {2026},
-      note = {R package version 0.6.2.9000},
+      note = {R package version 0.6.2.9001},
       url = {https://github.com/poissonconsulting/mcmcr},
     }

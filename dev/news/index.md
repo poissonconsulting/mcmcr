@@ -1,5 +1,9 @@
 # Changelog
 
+## mcmcr 0.6.2.9001
+
+- Same as previous version.
+
 ## mcmcr 0.6.2.9000
 
 - Add fledge-bump workflow
