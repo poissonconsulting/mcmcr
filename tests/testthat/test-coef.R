@@ -28,7 +28,7 @@ test_that("coef.mcmc simplify = TRUE", {
 
 test_that("coef directional_information = TRUE", {
   coef_di <- coef(mcmcr_example, directional_information = TRUE)
-  expect_identical(colnames(coef_di), c("term", "estimate", "lower", "upper", "directional_information"))
+  expect_identical(colnames(coef_di), c("term", "estimate", "lower", "upper", "svalue"))
 
   coef_svalue <- coef(mcmcr_example, directional_information = FALSE)
   expect_identical(
@@ -38,7 +38,7 @@ test_that("coef directional_information = TRUE", {
 
   samples <- as.vector(collapse_chains(mcmcr_example)$sigma)
   expect_identical(
-    coef_di$directional_information[coef_di$term == "sigma"],
+    coef_di$svalue[coef_di$term == "sigma"],
     extras::directional_information(samples)
   )
   expect_identical(
@@ -50,8 +50,8 @@ test_that("coef directional_information = TRUE", {
 test_that("coef.numeric directional_information = TRUE", {
   x <- as.numeric(-10:100)
   coef_di <- coef(x, directional_information = TRUE)
-  expect_identical(colnames(coef_di), c("estimate", "lower", "upper", "directional_information"))
-  expect_identical(coef_di$directional_information, extras::directional_information(x))
+  expect_identical(colnames(coef_di), c("estimate", "lower", "upper", "svalue"))
+  expect_identical(coef_di$svalue, extras::directional_information(x))
 })
 
 test_that("coef soft-deprecates unset directional_information", {

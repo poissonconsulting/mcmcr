@@ -6,7 +6,6 @@
 #' @return An data frame of the coefficients with the columns indicating the
 #' `term`, `estimate`,
 #' `lower` and `upper` credible intervals and `svalue`
-#' (or `directional_information` if `directional_information = TRUE`)
 #' @export
 #' @seealso [stats::coef]
 #' @examples
@@ -53,15 +52,14 @@ coef_numeric_impl <- function(object, conf_level, estimate, .simplify,
   if (!identical(length(estimate), 1L)) abort_chk("`estimate` must return a scalar")
 
   if (simplify) {
-    if (directional_information) {
-      return(tibble(
-        estimate = estimate, lower = quantiles[1], upper = quantiles[2],
-        directional_information = extras::directional_information(object)
-      ))
+    svalue <- if (directional_information) {
+      extras::directional_information(object)
+    } else {
+      extras::svalue(object)
     }
     return(tibble(
       estimate = estimate, lower = quantiles[1], upper = quantiles[2],
-      svalue = extras::svalue(object)
+      svalue = svalue
     ))
   }
   sd <- stats::sd(object)
@@ -116,10 +114,7 @@ coef.mcmc <- function(object, conf_level = 0.95, estimate = median, simplify = T
   object$term <- term
   colnames <- c("term", "estimate", "sd", "zscore", "lower", "upper", "pvalue")
   if (simplify) {
-    colnames <- c(
-      "term", "estimate", "lower", "upper",
-      if (directional_information) "directional_information" else "svalue"
-    )
+    colnames <- c("term", "estimate", "lower", "upper", "svalue")
   }
   object <- object[colnames]
   object <- object[order(object$term), ]

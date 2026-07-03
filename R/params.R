@@ -28,8 +28,8 @@
 #' @param estimate The function to use to calculate the estimate.
 #' @param simplify A flag specifying whether to return just the estimate, lower, upper and svalue.
 #' @param directional_information A flag specifying whether the svalue column
-#' should be replaced by a directional_information column calculated using
-#' [extras::directional_information()] instead of [extras::svalue()].
+#' should be calculated using [extras::directional_information()] instead of
+#' [extras::svalue()].
 #' The default value will change from `FALSE` to `TRUE` in a future release;
 #' set the argument explicitly to avoid the deprecation warning.
 #' @param perm A integer vector of the new order for the parameter dimensions.
