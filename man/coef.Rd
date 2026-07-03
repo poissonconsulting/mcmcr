@@ -5,7 +5,14 @@
 \alias{coef.mcmc}
 \title{Term coefficients}
 \usage{
-\method{coef}{mcmc}(object, conf_level = 0.95, estimate = median, simplify = TRUE, ...)
+\method{coef}{mcmc}(
+  object,
+  conf_level = 0.95,
+  estimate = median,
+  simplify = TRUE,
+  directional_information = FALSE,
+  ...
+)
 }
 \arguments{
 \item{object}{The MCMC object to get the coefficients for}
@@ -16,12 +23,19 @@
 
 \item{simplify}{A flag specifying whether to return just the estimate, lower, upper and svalue.}
 
+\item{directional_information}{A flag specifying whether the svalue column
+should be replaced by a directional_information column calculated using
+\code{\link[extras:directional_information]{extras::directional_information()}} instead of \code{\link[extras:svalue]{extras::svalue()}}.
+The default value will change from \code{FALSE} to \code{TRUE} in a future release;
+set the argument explicitly to avoid the deprecation warning.}
+
 \item{...}{Unused.}
 }
 \value{
 An data frame of the coefficients with the columns indicating the
 \code{term}, \code{estimate},
 \code{lower} and \code{upper} credible intervals and \code{svalue}
+(or \code{directional_information} if \code{directional_information = TRUE})
 }
 \description{
 Gets coefficients for all the terms in an MCMC object.
@@ -32,7 +46,8 @@ Gets coefficients for all the terms in an MCMC object.
 
 }}
 \examples{
-coef(mcmcr_example)
+coef(mcmcr_example, directional_information = FALSE)
+coef(mcmcr_example, directional_information = TRUE)
 }
 \seealso{
 \link[stats:coef]{stats::coef}

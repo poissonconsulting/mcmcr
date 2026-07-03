@@ -25,7 +25,7 @@ Imports:
     abind,
     chk,
     coda,
-    extras,
+    extras (>= 0.9.0.9000),
     generics,
     lifecycle,
     nlist,
@@ -41,12 +41,14 @@ Suggests:
     rlang,
     testthat (>= 3.0.0),
     withr
-RdMacros: 
+RdMacros:
     lifecycle
+Remotes:
+    poissonconsulting/extras
 Config/Needs/website: poissonconsulting/poissontemplate
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2.9000
+Config/roxygen2/version: 8.0.0.9000
