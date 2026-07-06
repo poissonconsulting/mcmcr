@@ -6,7 +6,14 @@ Gets coefficients for all the terms in an MCMC object.
 
 ``` r
 # S3 method for class 'mcmc'
-coef(object, conf_level = 0.95, estimate = median, simplify = TRUE, ...)
+coef(
+  object,
+  conf_level = 0.95,
+  estimate = median,
+  simplify = TRUE,
+  directional_information = FALSE,
+  ...
+)
 ```
 
 ## Arguments
@@ -28,6 +35,15 @@ coef(object, conf_level = 0.95, estimate = median, simplify = TRUE, ...)
   A flag specifying whether to return just the estimate, lower, upper
   and svalue.
 
+- directional_information:
+
+  A flag specifying whether the svalue column should be calculated using
+  [`extras::directional_information()`](https://poissonconsulting.github.io/extras/reference/directional-information.html)
+  instead of
+  [`extras::svalue()`](https://poissonconsulting.github.io/extras/reference/svalue.html).
+  The default value will change from `FALSE` to `TRUE` in a future
+  release; set the argument explicitly to avoid the deprecation warning.
+
 - ...:
 
   Unused.
@@ -48,15 +64,26 @@ An data frame of the coefficients with the columns indicating the
 ## Examples
 
 ``` r
-coef(mcmcr_example)
+coef(mcmcr_example, directional_information = FALSE)
 #> # A tibble: 7 × 5
 #>   term      estimate lower upper svalue
 #>   <term>       <dbl> <dbl> <dbl>  <dbl>
 #> 1 alpha[1]     3.72  2.21   5.23   9.65
 #> 2 alpha[2]     4.72  3.21   6.23   9.65
-#> 3 beta[1,1]    0.972 0.251  1.71   5.40
-#> 4 beta[2,1]    1.97  1.25   2.71   7.32
-#> 5 beta[1,2]    1.97  1.25   2.71   7.32
+#> 3 beta[1,1]    0.972 0.251  1.71   5.47
+#> 4 beta[2,1]    1.97  1.25   2.71   7.64
+#> 5 beta[1,2]    1.97  1.25   2.71   7.64
 #> 6 beta[2,2]    2.97  2.25   3.71   9.65
 #> 7 sigma        0.791 0.425  2.56   9.65
+coef(mcmcr_example, directional_information = TRUE)
+#> # A tibble: 7 × 5
+#>   term      estimate lower upper svalue
+#>   <term>       <dbl> <dbl> <dbl>  <dbl>
+#> 1 alpha[1]     3.72  2.21   5.23 800   
+#> 2 alpha[2]     4.72  3.21   6.23 800   
+#> 3 beta[1,1]    0.972 0.251  1.71   6.46
+#> 4 beta[2,1]    1.97  1.25   2.71   8.64
+#> 5 beta[1,2]    1.97  1.25   2.71   8.64
+#> 6 beta[2,2]    2.97  2.25   3.71 800   
+#> 7 sigma        0.791 0.425  2.56 800   
 ```

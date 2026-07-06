@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mcmcr</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.6.2.9001</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.6.2.9002</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -135,6 +135,14 @@ data frame versus a named list.</p></dd>
 
 <dt id="arg-simplify">simplify<a class="anchor" aria-label="anchor" href="#arg-simplify"></a></dt>
 <dd><p>A flag specifying whether to return just the estimate, lower, upper and svalue.</p></dd>
+
+
+<dt id="arg-directional-information">directional_information<a class="anchor" aria-label="anchor" href="#arg-directional-information"></a></dt>
+<dd><p>A flag specifying whether the svalue column
+should be calculated using <code><a href="https://poissonconsulting.github.io/extras/reference/directional-information.html" class="external-link">extras::directional_information()</a></code> instead of
+<code><a href="https://poissonconsulting.github.io/extras/reference/svalue.html" class="external-link">extras::svalue()</a></code>.
+The default value will change from <code>FALSE</code> to <code>TRUE</code> in a future release;
+set the argument explicitly to avoid the deprecation warning.</p></dd>
 
 
 <dt id="arg-perm">perm<a class="anchor" aria-label="anchor" href="#arg-perm"></a></dt>
