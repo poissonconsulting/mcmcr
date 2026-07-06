@@ -54,6 +54,12 @@ data frame versus a named list.}
 
 \item{simplify}{A flag specifying whether to return just the estimate, lower, upper and svalue.}
 
+\item{directional_information}{A flag specifying whether the svalue column
+should be calculated using \code{\link[extras:directional_information]{extras::directional_information()}} instead of
+\code{\link[extras:svalue]{extras::svalue()}}.
+The default value will change from \code{FALSE} to \code{TRUE} in a future release;
+set the argument explicitly to avoid the deprecation warning.}
+
 \item{perm}{A integer vector of the new order for the parameter dimensions.}
 
 \item{pars}{A character vector (or NULL) of the pars to zero.}

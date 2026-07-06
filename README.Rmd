@@ -88,7 +88,7 @@ library(mcmcr)
 
 mcmcr_example
 
-coef(mcmcr_example, simplify = TRUE)
+coef(mcmcr_example, simplify = TRUE, directional_information = FALSE)
 rhat(mcmcr_example, by = "term")
 plot(mcmcr_example[["alpha"]])
 ```

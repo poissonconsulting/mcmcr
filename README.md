@@ -144,15 +144,17 @@ mcmcr_example
 #> nchains:  2 
 #> niters:  400
 
-coef(mcmcr_example, simplify = TRUE)
-#>        term  estimate     lower    upper   svalue
-#> 1  alpha[1] 3.7180250 2.2120540 5.232403 9.645658
-#> 2  alpha[2] 4.7180250 3.2120540 6.232403 9.645658
-#> 3 beta[1,1] 0.9716535 0.2514796 1.713996 5.397731
-#> 4 beta[2,1] 1.9716535 1.2514796 2.713996 7.323730
-#> 5 beta[1,2] 1.9716535 1.2514796 2.713996 7.323730
-#> 6 beta[2,2] 2.9716535 2.2514796 3.713996 9.645658
-#> 7     sigma 0.7911975 0.4249618 2.559520 9.645658
+coef(mcmcr_example, simplify = TRUE, directional_information = FALSE)
+#> # A tibble: 7 × 5
+#>   term      estimate lower upper svalue
+#>   <term>       <dbl> <dbl> <dbl>  <dbl>
+#> 1 alpha[1]     3.72  2.21   5.23   9.65
+#> 2 alpha[2]     4.72  3.21   6.23   9.65
+#> 3 beta[1,1]    0.972 0.251  1.71   5.47
+#> 4 beta[2,1]    1.97  1.25   2.71   7.64
+#> 5 beta[1,2]    1.97  1.25   2.71   7.64
+#> 6 beta[2,2]    2.97  2.25   3.71   9.65
+#> 7 sigma        0.791 0.425  2.56   9.65
 rhat(mcmcr_example, by = "term")
 #> $alpha
 #> [1] 2.002 2.002
@@ -167,7 +169,7 @@ rhat(mcmcr_example, by = "term")
 plot(mcmcr_example[["alpha"]])
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-1.png" alt="" width="100%" />
 
 ## Installation
 
