@@ -17,7 +17,9 @@ bind_dimensions_n <- function(...) {
 bind_dimensions_n.mcmcarray <- function(...) {
   x <- list(...)
 
-  if (!length(x)) abort_chk("one or more objects must be passed to bind_dimensions_n")
+  if (!length(x)) {
+    abort_chk("one or more objects must be passed to bind_dimensions_n")
+  }
 
   if (length(x) == 1) {
     return(x[[1]])
@@ -40,7 +42,9 @@ bind_dimensions_n.mcmcarray <- function(...) {
 bind_dimensions_n.mcmcr <- function(...) {
   x <- list(...)
 
-  if (!length(x)) abort_chk("one or more objects must be passed to bind_dimensions_n")
+  if (!length(x)) {
+    abort_chk("one or more objects must be passed to bind_dimensions_n")
+  }
 
   if (length(x) == 1) {
     return(x[[1]])

@@ -5,7 +5,9 @@ test_that("vld_mcmcarray", {
 
   x <- array(TRUE)
   class(x) <- "mcmcarray"
-  expect_error(chk_mcmcarray(x), "^`x` must be numeric[.]$",
+  expect_error(
+    chk_mcmcarray(x),
+    "^`x` must be numeric[.]$",
     class = "chk_error"
   )
 

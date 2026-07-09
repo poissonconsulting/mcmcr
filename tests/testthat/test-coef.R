@@ -2,33 +2,84 @@ test_that("coef.mcmc", {
   rlang::local_options(lifecycle_verbosity = "quiet")
 
   coef_mcmc.list <- coef(as.mcmc.list(mcmcr_example), simplify = FALSE)
-  expect_identical(colnames(coef_mcmc.list), c("term", "estimate", "sd", "zscore", "lower", "upper", "pvalue"))
-  expect_identical(coef_mcmc.list$term, sort(as_term(c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma"))))
+  expect_identical(
+    colnames(coef_mcmc.list),
+    c("term", "estimate", "sd", "zscore", "lower", "upper", "pvalue")
+  )
+  expect_identical(
+    coef_mcmc.list$term,
+    sort(as_term(c(
+      "alpha[1]",
+      "alpha[2]",
+      "beta[1,1]",
+      "beta[2,1]",
+      "beta[1,2]",
+      "beta[2,2]",
+      "sigma"
+    )))
+  )
 })
 
 test_that("coef.mcmc simplify = TRUE", {
-  coef_mcmc.list <- coef(as.mcmc.list(mcmcr_example), directional_information = FALSE)
-  expect_identical(colnames(coef_mcmc.list), c("term", "estimate", "lower", "upper", "svalue"))
-  expect_identical(coef_mcmc.list$term, sort(as_term(c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma"))))
+  coef_mcmc.list <- coef(
+    as.mcmc.list(mcmcr_example),
+    directional_information = FALSE
+  )
+  expect_identical(
+    colnames(coef_mcmc.list),
+    c("term", "estimate", "lower", "upper", "svalue")
+  )
+  expect_identical(
+    coef_mcmc.list$term,
+    sort(as_term(c(
+      "alpha[1]",
+      "alpha[2]",
+      "beta[1,1]",
+      "beta[2,1]",
+      "beta[1,2]",
+      "beta[2,2]",
+      "sigma"
+    )))
+  )
 
   coef_mcmcr <- coef(mcmcr_example, directional_information = FALSE)
   expect_identical(coef_mcmcr, coef_mcmc.list)
 
   coef_mcmcr2 <- coef(mcmcr_example2, directional_information = FALSE)
-  expect_identical(colnames(coef_mcmcr2), c("term", "estimate", "lower", "upper", "svalue"))
+  expect_identical(
+    colnames(coef_mcmcr2),
+    c("term", "estimate", "lower", "upper", "svalue")
+  )
   expect_identical(nrow(coef_mcmcr2), 11L)
 
   coef_mcmcarray <- coef(mcmcr_example$beta, directional_information = FALSE)
-  expect_identical(colnames(coef_mcmc.list), c("term", "estimate", "lower", "upper", "svalue"))
-  expect_identical(coef_mcmcarray$term, sort(as_term(c("parameter[1,1]", "parameter[2,1]", "parameter[1,2]", "parameter[2,2]"))))
+  expect_identical(
+    colnames(coef_mcmc.list),
+    c("term", "estimate", "lower", "upper", "svalue")
+  )
+  expect_identical(
+    coef_mcmcarray$term,
+    sort(as_term(c(
+      "parameter[1,1]",
+      "parameter[2,1]",
+      "parameter[1,2]",
+      "parameter[2,2]"
+    )))
+  )
 
-  coef_mcarray <- coef(as.mcarray(mcmcr_example$beta), directional_information = FALSE)
+  coef_mcarray <- coef(
+    as.mcarray(mcmcr_example$beta),
+    directional_information = FALSE
+  )
   expect_identical(coef_mcarray, coef_mcmcarray)
 })
 
 test_that("coef directional_information = TRUE", {
   coef_di <- coef(mcmcr_example, directional_information = TRUE)
-  expect_identical(colnames(coef_di), c("term", "estimate", "lower", "upper", "svalue"))
+  expect_identical(
+    colnames(coef_di),
+    c("term", "estimate", "lower", "upper", "svalue")
+  )
 
   coef_svalue <- coef(mcmcr_example, directional_information = FALSE)
   expect_identical(
@@ -88,13 +139,22 @@ test_that("coef directional_information values", {
   expect_identical(coef(-x, directional_information = TRUE)$svalue, 100)
 
   # equal numbers of values on each side: no directional information
-  expect_identical(coef(c(-2, -1, 1, 2), directional_information = TRUE)$svalue, 0)
+  expect_identical(
+    coef(c(-2, -1, 1, 2), directional_information = TRUE)$svalue,
+    0
+  )
 
   # 3:1 split: log2(3/4) - log2(1/4) = log2(3) bits
-  expect_equal(coef(c(-1, 1, 2, 3), directional_information = TRUE)$svalue, log2(3))
+  expect_equal(
+    coef(c(-1, 1, 2, 3), directional_information = TRUE)$svalue,
+    log2(3)
+  )
 
   # missing values propagate
-  expect_identical(coef(c(1, NA), directional_information = TRUE)$svalue, NA_real_)
+  expect_identical(
+    coef(c(1, NA), directional_information = TRUE)$svalue,
+    NA_real_
+  )
 })
 
 test_that("coef soft-deprecates unset directional_information", {

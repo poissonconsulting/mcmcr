@@ -1,11 +1,14 @@
 test_that("as.mcmc", {
-  expect_error(coda::as.mcmc(mcmcr_example$alpha),
+  expect_error(
+    coda::as.mcmc(mcmcr_example$alpha),
     "^`nchains\\(x\\)` must be identical to 1L\\.",
     class = "chk_error"
   )
 
   expect_s3_class(
-    as.mcmc(as.mcarray(coda::as.mcmc.list(collapse_chains(mcmcr_example[[1]])))),
+    as.mcmc(as.mcarray(coda::as.mcmc.list(collapse_chains(mcmcr_example[[
+      1
+    ]])))),
     "mcmc"
   )
 })

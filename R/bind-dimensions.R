@@ -18,7 +18,9 @@ bind_dimensions <- function(x, x2, along = NULL, ...) {
 #' @export
 bind_dimensions.mcmcarray <- function(x, x2, along = NULL, ...) {
   chk_s3_class(x2, "mcmcarray")
-  if (!is.null(along)) chk_whole_number(along)
+  if (!is.null(along)) {
+    chk_whole_number(along)
+  }
 
   if (!identical(nchains(x), nchains(x2))) {
     abort_chk("`x` and `x2` must have the same number of chains")
@@ -28,7 +30,9 @@ bind_dimensions.mcmcarray <- function(x, x2, along = NULL, ...) {
     abort_chk("`x` and `x2` must have the same number of iterations")
   }
 
-  if (is.null(along)) along <- max(ndims(x), ndims(x2)) - 1
+  if (is.null(along)) {
+    along <- max(ndims(x), ndims(x2)) - 1
+  }
 
   x <- abind(x, x2, along = along + 2, dimnames = FALSE)
   set_class(x, "mcmcarray")
@@ -58,13 +62,24 @@ bind_dimensions.mcmcr <- function(x, x2, along = NULL, ...) {
   }
 
   if (is.null(along)) {
-    along <- mapply(x, x2, FUN = function(x, x2) {
-      max(ndims(x), ndims(x2)) - 1L
-    }, SIMPLIFY = FALSE)
+    along <- mapply(
+      x,
+      x2,
+      FUN = function(x, x2) {
+        max(ndims(x), ndims(x2)) - 1L
+      },
+      SIMPLIFY = FALSE
+    )
   } else if (length(along) == 1) {
     along <- rep(along, length(x))
   }
 
-  x <- mapply(x = x, x2 = x2, along = along, FUN = bind_dimensions, SIMPLIFY = FALSE)
+  x <- mapply(
+    x = x,
+    x2 = x2,
+    along = along,
+    FUN = bind_dimensions,
+    SIMPLIFY = FALSE
+  )
   set_class(x, "mcmcr")
 }

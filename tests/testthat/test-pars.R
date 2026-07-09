@@ -1,7 +1,10 @@
 test_that("pars.mcmcr", {
   expect_identical(pars(mcmcr::mcmcr_example), c("alpha", "beta", "sigma"))
   expect_identical(pars(mcmcr::mcmcr_example, scalar = TRUE), c("sigma"))
-  expect_identical(pars(mcmcr::mcmcr_example, scalar = FALSE), c("alpha", "beta"))
+  expect_identical(
+    pars(mcmcr::mcmcr_example, scalar = FALSE),
+    c("alpha", "beta")
+  )
   pars(mcmcr_example) <- c("alpha1", "alpha2", "alpha3")
   expect_identical(pars(mcmcr_example), c("alpha1", "alpha2", "alpha3"))
 })

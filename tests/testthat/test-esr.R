@@ -29,49 +29,175 @@ test_that("esr.matrix", {
 
 test_that("esr.mcmcmarray", {
   expect_identical(esr(mcmcr_example[[1]], by = "term"), c(0.011, 0.011))
-  expect_equal(esr(mcmcr_example[[2]], by = "term"), matrix(c(0.05, 0.05, 0.05, 0.05), nrow = 2, ncol = 2))
-  expect_identical(esr(mcmcr_example[[2]], by = "term", as_df = TRUE), tibble(term = as_term(c("parameter[1,1]", "parameter[2,1]", "parameter[1,2]", "parameter[2,2]")), esr = rep(0.05, 4)))
+  expect_equal(
+    esr(mcmcr_example[[2]], by = "term"),
+    matrix(c(0.05, 0.05, 0.05, 0.05), nrow = 2, ncol = 2)
+  )
+  expect_identical(
+    esr(mcmcr_example[[2]], by = "term", as_df = TRUE),
+    tibble(
+      term = as_term(c(
+        "parameter[1,1]",
+        "parameter[2,1]",
+        "parameter[1,2]",
+        "parameter[2,2]"
+      )),
+      esr = rep(0.05, 4)
+    )
+  )
   expect_identical(esr(mcmcr_example[[3]], by = "term"), c(0.472))
-  expect_identical(esr(mcmcr_example[[3]], by = "term", as_df = TRUE), tibble(term = as_term("parameter"), esr = 0.472))
+  expect_identical(
+    esr(mcmcr_example[[3]], by = "term", as_df = TRUE),
+    tibble(term = as_term("parameter"), esr = 0.472)
+  )
   expect_identical(esr(mcmcr_example[[2]]), 0.05)
-  expect_identical(esr(mcmcr_example[[2]], "parameter"), esr(mcmcr_example[[2]], "all"))
-  expect_identical(esr(subset(mcmcr_example[[2]], iters = 1L), by = "term", as_df = TRUE), tibble(term = as_term(c("parameter[1,1]", "parameter[2,1]", "parameter[1,2]", "parameter[2,2]")), esr = rep(1, 4)))
+  expect_identical(
+    esr(mcmcr_example[[2]], "parameter"),
+    esr(mcmcr_example[[2]], "all")
+  )
+  expect_identical(
+    esr(subset(mcmcr_example[[2]], iters = 1L), by = "term", as_df = TRUE),
+    tibble(
+      term = as_term(c(
+        "parameter[1,1]",
+        "parameter[2,1]",
+        "parameter[1,2]",
+        "parameter[2,2]"
+      )),
+      esr = rep(1, 4)
+    )
+  )
 })
 
 test_that("esr.mcarray", {
   mcarray <- as.mcarray(mcmcr::mcmcr_example[[2]])
   expect_identical(esr(mcarray), 0.05)
-  expect_identical(esr(mcarray, as_df = TRUE), tibble(parameter = "parameter", esr = 0.05))
+  expect_identical(
+    esr(mcarray, as_df = TRUE),
+    tibble(parameter = "parameter", esr = 0.05)
+  )
   expect_identical(esr(mcarray, by = "parameter"), 0.05)
-  expect_equal(esr(mcarray, by = "term"), matrix(c(0.05, 0.05, 0.05, 0.05), nrow = 2))
-  expect_equal(esr(mcarray, by = "term", as_df = TRUE), tibble(term = as_term(c("parameter[1,1]", "parameter[2,1]", "parameter[1,2]", "parameter[2,2]")), esr = c(0.05, 0.05, 0.05, 0.05)))
+  expect_equal(
+    esr(mcarray, by = "term"),
+    matrix(c(0.05, 0.05, 0.05, 0.05), nrow = 2)
+  )
+  expect_equal(
+    esr(mcarray, by = "term", as_df = TRUE),
+    tibble(
+      term = as_term(c(
+        "parameter[1,1]",
+        "parameter[2,1]",
+        "parameter[1,2]",
+        "parameter[2,2]"
+      )),
+      esr = c(0.05, 0.05, 0.05, 0.05)
+    )
+  )
 })
 
 test_that("esr.mcmc", {
   mcmc <- as.mcmc(subset(mcmcr::mcmcr_example, chains = 2L))
   expect_identical(esr(mcmc), 0.01)
   expect_identical(esr(mcmc, as_df = TRUE), tibble(all = "all", esr = 0.01))
-  expect_identical(esr(mcmc, by = "parameter"), list(alpha = 0.01, beta = 0.062, sigma = 0.474))
-  expect_equal(esr(mcmc, by = "term"), list(alpha = c(0.01, 0.01), beta = matrix(c(0.062, 0.062, 0.062, 0.062), nrow = 2, ncol = 2), sigma = 0.474))
-  expect_equal(esr(mcmc, by = "term", as_df = TRUE), tibble(term = as_term(c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma")), esr = c(0.01, 0.01, 0.062, 0.062, 0.062, 0.062, 0.474)))
+  expect_identical(
+    esr(mcmc, by = "parameter"),
+    list(alpha = 0.01, beta = 0.062, sigma = 0.474)
+  )
+  expect_equal(
+    esr(mcmc, by = "term"),
+    list(
+      alpha = c(0.01, 0.01),
+      beta = matrix(c(0.062, 0.062, 0.062, 0.062), nrow = 2, ncol = 2),
+      sigma = 0.474
+    )
+  )
+  expect_equal(
+    esr(mcmc, by = "term", as_df = TRUE),
+    tibble(
+      term = as_term(c(
+        "alpha[1]",
+        "alpha[2]",
+        "beta[1,1]",
+        "beta[2,1]",
+        "beta[1,2]",
+        "beta[2,2]",
+        "sigma"
+      )),
+      esr = c(0.01, 0.01, 0.062, 0.062, 0.062, 0.062, 0.474)
+    )
+  )
 })
 
 test_that("esr.mcmc.list", {
   expect_identical(esr(as.mcmc.list(mcmcr::mcmcr_example)), 0.011)
-  expect_identical(esr(as.mcmc.list(mcmcr::mcmcr_example), as_df = TRUE), tibble(all = "all", esr = 0.011))
-  expect_identical(esr(as.mcmc.list(mcmcr::mcmcr_example), by = "parameter"), list(alpha = 0.011, beta = 0.05, sigma = 0.472))
-  expect_equal(esr(as.mcmc.list(mcmcr::mcmcr_example), by = "term"), list(alpha = c(0.011, 0.011), beta = matrix(c(0.05, 0.05, 0.05, 0.05), nrow = 2, ncol = 2), sigma = 0.472))
-  expect_equal(esr(as.mcmc.list(mcmcr::mcmcr_example), by = "term", as_df = TRUE), tibble(term = as_term(c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma")), esr = c(0.011, 0.011, 0.05, 0.05, 0.05, 0.05, 0.472)))
+  expect_identical(
+    esr(as.mcmc.list(mcmcr::mcmcr_example), as_df = TRUE),
+    tibble(all = "all", esr = 0.011)
+  )
+  expect_identical(
+    esr(as.mcmc.list(mcmcr::mcmcr_example), by = "parameter"),
+    list(alpha = 0.011, beta = 0.05, sigma = 0.472)
+  )
+  expect_equal(
+    esr(as.mcmc.list(mcmcr::mcmcr_example), by = "term"),
+    list(
+      alpha = c(0.011, 0.011),
+      beta = matrix(c(0.05, 0.05, 0.05, 0.05), nrow = 2, ncol = 2),
+      sigma = 0.472
+    )
+  )
+  expect_equal(
+    esr(as.mcmc.list(mcmcr::mcmcr_example), by = "term", as_df = TRUE),
+    tibble(
+      term = as_term(c(
+        "alpha[1]",
+        "alpha[2]",
+        "beta[1,1]",
+        "beta[2,1]",
+        "beta[1,2]",
+        "beta[2,2]",
+        "sigma"
+      )),
+      esr = c(0.011, 0.011, 0.05, 0.05, 0.05, 0.05, 0.472)
+    )
+  )
 })
 
 
 test_that("esr.mcmcr", {
   expect_identical(esr(mcmcr_example2), 0.011)
   expect_identical(esr(mcmcr_example), 0.011)
-  expect_identical(esr(mcmcr_example, as_df = TRUE), tibble(all = "all", esr = 0.011))
-  expect_identical(esr(mcmcr_example, by = "parameter"), list(alpha = 0.011, beta = 0.05, sigma = 0.472))
-  expect_equal(esr(mcmcr_example, by = "term"), list(alpha = c(0.011, 0.011), beta = matrix(c(0.05, 0.05, 0.05, 0.05), nrow = 2, ncol = 2), sigma = 0.472))
-  expect_equal(esr(mcmcr_example, by = "term", as_df = TRUE), tibble(term = as_term(c("alpha[1]", "alpha[2]", "beta[1,1]", "beta[2,1]", "beta[1,2]", "beta[2,2]", "sigma")), esr = c(0.011, 0.011, 0.05, 0.05, 0.05, 0.05, 0.472)))
+  expect_identical(
+    esr(mcmcr_example, as_df = TRUE),
+    tibble(all = "all", esr = 0.011)
+  )
+  expect_identical(
+    esr(mcmcr_example, by = "parameter"),
+    list(alpha = 0.011, beta = 0.05, sigma = 0.472)
+  )
+  expect_equal(
+    esr(mcmcr_example, by = "term"),
+    list(
+      alpha = c(0.011, 0.011),
+      beta = matrix(c(0.05, 0.05, 0.05, 0.05), nrow = 2, ncol = 2),
+      sigma = 0.472
+    )
+  )
+  expect_equal(
+    esr(mcmcr_example, by = "term", as_df = TRUE),
+    tibble(
+      term = as_term(c(
+        "alpha[1]",
+        "alpha[2]",
+        "beta[1,1]",
+        "beta[2,1]",
+        "beta[1,2]",
+        "beta[2,2]",
+        "sigma"
+      )),
+      esr = c(0.011, 0.011, 0.05, 0.05, 0.05, 0.05, 0.472)
+    )
+  )
 })
 
 test_that("esr.mcmcr NA", {
@@ -79,13 +205,19 @@ test_that("esr.mcmcr NA", {
   x$alpha[1, 1, 1, 1, 1] <- NA_real_
   expect_identical(esr(x), NA_real_)
   expect_identical(esr(x, na_rm = TRUE), 0.011)
-  expect_identical(esr(x, by = "parameter"), list(alpha = NA_real_, beta = 0.05, sigma = 0.472))
-  expect_identical(esr(x, by = "parameter", na_rm = TRUE), list(alpha = 0.011, beta = 0.05, sigma = 0.472))
+  expect_identical(
+    esr(x, by = "parameter"),
+    list(alpha = NA_real_, beta = 0.05, sigma = 0.472)
+  )
+  expect_identical(
+    esr(x, by = "parameter", na_rm = TRUE),
+    list(alpha = 0.011, beta = 0.05, sigma = 0.472)
+  )
 })
 
 test_that("esr.mcmcr constant", {
   x <- mcmcr::mcmcr_example
-  x$sigma[, , 1] <- 0
+  x$sigma[,, 1] <- 0
 
   expect_identical(esr(x$sigma), 1)
 
@@ -93,12 +225,23 @@ test_that("esr.mcmcr constant", {
 })
 
 test_that("esr.mcmcrs", {
-  expect_identical(esr(mcmcrs(mcmcr_example, mcmcr_example)), list(mcmcr1 = 0.011, mcmcr2 = 0.011))
+  expect_identical(
+    esr(mcmcrs(mcmcr_example, mcmcr_example)),
+    list(mcmcr1 = 0.011, mcmcr2 = 0.011)
+  )
 })
 
 test_that("esr.mcmcarray constant", {
-  x <- structure(rep(-0.75377180237638, 300), dim = c(3L, 100L, 1L), class = "mcmcarray")
+  x <- structure(
+    rep(-0.75377180237638, 300),
+    dim = c(3L, 100L, 1L),
+    class = "mcmcarray"
+  )
   expect_identical(esr(x), 1)
-  x <- structure(rep(-0.75377180237638, 30), dim = c(3L, 10L, 1L), class = "mcmcarray")
+  x <- structure(
+    rep(-0.75377180237638, 30),
+    dim = c(3L, 10L, 1L),
+    class = "mcmcarray"
+  )
   expect_identical(esr(x), 1)
 })

@@ -1,5 +1,8 @@
 test_that("mcmc_aperm", {
-  expect_identical(mcmc_aperm(mcmcr_example[[1]], perm = 1L), mcmcr_example[[1]])
+  expect_identical(
+    mcmc_aperm(mcmcr_example[[1]], perm = 1L),
+    mcmcr_example[[1]]
+  )
   expect_identical(mcmc_aperm(mcmcr_example[[1]]), mcmcr_example[[1]])
 })
 
@@ -30,5 +33,8 @@ test_that("mcmc_aperm.mcmcr", {
 })
 
 test_that("mcmc_aperm.mcmcrs", {
-  expect_identical(mcmc_aperm(as.mcmcrs(list(mcmcr_example, mcmcr_example)), perm = 1L), as.mcmcrs(list(mcmcr_example, mcmcr_example)))
+  expect_identical(
+    mcmc_aperm(as.mcmcrs(list(mcmcr_example, mcmcr_example)), perm = 1L),
+    as.mcmcrs(list(mcmcr_example, mcmcr_example))
+  )
 })

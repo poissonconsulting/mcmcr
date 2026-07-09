@@ -16,7 +16,9 @@ check_mcmcarray <- function(x, x_name = substitute(x), error = TRUE) {
   chk_flag(error)
 
   chk_s3_class(x, "mcmcarray", x_name = x_name)
-  if (!is.array(x)) abort_chk(x_name, " must be an array")
+  if (!is.array(x)) {
+    abort_chk(x_name, " must be an array")
+  }
   chk_not_any_na(x, x_name = x_name)
   invisible(x)
 }
@@ -32,7 +34,12 @@ check_mcmcarray <- function(x, x_name = substitute(x), error = TRUE) {
 #'
 #' @examples
 #' check_mcmcr(mcmcr::mcmcr_example)
-check_mcmcr <- function(x, sorted = FALSE, x_name = substitute(x), error = TRUE) {
+check_mcmcr <- function(
+  x,
+  sorted = FALSE,
+  x_name = substitute(x),
+  error = TRUE
+) {
   lifecycle::deprecate_soft("v0.2.1", "check_mcmcr()", "chk_mcmcr()")
   x_name <- deparse_backtick_chk(x_name)
   chk_flag(sorted)
@@ -42,8 +49,12 @@ check_mcmcr <- function(x, sorted = FALSE, x_name = substitute(x), error = TRUE)
   chk_s3_class(x, "mcmcr", x_name = x_name)
   chk_named(x)
   chk_unique(names(x))
-  if (sorted) chk_sorted(names(x), x_name = p0("names of ", x_name))
-  mapply(check_mcmcarray, x,
+  if (sorted) {
+    chk_sorted(names(x), x_name = p0("names of ", x_name))
+  }
+  mapply(
+    check_mcmcarray,
+    x,
     x_name = p0(x_name, " parameter '", pars(x), "'"),
     MoreArgs = list(error = error)
   )
