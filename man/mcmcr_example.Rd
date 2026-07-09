@@ -12,7 +12,7 @@ mcmcr_example
 }
 \description{
 An example \code{\link[=mcmcr-object]{mcmcr-object()}}
-derived from \code{\link[coda:linepost]{coda::line()}}.
+derived from \code{\link[coda:line]{coda::line()}}.
 }
 \examples{
 mcmcr_example

@@ -22,7 +22,7 @@ The modified MCMC object
 Transpose an MCMC object by permuting its parameter dimensions.
 }
 \seealso{
-Other manipulate: 
-\code{\link{mcmc_map}()}
+Other manipulate:
+\code{\link[=mcmc_map]{mcmc_map()}}
 }
 \concept{manipulate}

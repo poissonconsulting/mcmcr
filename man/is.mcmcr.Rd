@@ -19,9 +19,9 @@ Tests whether an object is an \code{\link[=mcmcr-object]{mcmcr-object()}}.
 is.mcmcr(mcmcr_example)
 }
 \seealso{
-Other is: 
-\code{\link{is.mcarray}()},
-\code{\link{is.mcmcarray}()},
-\code{\link{is.mcmcrs}()}
+Other is:
+\code{\link[=is.mcarray]{is.mcarray()}},
+\code{\link[=is.mcmcarray]{is.mcmcarray()}},
+\code{\link[=is.mcmcrs]{is.mcmcrs()}}
 }
 \concept{is}
