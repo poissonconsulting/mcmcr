@@ -245,7 +245,7 @@ importFrom(extras,
 importFrom(generics,tidy)
 importFrom(graphics,plot)
 importFrom(lifecycle,
-  deprecate_soft,
+  deprecate_warn,
   deprecated
 )
 importFrom(nlist,
