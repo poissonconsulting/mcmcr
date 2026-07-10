@@ -52,7 +52,7 @@ value is 0.
 
 ``` r
 zero(mcmcr_example, pars = "beta")
-#> Warning: `zero()` was deprecated in mcmcr v0.2.1.
+#> Warning: `zero()` was deprecated in mcmcr 0.2.1.
 #> ℹ Please use `fill_all()` instead.
 #> $alpha
 #> [1] 3.718025 4.718025

@@ -39,6 +39,6 @@ An invisible copy of x (it if doesn't throw an error).
 
 ``` r
 check_mcmcr(mcmcr::mcmcr_example)
-#> Warning: `check_mcmcr()` was deprecated in mcmcr v0.2.1.
+#> Warning: `check_mcmcr()` was deprecated in mcmcr 0.2.1.
 #> ℹ Please use `chk_mcmcr()` instead.
 ```
