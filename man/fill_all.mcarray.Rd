@@ -57,6 +57,6 @@ fill_all(c(1, 4, NA), value = TRUE, nas = FALSE)
 fill_all(c("some", "words"), value = TRUE)
 }
 \seealso{
-Other fill: 
-\code{\link[extras]{fill_na}()}
+Other fill:
+\code{\link[extras:fill_na]{fill_na()}}
 }

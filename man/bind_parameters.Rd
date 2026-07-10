@@ -25,8 +25,8 @@ bind_parameters(
 \seealso{
 \code{\link[universals:bind_chains]{universals::bind_chains()}}
 
-Other bind: 
-\code{\link{bind_dimensions}()},
-\code{\link{bind_dimensions_n}()}
+Other bind:
+\code{\link[=bind_dimensions]{bind_dimensions()}},
+\code{\link[=bind_dimensions_n]{bind_dimensions_n()}}
 }
 \concept{bind}

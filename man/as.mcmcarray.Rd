@@ -18,9 +18,9 @@ Coerces MCMC objects to an \code{\link[=mcmcarray-object]{mcmcarray-object()}}.
 as.mcmcarray(as.mcarray(mcmcr_example$beta))
 }
 \seealso{
-Other coerce: 
-\code{\link{as.mcarray}()},
-\code{\link{as.mcmcr}()},
-\code{\link{mcmcrs}()}
+Other coerce:
+\code{\link[=as.mcarray]{as.mcarray()}},
+\code{\link[=as.mcmcr]{as.mcmcr()}},
+\code{\link[=mcmcrs]{mcmcrs()}}
 }
 \concept{coerce}

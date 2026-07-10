@@ -16,7 +16,7 @@ to be manipulated and queried as a whole.
 mcmcr_example
 }
 \seealso{
-Other objects: 
+Other objects:
 \code{\link{mcmcarray-object}},
 \code{\link{mcmcrs-object}}
 }

@@ -19,9 +19,9 @@ Creates an \code{\link[=mcmcrs-object]{mcmcrs-object()}} from multiple \code{lin
 mcmcrs(mcmcr_example, mcmcr_example)
 }
 \seealso{
-Other coerce: 
-\code{\link{as.mcarray}()},
-\code{\link{as.mcmcarray}()},
-\code{\link{as.mcmcr}()}
+Other coerce:
+\code{\link[=as.mcarray]{as.mcarray()}},
+\code{\link[=as.mcmcarray]{as.mcmcarray()}},
+\code{\link[=as.mcmcr]{as.mcmcr()}}
 }
 \concept{coerce}
