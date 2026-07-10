@@ -46,7 +46,7 @@ coef_numeric_impl <- function(
   chk_flag(directional_information)
 
   if (!simplify) {
-    lifecycle::deprecate_warn("0.4.1", "coef(simplify = 'must be TRUE')")
+    lifecycle::deprecate_stop("0.4.1", "coef(simplify = 'must be TRUE')")
   }
 
   lower <- (1 - conf_level) / 2
@@ -68,29 +68,16 @@ coef_numeric_impl <- function(
     abort_chk("`estimate` must return a scalar")
   }
 
-  if (simplify) {
-    svalue <- if (directional_information) {
-      extras::directional_information(object)
-    } else {
-      extras::svalue(object)
-    }
-    return(tibble(
-      estimate = estimate,
-      lower = quantiles[1],
-      upper = quantiles[2],
-      svalue = svalue
-    ))
+  svalue <- if (directional_information) {
+    extras::directional_information(object)
+  } else {
+    extras::svalue(object)
   }
-  sd <- stats::sd(object)
-  zscore <- mean(object) / sd
-
   tibble(
     estimate = estimate,
-    sd = sd,
-    zscore = zscore,
     lower = quantiles[1],
     upper = quantiles[2],
-    pvalue = extras::pvalue(object)
+    svalue = svalue
   )
 }
 
@@ -162,10 +149,7 @@ coef.mcmc <- function(
   )
   object <- do.call(rbind, object)
   object$term <- term
-  colnames <- c("term", "estimate", "sd", "zscore", "lower", "upper", "pvalue")
-  if (simplify) {
-    colnames <- c("term", "estimate", "lower", "upper", "svalue")
-  }
+  colnames <- c("term", "estimate", "lower", "upper", "svalue")
   object <- object[colnames]
   object <- object[order(object$term), ]
   object

@@ -26,7 +26,7 @@
 #' @param object The MCMC object to get the coefficients for
 #' @param conf_level A number specifying the confidence level. By default 0.95.
 #' @param estimate The function to use to calculate the estimate.
-#' @param simplify A flag specifying whether to return just the estimate, lower, upper and svalue.
+#' @param simplify `r lifecycle::badge("deprecated")` Must be `TRUE`.
 #' @param directional_information A flag specifying whether the svalue column
 #' should be calculated using [extras::directional_information()] instead of
 #' [extras::svalue()].
