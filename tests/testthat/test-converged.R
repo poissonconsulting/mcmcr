@@ -12,17 +12,23 @@ test_that("converged.mcmcr", {
     converged(mcmcr_example, by = "term"),
     list(
       alpha = c(FALSE, FALSE),
-      beta = structure(c(
-        FALSE, FALSE,
-        FALSE, FALSE
-      ), .Dim = c(2L, 2L)),
+      beta = structure(
+        c(
+          FALSE,
+          FALSE,
+          FALSE,
+          FALSE
+        ),
+        .Dim = c(2L, 2L)
+      ),
       sigma = TRUE
     )
   )
 
   expect_identical(
     converged(mcmcr_example, as_df = TRUE),
-    structure(list(all = "all", converged = FALSE),
+    structure(
+      list(all = "all", converged = FALSE),
       row.names = c(NA, -1L),
       class = c("tbl_df", "tbl", "data.frame")
     )

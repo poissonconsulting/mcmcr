@@ -31,7 +31,9 @@ chk_mcmcarray <- function(x, x_name = NULL) {
   if (vld_mcmcarray(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
   chk_s3_class(x, "mcmcarray", x_name = x_name)
   chk_array(x, x_name = x_name)
   chk_numeric(x, x_name = x_name)
@@ -55,7 +57,9 @@ chk_mcmcr <- function(x, x_name = NULL) {
   if (vld_mcmcr(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
   chk_s3_class(x, "mcmcr", x_name = x_name)
   chk_list(x, x_name = x_name)
   chk_named(x, x_name = x_name)
@@ -64,9 +68,19 @@ chk_mcmcr <- function(x, x_name = NULL) {
   }
   chk_all(x, chk_mcmcarray, x_name = x_name)
   if (!vld_all_identical(lapply(x, nchains))) {
-    abort_chk("mcmcarray elements of ", x_name, " must have the same number of chains", tidy = FALSE)
+    abort_chk(
+      "mcmcarray elements of ",
+      x_name,
+      " must have the same number of chains",
+      tidy = FALSE
+    )
   }
-  abort_chk("mcmcarray elements of ", x_name, " must have the same number of iterations", tidy = FALSE)
+  abort_chk(
+    "mcmcarray elements of ",
+    x_name,
+    " must have the same number of iterations",
+    tidy = FALSE
+  )
 }
 
 #' @describeIn chk_mcmcr Check mcmcrs Object
@@ -87,15 +101,32 @@ chk_mcmcrs <- function(x, x_name = NULL) {
   if (vld_mcmcrs(x)) {
     return(invisible())
   }
-  if (is.null(x_name)) x_name <- deparse_backtick_chk(substitute(x))
+  if (is.null(x_name)) {
+    x_name <- deparse_backtick_chk(substitute(x))
+  }
   chk_s3_class(x, "mcmcrs", x_name = x_name)
   chk_list(x, x_name = x_name)
   chk_all(x, chk_mcmcr, x_name = x_name)
   if (!vld_all_identical(lapply(x, pars))) {
-    abort_chk("mcmcr elements of ", x_name, " must have the same parameters", tidy = FALSE)
+    abort_chk(
+      "mcmcr elements of ",
+      x_name,
+      " must have the same parameters",
+      tidy = FALSE
+    )
   }
   if (!vld_all_identical(lapply(x, nchains))) {
-    abort_chk("mcmcr elements of ", x_name, " must have the same number of chains", tidy = FALSE)
+    abort_chk(
+      "mcmcr elements of ",
+      x_name,
+      " must have the same number of chains",
+      tidy = FALSE
+    )
   }
-  abort_chk("mcmcr elements of ", x_name, " must have the same number of iterations", tidy = FALSE)
+  abort_chk(
+    "mcmcr elements of ",
+    x_name,
+    " must have the same number of iterations",
+    tidy = FALSE
+  )
 }

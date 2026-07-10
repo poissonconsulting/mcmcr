@@ -5,9 +5,11 @@ styler::style_pkg(
   filetype = c("R", "Rmd")
 )
 
-lintr::lint_package(linters = linters_with_defaults(
-  line_length_linter = line_length_linter(1000),
-  object_name_linter = object_name_linter(regexes = ".*"))
+lintr::lint_package(
+  linters = linters_with_defaults(
+    line_length_linter = line_length_linter(1000),
+    object_name_linter = object_name_linter(regexes = ".*")
+  )
 )
 
 lintr::lint_package()

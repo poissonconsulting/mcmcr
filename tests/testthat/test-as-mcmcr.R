@@ -1,5 +1,8 @@
 test_that("as.mcmcr.list", {
-  expect_identical(as.mcmcr(unclass(mcmcr::mcmcr_example)), mcmcr::mcmcr_example)
+  expect_identical(
+    as.mcmcr(unclass(mcmcr::mcmcr_example)),
+    mcmcr::mcmcr_example
+  )
 })
 
 test_that("as.mcmcr.mcarray", {
@@ -44,5 +47,8 @@ test_that("as.mcmcr.mcmcr", {
 })
 
 test_that("as.mcmcr.mcmcrs", {
-  expect_identical(as.mcmcr(as.mcmcrs(mcmcr::mcmcr_example)), mcmcr::mcmcr_example)
+  expect_identical(
+    as.mcmcr(as.mcmcrs(mcmcr::mcmcr_example)),
+    mcmcr::mcmcr_example
+  )
 })

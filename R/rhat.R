@@ -104,8 +104,14 @@ rhat.mcmcr <- function(x, by = "all", as_df = FALSE, na_rm = FALSE, ...) {
 #' @examples
 #' rhat(mcmcrs(mcmcr_example, mcmcr_example))
 #' rhat(mcmcrs(mcmcr_example, mcmcr_example), bound = TRUE)
-rhat.mcmcrs <- function(x, by = "all", as_df = FALSE, na_rm = FALSE,
-                        bound = FALSE, ...) {
+rhat.mcmcrs <- function(
+  x,
+  by = "all",
+  as_df = FALSE,
+  na_rm = FALSE,
+  bound = FALSE,
+  ...
+) {
   chk_flag(bound)
   chk_unused(...)
 

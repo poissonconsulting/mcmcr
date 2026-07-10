@@ -1,5 +1,6 @@
 test_that("as.mcmcarray.mcmc with multiple parameters", {
-  expect_error(as.mcmcarray(as.mcmc(subset(mcmcr::mcmcr_example, chains = 1L))),
+  expect_error(
+    as.mcmcarray(as.mcmc(subset(mcmcr::mcmcr_example, chains = 1L))),
     "^`x` must only have 1 parameter[.]$",
     class = "chk_error"
   )
@@ -14,7 +15,10 @@ test_that("as.mcmcarray.mcmc", {
   x <- coda::as.mcmc(mcmcarray)
   expect_identical(as.mcmcarray(x), mcmcarray)
   colnames(x) <- "1"
-  expect_warning(expect_identical(as.mcmcarray(x), structure(numeric(0), .Dim = c(1L, 400L, 0L), class = "mcmcarray")))
+  expect_warning(expect_identical(
+    as.mcmcarray(x),
+    structure(numeric(0), .Dim = c(1L, 400L, 0L), class = "mcmcarray")
+  ))
 })
 
 test_that("as.mcmcarray.mcmc with missing values", {

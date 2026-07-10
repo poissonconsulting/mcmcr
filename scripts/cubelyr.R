@@ -10,14 +10,21 @@ long <-
   unclass() %>%
   enframe(name = "chain") %>%
   mutate(value = map(value, unclass)) %>%
-  mutate(value = map(
-    value, as_tibble,
-    .name_repair = ~ c(
-      "alpha[1]", "alpha[2]",
-      "beta[1,1]", "beta[1,2]", "beta[2,1]", "beta[2,2]",
-      "sigma"
+  mutate(
+    value = map(
+      value,
+      as_tibble,
+      .name_repair = ~ c(
+        "alpha[1]",
+        "alpha[2]",
+        "beta[1,1]",
+        "beta[1,2]",
+        "beta[2,1]",
+        "beta[2,2]",
+        "sigma"
+      )
     )
-  )) %>%
+  ) %>%
   unnest(value) %>%
   group_by(chain) %>%
   mutate(iteration = row_number()) %>%

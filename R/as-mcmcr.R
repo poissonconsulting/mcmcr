@@ -91,6 +91,8 @@ as.mcmcr.mcmcr <- function(x, ...) x
 #' @describeIn as.mcmcr Convert tan [mcmcr::mcmcrs-object()] to an mcmcr object
 #' @export
 as.mcmcr.mcmcrs <- function(x, ...) {
-  if (!identical(length(x), 1L)) abort_chk("`x` must have one mcmcr object")
+  if (!identical(length(x), 1L)) {
+    abort_chk("`x` must have one mcmcr object")
+  }
   x[[1]]
 }

@@ -2,7 +2,11 @@ test_that("zero.mcarray", {
   rlang::local_options(lifecycle_verbosity = "quiet")
 
   mcarray <- as.mcarray(mcmcr_example[[2]])
-  expect_equal(estimates(zero(mcarray)), matrix(0, nrow = 2, ncol = 2), ignore_attr = FALSE)
+  expect_equal(
+    estimates(zero(mcarray)),
+    matrix(0, nrow = 2, ncol = 2),
+    ignore_attr = FALSE
+  )
 })
 
 
@@ -10,7 +14,11 @@ test_that("zero.mcmcarray", {
   rlang::local_options(lifecycle_verbosity = "quiet")
 
   mcmcarray <- mcmcr_example[[2]]
-  expect_equal(estimates(zero(mcmcarray)), matrix(0, nrow = 2, ncol = 2), ignore_attr = FALSE)
+  expect_equal(
+    estimates(zero(mcmcarray)),
+    matrix(0, nrow = 2, ncol = 2),
+    ignore_attr = FALSE
+  )
 })
 
 test_that("zero.mcmcr", {

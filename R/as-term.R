@@ -30,7 +30,9 @@ as_term.mcmcarray <- function(x, ...) {
 as_term.mcmcr <- function(x, ...) {
   parameters <- names(x)
   x <- lapply(x, as_term)
-  x <- mapply(x, parameters,
+  x <- mapply(
+    x,
+    parameters,
     FUN = function(x, y) {
       sub("parameter", y, x, fixed = TRUE)
     },

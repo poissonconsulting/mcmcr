@@ -26,7 +26,9 @@ combine_dimensions.mcmcarray <- function(x, fun = mean, along = NULL, ...) {
   chk_unused(...)
 
   pdims <- pdims(x)
-  if (is.null(along)) along <- length(pdims)
+  if (is.null(along)) {
+    along <- length(pdims)
+  }
 
   n <- 1:length(pdims)
   n <- n[-along]
@@ -40,7 +42,9 @@ combine_dimensions.mcmcarray <- function(x, fun = mean, along = NULL, ...) {
   dim(x) <- dim
   x <- set_class(x, "mcmcarray")
 
-  if (!identical(pdims(x), pdims)) abort_chk("`fun` must return a scalar")
+  if (!identical(pdims(x), pdims)) {
+    abort_chk("`fun` must return a scalar")
+  }
   x
 }
 
@@ -70,7 +74,10 @@ combine_dimensions.mcmcr <- function(x, fun = mean, along = NULL, ...) {
   }
 
   x <- mapply(
-    FUN = combine_dimensions, x = x, along = along, MoreArgs = list(fun = fun),
+    FUN = combine_dimensions,
+    x = x,
+    along = along,
+    MoreArgs = list(fun = fun),
     SIMPLIFY = FALSE
   )
   set_class(x, "mcmcr")

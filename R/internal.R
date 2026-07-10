@@ -1,7 +1,9 @@
 subset_mcmcarray_iteration <- function(x, iteration) {
   x <- abind::asub(x, iteration, 2L, drop = FALSE)
   dim <- dim(x)[-c(1, 2)]
-  if (length(dim) == 1) dim <- NULL
+  if (length(dim) == 1) {
+    dim <- NULL
+  }
   dim(x) <- dim
   x
 }
@@ -42,7 +44,12 @@ set_class <- function(x, class) {
   if (length(unique(x)) == 1) {
     return(1)
   }
-  x <- stats::acf(x, lag.max = length(x) - 1, na.action = na.pass, plot = FALSE)$acf[, , 1]
+  x <- stats::acf(
+    x,
+    lag.max = length(x) - 1,
+    na.action = na.pass,
+    plot = FALSE
+  )$acf[,, 1]
 
   if (is.nan(x[1])) {
     return(1)
@@ -58,8 +65,12 @@ set_class <- function(x, class) {
   stopifnot(is.matrix(object))
   nrow <- nrow(object)
   object <- apply(object, 1L, fun, ...)
-  if (!identical(dims(object), nrow)) abort_chk("`fun` must return a scalar")
-  if (!is.numeric(object)) abort_chk("`fun` must return a numeric")
+  if (!identical(dims(object), nrow)) {
+    abort_chk("`fun` must return a scalar")
+  }
+  if (!is.numeric(object)) {
+    abort_chk("`fun` must return a numeric")
+  }
   object
 }
 
@@ -76,7 +87,9 @@ set_class <- function(x, class) {
   var_within <- mean(var_chain)
   rhat <- sqrt((var_between / var_within + niters - 1) / niters)
 
-  if (is.nan(rhat) || (!is.na(rhat) && rhat < 1)) rhat <- 1
+  if (is.nan(rhat) || (!is.na(rhat) && rhat < 1)) {
+    rhat <- 1
+  }
   round(rhat, 3)
 }
 
@@ -88,7 +101,9 @@ tibble <- function(...) {
 
 abind <- function(x, x2, along, dimnames = TRUE) {
   x <- abind::abind(x, x2, along = along)
-  if (!isTRUE(dimnames)) dimnames(x) <- NULL
+  if (!isTRUE(dimnames)) {
+    dimnames(x) <- NULL
+  }
   x
 }
 

@@ -26,8 +26,12 @@ mcmc_map.mcmcarray <- function(.x, .f, .by = 1:npdims(.x), ...) {
     chk_sorted(.by)
   }
 
-  if (isTRUE(.by)) .by <- by_all
-  if (isFALSE(.by)) .by <- NULL
+  if (isTRUE(.by)) {
+    .by <- by_all
+  }
+  if (isFALSE(.by)) {
+    .by <- NULL
+  }
 
   x <- apply(.x, MARGIN = c(1L, 2L, .by + 2L), FUN = .f, ...)
 

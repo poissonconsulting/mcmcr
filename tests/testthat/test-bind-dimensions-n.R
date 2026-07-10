@@ -1,7 +1,11 @@
 test_that("bind_dimensions_n.mcmcarray", {
   expect_identical(bind_dimensions_n(mcmcr_example$beta), mcmcr_example$beta)
   expect_identical(
-    pdims(bind_dimensions_n(mcmcr_example$beta, mcmcr_example$beta, mcmcr_example$beta)),
+    pdims(bind_dimensions_n(
+      mcmcr_example$beta,
+      mcmcr_example$beta,
+      mcmcr_example$beta
+    )),
     c(2L, 2L, 3L)
   )
 })
