@@ -1,22 +1,12 @@
-test_that("coef.mcmc", {
-  rlang::local_options(lifecycle_verbosity = "quiet")
-
-  coef_mcmc.list <- coef(as.mcmc.list(mcmcr_example), simplify = FALSE)
-  expect_identical(
-    colnames(coef_mcmc.list),
-    c("term", "estimate", "sd", "zscore", "lower", "upper", "pvalue")
+test_that("coef simplify = FALSE is defunct", {
+  lifecycle::expect_defunct(
+    coef(as.mcmc.list(mcmcr_example), simplify = FALSE)
   )
-  expect_identical(
-    coef_mcmc.list$term,
-    sort(as_term(c(
-      "alpha[1]",
-      "alpha[2]",
-      "beta[1,1]",
-      "beta[2,1]",
-      "beta[1,2]",
-      "beta[2,2]",
-      "sigma"
-    )))
+  lifecycle::expect_defunct(
+    coef(mcmcr_example, simplify = FALSE)
+  )
+  lifecycle::expect_defunct(
+    coef(as.numeric(1:10), simplify = FALSE)
   )
 })
 

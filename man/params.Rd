@@ -52,7 +52,7 @@ data frame versus a named list.}
 
 \item{estimate}{The function to use to calculate the estimate.}
 
-\item{simplify}{A flag specifying whether to return just the estimate, lower, upper and svalue.}
+\item{simplify}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Must be \code{TRUE}.}
 
 \item{directional_information}{A flag specifying whether the svalue column
 should be calculated using \code{\link[extras:directional_information]{extras::directional_information()}} instead of

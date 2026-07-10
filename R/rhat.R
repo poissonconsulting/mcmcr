@@ -119,7 +119,7 @@ rhat.mcmcrs <- function(
   if (!bound) {
     return(rhat)
   }
-  lifecycle::deprecate_soft(
+  lifecycle::deprecate_warn(
     "0.6.1.9001",
     I("`rhat.mcmcrs(x, bound = TRUE)` returns scalar"),
     I("`rhat(x, bound = TRUE)$bound` for previous behaviour"),
