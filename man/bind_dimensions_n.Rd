@@ -18,8 +18,8 @@ bind_dimensions_n(mcmcr_example, mcmcr_example, mcmcr_example)
 \seealso{
 \code{\link[universals:bind_chains]{universals::bind_chains()}}
 
-Other bind: 
-\code{\link{bind_dimensions}()},
-\code{\link{bind_parameters}()}
+Other bind:
+\code{\link[=bind_dimensions]{bind_dimensions()}},
+\code{\link[=bind_parameters]{bind_parameters()}}
 }
 \concept{bind}

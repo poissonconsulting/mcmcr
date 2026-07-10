@@ -227,50 +227,64 @@ import(extras)
 import(nlist)
 import(term)
 import(universals)
-importFrom(coda,as.mcmc)
-importFrom(coda,as.mcmc.list)
-importFrom(coda,mcmc.list)
-importFrom(coda,thin)
-importFrom(extras,fill_all)
-importFrom(extras,fill_na)
-importFrom(extras,lower)
-importFrom(extras,pvalue)
-importFrom(extras,svalue)
-importFrom(extras,upper)
-importFrom(extras,zscore)
+importFrom(coda,
+  as.mcmc,
+  as.mcmc.list,
+  mcmc.list,
+  thin
+)
+importFrom(extras,
+  fill_all,
+  fill_na,
+  lower,
+  pvalue,
+  svalue,
+  upper,
+  zscore
+)
 importFrom(generics,tidy)
 importFrom(graphics,plot)
-importFrom(lifecycle,deprecate_soft)
-importFrom(lifecycle,deprecated)
-importFrom(nlist,as_nlist)
-importFrom(nlist,as_nlists)
-importFrom(nlist,nlist)
-importFrom(nlist,nlists)
-importFrom(stats,coef)
-importFrom(stats,median)
-importFrom(stats,na.pass)
-importFrom(stats,terms)
-importFrom(term,"parameters<-")
-importFrom(term,as.term)
-importFrom(term,as_term)
-importFrom(term,complete_terms)
-importFrom(term,parameters)
+importFrom(lifecycle,
+  deprecate_warn,
+  deprecated
+)
+importFrom(nlist,
+  as_nlist,
+  as_nlists,
+  nlist,
+  nlists
+)
+importFrom(stats,
+  coef,
+  median,
+  na.pass,
+  terms
+)
+importFrom(term,
+  "parameters<-",
+  as.term,
+  as_term,
+  complete_terms,
+  parameters
+)
 importFrom(tibble,tibble)
-importFrom(universals,"pars<-")
-importFrom(universals,bind_chains)
-importFrom(universals,bind_iterations)
-importFrom(universals,collapse_chains)
-importFrom(universals,converged)
-importFrom(universals,dims)
-importFrom(universals,esr)
-importFrom(universals,estimates)
-importFrom(universals,nchains)
-importFrom(universals,niters)
-importFrom(universals,npars)
-importFrom(universals,npdims)
-importFrom(universals,nterms)
-importFrom(universals,pars)
-importFrom(universals,pdims)
-importFrom(universals,rhat)
-importFrom(universals,set_pars)
-importFrom(universals,split_chains)
+importFrom(universals,
+  "pars<-",
+  bind_chains,
+  bind_iterations,
+  collapse_chains,
+  converged,
+  dims,
+  esr,
+  estimates,
+  nchains,
+  niters,
+  npars,
+  npdims,
+  nterms,
+  pars,
+  pdims,
+  rhat,
+  set_pars,
+  split_chains
+)

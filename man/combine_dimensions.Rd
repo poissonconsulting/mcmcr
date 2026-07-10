@@ -25,8 +25,8 @@ Combines MCMC object samples by dimensions along \code{along} using \code{fun}.
 combine_dimensions(mcmcr_example$alpha)
 }
 \seealso{
-Other combine: 
-\code{\link{combine_samples}()},
-\code{\link{combine_samples_n}()}
+Other combine:
+\code{\link[=combine_samples]{combine_samples()}},
+\code{\link[=combine_samples_n]{combine_samples_n()}}
 }
 \concept{combine}

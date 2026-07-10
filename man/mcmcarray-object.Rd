@@ -15,7 +15,7 @@ ie the chains and iterations, precede the parameter dimensions.
 mcmcr_example$beta
 }
 \seealso{
-Other objects: 
+Other objects:
 \code{\link{mcmcr-object}},
 \code{\link{mcmcrs-object}}
 }

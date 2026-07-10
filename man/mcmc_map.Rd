@@ -25,7 +25,7 @@ Adjust the sample values of an MCMC object using a function.
 mcmc_map(mcmcr_example$beta, exp)
 }
 \seealso{
-Other manipulate: 
-\code{\link{mcmc_aperm}()}
+Other manipulate:
+\code{\link[=mcmc_aperm]{mcmc_aperm()}}
 }
 \concept{manipulate}

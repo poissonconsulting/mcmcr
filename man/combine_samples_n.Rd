@@ -21,8 +21,8 @@ Combines samples of multiple MCMC objects
 combine_samples_n(mcmcr_example, mcmcr_example, mcmcr_example, fun = sum)
 }
 \seealso{
-Other combine: 
-\code{\link{combine_dimensions}()},
-\code{\link{combine_samples}()}
+Other combine:
+\code{\link[=combine_dimensions]{combine_dimensions()}},
+\code{\link[=combine_samples]{combine_samples()}}
 }
 \concept{combine}

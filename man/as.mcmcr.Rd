@@ -46,9 +46,9 @@ Converts an MCMC object to an \code{\link[=mcmcr-object]{mcmcr-object()}}.
 
 \item \code{as.mcmcr(mcmcarray)}: Convert an \code{\link[=mcmcarray-object]{mcmcarray-object()}} to an mcmcr object
 
-\item \code{as.mcmcr(nlist)}: Convert an \code{\link[nlist:nlist]{nlist::nlist-object()}} to an mcmcr object
+\item \code{as.mcmcr(nlist)}: Convert an \code{\link[nlist:nlist-object]{nlist::nlist-object()}} to an mcmcr object
 
-\item \code{as.mcmcr(nlists)}: Convert an \code{\link[nlist:nlists]{nlist::nlists-object()}} to an mcmcr object
+\item \code{as.mcmcr(nlists)}: Convert an \code{\link[nlist:nlists-object]{nlist::nlists-object()}} to an mcmcr object
 
 \item \code{as.mcmcr(mcmc)}: Convert an \code{\link[coda:mcmc]{coda::mcmc()}} object to an mcmcr object
 
@@ -62,9 +62,9 @@ mcmc.list <- coda::as.mcmc.list(mcmcr::mcmcr_example)
 as.mcmcr(mcmc.list)
 }
 \seealso{
-Other coerce: 
-\code{\link{as.mcarray}()},
-\code{\link{as.mcmcarray}()},
-\code{\link{mcmcrs}()}
+Other coerce:
+\code{\link[=as.mcarray]{as.mcarray()}},
+\code{\link[=as.mcmcarray]{as.mcmcarray()}},
+\code{\link[=mcmcrs]{mcmcrs()}}
 }
 \concept{coerce}
