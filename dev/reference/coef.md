@@ -32,8 +32,7 @@ coef(
 
 - simplify:
 
-  A flag specifying whether to return just the estimate, lower, upper
-  and svalue.
+  **\[deprecated\]** Must be `TRUE`.
 
 - directional_information:
 
