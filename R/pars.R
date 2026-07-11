@@ -46,10 +46,10 @@ pars.mcmcrs <- function(x, scalar = NULL, terms = FALSE, ...) {
   chk_unused(...)
 
   if (!missing(terms)) {
-    deprecate_soft(
+    deprecate_warn(
       "0.2.1",
       "mcmcr::pars(terms =)",
-      details = "If `terms = TRUE` use `terms::pars_terms(as_term(x)) otherwise replace `pars(x, terms = FALSE)` with `pars(x)`.",
+      details = "If `terms = TRUE` use `term::pars_terms(as_term(x))` otherwise replace `pars(x, terms = FALSE)` with `pars(x)`.",
       id = "pars_terms"
     )
   }

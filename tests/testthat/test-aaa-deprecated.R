@@ -27,6 +27,16 @@ test_that("check_mcmcarray", {
   )
 })
 
+test_that("check_mcmcr is deprecated", {
+  lifecycle::expect_deprecated(
+    lifecycle::expect_deprecated(
+      check_mcmcr(mcmcr::mcmcr_example),
+      "check_mcmcr"
+    ),
+    "check_mcmcarray"
+  )
+})
+
 test_that("check_mcmcr", {
   rlang::local_options(lifecycle_verbosity = "quiet")
 

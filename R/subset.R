@@ -24,7 +24,7 @@ subset.mcmcarray <- function(
   ...
 ) {
   if (!missing(iterations)) {
-    deprecate_soft(
+    deprecate_warn(
       "0.2.1",
       "subset(iterations = )",
       "subset(iters = )",
@@ -66,7 +66,7 @@ subset.mcmcr <- function(
   ...
 ) {
   if (!missing(iterations)) {
-    deprecate_soft(
+    deprecate_warn(
       "0.2.1",
       "subset(iterations = )",
       "subset(iters = )",
@@ -75,7 +75,7 @@ subset.mcmcr <- function(
     iters <- iterations
   }
   if (!missing(parameters)) {
-    deprecate_soft(
+    deprecate_warn(
       "0.2.1",
       "subset(parameters = )",
       "subset(pars = )",
@@ -111,7 +111,7 @@ subset.mcmcrs <- function(
   ...
 ) {
   if (!missing(iterations)) {
-    deprecate_soft(
+    deprecate_warn(
       "0.2.1",
       "subset(iterations = )",
       "subset(iters = )",
@@ -120,7 +120,7 @@ subset.mcmcrs <- function(
     iters <- iterations
   }
   if (!missing(parameters)) {
-    deprecate_soft(
+    deprecate_warn(
       "0.2.1",
       "subset(parameters = )",
       "subset(pars = )",
