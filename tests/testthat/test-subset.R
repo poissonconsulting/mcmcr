@@ -19,6 +19,21 @@ test_that("subset.mcmcrs", {
   expect_identical(nterms(subset(mcmcrs, pars = "beta")), 4L)
 })
 
+test_that("subset iterations and parameters arguments are deprecated", {
+  lifecycle::expect_deprecated(subset(mcmcr_example$beta, iterations = 1:10))
+  lifecycle::expect_deprecated(subset(mcmcr_example, iterations = 1:10))
+  lifecycle::expect_deprecated(subset(mcmcr_example, parameters = "beta"))
+  mcmcrs <- mcmcrs(mcmcr::mcmcr_example, mcmcr::mcmcr_example)
+  lifecycle::expect_deprecated(subset(mcmcrs, iterations = 1:10))
+  lifecycle::expect_deprecated(subset(mcmcrs, parameters = "beta"))
+
+  rlang::local_options(lifecycle_verbosity = "quiet")
+  expect_identical(
+    subset(mcmcr_example, iterations = 1:10, parameters = "beta"),
+    subset(mcmcr_example, iters = 1:10, pars = "beta")
+  )
+})
+
 test_that("subset.mcmc.list", {
   expect_identical(
     pars(subset(as.mcmc.list(mcmcr_example), pars = "beta")),

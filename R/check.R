@@ -40,7 +40,7 @@ check_mcmcr <- function(
   x_name = substitute(x),
   error = TRUE
 ) {
-  lifecycle::deprecate_soft("v0.2.1", "check_mcmcr()", "chk_mcmcr()")
+  lifecycle::deprecate_warn("0.2.1", "check_mcmcr()", "chk_mcmcr()")
   x_name <- deparse_backtick_chk(x_name)
   chk_flag(sorted)
   chk_string(x_name)

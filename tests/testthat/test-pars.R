@@ -17,3 +17,9 @@ test_that("pars.mcmcrs", {
   pars(mcmcrs) <- c("alpha1", "alpha2", "alpha3")
   expect_identical(pars(mcmcrs), c("alpha1", "alpha2", "alpha3"))
 })
+
+test_that("pars terms argument is deprecated", {
+  lifecycle::expect_deprecated(pars(mcmcr::mcmcr_example, terms = FALSE))
+  mcmcrs <- mcmcrs(mcmcr::mcmcr_example, mcmcr::mcmcr_example)
+  lifecycle::expect_deprecated(pars(mcmcrs, terms = FALSE))
+})
