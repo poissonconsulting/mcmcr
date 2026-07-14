@@ -78,11 +78,11 @@ coef(mcmcr_example, directional_information = TRUE)
 #> # A tibble: 7 × 5
 #>   term      estimate lower upper svalue
 #>   <term>       <dbl> <dbl> <dbl>  <dbl>
-#> 1 alpha[1]     3.72  2.21   5.23 800   
-#> 2 alpha[2]     4.72  3.21   6.23 800   
+#> 1 alpha[1]     3.72  2.21   5.23   9.64
+#> 2 alpha[2]     4.72  3.21   6.23   9.64
 #> 3 beta[1,1]    0.972 0.251  1.71   6.46
 #> 4 beta[2,1]    1.97  1.25   2.71   8.64
 #> 5 beta[1,2]    1.97  1.25   2.71   8.64
-#> 6 beta[2,2]    2.97  2.25   3.71 800   
-#> 7 sigma        0.791 0.425  2.56 800   
+#> 6 beta[2,2]    2.97  2.25   3.71   9.64
+#> 7 sigma        0.791 0.425  2.56   9.64
 ```
