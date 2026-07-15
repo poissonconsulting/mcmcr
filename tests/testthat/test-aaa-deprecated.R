@@ -7,7 +7,7 @@ test_that("check_mcmcarray", {
   )
   expect_error(
     check_mcmcarray(1),
-    "^`1` must inherit from S3 class 'mcmcarray'[.]$",
+    "^`1` must inherit from S3 class 'mcmcarray'",
     class = "chk_error"
   )
 
@@ -47,14 +47,14 @@ test_that("check_mcmcr", {
   )
   expect_error(
     check_mcmcr(1),
-    "^`1` must inherit from S3 class 'mcmcr'[.]$",
+    "^`1` must inherit from S3 class 'mcmcr'",
     class = "chk_error"
   )
 
   y <- set_class(list(x = 1), "mcmcr")
   expect_error(
     check_mcmcr(y),
-    "must inherit from S3 class 'mcmcarray'[.]$",
+    "must inherit from S3 class 'mcmcarray'",
     class = "chk_error"
   )
 

@@ -3,7 +3,7 @@ test_that("chk_mcmcarray", {
   expect_invisible(chk_mcmcarray(as.mcmcarray(1)))
   expect_error(
     chk_mcmcarray(1),
-    "^`1` must inherit from S3 class 'mcmcarray'[.]$",
+    "^`1` must inherit from S3 class 'mcmcarray'",
     class = "chk_error"
   )
   x <- 1
@@ -27,7 +27,7 @@ test_that("chk_mcmcr", {
   expect_invisible(chk_mcmcr(as.mcmcr(list(x = 1))))
   expect_error(
     chk_mcmcr(1),
-    "^`1` must inherit from S3 class 'mcmcr'[.]$",
+    "^`1` must inherit from S3 class 'mcmcr'",
     class = "chk_error"
   )
   x <- list(x = 1)
@@ -35,7 +35,7 @@ test_that("chk_mcmcr", {
 
   expect_error(
     chk_mcmcr(x),
-    "^All elements of `x` must inherit from S3 class 'mcmcarray'[.]$",
+    "^All elements of `x` must inherit from S3 class 'mcmcarray'",
     class = "chk_error"
   )
 })
@@ -45,7 +45,7 @@ test_that("chk_mcmcrs", {
   expect_invisible(chk_mcmcr(as.mcmcr(list(x = 1))))
   expect_error(
     chk_mcmcr(1),
-    "^`1` must inherit from S3 class 'mcmcr'[.]$",
+    "^`1` must inherit from S3 class 'mcmcr'",
     class = "chk_error"
   )
   x <- list(x = 1)
@@ -53,7 +53,7 @@ test_that("chk_mcmcrs", {
 
   expect_error(
     chk_mcmcr(x),
-    "^All elements of `x` must inherit from S3 class 'mcmcarray'[.]$",
+    "^All elements of `x` must inherit from S3 class 'mcmcarray'",
     class = "chk_error"
   )
 })

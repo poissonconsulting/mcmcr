@@ -25,7 +25,7 @@ test_that("bind_chains.mcarray", {
 
   expect_error(
     bind_chains(as.mcarray(mcmcr_example$beta), mcmcr_example),
-    "^`x2` must inherit from S3 class 'mcarray'[.]$",
+    "^`x2` must inherit from S3 class 'mcarray'",
     class = "chk_error"
   )
 
@@ -53,7 +53,7 @@ test_that("bind_chains.mcmc", {
       as.mcmc(collapse_chains(mcmcr_example)),
       mcmcr_example
     )),
-    "^`x2` must inherit from S3 class 'mcmc'[.]$",
+    "^`x2` must inherit from S3 class 'mcmc'",
     class = "chk_error"
   )
 
