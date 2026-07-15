@@ -15,12 +15,13 @@
 NULL
 
 warn_default_directional_information <- function(
+  fun = "coef",
   env = parent.frame(),
   user_env = parent.frame(2)
 ) {
   lifecycle::deprecate_soft(
     "0.7.0",
-    "coef(directional_information = 'should be explicitly set')",
+    paste0(fun, "(directional_information = 'should be explicitly set')"),
     details = paste(
       "The default value of `directional_information` will change from",
       "`FALSE` to `TRUE` in a future release."

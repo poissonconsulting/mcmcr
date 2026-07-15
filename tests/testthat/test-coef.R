@@ -121,12 +121,12 @@ test_that("coef directional_information consistent across classes", {
 })
 
 test_that("coef directional_information values", {
-  # all values above the threshold: information capped at a bit per sample
+  # all values above the threshold: information capped at log2(n) bits
   x <- as.numeric(1:100)
-  expect_identical(coef(x, directional_information = TRUE)$svalue, 100)
+  expect_equal(coef(x, directional_information = TRUE)$svalue, 6.64385619)
 
   # all values below the threshold: side = "median" uses the left side
-  expect_identical(coef(-x, directional_information = TRUE)$svalue, 100)
+  expect_equal(coef(-x, directional_information = TRUE)$svalue, 6.64385619)
 
   # equal numbers of values on each side: no directional information
   expect_identical(
