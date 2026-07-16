@@ -1,5 +1,9 @@
 # Changelog
 
+## mcmcr 0.6.2.9007
+
+- Same as previous version.
+
 ## mcmcr 0.6.2.9006
 
 - Same as previous version.
