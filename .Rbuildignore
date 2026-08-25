@@ -15,3 +15,4 @@
 ^README\.Rmd$
 ^[.]?air[.]toml$
 ^\.vscode$
+^\.claude$
