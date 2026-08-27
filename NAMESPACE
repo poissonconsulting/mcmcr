@@ -155,7 +155,6 @@ S3method(tidy,mcmcr)
 S3method(zero,mcarray)
 S3method(zero,mcmcarray)
 S3method(zero,mcmcr)
-export("parameters<-")
 export("pars<-")
 export(as.mcarray)
 export(as.mcmc)
@@ -206,7 +205,6 @@ export(nlists)
 export(npars)
 export(npdims)
 export(nterms)
-export(parameters)
 export(pars)
 export(pdims)
 export(pvalue)
@@ -261,11 +259,9 @@ importFrom(stats,
   terms
 )
 importFrom(term,
-  "parameters<-",
   as.term,
   as_term,
-  complete_terms,
-  parameters
+  complete_terms
 )
 importFrom(tibble,tibble)
 importFrom(universals,

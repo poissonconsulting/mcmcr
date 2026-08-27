@@ -3,8 +3,8 @@
 %   R/as-nlists.R, R/as-term.R, R/bind-chains.R, R/bind-iterations.R,
 %   R/collapse-chains.R, R/converged.R, R/esr.R, R/estimates.R, R/export.R,
 %   R/fill-all.R, R/fill_na.R, R/nchains.R, R/niters.R, R/npars.R, R/npdims.R,
-%   R/nterms.R, R/parameters.R, R/pars.R, R/pdims.R, R/rhat.R, R/set-pars.R,
-%   R/split-chains.R, R/thin.R, R/tidy.R
+%   R/nterms.R, R/pars.R, R/pdims.R, R/rhat.R, R/set-pars.R, R/split-chains.R,
+%   R/thin.R, R/tidy.R
 \docType{import}
 \name{reexports}
 \alias{reexports}
@@ -37,8 +37,6 @@
 \alias{npars}
 \alias{npdims}
 \alias{nterms}
-\alias{parameters}
-\alias{parameters<-}
 \alias{pars}
 \alias{pdims}
 \alias{rhat}
@@ -64,7 +62,7 @@ below to see their documentation.
 
   \item{stats}{\code{\link[stats:median]{median()}}}
 
-  \item{term}{\code{\link[term:as_term]{as_term()}}, \code{\link[term:as.term]{as.term()}}, \code{\link[term:complete_terms]{complete_terms()}}, \code{\link[term:parameters]{parameters()}}, \code{\link[term:parameters<-]{parameters<-()}}}
+  \item{term}{\code{\link[term:as_term]{as_term()}}, \code{\link[term:as.term]{as.term()}}, \code{\link[term:complete_terms]{complete_terms()}}}
 
   \item{universals}{\code{\link[universals:bind_chains]{bind_chains()}}, \code{\link[universals:bind_iterations]{bind_iterations()}}, \code{\link[universals:collapse_chains]{collapse_chains()}}, \code{\link[universals:converged]{converged()}}, \code{\link[universals:dims]{dims()}}, \code{\link[universals:esr]{esr()}}, \code{\link[universals:estimates]{estimates()}}, \code{\link[universals:nchains]{nchains()}}, \code{\link[universals:niters]{niters()}}, \code{\link[universals:npars]{npars()}}, \code{\link[universals:npdims]{npdims()}}, \code{\link[universals:nterms]{nterms()}}, \code{\link[universals:pars]{pars()}}, \code{\link[universals:pars<-]{pars<-()}}, \code{\link[universals:pdims]{pdims()}}, \code{\link[universals:rhat]{rhat()}}, \code{\link[universals:set_pars]{set_pars()}}, \code{\link[universals:split_chains]{split_chains()}}}
 }}
