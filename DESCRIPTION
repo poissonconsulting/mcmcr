@@ -43,6 +43,8 @@ Suggests:
     withr
 RdMacros:
     lifecycle
+Remotes:
+    poissonconsulting/nlist
 Config/Needs/website: poissonconsulting/poissontemplate
 Config/roxygen2/version: 8.1.0
 Config/testthat/edition: 3
