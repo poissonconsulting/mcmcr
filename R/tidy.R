@@ -1,13 +1,13 @@
 #' @export
 generics::tidy
 
-#' @inheritParams nlist::tidy.nlist
+#' @inheritParams nlist::tidy.mcmc.list
 #' @inheritParams params
 #'
 #' @export
 tidy.mcmcr <- function(
   x,
-  simplify = FALSE,
+  simplify = TRUE,
   directional_information = FALSE,
   ...
 ) {

@@ -24,3 +24,11 @@ test_that("tidy soft-deprecates unset directional_information", {
   expect_no_warning(tidy(x, simplify = TRUE, directional_information = FALSE))
   expect_no_warning(tidy(x, simplify = TRUE, directional_information = TRUE))
 })
+
+test_that("tidy.mcmcr defaults to simplify = TRUE", {
+  x <- subset(mcmcr::mcmcr_example, iters = 1:2)
+  expect_identical(
+    tidy(x, directional_information = FALSE),
+    tidy(x, simplify = TRUE, directional_information = FALSE)
+  )
+})

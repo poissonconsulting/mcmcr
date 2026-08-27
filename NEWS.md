@@ -1,39 +1,45 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
-# mcmcr 0.6.2.9007
+# mcmcr 0.7.0
 
-- Same as previous version.
+## New features
 
+- `coef()` methods and `tidy.mcmcr()` gain a `directional_information` argument.
+  When `TRUE` the `svalue` column reports
+  [`extras::directional_information()`](https://poissonconsulting.github.io/extras/reference/directional_information.html)
+  in place of [`extras::svalue()`](https://poissonconsulting.github.io/extras/reference/svalue.html) (#71, #84).
+  The default is currently `FALSE` and will change to `TRUE` in a future
+  release; calling either function without setting `directional_information`
+  now signals a deprecation warning so the change can be made explicit.
 
-# mcmcr 0.6.2.9006
+## Breaking changes
 
-- Same as previous version.
+- `tidy.mcmcr()` now defaults to `simplify = TRUE`, matching the `nlist`
+  `tidy()` methods.
+- `coef(simplify = FALSE)`, deprecated in 0.4.1, is now defunct (#74).
+- The re-exports of term's `parameters()` and `parameters<-()`, which are
+  defunct in term, have been removed (#85).
+- `rhat.mcmcrs(bound = TRUE)` now returns a named list of scalars rather than a
+  single scalar; use `rhat(x, bound = TRUE)$bound` for the previous behavior.
+  The change is signaled with a warning (#74).
 
+## Deprecations
 
-# mcmcr 0.6.2.9005
+The following, soft-deprecated in 0.2.1, now warn on every use (#72):
 
-- Same as previous version.
+- `terms()`; use `as_term()` instead.
+- `zero()`; use `fill_all()` instead.
+- `check_mcmcarray()` and `check_mcmcr()`; use `chk_mcmcarray()` and
+  `chk_mcmcr()` instead.
+- `subset(iterations = )` and `subset(parameters = )`; use `subset(iters = )`
+  and `subset(pars = )` instead.
+- `pars(terms = )`; use `term::pars_terms(as_term(x))` for `terms = TRUE`, and
+  `pars(x)` for `terms = FALSE`.
 
+## Minor improvements and fixes
 
-# mcmcr 0.6.2.9004
-
-- Same as previous version.
-
-
-# mcmcr 0.6.2.9003
-
-- Same as previous version.
-
-
-# mcmcr 0.6.2.9001
-
-- Same as previous version.
-
-
-# mcmcr 0.6.2.9000
-
-* Add fledge-bump workflow
-* Add fledge-tag-on-merge workflow
+- `extras` is now required at version 0.10.0 or later, and `nlist` at
+  version 0.5.0 or later.
 
 
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
