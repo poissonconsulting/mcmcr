@@ -178,9 +178,7 @@ CRAN release: 2019-04-26
   now returns minimum of 1.
 - Defined
   [`subset()`](https://poissonconsulting.github.io/mcmcr/dev/reference/subset.md)
-  and
-  [`parameters()`](https://poissonconsulting.github.io/term/reference/deprecated.html)
-  for mcmcrs object.
+  and `parameters()` for mcmcrs object.
 - Added `bound = FALSE` argument to
   [`rhat.mcmcrs()`](https://poissonconsulting.github.io/mcmcr/dev/reference/rhat.mcmcrs.md)
   and

@@ -38,9 +38,7 @@ to see their documentation.
 
   [`as_term()`](https://poissonconsulting.github.io/term/reference/as_term.html),
   [`as.term()`](https://poissonconsulting.github.io/term/reference/as_term.html),
-  [`complete_terms()`](https://poissonconsulting.github.io/term/reference/complete_terms.html),
-  [`parameters()`](https://poissonconsulting.github.io/term/reference/deprecated.html),
-  [`parameters<-()`](https://poissonconsulting.github.io/term/reference/deprecated.html)
+  [`complete_terms()`](https://poissonconsulting.github.io/term/reference/complete_terms.html)
 
 - universals:
 
