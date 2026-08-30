@@ -17,3 +17,15 @@ test_that("bind_dimensions_n.mcmcr", {
     list(alpha = c(2L, 3L), beta = c(2L, 2L, 3L), sigma = c(1L, 3L))
   )
 })
+
+test_that("bind_dimensions_n.mcmcr binds parameters that are not sorted", {
+  x <- structure(
+    list(z = mcmcr_example$alpha, a = mcmcr_example$beta),
+    class = "mcmcr"
+  )
+
+  expect_identical(
+    pdims(bind_dimensions_n(x, x)),
+    list(a = c(2L, 2L, 2L), z = c(2L, 2L))
+  )
+})

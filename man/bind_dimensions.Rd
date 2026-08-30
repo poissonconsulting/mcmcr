@@ -11,7 +11,9 @@ bind_dimensions(x, x2, along = NULL, ...)
 
 \item{x2}{a second MCMC object.}
 
-\item{along}{A count (or NULL) indicating the parameter dimension to bind along.}
+\item{along}{A count (or NULL) indicating the parameter dimension to bind
+along. For an \code{\link[=mcmcr-object]{mcmcr-object()}} it may also be a vector with one value per
+parameter, in the order the parameters occur in \code{x}.}
 
 \item{...}{Unused.}
 }

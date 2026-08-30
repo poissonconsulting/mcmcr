@@ -50,3 +50,19 @@ test_that("combine_dimensions.mcmcr", {
     ignore_attr = FALSE
   )
 })
+
+test_that("combine_dimensions.mcmcr accepts along of length 1 or npars", {
+  expect_identical(
+    pdims(combine_dimensions(mcmcr_example, along = 1L)),
+    list(alpha = 1L, beta = 2L, sigma = 1L)
+  )
+  expect_identical(
+    pdims(combine_dimensions(mcmcr_example, along = c(1L, 2L, 1L))),
+    list(alpha = 1L, beta = 2L, sigma = 1L)
+  )
+  expect_error(
+    combine_dimensions(mcmcr_example, along = c(1L, 2L)),
+    "^`length\\(along\\)` must match 1 or 3",
+    class = "chk_error"
+  )
+})

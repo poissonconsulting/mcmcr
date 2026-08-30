@@ -59,7 +59,7 @@ combine_dimensions.mcmcr <- function(x, fun = mean, along = NULL, ...) {
   if (!is.null(along)) {
     chk_whole_numeric(along)
     chk_not_any_na(along)
-    chk_identical(length(along), c(1L, length(x)))
+    chk_subset(length(along), c(1L, length(x)))
     if (length(along) == 1L) {
       chk_range(along, c(1L, min(lengths)))
     } else {

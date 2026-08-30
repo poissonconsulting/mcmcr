@@ -50,6 +50,8 @@ bind_dimensions_n.mcmcr <- function(...) {
     return(x[[1]])
   }
 
+  x <- lapply(x, sort)
+
   pdims <- lapply(x, pdims)
   if (!all(vapply(pdims, identical, TRUE, pdims[[1]]))) {
     abort_chk("all objects must have the same parameter dimensions")
