@@ -10,7 +10,7 @@
 - [x] Checked via GitHub Actions on Linux (release, devel, oldrel-1), macOS and
       Windows.
 - [ ] Checked on win-builder, R devel
-- [ ] Checked on R-hub
+- [x] Checked on R-hub (linux, windows, macOS on R-devel)
 
 ## Current CRAN check results
 
@@ -18,7 +18,8 @@
 
 ## Reverse dependencies
 
-- [ ] `revdepcheck::revdep_check()` run against 0.7.0 with no new problems.
+- [x] `revdepcheck::revdep_check()` run against 0.7.0: 3 reverse dependencies
+      (mcmcderive, missingHE, nlist), 0 new problems, 0 failures.
 
 ## Notes
 
