@@ -10,6 +10,7 @@
 ^\.covrignore$
 ^cran-comments\.md$
 ^CRAN-RELEASE$
+^CRAN-SUBMISSION$
 ^LICENSE\.md$
 ^_pkgdown\.yml$
 ^README\.Rmd$

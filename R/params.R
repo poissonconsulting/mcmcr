@@ -35,5 +35,6 @@
 #' @param perm A integer vector of the new order for the parameter dimensions.
 #' @param pars A character vector (or NULL) of the pars to zero.
 #' @param name A string specifying the parameter name.
+#' @keywords internal
 #' @name params
 NULL

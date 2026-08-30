@@ -1,6 +1,6 @@
 Package: mcmcr
 Title: Manipulate MCMC Samples
-Version: 0.6.2.9007
+Version: 0.7.0
 Authors@R: c(
     person("Joe", "Thorley", , "joe@poissonconsulting.ca", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7683-4592")),
@@ -25,10 +25,10 @@ Imports:
     abind,
     chk,
     coda,
-    extras (>= 0.9.0.9000),
+    extras (>= 0.10.0),
     generics,
     lifecycle,
-    nlist,
+    nlist (>= 0.5.0),
     purrr,
     stats,
     term,
@@ -43,12 +43,10 @@ Suggests:
     withr
 RdMacros:
     lifecycle
-Remotes:
-    poissonconsulting/extras
 Config/Needs/website: poissonconsulting/poissontemplate
+Config/roxygen2/version: 8.1.0
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-Config/roxygen2/version: 8.0.0.9000

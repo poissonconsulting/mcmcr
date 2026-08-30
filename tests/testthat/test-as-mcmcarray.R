@@ -17,7 +17,7 @@ test_that("as.mcmcarray.mcmc", {
   colnames(x) <- "1"
   expect_warning(expect_identical(
     as.mcmcarray(x),
-    structure(numeric(0), .Dim = c(1L, 400L, 0L), class = "mcmcarray")
+    structure(numeric(0), dim = c(1L, 400L, 0L), class = "mcmcarray")
   ))
 })
 

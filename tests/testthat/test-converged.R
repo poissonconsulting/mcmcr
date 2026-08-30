@@ -19,7 +19,7 @@ test_that("converged.mcmcr", {
           FALSE,
           FALSE
         ),
-        .Dim = c(2L, 2L)
+        dim = c(2L, 2L)
       ),
       sigma = TRUE
     )
