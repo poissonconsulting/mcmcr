@@ -25,10 +25,10 @@ to see their documentation.
 
 - nlist:
 
-  [`as_nlist()`](https://rdrr.io/pkg/nlist/man/as_nlist.html),
-  [`as_nlists()`](https://rdrr.io/pkg/nlist/man/as_nlists.html),
-  [`nlist()`](https://rdrr.io/pkg/nlist/man/nlist.html),
-  [`nlists()`](https://rdrr.io/pkg/nlist/man/nlists.html)
+  [`as_nlist()`](https://poissonconsulting.github.io/nlist/reference/as_nlist.html),
+  [`as_nlists()`](https://poissonconsulting.github.io/nlist/reference/as_nlists.html),
+  [`nlist()`](https://poissonconsulting.github.io/nlist/reference/nlist.html),
+  [`nlists()`](https://poissonconsulting.github.io/nlist/reference/nlists.html)
 
 - stats:
 

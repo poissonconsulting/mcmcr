@@ -1,7 +1,7 @@
 # Coerce to nlist
 
 Coerce an R object to an
-[`nlist_object()`](https://rdrr.io/pkg/nlist/man/nlist.html).
+[`nlist_object()`](https://poissonconsulting.github.io/nlist/reference/nlist.html).
 
 ## Usage
 
@@ -39,7 +39,7 @@ An nlist object.
 ## See also
 
 Other coerce:
-[`as_nlists()`](https://rdrr.io/pkg/nlist/man/as_nlists.html)
+[`as_nlists()`](https://poissonconsulting.github.io/nlist/reference/as_nlists.html)
 
 ## Examples
 

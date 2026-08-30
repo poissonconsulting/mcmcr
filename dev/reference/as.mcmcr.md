@@ -57,11 +57,11 @@ An mcmcr object.
   to an mcmcr object
 
 - `as.mcmcr(nlist)`: Convert an
-  [`nlist::nlist-object()`](https://rdrr.io/pkg/nlist/man/nlist.html) to
-  an mcmcr object
+  [`nlist::nlist-object()`](https://poissonconsulting.github.io/nlist/reference/nlist.html)
+  to an mcmcr object
 
 - `as.mcmcr(nlists)`: Convert an
-  [`nlist::nlists-object()`](https://rdrr.io/pkg/nlist/man/nlists.html)
+  [`nlist::nlists-object()`](https://poissonconsulting.github.io/nlist/reference/nlists.html)
   to an mcmcr object
 
 - `as.mcmcr(mcmc)`: Convert an

@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mcmcr</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.6.2.9007</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.7.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,34 +32,46 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.6.2.9007" id="mcmcr-0629007">mcmcr 0.6.2.9007<a class="anchor" aria-label="anchor" href="#mcmcr-0629007"></a></h2>
-<ul><li>Same as previous version.</li>
+<h2 class="pkg-version" data-toc-text="0.7.0.9000" id="mcmcr-0709000">mcmcr 0.7.0.9000<a class="anchor" aria-label="anchor" href="#mcmcr-0709000"></a></h2>
+<ul><li>Switching to development version.</li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.6.2.9006" id="mcmcr-0629006">mcmcr 0.6.2.9006<a class="anchor" aria-label="anchor" href="#mcmcr-0629006"></a></h2>
-<ul><li>Same as previous version.</li>
+<h2 class="pkg-version" data-toc-text="0.7.0" id="mcmcr-070">mcmcr 0.7.0<a class="anchor" aria-label="anchor" href="#mcmcr-070"></a></h2>
+<div class="section level3">
+<h3 id="new-features-0-7-0">New features<a class="anchor" aria-label="anchor" href="#new-features-0-7-0"></a></h3>
+<ul><li>
+<code><a href="../reference/coef.html">coef()</a></code> methods and <code>tidy.mcmcr()</code> gain a <code>directional_information</code> argument. When <code>TRUE</code> the <code>svalue</code> column reports <a href="https://poissonconsulting.github.io/extras/reference/directional_information.html" class="external-link"><code>extras::directional_information()</code></a> in place of <a href="https://poissonconsulting.github.io/extras/reference/svalue.html" class="external-link"><code>extras::svalue()</code></a> (<a href="https://github.com/poissonconsulting/mcmcr/issues/71" class="external-link">#71</a>, <a href="https://github.com/poissonconsulting/mcmcr/issues/84" class="external-link">#84</a>). The default is currently <code>FALSE</code> and will change to <code>TRUE</code> in a future release; calling either function without setting <code>directional_information</code> now signals a deprecation warning so the change can be made explicit.</li>
 </ul></div>
-    <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.6.2.9005" id="mcmcr-0629005">mcmcr 0.6.2.9005<a class="anchor" aria-label="anchor" href="#mcmcr-0629005"></a></h2>
-<ul><li>Same as previous version.</li>
+<div class="section level3">
+<h3 id="breaking-changes-0-7-0">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-7-0"></a></h3>
+<ul><li>
+<code>tidy.mcmcr()</code> now defaults to <code>simplify = TRUE</code>, matching the <code>nlist</code> <code><a href="https://generics.r-lib.org/reference/tidy.html" class="external-link">tidy()</a></code> methods.</li>
+<li>
+<code>coef(simplify = FALSE)</code>, deprecated in 0.4.1, is now defunct (<a href="https://github.com/poissonconsulting/mcmcr/issues/74" class="external-link">#74</a>).</li>
+<li>The re-exports of term’s <code>parameters()</code> and <code>parameters&lt;-()</code>, which are defunct in term, have been removed (<a href="https://github.com/poissonconsulting/mcmcr/issues/85" class="external-link">#85</a>).</li>
+<li>
+<code>rhat.mcmcrs(bound = TRUE)</code> now returns a named list of scalars rather than a single scalar; use <code>rhat(x, bound = TRUE)$bound</code> for the previous behavior. The change is signaled with a warning (<a href="https://github.com/poissonconsulting/mcmcr/issues/74" class="external-link">#74</a>).</li>
 </ul></div>
-    <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.6.2.9004" id="mcmcr-0629004">mcmcr 0.6.2.9004<a class="anchor" aria-label="anchor" href="#mcmcr-0629004"></a></h2>
-<ul><li>Same as previous version.</li>
+<div class="section level3">
+<h3 id="deprecations-0-7-0">Deprecations<a class="anchor" aria-label="anchor" href="#deprecations-0-7-0"></a></h3>
+<p>The following, soft-deprecated in 0.2.1, now warn on every use (<a href="https://github.com/poissonconsulting/mcmcr/issues/72" class="external-link">#72</a>):</p>
+<ul><li>
+<code><a href="https://rdrr.io/r/stats/terms.html" class="external-link">terms()</a></code>; use <code><a href="https://poissonconsulting.github.io/term/reference/as_term.html" class="external-link">as_term()</a></code> instead.</li>
+<li>
+<code><a href="../reference/zero.html">zero()</a></code>; use <code><a href="https://poissonconsulting.github.io/extras/reference/fill_all.html" class="external-link">fill_all()</a></code> instead.</li>
+<li>
+<code><a href="../reference/check_mcmcarray.html">check_mcmcarray()</a></code> and <code><a href="../reference/check_mcmcr.html">check_mcmcr()</a></code>; use <code><a href="../reference/chk_mcmcr.html">chk_mcmcarray()</a></code> and <code><a href="../reference/chk_mcmcr.html">chk_mcmcr()</a></code> instead.</li>
+<li>
+<code>subset(iterations = )</code> and <code>subset(parameters = )</code>; use <code>subset(iters = )</code> and <code>subset(pars = )</code> instead.</li>
+<li>
+<code>pars(terms = )</code>; use <code>term::pars_terms(as_term(x))</code> for <code>terms = TRUE</code>, and <code>pars(x)</code> for <code>terms = FALSE</code>.</li>
 </ul></div>
-    <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.6.2.9003" id="mcmcr-0629003">mcmcr 0.6.2.9003<a class="anchor" aria-label="anchor" href="#mcmcr-0629003"></a></h2>
-<ul><li>Same as previous version.</li>
-</ul></div>
-    <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.6.2.9001" id="mcmcr-0629001">mcmcr 0.6.2.9001<a class="anchor" aria-label="anchor" href="#mcmcr-0629001"></a></h2>
-<ul><li>Same as previous version.</li>
-</ul></div>
-    <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.6.2.9000" id="mcmcr-0629000">mcmcr 0.6.2.9000<a class="anchor" aria-label="anchor" href="#mcmcr-0629000"></a></h2>
-<ul><li>Add fledge-bump workflow</li>
-<li>Add fledge-tag-on-merge workflow</li>
+<div class="section level3">
+<h3 id="minor-improvements-and-fixes-0-7-0">Minor improvements and fixes<a class="anchor" aria-label="anchor" href="#minor-improvements-and-fixes-0-7-0"></a></h3>
+<ul><li>
+<code>extras</code> is now required at version 0.10.0 or later, and <code>nlist</code> at version 0.5.0 or later.</li>
 </ul><!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file --></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.6.2" id="mcmcr-062">mcmcr 0.6.2<a class="anchor" aria-label="anchor" href="#mcmcr-062"></a></h2><p class="text-muted">CRAN release: 2025-01-23</p>
 <ul><li>Depends on R &gt;= 4.0.</li>
