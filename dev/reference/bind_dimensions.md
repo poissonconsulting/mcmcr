@@ -22,6 +22,10 @@ bind_dimensions(x, x2, along = NULL, ...)
 - along:
 
   A count (or NULL) indicating the parameter dimension to bind along.
+  For an
+  [`mcmcr-object()`](https://poissonconsulting.github.io/mcmcr/dev/reference/mcmcr-object.md)
+  it may also be a vector with one value per parameter, in the order the
+  parameters occur in `x`.
 
 - ...:
 
