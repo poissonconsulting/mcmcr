@@ -100,8 +100,16 @@ Parameter descriptions
 
 - simplify:
 
-  A flag specifying whether to return just the estimate, lower, upper
-  and svalue.
+  **\[deprecated\]** Must be `TRUE`.
+
+- directional_information:
+
+  A flag specifying whether the svalue column should be calculated using
+  [`extras::directional_information()`](https://poissonconsulting.github.io/extras/reference/directional-information.html)
+  instead of
+  [`extras::svalue()`](https://poissonconsulting.github.io/extras/reference/svalue.html).
+  The default value will change from `FALSE` to `TRUE` in a future
+  release; set the argument explicitly to avoid the deprecation warning.
 
 - perm:
 

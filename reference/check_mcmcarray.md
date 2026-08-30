@@ -35,6 +35,6 @@ An invisible copy of x (it if doesn't throw an error).
 
 ``` r
 check_mcmcarray(mcmcr::mcmcr_example$beta)
-#> Warning: `check_mcmcarray()` was deprecated in mcmcr v0.2.1.
+#> Warning: `check_mcmcarray()` was deprecated in mcmcr 0.2.1.
 #> ℹ Please use `chk_mcmcarray()` instead.
 ```
