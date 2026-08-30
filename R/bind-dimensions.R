@@ -5,7 +5,9 @@
 #'
 #' @inheritParams params
 #' @param x An MCMC object.
-#' @param along A count (or NULL) indicating the parameter dimension to bind along.
+#' @param along A count (or NULL) indicating the parameter dimension to bind
+#' along. For an [mcmcr-object()] it may also be a vector with one value per
+#' parameter, in the order the parameters occur in `x`.
 #' @seealso [universals::bind_chains()]
 #' @family bind
 #' @export
@@ -40,10 +42,13 @@ bind_dimensions.mcmcarray <- function(x, x2, along = NULL, ...) {
 
 #' @export
 bind_dimensions.mcmcr <- function(x, x2, along = NULL, ...) {
-  chk_s3_class(x, "mcmcr")
+  chk_s3_class(x2, "mcmcr")
   if (!is.null(along)) {
     chk_whole_numeric(along)
     chk_subset(length(along), c(1, npars(x)))
+    if (length(along) > 1) {
+      along <- along[order(pars(x))]
+    }
   }
 
   x <- sort(x)
