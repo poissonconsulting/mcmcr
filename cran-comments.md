@@ -6,13 +6,15 @@
 
 ## R CMD check results
 
-- [ ] Checked locally, R 4.6.1
+- [x] Checked locally, R 4.6.1: 0 errors, 0 warnings, 0 notes.
+- [x] Checked via GitHub Actions on Linux (release, devel, oldrel-1), macOS and
+      Windows.
 - [ ] Checked on win-builder, R devel
 - [ ] Checked on R-hub
 
 ## Current CRAN check results
 
-- [ ] No ERRORs, WARNINGs or NOTEs on the current CRAN checks.
+- [x] No ERRORs, WARNINGs or NOTEs on the current CRAN checks for 0.6.2.
 
 ## Reverse dependencies
 
@@ -20,5 +22,4 @@
 
 ## Notes
 
-- This release requires nlist (>= 0.5.0), submitted to CRAN on 2026-08-27.
-  Please do not accept mcmcr 0.7.0 until nlist 0.5.0 is available.
+- This release requires nlist (>= 0.5.0), which is now on CRAN.
