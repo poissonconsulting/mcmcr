@@ -23,7 +23,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/poissonconsulting/mcmcr/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/poissonconsulting/mcmcr/blob/v0.7.0/DESCRIPTION)
 
 Thorley J (2026). *mcmcr: Manipulate MCMC Samples*. R package version
 0.7.0, <https://github.com/poissonconsulting/mcmcr>.
