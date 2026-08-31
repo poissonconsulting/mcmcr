@@ -12,3 +12,15 @@ test_that("as.mcmc", {
     "mcmc"
   )
 })
+
+test_that("as.mcmc on an nlists object dispatches to nlist", {
+  x <- nlist::nlists(nlist::nlist(a = 1), nlist::nlist(a = 2))
+
+  expect_s3_class(as.mcmc(x), "mcmc")
+  expect_identical(as.vector(as.mcmc(x)), c(1, 2))
+  expect_error(
+    as.mcmc(x, bogus = 1),
+    "^`[.][.][.]` must be unused[.]$",
+    class = "chk_error"
+  )
+})
