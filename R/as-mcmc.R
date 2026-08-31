@@ -1,12 +1,6 @@
 #' @export
 coda::as.mcmc
 
-#' @inherit universals::nchains
-#' @export
-as.mcmc.nlists <- function(x, ...) {
-  as.mcmc(as.mcmcr(x))
-}
-
 #' @inherit coda::as.mcmc
 #' @export
 as.mcmc.mcarray <- function(x, ...) as.mcmc(as.mcmcarray(x))

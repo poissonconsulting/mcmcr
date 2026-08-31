@@ -61,7 +61,6 @@ reference:
   desc: Coerce, convert or create  object
   contents:
   - '`as.mcmc`'
-  - '`as.mcmc.nlists`'
   - '`as.mcmc.mcarray`'
   - '`as.mcmc.mcmc`'
   - '`as.mcmc.mcmcarray`'
