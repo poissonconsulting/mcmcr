@@ -1,4 +1,4 @@
-# P-Value effective sample size
+# Effective Sample Size
 
 Calculates the effective sample size based on
 [`esr()`](https://poissonconsulting.github.io/universals/reference/esr.html).

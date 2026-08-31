@@ -128,7 +128,7 @@ Calculate
 - [`esr(`*`<mcmcrs>`*`)`](https://poissonconsulting.github.io/mcmcr/dev/reference/esr.mcmcrs.md)
   : Effective Sampling Rate
 - [`ess()`](https://poissonconsulting.github.io/mcmcr/dev/reference/ess.md)
-  : P-Value effective sample size
+  : Effective Sample Size
 - [`estimates(`*`<mcarray>`*`)`](https://poissonconsulting.github.io/mcmcr/dev/reference/estimates.mcarray.md)
   : Estimates
 - [`estimates(`*`<mcmc>`*`)`](https://poissonconsulting.github.io/mcmcr/dev/reference/estimates.mcmc.md)
