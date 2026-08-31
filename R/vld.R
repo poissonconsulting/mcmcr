@@ -35,6 +35,8 @@ vld_mcmcarray <- function(x) {
 vld_mcmcr <- function(x) {
   vld_s3_class(x, "mcmcr") &&
     vld_list(x) &&
+    vld_named(x) &&
+    vld_unique(names(x)) &&
     vld_all(x, vld_mcmcarray) &&
     vld_all_identical(lapply(x, nchains)) &&
     vld_all_identical(lapply(x, niters))

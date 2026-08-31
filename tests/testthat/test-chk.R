@@ -57,3 +57,18 @@ test_that("chk_mcmcrs", {
     class = "chk_error"
   )
 })
+
+test_that("chk_mcmcr checks parameter names", {
+  x <- structure(list(mcmcr_example$alpha), class = "mcmcr")
+  expect_error(chk_mcmcr(x), "^`x` must be named[.]$", class = "chk_error")
+
+  x <- structure(
+    list(alpha = mcmcr_example$alpha, alpha = mcmcr_example$alpha),
+    class = "mcmcr"
+  )
+  expect_error(
+    chk_mcmcr(x),
+    "^names\\(`x`\\) must be unique[.]$",
+    class = "chk_error"
+  )
+})
