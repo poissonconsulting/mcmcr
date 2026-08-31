@@ -2,8 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{ess}
 \alias{ess}
-\title{P-Value
-effective sample size}
+\title{Effective Sample Size}
 \usage{
 ess(x, by = "all", as_df = FALSE)
 }

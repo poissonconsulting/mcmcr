@@ -75,3 +75,11 @@ test_that("bind_chains.mcmc", {
     class = "chk_error"
   )
 })
+
+test_that("bind_chains.mcmc.list checks the class of x2", {
+  expect_error(
+    bind_chains(as.mcmc.list(mcmcr_example), mcmcr_example),
+    "^At least one of the following conditions must be met:",
+    class = "chk_error"
+  )
+})
