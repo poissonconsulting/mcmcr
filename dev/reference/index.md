@@ -214,8 +214,6 @@ Coerce, convert or create object
   [`thin`](https://poissonconsulting.github.io/mcmcr/dev/reference/reexports.md)
   [`tidy`](https://poissonconsulting.github.io/mcmcr/dev/reference/reexports.md)
   : Objects exported from other packages
-- [`as.mcmc(`*`<nlists>`*`)`](https://poissonconsulting.github.io/mcmcr/dev/reference/as.mcmc.nlists.md)
-  : Number of Chains
 - [`as.mcmc(`*`<mcarray>`*`)`](https://poissonconsulting.github.io/mcmcr/dev/reference/as.mcmc.mcarray.md)
   : Markov Chain Monte Carlo Objects
 - [`as.mcmc(`*`<mcmc>`*`)`](https://poissonconsulting.github.io/mcmcr/dev/reference/as.mcmc.mcmc.md)
