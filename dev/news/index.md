@@ -14,6 +14,8 @@
 
 ## mcmcr 0.7.0
 
+CRAN release: 2026-08-30
+
 ### New features
 
 - [`coef()`](https://poissonconsulting.github.io/mcmcr/dev/reference/coef.md)

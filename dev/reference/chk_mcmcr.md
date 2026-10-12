@@ -62,15 +62,18 @@ To just check class use
 
 # chk_mcmcarray
 try(chk_mcmcarray(1))
-#> Error in chk_mcmcarray(1) : `1` must inherit from S3 class 'mcmcarray'.
+#> Error in chk_mcmcarray(1) : 
+#>   `1` must inherit from S3 class 'mcmcarray', not S3 class 'numeric'.
 
 # chk_mcmcr
 chk_mcmcr(as.mcmcr(list(x = 1)))
 try(chk_mcmcr(1))
-#> Error in chk_mcmcr(1) : `1` must inherit from S3 class 'mcmcr'.
+#> Error in chk_mcmcr(1) : 
+#>   `1` must inherit from S3 class 'mcmcr', not S3 class 'numeric'.
 
 # chk_mcmcrs
 chk_mcmcrs(as.mcmcrs(as.mcmcr(list(x = 1))))
 try(chk_mcmcrs(1))
-#> Error in chk_mcmcrs(1) : `1` must inherit from S3 class 'mcmcrs'.
+#> Error in chk_mcmcrs(1) : 
+#>   `1` must inherit from S3 class 'mcmcrs', not S3 class 'numeric'.
 ```
