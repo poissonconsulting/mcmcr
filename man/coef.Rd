@@ -11,6 +11,7 @@
   estimate = median,
   simplify = TRUE,
   directional_information = FALSE,
+  sd = FALSE,
   ...
 )
 }
@@ -29,12 +30,17 @@ should be calculated using \code{\link[extras:directional_information]{extras::d
 The default value will change from \code{FALSE} to \code{TRUE} in a future release;
 set the argument explicitly to avoid the deprecation warning.}
 
+\item{sd}{A flag specifying whether to include an \code{sd} column with the
+standard deviation of the samples.
+The default value will change from \code{FALSE} to \code{TRUE} in a future release;
+set the argument explicitly to avoid the deprecation warning.}
+
 \item{...}{Unused.}
 }
 \value{
 An data frame of the coefficients with the columns indicating the
 \code{term}, \code{estimate}, \code{lower} and \code{upper} credible intervals, \code{sd} (the
-standard deviation of the samples) and \code{svalue}
+standard deviation of the samples, only when \code{sd = TRUE}) and \code{svalue}
 }
 \description{
 Gets coefficients for all the terms in an MCMC object.
@@ -47,6 +53,7 @@ Gets coefficients for all the terms in an MCMC object.
 \examples{
 coef(mcmcr_example, directional_information = FALSE)
 coef(mcmcr_example, directional_information = TRUE)
+coef(mcmcr_example, directional_information = FALSE, sd = TRUE)
 }
 \seealso{
 \link[stats:coef]{stats::coef}

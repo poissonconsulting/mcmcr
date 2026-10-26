@@ -5,12 +5,13 @@
 #' @inheritParams params
 #' @return An data frame of the coefficients with the columns indicating the
 #' `term`, `estimate`, `lower` and `upper` credible intervals, `sd` (the
-#' standard deviation of the samples) and `svalue`
+#' standard deviation of the samples, only when `sd = TRUE`) and `svalue`
 #' @export
 #' @seealso [stats::coef]
 #' @examples
 #' coef(mcmcr_example, directional_information = FALSE)
 #' coef(mcmcr_example, directional_information = TRUE)
+#' coef(mcmcr_example, directional_information = FALSE, sd = TRUE)
 #' @name coef
 NULL
 
@@ -31,13 +32,31 @@ warn_default_directional_information <- function(
   )
 }
 
+warn_default_sd <- function(
+  fun = "coef",
+  env = parent.frame(),
+  user_env = parent.frame(2)
+) {
+  lifecycle::deprecate_soft(
+    "0.8.0",
+    paste0(fun, "(sd = 'should be explicitly set')"),
+    details = paste(
+      "The default value of `sd` will change from",
+      "`FALSE` to `TRUE` in a future release."
+    ),
+    env = env,
+    user_env = user_env
+  )
+}
+
 # .simplify is a necessary hack to stop apply using simplify argument!
 coef_numeric_impl <- function(
   object,
   conf_level,
   estimate,
   .simplify,
-  directional_information
+  directional_information,
+  sd
 ) {
   simplify <- .simplify
   chk_number(conf_level)
@@ -45,6 +64,7 @@ coef_numeric_impl <- function(
   chk_function(estimate)
   chk_flag(simplify)
   chk_flag(directional_information)
+  chk_flag(sd)
 
   if (!simplify) {
     lifecycle::deprecate_stop("0.4.1", "coef(simplify = 'must be TRUE')")
@@ -60,11 +80,11 @@ coef_numeric_impl <- function(
     names = FALSE
   )
 
-  sd <- stats::sd(object, na.rm = TRUE)
+  sd_value <- stats::sd(object, na.rm = TRUE)
 
   if (anyNA(object) || identical(length(object), 1L)) {
     quantiles[c(1, 2)] <- NA
-    sd <- NA_real_
+    sd_value <- NA_real_
   }
 
   estimate <- estimate(object)
@@ -77,13 +97,17 @@ coef_numeric_impl <- function(
   } else {
     extras::svalue(object)
   }
-  tibble(
+  coef <- tibble(
     estimate = estimate,
     lower = quantiles[1],
     upper = quantiles[2],
-    sd = sd,
+    sd = sd_value,
     svalue = svalue
   )
+  if (!sd) {
+    coef$sd <- NULL
+  }
+  coef
 }
 
 #' @export
@@ -93,17 +117,22 @@ coef.numeric <- function(
   estimate = median,
   simplify = TRUE,
   directional_information = FALSE,
+  sd = FALSE,
   ...
 ) {
   if (simplify && missing(directional_information)) {
     warn_default_directional_information()
+  }
+  if (simplify && missing(sd)) {
+    warn_default_sd()
   }
   coef_numeric_impl(
     object,
     conf_level = conf_level,
     estimate = estimate,
     .simplify = simplify,
-    directional_information = directional_information
+    directional_information = directional_information,
+    sd = sd
   )
 }
 
@@ -114,17 +143,22 @@ coef.mcarray <- function(
   estimate = median,
   simplify = TRUE,
   directional_information = FALSE,
+  sd = FALSE,
   ...
 ) {
   if (simplify && missing(directional_information)) {
     warn_default_directional_information()
+  }
+  if (simplify && missing(sd)) {
+    warn_default_sd()
   }
   coef(
     as.mcmc.list(object),
     conf_level = conf_level,
     estimate = estimate,
     simplify = simplify,
-    directional_information = directional_information
+    directional_information = directional_information,
+    sd = sd
   )
 }
 
@@ -136,10 +170,14 @@ coef.mcmc <- function(
   estimate = median,
   simplify = TRUE,
   directional_information = FALSE,
+  sd = FALSE,
   ...
 ) {
   if (simplify && missing(directional_information)) {
     warn_default_directional_information()
+  }
+  if (simplify && missing(sd)) {
+    warn_default_sd()
   }
   term <- as_term(object)
   object <- t(object)
@@ -150,11 +188,13 @@ coef.mcmc <- function(
     conf_level = conf_level,
     estimate = estimate,
     .simplify = simplify,
-    directional_information = directional_information
+    directional_information = directional_information,
+    sd = sd
   )
   object <- do.call(rbind, object)
   object$term <- term
   colnames <- c("term", "estimate", "lower", "upper", "sd", "svalue")
+  colnames <- intersect(colnames, names(object))
   object <- object[colnames]
   object <- object[order(object$term), ]
   object
@@ -167,10 +207,14 @@ coef.mcmc.list <- function(
   estimate = median,
   simplify = TRUE,
   directional_information = FALSE,
+  sd = FALSE,
   ...
 ) {
   if (simplify && missing(directional_information)) {
     warn_default_directional_information()
+  }
+  if (simplify && missing(sd)) {
+    warn_default_sd()
   }
   object <- as.mcmc(collapse_chains(object))
   coef(
@@ -178,7 +222,8 @@ coef.mcmc.list <- function(
     conf_level = conf_level,
     estimate = estimate,
     simplify = simplify,
-    directional_information = directional_information
+    directional_information = directional_information,
+    sd = sd
   )
 }
 
@@ -189,17 +234,22 @@ coef.mcmcarray <- function(
   estimate = median,
   simplify = TRUE,
   directional_information = FALSE,
+  sd = FALSE,
   ...
 ) {
   if (simplify && missing(directional_information)) {
     warn_default_directional_information()
+  }
+  if (simplify && missing(sd)) {
+    warn_default_sd()
   }
   coef(
     as.mcmc.list(object),
     conf_level = conf_level,
     estimate = estimate,
     simplify = simplify,
-    directional_information = directional_information
+    directional_information = directional_information,
+    sd = sd
   )
 }
 
@@ -210,16 +260,21 @@ coef.mcmcr <- function(
   estimate = median,
   simplify = TRUE,
   directional_information = FALSE,
+  sd = FALSE,
   ...
 ) {
   if (simplify && missing(directional_information)) {
     warn_default_directional_information()
+  }
+  if (simplify && missing(sd)) {
+    warn_default_sd()
   }
   coef(
     as.mcmc.list(object),
     conf_level = conf_level,
     estimate = estimate,
     simplify = simplify,
-    directional_information = directional_information
+    directional_information = directional_information,
+    sd = sd
   )
 }
