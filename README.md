@@ -119,9 +119,6 @@ all the summary functions in packages such as `coda`.
 
 ``` r
 library(mcmcr)
-#> Registered S3 method overwritten by 'mcmcr':
-#>   method         from 
-#>   as.mcmc.nlists nlist
 
 mcmcr_example
 #> $alpha
@@ -144,7 +141,7 @@ mcmcr_example
 #> nchains:  2 
 #> niters:  400
 
-coef(mcmcr_example, simplify = TRUE, directional_information = FALSE)
+coef(mcmcr_example, simplify = TRUE, directional_information = FALSE, sd = FALSE)
 #> # A tibble: 7 × 5
 #>   term      estimate lower upper svalue
 #>   <term>       <dbl> <dbl> <dbl>  <dbl>

@@ -60,6 +60,11 @@ should be calculated using \code{\link[extras:directional_information]{extras::d
 The default value will change from \code{FALSE} to \code{TRUE} in a future release;
 set the argument explicitly to avoid the deprecation warning.}
 
+\item{sd}{A flag specifying whether to include an \code{sd} column with the
+standard deviation of the samples.
+The default value will change from \code{FALSE} to \code{TRUE} in a future release;
+set the argument explicitly to avoid the deprecation warning.}
+
 \item{perm}{A integer vector of the new order for the parameter dimensions.}
 
 \item{pars}{A character vector (or NULL) of the pars to zero.}
