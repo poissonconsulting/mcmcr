@@ -33,8 +33,8 @@ set the argument explicitly to avoid the deprecation warning.}
 }
 \value{
 An data frame of the coefficients with the columns indicating the
-\code{term}, \code{estimate}, \code{sd} (the standard deviation of the samples),
-\code{lower} and \code{upper} credible intervals and \code{svalue}
+\code{term}, \code{estimate}, \code{lower} and \code{upper} credible intervals, \code{sd} (the
+standard deviation of the samples) and \code{svalue}
 }
 \description{
 Gets coefficients for all the terms in an MCMC object.

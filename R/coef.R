@@ -4,8 +4,8 @@
 #'
 #' @inheritParams params
 #' @return An data frame of the coefficients with the columns indicating the
-#' `term`, `estimate`, `sd` (the standard deviation of the samples),
-#' `lower` and `upper` credible intervals and `svalue`
+#' `term`, `estimate`, `lower` and `upper` credible intervals, `sd` (the
+#' standard deviation of the samples) and `svalue`
 #' @export
 #' @seealso [stats::coef]
 #' @examples
@@ -79,9 +79,9 @@ coef_numeric_impl <- function(
   }
   tibble(
     estimate = estimate,
-    sd = sd,
     lower = quantiles[1],
     upper = quantiles[2],
+    sd = sd,
     svalue = svalue
   )
 }
@@ -154,7 +154,7 @@ coef.mcmc <- function(
   )
   object <- do.call(rbind, object)
   object$term <- term
-  colnames <- c("term", "estimate", "sd", "lower", "upper", "svalue")
+  colnames <- c("term", "estimate", "lower", "upper", "sd", "svalue")
   object <- object[colnames]
   object <- object[order(object$term), ]
   object

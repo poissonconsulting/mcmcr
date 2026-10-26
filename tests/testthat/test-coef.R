@@ -17,7 +17,7 @@ test_that("coef.mcmc simplify = TRUE", {
   )
   expect_identical(
     colnames(coef_mcmc.list),
-    c("term", "estimate", "sd", "lower", "upper", "svalue")
+    c("term", "estimate", "lower", "upper", "sd", "svalue")
   )
   expect_identical(
     coef_mcmc.list$term,
@@ -38,14 +38,14 @@ test_that("coef.mcmc simplify = TRUE", {
   coef_mcmcr2 <- coef(mcmcr_example2, directional_information = FALSE)
   expect_identical(
     colnames(coef_mcmcr2),
-    c("term", "estimate", "sd", "lower", "upper", "svalue")
+    c("term", "estimate", "lower", "upper", "sd", "svalue")
   )
   expect_identical(nrow(coef_mcmcr2), 11L)
 
   coef_mcmcarray <- coef(mcmcr_example$beta, directional_information = FALSE)
   expect_identical(
     colnames(coef_mcmc.list),
-    c("term", "estimate", "sd", "lower", "upper", "svalue")
+    c("term", "estimate", "lower", "upper", "sd", "svalue")
   )
   expect_identical(
     coef_mcmcarray$term,
@@ -68,7 +68,7 @@ test_that("coef directional_information = TRUE", {
   coef_di <- coef(mcmcr_example, directional_information = TRUE)
   expect_identical(
     colnames(coef_di),
-    c("term", "estimate", "sd", "lower", "upper", "svalue")
+    c("term", "estimate", "lower", "upper", "sd", "svalue")
   )
 
   coef_svalue <- coef(mcmcr_example, directional_information = FALSE)
@@ -91,7 +91,7 @@ test_that("coef directional_information = TRUE", {
 test_that("coef.numeric directional_information = TRUE", {
   x <- as.numeric(-10:100)
   coef_di <- coef(x, directional_information = TRUE)
-  expect_identical(colnames(coef_di), c("estimate", "sd", "lower", "upper", "svalue"))
+  expect_identical(colnames(coef_di), c("estimate", "lower", "upper", "sd", "svalue"))
   expect_identical(coef_di$svalue, extras::directional_information(x))
 })
 

@@ -143,15 +143,15 @@ mcmcr_example
 
 coef(mcmcr_example, simplify = TRUE, directional_information = FALSE)
 #> # A tibble: 7 × 6
-#>   term      estimate    sd lower upper svalue
+#>   term      estimate lower upper    sd svalue
 #>   <term>       <dbl> <dbl> <dbl> <dbl>  <dbl>
-#> 1 alpha[1]     3.72  0.901 2.21   5.23   9.65
-#> 2 alpha[2]     4.72  0.901 3.21   6.23   9.65
-#> 3 beta[1,1]    0.972 0.375 0.251  1.71   5.47
-#> 4 beta[2,1]    1.97  0.375 1.25   2.71   7.64
-#> 5 beta[1,2]    1.97  0.375 1.25   2.71   7.64
-#> 6 beta[2,2]    2.97  0.375 2.25   3.71   9.65
-#> 7 sigma        0.791 0.741 0.425  2.56   9.65
+#> 1 alpha[1]     3.72  2.21   5.23 0.901   9.65
+#> 2 alpha[2]     4.72  3.21   6.23 0.901   9.65
+#> 3 beta[1,1]    0.972 0.251  1.71 0.375   5.47
+#> 4 beta[2,1]    1.97  1.25   2.71 0.375   7.64
+#> 5 beta[1,2]    1.97  1.25   2.71 0.375   7.64
+#> 6 beta[2,2]    2.97  2.25   3.71 0.375   9.65
+#> 7 sigma        0.791 0.425  2.56 0.741   9.65
 rhat(mcmcr_example, by = "term")
 #> $alpha
 #> [1] 2.002 2.002
