@@ -12,6 +12,7 @@ coef(
   estimate = median,
   simplify = TRUE,
   directional_information = FALSE,
+  sd = FALSE,
   ...
 )
 ```
@@ -43,6 +44,13 @@ coef(
   The default value will change from `FALSE` to `TRUE` in a future
   release; set the argument explicitly to avoid the deprecation warning.
 
+- sd:
+
+  A flag specifying whether to include an `sd` column with the standard
+  deviation of the samples. The default value will change from `FALSE`
+  to `TRUE` in a future release; set the argument explicitly to avoid
+  the deprecation warning.
+
 - ...:
 
   Unused.
@@ -50,7 +58,8 @@ coef(
 ## Value
 
 An data frame of the coefficients with the columns indicating the
-`term`, `estimate`, `lower` and `upper` credible intervals and `svalue`
+`term`, `estimate`, `lower` and `upper` credible intervals, `sd` (the
+standard deviation of the samples, only when `sd = TRUE`) and `svalue`
 
 ## Methods (by class)
 
@@ -64,6 +73,9 @@ An data frame of the coefficients with the columns indicating the
 
 ``` r
 coef(mcmcr_example, directional_information = FALSE)
+#> Warning: The `sd` argument of `coef()` should be explicitly set as of mcmcr 0.8.0.
+#> ℹ The default value of `sd` will change from `FALSE` to `TRUE` in a future
+#>   release.
 #> # A tibble: 7 × 5
 #>   term      estimate lower upper svalue
 #>   <term>       <dbl> <dbl> <dbl>  <dbl>
@@ -85,4 +97,15 @@ coef(mcmcr_example, directional_information = TRUE)
 #> 5 beta[1,2]    1.97  1.25   2.71   8.64
 #> 6 beta[2,2]    2.97  2.25   3.71   9.64
 #> 7 sigma        0.791 0.425  2.56   9.64
+coef(mcmcr_example, directional_information = FALSE, sd = TRUE)
+#> # A tibble: 7 × 6
+#>   term      estimate lower upper    sd svalue
+#>   <term>       <dbl> <dbl> <dbl> <dbl>  <dbl>
+#> 1 alpha[1]     3.72  2.21   5.23 0.901   9.65
+#> 2 alpha[2]     4.72  3.21   6.23 0.901   9.65
+#> 3 beta[1,1]    0.972 0.251  1.71 0.375   5.47
+#> 4 beta[2,1]    1.97  1.25   2.71 0.375   7.64
+#> 5 beta[1,2]    1.97  1.25   2.71 0.375   7.64
+#> 6 beta[2,2]    2.97  2.25   3.71 0.375   9.65
+#> 7 sigma        0.791 0.425  2.56 0.741   9.65
 ```

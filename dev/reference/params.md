@@ -111,6 +111,13 @@ Parameter descriptions
   The default value will change from `FALSE` to `TRUE` in a future
   release; set the argument explicitly to avoid the deprecation warning.
 
+- sd:
+
+  A flag specifying whether to include an `sd` column with the standard
+  deviation of the samples. The default value will change from `FALSE`
+  to `TRUE` in a future release; set the argument explicitly to avoid
+  the deprecation warning.
+
 - perm:
 
   A integer vector of the new order for the parameter dimensions.
