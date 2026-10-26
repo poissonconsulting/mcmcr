@@ -2,11 +2,20 @@
 
 ## mcmcr 0.7.0.9003
 
-- Internal changes only.
+- [`coef()`](https://poissonconsulting.github.io/mcmcr/dev/reference/coef.md)
+  gains an `sd` argument; with `sd = TRUE` it adds an `sd` column (the
+  standard deviation of the samples) after `upper`. The default
+  `sd = FALSE` leaves the output unchanged but is soft-deprecated and
+  will change to `TRUE` in a future release
+  ([\#102](https://github.com/poissonconsulting/mcmcr/issues/102),
+  [\#103](https://github.com/poissonconsulting/mcmcr/issues/103)).
 
 ## mcmcr 0.7.0.9002
 
-- Internal changes only.
+- Removed `as.mcmc.nlists()`, which duplicated the method in nlist and
+  printed a “Registered S3 method overwritten” message on load; nlist’s
+  method is used instead
+  ([\#100](https://github.com/poissonconsulting/mcmcr/issues/100)).
 
 ## mcmcr 0.7.0.9001
 
