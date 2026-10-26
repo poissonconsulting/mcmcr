@@ -17,7 +17,7 @@ test_that("coef.mcmc simplify = TRUE", {
   )
   expect_identical(
     colnames(coef_mcmc.list),
-    c("term", "estimate", "lower", "upper", "svalue")
+    c("term", "estimate", "sd", "lower", "upper", "svalue")
   )
   expect_identical(
     coef_mcmc.list$term,
@@ -38,14 +38,14 @@ test_that("coef.mcmc simplify = TRUE", {
   coef_mcmcr2 <- coef(mcmcr_example2, directional_information = FALSE)
   expect_identical(
     colnames(coef_mcmcr2),
-    c("term", "estimate", "lower", "upper", "svalue")
+    c("term", "estimate", "sd", "lower", "upper", "svalue")
   )
   expect_identical(nrow(coef_mcmcr2), 11L)
 
   coef_mcmcarray <- coef(mcmcr_example$beta, directional_information = FALSE)
   expect_identical(
     colnames(coef_mcmc.list),
-    c("term", "estimate", "lower", "upper", "svalue")
+    c("term", "estimate", "sd", "lower", "upper", "svalue")
   )
   expect_identical(
     coef_mcmcarray$term,
@@ -68,7 +68,7 @@ test_that("coef directional_information = TRUE", {
   coef_di <- coef(mcmcr_example, directional_information = TRUE)
   expect_identical(
     colnames(coef_di),
-    c("term", "estimate", "lower", "upper", "svalue")
+    c("term", "estimate", "sd", "lower", "upper", "svalue")
   )
 
   coef_svalue <- coef(mcmcr_example, directional_information = FALSE)
@@ -91,7 +91,7 @@ test_that("coef directional_information = TRUE", {
 test_that("coef.numeric directional_information = TRUE", {
   x <- as.numeric(-10:100)
   coef_di <- coef(x, directional_information = TRUE)
-  expect_identical(colnames(coef_di), c("estimate", "lower", "upper", "svalue"))
+  expect_identical(colnames(coef_di), c("estimate", "sd", "lower", "upper", "svalue"))
   expect_identical(coef_di$svalue, extras::directional_information(x))
 })
 
@@ -159,4 +159,17 @@ test_that("coef soft-deprecates unset directional_information", {
 
 test_that("coef.mcmc errors chk directional_information", {
   chk::expect_chk_error(coef(mcmcr_example, directional_information = NA))
+})
+
+test_that("coef returns the standard deviation of the samples", {
+  coef <- coef(mcmcr_example, directional_information = FALSE)
+  mcmc <- as.matrix(as.mcmc(collapse_chains(as.mcmc.list(mcmcr_example))))
+  expected <- apply(mcmc, 2, stats::sd)
+  expected <- unname(expected[order(as_term(colnames(mcmc)))])
+  expect_equal(coef$sd, expected)
+})
+
+test_that("coef returns a missing sd with missing values or a single sample", {
+  expect_identical(coef(1, directional_information = FALSE)$sd, NA_real_)
+  expect_identical(coef(c(1, NA, 3), directional_information = FALSE)$sd, NA_real_)
 })
