@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# mcmcr 0.7.0.9004
+
+- Same as previous version.
+
+
 # mcmcr 0.7.0.9003
 
 - `coef()` gains an `sd` argument; with `sd = TRUE` it adds an `sd` column (the standard deviation of the samples) after `upper`. The default `sd = FALSE` leaves the output unchanged but is soft-deprecated and will change to `TRUE` in a future release (#102, #103).
