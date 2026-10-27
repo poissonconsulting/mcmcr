@@ -1,5 +1,9 @@
 # Changelog
 
+## mcmcr 0.7.0.9004
+
+- Same as previous version.
+
 ## mcmcr 0.7.0.9003
 
 - [`coef()`](https://poissonconsulting.github.io/mcmcr/dev/reference/coef.md)
